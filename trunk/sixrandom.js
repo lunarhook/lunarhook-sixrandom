@@ -8,6 +8,7 @@ var six_random_myth		= new Array();
 var six_random_help_myth = new Array();		
 var six_random_date		= new Array();
 var six_random_draw		= new Array();
+var six_random_NaJia 	= new Array();
 
 
 const sixtycycletable = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
@@ -22,6 +23,231 @@ const positivedraw = "---------";
 const negativechangedraw = "X->";
 const positivechangedraw = "O->";
 const nonechangedraw = "   ";
+
+
+six_random_NaJia["000000"] = {
+"name":"乾为天",
+"1":"父母壬戌土 世",
+"2":"兄弟壬申金",
+"3":"官鬼壬午火",
+"4":"父母甲辰土 应",
+"5":"妻财甲寅木",
+"6":"子孙甲子水"
+}
+
+six_random_NaJia["000001"] = {
+"name":"天风姤",
+"1":"父母壬戌土",
+"2":"兄弟壬申金",
+"3":"官鬼壬午火 应",
+"4":"兄弟辛酉金",
+"5":"子孙辛亥水",
+"6":"父母辛丑土 世"
+}
+
+six_random_NaJia["000010"] = {
+"name":"天山遁",
+"1":"父母壬戌土",
+"2":"兄弟壬申金 应",
+"3":"官鬼壬午火",
+"4":"兄弟丙申金",
+"5":"官鬼丙午火 世",
+"6":"父母丙辰土"
+}
+
+six_random_NaJia["000001"] = {
+"name":"天地否",
+"1":"父母壬戌土 应",
+"2":"兄弟壬申金",
+"3":"官鬼壬午火",
+"4":"妻财乙卯木 世",
+"5":"官鬼乙巳火",
+"6":"父母乙未土"
+}
+
+six_random_NaJia["000001"] = {
+"name":"风地观",
+"1":"妻财辛卯木",
+"2":"官鬼辛巳火",
+"3":"父母辛未土 世",
+"4":"妻财乙卯木",
+"5":"官鬼乙巳火",
+"6":"父母乙未土 应"
+}
+
+six_random_NaJia["000001"] = {
+"name":"山地剥",
+"1":"妻财丙寅木",
+"2":"子孙丙子水 世",
+"3":"父母丙戌土",
+"4":"妻财乙卯木",
+"5":"官鬼乙巳火 应",
+"6":"父母乙未土"
+}
+
+six_random_NaJia["000001"] = {
+"name":"火地晋",
+"1":"官鬼己巳火",
+"2":"父母己未土",
+"3":"兄弟己酉金 世",
+"4":"妻财乙卯木",
+"5":"官鬼乙巳火",
+"6":"父母乙未土 应"
+}
+
+six_random_NaJia["000001"] = {
+"name":"火天大有",
+"1":"官鬼己巳火 应",
+"2":"父母己未土",
+"3":"兄弟己酉金",
+"4":"父母甲辰土 世",
+"5":"妻财甲寅木",
+"6":"子孙甲子水"
+}
+
+six_random_NaJia["000001"] = {
+"name":"兑为泽",
+"1":"父母丁未土 世",
+"2":"兄弟丁酉金",
+"3":"子孙丁亥水",
+"4":"父母丁丑土 应",
+"5":"妻财丁卯木",
+"6":"官鬼丁巳火"
+}
+
+six_random_NaJia["000001"] = {
+"name":"泽水困",
+"1":"父母丁未土",
+"2":"兄弟丁酉金",
+"3":"子孙丁亥水 应",
+"4":"官鬼戊午火",
+"5":"父母戊辰土",
+"6":"妻财戊寅木 世"
+}
+
+six_random_NaJia["000001"] = {
+"name":"泽地萃",
+"1":"父母丁未土",
+"2":"兄弟丁酉金 应",
+"3":"子孙丁亥水",
+"4":"妻财乙卯木",
+"5":"官鬼乙巳火 世",
+"6":"父母乙未土"
+}
+
+six_random_NaJia["000001"] = {
+"name":"泽山咸",
+"1":"父母丁未土 应",
+"2":"兄弟丁酉金",
+"3":"子孙丁亥水",
+"4":"兄弟丙申金 世",
+"5":"官鬼丙午火",
+"6":"父母丙辰土"
+}
+
+six_random_NaJia["000001"] = {
+"name":"水山蹇",
+"1":"子孙戊子水",
+"2":"父母戊戌土",
+"3":"兄弟戊申金 世",
+"4":"兄弟丙申金",
+"5":"官鬼丙午火",
+"6":"父母丙辰土 应"
+}
+
+six_random_NaJia["000100"] = {
+"name":"地山谦",
+"1":"兄弟癸酉金",
+"2":"子孙癸亥水 世",
+"3":"父母癸丑土",
+"4":"兄弟丙申金",
+"5":"官鬼丙午火 应",
+"6":"父母丙辰土"
+}
+
+six_random_NaJia["000001"] = {
+"name":"雷山小过",
+"1":"父母庚戌土",
+"2":"兄弟庚申金",
+"3":"官鬼庚午火 世",
+"4":"兄弟丙申金",
+"5":"官鬼丙午火",
+"6":"父母丙辰土 应"
+}
+
+six_random_NaJia["000001"] = {
+"name":"雷泽归妹",
+"1":"父母庚戌土 应",
+"2":"兄弟庚申金",
+"3":"官鬼庚午火",
+"4":"父母丁丑土 世",
+"5":"妻财丁卯木",
+"6":"官鬼丁巳火"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -493,7 +719,7 @@ function get_random_name()
 	}
 	six_random_date[5] = ooup+":"+oodown
 	six_random_date[6] = ocup+":"+ocdown
-
+	six_random_date[7] = six_random_NaJia["000000"];
 }
 
 function get_random_draw()
@@ -503,8 +729,9 @@ function get_random_draw()
 	console.log(six_random_date[2]);
 	console.log(six_random_date[3]);
 	console.log(six_random_date[4]);
-	console.log(six_random_date[5]);
-	console.log(six_random_date[6]);
+	//console.log(six_random_date[5]);
+	//console.log(six_random_date[6]);
+	console.log(six_random_date[7].name);
 	var o = ["","上爻","五爻","四爻","三爻","二爻","初爻"]
 
 	for(index = 0;index<randomtime;index++)
@@ -552,7 +779,11 @@ function get_random_draw()
     {
 		console.log(six_random_draw[index+1]);
 	}
-	
+	for(index = 0;index<randomtime;index++)
+    {
+		var t = index+1
+		console.log(six_random_date[7][t]);
+	}
 }
 
 function get_six_random()
