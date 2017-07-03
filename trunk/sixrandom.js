@@ -438,6 +438,62 @@ function get_random_name()
 {
 	six_random_date[3] = "旬空：" + six_random_empty[0] + " " + six_random_empty[1] + " " + six_random_empty[2] + " " + six_random_empty[3] 
 	six_random_date[4] = "神煞：" + "驿马-" + six_random_help_myth[0] + " 桃花-" + six_random_help_myth[1] + " 日禄-" + six_random_help_myth[2] + " 贵人-" + six_random_help_myth[3] 
+	var ooup=oodown=ocup=ocdown="";
+	for(index = 0;index<randomtime;index++)
+    {
+		if(oldnegativevalue==six_random[index+1])
+		{
+			if(index<randomtime/2)
+			{
+				ooup=ooup+"0"
+				ocup=ocup+"1"
+			}
+			else{
+				oodown=oodown+"0"
+				ocdown=ocdown+"1"
+			}
+			
+		}
+		else if(oldpositivevalue==six_random[index+1])
+		{
+			if(index<randomtime/2)
+			{
+				ooup=ooup+"1"
+				ocup=ocup+"0"
+			}
+			else{
+				oodown=oodown+"1"
+				ocdown=ocdown+"0"
+			}
+		}
+		else if(positivevalue==six_random[index+1])
+		{
+			if(index<randomtime/2)
+			{
+				ooup=ooup+"1"
+				ocup=ocup+"1"
+			}
+			else{
+				oodown=oodown+"1"
+				ocdown=ocdown+"1"
+			}
+		}
+		else if(negativevalue==six_random[index+1])
+		{
+			if(index<randomtime/2)
+			{
+				ooup=ooup+"0"
+				ocup=ocup+"0"
+			}
+			else{
+				oodown=oodown+"0"
+				ocdown=ocdown+"0"
+			}
+		}
+	}
+	six_random_date[5] = ooup+":"+oodown
+	six_random_date[6] = ocup+":"+ocdown
+
 }
 
 function get_random_draw()
@@ -447,6 +503,8 @@ function get_random_draw()
 	console.log(six_random_date[2]);
 	console.log(six_random_date[3]);
 	console.log(six_random_date[4]);
+	console.log(six_random_date[5]);
+	console.log(six_random_date[6]);
 	var o = ["","上爻","五爻","四爻","三爻","二爻","初爻"]
 
 	for(index = 0;index<randomtime;index++)
@@ -492,7 +550,7 @@ function get_random_draw()
 
 	for(index = 0;index<randomtime;index++)
     {
-		console.log(six_random_draw[randomtime-index]);
+		console.log(six_random_draw[index+1]);
 	}
 	
 }
