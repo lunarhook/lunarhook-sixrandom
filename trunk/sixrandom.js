@@ -111,8 +111,24 @@ function get_six_random_help_myth()
 甲戊兼牛羊，乙己 鼠猴乡，丙丁猪鸡位，壬癸兔蛇藏，庚辛逢虎马
 */
 {
-	six_random_help_myth
+	var m = startinfo.gzDate.slice(1)
+	var n = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
+	var x = ["寅", "亥", "申", "巳", "寅", "亥", "申", "巳", "寅", "亥", "申", "巳"];
+	var th = ["申","巳", "寅", "亥"]
+	var tt = ["卯","子", "酉", "午"]
+	var q = n.indexOf(m);
+	var p = x[q]
+	six_random_help_myth[0] = p
+	six_random_help_myth[1] = tt[th.indexOf(p)]
 
+	var l = ["寅", "卯", "巳", "午", "巳", "午", "申", "酉", "亥", "子"];
+	var ll = startinfo.gzDate.slice(0,1);
+	var o = h.indexOf(ll);
+	six_random_help_myth[2] = l[o];
+
+	var g = ["丑,未", "子,申", "酉,亥", "酉,亥", "丑,未", "子,申", "寅,午", "寅,午", "卯,巳", "卯,巳"];
+	var k = h.indexOf(ll)
+	six_random_help_myth[3] = g[k];
 }
 function get_six_random_myth()
 /*
