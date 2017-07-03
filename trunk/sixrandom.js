@@ -581,7 +581,7 @@ var c = {
 		return this.calculate((r - 1900) * 12 + s + 12 - (q < t ? 1 : 0))
 	},
 	getGzDay: function(q) {
-		return this.calculate(Math.floor(q / 86400000 )+ 25567 + 10)
+		return this.calculate(Math.ceil(q / 86400000 )+ 25567 + 10)
 	},
 	/*
 
