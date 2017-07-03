@@ -1,3 +1,4 @@
+var startinfo;
 var where               = new Array();      //地区
 var three_random        = new Array();      //硬币取爻
 var six_random          = new Array();      //本爻
@@ -5,8 +6,10 @@ var six_change_random   = new Array();      //变爻
 var six_random_empty	= new Array();
 var six_random_myth		= new Array();
 var six_random_help_myth = new Array();		
+var six_random_date		= new Array();
+var six_random_draw		= new Array();
 
-var startinfo;
+
 const sixtycycletable = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
 const oldnegativevalue = 0;                 //老阴
 const negativevalue = 1;                    //少阴
@@ -18,6 +21,7 @@ const negativedraw = "---   ---";
 const positivedraw = "---------";
 const negativechangedraw = "X->";
 const positivechangedraw = "O->";
+const nonechangedraw = "   ";
 
 
 
@@ -220,7 +224,7 @@ function get_empty_sixty_cycle(date)
     var earthdate = date.slice(1);
     var i = h.indexOf(skydate);
     var j = d.indexOf(earthdate);
-    return [sixtycycletable[(10-i+j)%12],sixtycycletable[(10-i+j+1)%12]];
+    return sixtycycletable[(10-i+j)%12]+sixtycycletable[(10-i+j+1)%12];
 }
 
 function get_empty_date()
@@ -401,6 +405,11 @@ function lunar_f()
 	}
 	var x = m.getDate(r);
 	return {
+		Hours:r.getHours(),
+		Time:r.getHours(),
+		Date:r.getDate(),
+		Month:r.getMonth()+1,
+		Year:r.getFullYear(),
 		animal: p[(x.lunarYear - 4) % 12],
 		gzTime: c.getGzTime(r),
 		gzDate: c.getGzDay(r),
@@ -418,27 +427,101 @@ function lunar_f()
 	}
 };
 
+function get_six_random_date()
+{
+	six_random_date[0] = "公历：" + startinfo.Year + " " + startinfo.Month + " " + startinfo.Date + " " + startinfo.Hours + ":" + startinfo.Time 
+	six_random_date[1] = "农历：" + startinfo.lunarYear + " " + startinfo.lunarMonth + " " + startinfo.lunarDate
+	six_random_date[2] = "四柱：" + startinfo.gzYear + " " + startinfo.gzMonth + " " + startinfo.gzDate + " " + startinfo.gzTime 
+}
+
+function get_random_name()
+{
+	six_random_date[3] = "旬空：" + six_random_empty[0] + " " + six_random_empty[1] + " " + six_random_empty[2] + " " + six_random_empty[3] 
+	six_random_date[4] = "神煞：" + "驿马-" + six_random_help_myth[0] + " 桃花-" + six_random_help_myth[1] + " 日禄-" + six_random_help_myth[2] + " 贵人-" + six_random_help_myth[3] 
+}
+
+function get_random_draw()
+{
+	console.log(six_random_date[0]);
+	console.log(six_random_date[1]);
+	console.log(six_random_date[2]);
+	console.log(six_random_date[3]);
+	console.log(six_random_date[4]);
+	var o = ["","上爻","五爻","四爻","三爻","二爻","初爻"]
+
+	for(index = 0;index<randomtime;index++)
+    {
+		six_random_draw[randomtime-index] = six_random_myth[randomtime-index]+":"+o[randomtime-index]+" ";
+		if(oldnegativevalue==six_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] = six_random_draw[randomtime-index] + negativedraw +" "+ negativechangedraw +" "
+		}
+		else if(oldpositivevalue==six_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] = six_random_draw[randomtime-index] + positivedraw +" "+ positivechangedraw +" "
+		}
+		else if(positivevalue==six_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] = six_random_draw[randomtime-index] + positivedraw +" "+ nonechangedraw +" "
+		}
+		else if(negativevalue==six_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] = six_random_draw[randomtime-index] + negativedraw +" "+ nonechangedraw +" "
+		}
+	}
+
+	for(index = 0;index<randomtime;index++)
+    {
+		if(oldnegativevalue==six_change_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] = six_random_draw[randomtime-index] + negativedraw
+		}
+		else if(oldpositivevalue==six_change_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] = six_random_draw[randomtime-index] + positivedraw
+		}
+		else if(positivevalue==six_change_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] = six_random_draw[randomtime-index] + positivedraw
+		}
+		else if(negativevalue==six_change_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] = six_random_draw[randomtime-index] + negativedraw
+		}
+	}
+
+	for(index = 0;index<randomtime;index++)
+    {
+		console.log(six_random_draw[randomtime-index]);
+	}
+	
+}
+
 function get_six_random()
 /*
 获取本卦，变卦，时间，天干，地支，用神，旬空，六亲
 */
 {
 	startinfo = lunar_f();
-    //起卦时间
+	get_six_random_date();
     //本卦爻变
     get_six_original_random();
     //变卦
     get_six_change_random();
     //伏神纳甲世应
-    //干支
     //旬空
     get_empty_date();
     //神煞
 	get_six_random_help_myth()
     //六神
 	get_six_random_myth()
+	//装卦
+	get_random_name()
+	//调试画卦
+	get_random_draw();
 	return {
 		info:startinfo,
+		six_random_date:six_random_date,
 		six_random:six_random,
 		six_change_random:six_change_random,
 		six_random_empty:six_random_empty,
