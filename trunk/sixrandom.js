@@ -912,9 +912,9 @@ six_random_NaJia["011011"] = {
 - -
 ---
 - -
-- -
+---
 */
-six_random_NaJia["000001"] = {
+six_random_NaJia["011010"] = {
 "name":"山火贲",
 "p":"艮宫",
 "1":"官鬼丙寅木",
@@ -929,10 +929,10 @@ six_random_NaJia["000001"] = {
 - -
 - -
 ---
-- -
-- -
+---
+---
 */
-six_random_NaJia["011011"] = {
+six_random_NaJia["011000"] = {
 "name":"山天大畜",
 "p":"艮宫",
 "1":"官鬼丙寅木",
@@ -1033,14 +1033,14 @@ six_random_NaJia["001011"] = {
 "6":"兄弟丙辰土"
 }
 /*
----
----
 - -
----
+- -
+- -
+- -
 - -
 - -
 */
-six_random_NaJia["001011"] = {
+six_random_NaJia["111111"] = {
 "name":"坤为地",
 "p":"坤宫",
 "1":"子孙癸酉金 世",
@@ -1508,7 +1508,9 @@ var c = {
 		return this.calculate((r - 1900) * 12 + s + 12 - (q < t ? 1 : 0))
 	},
 	getGzDay: function(q) {
-		return this.calculate(Math.ceil(q / 86400000 )+ 25567 + 10)
+		var t = new Date('Thu Jan 01 1970 00:00:00 GMT+0800 (CST)')
+		var debug_t = (q - t) / 86400000
+		return this.calculate(Math.floor((q - t) / 86400000 )+ 25567 + 10)
 	},
 	/*
 
@@ -1527,11 +1529,13 @@ var c = {
 	 亥【水】 21----23 	乙亥 丁亥 己亥 辛亥 癸亥
 	*/
 	getGzTime: function(q) {
-		var dateh = Math.ceil(q / 86400000 + 25567 + 10)
+		var t = new Date('Thu Jan 01 1970 00:00:00 GMT+0800 (CST)')
+		var debug_t = (q - t) / 86400000
+		var dateh = Math.floor((q - t) / 86400000 + 25567 + 10)
 		var v = dateh % 5;
 		var hour = q.getHours();
 		hour = Math.floor(hour/2 + 0.5) % 12
-		return h[ (v*2+hour) % 10] + d[hour % 12]
+		return h[ (v*2+hour+1) % 10] + d[hour % 12]
 	}
 };
 
@@ -1657,8 +1661,8 @@ function get_random_draw()
 	console.log(six_random_date[2]);
 	console.log(six_random_date[3]);
 	console.log(six_random_date[4]);
-	//console.log(six_random_date[5]);
-	//console.log(six_random_date[6]);
+	console.log(six_random_date[5]);
+	console.log(six_random_date[6]);
 	console.log("本卦： "+six_random_date[7].name+"     变卦："+six_random_date[8].name);
 	//console.log();
 	var o = ["","上爻","五爻","四爻","三爻","二爻","初爻"]
