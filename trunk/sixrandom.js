@@ -1640,7 +1640,7 @@ function lunar_f()
 
 function get_six_random_date()
 {
-	six_random_date[0] = "公历：" + startinfo.Year + " " + startinfo.Month + " " + startinfo.Date + " " + startinfo.Hours + ":" + startinfo.Time 
+	six_random_date[0] = "公历：" + startinfo.Year + " " + startinfo.Month + " " + startinfo.Date + " " + startinfo.Hours + ":" + startinfo.oDate.getMinutes() 
 	six_random_date[1] = "农历：" + startinfo.lunarYear + " " + startinfo.lunarMonth + " " + startinfo.lunarDate
 	six_random_date[2] = "四柱：" + startinfo.gzYear + " " + startinfo.gzMonth + " " + startinfo.gzDate + " " + startinfo.gzTime 
 }
@@ -1715,8 +1715,8 @@ function get_random_draw()
 	console.log(six_random_date[2]);
 	console.log(six_random_date[3]);
 	console.log(six_random_date[4]);
-	console.log(six_random_date[5]);
-	console.log(six_random_date[6]);
+	//console.log(six_random_date[5]);
+	//console.log(six_random_date[6]);
 	console.log("本卦： "+six_random_date[7].name+"     变卦："+six_random_date[8].name);
 	//console.log();
 	var o = ["","上爻","五爻","四爻","三爻","二爻","初爻"]
