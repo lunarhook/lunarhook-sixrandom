@@ -1,4 +1,4 @@
-
+var six_random_NaJia 	= new Array();
 /*
 ---
 ---
@@ -21,12 +21,17 @@ six_random_NaJia["000000"] = {
 "extexp":"",
 "ext":"",
 "exp1":"初九：潜龙，勿用。",
-"exp2":"九二：见龙再田，利见大人。",
-"exp3":"九三：君子终日乾乾，夕惕若，厉无咎。",
-"exp5":"九四：或跃在渊，无咎。",
-"exp6":"九五：飞龙在天，利见大人。",
-"exp7":"上九：亢龙有悔。",
-"exp8":"用九：见群龙无首，吉。"
+"exp2":"",
+"exp3":"九二：见龙再田，利见大人。",
+"exp4":"",
+"exp5":"九三：君子终日乾乾，夕惕若，厉无咎。",
+"exp6":"",
+"exp7":"九四：或跃在渊，无咎。",
+"exp8":"",
+"exp9":"九五：飞龙在天，利见大人。",
+"exp10":"",
+"exp11":"上九：亢龙有悔。",
+"exp12":"用九：见群龙无首，吉。"
 }
 /*
 ---
@@ -2235,9 +2240,14 @@ var six_random_myth		= new Array();
 var six_random_help_myth = new Array();		
 var six_random_date		= new Array();
 var six_random_draw		= new Array();
-var six_random_NaJia 	= new Array();
+
 
 var htmldraw			= new Array();
+var htmlchangedraw		= new Array();
+var htmlmythdraw		= new Array();
+var htmlnajiadraw		= new Array();
+var htmlnajiachangedraw	= new Array();
+var htmlchangeinfodraw 	= new Array();
 
 
 const sixtycycletable = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
@@ -2251,10 +2261,11 @@ const negativedraw = "---   ---";
 const positivedraw = "---------";
 const negativechangedraw = "X->";
 const positivechangedraw = "O->";
-const nonechangedraw = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-const nonechangehtmldraw = "   ";
-const negativehtmldraw = "▄▄ ▄▄";
+const nonechangedraw = "   ";
+const nonechangehtmldraw = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+const negativehtmldraw = "▄▄&nbsp;&nbsp;&nbsp;▄▄";
 const positivehtmldraw = "▄▄▄▄▄";
+const nonajiahtmldraw = "&nbsp;&nbsp;&nbsp;&nbsp;";
 
 
 var j = [43856, 19416, 19168, 42352, 21717, 53856, 55632, 25940, 22191, 39632, 21970, 19168, 42422, 42192, 53840, 53845, 46415, 54944, 44450, 38320, 18807, 18815, 42160, 46261, 27216, 27968, 43860, 11119, 38256, 21234, 18800, 25958, 54432, 59984, 27285, 23263, 11104, 34531, 37615, 51415, 51551, 54432, 55462, 46431, 22176, 42420, 9695, 37584, 53938, 43344, 46423, 27808, 46416, 21333, 19887, 42416, 17779, 21183, 43432, 59728, 27296, 44710, 43856, 19296, 43748, 42352, 21088, 62051, 55632, 23383, 22176, 38608, 19925, 19152, 42192, 54484, 53840, 54616, 46400, 46752, 38310, 38335, 18864, 43380, 42160, 45690, 27216, 27968, 44870, 43872, 38256, 19189, 18800, 25776, 29859, 59984, 27480, 23232, 43872, 38613, 37600, 51552, 55636, 54432, 55888, 30034, 22176, 43959, 9680, 37584, 51893, 43344, 46240, 47780, 44368, 21977, 19360, 42416, 20854, 21183, 43312, 31060, 27296, 44368, 23378, 19296, 42726, 42208, 53856, 60005, 54576, 23200, 30371, 38608, 19195, 19152, 42192, 53430, 53855, 54560, 56645, 46496, 22224, 21938, 18864, 42359, 42160, 43600, 45653, 27951, 44448, 19299, 37759, 18936, 18800, 25776, 26790, 59999, 27424, 42692, 43759, 37600, 53987, 51552, 54615, 54432, 55888, 23893, 22176, 42704, 21972, 21200, 43448, 43344, 46240, 46758, 44368, 21920, 43940, 42416, 21168, 45683, 26928, 29495, 27296, 44368, 19285, 19311, 42352, 21732, 53856, 59752, 54560, 55968, 27302, 22239, 19168, 43476, 42192, 53584, 62034, 54560];
@@ -2893,6 +2904,11 @@ function get_six_random()
 		six_random_myth:six_random_myth,
 		six_random_help_myth:six_random_help_myth,
 		htmldraw:htmldraw,
+		htmlchangedraw:htmlchangedraw,
+		htmlmythdraw:htmlmythdraw,
+		htmlnajiadraw:htmlnajiadraw,
+		htmlnajiachangedraw:htmlnajiachangedraw,
+		htmlchangeinfodraw:htmlchangeinfodraw,
 	}
 	
 }
