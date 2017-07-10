@@ -2437,7 +2437,7 @@ function recover_six_original_random(lunardate)
 
     for(index = 0;index<randomtime;index++)
     {
-        six_random[randomtime - index] = lunardate[randomtime-index];
+        six_random[randomtime - index] = lunardate[randomtime-index-1];
     }
 }
 function get_six_change_random()
@@ -2949,11 +2949,12 @@ function getArgs()
 
 function recoverlunarsix(cur,lunar)
 {
+	//Mon Jul 10 2017 23:43:54 GMT+0800 (CST)
 	var info = getArgs()
-	//startinfo = lunar_f(cur);
-	//recover_six_original_random(lunar)
+	startinfo = lunar_f(info.date);
+	recover_six_original_random(info.lunar)
     //本卦爻变
-	//return get_six_random();
+	return get_six_random();
 	//存盘序列化
 }
 
