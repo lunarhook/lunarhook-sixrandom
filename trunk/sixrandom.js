@@ -2429,7 +2429,17 @@ function get_six_original_random()
         six_random[randomtime - index] = get_one_random();
     }
 }
+function recover_six_original_random(lunardate)
+/*
+获取本卦六爻
+*/
+{
 
+    for(index = 0;index<randomtime;index++)
+    {
+        six_random[randomtime - index] = lunardate[randomtime-index];
+    }
+}
 function get_six_change_random()
 /*
 获得变卦六爻
@@ -2629,12 +2639,12 @@ var c = {
 	}
 };
 
-function lunar_f() 
+function lunar_f(cur) 
 /*
 获得当前农历信息
 */
 {
-    var r = new Date();
+    var r = undefined==cur?new Date():new Date(cur);
 	var w = r.getFullYear();
 	var u = r.getMonth() + 1;
 	var y = r.getDate();
@@ -2878,10 +2888,9 @@ function get_six_random()
 获取本卦，变卦，时间，天干，地支，用神，旬空，六亲
 */
 {
-	startinfo = lunar_f();
+	
 	get_six_random_date();
-    //本卦爻变
-    get_six_original_random();
+   
     //变卦
     get_six_change_random();
     //伏神纳甲世应
@@ -2918,10 +2927,33 @@ function lunarsix()
 六爻发动
 */
 {
-	//起爻求事内容
-	//来客生辰
 	//取爻
+	startinfo = lunar_f();
+	get_six_original_random();
+    //本卦爻变
 	return get_six_random();
 	//存盘序列化
-	//绘图展示
 }
+
+function getArgs()
+{
+        var args = {};
+        var match = null;
+        var search = decodeURIComponent(location.search.substring(1));
+        var reg = /(?:([^&]+)=([^&]+))/g;
+        while((match = reg.exec(search))!==null){
+            args[match[1]] = match[2];
+        }
+        return args;
+}
+
+function recoverlunarsix(cur,lunar)
+{
+	var info = getArgs()
+	//startinfo = lunar_f(cur);
+	//recover_six_original_random(lunar)
+    //本卦爻变
+	//return get_six_random();
+	//存盘序列化
+}
+
