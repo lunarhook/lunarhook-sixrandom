@@ -41,8 +41,23 @@
 	</head>
 	    <body>
 	<script type="text/javascript">
-		var ret = recoverlunarsix()
-		var o = ["","上爻","五爻","四爻","三爻","二爻","初爻"]
+		var error = false
+	var ret;
+	try{
+        ret = recoverlunarsix()
+    }catch(e){
+		error = true
+    }
+	function documentwrite(cur)
+	{
+		if(false==error)
+		{
+			document.write(cur)
+		}
+		
+	}
+	if(false==error)
+	{
 	
 
 	for(index = 0;index<randomtime;index++)
@@ -114,7 +129,7 @@
 		htmlnajiachangedraw[index+1] = six_random_date[8][t]
 		
 	}
-
+	}
 	
 	
 	</script>
@@ -139,7 +154,14 @@
 			</td>
 			<td>
 				<script>
+					if(false==error)
+				{
 					document.write("本卦:"+ret.six_random_date[7].name);
+				}
+				else
+				{
+					document.write("六爻参数错误，分享链接失效")
+				}
 					</script>
 			</td>
 			<td>
@@ -153,18 +175,24 @@
 		<tr>
 			<td>
 				<script>
+					if(false==error)
+				{
 						for(index = 0;index<randomtime;index++)
     					{
 							document.write(ret.htmlmythdraw[index+1]+nonajiahtmldraw+"</br>");
 						}
+				}
 				</script>
 			</td>
 			<td>
 				<script>
+					if(false==error)
+				{
 						for(index = 0;index<randomtime;index++)
     					{
 							document.write(ret.htmldraw[index+1]+"</br>");
 						}
+				}
 				</script>
 			</td>
 			<td>
