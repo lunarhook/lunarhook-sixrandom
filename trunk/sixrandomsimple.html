@@ -25,7 +25,7 @@
 		docEl.setAttribute('data-dpr', dpr);
 		// 动态写入样式
 		docEl.firstElementChild.appendChild(fontEl);
-		fontEl.innerHTML = 'html{font-size:' + dpr+ 'px}';
+		fontEl.innerHTML = 'html{font-size:' + rem*0.6 + 'px}';
 		// 给js调用的，某一dpr下rem和px之间的转换函数
 		window.rem2px = function(v) {
 			v = parseFloat(v);
@@ -119,157 +119,25 @@
 	
 	</script>
 	<table name ="viewall">
-	<table>
-		<tr>
-			<td>
-			<script>
-				//	document.write(ret.six_random_date[0]+"</br>");
-				//document.write(ret.six_random_date[1]+"</br>");
-				//document.write(ret.six_random_date[2]+"</br>");
-				//document.write(ret.six_random_date[3]+"</br>");
-				//document.write(ret.six_random_date[4]+"</br>");
-			</script>
-			</td>
-		</tr>
-		</table>
 		</br>
-		<table align="center">
+		<table align="center" style="text-align:center;vertical-align:middle" width=90%>
 		<tr>
-			<td>
-			</td>
-			<td>
+			<td colspan=2 >
 				<script>
 					document.write("本卦:"+ret.six_random_date[7].name);
 					</script>
 			</td>
-			<td>
-			</td>
-			<td>
-			<script>
-					//document.write("变卦:"+ret.six_random_date[8].name);
-					</script>
-			</td>
 		</tr>
 		<tr>
-			<td>
 				<script>
 						for(index = 0;index<randomtime;index++)
     					{
-							document.write(ret.htmlmythdraw[index+1]+nonajiahtmldraw+"</br>");
+							document.write("<tr><td>"+ret.htmlmythdraw[index+1]+nonajiahtmldraw+"</td>");
+							document.write("<td>"+ret.htmldraw[index+1]+"</td></tr>");
 						}
 				</script>
-			</td>
-			<td>
-				<script>
-						for(index = 0;index<randomtime;index++)
-    					{
-							document.write(ret.htmldraw[index+1]+"</br>");
-						}
-				</script>
-			</td>
-			<td>
-				<script>
-					/*
-						for(index = 0;index<randomtime;index++)
-    					{
-							document.write(ret.htmlchangeinfodraw[index+1]+"</br>");
-						}
-						*/
-				</script>
-			</td>
-			<td>
-				<script>
-					/*
-						for(index = 0;index<randomtime;index++)
-    					{
-							document.write(ret.htmlchangedraw[index+1]+"</br>");
-						}
-						*/
-				</script>
-			</td>
 		</tr>
 		</table>
-</br>
-		<table align="center">
-		<tr>
-			<td>
-			</td>
-			<td>
-				<script>
-					//document.write("本卦:"+ret.six_random_date[7].name);
-					</script>
-			</td>
-			<td>
-			</td>
-			<td>
-			<script>
-					//document.write("变卦:"+ret.six_random_date[8].name);
-					</script>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<script>
-					/*
-						for(index = 0;index<randomtime;index++)
-    					{
-							document.write(ret.htmlmythdraw[index+1]+"</br>");
-						}
-					*/
-				</script>
-			</td>
-			<td style="text-align:right;">
-				<script>
-					/*
-						for(index = 0;index<randomtime;index++)
-    					{
-							document.write(ret.htmlnajiadraw[index+1]+"</br>");
-						}
-						*/
-				</script>
-			</td>
-						<td>
-				<script>
-					/*
-						for(index = 0;index<randomtime;index++)
-    					{
-							document.write(ret.htmlchangeinfodraw[index+1]+"</br>");
-						}
-						*/
-				</script>
-			</td>
-			<td>
-				<script>
-					/*
-						for(index = 0;index<randomtime;index++)
-    					{
-							document.write(ret.htmlnajiachangedraw[index+1]+"</br>");
-						}
-						*/
-				</script>
-			</td>
-		</tr>
-	</table>
-	</br>
-	<table>
-		<tr>
-			<td>
-		<script>
-			/*
-			document.write(ret.six_random_date[7].extname+"</br>")
-			document.write(ret.six_random_date[7].extnameexp+"</br>")
-			document.write(ret.six_random_date[7].extexp+"</br>")
-			document.write(ret.six_random_date[7].ext+"</br>")
-			for(index =1 ;index < 13 ;index++)
-			{
-				var x = "exp"+index
-				document.write(ret.six_random_date[7][x]+"</br>")
-			}
-			*/
-				</script>
-				</td>
-				</tr>
-	</table>
 	</table>
 </body>
 <html>

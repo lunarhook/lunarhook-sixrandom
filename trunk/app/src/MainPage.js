@@ -7,13 +7,13 @@ import {StyleSheet,View,  Text,WebView} from 'react-native';
 var kWidth = Dimensions.get('window').width;
 var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
-var DEFAULT_URL = 'https://weibo.com/vczero';
+var DEFAULT_URL = 'file:///Applications/svn/sixrandom/sixrandomsimple.html';
 
 var MainPage = React.createClass({
   render(){
     return (
       <View style={styles.container}>
-        <WebView
+        <WebView injectedJavaScript={alert("hello")}
           ref={WEBVIEW_REF}
           automaticallyAdjustContentInsets={false}
           style={styles.webView}
