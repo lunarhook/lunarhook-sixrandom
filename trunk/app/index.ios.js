@@ -7,6 +7,7 @@
 import React, {Component} from 'react';
 import {AppRegistry,Navigator,StyleSheet,View,  Text} from 'react-native';
 import MainPage from '../app/src/MainPage';
+import HistoryPage from '../app/src/HistoryPage';
 
 
 export default class app extends Component {
