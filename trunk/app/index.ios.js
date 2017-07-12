@@ -6,14 +6,19 @@
 
 import React, {Component} from 'react';
 import {AppRegistry,Navigator,StyleSheet,View,  Text} from 'react-native';
+import { StackNavigator } from 'react-navigation';
+
+
 import MainPage from '../app/src/MainPage';
 import HistoryPage from '../app/src/HistoryPage';
 
 
-export default class app extends Component {
+
+class splash extends Component {
+  
   render() {
     return (
-            <MainPage />
+      <MainPage/>
         )
   }
 }
@@ -35,6 +40,11 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+});
+
+const app = StackNavigator({
+  MainPage: { screen: MainPage },
+  HistoryPage: { screen: HistoryPage },
 });
 
 AppRegistry.registerComponent('app', () => app);

@@ -1,10 +1,12 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View,  Text,WebView,Navigator} from 'react-native';
+import {StyleSheet,View,  Text,WebView} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+
 import HistoryPage from './HistoryPage';
 
 var storage = new Storage({
@@ -34,32 +36,21 @@ var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = 'file:///Applications/svn/sixrandom/sixrandomsimple.html';
 
-var MainPage = React.createClass({
-    getInitialState(){
-        return{
-            selectedTab:'liuyao' // 默认选中的tabBar
-        }
-    },
-    _changebutton(info)
-    {
-      
-      const { navigator} = this.props;
-              if (navigator) {
-                console.warn()
-                  navigator.push({
-                      name:'HistoryPage',
-                      component:HistoryPage,
-                  })
-              }
-    },
+class MainPage extends React.Component {
+
+  static navigationOptions = {
+    title: '六爻',
+  };
+   
   render(){
+    const { navigate } = this.props.navigation;
     return (
-<View style={styles.container}>
+    <View style={styles.container}>
 
   <WebView
           ref={WEBVIEW_REF}
           automaticallyAdjustContentInsets={false}
-          style={styles.webView}
+          //style={styles.webView}
           source={{uri: DEFAULT_URL}}
           javaScriptEnabled={true}
           domStorageEnabled={true}
@@ -69,27 +60,25 @@ var MainPage = React.createClass({
           startInLoadingState={true}
         />
       <TabNavigator tabBarStyle={{height:40}} style={{flex:1}}>  
-              
-        
-      
                   <TabNavigator.Item  
                         title="liuyao"  
-                        selected={this.state.tab=='liuyao'}  
-                        onPress={()=>this.setState({tab:'liuyao'})}  >  
+                        //selected={this.state.tab=='liuyao'}  
+                        onPress={() => navigate('HistoryPage')}  >  
                     </TabNavigator.Item>  
                     <TabNavigator.Item 
                         title="history"  
                         //selected={this.state.tab=='history'}   
-                        onPress={ this._changebutton("history")}
-                        
-                        >
-
+                        onPress={ 
+                            () => navigate('HistoryPage') 
+                          }>
                     </TabNavigator.Item>  
                 </TabNavigator>  
              </View>   
-    )},
+    )}
     
-});
+}
+
+
 
 var styles = StyleSheet.create ({
   container: {
@@ -97,7 +86,7 @@ var styles = StyleSheet.create ({
   },
   webSize: {
     width:kWidth,
-    height:kHeight-40
+    height:kHeight
   }
 });
 module.exports=MainPage;  

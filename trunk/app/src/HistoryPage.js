@@ -6,6 +6,8 @@ import TabNavigator from 'react-native-tab-navigator';
 import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
 
+import { StackNavigator } from 'react-navigation';
+
 var storage = new Storage({
 	// maximum capacity, default 1000 
 	size: 1000,
@@ -28,14 +30,20 @@ var storage = new Storage({
 		// we'll talk about the details later.
 	}
 })	
-var HistoryPage = React.createClass({
-  render(){
+
+class HistoryPage extends React.Component {
+    static navigationOptions = {
+    title: 'History',
+  };
+  render()
+  {
     return (
-<View style={styles.container}>
-    <Text style={styles.vb_text} >history</Text>
-             </View>   
-    )},
-});
+            <View style={styles.container}>
+                <Text style={styles.vb_text} >history</Text>
+            </View>   
+            )
+    }
+}
 
 var styles = StyleSheet.create ({
   container: {
