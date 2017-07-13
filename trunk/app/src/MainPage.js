@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View, Button,Text,WebView} from 'react-native';
+import {StyleSheet,View, Button,TouchableOpacity,Text,WebView} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
@@ -9,6 +9,8 @@ import { StackNavigator } from 'react-navigation';
 
 import HistoryPage from './HistoryPage';
 import StorageModule from './StorageModule'
+import NewPage from './NewPage';
+import FullInfoPage from './FullInfoPage';
 
 var kWidth = Dimensions.get('window').width;
 var kHeight = Dimensions.get('window').height;
@@ -19,10 +21,12 @@ class MainPage extends React.Component {
 
   static navigationOptions = {
     headerRight:(<Button title="分享" />),
-    title: '六爻',
+    title: '六爻卦象',
   };
    
+   
   render(){
+    var parameter = "123123";
     const { navigate } = this.props.navigation;
     return (
     <View style={styles.container}>
@@ -39,20 +43,31 @@ class MainPage extends React.Component {
           onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
           startInLoadingState={true}
         />
+        <TouchableOpacity style={styles.button} onPress={ () => navigate('FullInfoPage',parameter) }>
+          
+        <Text style={styles.textstyle}
+        >
+          详细   
+        </Text>
+        </TouchableOpacity>
       <TabNavigator tabBarStyle={{height:40}} style={{flex:1}}>  
-                  <TabNavigator.Item  
-                        title="liuyao"  
+                  <TabNavigator.Item
+                        title="六爻取卦"  
+                        //   
                         //selected={this.state.tab=='liuyao'}  
-                        onPress={() => navigate('HistoryPage')}  >  
+                        onPress={() => navigate('NewPage')}  
+                        titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
                     <TabNavigator.Item 
-                        title="history"  
+                        title="卦象记录"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
                             () => navigate('HistoryPage') 
-                          }>
+                          }titleStyle={styles.menufont}>  
+                        
                     </TabNavigator.Item>  
                 </TabNavigator>  
+                
              </View>   
     )}
     
@@ -62,11 +77,23 @@ class MainPage extends React.Component {
 
 var styles = StyleSheet.create ({
   container: {
-    flex:1
+    flex:1,
+  },
+  menufont:{
+    fontSize:15,
+    color: '#333333', 
+    height:25
   },
   webSize: {
     width:kWidth,
     height:kHeight
-  }
+  },
+   button:{
+    height: 40,
+    width: 50,
+    backgroundColor:'transparent',
+   justifyContent:'center',
+   borderRadius: 20,
+    },
 });
 module.exports=MainPage;  

@@ -6,20 +6,34 @@ import TabNavigator from 'react-native-tab-navigator';
 import { StackNavigator } from 'react-navigation';
 
 import StorageModule from './StorageModule'
+var WEBVIEW_REF = 'webview';
+var DEFAULT_URL = 'file:///Applications/svn/sixrandom/sixrandomfulldetail.html';
 
-
-class HistoryPage extends React.Component {
+class FullinfoPage extends React.Component {
     static navigationOptions = {
-    title: '六爻历史记录',
+    title: '卦象细节',
   };
-  render()
-  {
+  
+  render(){
+    const { navigate } = this.props.navigation;
+    alert(this.props.navigation.state.params)
     return (
-            <View style={styles.container}>
-                <Text style={styles.vb_text} >history</Text>
-            </View>   
-            )
-    }
+    <View style={styles.container}>
+
+  <WebView
+          ref={WEBVIEW_REF}
+          automaticallyAdjustContentInsets={false}
+          //style={styles.webView}
+          source={{uri: DEFAULT_URL}}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          decelerationRate="normal"
+          onNavigationStateChange={this.onNavigationStateChange}
+          onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
+          startInLoadingState={true}
+        />
+             </View>   
+    )}
 }
 
 var styles = StyleSheet.create ({
@@ -38,4 +52,4 @@ var styles = StyleSheet.create ({
     textDecorationLine: 'underline line-through',//下划线和删除线的样式：['none' /*default*/, 'underline', 'line-through', 'underline line-through'  
   },
 });
-module.exports=HistoryPage;  
+module.exports=FullinfoPage;  

@@ -10,13 +10,13 @@ import StorageModule from './StorageModule'
 
 class HistoryPage extends React.Component {
     static navigationOptions = {
-    title: '六爻历史记录',
+    title: '六爻取卦',
   };
   render()
   {
     return (
             <View style={styles.container}>
-                <Text style={styles.vb_text} >history</Text>
+                <Text style={styles.vb_text} >开始</Text>
             </View>   
             )
     }
