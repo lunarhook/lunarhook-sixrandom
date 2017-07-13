@@ -26,7 +26,7 @@ class MainPage extends React.Component {
    
    
   render(){
-    var parameter = "123123";
+    var parameter = "?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
     const { navigate } = this.props.navigation;
     return (
     <View style={styles.container}>

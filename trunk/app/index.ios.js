@@ -11,6 +11,8 @@ import { StackNavigator } from 'react-navigation';
 
 import MainPage from '../app/src/MainPage';
 import HistoryPage from '../app/src/HistoryPage';
+import NewPage from '../app/src/NewPage';
+import FullInfoPage from '../app/src/FullInfoPage'
 
 
 
@@ -45,6 +47,8 @@ const styles = StyleSheet.create({
 const app = StackNavigator({
   MainPage: { screen: MainPage },
   HistoryPage: { screen: HistoryPage },
+  NewPage: {screen: NewPage},
+  FullInfoPage: {screen: FullInfoPage}
 });
 
 AppRegistry.registerComponent('app', () => app);

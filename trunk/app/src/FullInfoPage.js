@@ -6,6 +6,9 @@ import TabNavigator from 'react-native-tab-navigator';
 import { StackNavigator } from 'react-navigation';
 
 import StorageModule from './StorageModule'
+
+var kWidth = Dimensions.get('window').width;
+var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = 'file:///Applications/svn/sixrandom/sixrandomfulldetail.html';
 
@@ -16,18 +19,19 @@ class FullinfoPage extends React.Component {
   
   render(){
     const { navigate } = this.props.navigation;
-    alert(this.props.navigation.state.params)
+    DEFAULT_URL = DEFAULT_URL + this.props.navigation.state.params
     return (
     <View style={styles.container}>
 
   <WebView
           ref={WEBVIEW_REF}
           automaticallyAdjustContentInsets={false}
-          //style={styles.webView}
+          style={styles.webView}
           source={{uri: DEFAULT_URL}}
           javaScriptEnabled={true}
           domStorageEnabled={true}
           decelerationRate="normal"
+          scrollEnabled={true}
           onNavigationStateChange={this.onNavigationStateChange}
           onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
           startInLoadingState={true}
@@ -39,6 +43,10 @@ class FullinfoPage extends React.Component {
 var styles = StyleSheet.create ({
   container: {
     flex:1
+  },
+    webSize: {
+    width:kWidth,
+    height:kHeight
   },
     vb_text: {  
     color: '#333333',  
