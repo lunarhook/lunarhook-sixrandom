@@ -10,7 +10,7 @@ import StorageModule from './StorageModule'
 var kWidth = Dimensions.get('window').width;
 var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
-var DEFAULT_URL = 'file:///Applications/svn/sixrandom/sixrandomfulldetail.html';
+var DEFAULT_URL = './sixrandomfulldetail.html';
 
 class FullinfoPage extends React.Component {
     static navigationOptions = {
