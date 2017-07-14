@@ -14,7 +14,7 @@ var DEFAULT_URL = './sixrandomfulldetail.html';
 
 class FullinfoPage extends React.Component {
     static navigationOptions = {
-    title: '卦象细节',
+    title: '详情',
   };
   
   render(){

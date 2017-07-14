@@ -21,7 +21,7 @@ class MainPage extends React.Component {
 
   static navigationOptions = {
     headerRight:(<Button title="分享" />),
-    title: '六爻卦象',
+    title: '卦象',
   };
    
    
@@ -52,14 +52,14 @@ class MainPage extends React.Component {
         </TouchableOpacity>
       <TabNavigator tabBarStyle={{height:40}} style={{flex:1}}>  
                   <TabNavigator.Item
-                        title="六爻取卦"  
+                        title="取卦"  
                         //   
                         //selected={this.state.tab=='liuyao'}  
                         onPress={() => navigate('NewPage')}  
                         titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
                     <TabNavigator.Item 
-                        title="卦象记录"  
+                        title="历史"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
                             () => navigate('HistoryPage') 
