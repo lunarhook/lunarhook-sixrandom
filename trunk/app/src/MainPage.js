@@ -15,7 +15,7 @@ import FullInfoPage from './FullInfoPage';
 var kWidth = Dimensions.get('window').width;
 var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
-var DEFAULT_URL = './sixrandomsimple.html';
+var DEFAULT_URL = "bundle/html/sixrandomsimple.html";
 
 class MainPage extends React.Component {
 
