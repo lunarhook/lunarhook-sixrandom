@@ -262,10 +262,10 @@
 		2D02E4901E0B4A5D006451C7 /* app-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "app-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A8B4761F194710006DD838 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = bundle/assets; sourceTree = "<group>"; };
 		56A8B4931F194819006DD838 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = index.ios.jsbundle; path = bundle/index.ios.jsbundle; sourceTree = "<group>"; };
-		56A8B4A31F194D91006DD838 /* sixrandom.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = sixrandom.js; path = ../../sixrandom.js; sourceTree = "<group>"; };
-		56A8B4A41F194D91006DD838 /* sixrandomfulldetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomfulldetail.html; path = ../../sixrandomfulldetail.html; sourceTree = "<group>"; };
-		56A8B4A51F194D91006DD838 /* sixrandomshare.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomshare.html; path = ../../sixrandomshare.html; sourceTree = "<group>"; };
-		56A8B4A61F194D91006DD838 /* sixrandomsimple.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomsimple.html; path = ../../sixrandomsimple.html; sourceTree = "<group>"; };
+		56A8B4A31F194D91006DD838 /* sixrandom.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = sixrandom.js; path = ../../sixrandom.js; sourceTree = SOURCE_ROOT; };
+		56A8B4A41F194D91006DD838 /* sixrandomfulldetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomfulldetail.html; path = ../../sixrandomfulldetail.html; sourceTree = SOURCE_ROOT; };
+		56A8B4A51F194D91006DD838 /* sixrandomshare.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomshare.html; path = ../../sixrandomshare.html; sourceTree = SOURCE_ROOT; };
+		56A8B4A61F194D91006DD838 /* sixrandomsimple.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomsimple.html; path = ../../sixrandomsimple.html; sourceTree = SOURCE_ROOT; };
 		56CFD0361F15C9A3006B0780 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -442,7 +442,7 @@
 				56A8B4A61F194D91006DD838 /* sixrandomsimple.html */,
 			);
 			name = html;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;

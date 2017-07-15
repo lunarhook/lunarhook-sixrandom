@@ -42,4 +42,8 @@ todo
 添加摇卦UI程序
 讨论webview还是reactnative原生ui
 
+2017 07 15 
+增加打包
+react-native bundle --entry-file ./index.ios.js --bundle-output ./ios/bundle/index.ios.jsbundle --platform ios --assets-dest ./ios/bundle --dev false
+
 
