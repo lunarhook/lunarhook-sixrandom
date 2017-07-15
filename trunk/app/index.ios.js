@@ -44,11 +44,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const app = StackNavigator({
+const sixrandom = StackNavigator({
   MainPage: { screen: MainPage },
   HistoryPage: { screen: HistoryPage },
   NewPage: {screen: NewPage},
   FullInfoPage: {screen: FullInfoPage}
 });
 
-AppRegistry.registerComponent('app', () => app);
+AppRegistry.registerComponent('sixrandom', () =>sixrandom);
