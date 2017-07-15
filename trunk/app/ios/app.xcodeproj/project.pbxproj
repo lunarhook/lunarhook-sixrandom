@@ -36,6 +36,10 @@
 		2DCD954D1E0B4F2C00145EB5 /* appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* appTests.m */; };
 		56A8B4771F194710006DD838 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 56A8B4761F194710006DD838 /* assets */; };
 		56A8B4941F194819006DD838 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 56A8B4931F194819006DD838 /* index.ios.jsbundle */; };
+		56A8B4A71F194D91006DD838 /* sixrandom.js in Resources */ = {isa = PBXBuildFile; fileRef = 56A8B4A31F194D91006DD838 /* sixrandom.js */; };
+		56A8B4A81F194D91006DD838 /* sixrandomfulldetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 56A8B4A41F194D91006DD838 /* sixrandomfulldetail.html */; };
+		56A8B4A91F194D91006DD838 /* sixrandomshare.html in Resources */ = {isa = PBXBuildFile; fileRef = 56A8B4A51F194D91006DD838 /* sixrandomshare.html */; };
+		56A8B4AA1F194D91006DD838 /* sixrandomsimple.html in Resources */ = {isa = PBXBuildFile; fileRef = 56A8B4A61F194D91006DD838 /* sixrandomsimple.html */; };
 		56CFD0341F155ADB006B0780 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		56CFD0351F155ADC006B0780 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -258,6 +262,10 @@
 		2D02E4901E0B4A5D006451C7 /* app-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "app-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A8B4761F194710006DD838 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = bundle/assets; sourceTree = "<group>"; };
 		56A8B4931F194819006DD838 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = index.ios.jsbundle; path = bundle/index.ios.jsbundle; sourceTree = "<group>"; };
+		56A8B4A31F194D91006DD838 /* sixrandom.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = sixrandom.js; path = ../../sixrandom.js; sourceTree = "<group>"; };
+		56A8B4A41F194D91006DD838 /* sixrandomfulldetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomfulldetail.html; path = ../../sixrandomfulldetail.html; sourceTree = "<group>"; };
+		56A8B4A51F194D91006DD838 /* sixrandomshare.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomshare.html; path = ../../sixrandomshare.html; sourceTree = "<group>"; };
+		56A8B4A61F194D91006DD838 /* sixrandomsimple.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomsimple.html; path = ../../sixrandomsimple.html; sourceTree = "<group>"; };
 		56CFD0361F15C9A3006B0780 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -396,6 +404,7 @@
 		13B07FAE1A68108700A75B9A /* app */ = {
 			isa = PBXGroup;
 			children = (
+				56A8B4A21F194D6F006DD838 /* html */,
 				56A8B4761F194710006DD838 /* assets */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -422,6 +431,17 @@
 				3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		56A8B4A21F194D6F006DD838 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				56A8B4A31F194D91006DD838 /* sixrandom.js */,
+				56A8B4A41F194D91006DD838 /* sixrandomfulldetail.html */,
+				56A8B4A51F194D91006DD838 /* sixrandomshare.html */,
+				56A8B4A61F194D91006DD838 /* sixrandomsimple.html */,
+			);
+			name = html;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -583,6 +603,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = JD2G9A573K;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -854,9 +875,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56A8B4A91F194D91006DD838 /* sixrandomshare.html in Resources */,
 				56A8B4941F194819006DD838 /* index.ios.jsbundle in Resources */,
 				56A8B4771F194710006DD838 /* assets in Resources */,
+				56A8B4A81F194D91006DD838 /* sixrandomfulldetail.html in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				56A8B4A71F194D91006DD838 /* sixrandom.js in Resources */,
+				56A8B4AA1F194D91006DD838 /* sixrandomsimple.html in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1018,6 +1043,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = JD2G9A573K;
@@ -1030,6 +1056,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sixrandom;
 				PRODUCT_NAME = app;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1038,6 +1065,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JD2G9A573K;
 				INFOPLIST_FILE = app/Info.plist;
@@ -1049,6 +1077,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sixrandom;
 				PRODUCT_NAME = app;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

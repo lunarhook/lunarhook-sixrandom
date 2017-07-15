@@ -15,7 +15,7 @@ import FullInfoPage from './FullInfoPage';
 var kWidth = Dimensions.get('window').width;
 var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
-var DEFAULT_URL = "bundle/html/sixrandomsimple.html";
+var DEFAULT_URL = "../../sixrandomsimple.html";
 
 class MainPage extends React.Component {
 
@@ -27,6 +27,7 @@ class MainPage extends React.Component {
    
   render(){
     var parameter = "?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
+    DEFAULT_URL = DEFAULT_URL + this.props.navigation.state.params
     const { navigate } = this.props.navigation;
     return (
     <View style={styles.container}>
