@@ -2944,14 +2944,13 @@ function getArgs()
         while((match = reg.exec(search))!==null){
             args[match[1]] = match[2];
         }
-		alert(args);
         return args;
 }
 
-function recoverlunarsix(cur,lunar)
+function recoverlunarsix(ret_info=null)
 {
 	//Mon Jul 10 2017 23:43:54 GMT+0800 (CST)
-	var info = getArgs()
+	var info = null==ret_info?getArgs():ret_info
 	startinfo = lunar_f(info.date);
 	recover_six_original_random(info.lunar)
     //本卦爻变

@@ -12,21 +12,23 @@ var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomfulldetail.html"
 class FullinfoPage extends React.Component {
+    
+    webview: WebView
+    webview1: WebView
     static navigationOptions = {
     title: '详情',
-  };
-  
+    };
+ 
   render(){
     const { navigate } = this.props.navigation;
-    //DEFAULT_URL = DEFAULT_URL +" "+ this.props.navigation.state.params;
     return (
     <View style={styles.container}>
 
   <WebView
-          ref={WEBVIEW_REF}
+          ref={webview => this.webview = webview}
           automaticallyAdjustContentInsets={false}
           style={styles.webView}
-          source={{uri:DEFAULT_URL,method: 'GET',body:'?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123'}}
+          source={{uri:(DEFAULT_URL)}}
           javaScriptEnabled={true}
           domStorageEnabled={true}
           decelerationRate="normal"
@@ -34,9 +36,20 @@ class FullinfoPage extends React.Component {
           onNavigationStateChange={this.onNavigationStateChange}
           onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
           startInLoadingState={true}
+          injectedJavaScript="document.addEventListener('message', function(e) {eval(e.data);});"
         />
-             </View>   
+             </View>    
     )}
+
+onNavigationStateChange = (event) => {
+    if (this.webview) {
+      //DEFAULT_URL = event.url + this.props.navigation.state.params
+      var smsg = "msg('"+this.props.navigation.state.params+"')";
+      //alert(smsg)
+      this.webview.postMessage(smsg)
+      return true;
+    }
+  };
 }
 
 var styles = StyleSheet.create ({

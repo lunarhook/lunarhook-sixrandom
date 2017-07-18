@@ -15,7 +15,6 @@ import FullInfoPage from './FullInfoPage';
 var kWidth = Dimensions.get('window').width;
 var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
-//var DEFAULT_URL = require('file:///Applications/svn/sixrandom/app/src/sixrandomsimple.html');
 var DEFAULT_URL = "./sixrandomsimple.html"
 class MainPage extends React.Component {
 
@@ -70,6 +69,11 @@ class MainPage extends React.Component {
                 
              </View>   
     )}
+
+
+      onShouldStartLoadWithRequest = (event) => {
+      return true;
+    }
     
 }
 
