@@ -2944,6 +2944,7 @@ function getArgs()
         while((match = reg.exec(search))!==null){
             args[match[1]] = match[2];
         }
+		alert(args);
         return args;
 }
 

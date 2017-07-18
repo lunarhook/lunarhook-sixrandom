@@ -34,8 +34,12 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* appTests.m */; };
+		562E0A131F1E0F47004FB346 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 562E0A121F1E0F47004FB346 /* index.ios.jsbundle */; };
+		562E0A191F1E1081004FB346 /* sixrandom.js in Resources */ = {isa = PBXBuildFile; fileRef = 562E0A151F1E1081004FB346 /* sixrandom.js */; };
+		562E0A1A1F1E1081004FB346 /* sixrandomfulldetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 562E0A161F1E1081004FB346 /* sixrandomfulldetail.html */; };
+		562E0A1B1F1E1081004FB346 /* sixrandomshare.html in Resources */ = {isa = PBXBuildFile; fileRef = 562E0A171F1E1081004FB346 /* sixrandomshare.html */; };
+		562E0A1C1F1E1081004FB346 /* sixrandomsimple.html in Resources */ = {isa = PBXBuildFile; fileRef = 562E0A181F1E1081004FB346 /* sixrandomsimple.html */; };
 		56A8B4771F194710006DD838 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 56A8B4761F194710006DD838 /* assets */; };
-		56A8B4941F194819006DD838 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 56A8B4931F194819006DD838 /* index.ios.jsbundle */; };
 		56CFD0341F155ADB006B0780 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		56CFD0351F155ADC006B0780 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -256,8 +260,12 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* app-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "app-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* app-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "app-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		562E0A121F1E0F47004FB346 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = index.ios.jsbundle; path = bundle/index.ios.jsbundle; sourceTree = "<group>"; };
+		562E0A151F1E1081004FB346 /* sixrandom.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = sixrandom.js; path = ../src/sixrandom.js; sourceTree = "<group>"; };
+		562E0A161F1E1081004FB346 /* sixrandomfulldetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomfulldetail.html; path = ../src/sixrandomfulldetail.html; sourceTree = "<group>"; };
+		562E0A171F1E1081004FB346 /* sixrandomshare.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomshare.html; path = ../src/sixrandomshare.html; sourceTree = "<group>"; };
+		562E0A181F1E1081004FB346 /* sixrandomsimple.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sixrandomsimple.html; path = ../src/sixrandomsimple.html; sourceTree = "<group>"; };
 		56A8B4761F194710006DD838 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = bundle/assets; sourceTree = "<group>"; };
-		56A8B4931F194819006DD838 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = index.ios.jsbundle; path = bundle/index.ios.jsbundle; sourceTree = "<group>"; };
 		56CFD0361F15C9A3006B0780 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -400,11 +408,11 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				56A8B4931F194819006DD838 /* index.ios.jsbundle */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				562E0A121F1E0F47004FB346 /* index.ios.jsbundle */,
 			);
 			name = sixrandom;
 			sourceTree = "<group>";
@@ -422,6 +430,17 @@
 				3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		562E0A141F1E1069004FB346 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				562E0A151F1E1081004FB346 /* sixrandom.js */,
+				562E0A161F1E1081004FB346 /* sixrandomfulldetail.html */,
+				562E0A171F1E1081004FB346 /* sixrandomshare.html */,
+				562E0A181F1E1081004FB346 /* sixrandomsimple.html */,
+			);
+			name = resource;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -472,6 +491,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				562E0A141F1E1069004FB346 /* resource */,
 				13B07FAE1A68108700A75B9A /* sixrandom */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* appTests */,
@@ -855,9 +875,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56A8B4941F194819006DD838 /* index.ios.jsbundle in Resources */,
+				562E0A1B1F1E1081004FB346 /* sixrandomshare.html in Resources */,
+				562E0A131F1E0F47004FB346 /* index.ios.jsbundle in Resources */,
 				56A8B4771F194710006DD838 /* assets in Resources */,
+				562E0A1A1F1E1081004FB346 /* sixrandomfulldetail.html in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				562E0A191F1E1081004FB346 /* sixrandom.js in Resources */,
+				562E0A1C1F1E1081004FB346 /* sixrandomsimple.html in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

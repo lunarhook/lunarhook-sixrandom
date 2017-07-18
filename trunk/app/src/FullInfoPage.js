@@ -10,7 +10,7 @@ import StorageModule from './StorageModule'
 var kWidth = Dimensions.get('window').width;
 var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
-var DEFAULT_URL = './sixrandomfulldetail.html';
+var DEFAULT_URL = "./sixrandomfulldetail.html"
 class FullinfoPage extends React.Component {
     static navigationOptions = {
     title: '详情',
@@ -18,7 +18,7 @@ class FullinfoPage extends React.Component {
   
   render(){
     const { navigate } = this.props.navigation;
-    DEFAULT_URL = DEFAULT_URL + this.props.navigation.state.params
+    //DEFAULT_URL = DEFAULT_URL +" "+ this.props.navigation.state.params;
     return (
     <View style={styles.container}>
 
@@ -26,7 +26,7 @@ class FullinfoPage extends React.Component {
           ref={WEBVIEW_REF}
           automaticallyAdjustContentInsets={false}
           style={styles.webView}
-          source={{uri: DEFAULT_URL}}
+          source={{uri:DEFAULT_URL,method: 'GET',body:'?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123'}}
           javaScriptEnabled={true}
           domStorageEnabled={true}
           decelerationRate="normal"
