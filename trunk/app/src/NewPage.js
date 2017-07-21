@@ -25,6 +25,7 @@ class HistoryPage extends React.Component {
 
   flatlist:FlatList
   static navigationOptions = {
+    //headerRight:(<Button title="返回" />),
     title: '取卦',
   };
 
@@ -72,19 +73,19 @@ class HistoryPage extends React.Component {
       var x = ""
       if(t==0)
       {
-        x = "---   ---"
+        x = "--- ---"
       }
       else if(t==1)
       {
-        x = "---   ---"
+        x = "--- ---"
       }
       else if(t==2)
       {
-        x = "---------"
+        x = "-------"
       }
       else if(t==3)
       {
-        x = "---------"
+        x = "-------"
       }
       randArray[(this.state.Step-1)] = t
       dataArray[(this.state.Step-1)] = x
@@ -95,14 +96,15 @@ class HistoryPage extends React.Component {
     {
       randArray[0] = this.state.selectedValue;
       var index = (new Date()).valueOf().toString();
+      randArray[7] = index;
       StorageModule.save({key:index,data:randArray})
       this.props.navigation.navigate('MainPage',randArray)
       this.picker("emotion")
       StorageModule.load({
             key:index,
     }).then(ret => {
-      alert(index)
-      alert(ret)
+      //alert(index)
+      //alert(ret)
       })
     }
           
