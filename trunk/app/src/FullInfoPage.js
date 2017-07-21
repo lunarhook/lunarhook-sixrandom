@@ -14,7 +14,6 @@ var DEFAULT_URL = "./sixrandomfulldetail.html"
 class FullinfoPage extends React.Component {
     
     webview: WebView
-    webview1: WebView
     static navigationOptions = {
     title: '详情',
     };

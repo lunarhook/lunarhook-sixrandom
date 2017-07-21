@@ -6,6 +6,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { NavigationActions } from 'react-navigation'
 
 import HistoryPage from './HistoryPage';
 import StorageModule from './StorageModule'
@@ -17,7 +18,7 @@ var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomsimple.html"
 class MainPage extends React.Component {
-
+  webview: WebView
   static navigationOptions = {
     headerRight:(<Button title="分享" />),
     title: '卦象',
@@ -41,6 +42,8 @@ class MainPage extends React.Component {
           onNavigationStateChange={this.onNavigationStateChange}
           onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
           startInLoadingState={true}
+          startInLoadingState={true}
+          injectedJavaScript="document.addEventListener('message', function(e) {eval(e.data);});"
         />
         <TouchableOpacity style={styles.button} onPress={ () => navigate('FullInfoPage',parameter) }>
           
@@ -54,7 +57,7 @@ class MainPage extends React.Component {
                         title="取卦"  
                         //   
                         //selected={this.state.tab=='liuyao'}  
-                        onPress={() => navigate('NewPage')}  
+                        onPress={() => this.begin()}  
                         titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
                     <TabNavigator.Item 
@@ -69,11 +72,27 @@ class MainPage extends React.Component {
                 
              </View>   
     )}
+    begin()
+    {
+      const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [
+              NavigationActions.navigate({ routeName: 'NewPage'}),
+          ]
+        })
+        this.props.navigation.dispatch(resetAction)
+    }
 
 
-      onShouldStartLoadWithRequest = (event) => {
+    onNavigationStateChange = (event) => {
+    if (this.webview) {
+      //DEFAULT_URL = event.url + this.props.navigation.state.params
+      var smsg = "msg('"+this.props.navigation.state.params+"')";
+      //alert(smsg)
+      this.webview.postMessage(smsg)
       return true;
     }
+  };
     
 }
 
