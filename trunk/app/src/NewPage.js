@@ -27,6 +27,7 @@ class HistoryPage extends React.Component {
   static navigationOptions = {
     //headerRight:(<Button title="返回" />),
     title: '取卦',
+    
   };
 
   render()
@@ -98,7 +99,10 @@ class HistoryPage extends React.Component {
       var index = (new Date()).valueOf().toString();
       randArray[7] = index;
       StorageModule.save({key:index,data:randArray})
-      this.props.navigation.navigate('MainPage',randArray)
+      this.props.navigation.state.params = randArray
+      //alert(this.props.navigation.state.params)
+      this.props.navigation.goBack()
+      //this.props.navigation.navigate('MainPage',randArray)
       this.picker("emotion")
       StorageModule.load({
             key:index,

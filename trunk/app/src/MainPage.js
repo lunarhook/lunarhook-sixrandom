@@ -46,6 +46,7 @@ class MainPage extends React.Component {
     
     const { navigate } = this.props.navigation;
     randArray = this.props.navigation.state.params
+    alert(this.props.navigation.state.params)
     if (undefined != randArray)
     {
       //alert(randArray)
@@ -62,7 +63,7 @@ class MainPage extends React.Component {
       parameter = "?date="+date+"&lunar="+lunar
       //this.begin("NewPage")
     }
-    
+    navigate.re
     return (
     <View style={styles.container}>
 
