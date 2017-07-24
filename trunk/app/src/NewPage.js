@@ -99,7 +99,7 @@ class HistoryPage extends React.Component {
       var index = (new Date()).valueOf().toString();
       randArray[7] = index;
       StorageModule.save({key:"last",data:randArray})
-      StorageModule.save({key:index,data:randArray})
+      StorageModule.save({key:"user",id:index,data:randArray})
       this.props.navigation.state.params = randArray
       //alert(this.props.navigation.state.params)
       

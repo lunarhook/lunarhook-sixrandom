@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View,  Text,WebView} from 'react-native';
+import {StyleSheet,View,  Text,WebView,Button} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { StackNavigator } from 'react-navigation';
 
@@ -15,6 +15,7 @@ class FullinfoPage extends React.Component {
     
     webview: WebView
     static navigationOptions = {
+       headerRight:(<Button title="分享" />),
     title: '详情',
     };
  
@@ -70,5 +71,12 @@ var styles = StyleSheet.create ({
     fontWeight: 'bold', //设置粗体字，'normal' /*default*/, 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900'  
     textDecorationLine: 'underline line-through',//下划线和删除线的样式：['none' /*default*/, 'underline', 'line-through', 'underline line-through'  
   },
+   button:{
+    height: 40,
+    width: 50,
+    backgroundColor:'transparent',
+   justifyContent:'center',
+   borderRadius: 20,
+    },
 });
 module.exports=FullinfoPage;  

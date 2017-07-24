@@ -25,22 +25,7 @@ class MainPage extends React.Component {
     headerRight:(<Button title="分享" />),
     title: '卦象',
   };
-  _renderdetail()
-  {
-    const { navigate } = this.props.navigation;
-    if (undefined != randArray)
-    {
-      return(
-      <TouchableOpacity style={styles.button} onPress={ () => navigate('FullInfoPage',parameter) }>
-        <Text style={styles.textstyle}
-        >
-          详细   
-        </Text>
-        </TouchableOpacity>
-      )
-    }
-    
-  }
+
 
   init()
   {
@@ -94,8 +79,12 @@ class MainPage extends React.Component {
           injectedJavaScript="document.addEventListener('message', function(e) {eval(e.data);});"
         ></WebView>
         
-        { this._renderdetail() 
-        }
+        <TouchableOpacity style={styles.button} onPress={ () => navigate('FullInfoPage',parameter) }>
+        <Text style={styles.textstyle}
+        >
+          详细   
+        </Text>
+        </TouchableOpacity>
        
       <TabNavigator tabBarStyle={{height:40}} style={{flex:1}}>  
                   <TabNavigator.Item
