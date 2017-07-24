@@ -18,7 +18,7 @@ var kHeight = Dimensions.get('window').height;
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomsimple.html"
 var randArray = []
-var parameter = "?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
+var parameter = ""//"?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
 class MainPage extends React.Component {
   webview: WebView
   static navigationOptions = {
@@ -41,15 +41,16 @@ class MainPage extends React.Component {
     }
     
   }
-   
-  render(){
-    
-    const { navigate } = this.props.navigation;
-    randArray = this.props.navigation.state.params
-    alert(this.props.navigation.state.params)
-    if (undefined != randArray)
-    {
-      //alert(randArray)
+
+  init()
+  {
+        const { navigate } = this.props.navigation;
+    //StorageModule.remove({key:"last"})
+    StorageModule.load({
+            key:"last",
+    }).then(ret => {
+       //alert(ret)
+      randArray = ret
       var date = new Date(Number(randArray[7]))
       var lunar = ""
       for (index =1;index<7;index++)
@@ -57,18 +58,30 @@ class MainPage extends React.Component {
         lunar = lunar+(randArray[index]).toString()
       }
       var question = randArray[0]
-      //alert(question)
-      //alert(lunar)
-      //alert(date)
-      parameter = "?date="+date+"&lunar="+lunar
-      //this.begin("NewPage")
-    }
-    navigate.re
-    return (
-    <View style={styles.container}>
 
-  <WebView
-          ref={WEBVIEW_REF}
+      parameter = "?date="+date+"&lunar="+lunar
+      if (this.webview) {
+      //DEFAULT_URL = event.url + this.props.navigation.state.params
+      var smsg = "msg('"+parameter+"')";
+      
+      this.webview.postMessage(smsg)
+      return true;
+    }
+      
+
+      }).catch(err => {
+           navigate('NewPage') 
+         })
+  }
+   
+  render(){
+      this.init();
+      const { navigate } = this.props.navigation;
+
+        return(
+    <View style={styles.container}>
+        <WebView
+          ref={webview => this.webview = webview}
           automaticallyAdjustContentInsets={true}
           style={styles.webView}
           source={{uri:DEFAULT_URL}}
@@ -78,10 +91,12 @@ class MainPage extends React.Component {
           onNavigationStateChange={this.onNavigationStateChange}
           onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
           startInLoadingState={true}
-          startInLoadingState={true}
           injectedJavaScript="document.addEventListener('message', function(e) {eval(e.data);});"
-        />
-        { this._renderdetail() }
+        ></WebView>
+        
+        { this._renderdetail() 
+        }
+       
       <TabNavigator tabBarStyle={{height:40}} style={{flex:1}}>  
                   <TabNavigator.Item
                         title="取卦"  
@@ -101,9 +116,10 @@ class MainPage extends React.Component {
                         
                     </TabNavigator.Item>  
                 </TabNavigator>  
-                
-             </View>   
-    )}
+                 
+              </View>  
+    )
+    }
     begin(pagename)
     {
       const resetAction = NavigationActions.reset({
@@ -115,16 +131,14 @@ class MainPage extends React.Component {
         this.props.navigation.dispatch(resetAction)
     }
 
-
     onNavigationStateChange = (event) => {
     if (this.webview) {
-      //DEFAULT_URL = event.url + this.props.navigation.state.params
-      var smsg = "msg('"+parameter+"')";
-      //alert(smsg)
-      this.webview.postMessage(smsg)
+       this.init();
       return true;
     }
   };
+
+
     
 }
 
@@ -141,7 +155,7 @@ var styles = StyleSheet.create ({
   },
   webSize: {
     width:kWidth,
-    height:kHeight
+    height:kHeight+50
   },
    button:{
     height: 40,

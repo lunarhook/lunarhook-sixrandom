@@ -98,17 +98,19 @@ class HistoryPage extends React.Component {
       randArray[0] = this.state.selectedValue;
       var index = (new Date()).valueOf().toString();
       randArray[7] = index;
+      StorageModule.save({key:"last",data:randArray})
       StorageModule.save({key:index,data:randArray})
       this.props.navigation.state.params = randArray
       //alert(this.props.navigation.state.params)
-      this.props.navigation.goBack()
+      
       //this.props.navigation.navigate('MainPage',randArray)
       this.picker("emotion")
       StorageModule.load({
-            key:index,
+            key:"last",
     }).then(ret => {
       //alert(index)
       //alert(ret)
+       this.begin("MainPage")
       })
     }
           
@@ -124,6 +126,16 @@ class HistoryPage extends React.Component {
     this.setState({dataSource: ds.cloneWithRows(dataArray)})
    // this.flatlist.refresh()
   }
+  begin(pagename)
+    {
+      const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [
+              NavigationActions.navigate({ routeName: pagename}),
+          ]
+        })
+        this.props.navigation.dispatch(resetAction)
+    }
 }
 
 var styles = StyleSheet.create ({
