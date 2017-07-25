@@ -12,6 +12,7 @@
 		"react-native-storage": "^0.2.2",
 		"react-native-tab-navigator": "^0.3.3",
 		"react-native-webview-invoke": "^0.3.10",
+		"react-native-wechat": "^1.9.9",
 		"react-navigation": "^1.0.0-beta.11"
 	},
 	"devDependencies": {

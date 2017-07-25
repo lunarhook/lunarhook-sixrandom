@@ -57,3 +57,10 @@ todo
 点击摇动出卦
 
 
+2017 07 26
+npm install react-native-wechat --save
+react-native link react-native-wechat
+增加微信链接
+
+appid wx893f885b12066487
+
