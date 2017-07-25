@@ -124,6 +124,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "sixrandom"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

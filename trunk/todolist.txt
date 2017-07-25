@@ -46,4 +46,14 @@ todo
 增加打包
 react-native bundle --entry-file ./index.ios.js --bundle-output ./ios/bundle/index.ios.jsbundle --platform ios --assets-dest ./ios/bundle --dev false
 
+2017 07 25
+基本页面跳转完成
+存储初步完成，基本业务流程完成
+
+todo
+分享
+删除历史（历史过滤）
+主页面调整显示webview
+点击摇动出卦
+
 

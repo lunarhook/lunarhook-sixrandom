@@ -39,6 +39,7 @@
 		562E0A1A1F1E1081004FB346 /* sixrandomfulldetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 562E0A161F1E1081004FB346 /* sixrandomfulldetail.html */; };
 		562E0A1B1F1E1081004FB346 /* sixrandomshare.html in Resources */ = {isa = PBXBuildFile; fileRef = 562E0A171F1E1081004FB346 /* sixrandomshare.html */; };
 		562E0A1C1F1E1081004FB346 /* sixrandomsimple.html in Resources */ = {isa = PBXBuildFile; fileRef = 562E0A181F1E1081004FB346 /* sixrandomsimple.html */; };
+		567D8C581F2701EE00E90D5B /* app.app in Resources */ = {isa = PBXBuildFile; fileRef = 13B07F961A680F5B00A75B9A /* app.app */; };
 		56A8B4771F194710006DD838 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 56A8B4761F194710006DD838 /* assets */; };
 		56CFD0341F155ADB006B0780 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
 		56CFD0351F155ADC006B0780 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
@@ -878,6 +879,7 @@
 				562E0A1B1F1E1081004FB346 /* sixrandomshare.html in Resources */,
 				562E0A131F1E0F47004FB346 /* index.ios.jsbundle in Resources */,
 				56A8B4771F194710006DD838 /* assets in Resources */,
+				567D8C581F2701EE00E90D5B /* app.app in Resources */,
 				562E0A1A1F1E1081004FB346 /* sixrandomfulldetail.html in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				562E0A191F1E1081004FB346 /* sixrandom.js in Resources */,
@@ -1043,7 +1045,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos10.3]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = JD2G9A573K;
@@ -1065,6 +1069,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JD2G9A573K;
@@ -1246,8 +1251,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos10.3]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos10.3]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = JD2G9A573K;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1262,6 +1267,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos10.3;
 				TVOS_DEPLOYMENT_TARGET = 10.2;
 				VALIDATE_PRODUCT = YES;
