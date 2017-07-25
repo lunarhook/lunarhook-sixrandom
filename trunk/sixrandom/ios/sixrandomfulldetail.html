@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>六爻完整信息</title>
+		<script src="sixrandom.js" type="text/javascript" >
+        </script>
+		<script>
+		var dpr, rem, scale;
+		var docEl = document.documentElement;
+		var fontEl = document.createElement('style');
+		var metaEl = document.querySelector('meta[name="viewport"]');
+		
+		dpr = window.devicePixelRatio || 1;
+		rem = docEl.clientWidth * dpr / 10;
+		scale = 1 / dpr;
+		// 设置viewport，进行缩放，达到高清效果
+		metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ',minimum-scale=' + scale + ',user-scalable=no');
+		// 设置data-dpr属性，留作的css hack之用
+		docEl.setAttribute('data-dpr', dpr);
+		// 动态写入样式
+		docEl.firstElementChild.appendChild(fontEl);
+		fontEl.innerHTML = 'html{font-size:' + rem*0.3+ 'px}';
+		// 给js调用的，某一dpr下rem和px之间的转换函数
+		window.rem2px = function(v) {
+			v = parseFloat(v);
+			return v * rem;
+		};
+		window.px2rem=function(v) {
+			v = parseFloat(v);
+			return v / rem;
+		};
+		window.dpr = dpr;
+		window.rem = rem;
+	</script>
+	</head>
+	    <body>
+	<script type="text/javascript">
+	var error = false
+	function documentwrite(cur)
+	{
+		if(false==error)
+		{
+			document.write(cur)
+		}
+			
+	}
+	function msg(event)
+	{
+		var info = null;
+		
+		var ret;
+		var args = {};
+        var match = null;
+        var search = decodeURIComponent(event.substring(1));
+        var reg = /(?:([^&]+)=([^&]+))/g;
+        while((match = reg.exec(search))!==null){
+            args[match[1]] = match[2];
+        }
+		info = args
+
+			try{
+		ret = recoverlunarsix(info)
+		}catch(e){
+			error = true
+		}
+
+		if(false==error)
+		{
+		
+			var o = ["","上爻","五爻","四爻","三爻","二爻","初爻"]
+		
+
+			for(index = 0;index<randomtime;index++)
+			{
+				ret.htmlmythdraw[randomtime-index] = six_random_myth[randomtime-index]//+":"+o[randomtime-index]+" ";
+				if(oldnegativevalue==six_random[randomtime-index])
+				{
+					ret.htmldraw[randomtime-index] = negativehtmldraw
+					ret.htmlchangeinfodraw[randomtime-index] = negativechangedraw
+				}
+				else if(oldpositivevalue==six_random[randomtime-index])
+				{
+					ret.htmldraw[randomtime-index] = positivehtmldraw
+					ret.htmlchangeinfodraw[randomtime-index] = positivechangedraw
+				}
+				else if(positivevalue==six_random[randomtime-index])
+				{
+					ret.htmldraw[randomtime-index] = positivehtmldraw
+					ret.htmlchangeinfodraw[randomtime-index] = nonechangehtmldraw
+				}
+				else if(negativevalue==six_random[randomtime-index])
+				{
+					ret.htmldraw[randomtime-index] = negativehtmldraw
+					ret.htmlchangeinfodraw[randomtime-index] = nonechangehtmldraw
+				}
+			}
+
+			for(index = 0;index<randomtime;index++)
+			{
+				if(oldnegativevalue==six_change_random[randomtime-index])
+				{
+					ret.htmlchangedraw[randomtime-index] = negativehtmldraw
+				}
+				else if(oldpositivevalue==six_change_random[randomtime-index])
+				{
+					ret.htmlchangedraw[randomtime-index] = positivehtmldraw
+				}
+				else if(positivevalue==six_change_random[randomtime-index])
+				{
+					ret.htmlchangedraw[randomtime-index] = positivehtmldraw
+				}
+				else if(negativevalue==six_change_random[randomtime-index])
+				{
+					ret.htmlchangedraw[randomtime-index] = negativehtmldraw
+				}
+			}
+		
+			for(index = 0;index<randomtime;index++)
+			{
+				var t = index+1
+				var n = six_random_date[7][t]
+				var change = 5==n.length?true:false;
+				var fs = "f"+t
+				if(undefined === six_random_date[7][fs])
+				{
+					htmlnajiadraw[index+1]  = nonajiahtmldraw + six_random_date[7][t];
+				}
+				else
+				{
+					htmlnajiadraw[index+1] = six_random_date[7][fs] +" "+ six_random_date[7][t]
+				}
+
+				if(true==change)
+				{
+
+						htmlnajiadraw[index+1] = htmlnajiadraw[index+1] + nonajiahtmldraw
+					
+				}
+				htmlnajiachangedraw[index+1] = six_random_date[8][t]
+				
+			}
+
+			if(false==error)
+				{
+					var a = ret.six_random_date[0]+"</br>"
+					a = a + ret.six_random_date[1]+"</br>"
+					a = a + ret.six_random_date[2]+"</br>"
+					a = a + ret.six_random_date[3]+"</br>"
+					a = a + ret.six_random_date[4]+"</br>"
+					document.getElementById("maininfo").innerHTML = a;
+					document.getElementById("originalname").innerHTML = "本卦:"+ret.six_random_date[7].name
+					document.getElementById("changename").innerHTML = "变卦:"+ret.six_random_date[8].name
+					document.getElementById("draworiginal").innerHTML = "本卦:"+ret.six_random_date[7].name
+					document.getElementById("drawchange").innerHTML = "变卦:"+ret.six_random_date[8].name
+					var _myth=_original=_originalchange=_change=""
+					var _mythdraw=_originaldraw=_originalchangedraw=_changedraw=""
+					for(index = 0;index<randomtime;index++)
+    				{
+							_myth = _myth + ret.htmlmythdraw[index+1]+nonajiahtmldraw+"</br>"
+							_original = _original + ret.htmldraw[index+1]+"</br>"
+							_originalchange = _originalchange + ret.htmlchangeinfodraw[index+1]+"</br>"
+							_change = _change + ret.htmlchangedraw[index+1]+"</br>"
+
+							_mythdraw = _mythdraw+ret.htmlmythdraw[index+1]+"</br>"
+							_originaldraw = _originaldraw+ret.htmlnajiadraw[index+1]+"</br>"
+							_originalchangedraw = _originalchangedraw+ ret.htmlchangeinfodraw[index+1]+"</br>"
+							_changedraw = _changedraw + ret.htmlnajiachangedraw[index+1]+"</br>"
+					}
+					document.getElementById("_myth").innerHTML = _myth
+					document.getElementById("_original").innerHTML = _original
+					document.getElementById("_originalchange").innerHTML = _originalchange
+					document.getElementById("_change").innerHTML = _change
+					document.getElementById("_mythdraw").innerHTML = _mythdraw
+					document.getElementById("_originaldraw").innerHTML = _originaldraw
+					document.getElementById("_originalchangedraw").innerHTML = _originalchangedraw
+					document.getElementById("_changedraw").innerHTML = _changedraw
+
+					var content = ""
+					content = content+ret.six_random_date[7].extname+"</br>"
+					content = content+ret.six_random_date[7].extnameexp+"</br>"
+					content = content+ret.six_random_date[7].extexp+"</br>"
+					content = content+ret.six_random_date[7].ext+"</br>"
+					for(index =1 ;index < 13 ;index++)
+					{
+						var x = "exp"+index
+						content = content+ret.six_random_date[7][x]+"</br>"
+					}
+					document.getElementById("content").innerHTML = content
+				}
+				else
+				{
+					document.getElementById("maininfo").innerHTML = "六爻参数错误，详细信息链接失效!!";
+					//alert("六爻参数错误，详细信息链接失效!!")
+				}
+		}
+	}
+	
+
+	
+	
+	</script>
+	<table name ="viewall">
+	<table>
+		<tr>
+			<td >
+			<div id="maininfo">
+			</div>
+			</td>
+		</tr>
+		</table>
+		</br>
+		<table align="center">
+		<tr>
+			<td>
+			</td>
+			<td>
+				<div id="originalname">
+				
+			</div>
+			</td>
+			<td>
+			</td>
+			<td>
+				<div id="changename">
+		
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="_myth">
+				
+				</div>
+			</div>
+			</td>
+			<td>
+				<div id="_original">
+
+			</div>
+			</div>
+			</td>
+			<td>
+				<div id="_originalchange">
+				</div>
+			</td>
+			<td>
+				<div id="_change">
+				</div>
+			</td>
+		</tr>
+		</table>
+</br>
+		<table align="center">
+		<tr>
+			<td>
+			</td>
+			<td>
+				<div id="draworiginal">
+
+</div>
+			</td>
+			<td>
+			</td>
+			<td>
+				<div id="drawchange">
+
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="_mythdraw">
+				
+
+				</div>
+			</td>
+			<td style="text-align:right;">
+				<div id="_originaldraw">
+				
+</div>
+			</td>
+						<td>
+							<div id="_originalchangedraw">
+				
+							</div>
+			</td>
+			<td>
+				<div id="_changedraw">
+				
+				</div>
+			</td>
+		</tr>
+	</table>
+	</br>
+	<table>
+		<tr>
+			<td>
+				<div id = "content">
+				</div>
+				</td>
+				</tr>
+	</table>
+	</table>
+</body>
+<html>

@@ -9,10 +9,10 @@ import {AppRegistry,Navigator,StyleSheet,View,  Text} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 
-import MainPage from '../app/src/MainPage';
-import HistoryPage from '../app/src/HistoryPage';
-import NewPage from '../app/src/NewPage';
-import FullInfoPage from '../app/src/FullInfoPage'
+import MainPage from './src/MainPage';
+import HistoryPage from './src/HistoryPage';
+import NewPage from './src/NewPage';
+import FullInfoPage from './src/FullInfoPage'
 
 
 
