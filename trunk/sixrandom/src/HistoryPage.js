@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View,TouchableOpacity,  Text,RefreshControl,ListView} from 'react-native';
+import {StyleSheet,View,TouchableOpacity,Alert,  Text,RefreshControl,ListView} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { StackNavigator } from 'react-navigation';
 
@@ -44,17 +44,35 @@ class HistoryPage extends React.Component {
     return (
       
       <View style={{height: 50}}>
-      <TouchableOpacity style={styles.button} onPress={ () => navigate('FullInfoPage',rowData.url) }>
+      <TouchableOpacity style={styles.button} onLongPress={()=>this._deleteRow(rowData)}onPress={ () => navigate('FullInfoPage',rowData.url) }>
         <Text>{rowData.name}</Text>
         </TouchableOpacity>
       </View>
     );
+  }
+   _deleteRow(rowData) {  
+        Alert.alert(
+        '提示',
+        '删除: '+rowData.name,
+        [
+          {text: '取消', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: '删除', onPress: () => this._deletehistory(rowData)},
+        ],
+        { cancelable: false }
+      )
+       
+    }
+  _deletehistory(rowData)
+  {
+      StorageModule.remove({key:'user',id:rowData.id});
+      this.refreshlist();
   }
   
   refreshlist()
   {
     this.setState({isLoading: true});
     const { navigate } = this.props.navigation;
+    HistoryNameArray = []
     //StorageModule.remove({key:"last"})
     StorageModule.getAllDataForKey('user').then(ids => {
 
@@ -71,7 +89,8 @@ class HistoryPage extends React.Component {
                 var question = randArray[0]
                 var obj = {
                   name:date.toLocaleDateString() + " 问题 " + question,
-                  url:"?date="+date+"&lunar="+lunar+"&question="+question
+                  url:"?date="+date+"&lunar="+lunar+"&question="+question,
+                  id:randArray[7]
                 }
                 HistoryNameArray[i] = obj
                 //alert(HistoryNameArray[i])
@@ -79,15 +98,27 @@ class HistoryPage extends React.Component {
             HistoryNameArray.reverse()
             this.setState({  
             isLoading: false,  
-            dataSource: this.state.dataSource.cloneWithRows(HistoryNameArray) });  
+            dataSource: this.state.dataSource.cloneWithRows(HistoryNameArray) }); 
+            if(ids.length==0)
+              {
+                this.props.navigation.goBack()
+              } 
             //alert(HistoryNameArray)
+            return
     });
+
+    
+    this.setState({  
+            isLoading: false,  
+            dataSource: this.state.dataSource.cloneWithRows(HistoryNameArray) });  
+            return
   }
   render()
   {
     const { navigate } = this.props.navigation;
     return (
             <ListView
+            enableEmptySections={true}
 						dataSource={this.state.dataSource}
 						renderRow={this._renderRow.bind(this)}
 						initialListSize={1}
