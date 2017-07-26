@@ -12,6 +12,7 @@ import HistoryPage from './HistoryPage';
 import StorageModule from './StorageModule'
 import NewPage from './NewPage';
 import FullInfoPage from './FullInfoPage';
+import ShareModule from './ShareModule'
 
 var kWidth = Dimensions.get('window').width;
 var kHeight = Dimensions.get('window').height;
@@ -22,7 +23,7 @@ var parameter = ""//"?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123"
 class MainPage extends React.Component {
   webview: WebView
   static navigationOptions = {
-    headerRight:(<Button title="分享" />),
+    headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline()}/>),
     title: '卦象',
   };
 
