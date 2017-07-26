@@ -22,6 +22,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		368926C16D97469B9C28581A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C50DCF6B197D40EF85F7938E /* libReact.a */; };
 		4277ED8BF7CA4D499A3D1494 /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E7F141332D846E0A5D8127F /* libyoga.a */; };
+		5648749D1F2890DB00C33C48 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 5648749C1F2890DB00C33C48 /* index.ios.jsbundle */; };
 		567C88741F27CEA9001CFD07 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567C88731F27CEA9001CFD07 /* CoreTelephony.framework */; };
 		567C888F1F27CEC1001CFD07 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567C888E1F27CEC1001CFD07 /* SystemConfiguration.framework */; };
 		567C88911F27CED1001CFD07 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 567C88901F27CED1001CFD07 /* libz.tbd */; };
@@ -247,6 +248,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = sixrandom/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = sixrandom/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		5648749C1F2890DB00C33C48 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = index.ios.jsbundle; path = bundle/index.ios.jsbundle; sourceTree = "<group>"; };
 		567C88731F27CEA9001CFD07 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		567C888E1F27CEC1001CFD07 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		567C88901F27CED1001CFD07 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -415,6 +417,7 @@
 				56E0A4E21F2775A100F7F1C5 /* sixrandomfulldetail.html */,
 				56E0A4E31F2775A100F7F1C5 /* sixrandomshare.html */,
 				56E0A4E41F2775A100F7F1C5 /* sixrandomsimple.html */,
+				5648749C1F2890DB00C33C48 /* index.ios.jsbundle */,
 			);
 			name = html;
 			sourceTree = "<group>";
@@ -517,7 +520,7 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = JD2G9A573K;
+						DevelopmentTeam = AMHU8R4G9M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -792,6 +795,7 @@
 				56E0A4E51F2775A100F7F1C5 /* sixrandom.js in Resources */,
 				56E0A4E61F2775A100F7F1C5 /* sixrandomfulldetail.html in Resources */,
 				56E0A4E81F2775A100F7F1C5 /* sixrandomsimple.html in Resources */,
+				5648749D1F2890DB00C33C48 /* index.ios.jsbundle in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -847,7 +851,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = JD2G9A573K;
+				DEVELOPMENT_TEAM = AMHU8R4G9M;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-wechat/ios",
@@ -881,9 +885,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiaolong fan (KFW6Y533W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JD2G9A573K;
+				DEVELOPMENT_TEAM = AMHU8R4G9M;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-wechat/ios",
@@ -977,7 +981,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiaolong fan (KFW6Y533W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
