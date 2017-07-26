@@ -20,6 +20,8 @@ var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomsimple.html"
 var randArray = []
 var parameter = ""//"?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
+var jump = false
+
 class MainPage extends React.Component {
   webview: WebView
   static navigationOptions = {
@@ -30,6 +32,7 @@ class MainPage extends React.Component {
 
   init()
   {
+    
         const { navigate } = this.props.navigation;
     //StorageModule.remove({key:"last"})
     StorageModule.load({
@@ -56,14 +59,20 @@ class MainPage extends React.Component {
       
 
       }).catch(err => {
-           navigate('NewPage') 
+          if(false==jump)
+            {
+              this.begin('NewPage')
+               jump = true
+            }
+          
+         
+           
          })
   }
    
   render(){
-      this.init();
       const { navigate } = this.props.navigation;
-
+      jump = false;
         return(
     <View style={styles.container}>
         <WebView
@@ -123,7 +132,9 @@ class MainPage extends React.Component {
 
     onNavigationStateChange = (event) => {
     if (this.webview) {
+      
        this.init();
+       
       return true;
     }
   };
