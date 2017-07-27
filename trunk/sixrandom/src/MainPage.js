@@ -15,7 +15,7 @@ import FullInfoPage from './FullInfoPage';
 import ShareModule from './ShareModule'
 
 var kWidth = Dimensions.get('window').width;
-var kHeight = Dimensions.get('window').height;
+var kHeight = Dimensions.get('window').height+200;
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomsimple.html"
 var randArray = []
@@ -88,15 +88,16 @@ class MainPage extends React.Component {
           startInLoadingState={true}
           injectedJavaScript="document.addEventListener('message', function(e) {eval(e.data);});"
         ></WebView>
-        
+       
         <TouchableOpacity style={styles.button} onPress={ () => navigate('FullInfoPage',parameter) }>
-        <Text style={styles.textstyle}
+        <Text style={styles.textbutton}
         >
           详细   
         </Text>
         </TouchableOpacity>
-       
-      <TabNavigator tabBarStyle={{height:40}} style={{flex:1}}>  
+      <TabNavigator 
+       tabBarStyle={{ height: 40 }}
+       sceneStyle={{ paddingBottom: 30 }}>  
                   <TabNavigator.Item
                         title="取卦"  
                         //   
@@ -158,12 +159,20 @@ var styles = StyleSheet.create ({
     width:kWidth,
     height:kHeight+50
   },
+  textbutton:{
+    textAlign:'center', 
+  },
    button:{
-    height: 40,
-    width: 50,
+    height: 30,
+    //width: 50,
     backgroundColor:'transparent',
    justifyContent:'center',
-   borderRadius: 20,
+   borderRadius: 4,
     },
+  tabBarStyle:{
+    flex: 1,
+    height:40,
+    flex:1
+  }
 });
 module.exports=MainPage;  

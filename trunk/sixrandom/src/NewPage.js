@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View,  Text,ListView,Picker} from 'react-native';
+import {StyleSheet,View, TextInput, Text,ListView,Picker} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
@@ -19,7 +19,8 @@ class HistoryPage extends React.Component {
         this.state= {
            dataSource: ds.cloneWithRows(dataArray),
             selectedValue: 'emotion',
-            Step: 7
+            Step: 7,
+            Tip: ""
     }
   }
 
@@ -56,6 +57,14 @@ class HistoryPage extends React.Component {
           enableEmptySections = {true}
           renderRow={(rowData) => <Text style={styles.containerlist}>{rowData}</Text>}
         />
+        <TextInput
+                style={styles.input}
+                returnKeyType="search"
+                placeholder="求卦笔记"
+                underlineColorAndroid="transparent"
+                multiline={true}
+                placeholderTextColor = "#cccccc"
+                onChangeText={(text) => this.setState({Tip:text})}/>
             </View> 
             )
     }
@@ -98,6 +107,7 @@ class HistoryPage extends React.Component {
       randArray[0] = this.state.selectedValue;
       var index = (new Date()).valueOf().toString();
       randArray[7] = index;
+      randArray[8] = this.state.Tip
       StorageModule.save({key:"last",data:randArray})
       StorageModule.save({key:"user",id:index,data:randArray})
       this.props.navigation.state.params = randArray
@@ -145,6 +155,17 @@ var styles = StyleSheet.create ({
    alignItems: 'center',
    lineHeight:45,     //行高  
     
+  },
+  input:{
+    height:45,
+    //borderWidth:1,
+    marginLeft: 10,
+    paddingLeft:10,
+    //borderColor: '#ccc',
+    borderRadius: 4,
+    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
+    textAlign:'center', 
+    textDecorationLine:'underline'
   },
   container: {
     flex:1,

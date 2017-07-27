@@ -43,7 +43,7 @@ class HistoryPage extends React.Component {
     //alert(rowData.name)
     return (
       
-      <View style={{height: 50}}>
+      <View style={styles.list}>
       <TouchableOpacity style={styles.button} onLongPress={()=>this._deleteRow(rowData)}onPress={ () => navigate('FullInfoPage',rowData.url) }>
         <Text>{rowData.name}</Text>
         </TouchableOpacity>
@@ -139,6 +139,17 @@ class HistoryPage extends React.Component {
 var styles = StyleSheet.create ({
   container: {
     flex:1
+  },
+  list:{
+    height:45,
+    //borderWidth:1,
+    marginLeft: 20,
+    paddingLeft:20,
+    //borderColor: '#ccc',
+    borderRadius: 4,
+    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
+    //textAlign:'center', 
+    //textDecorationLine:'underline'
   },
     vb_text: {  
     color: '#333333',  
