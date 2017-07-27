@@ -77,7 +77,8 @@ class MainPage extends React.Component {
     <View style={styles.container}>
         <WebView
           ref={webview => this.webview = webview}
-          automaticallyAdjustContentInsets={true}
+          automaticallyAdjustContentInsets={false}
+          scalesPageToFit={true}
           style={styles.webView}
           source={{uri:DEFAULT_URL}}
           javaScriptEnabled={true}
