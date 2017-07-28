@@ -13,6 +13,8 @@ import StorageModule from './StorageModule'
 import NewPage from './NewPage';
 import FullInfoPage from './FullInfoPage';
 import ShareModule from './ShareModule'
+import SixrandomModule from './SixrandomModule'
+
 const {width, height} = Dimensions.get('window');  
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomsimple.html"
