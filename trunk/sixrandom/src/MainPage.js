@@ -23,7 +23,7 @@ var jump = false
 class MainPage extends React.Component {
   webview: WebView
   static navigationOptions = {
-    headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline()}/>),
+    //headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline()}/>),
     title: '卦象',
   };
 
@@ -70,10 +70,7 @@ class MainPage extends React.Component {
            
          })
   }
-  handleMessage= e => {
-    console.log(e.nativeEvent.data);
-  }
-   
+  
   render(){
       const { navigate } = this.props.navigation;
       jump = false;
@@ -84,7 +81,7 @@ class MainPage extends React.Component {
         <WebView 
         visibility={false}
           ref={webview => this.webview = webview}
-          onMessage={this.handleMessage}
+          //onMessage={this.handleMessage}
           source={{uri:DEFAULT_URL}}
           javaScriptEnabled={true}
           domStorageEnabled={true}

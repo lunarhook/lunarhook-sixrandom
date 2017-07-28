@@ -15,7 +15,7 @@ class FullinfoPage extends React.Component {
     
     webview: WebView
     static navigationOptions = {
-       headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline()}/>),
+       //headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline()}/>),
     title: '详情',
     };
  

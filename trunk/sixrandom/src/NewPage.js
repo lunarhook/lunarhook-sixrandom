@@ -66,7 +66,27 @@ class HistoryPage extends React.Component {
           enableEmptySections = {true}
           renderRow={(rowData) => <Text style={styles.containerlist}>{rowData}</Text>}
         />
-        
+        <TabNavigator 
+       tabBarStyle={{ height: 40 }}
+       sceneStyle={{ paddingBottom: 30 }}>  
+                  <TabNavigator.Item
+                        title="解卦"  
+                        //   
+                        //selected={this.state.tab=='liuyao'}  
+                        //onPress={() => this.begin('NewPage')
+                        onPress={() => this.begin('MainPage') 
+                        }  
+                        titleStyle={styles.menufont}>  
+                    </TabNavigator.Item>  
+                    <TabNavigator.Item 
+                        title="历史"  
+                        //selected={this.state.tab=='history'}   
+                        onPress={ 
+                            () => navigate('HistoryPage') 
+                          }titleStyle={styles.menufont}>  
+                        
+                    </TabNavigator.Item>  
+                </TabNavigator>  
             </View> 
             )
     }
@@ -168,6 +188,11 @@ var styles = StyleSheet.create ({
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
     textAlign:'center', 
     textDecorationLine:'underline'
+  },
+  menufont:{
+    fontSize:15,
+    color: '#333333', 
+    height:25
   },
   container: {
     flex:1,

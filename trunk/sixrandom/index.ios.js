@@ -20,7 +20,7 @@ class splash extends Component {
   
   render() {
     return (
-      <MainPage/>
+      <NewPage/>
         )
   }
 }
