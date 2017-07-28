@@ -42,6 +42,7 @@
 	    <body>
 	<script type="text/javascript">
 	var error = false
+	var ret;
 	function documentwrite(cur)
 	{
 		if(false==error)
@@ -50,11 +51,22 @@
 		}
 			
 	}
+	function toreactnative()
+	{
+		try{
+			
+		window.postMessage(JSON.stringify(ret))
+		
+		}catch(e){
+			
+			error = true
+		}
+	}
 	function msg(event)
 	{
 		var info = null;
 		
-		var ret;
+		
 		var args = {};
         var match = null;
         var search = decodeURIComponent(event.substring(1));
@@ -69,7 +81,7 @@
 		}catch(e){
 			error = true
 		}
-
+		setTimeout("toreactnative()",1000);
 		if(false==error)
 		{
 		
@@ -189,6 +201,8 @@
 					//alert("六爻参数错误，详细信息链接失效!!")
 				}
 		}
+			
+		
 	}
 	
 

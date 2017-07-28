@@ -70,7 +70,7 @@ class HistoryPage extends React.Component {
   
   refreshlist()
   {
-    this.setState({isLoading: true});
+    //this.setState({isLoading: true});
     const { navigate } = this.props.navigation;
     HistoryNameArray = []
     //StorageModule.remove({key:"last"})

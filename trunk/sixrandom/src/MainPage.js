@@ -13,9 +13,7 @@ import StorageModule from './StorageModule'
 import NewPage from './NewPage';
 import FullInfoPage from './FullInfoPage';
 import ShareModule from './ShareModule'
-
-var kWidth = Dimensions.get('window').width;
-var kHeight = Dimensions.get('window').height+200;
+const {width, height} = Dimensions.get('window');  
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomsimple.html"
 var randArray = []
@@ -33,12 +31,14 @@ class MainPage extends React.Component {
   init()
   {
     
+    
         const { navigate } = this.props.navigation;
     //StorageModule.remove({key:"last"})
     StorageModule.load({
             key:"last",
     }).then(ret => {
        //alert(ret)
+       //return
       randArray = ret
       var date = new Date(Number(randArray[7]))
       var lunar = ""
@@ -54,6 +54,7 @@ class MainPage extends React.Component {
       var smsg = "msg('"+parameter+"')";
       
       this.webview.postMessage(smsg)
+      this.forceUpdate()
       return true;
     }
       
@@ -69,17 +70,21 @@ class MainPage extends React.Component {
            
          })
   }
+  handleMessage= e => {
+    console.log(e.nativeEvent.data);
+  }
    
   render(){
       const { navigate } = this.props.navigation;
       jump = false;
         return(
     <View style={styles.container}>
-        <WebView
+      <TouchableOpacity 
+      style={""==parameter?null:styles.container}>
+        <WebView 
+        visibility={false}
           ref={webview => this.webview = webview}
-          automaticallyAdjustContentInsets={false}
-          scalesPageToFit={true}
-          style={styles.webView}
+          onMessage={this.handleMessage}
           source={{uri:DEFAULT_URL}}
           javaScriptEnabled={true}
           domStorageEnabled={true}
@@ -88,14 +93,16 @@ class MainPage extends React.Component {
           onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
           startInLoadingState={true}
           injectedJavaScript="document.addEventListener('message', function(e) {eval(e.data);});"
+          
         ></WebView>
-       
+       </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={ () => navigate('FullInfoPage',parameter) }>
         <Text style={styles.textbutton}
         >
-          详细   
+          {""==parameter?"":"详细"}   
         </Text>
         </TouchableOpacity>
+        
       <TabNavigator 
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  
@@ -155,10 +162,6 @@ var styles = StyleSheet.create ({
     fontSize:15,
     color: '#333333', 
     height:25
-  },
-  webSize: {
-    width:kWidth,
-    height:kHeight+50
   },
   textbutton:{
     textAlign:'center', 
