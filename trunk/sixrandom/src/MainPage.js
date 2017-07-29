@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View, Button,TouchableOpacity,Text,WebView} from 'react-native';
+import {StyleSheet,View, Text,Button,TouchableOpacity,RefreshControl,ScrollView} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
@@ -23,17 +23,29 @@ var parameter = ""//"?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123"
 var jump = false
 
 class MainPage extends React.Component {
-  webview: WebView
-  static navigationOptions = {
-    //headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline()}/>),
-    title: '卦象',
-  };
+  constructor(props) {
 
+  super(props);
+  
+		this.state = {
+			isLoading: false,
+		};
+  this.init()
+  }
+
+  static navigationOptions = ({navigation})=>{
+    const { navigate } = navigation;
+    return{
+    headerRight:(<Button title="详细" onPress={ () => navigate("FullInfoPage",parameter) }/>),
+    title: '卦象',
+    }
+  };
+  
+  build()
+  {}
 
   init()
   {
-    
-    
         const { navigate } = this.props.navigation;
     //StorageModule.remove({key:"last"})
     StorageModule.load({
@@ -51,57 +63,42 @@ class MainPage extends React.Component {
       var question = randArray[0]
 
       parameter = "?date="+date+"&lunar="+lunar
-      if (this.webview) {
-      //DEFAULT_URL = event.url + this.props.navigation.state.params
-      var smsg = "msg('"+parameter+"')";
-      
-      this.webview.postMessage(smsg)
-      this.forceUpdate()
-      return true;
-    }
-      
 
+      var _ret = SixrandomModule.build(parameter);
+      console.log(_ret);
       }).catch(err => {
+        //alert(err)
           if(false==jump)
             {
               this.begin('NewPage')
                jump = true
             }
-          
-         
-           
-         })
+      })
+     
   }
   
   render(){
       const { navigate } = this.props.navigation;
       jump = false;
+      
         return(
     <View style={styles.container}>
-      <TouchableOpacity 
-      style={""==parameter?null:styles.container}>
-        <WebView 
-        visibility={false}
-          ref={webview => this.webview = webview}
-          //onMessage={this.handleMessage}
-          source={{uri:DEFAULT_URL}}
-          javaScriptEnabled={true}
-          domStorageEnabled={true}
-          decelerationRate="normal"
-          onNavigationStateChange={this.onNavigationStateChange}
-          onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
-          startInLoadingState={true}
-          injectedJavaScript="document.addEventListener('message', function(e) {eval(e.data);});"
-          
-        ></WebView>
-       </TouchableOpacity>
+
         <TouchableOpacity style={styles.button} onPress={ () => navigate('FullInfoPage',parameter) }>
         <Text style={styles.textbutton}
         >
           {""==parameter?"":"详细"}   
         </Text>
         </TouchableOpacity>
-        
+        <ScrollView  
+        style={styles.container}  
+        refreshControl={  
+          <RefreshControl  
+           refreshing={this.state.isLoading}  
+            onRefresh={this._onRefresh}  
+          />  
+        }>  
+      </ScrollView>  
       <TabNavigator 
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  
@@ -138,18 +135,12 @@ class MainPage extends React.Component {
         this.props.navigation.dispatch(resetAction)
     }
 
-    onNavigationStateChange = (event) => {
-    if (this.webview) {
-      
-       this.init();
-       
-      return true;
-    }
+   
   };
 
 
     
-}
+
 
 
 

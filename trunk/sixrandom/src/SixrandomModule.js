@@ -2587,11 +2587,11 @@ get_six_original_random()
 获取本卦六爻
 */
 {
-
     for(index = 0;index<randomtime;index++)
     {
         six_random[randomtime - index] = lunardate[randomtime-index-1];
-    }
+	}
+	//alert(six_random)
 }
  get_six_change_random()
 /*
@@ -2635,10 +2635,10 @@ get_six_original_random()
 
  get_empty_date()
 {
-	six_random_empty[0] = get_empty_sixty_cycle(startinfo.gzYear);
-	six_random_empty[1] = get_empty_sixty_cycle(startinfo.gzMonth);
-	six_random_empty[2] = get_empty_sixty_cycle(startinfo.gzDate);
-	six_random_empty[3] = get_empty_sixty_cycle(startinfo.gzTime);
+	six_random_empty[0] = this.get_empty_sixty_cycle(startinfo.gzYear);
+	six_random_empty[1] = this.get_empty_sixty_cycle(startinfo.gzMonth);
+	six_random_empty[2] = this.get_empty_sixty_cycle(startinfo.gzDate);
+	six_random_empty[3] = this.get_empty_sixty_cycle(startinfo.gzTime);
 }
 
 
@@ -2759,6 +2759,7 @@ get_six_original_random()
 
  get_random_draw()
 {
+	/*
 	console.log(six_random_date[0]);
 	console.log(six_random_date[1]);
 	console.log(six_random_date[2]);
@@ -2884,6 +2885,7 @@ get_six_original_random()
 		var x = "exp"+index
 		console.log(six_random_date[7][x])
 	}
+	*/
 }
 
  get_six_random()
@@ -2892,21 +2894,21 @@ get_six_original_random()
 */
 {
 	
-	get_six_random_date();
+	this.get_six_random_date();
    
     //变卦
-    get_six_change_random();
+    this.get_six_change_random();
     //伏神纳甲世应
     //旬空
-    get_empty_date();
+    this.get_empty_date();
     //神煞
-	get_six_random_help_myth()
+	this.get_six_random_help_myth()
     //六神
-	get_six_random_myth()
+	this.get_six_random_myth()
 	//装卦
-	get_random_name()
+	this.get_random_name()
 	//调试画卦
-	get_random_draw();
+	//this.get_random_draw();
 	return {
 		info:startinfo,
 		six_random_date:six_random_date,
@@ -2915,12 +2917,12 @@ get_six_original_random()
 		six_random_empty:six_random_empty,
 		six_random_myth:six_random_myth,
 		six_random_help_myth:six_random_help_myth,
-		htmldraw:htmldraw,
-		htmlchangedraw:htmlchangedraw,
-		htmlmythdraw:htmlmythdraw,
-		htmlnajiadraw:htmlnajiadraw,
-		htmlnajiachangedraw:htmlnajiachangedraw,
-		htmlchangeinfodraw:htmlchangeinfodraw,
+		//htmldraw:htmldraw,
+		//htmlchangedraw:htmlchangedraw,
+		//htmlmythdraw:htmlmythdraw,
+		//htmlnajiadraw:htmlnajiadraw,
+		//htmlnajiachangedraw:htmlnajiachangedraw,
+		//htmlchangeinfodraw:htmlchangeinfodraw,
 	}
 	
 }
@@ -2953,14 +2955,34 @@ get_six_original_random()
  recoverlunarsix(ret_info=null)
 {
 	//Mon Jul 10 2017 23:43:54 GMT+0800 (CST)
-	var info = null==ret_info?getArgs():ret_info
-	startinfo = lunar_f(info.date);
-	recover_six_original_random(info.lunar)
+	var info = ret_info
+	startinfo = this.lunar_f(info.date);
+	//alert(startinfo)
+	this.recover_six_original_random(info.lunar)
     //本卦爻变
-	return get_six_random();
+	return this.get_six_random();
+	//return null
 	//存盘序列化
 }
 
+	 build(msg)
+	{
+		var info = null;
+		
+		var ret;
+		var args = {};
+        var match = null;
+        var search = decodeURIComponent(msg.substring(1));
+        var reg = /(?:([^&]+)=([^&]+))/g;
+        while((match = reg.exec(search))!==null){
+            args[match[1]] = match[2];
+        }
+		info = args
+		//alert(info)
+		
+		ret = this.recoverlunarsix(info)
+		return ret
+	}
 }
 
 var sixrandommodule = new SixrandomModule()
