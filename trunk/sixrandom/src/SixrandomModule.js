@@ -2756,6 +2756,45 @@ get_six_original_random()
 	six_random_date[7] = six_random_NaJia[six_random_date[5]]
 	six_random_date[8] = six_random_NaJia[six_random_date[6]];
 }
+get_simple_random_draw()
+{
+	var _build = new Array();
+
+	_build.push("")
+	_build.push("")
+	_build.push(six_random_date[0]);
+	_build.push(six_random_date[1]);
+	_build.push("")
+	_build.push(six_random_date[7].name)
+
+
+	for(index = 0;index<randomtime;index++)
+    {
+		if(oldnegativevalue==six_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] =  negativedraw 
+		}
+		else if(oldpositivevalue==six_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] =  positivedraw 
+		}
+		else if(positivevalue==six_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] =  positivedraw 
+		}
+		else if(negativevalue==six_random[randomtime-index])
+		{
+			six_random_draw[randomtime-index] =  negativedraw 
+		}
+	}
+
+	for(index = 0;index<randomtime;index++)
+    {
+		_build.push(six_random_draw[index+1]);
+	}
+
+	return _build
+}
 
  get_random_draw()
 {

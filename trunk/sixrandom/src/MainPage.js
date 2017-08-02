@@ -74,7 +74,7 @@ class MainPage extends React.Component {
       parameter = "?date="+date+"&lunar="+lunar
 
       var _ret = SixrandomModule.build(parameter);
-      var _build = SixrandomModule.get_random_draw()
+      var _build = SixrandomModule.get_simple_random_draw()
 
     this.setState({  
             dataSource: this.state.dataSource.cloneWithRows(_build) }); 
@@ -188,8 +188,8 @@ var styles = StyleSheet.create ({
     //textAlign:'center', 
     //textDecorationLine:'underline'
     flexWrap:'wrap',
-    alignItems: 'flex-start'
-    //flexDirection: 'row',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
   },
   textbutton:{
     textAlign:'center', 

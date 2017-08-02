@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View, TextInput, Text,ListView,Picker} from 'react-native';
+import {StyleSheet,Keyboard,View, TextInput, Text,ListView,Picker} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
@@ -24,7 +24,6 @@ class HistoryPage extends React.Component {
     }
   }
 
-  flatlist:FlatList
   static navigationOptions = {
     //headerRight:(<Button title="返回" />),
     title: '取卦',
@@ -44,6 +43,7 @@ class HistoryPage extends React.Component {
                 underlineColorAndroid="transparent"
                 multiline={true}
                 placeholderTextColor = "#cccccc"
+                onSubmitEditing={Keyboard.dismiss} 
                 onChangeText={(text) => this.setState({Tip:text})}/>
                 
               
