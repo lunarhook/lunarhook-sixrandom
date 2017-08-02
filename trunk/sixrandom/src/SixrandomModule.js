@@ -2260,11 +2260,11 @@ const positivevalue = 2;                    //少阳
 const oldpositivevalue = 3                  //老阳
 const randomtime = 6 
 
-const negativedraw = "---   ---";
-const positivedraw = "---------";
+const negativedraw = "--- ---";
+const positivedraw = "-------";
 const negativechangedraw = "X->";
 const positivechangedraw = "O->";
-const nonechangedraw = "   ";
+const nonechangedraw = "      ";
 const nonechangehtmldraw = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 const negativehtmldraw = "▄▄&nbsp;&nbsp;&nbsp;▄▄";
 const positivehtmldraw = "▄▄▄▄▄";
@@ -2759,21 +2759,24 @@ get_six_original_random()
 
  get_random_draw()
 {
-	/*
-	console.log(six_random_date[0]);
-	console.log(six_random_date[1]);
-	console.log(six_random_date[2]);
-	console.log(six_random_date[3]);
-	console.log(six_random_date[4]);
+	
+	var _build = new Array();
+	_build.push(six_random_date[0]);
+	_build.push(six_random_date[1]);
+	_build.push(six_random_date[2]);
+	_build.push(six_random_date[3]);
+	_build.push(six_random_date[4]);
 	//console.log(six_random_date[5]);
 	//console.log(six_random_date[6]);
-	console.log("本卦： "+six_random_date[7].name+"     变卦："+six_random_date[8].name);
+	_build.push("")
+	_build.push(("      本卦：        "+six_random_date[7].name+"     变卦："+six_random_date[8].name))
+	
 	//console.log();
 	var o = ["","上爻","五爻","四爻","三爻","二爻","初爻"]
 
 	for(index = 0;index<randomtime;index++)
     {
-		six_random_draw[randomtime-index] = six_random_myth[randomtime-index]+":"+o[randomtime-index]+" ";
+		six_random_draw[randomtime-index] = six_random_myth[randomtime-index]+":"+o[randomtime-index]+"          ";
 		if(oldnegativevalue==six_random[randomtime-index])
 		{
 			six_random_draw[randomtime-index] = six_random_draw[randomtime-index] + negativedraw +" "+ negativechangedraw +" "
@@ -2814,8 +2817,10 @@ get_six_original_random()
 
 	for(index = 0;index<randomtime;index++)
     {
-		console.log(six_random_draw[index+1]);
+		_build.push(six_random_draw[index+1]);
 	}
+
+	_build.push("")
 	for(index = 0;index<randomtime;index++)
     {
 		var t = index+1
@@ -2824,68 +2829,63 @@ get_six_original_random()
 		var fs = "f"+t
 		if(undefined === six_random_date[7][fs])
 		{
-			n = "%c 没有伏神 %c" + n
+			n = "                " + n
 		}
 		else
 		{
-			n = " " + six_random_date[7][fs]+ " " + n
+			n =  six_random_date[7][fs]+ " " + n
 		}
 		var c = six_random[t]
 		var cc = ""
 		if(3==c)
 		{
-			cc=positivechangedraw + " "
+
+					cc= positivechangedraw + " "
+
+			
 		}
 		else if(0==c)
 		{
-			cc=negativechangedraw + " "
-		}
-		else
-		{
-			cc= "    "
-		}
 
-		if(true==change)
-		{
-			n = six_random_myth[t] +"  "+ n + "%c 空 %c"
-			if(undefined === six_random_date[7][fs])
-			{
-				console.log(n+cc+six_random_date[8][t],"color:white","color:black","color:white","color:black");
-			}
-			else
-			{
-				console.log(n+cc+six_random_date[8][t],"color:white","color:black");
-				
-			}
+					cc=negativechangedraw + " "
+
 			
 		}
 		else
 		{
-			n = six_random_myth[t] +"  "+ n + " "
-			if(undefined === six_random_date[7][fs])
-			{
-				console.log(n+cc+six_random_date[8][t],"color:white","color:black");
-			}
-			else
-			{
-				console.log(n+cc+six_random_date[8][t]);
-				
-			}
+
+					cc= "        "
+
+			
+		}
+
+		if(true==change)
+		{
+			n = six_random_myth[t] +" "+ n + " "
+
+			_build.push(n+"     "+cc+six_random_date[8][t]);
+
+		}
+		else
+		{
+			n = six_random_myth[t] +" "+ n + " "
+
+			_build.push(n+cc+six_random_date[8][t]);
 			
 		}
 		
 	}
 
-	console.log(six_random_date[7].extname)
-	console.log(six_random_date[7].extnameexp)
-	console.log(six_random_date[7].extexp)
-	console.log(six_random_date[7].ext)
+	_build.push(six_random_date[7].extname)
+	_build.push(six_random_date[7].extnameexp)
+	_build.push(six_random_date[7].extexp)
+	_build.push(six_random_date[7].ext)
 	for(index =1 ;index < 13 ;index++)
 	{
 		var x = "exp"+index
-		console.log(six_random_date[7][x])
+		_build.push(six_random_date[7][x])
 	}
-	*/
+	return _build
 }
 
  get_six_random()
