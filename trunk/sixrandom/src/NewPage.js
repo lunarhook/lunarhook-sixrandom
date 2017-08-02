@@ -7,6 +7,7 @@ import { AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { NavigationActions } from 'react-navigation'
 import StorageModule from './StorageModule'
+import ValueTypeModule from './ValueTypeModule'
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 var dataArray = [];
 var randArray = []
@@ -33,6 +34,7 @@ class HistoryPage extends React.Component {
   render()
   {
     const { navigate } = this.props.navigation;
+    //alert(ValueTypeModule["emotion"])
     return (
             <View style={styles.container}>
               <TextInput
@@ -41,7 +43,7 @@ class HistoryPage extends React.Component {
                 returnKeyType="done"
                 placeholder="求卦笔记"
                 underlineColorAndroid="transparent"
-                multiline={true}
+                //multiline={true}
                 placeholderTextColor = "#cccccc"
                 onSubmitEditing={Keyboard.dismiss} 
                 onChangeText={(text) => this.setState({Tip:text})}/>
@@ -53,12 +55,13 @@ class HistoryPage extends React.Component {
             //onValueChange={(value) => this.setState({selectedValue: value,Step:"0"}) }
             onValueChange={(value) => this.picker(value) }
               >
-              <Picker.Item label="感情" value="emotion" />
-              <Picker.Item label="事业" value="bussiness" />
-              <Picker.Item label="运气" value="lucky" />
-              <Picker.Item label="官司" value="sued" />
-               <Picker.Item label="健康" value="health" />
-               <Picker.Item label="求财" value="finance" />
+              <Picker.Item label= {ValueTypeModule["emotion"]} value="emotion" />
+              <Picker.Item label={ValueTypeModule["bussiness"]} value="bussiness" />
+              <Picker.Item label={ValueTypeModule["lucky"]} value="lucky" />
+              <Picker.Item label={ValueTypeModule["sued"]} value="sued" />
+               <Picker.Item label={ValueTypeModule["health"]} value="health" />
+               <Picker.Item label={ValueTypeModule["finance"]} value="finance" />
+
             </Picker>
             <Text style={styles.vb_text} onPress={() => this.random()}>点击或者晃动出爻，重复六次成卦</Text>
             <ListView 

@@ -2243,6 +2243,7 @@ var six_random_myth		= new Array();
 var six_random_help_myth = new Array();		
 var six_random_date		= new Array();
 var six_random_draw		= new Array();
+var six_random_question = ""
 
 
 var htmldraw			= new Array();
@@ -2762,6 +2763,9 @@ get_simple_random_draw()
 
 	_build.push("")
 	_build.push("")
+	_build.push("求测："+six_random_question)
+	_build.push("")
+	_build.push("")
 	_build.push(six_random_date[0]);
 	_build.push(six_random_date[1]);
 	_build.push("")
@@ -2800,6 +2804,10 @@ get_simple_random_draw()
 {
 	
 	var _build = new Array();
+	_build.push("")
+	_build.push("求测："+six_random_question)
+	_build.push("")
+	
 	_build.push(six_random_date[0]);
 	_build.push(six_random_date[1]);
 	_build.push(six_random_date[2]);
@@ -2998,7 +3006,8 @@ get_simple_random_draw()
 	startinfo = this.lunar_f(info.date);
 	//alert(startinfo)
 	this.recover_six_original_random(info.lunar)
-    //本卦爻变
+	//本卦爻变
+	six_random_question = info.question
 	return this.get_six_random();
 	//return null
 	//存盘序列化

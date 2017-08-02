@@ -4,6 +4,16 @@ import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
 
 
+var 	ValueTypeModule =  [
+			
+	{key:"emotion",text: "感情"},
+	{key:"bussiness",text: "事业"},
+	{key:"lucky",text: "运气"},
+	{key:"sued",text: "官司"},
+	{key:"health",text: "健康"},
+	{key:"finance",text: "求财"},
+]
+
 var StorageModule = new Storage({
 	// maximum capacity, default 1000 
 	size: 1000,
@@ -24,7 +34,19 @@ var StorageModule = new Storage({
 	// the latest data.
 	sync : {
 		// we'll talk about the details later.
+	},
+
+
+
+
+	gettype(_type)
+	{
+		return _valuetype[_type];
+	},
+	getkindtype()
+	{
+		return _valuetype;
 	}
 })	
 
-module.exports=StorageModule;  
+module.exports=StorageModule,ValueTypeModule;  

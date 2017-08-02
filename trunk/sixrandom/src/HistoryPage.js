@@ -6,6 +6,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { StackNavigator } from 'react-navigation';
 
 import StorageModule from './StorageModule'
+import ValueTypeModule from './ValueTypeModule'
 
 
 var HistoryNameArray = []
@@ -88,8 +89,8 @@ class HistoryPage extends React.Component {
                 }
                 var question = randArray[0]
                 var obj = {
-                  name:date.toLocaleDateString() + " 问题 " + question,
-                  url:"?date="+date+"&lunar="+lunar+"&question="+question,
+                  name:date.toLocaleDateString() + "  求测：" + ValueTypeModule[question] + (""!=randArray[8]?("   提示：" + randArray[8]):""),
+                  url:"?date="+date+"&lunar="+lunar+"&question="+ValueTypeModule[question],
                   id:randArray[7]
                 }
                 HistoryNameArray[i] = obj
@@ -143,8 +144,8 @@ var styles = StyleSheet.create ({
   list:{
     height:45,
     //borderWidth:1,
-    marginLeft: 20,
-    paddingLeft:20,
+    marginLeft: 10,
+    paddingLeft:10,
     //borderColor: '#ccc',
     borderRadius: 4,
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
