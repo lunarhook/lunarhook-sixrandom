@@ -99,6 +99,20 @@ var styles = StyleSheet.create ({
     width:kWidth,
     height:kHeight
   },
+  list:{
+    height:30,
+    //borderWidth:1,
+    marginLeft: 1,
+    paddingLeft:1,
+    //borderColor: '#ccc',
+    borderRadius: 4,
+    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
+    //textAlign:'center', 
+    //textDecorationLine:'underline'
+    flexWrap:'wrap',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+  },
     vb_text: {  
     color: '#333333',  
     fontFamily: 'Times',  

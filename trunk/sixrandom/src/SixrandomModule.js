@@ -2927,6 +2927,7 @@ get_simple_random_draw()
 	_build.push(six_random_date[7].extnameexp)
 	_build.push(six_random_date[7].extexp)
 	_build.push(six_random_date[7].ext)
+	_build.push("")
 	for(index =1 ;index < 13 ;index++)
 	{
 		var x = "exp"+index
