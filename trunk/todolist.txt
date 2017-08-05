@@ -55,7 +55,6 @@ todo
 删除历史（历史过滤）
 主页面调整显示webview
 点击摇动出卦
-/Applications/svn/sixrandom/sixrandom/iosbundle.sh
 
 2017 07 26
 npm install react-native-wechat --save
