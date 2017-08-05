@@ -2816,7 +2816,7 @@ get_simple_random_draw()
 	//console.log(six_random_date[5]);
 	//console.log(six_random_date[6]);
 	_build.push("")
-	_build.push(("      本卦：        "+six_random_date[7].name+"     变卦："+six_random_date[8].name))
+	_build.push(("      本卦：  "+six_random_date[7].name+"   变卦：  "+six_random_date[8].name))
 	
 	//console.log();
 	var o = ["","上爻","五爻","四爻","三爻","二爻","初爻"]
@@ -2922,7 +2922,7 @@ get_simple_random_draw()
 		}
 		
 	}
-
+_build.push("")
 	_build.push(six_random_date[7].extname)
 	_build.push(six_random_date[7].extnameexp)
 	_build.push(six_random_date[7].extexp)

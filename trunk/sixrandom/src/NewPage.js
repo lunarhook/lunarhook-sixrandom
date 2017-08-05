@@ -37,16 +37,7 @@ class HistoryPage extends React.Component {
     //alert(ValueTypeModule["emotion"])
     return (
             <View style={styles.container}>
-              <TextInput
-                
-                style={styles.input}
-                returnKeyType="done"
-                placeholder="求卦笔记"
-                underlineColorAndroid="transparent"
-                //multiline={true}
-                placeholderTextColor = "#cccccc"
-                onSubmitEditing={Keyboard.dismiss} 
-                onChangeText={(text) => this.setState({Tip:text})}/>
+              
                 
               
             <Picker
@@ -69,6 +60,16 @@ class HistoryPage extends React.Component {
           enableEmptySections = {true}
           renderRow={(rowData) => <Text style={styles.containerlist}>{rowData}</Text>}
         />
+        <TextInput
+                
+                style={styles.input}
+                returnKeyType="done"
+                placeholder="求卦笔记"
+                underlineColorAndroid="transparent"
+                //multiline={true}
+                placeholderTextColor = "#cccccc"
+                onSubmitEditing={Keyboard.dismiss} 
+                onChangeText={(text) => this.setState({Tip:text})}/>
         <TabNavigator 
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  

@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View,  Text,ListView,RefreshControl,Button} from 'react-native';
+import {StyleSheet,View, Alert,  Text,ListView,RefreshControl,Button} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { StackNavigator } from 'react-navigation';
 import SixrandomModule from './SixrandomModule'
@@ -10,6 +10,8 @@ import ShareModule from './ShareModule'
 
 var kWidth = Dimensions.get('window').width;
 var kHeight = Dimensions.get('window').height;
+
+var parameter = ""
 
 class FullinfoPage extends React.Component {
     constructor(props) {
@@ -63,6 +65,22 @@ class FullinfoPage extends React.Component {
       </View>
     );
   }
+
+   _export() {  
+        Alert.alert(
+        '免费电话咨询',
+        '13641392723',
+        [
+          {text: '取消', onPress: () => console.log('Cancel export'), style: 'cancel'},
+          {text: '连接', onPress: () => this._call()},
+        ],
+        { cancelable: false }
+      )
+       
+    }
+    
+    _call()
+    {}
   
   render(){
       const { navigate } = this.props.navigation;
@@ -87,6 +105,22 @@ class FullinfoPage extends React.Component {
 								enabled={false}
 								colors={['#ff0000', '#00ff00', '#0000ff', '#3ad564']}
 							/>}/>    
+              <TabNavigator 
+       tabBarStyle={{ height: 40 }}
+       sceneStyle={{ paddingBottom: 30 }}>  
+                  <TabNavigator.Item
+                        title="解卦咨询"  
+                        onPress={() => this._export()
+                        }  
+                        titleStyle={styles.menufont}>  
+                    </TabNavigator.Item>  
+                    <TabNavigator.Item
+                        title="微信沟通"  
+                        onPress={() => ShareModule.sharetosesshareToSessionWithPara(parameter)
+                        }  
+                        titleStyle={styles.menufont}>  
+                    </TabNavigator.Item>  
+                </TabNavigator>  
               </View>  
     )
     }
@@ -99,11 +133,18 @@ var styles = StyleSheet.create ({
     width:kWidth,
     height:kHeight
   },
+  menufont:{
+    fontSize:15,
+    color: '#333333', 
+    height:25
+  },
   list:{
-    height:30,
+    height:25,
     //borderWidth:1,
-    marginLeft: 1,
-    paddingLeft:1,
+    marginLeft: 5,
+    paddingLeft:5,
+     marginRight: 5,
+    paddingRight:5,
     //borderColor: '#ccc',
     borderRadius: 4,
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
@@ -111,7 +152,7 @@ var styles = StyleSheet.create ({
     //textDecorationLine:'underline'
     flexWrap:'wrap',
     alignItems: 'flex-start',
-    flexDirection: 'row',
+    //flexDirection: 'row',
   },
     vb_text: {  
     color: '#333333',  

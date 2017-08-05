@@ -43,11 +43,29 @@ class ShareModule extends React.Component {
 			if(isInstalled) {
 
 				WeChat.shareToSession({
-					title:'微信好友测试链接',
-					description:'分享自:江清清的技术专栏(www.lcode.org)',
+					title:'微信公众号',
+					description:'微信解挂分析',
 					//thumbImage:'http://mta.zttit.com:8080/images/ZTT_1404756641470_image.jpg',
 					type:'news',
 					webpageUrl:'http://www.lcode.org'
+				})
+			}else{
+				ToastShort('没有安装微信软件，请您安装微信之后再试');
+			}
+			});
+
+		}
+
+		sharetosesshareToSessionWithPara(para) {
+			WeChat.isWXAppInstalled().then((isInstalled) => {
+			if(isInstalled) {
+
+				WeChat.shareToSession({
+					title:'微信公众号',
+					description:'微信沟通',
+					//thumbImage:'http://mta.zttit.com:8080/images/ZTT_1404756641470_image.jpg',
+					type:'news',
+					webpageUrl:'http://www.99future.com/sixrandom.html' + para
 				})
 			}else{
 				ToastShort('没有安装微信软件，请您安装微信之后再试');
