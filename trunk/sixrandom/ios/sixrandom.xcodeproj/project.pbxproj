@@ -29,6 +29,7 @@
 		567C88931F27CEF2001CFD07 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 567C88921F27CEF2001CFD07 /* libc++.tbd */; };
 		567C88951F27CF05001CFD07 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 567C88941F27CF05001CFD07 /* libsqlite3.0.tbd */; };
 		567C88C31F27D15E001CFD07 /* libRCTWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 567C88B81F27CF78001CFD07 /* libRCTWeChat.a */; };
+		56D6799D1F38DE5F00461F1D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D6799C1F38DE5F00461F1D /* icon.png */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		971086F7058D426AA0132592 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1B3041FC234E23B35BE3EA /* libcxxreact.a */; };
@@ -250,6 +251,7 @@
 		567C88901F27CED1001CFD07 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		567C88921F27CEF2001CFD07 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		567C88941F27CF05001CFD07 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		56D6799C1F38DE5F00461F1D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = sixrandom/Images.xcassets/icon.png; sourceTree = "<group>"; };
 		585743A380D84C73805D09B4 /* libjschelpers.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libjschelpers.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		614F37BDFF01443A9A0373B7 /* RCTWeChat.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTWeChat.xcodeproj; path = "../node_modules/react-native-wechat/ios/RCTWeChat.xcodeproj"; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				5648749C1F2890DB00C33C48 /* index.ios.jsbundle */,
+				56D6799C1F38DE5F00461F1D /* icon.png */,
 			);
 			name = html;
 			sourceTree = "<group>";
@@ -778,6 +781,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56D6799D1F38DE5F00461F1D /* icon.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				5648749D1F2890DB00C33C48 /* index.ios.jsbundle in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
