@@ -52,6 +52,7 @@ class HistoryPage extends React.Component {
               <Picker.Item label={ValueTypeModule["sued"]} value="sued" />
                <Picker.Item label={ValueTypeModule["health"]} value="health" />
                <Picker.Item label={ValueTypeModule["finance"]} value="finance" />
+               <Picker.Item label={ValueTypeModule["find"]} value="find" />
 
             </Picker>
             <Text style={styles.vb_text} onPress={() => this.random()}>点击或者晃动出爻，重复六次成卦</Text>
