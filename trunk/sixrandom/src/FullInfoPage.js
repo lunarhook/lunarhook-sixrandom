@@ -36,7 +36,7 @@ class FullinfoPage extends React.Component {
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
-    headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline() }/>),
+    //headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline() }/>),
     title: '卦象详解',
     }
   };

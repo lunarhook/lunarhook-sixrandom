@@ -2894,7 +2894,19 @@ six_random_NaJia["100000"] = {
 "exp9":"九五：苋陆夬夬，中行无咎。",
 "exp10":"象曰：中行无咎，中未光也。",
 "exp11":"上六：无号，终有凶。",
-"exp12":"象曰：无号之凶，终不可长也。"
+"exp12":"象曰：无号之凶，终不可长也。",
+"exp13":"",
+"exp14":"",
+
+"base":"背道而驰之象　无端起讼之意",
+"general":"大象：泽水积满而泛滥成灾，滔天之势。又五阳爻之盛势必除去唯一阴爻，故一阴孤立。",
+"lucky":"运势：目前虽吉，但困难及变动正在蕴酿中，宜提高警觉，忌骄傲，防口舌是非。 ",
+"emotion":"爱情：防止上介绍人的当，也应注意对方的目的。 ",
+"health":"疾病：病情重宜速治，防头部、呼吸系统、肿瘤等疾。",
+"find":"失物：相信失物已经损坏，不能寻回。 ",
+"sued":"诉讼：不宜与人争执，因势孤力弱，宜寻求法律途径解决。",
+"bussiness":"",
+"finance":""
 }
 /*
 - -
@@ -3526,7 +3538,7 @@ get_simple_random_draw()
 	{
 		try {
 			_build.push(six_random_date[7][six_random_question]);
-			//_build.push("")
+			_build.push(" ")
 			
 		} catch (error) {
 			
@@ -3535,7 +3547,7 @@ get_simple_random_draw()
 	else
 		{
 			_build.push(six_random_date[7]["general"]);
-			//_build.push("")
+			_build.push(" ")
 		}
 	
 	

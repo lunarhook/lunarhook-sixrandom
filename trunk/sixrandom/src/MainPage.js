@@ -19,8 +19,7 @@ import ValueTypeModule from './ValueTypeModule'
 const {width, height} = Dimensions.get('window');  
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomsimple.html"
-var randArray = []
-var parameter = ""//"?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
+
 var jump = false
 
 
@@ -29,10 +28,11 @@ class MainPage extends React.Component {
   constructor(props) {
 
   super(props);
-  
+    var parameter = ""//"?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
     var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
-			dataSource: dataSource,
+      dataSource: dataSource,
+      parameter:parameter,
 		};
     };
 
@@ -48,7 +48,7 @@ class MainPage extends React.Component {
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
-    headerRight:(<Button title="详细" onPress={ () => navigate("FullInfoPage",parameter) }/>),
+    headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline() }/>),
     title: '卦象',
     }
   };
@@ -56,8 +56,54 @@ class MainPage extends React.Component {
 
   refreshlist()
   {
-        const { navigate } = this.props.navigation;
+         const { navigate } = this.props.navigation;
+
+      var parameter = this.props.navigation.state.params
+      if(undefined!=parameter)
+        {
+          var _ret = SixrandomModule.build(parameter);
+      var _build = SixrandomModule.get_simple_random_draw()
+
+    this.setState({  
+            dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
+        }
+          else
+            {
+              StorageModule.load({
+            key:"last",
+    }).then(ret => {
+       
+       //return
+      randArray = ret
+      var date = new Date(Number(randArray[7]))
+      var lunar = ""
+      for (index =1;index<7;index++)
+      {
+        lunar = lunar+(randArray[index]).toString()
+      }
+      var question = randArray[0]
+
+     var parameter = "?date="+date+"&lunar="+lunar+"&question="+question
+      //alert(parameter);
+
+      var _ret = SixrandomModule.build(parameter);
+      var _build = SixrandomModule.get_simple_random_draw()
+
+    this.setState({  
+            dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
+      }).catch(err => {
+        //alert(err)
+          if(false==jump)
+            {
+              this.begin('NewPage')
+               jump = true
+            }
+      })
+            }
+
+      
     //StorageModule.remove({key:"last"})
+    /*
     StorageModule.load({
             key:"last",
     }).then(ret => {
@@ -72,14 +118,14 @@ class MainPage extends React.Component {
       }
       var question = randArray[0]
 
-      parameter = "?date="+date+"&lunar="+lunar+"&question="+question
+     var parameter = "?date="+date+"&lunar="+lunar+"&question="+question
       //alert(parameter);
 
       var _ret = SixrandomModule.build(parameter);
       var _build = SixrandomModule.get_simple_random_draw()
 
     this.setState({  
-            dataSource: this.state.dataSource.cloneWithRows(_build) }); 
+            dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
       }).catch(err => {
         //alert(err)
           if(false==jump)
@@ -88,6 +134,7 @@ class MainPage extends React.Component {
                jump = true
             }
       })
+          */
      
   }
 
@@ -124,6 +171,8 @@ class MainPage extends React.Component {
 								enabled={false}
 								colors={['#ff0000', '#00ff00', '#0000ff', '#3ad564']}
 							/>}/>
+              <Button title="详细" onPress={()=>navigate("FullInfoPage",this.state.parameter)}>
+                </Button>
       
       <TabNavigator 
        tabBarStyle={{ height: 40 }}

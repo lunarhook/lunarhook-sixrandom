@@ -139,16 +139,17 @@ class HistoryPage extends React.Component {
       StorageModule.save({key:"user",id:index,data:randArray})
       this.props.navigation.state.params = randArray
       //alert(this.props.navigation.state.params)
-      
-      //this.props.navigation.navigate('MainPage',randArray)
+      var date = new Date(Number(randArray[7]))
+      var lunar = ""
+      for (i =1;i<7;i++)
+      {
+        lunar = lunar+(randArray[i]).toString()
+      }
+      var question = randArray[0]
+      var parameter = "?date="+(new Date(Number(randArray[7])))+"&lunar="+lunar+"&question="+question
+      this.props.navigation.navigate('MainPage',parameter)
       this.picker("emotion")
-      StorageModule.load({
-            key:"last",
-    }).then(ret => {
-      //alert(index)
-      //alert(ret)
-       this.begin("MainPage")
-      })
+     
     }
           
      
