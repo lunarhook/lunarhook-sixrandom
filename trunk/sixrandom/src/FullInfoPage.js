@@ -61,7 +61,7 @@ class FullinfoPage extends React.Component {
     return (
       
       <View style={styles.list}>
-        <Text>{rowData}</Text>
+        <Text style={styles.rowhigth}>{rowData}</Text>
       </View>
     );
   }
@@ -133,13 +133,17 @@ var styles = StyleSheet.create ({
     width:kWidth,
     height:kHeight
   },
+  rowhigth:{
+    lineHeight:25,
+  },
   menufont:{
     fontSize:15,
     color: '#333333', 
     height:25
   },
   list:{
-    height:25,
+    //lineHigeht:25,
+    //height:25,
     //borderWidth:1,
     marginLeft: 5,
     paddingLeft:5,

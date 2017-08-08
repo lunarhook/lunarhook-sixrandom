@@ -90,7 +90,7 @@ class HistoryPage extends React.Component {
                 var question = randArray[0]
                 var obj = {
                   name:date.toLocaleDateString() + "  求测：" + ValueTypeModule[question] + (""!=randArray[8]?("   提示：" + randArray[8]):""),
-                  url:"?date="+date+"&lunar="+lunar+"&question="+ValueTypeModule[question],
+                  url:"?date="+date+"&lunar="+lunar+"&question="+question,
                   id:randArray[7]
                 }
                 HistoryNameArray[i] = obj

@@ -72,7 +72,7 @@ class MainPage extends React.Component {
       }
       var question = randArray[0]
 
-      parameter = "?date="+date+"&lunar="+lunar+"&question="+ValueTypeModule[question]
+      parameter = "?date="+date+"&lunar="+lunar+"&question="+question
       //alert(parameter);
 
       var _ret = SixrandomModule.build(parameter);
@@ -96,7 +96,7 @@ class MainPage extends React.Component {
     return (
       
       <View style={styles.list}>
-        <Text>{rowData}</Text>
+        <Text  style={styles.rowhigth}>{rowData}</Text>
       </View>
     );
   }
@@ -178,6 +178,9 @@ var styles = StyleSheet.create ({
     fontSize:15,
     color: '#333333', 
     height:25
+  },
+ rowhigth:{
+    lineHeight:25,
   },
   list:{
     height:30,
