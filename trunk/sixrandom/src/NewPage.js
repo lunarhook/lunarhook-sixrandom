@@ -71,27 +71,7 @@ class HistoryPage extends React.Component {
                 placeholderTextColor = "#cccccc"
                 onSubmitEditing={Keyboard.dismiss} 
                 onChangeText={(text) => this.setState({Tip:text})}/>
-        <TabNavigator 
-       tabBarStyle={{ height: 40 }}
-       sceneStyle={{ paddingBottom: 30 }}>  
-                  <TabNavigator.Item
-                        title="解卦"  
-                        //   
-                        //selected={this.state.tab=='liuyao'}  
-                        //onPress={() => this.begin('NewPage')
-                        onPress={() => this.begin('MainPage') 
-                        }  
-                        titleStyle={styles.menufont}>  
-                    </TabNavigator.Item>  
-                    <TabNavigator.Item 
-                        title="历史"  
-                        //selected={this.state.tab=='history'}   
-                        onPress={ 
-                            () => navigate('HistoryPage') 
-                          }titleStyle={styles.menufont}>  
-                        
-                    </TabNavigator.Item>  
-                </TabNavigator>  
+       
             </View> 
             )
     }
