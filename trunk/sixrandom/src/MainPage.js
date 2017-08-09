@@ -60,82 +60,46 @@ class MainPage extends React.Component {
 
       var parameter = this.props.navigation.state.params
       if(undefined!=parameter)
-        {
+      {
           var _ret = SixrandomModule.build(parameter);
-      var _build = SixrandomModule.get_simple_random_draw()
+          var _build = SixrandomModule.get_simple_random_draw()
 
-    this.setState({  
+          this.setState({  
             dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
-        }
-          else
-            {
-              StorageModule.load({
-            key:"last",
-    }).then(ret => {
-       
-       //return
-      randArray = ret
-      var date = new Date(Number(randArray[7]))
-      var lunar = ""
-      for (index =1;index<7;index++)
-      {
-        lunar = lunar+(randArray[index]).toString()
       }
-      var question = randArray[0]
-
-     var parameter = "?date="+date+"&lunar="+lunar+"&question="+question
-      //alert(parameter);
-
-      var _ret = SixrandomModule.build(parameter);
-      var _build = SixrandomModule.get_simple_random_draw()
-
-    this.setState({  
-            dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
-      }).catch(err => {
-        //alert(err)
-          if(false==jump)
+      else
+      {
+        StorageModule.load({
+            key:"last",
+        }).then(ret => {
+       
+              //return
+            randArray = ret
+            var date = new Date(Number(randArray[7]))
+            var lunar = ""
+            for (index =1;index<7;index++)
             {
-              this.begin('NewPage')
+              lunar = lunar+(randArray[index]).toString()
+            }
+            var question = randArray[0]
+
+            var parameter = "?date="+date+"&lunar="+lunar+"&question="+question
+            //alert(parameter);
+
+            var _ret = SixrandomModule.build(parameter);
+            var _build = SixrandomModule.get_simple_random_draw()
+
+            this.setState({  
+                  dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
+            }).catch(err => {
+            //alert(err)
+            if(false==jump)
+            {
+               this.begin('NewPage')
                jump = true
             }
-      })
-            }
-
-      
-    //StorageModule.remove({key:"last"})
-    /*
-    StorageModule.load({
-            key:"last",
-    }).then(ret => {
-       
-       //return
-      randArray = ret
-      var date = new Date(Number(randArray[7]))
-      var lunar = ""
-      for (index =1;index<7;index++)
-      {
-        lunar = lunar+(randArray[index]).toString()
+        })
       }
-      var question = randArray[0]
-
-     var parameter = "?date="+date+"&lunar="+lunar+"&question="+question
-      //alert(parameter);
-
-      var _ret = SixrandomModule.build(parameter);
-      var _build = SixrandomModule.get_simple_random_draw()
-
-    this.setState({  
-            dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
-      }).catch(err => {
-        //alert(err)
-          if(false==jump)
-            {
-              this.begin('NewPage')
-               jump = true
-            }
-      })
-          */
-     
   }
 
    _renderRow(rowData) {

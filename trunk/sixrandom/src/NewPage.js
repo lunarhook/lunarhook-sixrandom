@@ -127,7 +127,8 @@ class HistoryPage extends React.Component {
       }
       var question = randArray[0]
       var parameter = "?date="+(new Date(Number(randArray[7])))+"&lunar="+lunar+"&question="+question
-      this.props.navigation.navigate('MainPage',parameter)
+      //this.props.navigation.navigate('MainPage',parameter)
+      this.begin('MainPage')
       this.picker("emotion")
      
     }
