@@ -51,7 +51,7 @@ class MainPage extends React.Component {
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
-    headerRight:(<Button title="详细" onPress={  () => navigate('FullInfoPage',"last") }/>),
+    headerRight:(<Button title="历史" onPress={  () => navigate('HistoryPage')  }/>),
     title: '卦象',
     }
   };
@@ -158,10 +158,10 @@ class MainPage extends React.Component {
                         titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
                     <TabNavigator.Item 
-                        title="历史"  
+                        title="详细"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
-                            () => navigate('HistoryPage') 
+                            () => navigate('FullInfoPage',this.state.parameter)
                           }titleStyle={styles.menufont}>  
                         
                     </TabNavigator.Item>  
