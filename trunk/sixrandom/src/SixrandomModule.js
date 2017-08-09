@@ -3751,6 +3751,18 @@ _build.push("")
 	_build.push("")
 	return _build
 }
+get_sixrandom_name(lunar)
+{
+	var x = ""
+	 for (index =0;index<6;index++)
+    {
+		var t = lunar[index]
+		
+		x = x + (("0"==t || "1"==t)?"0":"1")
+		//console.log(x)
+    }
+	return six_random_NaJia[x]["name"]
+}
 
  get_six_random()
 /*

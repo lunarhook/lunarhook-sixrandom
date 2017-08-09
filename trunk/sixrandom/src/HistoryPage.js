@@ -7,7 +7,7 @@ import { StackNavigator } from 'react-navigation';
 
 import StorageModule from './StorageModule'
 import ValueTypeModule from './ValueTypeModule'
-
+import SixrandomModule from './SixrandomModule'
 
 var HistoryNameArray = []
 
@@ -87,11 +87,12 @@ class HistoryPage extends React.Component {
                 {
                   lunar = lunar+(randArray[index]).toString()
                 }
+                var result = SixrandomModule.get_sixrandom_name(lunar)
                 var question = randArray[0]
                 var obj = {
-                  name:date.toLocaleDateString() + "  求测：" + ValueTypeModule[question] + (""!=randArray[8]?("   提示：" + randArray[8]):""),
+                  name:date.toLocaleDateString() + "  求测：" + ValueTypeModule[question] +" "+result+" "+ (""!=randArray[8]?("   提示：" + randArray[8]):""),
                   url:"?date="+date+"&lunar="+lunar+"&question="+question,
-                  id:randArray[7]
+                  id:randArray[7],
                 }
                 HistoryNameArray[i] = obj
                 //alert(HistoryNameArray[i])
