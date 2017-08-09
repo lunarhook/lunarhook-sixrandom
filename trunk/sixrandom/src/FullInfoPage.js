@@ -36,7 +36,7 @@ class FullinfoPage extends React.Component {
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
-    headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline() }/>),
+   // headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline() }/>),
     title: '卦象详解',
     }
   };
@@ -48,11 +48,49 @@ class FullinfoPage extends React.Component {
 
       parameter = this.props.navigation.state.params
 
-      var _ret = SixrandomModule.build(parameter);
-      var _build = SixrandomModule.get_random_draw()
+            if("last"!=parameter)
+      {
+         
+         //return
+          var _ret = SixrandomModule.build(parameter);
+          var _build = SixrandomModule.get_random_draw()
 
-    this.setState({  
-            dataSource: this.state.dataSource.cloneWithRows(_build) }); 
+          this.setState({  
+            dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
+      }
+      else
+      {
+        StorageModule.load({
+            key:"last",
+        }).then(ret => {
+       
+              //return
+            randArray = ret
+            var date = new Date(Number(randArray[7]))
+            var lunar = ""
+            for (index =1;index<7;index++)
+            {
+              lunar = lunar+(randArray[index]).toString()
+            }
+            var question = randArray[0]
+
+            var parameter = "?date="+date+"&lunar="+lunar+"&question="+question
+            //alert(parameter);
+            console.log(parameter)
+            var _ret = SixrandomModule.build(parameter);
+            var _build = SixrandomModule.get_random_draw()
+
+            this.setState({  
+                  dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
+            }).catch(err => {
+            //alert(err)
+            if(false==jump)
+            {
+               this.begin('NewPage')
+               jump = true
+            }
+        })
+      }
 
   }
 
@@ -105,6 +143,7 @@ class FullinfoPage extends React.Component {
 								enabled={false}
 								colors={['#ff0000', '#00ff00', '#0000ff', '#3ad564']}
 							/>}/>    
+              {/*
               <TabNavigator 
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  
@@ -120,7 +159,8 @@ class FullinfoPage extends React.Component {
                         }  
                         titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
-                </TabNavigator>  
+                </TabNavigator>  */
+                }
               </View>  
     )
     }

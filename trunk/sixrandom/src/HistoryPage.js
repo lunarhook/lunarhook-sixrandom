@@ -45,7 +45,7 @@ class HistoryPage extends React.Component {
     return (
       
       <View style={styles.list}>
-      <TouchableOpacity style={styles.button} onLongPress={()=>this._deleteRow(rowData)}onPress={ () => navigate('MainPage',rowData.url) }>
+      <TouchableOpacity style={styles.button} onLongPress={()=>this._deleteRow(rowData)}onPress={ () => navigate('HistoryInfoPage',rowData.url) }>
         <Text>{rowData.name}</Text>
         </TouchableOpacity>
       </View>

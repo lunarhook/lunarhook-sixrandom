@@ -24,7 +24,7 @@ var jump = false
 
 
 
-class MainPage extends React.Component {
+class HistoryInfoPage extends React.Component {
   constructor(props) {
 
   super(props);
@@ -51,10 +51,15 @@ class MainPage extends React.Component {
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
-    headerRight:(<Button title="详细" onPress={  () => navigate('FullInfoPage',"last") }/>),
-    title: '卦象',
+    title: '历史卦象',
     }
   };
+
+  todetail=()=>
+  {
+    const { navigate } = this.props.navigation;
+    navigate("FullInfoPage",this.state.parameter)
+  }
   
 
   refreshlist()
@@ -63,50 +68,13 @@ class MainPage extends React.Component {
       
       var parameter = this.props.navigation.state.params
 
-      
-      if(undefined!=parameter)
-      {
-         
-         //return
           var _ret = SixrandomModule.build(parameter);
           var _build = SixrandomModule.get_simple_random_draw()
 
           this.setState({  
             dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
-      }
-      else
-      {
-        StorageModule.load({
-            key:"last",
-        }).then(ret => {
-       
-              //return
-            randArray = ret
-            var date = new Date(Number(randArray[7]))
-            var lunar = ""
-            for (index =1;index<7;index++)
-            {
-              lunar = lunar+(randArray[index]).toString()
-            }
-            var question = randArray[0]
-
-            var parameter = "?date="+date+"&lunar="+lunar+"&question="+question
-            //alert(parameter);
-            console.log(parameter)
-            var _ret = SixrandomModule.build(parameter);
-            var _build = SixrandomModule.get_simple_random_draw()
-
-            this.setState({  
-                  dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
-            }).catch(err => {
-            //alert(err)
-            if(false==jump)
-            {
-               this.begin('NewPage')
-               jump = true
-            }
-        })
-      }
+      
+      
   }
 
    _renderRow(rowData) {
@@ -144,28 +112,19 @@ class MainPage extends React.Component {
 							/>}/>
               
 
-      
       <TabNavigator 
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  
                   <TabNavigator.Item
-                        title="取卦"  
+                        title="卦象详细"  
                         //   
                         //selected={this.state.tab=='liuyao'}  
                         //onPress={() => this.begin('NewPage')
-                        onPress={() => navigate('NewPage') 
+                        onPress={() => navigate('FullInfoPage',this.state.parameter) 
                         }  
                         titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
-                    <TabNavigator.Item 
-                        title="历史"  
-                        //selected={this.state.tab=='history'}   
-                        onPress={ 
-                            () => navigate('HistoryPage') 
-                          }titleStyle={styles.menufont}>  
-                        
-                    </TabNavigator.Item>  
-                </TabNavigator>  
+                    </TabNavigator>  
                  
               </View>  
     )
@@ -232,4 +191,4 @@ var styles = StyleSheet.create ({
     flex:1
   }
 });
-module.exports=MainPage;  
+module.exports=HistoryInfoPage;  

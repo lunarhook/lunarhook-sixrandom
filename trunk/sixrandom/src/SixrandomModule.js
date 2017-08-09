@@ -3844,6 +3844,7 @@ get_sixrandom_name(lunar)
 
 	 build(msg)
 	{
+		console.log(msg)
 		var info = null;
 		
 		var ret;
