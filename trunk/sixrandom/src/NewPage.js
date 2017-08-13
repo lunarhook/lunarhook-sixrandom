@@ -55,7 +55,7 @@ class HistoryPage extends React.Component {
                <Picker.Item label={ValueTypeModule["find"]} value="find" />
 
             </Picker>
-            <Text style={styles.vb_text} onPress={() => this.random()}>点击或者晃动出爻，重复六次成卦</Text>
+            <Text style={styles.vb_text} onPress={() => this.random()}>点击出爻，重复六次成卦</Text>
             <ListView 
           dataSource={this.state.dataSource}
           enableEmptySections = {true}
