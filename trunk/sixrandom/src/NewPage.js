@@ -88,19 +88,19 @@ class HistoryPage extends React.Component {
        //alert(t)
      
       var x = ""
-      if(t==0)
+      if(t==2)
+      {
+        x = "--- ---"
+      }
+      else if(t==3)
       {
         x = "--- ---"
       }
       else if(t==1)
       {
-        x = "--- ---"
-      }
-      else if(t==2)
-      {
         x = "-------"
       }
-      else if(t==3)
+      else if(t==0)
       {
         x = "-------"
       }
