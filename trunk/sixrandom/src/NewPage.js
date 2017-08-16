@@ -8,6 +8,7 @@ import { StackNavigator } from 'react-navigation';
 import { NavigationActions } from 'react-navigation'
 import StorageModule from './StorageModule'
 import ValueTypeModule from './ValueTypeModule'
+import SixrandomModule from './SixrandomModule'
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 var dataArray = [];
 var randArray = []
@@ -84,25 +85,25 @@ class HistoryPage extends React.Component {
       t0= Math.random(1)>=0.5?1:0 
       t1= Math.random(1)>=0.5?1:0 
       t2= Math.random(1)>=0.5?1:0 
-      t= t0+t1+t2
+      t= t0+t1+t2+6
        //alert(t)
      
       var x = ""
-      if(t==2)
+      if(t==8)
       {
-        x = "--- ---"
+        x = SixrandomModule.getnegativedraw()
       }
-      else if(t==3)
+      else if(t==6)
       {
-        x = "--- ---"
+        x = SixrandomModule.getnegativedraw()
       }
-      else if(t==1)
+      else if(t==7)
       {
-        x = "-------"
+        x = SixrandomModule.getpositivedraw()
       }
-      else if(t==0)
+      else if(t==9)
       {
-        x = "-------"
+        x = SixrandomModule.getpositivedraw()
       }
       randArray[(this.state.Step-1)] = t
       dataArray[(this.state.Step-1)] = x

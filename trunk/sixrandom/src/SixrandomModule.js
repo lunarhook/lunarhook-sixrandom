@@ -11,7 +11,7 @@ var six_random_NaJia 	= new Array();
 ---
 ---
 */
-six_random_NaJia["000000"] = {
+six_random_NaJia["111111"] = {
 "name":"乾为天",
 "p":"乾宫",
 "1":"父母壬戌土 世",
@@ -57,7 +57,7 @@ six_random_NaJia["000000"] = {
 ---
 - -
 */
-six_random_NaJia["000001"] = {
+six_random_NaJia["111110"] = {
 "name":"天风姤",
 "p":"乾宫",
 "1":"父母壬戌土",
@@ -104,7 +104,7 @@ six_random_NaJia["000001"] = {
 - -
 - -
 */
-six_random_NaJia["000011"] = {
+six_random_NaJia["111100"] = {
 "name":"天山遁",
 "p":"乾宫",
 "1":"父母壬戌土",
@@ -152,7 +152,7 @@ six_random_NaJia["000011"] = {
 - -
 - -
 */
-six_random_NaJia["000111"] = {
+six_random_NaJia["111000"] = {
 "name":"天地否",
 "p":"乾宫",
 "1":"父母壬戌土 应",
@@ -199,7 +199,7 @@ six_random_NaJia["000111"] = {
 - -
 - -
 */
-six_random_NaJia["001111"] = {
+six_random_NaJia["110000"] = {
 "name":"风地观",
 "p":"乾宫",
 "1":"妻财辛卯木",
@@ -247,7 +247,7 @@ six_random_NaJia["001111"] = {
 - -
 - -
 */
-six_random_NaJia["011111"] = {
+six_random_NaJia["100000"] = {
 "name":"山地剥",
 "p":"乾宫",
 "1":"妻财丙寅木",
@@ -294,7 +294,7 @@ six_random_NaJia["011111"] = {
 - -
 - -
 */
-six_random_NaJia["010111"] = {
+six_random_NaJia["101000"] = {
 "name":"火地晋",
 "p":"乾宫",
 "1":"官鬼己巳火",
@@ -341,7 +341,7 @@ six_random_NaJia["010111"] = {
 ---
 ---
 */
-six_random_NaJia["010000"] = {
+six_random_NaJia["101111"] = {
 "name":"火天大有",
 "p":"乾宫",
 "1":"官鬼己巳火 应",
@@ -387,7 +387,7 @@ six_random_NaJia["010000"] = {
 ---
 ---
 */
-six_random_NaJia["100100"] = {
+six_random_NaJia["011011"] = {
 "name":"兑为泽",
 "p":"兑宫",
 "1":"父母丁未土 世",
@@ -433,7 +433,7 @@ six_random_NaJia["100100"] = {
 ---
 - -
 */
-six_random_NaJia["100101"] = {
+six_random_NaJia["011010"] = {
 "name":"泽水困",
 "p":"兑宫",
 "1":"父母丁未土",
@@ -479,7 +479,7 @@ six_random_NaJia["100101"] = {
 - -
 - -
 */
-six_random_NaJia["100111"] = {
+six_random_NaJia["011000"] = {
 "name":"泽地萃",
 "p":"兑宫",
 "1":"父母丁未土",
@@ -525,7 +525,7 @@ six_random_NaJia["100111"] = {
 - -
 - -
 */
-six_random_NaJia["100011"] = {
+six_random_NaJia["011100"] = {
 "name":"泽山咸",
 "p":"兑宫",
 "1":"父母丁未土 应",
@@ -572,7 +572,7 @@ six_random_NaJia["100011"] = {
 - -
 - -
 */
-six_random_NaJia["101011"] = {
+six_random_NaJia["010100"] = {
 "name":"水山蹇",
 "p":"兑宫",
 "1":"子孙戊子水",
@@ -619,7 +619,7 @@ six_random_NaJia["101011"] = {
 - -
 - -
 */
-six_random_NaJia["111011"] = {
+six_random_NaJia["000100"] = {
 "name":"地山谦",
 "p":"兑宫",
 "1":"兄弟癸酉金",
@@ -666,7 +666,7 @@ six_random_NaJia["111011"] = {
 - -
 - -
 */
-six_random_NaJia["110011"] = {
+six_random_NaJia["001100"] = {
 "name":"雷山小过",
 "p":"兑宫",
 "1":"父母庚戌土",
@@ -713,7 +713,7 @@ six_random_NaJia["110011"] = {
 ---
 ---
 */
-six_random_NaJia["110100"] = {
+six_random_NaJia["001011"] = {
 "name":"雷泽归妹",
 "p":"兑宫",
 "1":"父母庚戌土 应",
@@ -760,7 +760,7 @@ six_random_NaJia["110100"] = {
 - -
 ---
 */
-six_random_NaJia["010010"] = {
+six_random_NaJia["101101"] = {
 "name":"离为火",
 "p":"离宫",
 "1":"兄弟己巳火 世",
@@ -806,7 +806,7 @@ six_random_NaJia["010010"] = {
 - -
 - -
 */
-six_random_NaJia["010011"] = {
+six_random_NaJia["101100"] = {
 "name":"火山旅",
 "p":"离宫",
 "1":"兄弟己巳火",
@@ -854,7 +854,7 @@ six_random_NaJia["010011"] = {
 ---
 - -
 */
-six_random_NaJia["010001"] = {
+six_random_NaJia["101110"] = {
 "name":"火风鼎",
 "p":"离宫",
 "1":"兄弟己巳火",
@@ -901,7 +901,7 @@ six_random_NaJia["010001"] = {
 ---
 - -
 */
-six_random_NaJia["010101"] = {
+six_random_NaJia["101010"] = {
 "name":"火水未济",
 "p":"离宫",
 "1":"兄弟己巳火 应",
@@ -948,7 +948,7 @@ six_random_NaJia["010101"] = {
 ---
 - -
 */
-six_random_NaJia["011101"] = {
+six_random_NaJia["100010"] = {
 "name":"山水蒙",
 "p":"离宫",
 "1":"父母丙寅木",
@@ -995,7 +995,7 @@ six_random_NaJia["011101"] = {
 ---
 - -
 */
-six_random_NaJia["001101"] = {
+six_random_NaJia["110010"] = {
 "name":"风水涣",
 "p":"离宫",
 "1":"父母辛卯木",
@@ -1043,7 +1043,7 @@ six_random_NaJia["001101"] = {
 ---
 - -
 */
-six_random_NaJia["000101"] = {
+six_random_NaJia["111010"] = {
 "name":"天水讼",
 "p":"离宫",
 "1":"子孙壬戌土",
@@ -1090,7 +1090,7 @@ six_random_NaJia["000101"] = {
 - -
 ---
 */
-six_random_NaJia["000010"] = {
+six_random_NaJia["111101"] = {
 "name":"天火同人",
 "p":"离宫",
 "1":"子孙壬戌土 应",
@@ -1136,7 +1136,7 @@ six_random_NaJia["000010"] = {
 - -
 ---
 */
-six_random_NaJia["110110"] = {
+six_random_NaJia["001001"] = {
 "name":"震为雷",
 "p":"震宫",
 "1":"妻财庚戌土 世",
@@ -1182,7 +1182,7 @@ six_random_NaJia["110110"] = {
 - -
 - -
 */
-six_random_NaJia["110111"] = {
+six_random_NaJia["001000"] = {
 "name":"雷地豫",
 "p":"震宫",
 "1":"妻财庚戌土",
@@ -1229,7 +1229,7 @@ six_random_NaJia["110111"] = {
 ---
 - -
 */
-six_random_NaJia["110101"] = {
+six_random_NaJia["001010"] = {
 "name":"雷水解",
 "p":"震宫",
 "1":"妻财庚戌土",
@@ -1276,7 +1276,7 @@ six_random_NaJia["110101"] = {
 ---
 - -
 */
-six_random_NaJia["110001"] = {
+six_random_NaJia["001110"] = {
 "name":"雷风恒",
 "p":"震宫",
 "1":"妻财庚戌土 应",
@@ -1323,7 +1323,7 @@ six_random_NaJia["110001"] = {
 ---
 - -
 */
-six_random_NaJia["111001"] = {
+six_random_NaJia["000110"] = {
 "name":"地风升",
 "p":"震宫",
 "1":"官鬼癸酉金",
@@ -1371,7 +1371,7 @@ six_random_NaJia["111001"] = {
 ---
 - -
 */
-six_random_NaJia["101001"] = {
+six_random_NaJia["010110"] = {
 "name":"水风井",
 "p":"震宫",
 "1":"父母戊子水",
@@ -1419,7 +1419,7 @@ six_random_NaJia["101001"] = {
 ---
 - -
 */
-six_random_NaJia["100001"] = {
+six_random_NaJia["011110"] = {
 "name":"泽风大过",
 "p":"震宫",
 "1":"妻财丁未土",
@@ -1467,7 +1467,7 @@ six_random_NaJia["100001"] = {
 - -
 ---
 */
-six_random_NaJia["100110"] = {
+six_random_NaJia["011001"] = {
 "name":"泽雷随",
 "p":"震宫",
 "1":"妻财丁未土 应",
@@ -1514,7 +1514,7 @@ six_random_NaJia["100110"] = {
 ---
 - -
 */
-six_random_NaJia["001001"] = {
+six_random_NaJia["110110"] = {
 "name":"巽为风",
 "p":"巽宫",
 "1":"兄弟辛卯木 世",
@@ -1560,7 +1560,7 @@ six_random_NaJia["001001"] = {
 ---
 ---
 */
-six_random_NaJia["001000"] = {
+six_random_NaJia["110111"] = {
 "name":"风天小畜",
 "p":"巽宫",
 "1":"兄弟辛卯木",
@@ -1607,7 +1607,7 @@ six_random_NaJia["001000"] = {
 - -
 ---
 */
-six_random_NaJia["001010"] = {
+six_random_NaJia["110101"] = {
 "name":"风火家人",
 "p":"巽宫",
 "1":"兄弟辛卯木",
@@ -1654,7 +1654,7 @@ six_random_NaJia["001010"] = {
 - -
 ---
 */
-six_random_NaJia["001110"] = {
+six_random_NaJia["110001"] = {
 "name":"风雷益",
 "p":"巽宫",
 "1":"兄弟辛卯木 应",
@@ -1701,7 +1701,7 @@ six_random_NaJia["001110"] = {
 - -
 ---
 */
-six_random_NaJia["000110"] = {
+six_random_NaJia["111001"] = {
 "name":"天雷无妄",
 "p":"巽宫",
 "1":"妻财壬戌土",
@@ -1747,7 +1747,7 @@ six_random_NaJia["000110"] = {
 - -
 ---
 */
-six_random_NaJia["010110"] = {
+six_random_NaJia["101001"] = {
 "name":"火雷噬嗑",
 "p":"巽宫",
 "1":"子孙己巳火",
@@ -1793,7 +1793,7 @@ six_random_NaJia["010110"] = {
 - -
 ---
 */
-six_random_NaJia["011110"] = {
+six_random_NaJia["100001"] = {
 "name":"山雷颐",
 "p":"巽宫",
 "1":"兄弟丙寅木",
@@ -1841,7 +1841,7 @@ six_random_NaJia["011110"] = {
 ---
 - -
 */
-six_random_NaJia["011001"] = {
+six_random_NaJia["100110"] = {
 "name":"山风蛊",
 "p":"巽宫",
 "1":"兄弟丙寅木 应",
@@ -1888,7 +1888,7 @@ six_random_NaJia["011001"] = {
 ---
 - -
 */
-six_random_NaJia["101101"] = {
+six_random_NaJia["010010"] = {
 "name":"坎为水",
 "p":"坎宫",
 "1":"兄弟戊子水 世",
@@ -1934,7 +1934,7 @@ six_random_NaJia["101101"] = {
 ---
 ---
 */
-six_random_NaJia["101100"] = {
+six_random_NaJia["010011"] = {
 "name":"水泽节",
 "p":"坎宫",
 "1":"兄弟戊子水",
@@ -1980,7 +1980,7 @@ six_random_NaJia["101100"] = {
 - -
 ---
 */
-six_random_NaJia["101110"] = {
+six_random_NaJia["010001"] = {
 "name":"水雷屯",
 "p":"坎宫",
 "1":"兄弟戊子水",
@@ -2027,7 +2027,7 @@ six_random_NaJia["101110"] = {
 - -
 ---
 */
-six_random_NaJia["101010"] = {
+six_random_NaJia["010101"] = {
 "name":"水火既济",
 "p":"坎宫",
 "1":"兄弟戊子水 应",
@@ -2074,7 +2074,7 @@ six_random_NaJia["101010"] = {
 - -
 ---
 */
-six_random_NaJia["100010"] = {
+six_random_NaJia["011101"] = {
 "name":"泽火革",
 "p":"坎宫",
 "1":"官鬼丁未土",
@@ -2121,7 +2121,7 @@ six_random_NaJia["100010"] = {
 - -
 ---
 */
-six_random_NaJia["110010"] = {
+six_random_NaJia["001101"] = {
 "name":"雷火丰",
 "p":"坎宫",
 "1":"官鬼庚戌土",
@@ -2167,7 +2167,7 @@ six_random_NaJia["110010"] = {
 - -
 ---
 */
-six_random_NaJia["111010"] = {
+six_random_NaJia["000101"] = {
 "name":"地火明夷",
 "p":"坎宫",
 "1":"父母癸酉金",
@@ -2214,7 +2214,7 @@ six_random_NaJia["111010"] = {
 ---
 - -
 */
-six_random_NaJia["111101"] = {
+six_random_NaJia["000010"] = {
 "name":"地水师",
 "p":"坎宫",
 "1":"父母癸酉金 应",
@@ -2260,7 +2260,7 @@ six_random_NaJia["111101"] = {
 - -
 - -
 */
-six_random_NaJia["011011"] = {
+six_random_NaJia["100100"] = {
 "name":"艮为山",
 "p":"艮宫",
 "1":"官鬼丙寅木 世",
@@ -2306,7 +2306,7 @@ six_random_NaJia["011011"] = {
 - -
 ---
 */
-six_random_NaJia["011010"] = {
+six_random_NaJia["100101"] = {
 "name":"山火贲",
 "p":"艮宫",
 "1":"官鬼丙寅木",
@@ -2352,7 +2352,7 @@ six_random_NaJia["011010"] = {
 ---
 ---
 */
-six_random_NaJia["011000"] = {
+six_random_NaJia["100111"] = {
 "name":"山天大畜",
 "p":"艮宫",
 "1":"官鬼丙寅木",
@@ -2400,7 +2400,7 @@ six_random_NaJia["011000"] = {
 ---
 ---
 */
-six_random_NaJia["011100"] = {
+six_random_NaJia["100011"] = {
 "name":"山泽损",
 "p":"艮宫",
 "1":"官鬼丙寅木 应",
@@ -2448,7 +2448,7 @@ six_random_NaJia["011100"] = {
 ---
 ---
 */
-six_random_NaJia["010100"] = {
+six_random_NaJia["101011"] = {
 "name":"火泽睽",
 "p":"艮宫",
 "1":"父母己巳火",
@@ -2495,7 +2495,7 @@ six_random_NaJia["010100"] = {
 ---
 ---
 */
-six_random_NaJia["000100"] = {
+six_random_NaJia["111011"] = {
 "name":"天泽履",
 "p":"艮宫",
 "1":"兄弟壬戌土",
@@ -2542,7 +2542,7 @@ six_random_NaJia["000100"] = {
 ---
 ---
 */
-six_random_NaJia["001100"] = {
+six_random_NaJia["110011"] = {
 "name":"风泽中孚",
 "p":"艮宫",
 "1":"官鬼辛卯木",
@@ -2590,7 +2590,7 @@ six_random_NaJia["001100"] = {
 - -
 - -
 */
-six_random_NaJia["001011"] = {
+six_random_NaJia["110100"] = {
 "name":"风山渐",
 "p":"艮宫",
 "1":"官鬼辛卯木 应",
@@ -2637,7 +2637,7 @@ six_random_NaJia["001011"] = {
 - -
 - -
 */
-six_random_NaJia["111111"] = {
+six_random_NaJia["000000"] = {
 "name":"坤为地",
 "p":"坤宫",
 "1":"子孙癸酉金 世",
@@ -2683,7 +2683,7 @@ six_random_NaJia["111111"] = {
 - -
 ---
 */
-six_random_NaJia["111110"] = {
+six_random_NaJia["000001"] = {
 "name":"地雷复",
 "p":"坤宫",
 "1":"子孙癸酉金",
@@ -2730,7 +2730,7 @@ six_random_NaJia["111110"] = {
 ---
 ---
 */
-six_random_NaJia["111100"] = {
+six_random_NaJia["000011"] = {
 "name":"地泽临",
 "p":"坤宫",
 "1":"子孙癸酉金",
@@ -2776,7 +2776,7 @@ six_random_NaJia["111100"] = {
 ---
 ---
 */
-six_random_NaJia["111000"] = {
+six_random_NaJia["000111"] = {
 "name":"地天泰",
 "p":"坤宫",
 "1":"子孙癸酉金 应",
@@ -2823,7 +2823,7 @@ six_random_NaJia["111000"] = {
 ---
 ---
 */
-six_random_NaJia["110000"] = {
+six_random_NaJia["001111"] = {
 "name":"雷天大壮",
 "p":"坤宫",
 "1":"兄弟庚戌土",
@@ -2869,7 +2869,7 @@ six_random_NaJia["110000"] = {
 ---
 ---
 */
-six_random_NaJia["100000"] = {
+six_random_NaJia["011111"] = {
 "name":"泽天夬",
 "p":"坤宫",
 "1":"兄弟丁未土",
@@ -2916,7 +2916,7 @@ six_random_NaJia["100000"] = {
 ---
 ---
 */
-six_random_NaJia["101000"] = {
+six_random_NaJia["010111"] = {
 "name":"水天需",
 "p":"坤宫",
 "1":"妻财戊子水",
@@ -2963,7 +2963,7 @@ six_random_NaJia["101000"] = {
 - -
 - -
 */
-six_random_NaJia["101111"] = {
+six_random_NaJia["010000"] = {
 "name":"水地比",
 "p":"坤宫",
 "1":"妻财戊子水 应",
@@ -3022,12 +3022,14 @@ var htmlnajiadraw		= new Array();
 var htmlnajiachangedraw	= new Array();
 var htmlchangeinfodraw 	= new Array();
 
-
+//易经中用6、7、8、9四个数字代表老阴、少阳、少阴、老阳.
 const sixtycycletable = ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
-const oldnegativevalue = 0;                 //老阴
-const negativevalue = 1;                    //少阴
-const positivevalue = 2;                    //少阳    
-const oldpositivevalue = 3                  //老阳
+const oldnegativevalue = 6;                 //老阴
+const negativevalue = 8;                    //少阴
+const positivevalue = 7;                    //少阳    
+const oldpositivevalue = 9                  //老阳
+const positive = 1
+const negative = 0
 const randomtime = 6 
 
 const negativedraw = "--- ---";
@@ -3321,23 +3323,18 @@ get_six_random_myth()
 get_one_random()
 /*
 六爻的启动测试，取三次正反，0表示反面，1表示证明
-000表示全阴X
-111表示全阳O
-010表示少阴
-100表示少阴
-001表示少阴
-101表示少阳
-011表示少阳
-110表示少阳
-将结果加合就得到了4种结果，0 1 2 3 
-0 老阴 1 少阴 2 少阳 3 全阳
+6表示全阴X
+9表示全阳O
+8表示少阴
+7表示少阳
+6 老阴 7 少阳 8 少阴 9 老阳
 */
 {
 
     three_random[0]=Math.random(1)>=0.5?1:0;
     three_random[1]=Math.random(1)>=0.5?1:0;
     three_random[2]=Math.random(1)>=0.5?1:0;
-    return  three_random[0] + three_random[1] + three_random[2];
+    return  three_random[0] + three_random[1] + three_random[2] + 6;
     
 }
 
@@ -3468,6 +3465,7 @@ get_six_original_random()
 {
 	six_random_date[3] = "旬空：" + six_random_empty[0] + " " + six_random_empty[1] + " " + six_random_empty[2] + " " + six_random_empty[3] 
 	six_random_date[4] = "神煞：" + "驿马-" + six_random_help_myth[0] + " 桃花-" + six_random_help_myth[1] + " 日禄-" + six_random_help_myth[2] + " 贵人-" + six_random_help_myth[3] 
+	//ooup oodown 本卦的上下主客卦 ocup ocdown 变卦的上下主客卦
 	var ooup=oodown=ocup=ocdown="";
 	for(index = 0;index<randomtime;index++)
     {
@@ -3475,12 +3473,12 @@ get_six_original_random()
 		{
 			if(index<randomtime/2)
 			{
-				ooup=ooup+"0"
-				ocup=ocup+"1"
+				ooup=ooup+negative
+				ocup=ocup+positive
 			}
 			else{
-				oodown=oodown+"0"
-				ocdown=ocdown+"1"
+				oodown=oodown+negative
+				ocdown=ocdown+positive
 			}
 			
 		}
@@ -3488,36 +3486,36 @@ get_six_original_random()
 		{
 			if(index<randomtime/2)
 			{
-				ooup=ooup+"1"
-				ocup=ocup+"0"
+				ooup=ooup+positive
+				ocup=ocup+negative
 			}
 			else{
-				oodown=oodown+"1"
-				ocdown=ocdown+"0"
+				oodown=oodown+positive
+				ocdown=ocdown+negative
 			}
 		}
 		else if(positivevalue==six_random[index+1])
 		{
 			if(index<randomtime/2)
 			{
-				ooup=ooup+"1"
-				ocup=ocup+"1"
+				ooup=ooup+positive
+				ocup=ocup+positive
 			}
 			else{
-				oodown=oodown+"1"
-				ocdown=ocdown+"1"
+				oodown=oodown+positive
+				ocdown=ocdown+positive
 			}
 		}
 		else if(negativevalue==six_random[index+1])
 		{
 			if(index<randomtime/2)
 			{
-				ooup=ooup+"0"
-				ocup=ocup+"0"
+				ooup=ooup+negative
+				ocup=ocup+negative
 			}
 			else{
-				oodown=oodown+"0"
-				ocdown=ocdown+"0"
+				oodown=oodown+negative
+				ocdown=ocdown+negative
 			}
 		}
 	}
@@ -3757,8 +3755,15 @@ get_sixrandom_name(lunar)
 	 for (index =0;index<6;index++)
     {
 		var t = lunar[index]
-		
-		x = x + (("0"==t || "1"==t)?"0":"1")
+		if("6"==t || "8"==t)
+			{
+				x = x + "0";
+			}
+		else if("7"==t || "9"==t)
+			{
+				x = x + "1";
+			}
+		//x = x + (("6"==t || "8"==t)?"0":"1")
 		//console.log(x)
     }
 	return six_random_NaJia[x]["name"]
@@ -3861,6 +3866,15 @@ get_sixrandom_name(lunar)
 		ret = this.recoverlunarsix(info)
 		return ret
 	}
+
+getnegativedraw()
+{
+	return negativedraw;
+}
+getpositivedraw()
+{
+	return positivedraw;
+}
 }
 
 var sixrandommodule = new SixrandomModule()

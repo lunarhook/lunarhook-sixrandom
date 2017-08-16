@@ -77,36 +77,57 @@ class HistoryPage extends React.Component {
     //StorageModule.remove({key:"last"})
     StorageModule.getAllDataForKey('user').then(ids => {
 
+        
             //alert(ids)
             for (i = 0;i<ids.length;i++)
-            {
-                var randArray = ids[i];
-                var date = new Date(Number(randArray[7]))
-                var lunar = ""
-                for (index =1;index<7;index++)
-                {
-                  lunar = lunar+(randArray[index]).toString()
-                }
-                var result = SixrandomModule.get_sixrandom_name(lunar)
-                var question = randArray[0]
-                var obj = {
-                  name:date.toLocaleDateString() + "  求测：" + ValueTypeModule[question] +" "+result+" "+ (""!=randArray[8]?("   提示：" + randArray[8]):""),
-                  url:"?date="+date+"&lunar="+lunar+"&question="+question,
-                  id:randArray[7],
-                }
-                HistoryNameArray[i] = obj
-                //alert(HistoryNameArray[i])
-            }     
-            HistoryNameArray.reverse()
-            this.setState({  
-            isLoading: false,  
-            dataSource: this.state.dataSource.cloneWithRows(HistoryNameArray) }); 
-            if(ids.length==0)
               {
-                this.props.navigation.goBack()
+                try {
+                  var randArray = ids[i];
+                  var date = new Date(Number(randArray[7]))
+                  var lunar = ""
+                  for (index =1;index<7;index++)
+                  {
+                    lunar = lunar+(randArray[index]).toString()
+                  }
+                  var result = SixrandomModule.get_sixrandom_name(lunar)
+                  var question = randArray[0]
+                  var obj = {
+                    name:date.toLocaleDateString() + "  求测：" + ValueTypeModule[question] +" "+result+" "+ (""!=randArray[8]?("   提示：" + randArray[8]):""),
+                    url:"?date="+date+"&lunar="+lunar+"&question="+question,
+                    id:randArray[7],
+                  }
+                  HistoryNameArray[i] = obj
+                  
+                } catch (error) {
+                  StorageModule.remove({key:'user',id:randArray[7]});
+                  HistoryNameArray[i] = undefined
+                }
+                
+                  //alert(HistoryNameArray[i])
+              }     
+              HistoryNameArray.reverse()
+              //去掉存储异常的对象
+              for(var i=0,len=HistoryNameArray.length;i<len;i++)
+              { 
+                if(undefined == HistoryNameArray[i]){ 
+                  HistoryNameArray.splice(i,1); 
+                  len--; 
+                  i--; 
+                } 
               } 
-            //alert(HistoryNameArray)
-            return
+              this.setState({  
+              isLoading: false,  
+              dataSource: this.state.dataSource.cloneWithRows(HistoryNameArray) }); 
+              if(ids.length==0)
+                {
+                  this.props.navigation.goBack()
+                } 
+              //alert(HistoryNameArray)
+              return
+          
+        
+
+          
     });
 
     
