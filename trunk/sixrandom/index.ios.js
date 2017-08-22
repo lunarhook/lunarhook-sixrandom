@@ -14,6 +14,7 @@ import HistoryPage from './src/HistoryPage';
 import NewPage from './src/NewPage';
 import FullInfoPage from './src/FullInfoPage'
 import HistoryInfoPage from './src/HistoryInfoPage'
+import SixrandomMainPage from './src/SixrandomMainPage'
 
 
 
@@ -51,6 +52,7 @@ const sixrandom = StackNavigator({
   NewPage: {screen: NewPage},
   FullInfoPage: {screen: FullInfoPage},
   HistoryInfoPage: { screen: HistoryInfoPage },
+  SixrandomMainPage:{screen:SixrandomMainPage},
 });
 
 AppRegistry.registerComponent('sixrandom', () =>sixrandom);
