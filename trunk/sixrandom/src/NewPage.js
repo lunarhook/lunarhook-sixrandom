@@ -28,7 +28,7 @@ class HistoryPage extends React.Component {
 
   static navigationOptions = {
     //headerRight:(<Button title="返回" />),
-    title: '取卦',
+    title: '六爻取卦',
     
   };
 
@@ -129,7 +129,7 @@ class HistoryPage extends React.Component {
       var question = randArray[0]
       var parameter = "?date="+(new Date(Number(randArray[7])))+"&lunar="+lunar+"&question="+question
       //this.props.navigation.navigate('MainPage',parameter)
-      this.begin('MainPage')
+      this.begin('SixrandomMainPage')
       this.picker("emotion")
      
     }

@@ -16,7 +16,6 @@ import ShareModule from './ShareModule'
 import SixrandomModule from './SixrandomModule'
 import ValueTypeModule from './ValueTypeModule'
 
-
 const {width, height} = Dimensions.get('window');  
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomsimple.html"
@@ -25,25 +24,17 @@ var jump = false
 
 
 
-class MainPage extends React.Component {
+class SixrandomMainPage extends React.Component {
   constructor(props) {
 
   super(props);
     var parameter = ""//"?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
     var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
-      selectedStartDate: null,
       dataSource: dataSource,
       parameter:parameter,
+		};
     };
-    this.onDateChange = this.onDateChange.bind(this);
-    };
-
-    onDateChange(date) {
-      this.setState({
-        selectedStartDate: date,
-      });
-    }
 
   componentDidMount() {
     
@@ -60,9 +51,9 @@ class MainPage extends React.Component {
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
-      headerLeft:null,
-    headerRight:(<Button title="我的" onPress={  () => navigate('HistoryPage')  }/>),
-    title: '万年历',
+    headerLeft:(<Button title="万年历" onPress={  () => navigate('MainPage')  }/>),
+    headerRight:(<Button title="历史" onPress={  () => navigate('HistoryPage')  }/>),
+    title: '六爻卦象',
     }
   };
   
@@ -133,12 +124,11 @@ class MainPage extends React.Component {
       const { navigate } = this.props.navigation;
 
       jump = false;
-      const { selectedStartDate } = this.state;
-      const startDate = selectedStartDate ? selectedStartDate.toString() : '';
       
         return(
     <View style={styles.container}>
 
+        
 
             <ListView
             enableEmptySections={true}
@@ -160,38 +150,23 @@ class MainPage extends React.Component {
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  
                   <TabNavigator.Item
-                        title="六爻"  
+                        title="取卦"  
                         //   
                         //selected={this.state.tab=='liuyao'}  
                         //onPress={() => this.begin('NewPage')
-                        onPress={() => navigate('SixrandomMainPage') 
+                        onPress={() => navigate('NewPage') 
                         }  
                         titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
                     <TabNavigator.Item 
-                        title="八字"  
-                        //selected={this.state.tab=='history'}   
-                        onPress={ 
-                            () => navigate('SixrandomMainPage',this.state.parameter)
-                          }titleStyle={styles.menufont}>  
-                        
-                    </TabNavigator.Item>  
-                    <TabNavigator.Item 
-                        title="探索"  
+                        title="详细"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
                             () => navigate('FullInfoPage',this.state.parameter)
                           }titleStyle={styles.menufont}>  
                         
                     </TabNavigator.Item>  
-                    <TabNavigator.Item 
-                        title="我"  
-                        //selected={this.state.tab=='history'}   
-                        onPress={ 
-                            () => navigate('FullInfoPage',this.state.parameter)
-                          }titleStyle={styles.menufont}>  
-                        
-                    </TabNavigator.Item>  
+                   
                 </TabNavigator>  
                  
               </View>  
@@ -259,4 +234,4 @@ var styles = StyleSheet.create ({
     flex:1
   }
 });
-module.exports=MainPage;  
+module.exports=SixrandomMainPage;  
