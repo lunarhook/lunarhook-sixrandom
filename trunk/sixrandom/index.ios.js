@@ -13,7 +13,7 @@ import MainPage from './src/MainPage';
 import HistoryPage from './src/HistoryPage';
 import NewPage from './src/NewPage';
 import FullInfoPage from './src/FullInfoPage'
-//import HistoryInfoPage from './src/HistoryInfoPage'
+import StudentPage from './src/StudentPage'
 import SixrandomMainPage from './src/SixrandomMainPage'
 import MyPage from './src/MyPage'
 
@@ -52,7 +52,7 @@ const sixrandom = StackNavigator({
   HistoryPage: { screen: HistoryPage },
   NewPage: {screen: NewPage},
   FullInfoPage: {screen: FullInfoPage},
-  //HistoryInfoPage: { screen: HistoryInfoPage },
+  StudentPage: { screen: StudentPage },
   SixrandomMainPage:{screen:SixrandomMainPage},
   MyPage:{screen:MyPage},
 });

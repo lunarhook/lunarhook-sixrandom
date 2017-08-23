@@ -94,10 +94,10 @@ class MainPage extends React.Component {
                         
                     </TabNavigator.Item>  
                     <TabNavigator.Item 
-                        title="关于"  
+                        title="成长"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
-                            () => navigate('MyPage')
+                            () => navigate('StudentPage')
                           }titleStyle={styles.menufont}>  
                         
                     </TabNavigator.Item>  
