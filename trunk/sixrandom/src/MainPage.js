@@ -30,104 +30,26 @@ class MainPage extends React.Component {
 
   super(props);
     var parameter = ""//"?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
-    var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    //var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
-      selectedStartDate: null,
-      dataSource: dataSource,
+     // selectedStartDate: null,
+      //dataSource: dataSource,
       parameter:parameter,
     };
-    this.onDateChange = this.onDateChange.bind(this);
+    //this.onDateChange = this.onDateChange.bind(this);
     };
 
-    onDateChange(date) {
-      this.setState({
-        selectedStartDate: date,
-      });
-    }
-
-  componentDidMount() {
-    
-		this.timer = setTimeout(
-			() => {
-        this.refreshlist()
-        
-			},
-			200
-    );
-     
-  }
+   
 
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
       headerLeft:null,
-    headerRight:(<Button title="我的" onPress={  () => navigate('HistoryPage')  }/>),
+    headerRight:(<Button title="我的" onPress={   () => navigate('MyPage')  }/>),
     title: '万年历',
     }
   };
   
-
-  refreshlist()
-  {
-      const { navigate } = this.props.navigation;
-      
-      var parameter = this.props.navigation.state.params
-
-      
-      if(undefined!=parameter)
-      {
-         
-         //return
-          var _ret = SixrandomModule.build(parameter);
-          var _build = SixrandomModule.get_simple_random_draw()
-
-          this.setState({  
-            dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
-      }
-      else
-      {
-        StorageModule.load({
-            key:"last",
-        }).then(ret => {
-       
-              //return
-            randArray = ret
-            var date = new Date(Number(randArray[7]))
-            var lunar = ""
-            for (index =1;index<7;index++)
-            {
-              lunar = lunar+(randArray[index]).toString()
-            }
-            var question = randArray[0]
-
-            var parameter = "?date="+date+"&lunar="+lunar+"&question="+question
-            //alert(parameter);
-            console.log(parameter)
-            var _ret = SixrandomModule.build(parameter);
-            var _build = SixrandomModule.get_simple_random_draw()
-
-            this.setState({  
-                  dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
-            }).catch(err => {
-            //alert(err)
-            if(false==jump)
-            {
-               this.begin('NewPage')
-               jump = true
-            }
-        })
-      }
-  }
-
-   _renderRow(rowData) {
-    //alert(rowData.name)
-    return (
-      
-      <View style={styles.list}>
-        <Text  style={styles.rowhigth}>{rowData}</Text>
-      </View>
-    );
-  }
   
   render(){
       const { navigate } = this.props.navigation;
@@ -140,20 +62,7 @@ class MainPage extends React.Component {
     <View style={styles.container}>
 
 
-            <ListView
-            enableEmptySections={true}
-						dataSource={this.state.dataSource}
-						renderRow={this._renderRow.bind(this)}
-						initialListSize={1}
-						pageSize={8}
-						refreshControl={
-							<RefreshControl
-                refreshing={false}
-								onRefresh={this.refreshlist.bind(this)}
-								enabled={false}
-								colors={['#ff0000', '#00ff00', '#0000ff', '#3ad564']}
-							/>}/>
-              
+            
 
       
       <TabNavigator 
@@ -164,7 +73,7 @@ class MainPage extends React.Component {
                         //   
                         //selected={this.state.tab=='liuyao'}  
                         //onPress={() => this.begin('NewPage')
-                        onPress={() => navigate('SixrandomMainPage') 
+                        onPress={() => navigate('NewPage') 
                         }  
                         titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
@@ -172,7 +81,7 @@ class MainPage extends React.Component {
                         title="八字"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
-                            () => navigate('SixrandomMainPage',this.state.parameter)
+                            () => navigate('SixrandomMainPage')
                           }titleStyle={styles.menufont}>  
                         
                     </TabNavigator.Item>  
@@ -180,15 +89,15 @@ class MainPage extends React.Component {
                         title="探索"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
-                            () => navigate('FullInfoPage',this.state.parameter)
+                            () => navigate('SixrandomMainPage')
                           }titleStyle={styles.menufont}>  
                         
                     </TabNavigator.Item>  
                     <TabNavigator.Item 
-                        title="我"  
+                        title="关于"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
-                            () => navigate('FullInfoPage',this.state.parameter)
+                            () => navigate('MyPage')
                           }titleStyle={styles.menufont}>  
                         
                     </TabNavigator.Item>  

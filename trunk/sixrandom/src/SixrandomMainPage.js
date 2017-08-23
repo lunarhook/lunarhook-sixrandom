@@ -51,8 +51,8 @@ class SixrandomMainPage extends React.Component {
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
-    headerLeft:(<Button title="万年历" onPress={  () => navigate('MainPage')  }/>),
-    headerRight:(<Button title="历史" onPress={  () => navigate('HistoryPage')  }/>),
+    //headerLeft:(<Button title="万年历" onPress={  () => navigate('MainPage')  }/>),
+    //headerRight:(<Button title="历史" onPress={  () => navigate('HistoryPage')  }/>),
     title: '六爻卦象',
     }
   };
@@ -149,15 +149,7 @@ class SixrandomMainPage extends React.Component {
       <TabNavigator 
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  
-                  <TabNavigator.Item
-                        title="取卦"  
-                        //   
-                        //selected={this.state.tab=='liuyao'}  
-                        //onPress={() => this.begin('NewPage')
-                        onPress={() => navigate('NewPage') 
-                        }  
-                        titleStyle={styles.menufont}>  
-                    </TabNavigator.Item>  
+                  
                     <TabNavigator.Item 
                         title="详细"  
                         //selected={this.state.tab=='history'}   

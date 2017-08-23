@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,Keyboard,View, TextInput, Text,ListView,Picker} from 'react-native';
+import {StyleSheet,Keyboard,View,Button, TextInput, Text,ListView,Picker} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
@@ -26,9 +26,13 @@ class HistoryPage extends React.Component {
     }
   }
 
-  static navigationOptions = {
+  static navigationOptions = ({navigation})=>{
+    const { navigate } = navigation;
     //headerRight:(<Button title="返回" />),
+    return{
+    headerRight:(<Button title="历史" onPress={  () => navigate('HistoryPage')  }/>),
     title: '六爻取卦',
+    }
     
   };
 
@@ -128,8 +132,8 @@ class HistoryPage extends React.Component {
       }
       var question = randArray[0]
       var parameter = "?date="+(new Date(Number(randArray[7])))+"&lunar="+lunar+"&question="+question
-      //this.props.navigation.navigate('MainPage',parameter)
-      this.begin('SixrandomMainPage')
+      this.props.navigation.navigate('SixrandomMainPage',parameter)
+      //this.begin('SixrandomMainPage')
       this.picker("emotion")
      
     }
