@@ -151,7 +151,7 @@ class SixrandomMainPage extends React.Component {
        sceneStyle={{ paddingBottom: 30 }}>  
                   
                     <TabNavigator.Item 
-                        title="详细"  
+                        title="卦象详细"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
                             () => navigate('FullInfoPage',this.state.parameter)

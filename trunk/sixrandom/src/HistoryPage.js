@@ -21,7 +21,7 @@ class HistoryPage extends React.Component {
 		};
   }
     static navigationOptions = {
-    title: '历史',
+    title: '六爻历史',
   };
 
   componentDidMount() {
@@ -45,7 +45,7 @@ class HistoryPage extends React.Component {
     return (
       
       <View style={styles.list}>
-      <TouchableOpacity style={styles.button} onLongPress={()=>this._deleteRow(rowData)}onPress={ () => navigate('HistoryInfoPage',rowData.url) }>
+      <TouchableOpacity style={styles.button} onLongPress={()=>this._deleteRow(rowData)}onPress={ () => navigate('SixrandomMainPage',rowData.url) }>
         <Text>{rowData.name}</Text>
         </TouchableOpacity>
       </View>
