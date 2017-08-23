@@ -1,12 +1,13 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View, Text,Button,TouchableOpacity,RefreshControl,ListView} from 'react-native';
+import {StyleSheet,View, Text,ScrollView,Button,TouchableOpacity,RefreshControl,ListView} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { NavigationActions } from 'react-navigation'
+import { NavigationActions } from 'react-navigation';
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 import HistoryPage from './HistoryPage';
 import StorageModule from './StorageModule'
@@ -32,10 +33,13 @@ class MainPage extends React.Component {
     var parameter = ""//"?date=Mon Jul 10 2017 23:43:54 GMT+0800 (CST)&lunar=123123";
     //var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
+      
      // selectedStartDate: null,
       //dataSource: dataSource,
       parameter:parameter,
     };
+    this.onDayPress = this.onDayPress.bind(this);
+
     //this.onDateChange = this.onDateChange.bind(this);
     };
 
@@ -60,9 +64,17 @@ class MainPage extends React.Component {
       
         return(
     <View style={styles.container}>
+<Calendar style={styles.calendar}
+  onDayPress={this.onDayPress}
+  style={styles.calendar}
+  hideExtraDays
+  markedDates={{[this.state.selected]: {selected: true}}}
+/>
 
 
-            
+            <Text>
+
+              </Text>
 
       
       <TabNavigator 
@@ -106,6 +118,11 @@ class MainPage extends React.Component {
               </View>  
     )
     }
+    onDayPress(day) {
+      this.setState({
+        selected: day.dateString
+      });
+    }
     begin(pagename)
     {
       const resetAction = NavigationActions.reset({
@@ -129,6 +146,13 @@ class MainPage extends React.Component {
 var styles = StyleSheet.create ({
   container: {
     flex:1,
+  },
+  calendar: {
+    borderTopWidth: 1,
+    paddingTop: 5,
+    borderBottomWidth: 1,
+    borderColor: '#eee',
+    height: 550
   },
   menufont:{
     fontSize:15,
