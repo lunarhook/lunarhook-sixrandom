@@ -3346,7 +3346,7 @@ get_six_original_random()
 
     for(index = 0;index<randomtime;index++)
     {
-        six_random[randomtime - index] = get_one_random();
+        six_random[randomtime - index] = this.get_one_random();
     }
 }
  recover_six_original_random(lunardate)
@@ -3814,10 +3814,10 @@ get_sixrandom_name(lunar)
 */
 {
 	//取爻
-	startinfo = lunar_f();
-	get_six_original_random();
+	startinfo = this.lunar_f();
+	this.get_six_original_random();
     //本卦爻变
-	return get_six_random();
+	return this.get_six_random();
 	//存盘序列化
 }
 

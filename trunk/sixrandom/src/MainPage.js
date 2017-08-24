@@ -17,7 +17,6 @@ import ShareModule from './ShareModule'
 import SixrandomModule from './SixrandomModule'
 import ValueTypeModule from './ValueTypeModule'
 
-
 const {width, height} = Dimensions.get('window');  
 var WEBVIEW_REF = 'webview';
 var DEFAULT_URL = "./sixrandomsimple.html"
@@ -53,6 +52,45 @@ class MainPage extends React.Component {
     title: '万年历',
     }
   };
+
+  fetchWanNianLiInfo() {
+    return dispatch => {
+        NetUtils.get(URL_WAN_NIAN_LI+'?key='+APP_KEY_WAN_NIAN_LI+'&date='+CommonUtils.dateFormat(new Date(), 'yyyy-M-d'))
+        .then(function (result) {
+            if (result.error_code == 0) {
+                dispatch({
+                    type: types.ACTION_WNL_FETCHED,
+                    wnlData: result.result.data,
+                });
+            }
+            
+        }, function () {})
+    };
+}
+  wannianli()
+  {
+
+    var wanNianLiInfo = SixrandomModule.lunarsix()
+    console.log(wanNianLiInfo.info.oDate)
+    console.log(wanNianLiInfo.info.cnDay)
+    console.log(wanNianLiInfo.six_random_date[0])
+    return(
+    <View style={styles.wanNianLiContainer}>
+    <View style={styles.dateContainer}>
+      <Text style={styles.list}>
+        {wanNianLiInfo.info.Year}年{wanNianLiInfo.info.Month}月{wanNianLiInfo.info.Date}日 星期{wanNianLiInfo.info.cnDay}
+      </Text>
+      <Text style={styles.list}>
+        {wanNianLiInfo.info.gzYear}年{wanNianLiInfo.info.lMonth}月{wanNianLiInfo.info.lDate} ({wanNianLiInfo.info.animal})
+      </Text>
+    </View>
+    <Text style={styles.list}>{wanNianLiInfo.six_random_date[2]}</Text>
+    <Text style={styles.list}>{wanNianLiInfo.six_random_date[3]}</Text>
+    <Text style={styles.list}>{wanNianLiInfo.six_random_date[4]}</Text>
+  </View>
+  )
+
+}
   
   
   render(){
@@ -72,9 +110,7 @@ class MainPage extends React.Component {
 />
 
 
-            <Text>
-
-              </Text>
+            {this.wannianli()}
 
       
       <TabNavigator 
@@ -152,7 +188,8 @@ var styles = StyleSheet.create ({
     paddingTop: 5,
     borderBottomWidth: 1,
     borderColor: '#eee',
-    height: 550
+    height: 550,
+    flex:1
   },
   menufont:{
     fontSize:15,
@@ -189,7 +226,26 @@ var styles = StyleSheet.create ({
   tabBarStyle:{
     flex: 1,
     height:40,
-    flex:1
-  }
+    
+  },
+  wanNianLiContainer: {
+    backgroundColor: 'white',
+    borderColor: '#dddddd',
+    borderStyle: null,
+    borderWidth: 0,
+    borderRadius: 2,
+    margin: 0,
+    padding: 10,
+  },
+  dateContainer: {
+    //justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
+    justifyContent:'space-between',
+    flexDirection: 'row',
+    marginTop: 10,
+    marginBottom: 5,
+  },
+  dateText: {
+    fontSize: 15,
+  },
 });
 module.exports=MainPage;  
