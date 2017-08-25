@@ -13,7 +13,7 @@ const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 var dataArray = [];
 var randArray = []
 
-class HistoryPage extends React.Component {
+class SixrandomNewPage extends React.Component {
 
   constructor(porp) {
     
@@ -204,4 +204,4 @@ var styles = StyleSheet.create ({
     textDecorationLine: 'none',//下划线和删除线的样式：['none' /*default*/, 'underline', 'line-through', 'underline line-through'  
   },
 });
-module.exports=HistoryPage;  
+module.exports=SixrandomNewPage;  
