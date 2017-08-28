@@ -5,16 +5,17 @@
  */
 
 import React, {Component} from 'react';
-import {AppRegistry,Navigator,StyleSheet,View,  Text} from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import {AppRegistry,StyleSheet,View,  Text} from 'react-native';
+import { StackNavigator,TabNavigator,NavigationActions,TabBarBottom } from 'react-navigation';
 
 
 import MainPage from './src/MainPage';
 import HistoryPage from './src/HistoryPage';
-import NewPage from './src/NewPage';
+import SixrandomNewPage from './src/SixrandomNewPage';
 import FullInfoPage from './src/FullInfoPage'
 import StudentPage from './src/StudentPage'
 import SixrandomMainPage from './src/SixrandomMainPage'
+import EightrandomNewPage from './src/EightrandomNewPage';
 import MyPage from './src/MyPage'
 
 
@@ -23,7 +24,7 @@ class splash extends Component {
   
   render() {
     return (
-      <NewPage/>
+      <MainPage/>
         )
   }
 }
@@ -50,11 +51,14 @@ const styles = StyleSheet.create({
 const sixrandom = StackNavigator({
   MainPage: { screen: MainPage },
   HistoryPage: { screen: HistoryPage },
-  NewPage: {screen: NewPage},
+  SixrandomNewPage: {screen: SixrandomNewPage},
   FullInfoPage: {screen: FullInfoPage},
   StudentPage: { screen: StudentPage },
   SixrandomMainPage:{screen:SixrandomMainPage},
+  EightrandomNewPage:{screen:EightrandomNewPage},
   MyPage:{screen:MyPage},
 });
+
+
 
 AppRegistry.registerComponent('sixrandom', () =>sixrandom);

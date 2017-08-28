@@ -10,7 +10,7 @@ import { NavigationActions } from 'react-navigation'
 
 import HistoryPage from './HistoryPage';
 import StorageModule from './StorageModule'
-import NewPage from './NewPage';
+import SixrandomNewPage from './SixrandomNewPage';
 import FullInfoPage from './FullInfoPage';
 import ShareModule from './ShareModule'
 import SixrandomModule from './SixrandomModule'
@@ -103,7 +103,7 @@ class SixrandomMainPage extends React.Component {
             //alert(err)
             if(false==jump)
             {
-               this.begin('NewPage')
+               this.begin('SixrandomNewPage')
                jump = true
             }
         })
