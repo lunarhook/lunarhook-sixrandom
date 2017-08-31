@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,Keyboard,View,Button, TextInput,TouchableOpacity, Text,ListView,Picker,TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet,Keyboard,View,Button, TextInput,TouchableOpacity, Text,ListView,TouchableWithoutFeedback,Switch} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
@@ -9,7 +9,9 @@ import { NavigationActions } from 'react-navigation'
 import StorageModule from './StorageModule'
 import ValueTypeModule from './ValueTypeModule'
 import SixrandomModule from './SixrandomModule'
-import DateTimePicker from 'react-native-modal-datetime-picker';
+import Picker from 'react-native-picker';
+//import DatePicker from 'react-native-datepicker'
+//import DateTimePicker from 'react-native-modal-datetime-picker';
 import { RadioButtons } from 'react-native-radio-buttons'
 import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button'
 
@@ -22,8 +24,8 @@ class EightrandomNewPage extends React.Component {
         this.state= {
           isDatePickerVisible: false,
           isTimePickerVisible: false,
-      
-            selectedValue: '女',
+            switchstate:true,
+            selectedValue: '男',
             datepicker:"",
             timepicker:"",
             Tip: ""
@@ -31,26 +33,92 @@ class EightrandomNewPage extends React.Component {
    
   }
 
-  _showDatePicker = () => this.setState({ isDatePickerVisible: true });
-  
-    _hideDatePicker = () => this.setState({ isDatePickerVisible: false });
-    _showTimePicker = () => this.setState({ isTimePickerVisible: true });
-    
-      _hideTimePicker = () => this.setState({ isTimePickerVisible: false });
-  
-    _handleDatePicked = (datepick) => {
-      
-      var t = new Date(datepick)
-      console.log('A date has been picked: ', t);
-      this.setState({datepicker: t.toLocaleDateString()})
-      this._hideDatePicker();}
+ 
+  _showTimePicker() {
+    let years = [],
+        months = [],
+        days = [],
+        hours = [],
+        minutes = [];
 
-      _handleTimePicked = (timpick) => {
-        var t = new Date(timpick)
-        console.log('A time has been picked: ', t);
-        this.setState({timepicker: t.toLocaleTimeString()})
-        this._hideTimePicker();
-      }
+    for(let i=1;i<101;i++){
+        years.push(i+1930);
+    }
+    for(let i=1;i<13;i++){
+        months.push(i);
+    }
+    for(let i=1;i<24;i++){
+      hours.push(i);
+  }
+    for(let i=1;i<32;i++){
+        days.push(i);
+    }
+    for(let i=1;i<61;i++){
+        minutes.push(i);
+    }
+    let pickerData = [years, months, days, hours, minutes];
+    let date = new Date();
+    let selectedValue = [
+        [date.getFullYear()],
+        [date.getMonth()+1],
+        [date.getDate()],
+        [date.getHours()],
+        [date.getMinutes()]
+    ];
+    Picker.init({
+        pickerData,
+        selectedValue,
+        pickerTitleText: '日期',
+        wheelFlex: [2, 1, 1, 2, 1],
+        onPickerConfirm: pickedValue => {
+            console.log('area', pickedValue);
+            var selecttime = new Date()
+            selecttime.setFullYear(pickedValue[0]);
+            selecttime.setMonth(pickedValue[1]-1);
+            selecttime.setDate(pickedValue[2]);
+            selecttime.setHours(pickedValue[3]);
+            selecttime.setMinutes(pickedValue[4]);
+            this.setState({datepicker:selecttime.toLocaleString()})
+        },
+        onPickerCancel: pickedValue => {
+            console.log('area', pickedValue);
+        },
+        onPickerSelect: pickedValue => {
+            let targetValue = [...pickedValue];
+            if(parseInt(targetValue[1]) === 2){
+                if(targetValue[0]%4 === 0 && targetValue[2] > 29){
+                    targetValue[2] = 29;
+                }
+                else if(targetValue[0]%4 !== 0 && targetValue[2] > 28){
+                    targetValue[2] = 28;
+                }
+            }
+            else if(targetValue[1] in {4:1, 6:1, 9:1, 11:1} && targetValue[2] > 30){
+                targetValue[2] = 30;
+                
+            }
+            // forbidden some value such as some 2.29, 4.31, 6.31...
+            if(JSON.stringify(targetValue) !== JSON.stringify(pickedValue)){
+                // android will return String all the time，but we put Number into picker at first
+                // so we need to convert them to Number again
+                targetValue.map((v, k) => {
+                    if(k !== 3){
+                        targetValue[k] = parseInt(v);
+                    }
+                });
+                Picker.select(targetValue);
+                pickedValue = targetValue;
+            }
+        }
+    });
+    Picker.show();
+}
+
+
+_toggle() {
+  Picker.toggle();
+}
+
 
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
@@ -94,47 +162,24 @@ class EightrandomNewPage extends React.Component {
                 onFocus={() => value=""}
                 onChangeText={(text) => this.setState({Tip:text})}/>
         </View>
-        <TouchableOpacity onPress={this._showDatePicker}>
-        <View style={styles.inputname}>  
-          <Text >生日：</Text><Text >{""==this.state.datepicker?"10/10/1990":this.state.datepicker}</Text>
-          <DateTimePicker
-              
-          isVisible={this.state.isDatePickerVisible}
-          onConfirm={this._handleDatePicked}
-          onCancel={this._hideDatePicker}
-        />
-          </View>
-          </TouchableOpacity>
+      
              
-        <TouchableOpacity onPress={this._showTimePicker}>
-          <View style={styles.inputname}>  
-          <Text >时间：</Text><Text >{""==this.state.timepicker?"01:00:00 AM":this.state.timepicker}</Text>
-          <DateTimePicker
-              mode = 'time'
-          isVisible={this.state.isTimePickerVisible}
-          onConfirm={this._handleTimePicked}
-          onCancel={this._hideTimePicker}
-        />
-          </View>
-          </TouchableOpacity>
-             
+        <View style={styles.inputname}> 
+    <TouchableOpacity onPress={this._showTimePicker.bind(this)}>
+        <Text>时间</Text>
+    </TouchableOpacity>
+  
+    
+    <Text>{this.state.datepicker}</Text>
+    </View>
              
         
         <View style={styles.inputname}>  
-          <Text >性别：</Text>
-          <RadioGroup
-          onSelect = {(index, value) => this.onSelect(index, value)}
-        >
-          <RadioButton value={'男'} >
-            <Text>男</Text>
-          </RadioButton>
-  
-          <RadioButton value={'女'}>
-            <Text>女</Text>
-          </RadioButton>
-  
-        </RadioGroup>
-        
+        <Text >{this.state.selectedValue}</Text>
+          <Switch  
+          onValueChange={(value) =>this.setState({switchstate: value,selectedValue:false==value?"女":"男"})}  
+          value={this.state.switchstate}/>  
+         
             </View>
             <Button
   onPress={()=>this.bazipaipan()}
