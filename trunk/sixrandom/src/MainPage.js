@@ -132,26 +132,26 @@ class MainPage extends React.Component {
                         //selected={this.state.tab=='history'}   
                         onPress={ 
                             () => navigate('EightrandomNewPage')
-                          }titleStyle={styles.menufont}>  
-                        
-                    </TabNavigator.Item>  
-                    <TabNavigator.Item 
+                          }titleStyle={styles.menufont}
+                           /*
                         title="探索"  
-                        //selected={this.state.tab=='history'}   
+                        selected={this.state.tab=='history'}   
                         onPress={ 
                             () => navigate('SixrandomMainPage')
-                          }titleStyle={styles.menufont}>  
-                        
-                    </TabNavigator.Item>  
-                    <TabNavigator.Item 
+                          }titleStyle={styles.menufont}
+
+                    
                         title="成长"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
                             () => navigate('StudentPage')
-                          }titleStyle={styles.menufont}>  
+                          }titleStyle={styles.menufont}
+                          */>  
                         
                     </TabNavigator.Item>  
-                </TabNavigator>  
+                    
+                    </TabNavigator >
+                        
                  
               </View>  
     )

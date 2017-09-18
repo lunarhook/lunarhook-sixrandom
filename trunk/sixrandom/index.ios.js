@@ -16,6 +16,7 @@ import SixrandomFullInfoPage from './src/SixrandomFullInfoPage'
 import StudentPage from './src/StudentPage'
 import SixrandomMainPage from './src/SixrandomMainPage'
 import EightrandomNewPage from './src/EightrandomNewPage';
+import EightrandomHistoryPage from './src/EightrandomHistoryPage'
 import MyPage from './src/MyPage'
 
 
@@ -56,6 +57,7 @@ const sixrandom = StackNavigator({
   StudentPage: { screen: StudentPage },
   SixrandomMainPage:{screen:SixrandomMainPage},
   EightrandomNewPage:{screen:EightrandomNewPage},
+  EightrandomHistoryPage:{screen:EightrandomHistoryPage},
   MyPage:{screen:MyPage},
 });
 
