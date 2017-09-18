@@ -10,9 +10,9 @@ import { StackNavigator,TabNavigator,NavigationActions,TabBarBottom } from 'reac
 
 
 import MainPage from './src/MainPage';
-import HistoryPage from './src/HistoryPage';
+import SixrandomHistoryPage from './src/SixrandomHistoryPage';
 import SixrandomNewPage from './src/SixrandomNewPage';
-import FullInfoPage from './src/FullInfoPage'
+import SixrandomFullInfoPage from './src/SixrandomFullInfoPage'
 import StudentPage from './src/StudentPage'
 import SixrandomMainPage from './src/SixrandomMainPage'
 import EightrandomNewPage from './src/EightrandomNewPage';
@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
 
 const sixrandom = StackNavigator({
   MainPage: { screen: MainPage },
-  HistoryPage: { screen: HistoryPage },
+  SixrandomHistoryPage: { screen: SixrandomHistoryPage },
   SixrandomNewPage: {screen: SixrandomNewPage},
-  FullInfoPage: {screen: FullInfoPage},
+  SixrandomFullInfoPage: {screen: SixrandomFullInfoPage},
   StudentPage: { screen: StudentPage },
   SixrandomMainPage:{screen:SixrandomMainPage},
   EightrandomNewPage:{screen:EightrandomNewPage},

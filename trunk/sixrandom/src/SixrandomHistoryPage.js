@@ -11,7 +11,7 @@ import SixrandomModule from './SixrandomModule'
 
 var HistoryNameArray = []
 
-class HistoryPage extends React.Component {
+class SixrandomHistoryPage extends React.Component {
    constructor(props) {
     super(props);
     var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -186,4 +186,4 @@ var styles = StyleSheet.create ({
     textDecorationLine: 'underline line-through',//下划线和删除线的样式：['none' /*default*/, 'underline', 'line-through', 'underline line-through'  
   },
 });
-module.exports=HistoryPage;  
+module.exports=SixrandomHistoryPage;  

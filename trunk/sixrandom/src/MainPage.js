@@ -8,11 +8,11 @@ import { AsyncStorage } from 'react-native';
 import { StackNavigator,NavigationActions } from 'react-navigation';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
-import HistoryPage from './HistoryPage';
+import SixrandomHistoryPage from './SixrandomHistoryPage';
 import StorageModule from './StorageModule'
 import SixrandomNewPage from './SixrandomNewPage';
 import EightrandomNewPage from './EightrandomNewPage';
-import FullInfoPage from './FullInfoPage';
+import SixrandomFullInfoPage from './SixrandomFullInfoPage';
 import ShareModule from './ShareModule'
 import SixrandomModule from './SixrandomModule'
 import ValueTypeModule from './ValueTypeModule'

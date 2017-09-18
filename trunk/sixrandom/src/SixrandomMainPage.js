@@ -8,10 +8,10 @@ import { AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { NavigationActions } from 'react-navigation'
 
-import HistoryPage from './HistoryPage';
+import SixrandomHistoryPage from './SixrandomHistoryPage';
 import StorageModule from './StorageModule'
 import SixrandomNewPage from './SixrandomNewPage';
-import FullInfoPage from './FullInfoPage';
+import SixrandomFullInfoPage from './SixrandomFullInfoPage';
 import ShareModule from './ShareModule'
 import SixrandomModule from './SixrandomModule'
 import ValueTypeModule from './ValueTypeModule'
@@ -154,7 +154,7 @@ class SixrandomMainPage extends React.Component {
                         title="卦象详细"  
                         //selected={this.state.tab=='history'}   
                         onPress={ 
-                            () => navigate('FullInfoPage',this.state.parameter)
+                            () => navigate('SixrandomFullInfoPage',this.state.parameter)
                           }titleStyle={styles.menufont}>  
                         
                     </TabNavigator.Item>  

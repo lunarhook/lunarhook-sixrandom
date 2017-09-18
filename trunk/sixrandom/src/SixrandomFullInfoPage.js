@@ -13,7 +13,7 @@ var kHeight = Dimensions.get('window').height;
 
 var parameter = ""
 
-class FullinfoPage extends React.Component {
+class SixrandomFullinfoPage extends React.Component {
     constructor(props) {
 
   super(props);
@@ -217,4 +217,4 @@ var styles = StyleSheet.create ({
    borderRadius: 20,
     },
 });
-module.exports=FullinfoPage;  
+module.exports=SixrandomFullinfoPage;  
