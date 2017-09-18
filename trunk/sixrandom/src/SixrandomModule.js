@@ -47,7 +47,9 @@ six_random_NaJia["111111"] = {
 "find":"失物：可望寻回。",
 "sued":"诉讼：宜据理力争。",
 "bussiness":"",
-"finance":""
+"finance":"",
+
+"kind":"金"
 }
 /*
 ---
@@ -94,7 +96,8 @@ six_random_NaJia["111110"] = {
 "find":"失物：尽快寻找，可失而 得。失物似被重重物件压在最底部。 ",
 "sued":"诉讼：提防桃色纠纷，是非谣言播弄。",
 "bussiness":"",
-"finance":"" 
+"finance":"" ,
+"kind":"金"
 }
 /*
 ---
@@ -142,7 +145,8 @@ six_random_NaJia["111100"] = {
 "find":"失物：失落远处，不能寻回。",
 "sued":"诉讼：强行争取亦不利，宜罢手逃避反吉。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 ---
@@ -189,7 +193,8 @@ six_random_NaJia["111000"] = {
 "find":"失物：寻不回",
 "sued":"诉讼：各走极端，有口难言，宜及时求和。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 ---
@@ -237,7 +242,8 @@ six_random_NaJia["110000"] = {
 "find":"失物：若能细心四察，可以找回来。 ",
 "sued":"诉讼：小人当道，愈争论惹起纷争愈多，但终会和解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 ---
@@ -284,7 +290,8 @@ six_random_NaJia["100000"] = {
 "find":"失物：目前还隐藏在家中地上，可惜无法发现，不久会被扫走。 ",
 "sued":"诉讼：因财而起纷争，小人当道，宜避之则吉。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 ---
@@ -331,7 +338,8 @@ six_random_NaJia["101000"] = {
 "find":"失物：动作快，可以寻回来。似是在地上的箱子之类藏著。",
 "sued":"诉讼：最终能圆满解决。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 ---
@@ -377,7 +385,8 @@ six_random_NaJia["101111"] = {
 "find":"失物：找寻费时，惟可失而 得。",
 "sued":"诉讼：可圆满解决。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 - -
@@ -423,7 +432,8 @@ six_random_NaJia["011011"] = {
 "find":"失物：遣失物似为金属或金钱，有望失而 得，但是迟一点。且多数已损毁或损失。",
 "sued":"诉讼：似为两个女性及金钱之事惹起，宜有和事老出面调解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 - -
@@ -469,7 +479,8 @@ six_random_NaJia["011010"] = {
 "find":"失物：不能寻回。  ",
 "sued":"诉讼：凡事不宜过于执著，虽防牢狱之灾。",
 "bussiness":"",
-"finance":"" 
+"finance":"" ,
+"kind":"金"
 }
 /*
 - -
@@ -515,7 +526,8 @@ six_random_NaJia["011000"] = {
 "find":"失物：多半能失而得。 ",
 "sued":"诉讼：宜解不宜结。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 - -
@@ -562,7 +574,8 @@ six_random_NaJia["011100"] = {
 "find":"失物：尽速找寻，可以取回，延误时机，则找不回来。",
 "sued":"诉讼：提防桃色纠纷，诸事宜和解，有贵人相助。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 - -
@@ -609,7 +622,8 @@ six_random_NaJia["010100"] = {
 "find":"失物：搜索有困难阻滞而停止，不能寻回。",
 "sued":"诉讼：终必有险，更防血光。不宜起讼，动则招咎。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 - -
@@ -656,7 +670,8 @@ six_random_NaJia["000100"] = {
 "find":"失物：难以发现，有失窃的可能。 ",
 "sued":"诉讼：宜速和解，拖延不利。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 - -
@@ -703,7 +718,8 @@ six_random_NaJia["001100"] = {
 "find":"失物：不能寻回。",
 "sued":"诉讼：不宜各走极端，宜多沟通和解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 - -
@@ -750,7 +766,8 @@ six_random_NaJia["001011"] = {
 "find":"失物：失物虽有被归还的可能，但自身仍有损失。 ",
 "sued":"诉讼：事牵连于女性，宜力求和解，但我方必有损失。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"金"
 }
 /*
 ---
@@ -796,8 +813,9 @@ six_random_NaJia["101101"] = {
 "find":"失物：动作快，可寻回。",
 "sued":"诉讼：只宜人侵己，不宜己侵人，主动者不利。",
 "bussiness":"",
-"finance":""
-}
+"finance":"",
+"kind":"火"
+} 
 /*
 ---
 - -
@@ -844,7 +862,8 @@ six_random_NaJia["101100"] = {
 "find":"失物：尽快去找，应可寻回，失物似在屋舍之外，留意镜子之类物体，可提供线索。  ",
 "sued":"诉讼：宜速战速决，时间一拖则不利。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"火"
 }
 /*
 ---
@@ -891,7 +910,8 @@ six_random_NaJia["101110"] = {
 "find":"失物：过一段时间后可寻回，惟已变形。 ",
 "sued":"诉讼：由小事引起，宜和解了事。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"火"
 }
 /*
 ---
@@ -938,7 +958,8 @@ six_random_NaJia["101010"] = {
 "find":"失物：不能寻回。 ",
 "sued":"诉讼：宜拖延时间，日久可得贵人之助，和解了事。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"火"
 }
 /*
 ---
@@ -985,7 +1006,8 @@ six_random_NaJia["100010"] = {
 "find":"失物：遍寻不获。似乎在大门下陷之处遗失，忘记带走，可试问人。 ",
 "sued":"诉讼：因外人引起事端，目下未明，有理讲不清。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"火"
 }
 /*
 ---
@@ -1033,7 +1055,8 @@ six_random_NaJia["110010"] = {
 "find":"失物：不能寻回。  ",
 "sued":"诉讼：凡事宜大事化小，小事化无，诉讼可解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"火"
 }
 /*
 ---
@@ -1080,7 +1103,8 @@ six_random_NaJia["111010"] = {
 "find":"失物：难以寻回，大部份均不知下落。 ",
 "sued":"诉讼：防房地产之争，宜和解，有始无终之兆。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"火"
 }
 /*
 ---
@@ -1126,7 +1150,8 @@ six_random_NaJia["111101"] = {
 "find":"失物：遗失似文件眼镜等物，可能被压在底层，尽快找寻，则可取回。 ",
 "sued":"诉讼：凡事以和为贵。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"火"
 }
 /*
 - -
@@ -1172,7 +1197,8 @@ six_random_NaJia["001001"] = {
 "find":"失物：可能是受某些事惊吓而遣失，令你惊惶失措，尝试于会发声的东西或电器处寻找。",
 "sued":"诉讼：反覆难平，宜收敛脾气，心平气和。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 - -
@@ -1219,7 +1245,8 @@ six_random_NaJia["001000"] = {
 "find":"失物：难以寻回。",
 "sued":"诉讼：有始而无终，易被多人连累，破财、受惊。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 - -
@@ -1266,7 +1293,8 @@ six_random_NaJia["001010"] = {
 "find":"失物：遗失之物似有被支解破坏的可能，故寻回的机会不大。",
 "sued":"诉讼：一般纠纷皆可解决，宜当机立断，不可拖延。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 - -
@@ -1313,7 +1341,8 @@ six_random_NaJia["001110"] = {
 "find":"失物：不能寻回。 ",
 "sued":"诉讼：小人招祸，但宜速战速决，不利拖延，宜和解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 - -
@@ -1361,7 +1390,8 @@ six_random_NaJia["000110"] = {
 "find":"失物：不易寻回，失物有被束之高阁的可能。 ",
 "sued":"诉讼：宜持平和态度处理，可争取主动，胜算在握。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 - -
@@ -1409,7 +1439,8 @@ six_random_NaJia["010110"] = {
 "find":"失物：不能寻回。",
 "sued":"诉讼：有刑罚之象，且受人牵连，及防房地产之诉讼。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 - -
@@ -1457,7 +1488,8 @@ six_random_NaJia["011110"] = {
 "find":"失物：无法发现，不能物归原主。 ",
 "sued":"诉讼：有文书之烦，即使求和也未能如愿。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 - -
@@ -1504,7 +1536,8 @@ six_random_NaJia["011001"] = {
 "find":"失物：即将疏忽之时，会突然察觉。 ",
 "sued":"诉讼：宜决意和解，目前无忧，但不久须防有祸。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 ---
@@ -1550,7 +1583,8 @@ six_random_NaJia["110110"] = {
 "find":"失物：遣失在远处，不能寻回。",
 "sued":"诉讼：不易和解，但一方肯让步则易解决。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 ---
@@ -1597,7 +1631,8 @@ six_random_NaJia["110111"] = {
 "find":"失物：似乎遗失的是金器或现金支票等物，有被硬物夹住，或者第三格的地方。 ",
 "sued":"诉讼：会因证据不足而败诉。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 ---
@@ -1644,7 +1679,8 @@ six_random_NaJia["110101"] = {
 "find":"失物：出现。隐藏在家中。可能是被家人收起来了。 ",
 "sued":"诉讼：虽产生大疑虑，若行事合理则无碍。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 ---
@@ -1691,7 +1727,8 @@ six_random_NaJia["110001"] = {
 "find":"失物：有望可寻回。",
 "sued":"诉讼：有牢狱之灾，或事因女人、房地产引起，宜和解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 ---
@@ -1737,7 +1774,8 @@ six_random_NaJia["111001"] = {
 "find":"失物：找不到，似已遗失。 ",
 "sued":"诉讼：因女人或死亡之事起纷争，宜和解，否则招凶。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 ---
@@ -1783,7 +1821,8 @@ six_random_NaJia["101001"] = {
 "find":"失物：有被人捷足捡走的可能，寻回的机会不大。",
 "sued":"诉讼：宜采取主动，据理力争。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 ---
@@ -1831,7 +1870,8 @@ six_random_NaJia["100001"] = {
 "find":"失物：尽快去找，似被物件上下夹著。",
 "sued":"诉讼：我告他人终不能成，宜速和解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 ---
@@ -1878,7 +1918,8 @@ six_random_NaJia["100110"] = {
 "find":"失物：找不回来，遗失似是木制工艺品，在门口或旅馆遗失，或者是寄失了。",
 "sued":"诉讼：慎防桃色纠纷，会拖一段时间，不易解决。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"木"
 }
 /*
 - -
@@ -1924,7 +1965,8 @@ six_random_NaJia["010010"] = {
 "find":"失物：找不回来。有失窃可能。或沉在水底。因坎水有困难之意。",
 "sued":"诉讼：有盗贼之讼，或田土之争，有理说不清，凶象。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"水"
 }
 /*
 - -
@@ -1970,7 +2012,8 @@ six_random_NaJia["010011"] = {
 "find":"失物：不能寻回。 诉讼：局势僵持不下，宜让则讼可解。 ",
 "sued":"",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"水"
 }
 /*
 - -
@@ -2017,7 +2060,8 @@ six_random_NaJia["010001"] = {
 "find":"失物：难以寻回。",
 "sued":"诉讼：小事粘滞纠缠，大事反无大害，宜和解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"水"
 }
 /*
 - -
@@ -2064,7 +2108,8 @@ six_random_NaJia["010101"] = {
 "find":"失物：应可寻回。",
 "sued":"诉讼：有理说不清，仍须把握最有利时机争取主动，迟则反见凶。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"水"
 }
 /*
 - -
@@ -2111,7 +2156,8 @@ six_random_NaJia["011101"] = {
 "find":"失物：因有弃旧迎新之意，故相信不能寻回。",
 "sued":"诉讼：要改变旧有对策，才可圆满解决。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"水"
 }
 /*
 - -
@@ -2157,7 +2203,8 @@ six_random_NaJia["001101"] = {
 "find":"失物：尽快找寻，可失而 得。 ",
 "sued":"诉讼：自己虽势如破竹，胜券在握，但应留一线。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"水"
 }
 /*
 - -
@@ -2204,7 +2251,8 @@ six_random_NaJia["000101"] = {
 "find":"失物：不能立即寻回。正当要遗忘这件事时，会意外地有所发现。 ",
 "sued":"诉讼：败象，宜和解了事，愈争愈苦。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"水"
 }
 /*
 - -
@@ -2250,7 +2298,8 @@ six_random_NaJia["000010"] = {
 "find":"失物：不会出现，即或寻回，也已损坏。 ",
 "sued":"诉讼：宜进不宜退，内心虽忧，但得贵人之助。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"水"
 }
 /*
 ---
@@ -2296,7 +2345,8 @@ six_random_NaJia["100100"] = {
 "find":"失物：可以寻回，但要等一段时间。藏在家中、旅馆、寺院、山中某处。 ",
 "sued":"诉讼：因小事而化大，宜速求和，忌土姓人。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 ---
@@ -2342,7 +2392,8 @@ six_random_NaJia["100101"] = {
 "find":"失物：在家中遗失，将可寻回。不妨试试注意门脚的地方。 ",
 "sued":"诉讼：宜速求解决，不可拖延，可得贵人调解",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 ---
@@ -2390,7 +2441,8 @@ six_random_NaJia["100111"] = {
 "find":"失物：有机会寻回。似是在圆形有盖盛存之物中。",
 "sued":"诉讼：因房地产引起，有破财之象，但纠纷可解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 ---
@@ -2438,7 +2490,8 @@ six_random_NaJia["100011"] = {
 "find":"失物：不能寻回。",
 "sued":"诉讼：有斗争之象，损失破财，和解反而获益。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 ---
@@ -2485,7 +2538,8 @@ six_random_NaJia["101011"] = {
 "find":"失物：不能找回。有失窃的可能。",
 "sued":"诉讼：宜速求和解，迟则理屈辞穷。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 ---
@@ -2532,7 +2586,8 @@ six_random_NaJia["111011"] = {
 "find":"失物：赶快去找有可能寻回，留意行过的路上，或者有鞋的地方。 ",
 "sued":"诉讼：敌强而我弱之象，宜步步为营。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 ---
@@ -2580,7 +2635,8 @@ six_random_NaJia["110011"] = {
 "find":"失物：可失而 得，但需要一段时间。 ",
 "sued":"诉讼：为突发事件，宜把握第一时间处理，迟则反凶。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 ---
@@ -2627,7 +2683,8 @@ six_random_NaJia["110100"] = {
 "find":"失物：多数不能寻回。 ",
 "sued":"诉讼：宜进不宜退，据理力争可胜。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 - -
@@ -2673,7 +2730,8 @@ six_random_NaJia["000000"] = {
 "find":"失物：难以寻回，大部份均不知下落。 ",
 "sued":"诉讼：防房地产之争，宜和解，有始无终之兆。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 - -
@@ -2720,7 +2778,8 @@ six_random_NaJia["000001"] = {
 "find":"失物：有失而 得之可能。 ",
 "sued":"诉讼：多人之事，但经多次扰攘才可解决。",
 "bussiness":"事业：已经渡过了困难时期，开始进入积极行动的阶段。但务必抓住时机，当机立断，却不可急躁，且应时常反省个人行动，严于修身，勇往直前，可望成功。",
-"finance":"经商：可大胆投资，与志同道合的伙伴坦诚合作，打开市场，勿因挫折而退缩。更可以打入外地，坚持商业道德，循序渐进，一定会有所赢利。"
+"finance":"经商：可大胆投资，与志同道合的伙伴坦诚合作，打开市场，勿因挫折而退缩。更可以打入外地，坚持商业道德，循序渐进，一定会有所赢利。",
+"kind":"土"
 }
 /*
 - -
@@ -2766,7 +2825,8 @@ six_random_NaJia["000011"] = {
 "find":"失物：不能立即发现，很久才能找回。可能被埋在地下。是件会发声或震动的物件。",
 "sued":"诉讼：宜柔不宜刚，因本欲欺他人，反伤自己。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 - -
@@ -2813,7 +2873,8 @@ six_random_NaJia["000111"] = {
 "find":"失物：不会出现。 ",
 "sued":"诉讼：是非由小事化大，终可和解。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 - -
@@ -2859,7 +2920,8 @@ six_random_NaJia["001111"] = {
 "find":"失物：不能取回。 ",
 "sued":"诉讼：忌与人斗气，宜和解收场否则两败俱伤。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 - -
@@ -2906,7 +2968,8 @@ six_random_NaJia["011111"] = {
 "find":"失物：相信失物已经损坏，不能寻回。 ",
 "sued":"诉讼：不宜与人争执，因势孤力弱，宜寻求法律途径解决。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 - -
@@ -2953,7 +3016,8 @@ six_random_NaJia["010111"] = {
 "find":"失物：难以寻回，大部份均不知下落。 ",
 "sued":"诉讼：防房地产之争，宜和解，有始无终之兆。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 /*
 - -
@@ -2999,7 +3063,8 @@ six_random_NaJia["010000"] = {
 "find":"失物：不会再现。通常均已遭损毁。",
 "sued":"诉讼：宜以和解态度面对，虽小人多，但可胜诉。",
 "bussiness":"",
-"finance":""
+"finance":"",
+"kind":"土"
 }
 
 var startinfo;
@@ -3090,6 +3155,8 @@ where[32]   = new comefrom("香港","香港");
 where[33]   = new comefrom("澳门","澳门"); 
 where[34]   = new comefrom("台湾","|台北市|桃园县市|台南县|东引岛|高雄市|新竹县|高雄县|马 祖|基隆市|苗栗县市|屏东县市|金 门|新竹市|台中县|花莲县市|台中市|彰化县市|台东县市|台南市|南投县市|绿 岛|台北县|云林县|兰 屿|宜兰县市|嘉义县市|澎湖县"); 
 where[35]   = new comefrom("自填经度","自填经度"); 
+
+
 
 var lunarInfo=new Array( 
 0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2, 
@@ -3523,6 +3590,43 @@ get_six_original_random()
 	six_random_date[6] = ocup+ocdown
 	six_random_date[7] = six_random_NaJia[six_random_date[5]]
 	six_random_date[8] = six_random_NaJia[six_random_date[6]];
+	//fix_najia
+	this.fix_najia(six_random_date[7],six_random_date[8])
+}
+fix_najia(random,change)
+{
+
+	var kindtable ={
+	"金金":"兄弟","木木":"兄弟","土土":"兄弟","火火":"兄弟","水水":"兄弟", 
+	"金土":"父母","木水":"父母","土火":"父母","火木":"父母","水金":"父母",
+	"金木":"妻财","木土":"妻财","土水":"妻财","火金":"妻财","水火":"妻财",
+	"金火":"官鬼","木金":"官鬼","土木":"官鬼","火水":"官鬼","水土":"官鬼",
+	"金水":"子孙","木火":"子孙","土金":"子孙","火土":"子孙","水木":"子孙",}    
+	console.log("结果")
+	var orignalkind = random["kind"];
+	//console.log(orignalkind);
+	//console.log(change);
+	var changekind = new Array();
+
+	changekind[1]= orignalkind+change[1].slice(4,5)
+	changekind[2]= orignalkind+change[2].slice(4,5)
+	changekind[3]= orignalkind+change[3].slice(4,5)
+	changekind[4]= orignalkind+change[4].slice(4,5)
+	changekind[5]= orignalkind+change[5].slice(4,5)
+	changekind[6]= orignalkind+change[6].slice(4,5)
+	console.log(changekind);
+	//console.log(change);
+	//console.log(change[index].slice(0,2))
+	
+	for(index = 1 ;index < 7;index++)
+	{
+		change[index]=kindtable[changekind[index]] + change[index].slice(2)
+	}
+	
+	//console.log(change);
+	return change
+
+
 }
 get_simple_random_draw()
 {
