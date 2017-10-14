@@ -87,7 +87,7 @@ class EightrandomHistoryPage extends React.Component {
                   console.log(ids[i])
                   var savadate = ids[i];
                   var obj = {
-                    name:savadate[2]+":" + savadate[1],
+                    name:savadate[2]+":" + savadate[1]  + " " + savadate[3],
                     url:"?EightDate="+savadate[1] + "&sex=" + savadate[2],
                     id:savadate[0]
                   }

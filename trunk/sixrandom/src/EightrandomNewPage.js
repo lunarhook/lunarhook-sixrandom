@@ -216,9 +216,10 @@ _toggle() {
       dataArray["name"] = this.state.Tip
       if(undefined==dataArray["date"] || ""==dataArray["date"])
       {
-        dataArray["date"] = new Date();
+        dataArray["date"] = new Date()
       }
       var myDate=new Date(dataArray["date"])
+      console.log(myDate)
       var EightDate = SixrandomModule.lunar_f(myDate)
 
       console.log(EightDate.gzYear)
@@ -235,7 +236,7 @@ _toggle() {
       var index = (new Date()).valueOf().toString();
       var savadate = new Array()
       savadate[0] = index;
-      savadate[1] = EightDate.gzYear+EightDate.gzMonth +EightDate.gzDate +EightDate.gzTime+this.state.Tip;
+      savadate[1] = EightDate.gzYear+EightDate.gzMonth +EightDate.gzDate +EightDate.gzTime;
       if('男'==this.state.selectedValue)
       {
         savadate[2] = '乾'
@@ -244,6 +245,7 @@ _toggle() {
       {
         savadate[2] = '坤'
       }
+      savadate[3]= +this.state.Tip
       var parameter = "?EightDate="+savadate[1] + "&sex=" + savadate[2]
       StorageModule.save({key:"name",id:index,data:savadate})
       StorageModule.save({key:"lastname",data:savadate})
