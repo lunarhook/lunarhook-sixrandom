@@ -14,6 +14,7 @@ import Picker from 'react-native-picker';
 //import DateTimePicker from 'react-native-modal-datetime-picker';
 import { RadioButtons } from 'react-native-radio-buttons'
 import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button'
+import FloatLabelTextInput from 'react-native-floating-label-text-input'
 
 
 class EightrandomNewPage extends React.Component {
@@ -136,6 +137,24 @@ _toggle() {
       selectedValue:value
     })
   }
+
+  //获取value值调用的方法
+  getValue(text) {
+        var value = text;
+        this.setState({
+            show: true,
+            value: value
+        });
+    }
+
+    //隐藏
+    hide(val){
+        this.setState({
+            show: false,
+            value: val
+        });
+    }
+
   render()
   {
     const { navigate } = this.props.navigation;
@@ -145,55 +164,45 @@ _toggle() {
   
     //alert(ValueTypeModule["emotion"])
     return (
-            <View style={styles.container}>
-              <View style={styles.inputname}> 
-              <Text >姓名：</Text>    
-        <TextInput
-                
-                style={ [styles.inputname,{width:200,fontSize:15,textAlign:"right",}]}
-
-                //returnKeyType="done"
-                //defaultValue="陈长生"
-                underlineColorAndroid="transparent"
-                //underlineColorAndroid="transparent"
-                //multiline={true}
-                placeholder="陈长生"
-                onSubmitEditing={Keyboard.dismiss} 
-                onFocus={() => value=""}
-                onChangeText={(text) => this.setState({Tip:text})}/>
-        </View>
-      
-             
-        <View style={styles.inputname}> 
-    <TouchableOpacity onPress={this._showTimePicker.bind(this)}>
-        <Text>时间</Text>
-    </TouchableOpacity>
-  
-    
-    <Text>{this.state.datepicker}</Text>
-    </View>
-             
+        <View style={styles.container}>
         
-        <View style={styles.inputname}>  
-        <Text >{this.state.selectedValue}</Text>
-          <Switch  
-          onValueChange={(value) =>this.setState({switchstate: value,selectedValue:false==value?"女":"男"})}  
-          value={this.state.switchstate}/>  
-         
+            <View style={styles.inputname}> 
+                <Text style={styles.bottonstylewithfont}>姓名:</Text>  
+                <TextInput style = {styles.input} 
+                                   returnKeyType = "search"
+                                   placeholder= "陈长生"
+                                   onEndEditing = {this.hide.bind(this,this.state.value)}
+                                   value = {this.state.value}
+                                   onChangeText = {(text) => this.setState({Tip:text})}/>
             </View>
+            <View style={styles.inputname}> 
+                <TouchableOpacity onPress={this._showTimePicker.bind(this)}>
+                    <Text style={styles.bottonstylewithfont}>时间:</Text>
+                </TouchableOpacity>
+                <Text style = {styles.input} >{this.state.datepicker}</Text>
+            </View>
+            <View style={styles.inputname}>
+                <Text style={styles.bottonstylewithfont}>性别:</Text> 
+                <Text style={styles.bottonstylewithfont}>{this.state.selectedValue}</Text>
+                <Switch  style={styles.buttonstyle}
+                onValueChange={(value) =>this.setState({switchstate: value,selectedValue:false==value?"女":"男"})}  
+                value={this.state.switchstate}/>  
+            </View>
+            <View style={styles.inputbutton}>
             <Button
-  onPress={()=>this.bazipaipan()}
-  title="八字排盘"
-  //accessibilityLabel="Learn more about this purple button"
-/>
-            </View> 
+                onPress={()=>this.bazipaipan()}
+                title="八字排盘"
+        
+            />
+            </View>
+            
+        </View> 
             )
     }
     bazipaipan()
     {
       var dataArray = [];
       dataArray["date"] = this.state.datepicker;
-      dataArray["time"] = this.state.timepicker;
       dataArray["sex"]  = this.state.selectedValue;
       dataArray["name"] = this.state.Tip
 
@@ -212,24 +221,18 @@ _toggle() {
 }
 
 var styles = StyleSheet.create ({
-  containerlist:{
-     textAlign:'center',     
-   justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
-   alignItems: 'center',
-   lineHeight:45,     //行高  
-    
-  },
+
   input:{
-    height:45,
-    //borderWidth:1,
-    marginLeft: 1,
-    paddingLeft:1,
-    //borderColor: '#ccc',
+    width:300,
+    height:30,
+    borderWidth:1,
+    //marginLeft: 5,
+    //paddingLeft:5,
+    borderColor: '#ccc',
     borderRadius: 4,
-    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
-    textAlign:'center', 
-    textDecorationLine:'underline',
-    fontSize: 12,         
+    //fontSize:15,
+    alignItems:'center',
+    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
   },
   menufont:{
     fontSize:15,
@@ -240,27 +243,34 @@ var styles = StyleSheet.create ({
     flex:1,
     
   },
-    vb_text: {  
-    color: '#333333',  
-    fontFamily: 'Times',  
-    margin: 10,  
-    fontSize: 12,         
-    textAlign: 'auto',  
-    lineHeight: 20,     //行高  
-      justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
-   textAlign:'center',     
-    fontStyle: 'italic',    //设置文字：normal：正常体；italic：斜体  
-    fontWeight: 'bold', //设置粗体字，'normal' /*default*/, 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900'  
-    textDecorationLine: 'none',//下划线和删除线的样式：['none' /*default*/, 'underline', 'line-through', 'underline line-through'  
-  },
   inputname: {
     //justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
-    justifyContent:'space-between',
+    alignItems:'center',
+    justifyContent: 'space-between', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    //justifyContent:'space-between',
     flexDirection: 'row',
-    marginLeft: 50, 
-    marginRight: 50,
-    marginTop: 10,
-    marginBottom: 10,
+    marginLeft: 30, 
+    marginRight: 30, 
+    marginTop: 30,
   },
+  inputbutton: {
+    //justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
+    alignItems:'center',
+    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    //justifyContent:'space-between',
+    flexDirection: 'row',
+    marginLeft: 30, 
+    marginRight: 30, 
+    marginTop: 30,
+  },
+  buttonstyle:{
+    justifyContent: 'space-between', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    alignItems:'baseline',
+  },
+  bottonstylewithfont:{
+    justifyContent: 'space-between', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    alignItems:'baseline',
+    fontSize:18
+  }
 });
 module.exports=EightrandomNewPage;  

@@ -30,7 +30,7 @@ class SixrandomNewPage extends React.Component {
     const { navigate } = navigation;
     //headerRight:(<Button title="返回" />),
     return{
-    headerRight:(<Button title="六爻历史" onPress={  () => navigate('SixrandomHistoryPage')  }/>),
+    //headerRight:(<Button title="六爻历史" onPress={  () => navigate('SixrandomHistoryPage')  }/>),
     title: '六爻取卦',
     }
     
@@ -76,6 +76,15 @@ class SixrandomNewPage extends React.Component {
                 placeholderTextColor = "#cccccc"
                 onSubmitEditing={Keyboard.dismiss} 
                 onChangeText={(text) => this.setState({Tip:text})}/>
+                <TabNavigator 
+       tabBarStyle={{ height: 40 }}
+       sceneStyle={{ paddingBottom: 30 }}>  
+                  <TabNavigator.Item
+                        title="六爻历史"  
+                        onPress={() => navigate('SixrandomHistoryPage') }  
+                        titleStyle={styles.menufont}>  
+                    </TabNavigator.Item>  
+                </TabNavigator>  
        
             </View> 
             )

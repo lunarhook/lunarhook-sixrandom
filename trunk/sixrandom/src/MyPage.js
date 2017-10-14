@@ -31,63 +31,43 @@ class MyPage extends React.Component {
         <Text style={styles.index}>
 
           </Text>
-        <Text style={styles.index}>
-          九九未来科技
+       
+          <Text style={styles.index}>
           </Text>
           <Text style={styles.index}>
-
+          北京大道易德文化传媒有限公司
           </Text>
           <Text style={styles.index}>
-          专注周易及感情心理学情绪科学的文化咨询公司
           </Text>
           <Text style={styles.index}>
           我们专注于
           </Text>
           <Text style={styles.index}>
-          1、周易八卦预测开发
+          </Text>
+       
+          
+          <Text style={styles.index}>
+          1、国学易经研究
           </Text>
           <Text style={styles.index}>
-          2、周易六爻预测开发
+          2、易经健康研究
           </Text>
           <Text style={styles.index}>
-          3、周易八字内容开发
+          3、八字六爻研究
           </Text>
           <Text style={styles.index}>
-          4、周易文化内容开发
-          </Text>
-          <Text style={styles.index}>
-          </Text>
-          <Text style={styles.index}>
-          大道易德
-          </Text>
-          <Text style={styles.index}>
-          </Text>
-          <Text style={styles.index}>
-          专门传播周易文化的传媒公司
-          </Text>
-          <Text style={styles.index}>
-          我们专注于
-          </Text>
-          <Text style={styles.index}>
-          1、国学易经学习研究
-          </Text>
-          <Text style={styles.index}>
-          2、易经健康相关研究
-          </Text>
-          <Text style={styles.index}>
-          3、周易八字六爻研究
-          </Text>
-          <Text style={styles.index}>
-          4、心理咨询公司咨询
+          4、情感心理咨询
           </Text>
           <Text style={styles.index}>
 
           </Text>
           <Text style={styles.index}>
-          地址：
+          咨询地址：北京市东城区雍和宫大街41号
           </Text>
           <Text style={styles.index}>
-          电话：
+          </Text>
+          <Text style={styles.index}>
+          咨询电话：13391909968 郑语斐
           </Text>
           <TabNavigator 
        tabBarStyle={{ height: 40 }}

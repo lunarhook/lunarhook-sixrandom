@@ -1,7 +1,9 @@
 
 var Dimensions = require('Dimensions');
-import React, {Component} from 'react';
-import {StyleSheet,View, Alert,  Text,ListView,RefreshControl,Button} from 'react-native';
+var ReactNative = require('react-native');
+import React,{Component} from 'react';
+import {findNodeHandle,Image,StyleSheet,View, Alert,  Text,ListView,RefreshControl,Button,ScrollView} from 'react-native';
+import { captureRef } from "react-native-view-shot";
 import TabNavigator from 'react-native-tab-navigator';  
 import { StackNavigator } from 'react-navigation';
 import SixrandomModule from './SixrandomModule'
@@ -20,7 +22,9 @@ class SixrandomFullinfoPage extends React.Component {
   
     var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
-			dataSource: dataSource,
+      textcontent:'null',
+      dataSource: dataSource,
+      uri: 'null',
 		};
     };
 
@@ -40,6 +44,29 @@ class SixrandomFullinfoPage extends React.Component {
     title: '卦象详解',
     }
   };
+
+  takeToImage() {
+    captureRef(this.refs.location, {
+      format: "jpg",
+      quality: 1,
+      //snapshotContentContainer:true
+    })
+    .then(
+      uri => console.log("Image saved to", uri),
+      error => console.error("Oops, snapshot failed", error)
+    );
+    /*
+    ReactNative.takeSnapshot(ReactNative.findNodeHandle(this.refs.location), {height:5000,format: 'png', quality: 1}).then(
+        (uri) => {this.setState({uri:uri}),
+        console.log(uri)}
+    ).catch(
+        
+        (error) => {alert(error),
+       console.log(error)}
+    );
+    */
+  }
+
  
   
   refreshlist()
@@ -54,9 +81,10 @@ class SixrandomFullinfoPage extends React.Component {
          //return
           var _ret = SixrandomModule.build(parameter);
           var _build = SixrandomModule.get_random_draw()
-
+          console.log(_build)
           this.setState({  
             dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
+            this.setState({textcontent:_build})
       }
       else
       {
@@ -76,10 +104,11 @@ class SixrandomFullinfoPage extends React.Component {
 
             var parameter = "?date="+date+"&lunar="+lunar+"&question="+question
             //alert(parameter);
-            console.log(parameter)
+            //console.log(parameter)
             var _ret = SixrandomModule.build(parameter);
             var _build = SixrandomModule.get_random_draw()
-
+            console.log(_build)
+            this.setState({textcontent:_build})
             this.setState({  
                   dataSource: this.state.dataSource.cloneWithRows(_build),parameter:parameter }); 
             }).catch(err => {
@@ -117,8 +146,7 @@ class SixrandomFullinfoPage extends React.Component {
        
     }
     
-    _call()
-    {}
+    
   
   render(){
       const { navigate } = this.props.navigation;
@@ -126,11 +154,10 @@ class SixrandomFullinfoPage extends React.Component {
       jump = false;
       
         return(
-    <View style={styles.container}>
+    <View style={styles.container} >
 
         
-
-            <ListView
+            <ListView ref='location' accessible={true}
             enableEmptySections={true}
 						dataSource={this.state.dataSource}
 						renderRow={this._renderRow.bind(this)}
@@ -143,24 +170,19 @@ class SixrandomFullinfoPage extends React.Component {
 								enabled={false}
 								colors={['#ff0000', '#00ff00', '#0000ff', '#3ad564']}
 							/>}/>    
+              
               {/*
               <TabNavigator 
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  
                   <TabNavigator.Item
-                        title="解卦咨询"  
-                        onPress={() => this._export()
-                        }  
-                        titleStyle={styles.menufont}>  
-                    </TabNavigator.Item>  
-                    <TabNavigator.Item
-                        title="微信沟通"  
-                        onPress={() => ShareModule.sharetosesshareToSessionWithPara(parameter)
-                        }  
+                        title="屏幕截图"  
+                        onPress={()=>this.takeToImage()}  
                         titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
                 </TabNavigator>  */
                 }
+               
               </View>  
     )
     }
