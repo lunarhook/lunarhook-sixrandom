@@ -125,7 +125,7 @@ _toggle() {
     const { navigate } = navigation;
     //headerRight:(<Button title="返回" />),
     return{
-    headerRight:(<Button title="八字历史" onPress={  () => navigate('HistoryPage')  }/>),
+    //headerRight:(<Button title="八字历史" onPress={  () => navigate('HistoryPage')  }/>),
     title: '八字排盘',
     }
     
@@ -195,6 +195,15 @@ _toggle() {
         
             />
             </View>
+            <TabNavigator 
+       tabBarStyle={{ height: 40 }}
+       sceneStyle={{ paddingBottom: 30 }}>  
+                  <TabNavigator.Item
+                        title="八字历史"  
+                        onPress={() => navigate('EightrandomHistoryPage')}  
+                        titleStyle={styles.menufont}>  
+                    </TabNavigator.Item>  
+                </TabNavigator>  
             
         </View> 
             )
@@ -205,8 +214,40 @@ _toggle() {
       dataArray["date"] = this.state.datepicker;
       dataArray["sex"]  = this.state.selectedValue;
       dataArray["name"] = this.state.Tip
+      if(undefined==dataArray["date"] || ""==dataArray["date"])
+      {
+        dataArray["date"] = new Date();
+      }
+      var myDate=new Date(dataArray["date"])
+      var EightDate = SixrandomModule.lunar_f(myDate)
 
-      console.log(dataArray)
+      console.log(EightDate.gzYear)
+      console.log(EightDate.gzMonth)
+      console.log(EightDate.gzDate)
+      console.log(EightDate.gzTime)
+
+
+
+      
+
+      
+
+      var index = (new Date()).valueOf().toString();
+      var savadate = new Array()
+      savadate[0] = index;
+      savadate[1] = EightDate.gzYear+EightDate.gzMonth +EightDate.gzDate +EightDate.gzTime+this.state.Tip;
+      if('男'==this.state.selectedValue)
+      {
+        savadate[2] = '乾'
+      }
+      else
+      {
+        savadate[2] = '坤'
+      }
+      var parameter = "?EightDate="+savadate[1] + "&sex=" + savadate[2]
+      StorageModule.save({key:"name",id:index,data:savadate})
+      StorageModule.save({key:"lastname",data:savadate})
+      this.props.navigation.navigate('EightrandomMainPage',parameter)
     }
   begin(pagename)
     {

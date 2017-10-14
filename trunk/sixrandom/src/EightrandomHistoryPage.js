@@ -45,7 +45,7 @@ class EightrandomHistoryPage extends React.Component {
     return (
       
       <View style={styles.list}>
-      <TouchableOpacity style={styles.button} onLongPress={()=>this._deleteRow(rowData)}onPress={ () => navigate('SixrandomMainPage',rowData.url) }>
+      <TouchableOpacity style={styles.button} onLongPress={()=>this._deleteRow(rowData)}onPress={ () => navigate('EightrandomMainPage',rowData.url) }>
         <Text>{rowData.name}</Text>
         </TouchableOpacity>
       </View>
@@ -65,41 +65,36 @@ class EightrandomHistoryPage extends React.Component {
     }
   _deletehistory(rowData)
   {
-      StorageModule.remove({key:'user',id:rowData.id});
+    console.log(rowData.id)
+      StorageModule.remove({key:'name',id:rowData.id});
       this.refreshlist();
   }
   
   refreshlist()
   {
+    //StorageModule.clearMapForKey('name');
     //this.setState({isLoading: true});
     const { navigate } = this.props.navigation;
     HistoryNameArray = []
     //StorageModule.remove({key:"last"})
-    StorageModule.getAllDataForKey('user').then(ids => {
+    StorageModule.getAllDataForKey('name').then(ids => {
 
         
             //alert(ids)
             for (i = 0;i<ids.length;i++)
               {
                 try {
-                  var randArray = ids[i];
-                  var date = new Date(Number(randArray[7]))
-                  var lunar = ""
-                  for (index =1;index<7;index++)
-                  {
-                    lunar = lunar+(randArray[index]).toString()
-                  }
-                  var result = SixrandomModule.get_sixrandom_name(lunar)
-                  var question = randArray[0]
+                  console.log(ids[i])
+                  var savadate = ids[i];
                   var obj = {
-                    name:date.toLocaleDateString() + "  求测：" + ValueTypeModule[question] +" "+result+" "+ (""!=randArray[8]?("   提示：" + randArray[8]):""),
-                    url:"?date="+date+"&lunar="+lunar+"&question="+question,
-                    id:randArray[7],
+                    name:savadate[2]+":" + savadate[1],
+                    url:"?EightDate="+savadate[1] + "&sex=" + savadate[2],
+                    id:savadate[0]
                   }
                   HistoryNameArray[i] = obj
                   
                 } catch (error) {
-                  StorageModule.remove({key:'user',id:randArray[7]});
+                  StorageModule.remove({key:'name',id:savadate[0]});
                   HistoryNameArray[i] = undefined
                 }
                 
