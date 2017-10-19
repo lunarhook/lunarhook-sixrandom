@@ -403,6 +403,7 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				56D6799C1F38DE5F00461F1D /* icon.png */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -482,7 +483,6 @@
 			children = (
 				5648749C1F2890DB00C33C48 /* index.ios.jsbundle */,
 				56D679B91F38ED4600461F1D /* icon-120.png */,
-				56D6799C1F38DE5F00461F1D /* icon.png */,
 			);
 			name = html;
 			sourceTree = "<group>";

@@ -41,16 +41,22 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
-      "size" : "120x120",
-      "scale" : "1x",
-      "filename":"icon-120.png"
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "icon-1024.png",
+      "scale" : "1x"
     },
     {
+      "size" : "120x120",
       "idiom" : "iphone",
+      "filename" : "icon-120.png",
+      "scale" : "1x"
+    },
+    {
       "size" : "144x144",
-      "scale" : "2x",
-      "filename":"icon.png"
+      "idiom" : "iphone",
+      "filename" : "icon.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
