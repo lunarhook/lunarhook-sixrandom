@@ -28,6 +28,7 @@ class EightrandomNewPage extends React.Component {
             switchstate:true,
             selectedValue: '男',
             datepicker:"",
+            datepickershow:"",
             timepicker:"",
             Tip: ""
     }
@@ -79,7 +80,9 @@ class EightrandomNewPage extends React.Component {
             selecttime.setDate(pickedValue[2]);
             selecttime.setHours(pickedValue[3]);
             selecttime.setMinutes(pickedValue[4]);
-            this.setState({datepicker:selecttime.toLocaleString()})
+            //alert(selecttime);
+            this.setState({datepickershow:selecttime.toLocaleString()})
+            this.setState({datepicker:selecttime})
         },
         onPickerCancel: pickedValue => {
             console.log('area', pickedValue);
@@ -169,9 +172,8 @@ _toggle() {
             <View style={styles.inputname}> 
                 <Text style={styles.bottonstylewithfont}>姓名:</Text>  
                 <TextInput style = {styles.input} 
-                                   returnKeyType = "search"
+                                   returnKeyType = "done"
                                    placeholder= "陈长生"
-                                   onEndEditing = {this.hide.bind(this,this.state.value)}
                                    value = {this.state.value}
                                    onChangeText = {(text) => this.setState({Tip:text})}/>
             </View>
@@ -179,7 +181,7 @@ _toggle() {
                 <TouchableOpacity onPress={this._showTimePicker.bind(this)}>
                     <Text style={styles.bottonstylewithfont}>时间:</Text>
                 </TouchableOpacity>
-                <Text style = {styles.input} >{this.state.datepicker}</Text>
+                <Text style = {styles.input} >{this.state.datepickershow}</Text>
             </View>
             <View style={styles.inputname}>
                 <Text style={styles.bottonstylewithfont}>性别:</Text> 
@@ -212,6 +214,7 @@ _toggle() {
     {
       var dataArray = [];
       dataArray["date"] = this.state.datepicker;
+      //alert(dataArray["date"])
       dataArray["sex"]  = this.state.selectedValue;
       dataArray["name"] = this.state.Tip
       if(undefined==dataArray["date"] || ""==dataArray["date"])
@@ -220,6 +223,7 @@ _toggle() {
       }
       var myDate=new Date(dataArray["date"])
       console.log(myDate)
+      //alert(myDate)
       var EightDate = SixrandomModule.lunar_f(myDate)
 
       console.log(EightDate.gzYear)

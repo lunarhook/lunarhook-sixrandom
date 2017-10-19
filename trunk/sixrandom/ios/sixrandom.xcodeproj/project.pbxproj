@@ -17,7 +17,6 @@
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		2A5C1E0DE6B54B988B456072 /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A8D28EFF0A44970A0E4AB96 /* libRCTBEEPickerManager.a */; };
@@ -30,8 +29,7 @@
 		567C88931F27CEF2001CFD07 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 567C88921F27CEF2001CFD07 /* libc++.tbd */; };
 		567C88951F27CF05001CFD07 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 567C88941F27CF05001CFD07 /* libsqlite3.0.tbd */; };
 		567C88C31F27D15E001CFD07 /* libRCTWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 567C88B81F27CF78001CFD07 /* libRCTWeChat.a */; };
-		56D6799D1F38DE5F00461F1D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D6799C1F38DE5F00461F1D /* icon.png */; };
-		56D679BA1F38ED4600461F1D /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D679B91F38ED4600461F1D /* icon-120.png */; };
+		567DD46E1F9911ED006D7DAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567DD46D1F9911ED006D7DAD /* Images.xcassets */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		62EFC1EE75634D55AEFE9761 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DBB03CA5EA43C085E65847 /* libRNSVG.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -274,7 +272,6 @@
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = sixrandom/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = sixrandom/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = sixrandom/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = sixrandom/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = sixrandom/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
@@ -286,8 +283,7 @@
 		567C88901F27CED1001CFD07 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		567C88921F27CEF2001CFD07 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		567C88941F27CF05001CFD07 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		56D6799C1F38DE5F00461F1D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = sixrandom/Images.xcassets/icon.png; sourceTree = "<group>"; };
-		56D679B91F38ED4600461F1D /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-120.png"; path = "sixrandom/Images.xcassets/icon-120.png"; sourceTree = "<group>"; };
+		567DD46D1F9911ED006D7DAD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = sixrandom/Images.xcassets; sourceTree = "<group>"; };
 		585743A380D84C73805D09B4 /* libjschelpers.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libjschelpers.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		614F37BDFF01443A9A0373B7 /* RCTWeChat.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTWeChat.xcodeproj; path = "../node_modules/react-native-wechat/ios/RCTWeChat.xcodeproj"; sourceTree = "<group>"; };
@@ -399,14 +395,14 @@
 		13B07FAE1A68108700A75B9A /* sixrandom */ = {
 			isa = PBXGroup;
 			children = (
+				5648749C1F2890DB00C33C48 /* index.ios.jsbundle */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				56D6799C1F38DE5F00461F1D /* icon.png */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				567DD46D1F9911ED006D7DAD /* Images.xcassets */,
 			);
 			name = sixrandom;
 			sourceTree = "<group>";
@@ -478,15 +474,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		56E0A4E01F27758B00F7F1C5 /* html */ = {
-			isa = PBXGroup;
-			children = (
-				5648749C1F2890DB00C33C48 /* index.ios.jsbundle */,
-				56D679B91F38ED4600461F1D /* icon-120.png */,
-			);
-			name = html;
-			sourceTree = "<group>";
-		};
 		56E67ECE1F8F80B200356042 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,7 +534,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				56E0A4E01F27758B00F7F1C5 /* html */,
 				13B07FAE1A68108700A75B9A /* sixrandom */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -907,11 +893,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56D6799D1F38DE5F00461F1D /* icon.png in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				567DD46E1F9911ED006D7DAD /* Images.xcassets in Resources */,
 				5648749D1F2890DB00C33C48 /* index.ios.jsbundle in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				56D679BA1F38ED4600461F1D /* icon-120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,6 +947,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
@@ -977,6 +962,7 @@
 					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 				);
 				INFOPLIST_FILE = sixrandom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1006,6 +992,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AMHU8R4G9M;
@@ -1019,6 +1006,7 @@
 					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 				);
 				INFOPLIST_FILE = sixrandom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
