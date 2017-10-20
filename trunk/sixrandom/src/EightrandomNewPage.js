@@ -174,7 +174,7 @@ _toggle() {
                 <TextInput style = {styles.input} 
                                    returnKeyType = "done"
                                    placeholder= "陈长生"
-                                   value = {this.state.value}
+                                   onSubmitEditing={Keyboard.dismiss} 
                                    onChangeText = {(text) => this.setState({Tip:text})}/>
             </View>
             <View style={styles.inputname}> 
@@ -217,6 +217,7 @@ _toggle() {
       //alert(dataArray["date"])
       dataArray["sex"]  = this.state.selectedValue;
       dataArray["name"] = this.state.Tip
+      //alert(this.state.Tip)
       if(undefined==dataArray["date"] || ""==dataArray["date"])
       {
         dataArray["date"] = new Date()
@@ -226,10 +227,10 @@ _toggle() {
       //alert(myDate)
       var EightDate = SixrandomModule.lunar_f(myDate)
 
-      console.log(EightDate.gzYear)
-      console.log(EightDate.gzMonth)
-      console.log(EightDate.gzDate)
-      console.log(EightDate.gzTime)
+      //console.log(EightDate.gzYear)
+      //console.log(EightDate.gzMonth)
+      //console.log(EightDate.gzDate)
+      //console.log(EightDate.gzTime)
 
 
 
@@ -238,21 +239,23 @@ _toggle() {
       
 
       var index = (new Date()).valueOf().toString();
-      var savadate = new Array()
-      savadate[0] = index;
-      savadate[1] = EightDate.gzYear+EightDate.gzMonth +EightDate.gzDate +EightDate.gzTime;
+      var savedate = new Array()
+      savedate[0] = index;
+      savedate[1] = EightDate.gzYear+EightDate.gzMonth +EightDate.gzDate +EightDate.gzTime;
       if('男'==this.state.selectedValue)
       {
-        savadate[2] = '乾'
+        savedate[2] = '乾造'
       }
       else
       {
-        savadate[2] = '坤'
+        savedate[2] = '坤造'
       }
-      savadate[3]= +this.state.Tip
-      var parameter = "?EightDate="+savadate[1] + "&sex=" + savadate[2]
-      StorageModule.save({key:"name",id:index,data:savadate})
-      StorageModule.save({key:"lastname",data:savadate})
+      savedate[3]= ""+this.state.Tip
+      savedate[4]=myDate.getFullYear()+"/"+(myDate.getMonth()+1)+"/"+myDate.getDay()+":"+myDate.getHours();
+      console.log(savedate[3])
+      var parameter = "?EightDate="+savedate[1] + "&sex=" + savedate[2]
+      StorageModule.save({key:"name",id:index,data:savedate})
+      StorageModule.save({key:"lastname",data:savedate})
       this.props.navigation.navigate('EightrandomMainPage',parameter)
     }
   begin(pagename)

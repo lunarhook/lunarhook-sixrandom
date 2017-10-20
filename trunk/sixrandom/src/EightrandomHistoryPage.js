@@ -85,16 +85,17 @@ class EightrandomHistoryPage extends React.Component {
               {
                 try {
                   console.log(ids[i])
-                  var savadate = ids[i];
+                  var savedate = ids[i];
+                  var date = new Date(Number(savedate[0]))
                   var obj = {
-                    name:savadate[2]+":" + savadate[1]  + " " + savadate[3],
-                    url:"?EightDate="+savadate[1] + "&sex=" + savadate[2],
-                    id:savadate[0]
+                    name:date.toLocaleDateString()+" "+savedate[2]+":" + savedate[1]  + " " + savedate[3] + "  "+savedate[4],
+                    url:"?EightDate="+savedate[1] + "&sex=" + savedate[2],
+                    id:savedate[0]
                   }
                   HistoryNameArray[i] = obj
                   
                 } catch (error) {
-                  StorageModule.remove({key:'name',id:savadate[0]});
+                  StorageModule.remove({key:'name',id:savedate[0]});
                   HistoryNameArray[i] = undefined
                 }
                 

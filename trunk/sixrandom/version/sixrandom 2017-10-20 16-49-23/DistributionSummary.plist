@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sixrandom.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>bitcode</key>
+			<true/>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>D08C7B2F70877C80BBBBBF4A658BCBB420431C0E</string>
+				<key>dateExpires</key>
+				<string>2018/7/26</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>AMHU8R4G9M.sixrandom</string>
+				<key>beta-reports-active</key>
+				<true/>
+				<key>com.apple.developer.team-identifier</key>
+				<string>AMHU8R4G9M</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>AMHU8R4G9M.sixrandom</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>sixrandom.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>ef05c1b4-c216-471a-a478-adeef107c60a</string>
+				<key>name</key>
+				<string>XC iOS: *</string>
+			</dict>
+			<key>symbols</key>
+			<true/>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>AMHU8R4G9M</string>
+				<key>name</key>
+				<string>XCLOUD GAME CO., LIMITED</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
