@@ -73,19 +73,21 @@ class EightrandomNewPage extends React.Component {
         pickerTitleText: '日期',
         wheelFlex: [2, 1, 1, 2, 1],
         onPickerConfirm: pickedValue => {
-            console.log('area', pickedValue);
+            console.log('onPickerConfirm', pickedValue);
+            var t = new Date()
+            t.setFullYear(pickedValue[0]);
+            t.setMonth(pickedValue[1]-1);
+            t.setDate(pickedValue[2]);
+            t.setHours(pickedValue[3]);
+            t.setMinutes(pickedValue[4]);
             var selecttime = new Date()
-            selecttime.setFullYear(pickedValue[0]);
-            selecttime.setMonth(pickedValue[1]-1);
-            selecttime.setDate(pickedValue[2]);
-            selecttime.setHours(pickedValue[3]);
-            selecttime.setMinutes(pickedValue[4]);
-            //alert(selecttime);
+            selecttime = t;
+            console.log(selecttime.toLocaleString());
             this.setState({datepickershow:selecttime.toLocaleString()})
             this.setState({datepicker:selecttime})
         },
         onPickerCancel: pickedValue => {
-            console.log('area', pickedValue);
+            console.log('onPickerCancel', pickedValue);
         },
         onPickerSelect: pickedValue => {
             let targetValue = [...pickedValue];

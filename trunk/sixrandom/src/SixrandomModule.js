@@ -3324,7 +3324,7 @@ var c = {
 		var v = dateh % 5;
 		var hour = q.getHours();
 		hour = Math.floor(hour/2 + 0.5) % 12
-		return h[ (v*2+hour+1) % 10] + d[hour % 12]
+		return h[ (hour+2*(v)) % 10] + d[hour % 12]
 	}
 };
 /***************************************************************************** 

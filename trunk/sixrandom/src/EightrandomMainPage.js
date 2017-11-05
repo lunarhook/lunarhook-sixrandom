@@ -15,6 +15,7 @@ import EightrandomFullInfoPage from './SixrandomFullInfoPage';
 import ShareModule from './ShareModule'
 import SixrandomModule from './SixrandomModule'
 import ValueTypeModule from './ValueTypeModule'
+import EightrandomModule from './EightrandomModule'
 
 const {width, height} = Dimensions.get('window');  
 
@@ -56,12 +57,14 @@ class EightrandomMainPage extends React.Component {
     var sex = ""
     var EightDate = ""
     var buildeight = new Array();
+    var buildeightExt = new Array();
     //var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
       //dataSource: dataSource,
       sex:sex,
       EightDate:EightDate,
       buildeight:buildeight,
+      buildeightExt:buildeightExt,
 		};
     };
 
@@ -86,49 +89,7 @@ class EightrandomMainPage extends React.Component {
     }
   };
 
-  parentday(other,self)
-  {
-    var map = new Array()
-    var key = '甲乙丙丁戊己庚辛壬癸'
-    var num = key.indexOf(other);
-    console.log(num,self,other)
-    map['甲'] =['比肩', '劫财', '食神', '伤官', '偏财', '正财', '七杀', '正官', '偏印', '正印']
-    map['乙'] =['劫财', '比肩', '伤官', '食神', '正财', '偏财', '正官', '七杀', '正印', '偏印']
-    map['丙'] =['偏印', '正印', '比肩', '劫财', '食神', '伤官', '偏财', '正财', '七杀', '正官']
-    map['丁'] =['正印', '偏印', '劫财', '比肩', '伤官', '食神', '正财', '偏财', '正官', '七杀']
-    map['戊'] =['七杀', '正官', '偏印', '正印', '比肩', '劫财', '食神', '伤官', '偏财', '正财']
-    map['己'] =['正官', '七杀', '正印', '偏印', '劫财', '比肩', '伤官', '食神', '正财', '偏财']
-    map['庚'] =['偏财', '正财', '七杀', '正官', '偏印', '正印', '比肩', '劫财', '食神', '伤官']
-    map['辛'] =['正财', '偏财', '正官', '七杀', '正印', '偏印', '劫财', '比肩', '伤官', '食神']
-    map['壬'] =['食神', '伤官', '偏财', '正财', '七杀', '正官', '偏印', '正印', '比肩', '劫财']
-    map['癸'] =['伤官', '食神', '正财', '偏财', '正官', '七杀', '正印', '偏印', '劫财', '比肩']
-    console.log(map[self][num])
-    return map[self][num];
-  
-  }
-
-  parentearth(other,self)
-  {
-    var map = new Array()
-    var key = '甲乙丙丁戊己庚辛壬癸'
-    var num = key.indexOf(self);
-    console.log(num,self,other)
-    map['子'] =['偏印', '正印', '七杀', '正官', '偏财', '正财', '食神', '伤官', '比肩', '比劫']
-    map['丑'] =['正财', '偏财', '伤官', '食神', '比劫', '比肩', '正印', '偏印', '正官', '七杀']
-    map['寅'] =['比肩', '劫财', '偏印', '正印', '七杀', '正官', '偏财', '正财', '食神', '伤官']
-    map['卯'] =['劫财', '比肩', '正印', '偏印', '正官', '七杀', '正财', '偏财', '伤官', '食神']
-    map['辰'] =['偏财', '正财', '食神', '伤官', '比肩', '劫财', '偏印', '正印', '七杀', '正官']
-    map['巳'] =['伤官', '食神', '比劫', '比肩', '正印', '偏印', '正官', '七杀', '正财', '偏财']
-    map['午'] =['食神', '伤官', '比肩', '比劫', '偏印', '正印', '七杀', '正官', '偏财', '正财']
-    map['未'] =['正财', '偏财', '伤官', '食神', '比劫', '比肩', '正印', '偏印', '正官', '七杀']
-    map['申'] =['七杀', '正官', '偏财', '正财', '食神', '伤官', '比肩', '劫财', '偏印', '正印']
-    map['酉'] =['正官', '七杀', '正财', '偏财', '伤官', '食神', '比劫', '比肩', '正印', '偏印']
-    map['戌'] =['偏财', '正财', '食神', '伤官', '比肩', '劫财', '偏印', '正印', '七杀', '正官']
-    map['亥'] =['正印', '偏印', '正官', '七杀', '正财', '偏财', '伤官', '食神', '劫财', '比肩']
-    console.log(map[other][num])
-    return map[other][num];
-  
-  }
+ 
   
 
   refreshlist()
@@ -192,16 +153,26 @@ class EightrandomMainPage extends React.Component {
   buildeight()
   {
     var buildeight = new Array()
-    buildeight[0] = this.parentday(this.state.EightDate[0],this.state.EightDate[4])
-    buildeight[2] = this.parentday(this.state.EightDate[2],this.state.EightDate[4])
+    buildeight[0] = EightrandomModule.parentday(this.state.EightDate[0],this.state.EightDate[4])
+    buildeight[2] = EightrandomModule.parentday(this.state.EightDate[2],this.state.EightDate[4])
     buildeight[4] = "日元"//this.parentday(this.state.EightDate[4],this.state.EightDate[4])
-    buildeight[6] = this.parentday(this.state.EightDate[6],this.state.EightDate[4])
-    buildeight[1] = this.parentearth(this.state.EightDate[1],this.state.EightDate[4])
-    buildeight[3] = this.parentearth(this.state.EightDate[3],this.state.EightDate[4])
-    buildeight[5] = this.parentearth(this.state.EightDate[5],this.state.EightDate[4])
-    buildeight[7] = this.parentearth(this.state.EightDate[7],this.state.EightDate[4])
+    buildeight[6] = EightrandomModule.parentday(this.state.EightDate[6],this.state.EightDate[4])
+    buildeight[1] = EightrandomModule.parentearth(this.state.EightDate[1],this.state.EightDate[4])
+    buildeight[3] = EightrandomModule.parentearth(this.state.EightDate[3],this.state.EightDate[4])
+    buildeight[5] = EightrandomModule.parentearth(this.state.EightDate[5],this.state.EightDate[4])
+    buildeight[7] = EightrandomModule.parentearth(this.state.EightDate[7],this.state.EightDate[4])
+    var buildeightExt = new Array()
+    buildeightExt[0] = EightrandomModule.gethide(this.state.EightDate[1]);
+    buildeightExt[2] = EightrandomModule.gethide(this.state.EightDate[3]);
+    buildeightExt[4] = EightrandomModule.gethide(this.state.EightDate[5]);
+    buildeightExt[6] = EightrandomModule.gethide(this.state.EightDate[7]);
+    buildeightExt[1] = EightrandomModule.gethideshishen(buildeightExt[0],this.state.EightDate[4]);
+    buildeightExt[3] = EightrandomModule.gethideshishen(buildeightExt[2],this.state.EightDate[4]);
+    buildeightExt[5] = EightrandomModule.gethideshishen(buildeightExt[4],this.state.EightDate[4]);
+    buildeightExt[7] = EightrandomModule.gethideshishen(buildeightExt[6],this.state.EightDate[4]);
+    console.log(buildeightExt)
     this.setState({  
-      buildeight:buildeight }); 
+      buildeight:buildeight, buildeightExt:buildeightExt }); 
   }
   
   render(){
@@ -250,7 +221,20 @@ class EightrandomMainPage extends React.Component {
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[5]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[7]}</Text>
               </View>
-
+              <View style={styles.Eightstyleline}> 
+              <Text style={styles.Eightstylewithfont}>{this.state.buildeightExt[0]}</Text>
+              <Text style={styles.Eightstylewithfont}>{this.state.buildeightExt[2]}</Text>
+              <Text style={styles.Eightstylewithfont}>{this.state.buildeightExt[4]}</Text>
+              <Text style={styles.Eightstylewithfont}>{this.state.buildeightExt[6]}</Text>
+              </View>
+              <View style={styles.Eightstyleline}> 
+              <View style={styles.Eightstylewithfontmultline}>
+              <Text numberoflines={4} >{this.state.buildeightExt[1]}</Text>
+              </View>
+              <Text numberoflines={4} style={styles.Eightstylewithfontmultline}>{this.state.buildeightExt[3]}</Text>
+              <Text numberoflines={4} style={styles.Eightstylewithfontmultline}>{this.state.buildeightExt[5]}</Text>
+              <Text numberoflines={4} style={styles.Eightstylewithfontmultline}>{this.state.buildeightExt[7]}</Text>
+              </View>
       
       
                  
@@ -322,6 +306,11 @@ var styles = StyleSheet.create ({
     justifyContent: 'space-between', //虽然样式中设置了 justifyContent: 'center'，但无效  
     alignItems:'center',
     fontSize:18
+  },
+  Eightstylewithfontmultline:{
+    width:30,
+    justifyContent: 'space-between', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    alignItems:'center',
   },
   Eightstyleline: {
     //justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
