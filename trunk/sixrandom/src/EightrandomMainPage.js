@@ -1,7 +1,7 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View, Text,Button,TouchableOpacity,RefreshControl,ListView} from 'react-native';
+import {StyleSheet,View, Text,Button,TouchableOpacity,RefreshControl,ScrollView} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
@@ -58,6 +58,8 @@ class EightrandomMainPage extends React.Component {
     var EightDate = ""
     var buildeight = new Array();
     var buildeightExt = new Array();
+    var precent = new Array();
+    var daykey = new Array();
     //var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
       //dataSource: dataSource,
@@ -65,6 +67,8 @@ class EightrandomMainPage extends React.Component {
       EightDate:EightDate,
       buildeight:buildeight,
       buildeightExt:buildeightExt,
+      precent:precent,
+      daykey:daykey,
 		};
     };
 
@@ -155,7 +159,7 @@ class EightrandomMainPage extends React.Component {
     var buildeight = new Array()
     buildeight[0] = EightrandomModule.parentday(this.state.EightDate[0],this.state.EightDate[4])
     buildeight[2] = EightrandomModule.parentday(this.state.EightDate[2],this.state.EightDate[4])
-    buildeight[4] = "日元"//this.parentday(this.state.EightDate[4],this.state.EightDate[4])
+    buildeight[4] = "元"//this.parentday(this.state.EightDate[4],this.state.EightDate[4])
     buildeight[6] = EightrandomModule.parentday(this.state.EightDate[6],this.state.EightDate[4])
     buildeight[1] = EightrandomModule.parentearth(this.state.EightDate[1],this.state.EightDate[4])
     buildeight[3] = EightrandomModule.parentearth(this.state.EightDate[3],this.state.EightDate[4])
@@ -170,9 +174,15 @@ class EightrandomMainPage extends React.Component {
     buildeightExt[3] = EightrandomModule.gethideshishen(buildeightExt[2],this.state.EightDate[4]);
     buildeightExt[5] = EightrandomModule.gethideshishen(buildeightExt[4],this.state.EightDate[4]);
     buildeightExt[7] = EightrandomModule.gethideshishen(buildeightExt[6],this.state.EightDate[4]);
-    console.log(buildeightExt)
+    var precent = new Array();
+    var daykey = new Array();
+    var o = EightrandomModule.getfive(this.state.EightDate)
+    precent = o.q
+    daykey = o.p
+    console.log(o)
     this.setState({  
-      buildeight:buildeight, buildeightExt:buildeightExt }); 
+      buildeight:buildeight, buildeightExt:buildeightExt,
+      daykey:daykey,precent:precent }); 
   }
   
   render(){
@@ -181,7 +191,7 @@ class EightrandomMainPage extends React.Component {
       jump = false;
       
         return(
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
 
         
 
@@ -192,53 +202,93 @@ class EightrandomMainPage extends React.Component {
               </View>
               </View>
               <View style={styles.Eightstyleline}> 
+              <Text style={styles.Eightstylewithfont}>令</Text>
               <Text style={styles.Eightstylewithfont}>年</Text>
               <Text style={styles.Eightstylewithfont}>月</Text>
               <Text style={styles.Eightstylewithfont}>日</Text>
               <Text style={styles.Eightstylewithfont}>时</Text>
               </View>
               <View style={styles.Eightstyleline}> 
+              <Text style={styles.Eightstylewithfont}>亲</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[0]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[2]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[4]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[6]}</Text>
               </View>
               <View style={styles.Eightstyleline}> 
+              <Text style={styles.Eightstylewithfont}>干</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[0]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[2]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[4]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[6]}</Text>
               </View>
               <View style={styles.Eightstyleline}> 
+              <Text style={styles.Eightstylewithfont}>支</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[1]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[3]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[5]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[7]}</Text>
               </View>
               <View style={styles.Eightstyleline}> 
+              <Text style={styles.Eightstylewithfont}>亲</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[1]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[3]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[5]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[7]}</Text>
               </View>
               <View style={styles.Eightstyleline}> 
-              <Text style={styles.Eightstylewithfont}>{this.state.buildeightExt[0]}</Text>
-              <Text style={styles.Eightstylewithfont}>{this.state.buildeightExt[2]}</Text>
-              <Text style={styles.Eightstylewithfont}>{this.state.buildeightExt[4]}</Text>
-              <Text style={styles.Eightstylewithfont}>{this.state.buildeightExt[6]}</Text>
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>藏</Text>
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[0]}</Text>
+
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[2]}</Text>
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[4]}</Text>
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[6]}</Text>
               </View>
               <View style={styles.Eightstyleline}> 
-              <View style={styles.Eightstylewithfontmultline}>
-              <Text numberoflines={4} >{this.state.buildeightExt[1]}</Text>
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>亲</Text>
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[1]}</Text>
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[3]}</Text>
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[5]}</Text>
+              <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[7]}</Text>
               </View>
-              <Text numberoflines={4} style={styles.Eightstylewithfontmultline}>{this.state.buildeightExt[3]}</Text>
-              <Text numberoflines={4} style={styles.Eightstylewithfontmultline}>{this.state.buildeightExt[5]}</Text>
-              <Text numberoflines={4} style={styles.Eightstylewithfontmultline}>{this.state.buildeightExt[7]}</Text>
+              <View style={styles.Eightstyleline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'green'}]}>木</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>火</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'brown'}]}>土</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'gold'}]}>金</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'blue'}]}>水</Text>
               </View>
-      
+              <View style={styles.Eightstyleline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'green'}]}>{this.state.precent[0]}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.precent[1]}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'brown'}]}>{this.state.precent[2]}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'gold'}]}>{this.state.precent[3]}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'blue'}]}>{this.state.precent[4]}</Text>
+              </View>
+              <View style={styles.Eightstyleline}> 
+              <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'green'}]}>{this.state.precent[5]}%</Text>
+              <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.precent[6]}%</Text>
+              <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'brown'}]}>{this.state.precent[7]}%</Text>
+              <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'gold'}]}>{this.state.precent[8]}%</Text>
+              <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'blue'}]}>{this.state.precent[9]}%</Text>
+              </View>
+              <View style={styles.Eightstyleline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'green'}]}>甲:{this.state.daykey['甲']}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>丙:{this.state.daykey['丙']}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'brown'}]}>戊:{this.state.daykey['戊']}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'gold'}]}>庚:{this.state.daykey['庚']}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'blue'}]}>壬:{this.state.daykey['壬']}</Text>
+              </View>
+              <View style={styles.Eightstyleline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'green'}]}>乙:{this.state.daykey['乙']}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>丁:{this.state.daykey['丁']}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'brown'}]}>己:{this.state.daykey['己']}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'gold'}]}>辛:{this.state.daykey['辛']}</Text>
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'blue'}]}>癸:{this.state.daykey['癸']}</Text>
+              </View>
       
                  
-              </View>  
+              </ScrollView>  
     )
     }
     begin(pagename)
@@ -303,18 +353,19 @@ var styles = StyleSheet.create ({
     flex:1
   },
   Eightstylewithfont:{
-    justifyContent: 'space-between', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    alignItems:'center',
+    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    //alignItems:'center',
     fontSize:18
   },
   Eightstylewithfontmultline:{
-    width:30,
-    justifyContent: 'space-between', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    alignItems:'center',
+    width:40,
+    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    //alignItems:'center',
+    fontSize:18
   },
   Eightstyleline: {
     //justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
-    alignItems:'center',
+    //alignItems:'center',
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
     //justifyContent:'space-between',
     flexDirection: 'row',
