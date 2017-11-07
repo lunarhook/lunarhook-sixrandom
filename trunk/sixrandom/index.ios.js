@@ -19,7 +19,7 @@ import EightrandomMainPage from './src/EightrandomMainPage'
 import EightrandomNewPage from './src/EightrandomNewPage';
 import EightrandomHistoryPage from './src/EightrandomHistoryPage'
 import MyPage from './src/MyPage'
-
+import MyStoryPage from './src/MyStoryPage'
 
 
 class splash extends Component {
@@ -61,6 +61,7 @@ const sixrandom = StackNavigator({
   EightrandomNewPage:{screen:EightrandomNewPage},
   EightrandomHistoryPage:{screen:EightrandomHistoryPage},
   MyPage:{screen:MyPage},
+  MyStoryPage:{screen:MyStoryPage},
 });
 
 

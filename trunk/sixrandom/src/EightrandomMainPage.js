@@ -60,6 +60,8 @@ class EightrandomMainPage extends React.Component {
     var buildeightExt = new Array();
     var precent = new Array();
     var daykey = new Array();
+    var relationshipday = ""
+    var relationshipearth = ""
     //var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 		this.state = {
       //dataSource: dataSource,
@@ -69,6 +71,8 @@ class EightrandomMainPage extends React.Component {
       buildeightExt:buildeightExt,
       precent:precent,
       daykey:daykey,
+      relationshipday:relationshipday,
+      relationshipearth:relationshipearth,
 		};
     };
 
@@ -179,10 +183,15 @@ class EightrandomMainPage extends React.Component {
     var o = EightrandomModule.getfive(this.state.EightDate)
     precent = o.q
     daykey = o.p
-    console.log(o)
+    var r = EightrandomModule.getrelationship(this.state.EightDate)
+    var relationshipday = r.dr
+    var relationshipearth = r.er
+    console.log(r)
     this.setState({  
       buildeight:buildeight, buildeightExt:buildeightExt,
-      daykey:daykey,precent:precent }); 
+      daykey:daykey,precent:precent,
+      relationshipday:relationshipday,
+      relationshipearth:relationshipearth}); 
   }
   
   render(){
@@ -285,6 +294,12 @@ class EightrandomMainPage extends React.Component {
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'brown'}]}>己:{this.state.daykey['己']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'gold'}]}>辛:{this.state.daykey['辛']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'blue'}]}>癸:{this.state.daykey['癸']}</Text>
+              </View>
+              <View style={styles.Eightstyleline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.relationshipday}</Text>
+              </View>
+              <View style={styles.Eightstyleline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.relationshipearth}</Text>
               </View>
       
                  

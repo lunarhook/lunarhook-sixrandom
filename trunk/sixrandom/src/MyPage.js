@@ -1,13 +1,14 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View,TouchableOpacity,Alert,  Text,RefreshControl,ListView} from 'react-native';
+import {StyleSheet,View,TouchableOpacity,Alert,Button, Text,RefreshControl,ScrollView,ListView} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { StackNavigator } from 'react-navigation';
 
 import StorageModule from './StorageModule'
 import ValueTypeModule from './ValueTypeModule'
 import SixrandomModule from './SixrandomModule'
+
 
 
 class MyPage extends React.Component {
@@ -19,8 +20,15 @@ class MyPage extends React.Component {
 			dataSource: dataSource,
 		};
   }
-    static navigationOptions = {
+
+
+  static navigationOptions = ({navigation})=>{
+    const { navigate } = navigation;
+    return{
+    //headerLeft:(<Button title="万年历" onPress={  () => navigate('MainPage')  }/>),
+    //headerRight:(<Button title="善易者不卜" onPress={  () => navigate('MyStoryPage')  }/>),
     title: '我的',
+    }
   };
 
   render()
@@ -69,6 +77,7 @@ class MyPage extends React.Component {
           <Text style={styles.index}>
           咨询电话：13391909968 郑语斐
           </Text>
+
           <TabNavigator 
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  
