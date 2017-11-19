@@ -2,12 +2,16 @@
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
 import {StyleSheet,View,TouchableOpacity,Alert, Button, Text,RefreshControl,ScrollView,ListView} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
+//import TabNavigator from 'react-native-tab-navigator';  
 import { StackNavigator } from 'react-navigation';
+import { TabNavigator } from "react-navigation";
+
 
 import StorageModule from './StorageModule'
 import ValueTypeModule from './ValueTypeModule'
 import SixrandomModule from './SixrandomModule'
+import SixrandomNewPage from './SixrandomNewPage'
+import EightrandomNewPage from './EightrandomNewPage'
 
 var story="  易道界流传着一句话——善易者不卜！古往今来的传奇大师都是这样的人物，吉凶成败立断于须臾之间，成住坏空克知在眨眼之际，人们常传闻说某大师，那是心血忽然来潮，悟知原来如此如此……非常神奇令人羡慕的预测先知。\
 在佛门道家或是江湖民间，偶尔会有一些高人昙花一现，他们不用笔不用纸，不摇卦不看万年历，连一切东西都不必问，张口就预测的准而奇，学易的爱好者们，对此是即羡慕而又自叹难以理解。研易那段，也确实遇见并深刻体会了这些神奇预测\
@@ -74,6 +78,12 @@ var story="  易道界流传着一句话——善易者不卜！古往今来的�
 "
 
 
+
+const MainScreenNavigator = TabNavigator({
+  六爻: { screen: SixrandomNewPage },
+  八字: { screen: EightrandomNewPage },
+});
+
 class MyStoryPage extends React.Component {
    constructor(props) {
     super(props);
@@ -83,27 +93,32 @@ class MyStoryPage extends React.Component {
 			dataSource: dataSource,
 		};
   }
-    static navigationOptions = {
+  static navigationOptions = {
     title: '善易者不卜',
   };
+  static navigationOptions = ({navigation,screenProps}) => ({
+    tabBarOnPress:(({ route, index },jumpToIndex)=>{
+         console.log(route);
+         alert(index);
+        jumpToIndex(index);
+        }),
+    })
 
   render()
   {
     const { navigate } = this.props.navigation;
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
+    
       
 
-          <Text>
-          {story}
-            </Text>
-
-        </ScrollView>
+        <MainScreenNavigator navigation={this.props.navigation}/>
+        </View>
 					)
   }
 
 }
-
+MyStoryPage.router = MainScreenNavigator.router;
 var styles = StyleSheet.create ({
   container: {
     flex:1,

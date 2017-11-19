@@ -26,7 +26,7 @@ class MyPage extends React.Component {
     const { navigate } = navigation;
     return{
     //headerLeft:(<Button title="万年历" onPress={  () => navigate('MainPage')  }/>),
-    //headerRight:(<Button title="善易者不卜" onPress={  () => navigate('MyStoryPage')  }/>),
+    headerRight:(<Button title="善易者不卜" onPress={  () => navigate('MyStoryPage')  }/>),
     title: '我的',
     }
   };

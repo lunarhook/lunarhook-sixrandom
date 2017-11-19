@@ -573,8 +573,8 @@ six_random_NaJia["011100"] = {
 "health":"疾病：防泌尿系统病，肠胃病及性病等，须疗养得法，否则不利。",
 "find":"失物：尽速找寻，可以取回，延误时机，则找不回来。",
 "sued":"诉讼：提防桃色纠纷，诸事宜和解，有贵人相助。",
-"bussiness":"",
-"finance":"",
+"bussiness":"事业：和为贵，和则万事兴，务以诚感人，以诚待人。广泛交往朋友，谦虚礼让。树立大志向，坚持主见，不可盲目随大流。不利时应安居待机，不可妄动强求",
+"finance":"经商：有利可图。但应以纯正之心，以诚待人，加强合作。市场若不景气，决不可妄动，不可强求，而应静待发展。虚心听取不同意见",
 "kind":"金"
 }
 /*
@@ -3847,6 +3847,19 @@ _build.push("")
 	{
 		var x = "exp"+index
 		_build.push(six_random_date[7][x])
+	}
+	_build.push("")
+	_build.push("")
+	_build.push("")
+	_build.push(six_random_date[8].extname)
+	_build.push(six_random_date[8].extnameexp)
+	_build.push(six_random_date[8].extexp)
+	_build.push(six_random_date[8].ext)
+	_build.push("")
+	for(index =1 ;index < 13 ;index++)
+	{
+		var x = "exp"+index
+		_build.push(six_random_date[8][x])
 	}
 	_build.push("")
 	_build.push("")
