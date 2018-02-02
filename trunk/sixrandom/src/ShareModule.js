@@ -1,8 +1,8 @@
 
 import React, {Component} from 'react';
-import *as wechat from 'react-native-wechat'
+//import *as wechat from 'react-native-wechat'
 
-var WeChat=require('react-native-wechat');
+//var WeChat=require('react-native-wechat');
 
 class ShareModule extends React.Component {
 
@@ -11,11 +11,12 @@ class ShareModule extends React.Component {
 	super(props);
 
 	//WeChat.registerApp('wx893f885b12066487');
-	WeChat.registerApp('wx8cebf51c52f78bb3');
+	//WeChat.registerApp('wx8cebf51c52f78bb3');
 	
 
 	}
 	// maximum capacity, default 1000 
+	/*
 	Sharetotimeline() {
 			WeChat.isWXAppInstalled().then((isInstalled) => {
 			if(isInstalled) {
@@ -73,6 +74,7 @@ class ShareModule extends React.Component {
 			});
 
 		}
+		*/
 }
 
 
