@@ -414,6 +414,11 @@ class kitPage extends React.Component {
           {(function (handler) {
               var alllist = KitConfig.getalllist()
               var sel = alllist[handler.state.selectmode]
+              if(undefined==sel)
+              {
+                sel = alllist["职业性格"]
+                HistoryArrayGroup.save("kitConfigselectmode", "职业性格")
+              }
               var curalllist = JSON.parse(JSON.stringify(sel))
               var content = new Array()
               if("Huawei"==kitPageController.state.Channel){
