@@ -6,7 +6,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { InputItem,WhiteSpace, List ,Icon,WingBlank,Button,Switch} from '@ant-design/react-native';
 import IconConfig from '../config/IconConfig'
 import ScreenConfig from '../config/ScreenConfig';
-import {StyleConfig} from '../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 import UserModule from '../config/UserModule'
 import {HistoryArrayGroup} from '../config/StorageModule'
 import {DevTimeManager} from '../net/NetApi'
@@ -172,7 +172,7 @@ class AgreePage extends React.Component {
                         //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
                         data={Agreement}
                         keyExtractor={(item, index) => index.toString()}
-                        renderItem={(data) => (<View><Text style={{fontSize:15,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
+                        renderItem={(data) => (<View><Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
                         >
             </FlatList>)
 

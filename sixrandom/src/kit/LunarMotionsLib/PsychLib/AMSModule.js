@@ -5,7 +5,7 @@ import { Grid, Accordion, WhiteSpace, WingBlank ,List} from '@ant-design/react-n
 import { CheckBox,Button } from 'react-native-elements'
 import TabNavigator from 'react-native-tab-navigator';  
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 var AMSDate=Array()
 AMSDate[1]="我喜欢在我没有把握解决的问题上坚持不懈地努力。"

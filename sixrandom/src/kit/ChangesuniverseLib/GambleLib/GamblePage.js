@@ -7,7 +7,7 @@ import { Button} from 'react-native-elements';
 import { StackNavigator } from 'react-navigation';
 import { captureRef } from "react-native-view-shot";
 import Icon from 'react-native-vector-icons/Ionicons';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import FontTypeModule from '../../../config/FontTypeModule';
 import ScreenConfig from '../../../config/ScreenConfig';
 import WechatShare from '../../../config/WechatShare'

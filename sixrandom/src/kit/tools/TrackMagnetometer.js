@@ -238,7 +238,7 @@ export default class TrackMagnetometer extends Component {
             <Text
               style={{
                 color: "#fff",
-                fontSize: 18,
+                fontSize:FontStyleConfig.getFontApplySize()+ 18,
                 fontWeight: "bold",
               }}
             >
@@ -247,7 +247,7 @@ export default class TrackMagnetometer extends Component {
             <Text
               style={{
                 color: "#fff",
-                fontSize: 18,
+                fontSize:FontStyleConfig.getFontApplySize()+ 18,
                 fontWeight: "bold",
               }}
             >
@@ -256,7 +256,7 @@ export default class TrackMagnetometer extends Component {
             <Text
               style={{
                 color: "#fff",
-                fontSize: 18,
+                fontSize:FontStyleConfig.getFontApplySize()+ 18,
                 fontWeight: "bold",
               }}
             >
@@ -276,7 +276,7 @@ export default class TrackMagnetometer extends Component {
           <Text
             style={{
               color: "#fff",
-              fontSize: 18,
+              fontSize:FontStyleConfig.getFontApplySize()+ 18,
               width: width,
               position: "absolute",
               textAlign: "center",

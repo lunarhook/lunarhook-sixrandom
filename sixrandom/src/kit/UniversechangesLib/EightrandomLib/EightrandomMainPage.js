@@ -12,7 +12,7 @@ import StorageModule from '../../../config/StorageModule'
 import {SixrandomModule} from '../SixrandomLib/SixrandomModule'
 import EightrandomModule from './EightrandomModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import IconConfig from '../../../config/IconConfig'
 import {VictoryPie,VictoryLegend,} from 'victory-native';
@@ -299,8 +299,8 @@ class EightrandomMainPage extends React.Component {
     //console.log("color",yearcolor,year[1],this.state.curminiluckyearnum)
     return (
       <View style={[styles.grid,{height:25}]}>
-        <Text style={{ fontSize: 14 ,color:yearcolor}}>{year[0]}</Text>
-        <Text style={{ fontSize: 14 ,color:yearcolor}}>{year[1]}</Text>
+        <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+ 14 ,color:yearcolor}}>{year[0]}</Text>
+        <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+ 14 ,color:yearcolor}}>{year[1]}</Text>
       </View>
 
     );
@@ -800,7 +800,7 @@ var styles = StyleSheet.create({
   },
   Eightstylewithfont: {
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    fontSize: 18
+    fontSize:FontStyleConfig.getFontApplySize()+ 18
   },
   EightstyleSectionline: {
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  

@@ -6,7 +6,7 @@ import { CheckBox,Button } from 'react-native-elements'
 import TabNavigator from 'react-native-tab-navigator';  
 import { captureRef } from "react-native-view-shot";
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 var IASDate = Array()
 IASDate[1]="即使正非正式的聚会上，我也常感到紧张。 "

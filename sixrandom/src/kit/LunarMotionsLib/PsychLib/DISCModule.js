@@ -8,7 +8,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { captureRef } from "react-native-view-shot";
 import ScreenConfig from '../../../config/ScreenConfig';
 import WechatShare from '../../../config/WechatShare'
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import {VictoryPie,VictoryLegend,} from 'victory-native';
 
 import Svg,{

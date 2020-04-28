@@ -9,7 +9,7 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import { Button,Icon } from 'react-native-elements'
 import ScreenConfig from '../../config/ScreenConfig';
 import RouteConfig from '../../config/RouteConfig';
-import {StyleConfig} from '../../config/StyleConfig'
+import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig'
 
 const {width, height} = Dimensions.get('window');  
 

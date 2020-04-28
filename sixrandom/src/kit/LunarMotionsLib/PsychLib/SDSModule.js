@@ -5,7 +5,7 @@ import { Grid, Accordion, WhiteSpace, WingBlank ,List} from '@ant-design/react-n
 import { CheckBox,Button } from 'react-native-elements'
 import TabNavigator from 'react-native-tab-navigator';  
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 var SDS=Array();
 SDS[1]={

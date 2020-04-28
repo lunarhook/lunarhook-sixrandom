@@ -6,7 +6,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { InputItem, WhiteSpace, List, Icon, WingBlank, Button, Switch } from '@ant-design/react-native';
 import IconConfig from '../config/IconConfig'
 import ScreenConfig from '../config/ScreenConfig';
-import {StyleConfig} from '../config/StyleConfig';
+import {FontStyleConfig} from '../config/StyleConfig';
 import UserModule from '../config/UserModule'
 import { HistoryArrayGroup } from '../config/StorageModule'
 import { DevTimeManager } from '../net/NetApi'
@@ -309,7 +309,7 @@ var styles = StyleSheet.create({
     //marginLeft: 10,
     //paddingLeft:10,
     textAlign: 'center',
-    fontSize: 15,
+    fontSize:FontStyleConfig.getFontApplySize()+ 15,
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
     alignItems: 'center',
   },

@@ -9,7 +9,7 @@ import { captureRef } from "react-native-view-shot";
 import { Grid, Accordion, WhiteSpace, WingBlank ,List} from '@ant-design/react-native';
 import StorageModule from '../../../config/StorageModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import qimenModule from './qimenModule'
 import RouteConfig from '../../../config/RouteConfig';
@@ -475,7 +475,7 @@ var styles = StyleSheet.create ({
   },
   grid:{
     flex: 1,
-    fontSize:12,
+    fontSize:FontStyleConfig.getFontApplySize()+12,
     height:100,
     justifyContent: 'flex-start',
     alignItems:'flex-start',

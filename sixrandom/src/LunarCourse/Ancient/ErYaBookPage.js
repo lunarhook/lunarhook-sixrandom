@@ -6,7 +6,7 @@ import { Grid ,Accordion,WhiteSpace} from '@ant-design/react-native';
 import { Button, Drawer, List } from '@ant-design/react-native';
 import QIndexPage from '../QDateBase/QIndexPage'
 import ScreenConfig from '../../config/ScreenConfig';
-import {StyleConfig} from '../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 import IconConfig from '../../config/IconConfig'
 
 
@@ -71,7 +71,7 @@ class ErYaBookPage extends React.Component {
                 }}
               >
 
-                  <Text style={{fontSize:22}}>{constErYa[index].key +":"+ constErYa[index].name}</Text>
+                  <Text style={{fontSize:FontStyleConfig.getFontApplySize()+22}}>{constErYa[index].key +":"+ constErYa[index].name}</Text>
 
                 
                 <Button
@@ -101,7 +101,7 @@ class ErYaBookPage extends React.Component {
                 }}
                   onPress={() => {this.setState({keyindex:index}),this.drawer.closeDrawer()}}
                 >
-                   <Text style={{fontSize:18}}>{constErYa[index].name + constErYa[index].key }{index==this.state.keyindex?IconConfig.IconStar:""}</Text>
+                   <Text style={{fontSize:FontStyleConfig.getFontApplySize()+18}}>{constErYa[index].name + constErYa[index].key }{index==this.state.keyindex?IconConfig.IconStar:""}</Text>
                 </Button>
           </List.Item>
         );
@@ -150,7 +150,7 @@ class ErYaBookPage extends React.Component {
                         keyExtractor={(item, index) => index.toString()}
                         renderItem={(data) => (
                         <View>
-                          <Text style={{fontSize:15,paddingLeft:15,paddingRight:15}}>{data.item}</Text>
+                          <Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15}}>{data.item}</Text>
                           <WhiteSpace size="xl" />
                         </View>)}
                         >

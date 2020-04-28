@@ -7,7 +7,7 @@ import { Grid, Accordion, WhiteSpace, Tabs } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig';
 import IconConfig from '../config/IconConfig';
 import ScreenConfig from '../config/ScreenConfig';
-import {StyleConfig} from '../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 import WechatShare from '../config/WechatShare'
 import shareimage from '../config/shareimage'
 import {HistoryArrayGroup} from '../config/StorageModule'
@@ -293,14 +293,14 @@ class kitPage extends React.Component {
     const { navigate } = this.props.navigation;
     var contentlist = new Array()
     contentlist["关注"] = (
-      <Accordion.Panel header="关注" key={"关注"}>
+    <Accordion.Panel  header={"关注"} key={"关注"}>
         <Grid
           data={this.state.datahistory}
           columnNum={coln}
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -316,7 +316,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -331,7 +331,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -346,7 +346,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -371,7 +371,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -384,6 +384,12 @@ class kitPage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
+          renderItem={(el, index) => {
+            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+              {el.icon}
+              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
+            </View>)
+          }}
           onPress={(_el: any, index: any) => { this.onBussion(_el, navigate) }}
         /></Accordion.Panel >)
     contentlist["周易八卦"] = (
@@ -393,6 +399,12 @@ class kitPage extends React.Component {
               columnNum={coln}
               isCarousel={false}
               hasLine={true}
+              renderItem={(el, index) => {
+                return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+                  {el.icon}
+                  <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
+                </View>)
+              }}
               onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
             /></Accordion.Panel >)}
     contentlist["儿童少年"] = (
@@ -405,7 +417,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -523,7 +535,7 @@ class kitPage extends React.Component {
       <View style={Styles.container}>
         <ScrollView>
           <View style={{ flex: 2 }} ref="tabs">
-            <Tabs tabs={this.state.tabs} page={"全部"}  tabBarPosition="top" >
+            <Tabs tabs={this.state.tabs} page={"全部"}  tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 14 }}>
               {this.renderContent}
             </Tabs>
           </View>

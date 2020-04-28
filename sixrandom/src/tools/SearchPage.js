@@ -194,7 +194,7 @@ class SearchPage extends React.Component {
     {
       return(
         <View>
-          <Text style={{fontSize:18,color:"#AAAAAA",textAlign:"center"}}>历史关键字</Text>
+          <Text style={{fontSize:FontStyleConfig.getFontApplySize()+18,color:"#AAAAAA",textAlign:"center"}}>历史关键字</Text>
         </View>
       )
     }
@@ -261,10 +261,10 @@ class SearchPage extends React.Component {
                      >
                                <TouchableHighlight
       onPress={() => navigate(data.item.urlto, data.item.url)}>
-        <Card style={{ width: width - 20 ,paddingLeft:10,fontSize:14 }}>
+        <Card style={{ width: width - 20 ,paddingLeft:10,fontSize:FontStyleConfig.getFontApplySize()+14 }}>
 
           <Card.Header
-            title={<Text style={{fontSize:14}}>{data.item.ret}</Text>}
+            title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.ret}</Text>}
             //thumbStyle={{ width: 30, height: 30 }}
             thumb={true == data.item.star ? IconConfig.IconStar : IconConfig.IconUStar}
             extra={data.item.time}
@@ -288,7 +288,7 @@ class SearchPage extends React.Component {
         <WhiteSpace size="xl" />
         {this.showTips()}
         <WhiteSpace size="xl" />
-        <Text style={{fontSize:11,color:"#DDDDDD",textAlign:"center"}}>--end--</Text>
+        <Text style={{fontSize:FontStyleConfig.getFontApplySize()+11,color:"#DDDDDD",textAlign:"center"}}>--end--</Text>
     </View>)}
 
 }

@@ -9,7 +9,7 @@ import { Button } from 'react-native-elements';
 import { captureRef } from "react-native-view-shot";
 import RouteConfig from '../../../config/RouteConfig'
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import TarotModule from './TarotModule'
 import WechatShare from '../../../config/WechatShare'
 
@@ -238,7 +238,7 @@ var styles = StyleSheet.create({
   {
     lineHeight: 30,
     textAlign: 'center',
-    fontSize: 15,
+    fontSize:FontStyleConfig.getFontApplySize()+ 15,
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
     alignItems: 'center',
 
@@ -248,7 +248,7 @@ var styles = StyleSheet.create({
     color: 'gold',
     lineHeight: 30,
     textAlign: 'center',
-    fontSize: 12,
+    fontSize:FontStyleConfig.getFontApplySize()+ 12,
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
     alignItems: 'center',
     fontWeight: 'bold',

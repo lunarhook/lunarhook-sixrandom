@@ -10,7 +10,7 @@ import {HistoryArrayGroup} from '../../../config/StorageModule'
 import ValueTypeModule from '../../../config/ValueTypeModule'
 import {SixrandomModule} from '../SixrandomLib/SixrandomModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import UserModule from '../../../config/UserModule'
 
 var randArray = []
@@ -227,7 +227,7 @@ var styles = StyleSheet.create ({
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
     textAlign:'center', 
     textDecorationLine:'underline',
-    fontSize:11,
+    fontSize:FontStyleConfig.getFontApplySize()+11,
   },
   container: {
     flex:1,
@@ -236,7 +236,7 @@ var styles = StyleSheet.create ({
     textAlign:'center',     
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
     alignItems: 'center',
-    fontSize:18
+    fontSize:FontStyleConfig.getFontApplySize()+18
   },
   list:{
     textAlign:'center',     

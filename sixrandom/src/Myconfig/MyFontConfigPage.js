@@ -69,7 +69,7 @@ class MyFontConfigPage extends React.Component {
                         //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
                         data={Agreement}
                         keyExtractor={(item, index) => index.toString()}
-                        renderItem={(data) => (<View><Text style={{fontSize:15+this.state.fontSizechange - 5,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
+                        renderItem={(data) => (<View><Text style={{fontSize:FontStyleConfig.getFontApplySize()+15+this.state.fontSizechange - 5,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
                         >
             </FlatList>
             <View style={{ marginBottom: 50,paddingBottom:20 }}>

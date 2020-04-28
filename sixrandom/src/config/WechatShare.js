@@ -7,7 +7,7 @@ import { captureRef } from "react-native-view-shot";
 import * as WeChat from 'react-native-wechat';
 import shareimg from './shareimage'
 import ScreenConfig from './ScreenConfig';
-import {StyleConfig} from './StyleConfig';
+import {StyleConfig,FontStyleConfig} from './StyleConfig';
 import {appinfo,appname} from './appinfo'
 //import * as QQAPI from 'react-native-qq';
 import { EventEmitter } from 'events';

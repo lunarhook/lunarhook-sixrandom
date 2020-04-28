@@ -7,7 +7,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { captureRef } from "react-native-view-shot";
 import ScreenConfig from '../../../config/ScreenConfig';
 import IconConfig from '../../../config/IconConfig'
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 
 var MORALS=Array();

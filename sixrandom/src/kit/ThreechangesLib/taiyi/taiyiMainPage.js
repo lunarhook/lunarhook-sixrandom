@@ -11,7 +11,7 @@ import { captureRef } from "react-native-view-shot";
 import StorageModule from '../../../config/StorageModule'
 import taiyiModule from './taiyiModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 
 const {width, height} = Dimensions.get('window');  
@@ -260,7 +260,7 @@ var styles = StyleSheet.create ({
   },
   grid:{
     flex: 1,
-    fontSize:12,
+    fontSize:FontStyleConfig.getFontApplySize()+12,
     justifyContent: 'space-between',
     //alignItems: 'center',
   },

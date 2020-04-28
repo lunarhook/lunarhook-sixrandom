@@ -91,7 +91,7 @@ class CourseSearchPage extends React.Component {
     if ("" == this.state.searchText) {
       return (
         <View>
-          <Text style={{ fontSize: 18, color: "#AAAAAA", textAlign: "center" }}>请输入查询</Text>
+          <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+ 18, color: "#AAAAAA", textAlign: "center" }}>请输入查询</Text>
         </View>
       )
     }
@@ -191,11 +191,11 @@ class CourseSearchPage extends React.Component {
             }
           return (<View><WhiteSpace size="xl" />
               <Highlighter highlightStyle={{ backgroundColor: 'yellow' }}
-                style={{ fontSize: 15, paddingLeft: 15, paddingRight: 15 }}
+                style={{ fontSize:FontStyleConfig.getFontApplySize()+ 15, paddingLeft: 15, paddingRight: 15 }}
                 searchWords={subsearchText}
                 textToHighlight={data.item.content} />
               <WhiteSpace size="xl" />
-              <Text style={{ fontSize: 15, paddingLeft: 15, paddingRight: 15, textAlign: "right" }}>{data.item.index}</Text>
+              <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+ 15, paddingLeft: 15, paddingRight: 15, textAlign: "right" }}>{data.item.index}</Text>
               <WhiteSpace size="xl" />
             </View>)
           } }/>
@@ -204,7 +204,7 @@ class CourseSearchPage extends React.Component {
         <WhiteSpace size="xl" />
         {this.showTips()}
         <WhiteSpace size="xl" />
-        <Text style={{ fontSize: 11, color: "#DDDDDD", textAlign: "center" }}>--end--</Text>
+        <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+ 11, color: "#DDDDDD", textAlign: "center" }}>--end--</Text>
 
       </View>
     )

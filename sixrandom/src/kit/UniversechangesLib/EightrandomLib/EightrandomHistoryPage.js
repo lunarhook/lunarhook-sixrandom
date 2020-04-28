@@ -290,7 +290,7 @@ changeViewLayout(e,data) {
                 <Card style={{ width: width - 20,paddingLeft:10 } } >
                   <TouchableOpacity onPress={() => navigate('EightrandomMainPage', data.item.url)}>
                     <Card.Header
-                      title={<Text style={{fontSize:14}}>{data.item.ret}</Text>}
+                      title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.ret}</Text>}
                       //thumbStyle={{ width: 30, height: 30 }}
                       thumb={true == data.item.star ? IconConfig.IconStar : IconConfig.IconUStar}
                       extra={data.item.time} />
@@ -314,7 +314,7 @@ changeViewLayout(e,data) {
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />
-        <Text style={{fontSize:11,color:"#DDDDDD",textAlign:"center"}}>--end--</Text>
+        <Text style={{fontSize:FontStyleConfig.getFontApplySize()+11,color:"#DDDDDD",textAlign:"center"}}>--end--</Text>
         <WhiteSpace size="xl" />
       </View>
  

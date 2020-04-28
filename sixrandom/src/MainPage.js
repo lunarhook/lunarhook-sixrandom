@@ -7,7 +7,7 @@ import { Modal } from '@ant-design/react-native';
 import RouteConfig from './config/RouteConfig';
 import IconConfig from './config/IconConfig';
 import ScreenConfig from './config/ScreenConfig';
-import {StyleConfig} from './config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from './config/StyleConfig';
 import NetModule from './net/NetModule'
 import { appinfo, appname } from './config/appinfo'
 import {SixrandomModule} from './kit/UniversechangesLib/SixrandomLib/SixrandomModule'

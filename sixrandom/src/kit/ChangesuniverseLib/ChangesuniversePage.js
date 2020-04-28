@@ -8,7 +8,7 @@ import { ListItem ,Card,Icon} from 'react-native-elements';
 import ChangesuniverseConfig from './ChangesuniverseConfig';
 import RouteConfig from '../../config/RouteConfig'
 import ScreenConfig from '../../config/ScreenConfig';
-import {StyleConfig} from '../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 import Svg,{
   Circle,
   Ellipse,

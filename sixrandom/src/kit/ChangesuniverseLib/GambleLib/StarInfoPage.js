@@ -6,7 +6,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { StackNavigator } from 'react-navigation';
 import { ListItem ,Card,Icon} from 'react-native-elements';
 
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import RouteConfig from '../../../config/RouteConfig'
 import ScreenConfig from '../../../config/ScreenConfig';
 import WechatShare from '../../../config/WechatShare'

@@ -6,7 +6,7 @@ import { Grid ,Accordion,WhiteSpace} from '@ant-design/react-native';
 import { Button, Drawer, List } from '@ant-design/react-native';
 import {six_random_NaJia} from '../../kit/UniversechangesLib/SixrandomLib/SixrandomModule'
 import ScreenConfig from '../../config/ScreenConfig';
-import {StyleConfig} from '../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 import QindexPage from '../QDateBase/QIndexPage'
 import IconConfig from '../../config/IconConfig'
 var constlist = new Array()
@@ -72,7 +72,7 @@ class UniversBookPage extends React.Component {
                 }}
               >
 
-                  <Text style={{fontSize:22}}>{constNajia[index].icon}{constNajia[index].p +":"+ constNajia[index].name}</Text>
+                  <Text style={{fontSize:FontStyleConfig.getFontApplySize()+22}}>{constNajia[index].icon}{constNajia[index].p +":"+ constNajia[index].name}</Text>
 
                 
                 <Button
@@ -102,7 +102,7 @@ class UniversBookPage extends React.Component {
                 }}
                   onPress={() => {this.setState({keyindex:index}),this.drawer.closeDrawer()}}
                 >
-                   <Text style={{fontSize:18}}>{constNajia[index].icon}{constNajia[index].p +":"+ constNajia[index].name}{index==this.state.keyindex?IconConfig.IconStar:""}</Text>
+                   <Text style={{fontSize:FontStyleConfig.getFontApplySize()+18}}>{constNajia[index].icon}{constNajia[index].p +":"+ constNajia[index].name}{index==this.state.keyindex?IconConfig.IconStar:""}</Text>
                 </Button>
           </List.Item>
         );
@@ -142,7 +142,7 @@ class UniversBookPage extends React.Component {
                         //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
                         data={constNajia[this.state.keyindex].content}
                         keyExtractor={(item, index) => index.toString()}
-                        renderItem={(data) => (<View><Text style={{fontSize:15,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
+                        renderItem={(data) => (<View><Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
                         >
             </FlatList>
         

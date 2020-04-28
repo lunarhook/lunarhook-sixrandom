@@ -6,7 +6,7 @@ import { Grid ,WingBlank,WhiteSpace} from '@ant-design/react-native';
 import { Button, Drawer, List } from '@ant-design/react-native';
 import {six_random_NaJia} from '../kit/UniversechangesLib/SixrandomLib/SixrandomModule'
 import IconConfig from '../config/IconConfig';
-import {StyleConfig} from '../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 import RouteConfig from '../config/RouteConfig'
 import QIndexPage from './QDateBase/QIndexPage'
 import { object, array, element } from 'prop-types';
@@ -63,7 +63,7 @@ class LunarCourseAnswerPage extends React.Component {
                   return <Text key={index}>{IconConfig.IconStar}</Text>
                 })
                 var contentinfo = (
-                  <WingBlank key={data.index} style={{fontSize:25,paddingRight:40,color:IconConfig.colorfire,alignSelf:"flex-end"}}><Button type="ghost" size="small" onPress={
+                  <WingBlank key={data.index} style={{fontSize:FontStyleConfig.getFontApplySize()+25,paddingRight:40,color:IconConfig.colorfire,alignSelf:"flex-end"}}><Button type="ghost" size="small" onPress={
                     ()=>navigate(RouteConfig["CourseSearchPage"].route, { "text":data.item.key})}
                     >说文:{data.item.key}</Button>
                   </WingBlank>
@@ -71,8 +71,8 @@ class LunarCourseAnswerPage extends React.Component {
                 if(""==data.item.key || undefined==data.item.key)
                 {contentinfo=(<Text></Text>)}
                 return (<View key={index}>
-                          <Text style={{fontSize:15,paddingLeft:15,paddingRight:15}}>{data.item.Q}{itemArr}</Text>
-                          <Text style={{fontSize:15,paddingLeft:15,paddingRight:15}}>{data.item.A}</Text>
+                          <Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15}}>{data.item.Q}{itemArr}</Text>
+                          <Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15}}>{data.item.A}</Text>
                           
                             {contentinfo}
                           

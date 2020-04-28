@@ -5,7 +5,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { Grid ,Accordion,WhiteSpace} from '@ant-design/react-native';
 import RouteConfig from '../../config/RouteConfig'
 import ScreenConfig from '../../config/ScreenConfig';
-import {StyleConfig} from '../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 
 var IntroThree = new Array()
 IntroThree[0] = new Array()
@@ -69,7 +69,7 @@ class IntroThreePage extends React.Component {
             //1数据的获取和渲染
             data={IntroThree[0]}
             keyExtractor={(item, index) => index.toString()}
-            renderItem={(data) => (<View><Text style={{fontSize:15,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
+            renderItem={(data) => (<View><Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
             ></FlatList >
 
         <WhiteSpace size="xl" />

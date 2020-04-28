@@ -10,7 +10,7 @@ import { captureRef } from "react-native-view-shot";
 import StorageModule from '../../../config/StorageModule'
 import SixCourseModule from './SixCourseModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import IconConfig from '../../../config/IconConfig'
 const {width, height} = Dimensions.get('window');  
@@ -204,7 +204,7 @@ class SixCourseMainPage extends React.Component {
   renderminyearItem(item) {
     return (
 
-        <Text numberoflines={4} key={item.item} style={[styles.flatTextfone,{width:50,fontSize:14}]}>{item.item}</Text>
+        <Text numberoflines={4} key={item.item} style={[styles.flatTextfone,{width:50,fontSize:FontStyleConfig.getFontApplySize()+14}]}>{item.item}</Text>
 
     );
   }
@@ -409,16 +409,16 @@ var styles = StyleSheet.create ({
   },
   EightstyleLinewithfont:{
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    fontSize:18
+    fontSize:FontStyleConfig.getFontApplySize()+18
   },
   Eightstylewithfont:{
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    fontSize:18
+    fontSize:FontStyleConfig.getFontApplySize()+18
   },
   Eightstylewithfontmultline:{
     width:40,
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    fontSize:18
+    fontSize:FontStyleConfig.getFontApplySize()+18
   },
   EightstyleSectionline: {
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  

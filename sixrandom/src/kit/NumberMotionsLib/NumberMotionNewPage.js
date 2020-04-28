@@ -7,7 +7,7 @@ import { Grid, DatePicker, List, Switch, WhiteSpace, Provider, PickerView } from
 
 import { HistoryArrayGroup } from '../../config/StorageModule'
 import ScreenConfig from '../../config/ScreenConfig';
-import {StyleConfig} from '../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 import UserModule from '../../config/UserModule'
 import WechatShare from '../../config/WechatShare'
 
@@ -165,7 +165,7 @@ class NumberMotionNewPage extends React.Component {
                 hasLine={false}
                 renderItem={(el, index) => {
                   return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', height: 20 }}>
-                    <Text style={{ textAlign: "center", fontSize: 12 }}>{el.text}</Text>
+                    <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
                   </View>)
                 }} />
             </View>

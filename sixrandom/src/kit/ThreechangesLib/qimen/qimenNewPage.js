@@ -12,7 +12,7 @@ import UserModule from '../../../config/UserModule'
 import {SixrandomModule} from '../../UniversechangesLib/SixrandomLib/SixrandomModule'
 import RouteConfig from '../../../config/RouteConfig';
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig} from '../../../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 
 const dataitem = [
   [
@@ -184,7 +184,7 @@ var styles = StyleSheet.create ({
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
     textAlign:'center', 
     textDecorationLine:'underline',
-    fontSize:11,
+    fontSize:FontStyleConfig.getFontApplySize()+11,
   },
   
 
