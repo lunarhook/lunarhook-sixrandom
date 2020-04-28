@@ -6,7 +6,7 @@ import { Card, Button, WingBlank, WhiteSpace, List, Icon, Checkbox ,Accordion} f
 import Search from 'react-native-search-box';
 import QIndexPage from './QDateBase/QIndexPage'
 import Highlighter from 'react-native-highlight-words';
-
+import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 const AgreeItem = Checkbox.AgreeItem;
 const CheckboxItem = Checkbox.CheckboxItem;
 const { width, height } = Dimensions.get('window');

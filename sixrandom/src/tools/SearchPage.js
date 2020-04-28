@@ -9,6 +9,7 @@ import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } f
 import { HistoryArrayGroup } from '../config/StorageModule'
 import Search from 'react-native-search-box';
 import UserModule from '../config/UserModule'
+import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 import { string } from 'prop-types';
 const { width, height } = Dimensions.get('window');
 
