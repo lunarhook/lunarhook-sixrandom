@@ -6,7 +6,7 @@ import { Grid ,Accordion,WhiteSpace} from '@ant-design/react-native';
 import { Button, Drawer, List } from '@ant-design/react-native';
 import QIndexPage from '../QDateBase/QIndexPage'
 import ScreenConfig from '../../config/ScreenConfig';
-import StyleConfig from '../../config/StyleConfig';
+import {StyleConfig} from '../../config/StyleConfig';
 import IconConfig from '../../config/IconConfig'
 
 

@@ -8,7 +8,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { captureRef } from "react-native-view-shot";
 import ScreenConfig from '../../../config/ScreenConfig';
 import WechatShare from '../../../config/WechatShare'
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import {VictoryPie,VictoryLegend,} from 'victory-native';
 
 import Svg,{
@@ -1506,7 +1506,9 @@ checked[i]=""
     {
       if(undefined != this.state.MBTIs[i] && this.state.checked[i]==="")
       {
-        alert("请检查题目："+(i))
+              Alert.alert("","请检查题目："+(i), [
+          {text: '确定'}
+        ])
         return false;
       }
     }

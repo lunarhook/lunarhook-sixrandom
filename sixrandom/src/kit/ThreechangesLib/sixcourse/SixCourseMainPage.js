@@ -10,7 +10,7 @@ import { captureRef } from "react-native-view-shot";
 import StorageModule from '../../../config/StorageModule'
 import SixCourseModule from './SixCourseModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import IconConfig from '../../../config/IconConfig'
 const {width, height} = Dimensions.get('window');  

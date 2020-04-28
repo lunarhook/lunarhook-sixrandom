@@ -6,7 +6,7 @@ import { Grid ,Accordion,WhiteSpace} from '@ant-design/react-native';
 import { Button, Drawer, List } from '@ant-design/react-native';
 import {six_random_NaJia} from '../../kit/UniversechangesLib/SixrandomLib/SixrandomModule'
 import ScreenConfig from '../../config/ScreenConfig';
-import StyleConfig from '../../config/StyleConfig';
+import {StyleConfig} from '../../config/StyleConfig';
 import QindexPage from '../QDateBase/QIndexPage'
 import IconConfig from '../../config/IconConfig'
 var constlist = new Array()

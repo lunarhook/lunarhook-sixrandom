@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { InputItem,WhiteSpace, List ,Switch } from '@ant-design/react-native';
 
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 const {width, height} = Dimensions.get('window');  
 

@@ -6,7 +6,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { InputItem,WhiteSpace, List ,Icon,WingBlank,Button,Stepper} from '@ant-design/react-native';
 import IconConfig from '../config/IconConfig'
 import ScreenConfig from '../config/ScreenConfig';
-import StyleConfig from '../config/StyleConfig';
+import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 import UserModule from '../config/UserModule'
 import {HistoryArrayGroup} from '../config/StorageModule'
 import {DevTimeManager} from '../net/NetApi'
@@ -21,9 +21,10 @@ let MyFontConfigPagethis = undefined
 
 class MyFontConfigPage extends React.Component {
    constructor(props) {
+    var r = FontStyleConfig.getFontChangeSize()
     super(props);
 		this.state = {
-     fontSizechange:5
+     fontSizechange:r
     };MyFontConfigPagethis = this
 
   }
@@ -34,10 +35,27 @@ class MyFontConfigPage extends React.Component {
       title: RouteConfig["MyFontConfigPage"].name,
     }
   };
+  componentDidMount()
+  {
+    (async()=>{
+      await FontStyleConfig.reload()
+    })()
+  }
+  componentWillUnmount() {
+    FontStyleConfig.setfontsize(MyFontConfigPagethis.state.fontSizechange).then(
+      T1=>{
+        Alert.alert("",'保存字体成功', [
+          {text: '确定'}
+        ])
+      }
+    )
+  }
 
   onFontChange(value) {
+    value = Number(value)
+   
     MyFontConfigPagethis.setState({
-      fontSizechange:Number(value)
+      fontSizechange:value
     })
   }
   render()
@@ -61,7 +79,7 @@ class MyFontConfigPage extends React.Component {
                 key="0"
                 max={10}
                 min={1}
-                defaultValue={5}
+                defaultValue={this.state.fontSizechange}
                 onChange={this.onFontChange}
               />
             }

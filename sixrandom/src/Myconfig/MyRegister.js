@@ -7,7 +7,7 @@ import { InputItem,WhiteSpace, List ,WingBlank,Toast,Button} from '@ant-design/r
 import { ListItem } from 'react-native-elements';
 import IconConfig from '../config/IconConfig'
 import ScreenConfig from '../config/ScreenConfig';
-import StyleConfig from '../config/StyleConfig';
+import {StyleConfig} from '../config/StyleConfig';
 import UserModule from '../config/UserModule'
 
 

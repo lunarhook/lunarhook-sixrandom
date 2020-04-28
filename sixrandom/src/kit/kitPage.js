@@ -7,7 +7,7 @@ import { Grid, Accordion, WhiteSpace, Tabs } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig';
 import IconConfig from '../config/IconConfig';
 import ScreenConfig from '../config/ScreenConfig';
-import StyleConfig from '../config/StyleConfig';
+import {StyleConfig} from '../config/StyleConfig';
 import WechatShare from '../config/WechatShare'
 import shareimage from '../config/shareimage'
 import {HistoryArrayGroup} from '../config/StorageModule'

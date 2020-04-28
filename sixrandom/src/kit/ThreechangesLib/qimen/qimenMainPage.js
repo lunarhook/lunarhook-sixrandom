@@ -9,7 +9,7 @@ import { captureRef } from "react-native-view-shot";
 import { Grid, Accordion, WhiteSpace, WingBlank ,List} from '@ant-design/react-native';
 import StorageModule from '../../../config/StorageModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import qimenModule from './qimenModule'
 import RouteConfig from '../../../config/RouteConfig';

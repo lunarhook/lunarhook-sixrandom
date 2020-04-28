@@ -12,7 +12,7 @@ import StorageModule from '../../../config/StorageModule'
 import {SixrandomModule} from '../SixrandomLib/SixrandomModule'
 import EightrandomModule from './EightrandomModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import IconConfig from '../../../config/IconConfig'
 import {VictoryPie,VictoryLegend,} from 'victory-native';

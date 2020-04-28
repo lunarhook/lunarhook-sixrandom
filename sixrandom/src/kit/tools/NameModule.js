@@ -9,7 +9,7 @@ import { Card, Button, Modal, WingBlank, WhiteSpace, List, InputItem, Icon } fro
 import TabNavigator from 'react-native-tab-navigator';  
 import ScreenConfig from './../../config/ScreenConfig';
 import NameToolsModule from './NameToolsModule'
-import StyleConfig from './../../config/StyleConfig';
+import {StyleConfig} from './../../config/StyleConfig';
 import WechatShare from './../../config/WechatShare'
 const { width, height } = Dimensions.get('window');
 

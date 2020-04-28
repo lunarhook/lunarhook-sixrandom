@@ -6,7 +6,7 @@ import { StyleSheet, View, Dimensions, TouchableHighlight, ScrollView, Text, Fla
 import RouteConfig from './../../config/RouteConfig'
 import IconConfig from './../../config/IconConfig'
 import ScreenConfig from './../../config/ScreenConfig'
-import StyleConfig from './../../config/StyleConfig';
+import {StyleConfig} from './../../config/StyleConfig';
 import TabNavigator from 'react-native-tab-navigator';  
 import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
 const { width, height } = Dimensions.get('window');

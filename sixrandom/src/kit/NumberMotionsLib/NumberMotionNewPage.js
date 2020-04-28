@@ -7,7 +7,7 @@ import { Grid, DatePicker, List, Switch, WhiteSpace, Provider, PickerView } from
 
 import { HistoryArrayGroup } from '../../config/StorageModule'
 import ScreenConfig from '../../config/ScreenConfig';
-import StyleConfig from '../../config/StyleConfig';
+import {StyleConfig} from '../../config/StyleConfig';
 import UserModule from '../../config/UserModule'
 import WechatShare from '../../config/WechatShare'
 

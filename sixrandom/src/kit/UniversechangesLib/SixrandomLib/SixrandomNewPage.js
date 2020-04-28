@@ -10,7 +10,7 @@ import {HistoryArrayGroup} from '../../../config/StorageModule'
 import ValueTypeModule from '../../../config/ValueTypeModule'
 import {SixrandomModule} from '../SixrandomLib/SixrandomModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import UserModule from '../../../config/UserModule'
 
 var randArray = []

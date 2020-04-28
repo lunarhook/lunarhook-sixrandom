@@ -6,7 +6,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { InputItem,WhiteSpace, List ,Icon,WingBlank,Button,Switch} from '@ant-design/react-native';
 import IconConfig from '../config/IconConfig'
 import ScreenConfig from '../config/ScreenConfig';
-import StyleConfig from '../config/StyleConfig';
+import {StyleConfig} from '../config/StyleConfig';
 import UserModule from '../config/UserModule'
 import {HistoryArrayGroup} from '../config/StorageModule'
 import {DevTimeManager} from '../net/NetApi'

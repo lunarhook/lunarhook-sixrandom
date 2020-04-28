@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import ScreenConfig from './ScreenConfig';
 import IconConfig from './IconConfig'
+import {HistoryArrayGroup} from './StorageModule'
 
 var StyleConfig = StyleSheet.create({
   container: {
@@ -45,7 +46,41 @@ var StyleConfig = StyleSheet.create({
     textAlignVertical: 'center',
   },
 });
-
+let FontStyleConfigThis = null
 class FontStyleConfig extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {changesize:5
+      };
+      FontStyleConfigThis = this;
+    (async()=>{
+      await FontStyleConfigThis.reload()
+    })()
+  }
+
+  async reload()
+  {
+    try{
+      const ret = await  HistoryArrayGroup.load("FontStyleConfig")
+      FontStyleConfigThis.state.changesize = undefined != ret?ret:5;
+      console.log("FontStyleConfig recover", ret)
+    }catch{
+      FontStyleConfigThis.state.changesize = 5;
+    }
+     
+  }
+  async setfontsize(value)
+  {
+
+      FontStyleConfigThis.state.changesize = value
+      
+      return HistoryArrayGroup.save("FontStyleConfig",value)
+    
+  }
+  getFontChangeSize()
+  {
+    return FontStyleConfigThis.state.changesize
+  }
 }
-module.exports = {StyleConfig:StyleConfig,FontStyleConfig:FontStyleConfig};  
+var o = new FontStyleConfig()
+module.exports = {StyleConfig:StyleConfig,FontStyleConfig: o};  

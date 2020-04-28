@@ -12,7 +12,7 @@ import UserModule from '../../../config/UserModule'
 import {SixrandomModule} from '../../UniversechangesLib/SixrandomLib/SixrandomModule'
 import RouteConfig from '../../../config/RouteConfig';
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 
 const dataitem = [
   [

@@ -6,7 +6,7 @@ import { CheckBox,Button } from 'react-native-elements'
 import TabNavigator from 'react-native-tab-navigator';  
 import { captureRef } from "react-native-view-shot";
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 var EMBUFemaleDate=Array()
 EMBUFemaleDate[1]="我觉得我父母干涉我做的任何一件事。"
@@ -185,7 +185,9 @@ checked[i]=""
     {
       if(undefined != EMBUFemale[i] && this.state.checked[i]==="")
       {
-        alert("请检查题目："+(i))
+              Alert.alert("","请检查题目："+(i), [
+          {text: '确定'}
+        ])
         return false;
       }
     }

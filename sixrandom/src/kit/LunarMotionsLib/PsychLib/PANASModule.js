@@ -6,7 +6,7 @@ import { CheckBox,Button } from 'react-native-elements'
 import TabNavigator from 'react-native-tab-navigator';  
 import { captureRef } from "react-native-view-shot";
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 var PANASDate=Array();
 PANASDate[1]="感兴趣的"
@@ -126,7 +126,9 @@ checked[i]=""
     {
       if(undefined != PANAS[i] && this.state.checked[i]==="")
       {
-        alert("请检查题目："+(i))
+              Alert.alert("","请检查题目："+(i), [
+          {text: '确定'}
+        ])
         return false;
       }
     }

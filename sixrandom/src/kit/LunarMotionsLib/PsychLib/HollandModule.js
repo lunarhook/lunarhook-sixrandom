@@ -6,7 +6,7 @@ import { Grid, Accordion, WhiteSpace, WingBlank ,List} from '@ant-design/react-n
 import { CheckBox,Button } from 'react-native-elements'
 import TabNavigator from 'react-native-tab-navigator';  
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 var Hollands=Array();
 Hollands[1]={
@@ -944,7 +944,9 @@ checked[i]=""
     {
       if(undefined != Hollands[i] && this.state.checked[i]==="")
       {
-        alert("请检查题目："+(i))
+              Alert.alert("","请检查题目："+(i), [
+          {text: '确定'}
+        ])
         return false;
       }
     }

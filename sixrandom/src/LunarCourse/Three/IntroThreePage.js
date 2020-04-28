@@ -5,7 +5,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { Grid ,Accordion,WhiteSpace} from '@ant-design/react-native';
 import RouteConfig from '../../config/RouteConfig'
 import ScreenConfig from '../../config/ScreenConfig';
-import StyleConfig from '../../config/StyleConfig';
+import {StyleConfig} from '../../config/StyleConfig';
 
 var IntroThree = new Array()
 IntroThree[0] = new Array()

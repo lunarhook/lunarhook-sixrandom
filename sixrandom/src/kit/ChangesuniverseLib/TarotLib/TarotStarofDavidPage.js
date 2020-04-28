@@ -10,7 +10,7 @@ import { Button } from 'react-native-elements';
 import { captureRef } from "react-native-view-shot";
 import RouteConfig from '../../../config/RouteConfig'
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import TarotModule from './TarotModule'
 import WechatShare from '../../../config/WechatShare'
 

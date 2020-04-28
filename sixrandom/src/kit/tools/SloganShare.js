@@ -7,7 +7,7 @@ import { Grid, Card, WhiteSpace, WingBlank, List } from '@ant-design/react-nativ
 import TabNavigator from 'react-native-tab-navigator';  
 import sloganshow from './../../config/SloganModule'
 import ScreenConfig from './../../config/ScreenConfig';
-import StyleConfig from './../../config/StyleConfig';
+import {StyleConfig} from './../../config/StyleConfig';
 import WechatShare from './../../config/WechatShare'
 let thiscontrollor = null
 const { width, height } = Dimensions.get('window');

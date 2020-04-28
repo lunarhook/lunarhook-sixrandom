@@ -9,7 +9,7 @@ import { Grid, Accordion, WhiteSpace, WingBlank, List } from '@ant-design/react-
 import {SixrandomModule} from '../SixrandomLib/SixrandomModule'
 import StorageModule from '../../../config/StorageModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 
 var kWidth = Dimensions.get('window').width;

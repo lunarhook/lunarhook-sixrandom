@@ -7,7 +7,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import { captureRef } from "react-native-view-shot";
 import ScreenConfig from '../../../config/ScreenConfig';
 import IconConfig from '../../../config/IconConfig'
-import StyleConfig from '../../../config/StyleConfig';
+import {StyleConfig} from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 
 var MORALS=Array();
@@ -141,7 +141,9 @@ checked[i]=""
     {
       if(undefined != MORALS[i] && this.state.checked[i]==="")
       {
-        alert("请检查题目："+(i))
+              Alert.alert("","请检查题目："+(i), [
+          {text: '确定'}
+        ])
         return false;
       }
     }
