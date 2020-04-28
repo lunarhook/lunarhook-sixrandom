@@ -172,15 +172,23 @@ class kitPage extends React.Component {
     this.setState({tabs: itemsrandom['全部'] })
     HistoryArrayGroup.GetKitConfigHistory().then(ids=>{
 
-        HistoryArrayGroup.load("kitConfigselectmode").then(T=>{
+        HistoryArrayGroup.load("kitConfigselectmode").then(async(T)=>{
           try{
           console.log("kitConfigselectmode",T)
+          var alllist = KitConfig.getalllist()
+          if(undefined == alllist[T])
+          {
+            
+            HistoryArrayGroup.removeall("kitConfigselectmode")
+            await HistoryArrayGroup.save("kitConfigselectmode", "职业性格")
+            throw new Error("kitConfigselectmode")
+          } 
           if (ids.length != 0) {
        
             let selectedItems = ids.filter((ids,index)=>ids.isSelect)
             let tabs = new Array()
             selectedItems.forEach(element => {
-              obj={}
+              let obj={}
               obj.title = element.title
               if(undefined==obj.title)
               {
@@ -414,11 +422,6 @@ class kitPage extends React.Component {
           {(function (handler) {
               var alllist = KitConfig.getalllist()
               var sel = alllist[handler.state.selectmode]
-              if(undefined==sel)
-              {
-                sel = alllist["职业性格"]
-                HistoryArrayGroup.save("kitConfigselectmode", "职业性格")
-              }
               var curalllist = JSON.parse(JSON.stringify(sel))
               var content = new Array()
               if("Huawei"==kitPageController.state.Channel){
