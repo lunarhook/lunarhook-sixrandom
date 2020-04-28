@@ -45,4 +45,7 @@ var StyleConfig = StyleSheet.create({
     textAlignVertical: 'center',
   },
 });
-module.exports = StyleConfig;  
+
+class FontStyleConfig extends React.Component {
+}
+module.exports = {StyleConfig:StyleConfig,FontStyleConfig:FontStyleConfig};  

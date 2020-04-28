@@ -16,8 +16,8 @@ var sockhost = "undefined";
 		//ip = "10.2.24.131"
 		host = "http://"+ip+":8088"
 		sockhost = ip+":8088"
-		//host = "https://www.lunarhook.com"
-		//sockhost = "www.lunarhook.com"
+		host = "https://www.lunarhook.com"
+		sockhost = "www.lunarhook.com"
 	//})
 	}else{
 		host = "https://www.lunarhook.com"

@@ -139,6 +139,8 @@ class MyPage extends React.Component {
         <View>
           <Button type="primary" disabled={!this.state.islogin} onPress={() => this.RSYNC()}>同步</Button>
           <WhiteSpace size="xl" />
+          <Button type="primary" disabled={!this.state.islogin} onPress={() => this.props.navigation.navigate("MyFontConfigPage")}>字体大小</Button>
+          <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
           <List.Item
             extra={

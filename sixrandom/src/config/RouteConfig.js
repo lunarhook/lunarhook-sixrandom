@@ -188,6 +188,8 @@ RouteConfig={
 
 
     "MyPage":{"name":"我的","card":"管理","route":"MyPage","icon":IconConfig.IconPerson},
+    "MyFontConfigPage":{"name":"字体显示","card":"字体显示","route":"MyPage","icon":IconConfig.IconPerson},
+    
     "MyRegister":{"name":"注册","card":"管理","route":"MyRegister","icon":IconConfig.IconPerson},
     "MyUpdateRegister":{"name":"更新密码","card":"管理","route":"MyUpdateRegister","icon":IconConfig.IconPerson},
     "PrivacyPage":{"name":"用户隐私","route":"PrivacyPage","icon":IconConfig.IconPerson},

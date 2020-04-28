@@ -105,6 +105,7 @@ import SearchPage from './src/tools/SearchPage'
     import PrivacyPage from './src/Myconfig/PrivacyPage'
     import MyRegister from './src/Myconfig/MyRegister'
     import MyUpdateRegister from './src/Myconfig/MyUpdateRegister'
+    import MyFontConfigPage from './src/Myconfig/MyFontConfigPage'
 
     
     
@@ -325,7 +326,7 @@ const  sixrandom= createStackNavigator({
     ZhongBookPage:{screen:ZhongBookPage},
 
     MyPage:{screen:MyPage},
-
+    MyFontConfigPage:{screen:MyFontConfigPage},
     PrivacyPage: { screen: PrivacyPage },
     AgreePage: { screen: AgreePage },
     MyRegister:{screen:MyRegister},
