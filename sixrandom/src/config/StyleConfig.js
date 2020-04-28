@@ -11,9 +11,6 @@ class FontStyleConfig extends React.Component {
       this.state = {changesize:5
       };
       FontStyleConfigThis = this;
-    (async()=>{
-      await FontStyleConfigThis.reload()
-    })()
   }
 
   async reload()
@@ -46,9 +43,7 @@ class FontStyleConfig extends React.Component {
 
   buildstyle()
   {
-    (async()=>{
-      await FontStyleConfigThis.reload()
-    })()
+
 
     StyleConfig= StyleSheet.create({
       container: {

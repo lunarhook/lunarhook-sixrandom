@@ -26,7 +26,6 @@ class MyFontConfigPage extends React.Component {
 		this.state = {
      fontSizechange:r
     };MyFontConfigPagethis = this
-
   }
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
@@ -35,12 +34,6 @@ class MyFontConfigPage extends React.Component {
       title: RouteConfig["MyFontConfigPage"].name,
     }
   };
-  componentDidMount()
-  {
-    (async()=>{
-      await FontStyleConfig.reload()
-    })()
-  }
   componentWillUnmount() {
     const { navigate } = this.props.navigation
     FontStyleConfig.setfontsize(MyFontConfigPagethis.state.fontSizechange).then(

@@ -11,7 +11,7 @@ var {height, width} = Dimensions.get('window')
 
 
 var imgtime = new Array()
-var StyleConfig = FontStyleConfig.buildstyle()
+
 
 class slogan extends React.Component {
   constructor(props) {
@@ -19,6 +19,9 @@ class slogan extends React.Component {
     this.state = {
       fadeInOpacity: new Animated.Value(0)
     };
+    (async()=>{
+      await FontStyleConfig.reload()
+    })()
   };
 
   UNSAFE_componentWillMount()

@@ -35,7 +35,7 @@ var imgtime = new Array()
 var infotime = new Array()
 
 var infotimedetail = new Array()
-var StyleConfig = FontStyleConfig.buildstyle()
+var StyleConfig = undefined
 
 
 let MainPagethis = undefined
@@ -64,6 +64,7 @@ class MainPage extends React.Component {
       NetModule._handleWebSocketSetup()
     }
     this.onDayPress = this.onDayPress.bind(this);
+    StyleConfig = FontStyleConfig.buildstyle()
     MainPagethis = this;
   };
   static navigationOptions = ({ navigation }) => {
