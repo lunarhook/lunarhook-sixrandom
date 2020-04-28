@@ -42,10 +42,11 @@ class MyFontConfigPage extends React.Component {
     })()
   }
   componentWillUnmount() {
+    const { navigate } = this.props.navigation
     FontStyleConfig.setfontsize(MyFontConfigPagethis.state.fontSizechange).then(
       T1=>{
         Alert.alert("",'保存字体成功', [
-          {text: '确定'}
+          {text: '确定' ,onPress:() => navigate('MainPage', { text: "refresh" })  }
         ])
       }
     )
@@ -69,7 +70,7 @@ class MyFontConfigPage extends React.Component {
                         //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
                         data={Agreement}
                         keyExtractor={(item, index) => index.toString()}
-                        renderItem={(data) => (<View><Text style={{fontSize:FontStyleConfig.getFontApplySize()+15+this.state.fontSizechange - 5,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
+                        renderItem={(data) => (<View><Text style={{fontSize:15+this.state.fontSizechange - 5,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
                         >
             </FlatList>
             <View style={{ marginBottom: 50,paddingBottom:20 }}>

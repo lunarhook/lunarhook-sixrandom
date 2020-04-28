@@ -43,49 +43,82 @@ class FontStyleConfig extends React.Component {
   {
     return FontStyleConfigThis.state.changesize - 5
   }
+
+  buildstyle()
+  {
+    (async()=>{
+      await FontStyleConfigThis.reload()
+    })()
+
+    StyleConfig= StyleSheet.create({
+      container: {
+        flex: 1,
+        backgroundColor: '#ffffff',
+      },
+      astrofont:
+      {
+          fontFamily:(Platform.OS === 'ios')?'xxastro':'xxastro5',
+          fontSize:this.getFontApplySize()+ 55,
+          lineHeight:60, 
+          textAlign:'center',
+          height:60,
+          width:60
+      },
+      menufont: {
+        fontSize: ScreenConfig.__navigationMenuFontsize(),
+        color: '#333333',
+        height: ScreenConfig.getFontheight(),
+        backgroundColor: '#ffffff',
+      },
+      hurdle_title: {
+        color: '#333',
+        fontSize: this.getFontApplySize()+ 18,
+        marginLeft: 15
+      },
+      hurdle_show_text: {
+        color: IconConfig.colorblue,
+        fontSize: this.getFontApplySize()+ 16
+      },
+      hurdle_edit_text: {
+        color: '#ff6548',
+        fontSize: this.getFontApplySize()+ 16
+      },
+      selected_item_text: {
+        fontSize: this.getFontApplySize()+ 16,
+        color: '#444',
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlignVertical: 'center',
+      },
+      list: {
+        backgroundColor: '#ffffff', 
+        fontSize:this.getFontApplySize()+14,
+        lineHeight: (this.getFontApplySize()+14)*2,
+        justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
+        flexWrap: 'wrap',
+        alignItems: 'flex-start',
+      },
+      columehigth: {
+        backgroundColor: 'white',
+        fontSize:this.getFontApplySize()+14,
+        width: 20,
+        height: 150,
+      },
+      columelist: {
+        fontSize:this.getFontApplySize()+14,
+        justifyContent: 'space-between', //虽然样式中设置了 justifyContent: 'center'，但无效 
+        flexWrap: 'wrap',
+        alignItems: 'flex-start',
+        backgroundColor: 'white',
+      },
+    });
+    return StyleConfig
+  }
 }
 var o = new FontStyleConfig()
 
-var StyleConfig = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-  },
-  astrofont:
-  {
-      fontFamily:(Platform.OS === 'ios')?'xxastro':'xxastro5',
-      fontSize:o.getFontApplySize()+ 55,
-      lineHeight:60, 
-      textAlign:'center',
-      height:60,
-      width:60
-  },
-  menufont: {
-    fontSize: ScreenConfig.__navigationMenuFontsize(),
-    color: '#333333',
-    height: ScreenConfig.getFontheight(),
-    backgroundColor: '#ffffff',
-  },
-  hurdle_title: {
-    color: '#333',
-    fontSize: o.getFontApplySize()+ 18,
-    marginLeft: 15
-  },
-  hurdle_show_text: {
-    color: IconConfig.colorblue,
-    fontSize: o.getFontApplySize()+ 16
-  },
-  hurdle_edit_text: {
-    color: '#ff6548',
-    fontSize: o.getFontApplySize()+ 16
-  },
-  selected_item_text: {
-    fontSize: o.getFontApplySize()+ 16,
-    color: '#444',
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlignVertical: 'center',
-  },
-});
+
+var StyleConfig = o.buildstyle()
+
 module.exports = {StyleConfig:StyleConfig,FontStyleConfig: o};  

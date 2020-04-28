@@ -6,11 +6,12 @@ import { appinfo, appname } from './config/appinfo'
 import { Grid, Card, WhiteSpace, WingBlank, List } from '@ant-design/react-native';
 import sloganshow from './config/SloganModule'
 import {SixrandomModule} from './kit/UniversechangesLib/SixrandomLib/SixrandomModule'
+import {FontStyleConfig} from './config/StyleConfig';
 var {height, width} = Dimensions.get('window')
 
 
 var imgtime = new Array()
-
+var StyleConfig = FontStyleConfig.buildstyle()
 
 class slogan extends React.Component {
   constructor(props) {

@@ -35,11 +35,13 @@ class MyPage extends React.Component {
     this.timer = setInterval(() => {
       this.LoginCheck()
     }, DevTimeManager["MyPageTick"]);
+    MyPagethis = this
   }
   componentWillUnmount() {
     console.log("MyPage", "componentWillUnmount")
     ScreenConfig.DeviceToastClear()
     this.timer && clearInterval(this.timer)
+    MyPagethis = undefined
   }
   RSYNC() {
     this.LoginCheck(true)
@@ -71,7 +73,6 @@ class MyPage extends React.Component {
 
     return {
 
-      //headerLeft:(<Button title="万年历" onPress={  () => navigate('MainPage')  }/>),
       headerRight:()=> (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => MyPagethis.setState({ sync: !MyPagethis.state.sync })} />),
       title: RouteConfig["MyPage"].name,
     }
