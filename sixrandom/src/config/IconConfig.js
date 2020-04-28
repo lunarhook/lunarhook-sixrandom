@@ -11,6 +11,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Feather from 'react-native-vector-icons/Feather'
 import Fontisto from 'react-native-vector-icons/Fontisto'
+import EvilIcons from 'react-native-vector-icons/EvilIcons'
 
 const buttonsize = 28
 const midsize = 28
@@ -167,9 +168,9 @@ class IconConfig extends React.Component {
   static IconLijiBook= (<FontAwesome name="language" size={buttonsize} color={green}/>)
   static IconChunQiuBook= (<FontAwesome name="language" size={buttonsize} color={darkgold}/>)
 
-  static IconFontSmall = (<FontAwesome name="search-minus" size={buttonsize} color={green}/>)
-  static IconFontLarge= (<FontAwesome name="search-plus" size={buttonsize} color={green}/>)
-  static IconFontDefault = (<MaterialCommunityIcons name="undo-variant" size={size} color={blue}/>)
+  static IconFontSmall = (<EvilIcons name="minus" size={buttonsize} color={green}/>)
+  static IconFontLarge= (<EvilIcons name="plus" size={buttonsize} color={green}/>)
+  static IconFontDefault = (<EvilIcons name="refresh" size={size} color={green}/>)
   static colorgreen = green
   static colorclaygreen = claygreen
   static colorred = red

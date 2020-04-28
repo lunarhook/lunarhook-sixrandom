@@ -15,7 +15,7 @@ var Agreement = new Array()
 Agreement.push("")
 Agreement.push("乾坤爻")
 Agreement.push("乾坤爻字体大小测试")
-Agreement.push("")
+Agreement.push("乾坤爻是以心理学、天文学，中国传统国学，玄学（古代以《周易》《老子》《庄子》三者合称三玄，与四书五经同列）为主依据的测评及解答学习产品")
 Agreement.push("")
 let MyFontConfigPagethis = undefined
 
@@ -34,7 +34,9 @@ class MyFontConfigPage extends React.Component {
       title: RouteConfig["MyFontConfigPage"].name,
     }
   };
-  componentWillUnmount() {
+
+  changeFontRefresh()
+  {
     const { navigate } = this.props.navigation
     FontStyleConfig.setfontsize(MyFontConfigPagethis.state.fontSizechange).then(
       T1 => {
@@ -75,10 +77,11 @@ class MyFontConfigPage extends React.Component {
       title={" "}
       renderIcon={() => IconConfig.IconFontDefault}
       //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-      onPress={() => this.onFontChange(5)}
+      onPress={() => this.changeFontRefresh()}
       titleStyle={StyleConfig.menufont}>
     </TabNavigator.Item>)
     return (<View style={StyleConfig.container}>
+      <View style={{ height: ScreenConfig.__screenH()-ScreenConfig.getTabBarHeight()-ScreenConfig.getTabBarHeight()-ScreenConfig.getTabBarHeight()}}>
       <FlatList
         ref={(flatList) => this._flatList = flatList}
         useFlatList={true}
@@ -89,7 +92,8 @@ class MyFontConfigPage extends React.Component {
         renderItem={(data) => (<View><Text style={{ fontSize: 15 + this.state.fontSizechange - 5, paddingLeft: 15, paddingRight: 15 }}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
       >
       </FlatList>
-      <View style={{ paddingTop: ScreenConfig.__screenH()/2 -  ScreenConfig.getTabBarHeight()}}>
+      </View>
+      <View style={{ marginBottom: ScreenConfig.getTabBarHeight()}}>
         <List.Item
           extra={
             <Stepper
