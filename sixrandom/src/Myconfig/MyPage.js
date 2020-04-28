@@ -135,7 +135,7 @@ class MyPage extends React.Component {
   }
 
   rendersync() {
-    if (true == MyPagethis.state.sync) {
+    if (true == MyPagethis.state.sync && this.state.islogin) {
       return (
         <View>
           <Button type="primary" disabled={!this.state.islogin} onPress={() => this.RSYNC()}>同步</Button>
@@ -151,6 +151,16 @@ class MyPage extends React.Component {
               />
             }
           >{this.state.checked ? "强制同步" : "检测同步"}</List.Item>
+        </View>
+      )
+    }
+    else if (true == MyPagethis.state.sync){
+      return (
+        <View>
+          <WhiteSpace size="xl" />
+          <Button type="primary"  onPress={() => this.props.navigation.navigate("MyFontConfigPage")}>字体大小</Button>
+          <WhiteSpace size="xl" />
+
         </View>
       )
     }
@@ -264,7 +274,8 @@ class MyPage extends React.Component {
           <WhiteSpace size="xl" />
           <Text style={{ textAlign: "center", marginBottom: 20, }} type="warning" onPress={() => this.props.navigation.navigate("MyUpdateRegister")}>-忘记密码-</Text>
           {this.showprivary()}
-
+          <WhiteSpace size="xl" />
+            {this.rendersync()}
         </View>
       </ScrollView>
       )

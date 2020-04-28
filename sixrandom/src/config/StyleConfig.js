@@ -74,6 +74,16 @@ class FontStyleConfig extends React.Component {
         color: IconConfig.colorblue,
         fontSize: this.getFontApplySize()+ 16
       },
+      hurdle_edit: {
+        height: 24,
+        paddingLeft: 10,
+        paddingRight: 10,
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: '#ff6548',
+        marginRight: 15,
+        borderRadius: 12
+      },
       hurdle_edit_text: {
         color: '#ff6548',
         fontSize: this.getFontApplySize()+ 16

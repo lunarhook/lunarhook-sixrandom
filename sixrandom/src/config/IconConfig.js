@@ -167,6 +167,9 @@ class IconConfig extends React.Component {
   static IconLijiBook= (<FontAwesome name="language" size={buttonsize} color={green}/>)
   static IconChunQiuBook= (<FontAwesome name="language" size={buttonsize} color={darkgold}/>)
 
+  static IconFontSmall = (<FontAwesome name="search-minus" size={buttonsize} color={green}/>)
+  static IconFontLarge= (<FontAwesome name="search-plus" size={buttonsize} color={green}/>)
+  static IconFontDefault = (<MaterialCommunityIcons name="undo-variant" size={size} color={blue}/>)
   static colorgreen = green
   static colorclaygreen = claygreen
   static colorred = red
