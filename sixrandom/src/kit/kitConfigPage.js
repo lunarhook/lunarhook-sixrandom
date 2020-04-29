@@ -14,7 +14,7 @@ import { Grid, WingBlank, WhiteSpace, SegmentedControl, Toast } from '@ant-desig
 import RouteConfig from '../config/RouteConfig';
 import IconConfig from '../config/IconConfig';
 import ScreenConfig from '../config/ScreenConfig';
-import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
+import {FontStyleConfig} from '../config/StyleConfig';
 import WechatShare from '../config/WechatShare'
 import shareimage from '../config/shareimage'
 import { HistoryArrayGroup } from '../config/StorageModule'
@@ -42,6 +42,7 @@ class kitConfigPage extends React.Component {
             unselectedItems: []
         }
         kitConfigPageController = this
+        StyleConfig = FontStyleConfig.buildstyle()
     }
     async recover() {
         var itemsrandom = KitConfig.getitemsrandom()

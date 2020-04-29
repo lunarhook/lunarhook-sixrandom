@@ -35,7 +35,7 @@ var imgtime = new Array()
 var infotime = new Array()
 
 var infotimedetail = new Array()
-var StyleConfig = undefined
+//var StyleConfig = undefined
 
 
 let MainPagethis = undefined

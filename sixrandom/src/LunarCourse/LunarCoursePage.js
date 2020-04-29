@@ -477,17 +477,4 @@ class LunarCoursePage extends React.Component {
               )
     }
   };
-var styles = StyleSheet.create ({
-
-   button:{
-    height: 50,
-    backgroundColor:'transparent',
-   justifyContent:'center',
-   borderRadius: 4,
-    },
-  dateContainer: {
-    justifyContent:'space-between',
-    flexDirection: 'row',
-  },
-});
 module.exports=LunarCoursePage;  

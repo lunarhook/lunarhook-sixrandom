@@ -67,12 +67,12 @@ class FontStyleConfig extends React.Component {
       },
       hurdle_title: {
         color: '#333',
-        fontSize: this.getFontApplySize()+ 18,
+        fontSize: this.getFontApplySize()+ 16,
         marginLeft: 15
       },
       hurdle_show_text: {
         color: IconConfig.colorblue,
-        fontSize: this.getFontApplySize()+ 16
+        fontSize: this.getFontApplySize()+ 14
       },
       hurdle_edit: {
         height: 24,
@@ -89,7 +89,7 @@ class FontStyleConfig extends React.Component {
         fontSize: this.getFontApplySize()+ 16
       },
       selected_item_text: {
-        fontSize: this.getFontApplySize()+ 16,
+        fontSize: this.getFontApplySize()+ 14,
         color: '#444',
         textAlign: 'center',
         alignItems: 'center',
