@@ -308,7 +308,7 @@ class LunarCoursePage extends React.Component {
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-        */
+       
        contentlist["蒙学"] = (
         <Accordion.Panel header={RouteConfig['AncientMengPage'].name}  key={RouteConfig['AncientMengPage'].name}>
           <Grid
@@ -327,6 +327,7 @@ class LunarCoursePage extends React.Component {
                 hasLine={true}
                 onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
               /></Accordion.Panel >)
+               */
     if ("关注" == tab.title) {
         return (
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -347,6 +348,8 @@ class LunarCoursePage extends React.Component {
                 delete contentlist["周易八卦"]
                 delete contentlist["塔罗占星"]
               }
+              delete contentlist["蒙童幼学"]
+              delete contentlist["医药经典"]
               curalllist.forEach(element=>{
                 if(undefined!=contentlist[element.title])
                 {
@@ -379,6 +382,7 @@ class LunarCoursePage extends React.Component {
         </Accordion>
       )
     } 
+    /*
     else if ("蒙童幼学" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -400,6 +404,7 @@ class LunarCoursePage extends React.Component {
         </Accordion>
       )
     } 
+    */
   };
   
   render(){
