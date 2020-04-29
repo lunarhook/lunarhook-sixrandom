@@ -409,6 +409,18 @@ class WechatShare extends React.Component {
     )
   }
 
+  CourseShareBar(refwechatshare,refthis,refname)
+  {
+    return(
+      <TabNavigator.Item
+        title={RouteConfig["ScreenImage"].name}
+        renderIcon={() => RouteConfig["ScreenImage"].icon}
+        onPress={() => {refthis.setState({shareimg:true}),refwechatshare.snapshot(refthis.refs['location'], refname,refthis)}}
+        titleStyle={StyleConfig.menufont}>
+      </TabNavigator.Item>
+    )
+  }
+
 }
 
 

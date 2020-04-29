@@ -9,6 +9,8 @@ import ScreenConfig from '../../config/ScreenConfig';
 import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 import QindexPage from '../QDateBase/QIndexPage'
 import IconConfig from '../../config/IconConfig'
+
+import WechatShare from '../../config/WechatShare'
 var constlist = new Array()
 constlist.push("乾、坤、震、艮、离、坎、兑、巽")
 constlist.push("☰、☷、☳、☶、☲、☵、☱、☴")
@@ -130,7 +132,7 @@ class UniversBookPage extends React.Component {
         drawerBackgroundColor="#ccc"
       >
           <View style={StyleConfig.container}>
-       
+          <ScrollView ref="location" style={{backgroundColor:'#ffffff'}}>
       
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />
@@ -146,10 +148,26 @@ class UniversBookPage extends React.Component {
                         >
             </FlatList>
         
-        <Text></Text>
+            <WhiteSpace size="xl" />
+            {
+             (WechatShare.shareimg(this.state.shareimg))
+            }
+            
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
 
-          
+        </ScrollView>  
           <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight() , backgroundColor: '#ffffff',}}>
+          <TabNavigator.Item
+                        title={"目录"} 
+                        renderIcon={() => RouteConfig["IconMore"].icon}
+                        //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+                        onPress={() => this.drawer && this.drawer.openDrawer()}
+                        titleStyle={StyleConfig.menufont}>  
+            </TabNavigator.Item>  
           <TabNavigator.Item
                         title={"上一页"} 
                         renderIcon={() => RouteConfig["IconLast"].icon}
@@ -158,13 +176,7 @@ class UniversBookPage extends React.Component {
                         onPress={() => this.setState({keyindex:this.state.keyindex-1},this._flatList.scrollToOffset({animated: true, viewPosition: 0, index: 0}))}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
-            <TabNavigator.Item
-                        title={"目录"} 
-                        renderIcon={() => RouteConfig["IconMore"].icon}
-                        //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => this.drawer && this.drawer.openDrawer()}
-                        titleStyle={StyleConfig.menufont}>  
-            </TabNavigator.Item>  
+
             <TabNavigator.Item
                         title={"下一页"} 
                         //renderIcon={() => BaseCourseConfig["CourseToolsPage"].icon}
@@ -173,6 +185,9 @@ class UniversBookPage extends React.Component {
                         onPress={() => this.setState({keyindex:this.state.keyindex+1},this._flatList.scrollToOffset({animated: true, viewPosition: 0, index: 0}) )}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
+            {
+              WechatShare.CourseShareBar(WechatShare,this,RouteConfig["UniversBookPage"].name)
+            }
           </TabNavigator >
       
               </View>  

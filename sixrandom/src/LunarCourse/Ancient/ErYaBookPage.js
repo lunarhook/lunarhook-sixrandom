@@ -9,6 +9,7 @@ import ScreenConfig from '../../config/ScreenConfig';
 import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 import IconConfig from '../../config/IconConfig'
 
+import WechatShare from '../../config/WechatShare'
 
 
 class ErYaBookPage extends React.Component {
@@ -136,7 +137,7 @@ class ErYaBookPage extends React.Component {
         drawerBackgroundColor="#ccc"
       >
           <View style={StyleConfig.container}>
-       
+          <ScrollView ref="location" style={{backgroundColor:'#ffffff'}}>
       
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />
@@ -156,10 +157,26 @@ class ErYaBookPage extends React.Component {
                         >
             </FlatList>
         
-        <Text></Text>
+            <WhiteSpace size="xl" />
+            {
+             (WechatShare.shareimg(this.state.shareimg))
+            }
+            
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
 
-          
+        </ScrollView>  
           <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight() , backgroundColor: '#ffffff',}}>
+          <TabNavigator.Item
+                        title={"目录"} 
+                        renderIcon={() => RouteConfig["IconMore"].icon}
+                        //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+                        onPress={() => this.drawer && this.drawer.openDrawer()}
+                        titleStyle={StyleConfig.menufont}>  
+            </TabNavigator.Item>  
           <TabNavigator.Item
                         title={"上一页"} 
                         renderIcon={() => RouteConfig["IconLast"].icon}
@@ -168,13 +185,7 @@ class ErYaBookPage extends React.Component {
                         onPress={() => this.setState({keyindex:this.state.keyindex-1},this._flatList.scrollToOffset({animated: true, viewPosition: 0, index: 0}))}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
-            <TabNavigator.Item
-                        title={"目录"} 
-                        renderIcon={() => RouteConfig["IconMore"].icon}
-                        //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => this.drawer && this.drawer.openDrawer()}
-                        titleStyle={StyleConfig.menufont}>  
-            </TabNavigator.Item>  
+
             <TabNavigator.Item
                         title={"下一页"} 
                         //renderIcon={() => BaseCourseConfig["CourseToolsPage"].icon}
@@ -183,7 +194,10 @@ class ErYaBookPage extends React.Component {
                         onPress={() => this.setState({keyindex:this.state.keyindex+1},this._flatList.scrollToOffset({animated: true, viewPosition: 0, index: 0}) )}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
-          </TabNavigator >
+            {
+              WechatShare.CourseShareBar(WechatShare,this,RouteConfig["ErYaBookPage"].name)
+            }
+          </TabNavigator > 
       
               </View>  
               </Drawer>
