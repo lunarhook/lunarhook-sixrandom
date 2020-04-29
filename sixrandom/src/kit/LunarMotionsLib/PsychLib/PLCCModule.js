@@ -285,7 +285,7 @@ class PLCCModule extends React.Component {
     var checked = new Array();
     for(i=0;i<PLCCrandom.length;i++)
     {
-      checked[0]=undefined
+      //checked[0]=undefined
 checked[i]=""
       PLCCrandom[i].index=i
       PLCCrandom[i].key=i
@@ -305,11 +305,11 @@ checked[i]=""
   check(){
     //if(__DEV__)
 //    {return true}
-    for(i=0;i<PLCC.length;i++)
+    for(i=0;i<this.state.PLCC.length;i++)
     {
-      if(undefined != PLCC[i] && this.state.checked[i]==="")
+      if(undefined != this.state.PLCC[i] && this.state.checked[i]==="")
       {
-              Alert.alert("","请检查题目："+(i), [
+              Alert.alert("","请检查题目："+(i+1), [
           {text: '确定'}
         ])
         return false;
@@ -469,11 +469,11 @@ checked[i]=""
               <Text style={styles.list}></Text>
               <Text style={styles.list}>第{item.index+1}题:{item.q}</Text>
               <View style = {styles.dateContainer}>
-              <CheckBox containerStyle={styles.CheckBox} title = {item.a} checked={this.state.checked[Number(item.key+1)]==item.ret_a}  onPress={()=>this.updateIndex(Number(item.key+1),item.ret_a)}/>
-              <CheckBox containerStyle={styles.CheckBox} title = {item.b} checked={this.state.checked[Number(item.key+1)]==item.ret_b}  onPress={()=>this.updateIndex(Number(item.key+1),item.ret_b)}/>
-              <CheckBox containerStyle={styles.CheckBox} title = {item.c} checked={this.state.checked[Number(item.key+1)]==item.ret_c}  onPress={()=>this.updateIndex(Number(item.key+1),item.ret_c)}/>
-              <CheckBox containerStyle={styles.CheckBox} title = {item.d} checked={this.state.checked[Number(item.key+1)]==item.ret_d}  onPress={()=>this.updateIndex(Number(item.key+1),item.ret_d)}/>
-              <CheckBox containerStyle={styles.CheckBox} title = {item.e} checked={this.state.checked[Number(item.key+1)]==item.ret_e}  onPress={()=>this.updateIndex(Number(item.key+1),item.ret_e)}/>
+              <CheckBox containerStyle={styles.CheckBox} title = {item.a} checked={this.state.checked[Number(item.key)]==item.ret_a}  onPress={()=>this.updateIndex(Number(item.key),item.ret_a)}/>
+              <CheckBox containerStyle={styles.CheckBox} title = {item.b} checked={this.state.checked[Number(item.key)]==item.ret_b}  onPress={()=>this.updateIndex(Number(item.key),item.ret_b)}/>
+              <CheckBox containerStyle={styles.CheckBox} title = {item.c} checked={this.state.checked[Number(item.key)]==item.ret_c}  onPress={()=>this.updateIndex(Number(item.key),item.ret_c)}/>
+              <CheckBox containerStyle={styles.CheckBox} title = {item.d} checked={this.state.checked[Number(item.key)]==item.ret_d}  onPress={()=>this.updateIndex(Number(item.key),item.ret_d)}/>
+              <CheckBox containerStyle={styles.CheckBox} title = {item.e} checked={this.state.checked[Number(item.key)]==item.ret_e}  onPress={()=>this.updateIndex(Number(item.key),item.ret_e)}/>
 
               </View>
               <Text></Text>

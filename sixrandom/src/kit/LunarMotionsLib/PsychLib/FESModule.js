@@ -741,7 +741,7 @@ class FESModule extends React.Component {
     var checked = new Array();
     for(i=0;i<FESrandom.length;i++)
     {
-      checked[0]=undefined
+      //checked[0]=undefined
 checked[i]=""
       FESrandom[i].index=i
       FESrandom[i].key=i
@@ -763,11 +763,11 @@ checked[i]=""
   check(){
     //if(__DEV__)
 //    {return true}
-    for(i=0;i<FES.length;i++)
+    for(i=0;i<this.state.FES.length;i++)
     {
-      if(undefined != FES[i] && this.state.checked[i]==="")
+      if(undefined != this.state.FES[i] && this.state.checked[i]==="")
       {
-              Alert.alert("","请检查题目："+(i), [
+              Alert.alert("","请检查题目："+(i+1), [
           {text: '确定'}
         ])
         return false;
@@ -960,8 +960,8 @@ checked[i]=""
               <Text style={styles.list}></Text>
               <Text style={styles.list}>第{item.index+1}题:{item.q}</Text>
               <View style = {styles.dateContainer}>
-              <CheckBox containerStyle={styles.CheckBox} title = {item.a} checked={this.state.checked[Number(item.key+1)]===item.ret_a}  onPress={()=>this.updateIndex(Number(item.key+1),item.ret_a)}/>
-              <CheckBox containerStyle={styles.CheckBox} title = {item.b} checked={this.state.checked[Number(item.key+1)]===item.ret_b}  onPress={()=>this.updateIndex(Number(item.key+1),item.ret_b)}/>
+              <CheckBox containerStyle={styles.CheckBox} title = {item.a} checked={this.state.checked[Number(item.key)]===item.ret_a}  onPress={()=>this.updateIndex(Number(item.key),item.ret_a)}/>
+              <CheckBox containerStyle={styles.CheckBox} title = {item.b} checked={this.state.checked[Number(item.key)]===item.ret_b}  onPress={()=>this.updateIndex(Number(item.key),item.ret_b)}/>
               
               </View>
               <Text></Text>

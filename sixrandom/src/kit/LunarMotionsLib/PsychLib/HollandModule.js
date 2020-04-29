@@ -920,7 +920,7 @@ class HollandModule extends React.Component {
     var checked = new Array();
     for(i=0;i<hollandrandom.length;i++)
     {
-      checked[0]=undefined
+      //checked[0]=undefined
 checked[i]=""
       hollandrandom[i].index=i
       hollandrandom[i].key=i
@@ -940,11 +940,11 @@ checked[i]=""
   check(){
     //if(__DEV__)
     //{return true}
-    for(i=0;i<Hollands.length;i++)
+    for(i=0;i<this.state.Hollands.length;i++)
     {
-      if(undefined != Hollands[i] && this.state.checked[i]==="")
+      if(undefined != this.state.Hollands[i] && this.state.checked[i]==="")
       {
-              Alert.alert("","请检查题目："+(i), [
+              Alert.alert("","请检查题目："+(i+1), [
           {text: '确定'}
         ])
         return false;
@@ -996,7 +996,7 @@ checked[i]=""
   {
     if(""!=item.ret_c)
     {return(
-      <CheckBox containerStyle={styles.CheckBox} title = {"C"} checked={this.state.checked[Number(item.key+1)]==item.ret_c}  onPress={()=>this.updateIndex(item.key,item.ret_c)}/>
+      <CheckBox containerStyle={styles.CheckBox} title = {"C"} checked={this.state.checked[Number(item.key)]==item.ret_c}  onPress={()=>this.updateIndex(item.key,item.ret_c)}/>
     )}
     return null
   }
@@ -1004,7 +1004,7 @@ checked[i]=""
   {
     if(""!=item.ret_d)
     {return(
-      <CheckBox containerStyle={styles.CheckBox} title = {"D"} checked={this.state.checked[Number(item.key+1)]==item.ret_d}  onPress={()=>this.updateIndex(item.key,item.ret_d)}/>
+      <CheckBox containerStyle={styles.CheckBox} title = {"D"} checked={this.state.checked[Number(item.key)]==item.ret_d}  onPress={()=>this.updateIndex(item.key,item.ret_d)}/>
     )}
     return null
   }
@@ -1133,8 +1133,8 @@ checked[i]=""
               <Text style={styles.list}>{item.a}</Text>
               <Text style={styles.list}>{item.b}</Text>
               <View style = {styles.dateContainer}>
-              <CheckBox containerStyle={styles.CheckBox} title = {"A"} checked={this.state.checked[Number(item.key+1)]==item.ret_a}  onPress={()=>this.updateIndex(Number(item.key+1),item.ret_a)}/>
-              <CheckBox containerStyle={styles.CheckBox} title = {"B"} checked={this.state.checked[Number(item.key+1)]==item.ret_b}  onPress={()=>this.updateIndex(Number(item.key+1),item.ret_b)}/>
+              <CheckBox containerStyle={styles.CheckBox} title = {"A"} checked={this.state.checked[Number(item.key)]==item.ret_a}  onPress={()=>this.updateIndex(Number(item.key),item.ret_a)}/>
+              <CheckBox containerStyle={styles.CheckBox} title = {"B"} checked={this.state.checked[Number(item.key)]==item.ret_b}  onPress={()=>this.updateIndex(Number(item.key),item.ret_b)}/>
               {this.checkrender_C(item)}
               {this.checkrender_D(item)}         
               </View>

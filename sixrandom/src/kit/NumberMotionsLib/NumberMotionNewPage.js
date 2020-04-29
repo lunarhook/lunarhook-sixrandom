@@ -80,7 +80,7 @@ class NumberMotionNewPage extends React.Component {
     var left2 = this.cycledivid(fatherb + father)
     var left3 = this.cycledivid(fathere + father)
     var left1 = this.cycledivid(left2 + left3)
-    var mid = this.cycledivid(father + month)
+    var mid = this.cycledivid(father + mother)
     var right2 = this.cycledivid(motherb + mother)
     var right3 = this.cycledivid(mothere + mother)
     var right1 = this.cycledivid(right2 + right3)
@@ -112,7 +112,7 @@ class NumberMotionNewPage extends React.Component {
       { text: "工作、朋友\n青年阶段\n" },
       { text: left1 + "=" + left2 + " " + left3 },
       { text: "主性格\n" + mid },
-      { text: right1 + "=" + right2 + " " + right3 },
+      { text: right2 + " " + right3  + "=" + right1 },
       { text: "晚年、家庭\n老年阶段\n" },
 
       { text: "父亲基因" },
