@@ -287,13 +287,13 @@ class qimenHistoryPage extends React.Component {
                                   title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.ret}</Text>}
                                   //thumbStyle={{ width: 30, height: 30 }}
                                   thumb={true == data.item.star ? IconConfig.IconStar : IconConfig.IconUStar}
-                                  extra={data.item.time} />
+                                  extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.time}</Text>} />
                                 <Card.Body>
                                   <View >
-                                    <Text style={{ marginLeft: 16 }}>奇门排盘：{data.item.tip}</Text>
+                                    <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+14,marginLeft: 16 }}>奇门排盘：{data.item.tip}</Text>
                                   </View>
                                 </Card.Body>
-                                <Card.Footer content="" extra={data.item.name} />
+                                <Card.Footer content="" extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.name}</Text>}/>
                               </TouchableOpacity>
                             </Card>
                             </Animated.View>
