@@ -11,6 +11,7 @@ import ScreenConfig from '../../../config/ScreenConfig';
 import {HistoryArrayGroup} from '../../../config/StorageModule'
 import UserModule from '../../../config/UserModule'
 import { dateAdd } from '../solar2lunar/chinese-lunar';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 //import FingerprintScanner from 'react-native-fingerprint-scanner';
 //import Fingerprintstyles from '../../../fingerprint/Application.container.styles';
 //import FingerprintPopup from '../../../fingerprint/FingerprintPopup.component';
@@ -293,13 +294,13 @@ changeViewLayout(e,data) {
                       title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.ret}</Text>}
                       //thumbStyle={{ width: 30, height: 30 }}
                       thumb={true == data.item.star ? IconConfig.IconStar : IconConfig.IconUStar}
-                      extra={data.item.time} />
+                      extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.time}</Text>} />
                     <Card.Body>
                       <View >
-                        <Text style={{ marginLeft: 16,marginRight:16}}>{data.item.name}:{data.item.tip}</Text>
+                        <Text style={{fontSize:FontStyleConfig.getFontApplySize()+14, marginLeft: 16,marginRight:16}}>{data.item.name}:{data.item.tip}</Text>
                       </View>
                     </Card.Body>
-                    <Card.Footer content="" extra={data.item.birth} />
+                    <Card.Footer content="" extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.birth}</Text>}/>
                   </TouchableOpacity>
                 </Card>
                 </Animated.View>

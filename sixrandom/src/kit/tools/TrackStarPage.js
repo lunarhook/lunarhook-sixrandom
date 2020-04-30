@@ -7,12 +7,12 @@ import { Accordion, DatePicker, List, Grid, WhiteSpace, Provider, PickerView } f
 import RouteConfig from '../../config/RouteConfig';
 import IconConfig from '../../config/IconConfig';
 import ScreenConfig from '../../config/ScreenConfig';
-import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 import WechatShare from '../../config/WechatShare'
 import shareimage from '../../config/shareimage'
 import { HistoryArrayGroup } from '../../config/StorageModule'
 import {SixrandomModule} from '../UniversechangesLib/SixrandomLib/SixrandomModule'
 import TrackMagnetometer from './TrackMagnetometer'
+import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 var Gridh = ScreenConfig.__screenW()/3
 var curDatenow = new Date()
 var curyear = curDatenow.getFullYear()

@@ -10,6 +10,7 @@ import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } f
 import IconConfig from '../../../config/IconConfig'
 import UserModule from '../../../config/UserModule'
 import ScreenConfig from '../../../config/ScreenConfig';
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 //import FingerprintScanner from 'react-native-fingerprint-scanner';
 //import Fingerprintstyles from '../../../fingerprint/Application.container.styles';
 //import FingerprintPopup from '../../../fingerprint/FingerprintPopup.component';

@@ -147,7 +147,7 @@ class SixrandomFullinfoPage extends React.Component {
   renderItem(item) {
     return (
       <View style={styles.list}>
-        <Text style={styles.rowhigth}>{item.item}</Text>
+        <Text style={[{fontSize : FontStyleConfig.getFontApplySize()+14},styles.rowhigth]}>{item.item}</Text>
       </View>
     );
   }
@@ -182,9 +182,9 @@ class SixrandomFullinfoPage extends React.Component {
                     return (
 
                       <View style={{ flexDirection: 'row', textAlign: 'left' }}>
-                        <Text style={{ width: 100 }}>{dataItem.myth}</Text>
-                        <Text style={{ width: 120 }}>{dataItem.sixrandom}</Text>
-                        <Text >{dataItem.change}</Text>
+                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 100 }}>{dataItem.myth}</Text>
+                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 120 }}>{dataItem.sixrandom}</Text>
+                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 120 }}>{dataItem.change}</Text>
                       </View>
                     )
                   }
@@ -192,9 +192,9 @@ class SixrandomFullinfoPage extends React.Component {
                     return (
 
                       <View style={{ flexDirection: 'row', textAlign: 'left' }}>
-                        <Text style={{ width: 100 }}>{dataItem.myth}</Text>
-                        <Text style={{ width: 120 }}>{dataItem.sixrandom}</Text>
-                        <Text >{dataItem.change}</Text>
+                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 100 }}>{dataItem.myth}</Text>
+                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 120 }}>{dataItem.sixrandom}</Text>
+                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 120 }}>{dataItem.change}</Text>
                       </View>
                     )
                   }

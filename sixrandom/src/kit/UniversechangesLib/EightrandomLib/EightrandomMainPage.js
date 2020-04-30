@@ -337,7 +337,7 @@ class EightrandomMainPage extends React.Component {
     if (undefined != hide) {
       return (
         <View style={styles.gridfix}>
-          <Text >{hide}</Text>
+          <Text style={{fontSize :FontStyleConfig.getFontApplySize()+ 14}}>{hide}</Text>
         </View>
       )
     }
@@ -351,7 +351,7 @@ class EightrandomMainPage extends React.Component {
     }
     //console.log("testselectyear",item,curluckyear,yearcolor)
     return(
-      <Text style={{fontSize : 14,color : yearcolor}}>{item}</Text>
+      <Text style={{fontSize :FontStyleConfig.getFontApplySize()+ 14,color : yearcolor}}>{item}</Text>
     )
   }
 
@@ -490,32 +490,32 @@ class EightrandomMainPage extends React.Component {
     //console.log("years", years, luckyearrelation, this.state.luckyyear, luckyyearposition)
 
     var five = new Array();
-    five.push(<Text style={{ color: 'green' }}>木</Text>)
-    five.push(<Text style={{ color: 'red' }}>火</Text>)
-    five.push(<Text style={{ color: 'brown' }}>土</Text>)
-    five.push(<Text style={{ color: 'gold' }}>金</Text>)
-    five.push(<Text style={{ color: 'blue' }}>水</Text>)
-    five.push(<Text style={{ color: 'green' }}>甲:{this.state.daykey['甲']}</Text>)
-    five.push(<Text style={{ color: 'red' }}>丙:{this.state.daykey['丙']}</Text>)
-    five.push(<Text style={{ color: 'brown' }}>戊:{this.state.daykey['戊']}</Text>)
-    five.push(<Text style={{ color: 'gold' }}>庚:{this.state.daykey['庚']}</Text>)
-    five.push(<Text style={{ color: 'blue' }}>壬:{this.state.daykey['壬']}</Text>)
-    five.push(<Text style={{ color: 'green' }}>乙:{this.state.daykey['乙']}</Text>)
-    five.push(<Text style={{ color: 'red' }}>丁:{this.state.daykey['丁']}</Text>)
-    five.push(<Text style={{ color: 'brown' }}>己:{this.state.daykey['己']}</Text>)
-    five.push(<Text style={{ color: 'gold' }}>辛:{this.state.daykey['辛']}</Text>)
-    five.push(<Text style={{ color: 'blue' }}>癸:{this.state.daykey['癸']}</Text>)
-    five.push(<Text style={{ color: 'green' }}>{this.state.precent[5]}%</Text>)
-    five.push(<Text style={{ color: 'red' }}>{this.state.precent[6]}%</Text>)
-    five.push(<Text style={{ color: 'brown' }}>{this.state.precent[7]}%</Text>)
-    five.push(<Text style={{ color: 'gold' }}>{this.state.precent[8]}%</Text>)
-    five.push(<Text style={{ color: 'blue' }}>{this.state.precent[9]}%</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'green' }}>木</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'red' }}>火</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,color: 'brown' }}>土</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'gold' }}>金</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'blue' }}>水</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'green' }}>甲:{this.state.daykey['甲']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'red' }}>丙:{this.state.daykey['丙']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'brown' }}>戊:{this.state.daykey['戊']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'gold' }}>庚:{this.state.daykey['庚']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,color: 'blue' }}>壬:{this.state.daykey['壬']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'green' }}>乙:{this.state.daykey['乙']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'red' }}>丁:{this.state.daykey['丁']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'brown' }}>己:{this.state.daykey['己']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'gold' }}>辛:{this.state.daykey['辛']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'blue' }}>癸:{this.state.daykey['癸']}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'green' }}>{this.state.precent[5]}%</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'red' }}>{this.state.precent[6]}%</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'brown' }}>{this.state.precent[7]}%</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'gold' }}>{this.state.precent[8]}%</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'blue' }}>{this.state.precent[9]}%</Text>)
     var fivepower = EightrandomModule.geikeypower(this.state.EightDate[3]);
-    five.push(<Text style={{ color: 'green' }}>{fivepower[0]}</Text>)
-    five.push(<Text style={{ color: 'red' }}>{fivepower[1]}</Text>)
-    five.push(<Text style={{ color: 'brown' }}>{fivepower[2]}</Text>)
-    five.push(<Text style={{ color: 'gold' }}>{fivepower[3]}</Text>)
-    five.push(<Text style={{ color: 'blue' }}>{fivepower[4]}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'green' }}>{fivepower[0]}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'red' }}>{fivepower[1]}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'brown' }}>{fivepower[2]}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'gold' }}>{fivepower[3]}</Text>)
+    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'blue' }}>{fivepower[4]}</Text>)
     //console.log("five",five)
 
 
@@ -581,7 +581,7 @@ class EightrandomMainPage extends React.Component {
                     renderItem={dataItem => (
                       <View style={styles.container}>
                       <View style={styles.grid}>
-                        <Text style={{fontSize : 16}}>  {dataItem}</Text>
+                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+16}}>  {dataItem}</Text>
                       </View>
                     </View>
                   )}/></Accordion.Panel >
@@ -594,7 +594,7 @@ class EightrandomMainPage extends React.Component {
                     renderItem={dataItem => (
                       <View style={styles.container}>
                         <View style={styles.grid}>
-                          <Text style={[fontSize = 22]}>{this.getColor(dataItem.info)}</Text>
+                          <Text style={{fontSize :FontStyleConfig.getFontApplySize()+16}}>{this.getColor(dataItem.info)}</Text>
                         </View>
                         {this.checksub(dataItem.hide)}
                       </View>
@@ -613,7 +613,7 @@ class EightrandomMainPage extends React.Component {
                     renderItem={dataItem  => (
                       <View style={styles.container}>
                       <View style={styles.grid}>
-                        <Text style={[fontSize = 22]}>  {dataItem}</Text>
+                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14}}>  {dataItem}</Text>
                       </View>
                     </View>
                     )}
@@ -671,7 +671,7 @@ class EightrandomMainPage extends React.Component {
                     itemStyle={{ height: 25}}
                     renderItem={dataItem => (
                       <View style={styles.container}>
-                        <View style={[styles.grid,{fontSize : 18}]}>
+                        <View style={[styles.grid,{fontSize : FontStyleConfig.getFontApplySize()+12}]}>
                           {dataItem}
 
 

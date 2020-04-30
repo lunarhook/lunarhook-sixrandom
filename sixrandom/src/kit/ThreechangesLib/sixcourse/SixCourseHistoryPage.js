@@ -9,6 +9,8 @@ import Search from 'react-native-search-box';
 import IconConfig from '../../../config/IconConfig'
 import ScreenConfig from '../../../config/ScreenConfig';
 import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
+
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 //import FingerprintScanner from 'react-native-fingerprint-scanner';
 //import Fingerprintstyles from '../../../fingerprint/Application.container.styles';
 //import FingerprintPopup from '../../../fingerprint/FingerprintPopup.component';

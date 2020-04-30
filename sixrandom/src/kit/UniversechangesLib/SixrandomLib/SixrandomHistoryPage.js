@@ -11,6 +11,7 @@ import ScreenConfig from '../../../config/ScreenConfig';
 import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
 import {HistoryArrayGroup} from '../../../config/StorageModule'
 import UserModule from '../../../config/UserModule'
+import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 //import FingerprintScanner from 'react-native-fingerprint-scanner';
 //import Fingerprintstyles from '../../../fingerprint/Application.container.styles';
 //import FingerprintPopup from '../../../fingerprint/FingerprintPopup.component';
@@ -284,13 +285,14 @@ class SixrandomHistoryPage extends React.Component {
                     title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.ret}</Text>}
                     //thumbStyle={{ width: 30, height: 30 }}
                     thumb={true == data.item.star ? IconConfig.IconStar : IconConfig.IconUStar}
-                    extra={data.item.time} />
+                    extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.time}</Text>}
+                    />
                   <Card.Body>
                     <View >
-                      <Text style={{ marginLeft: 16 }}>{data.item.tip}</Text>
+                      <Text style={{ marginLeft: 16 ,fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.tip}</Text>
                     </View>
                   </Card.Body>
-                  <Card.Footer content="" extra={UserModule.str2date(data.item.time)+" "+data.item.name}/>
+            <Card.Footer content="" extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{UserModule.str2date(data.item.time)+" "+data.item.name}</Text>}/>
                 </TouchableOpacity>
               </Card>
               </Animated.View>
