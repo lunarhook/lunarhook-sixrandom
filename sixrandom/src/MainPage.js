@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, Animated, AppRegistry, FlatList, Image, Dimensions,DeviceEventEmitter,TouchableOpacity, Platform } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, Animated, AppRegistry, FlatList, Image, Dimensions,DeviceEventEmitter,TouchableOpacity, Platform ,PermissionsAndroid} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { Calendar, CalendarList, LocaleConfig } from 'react-native-calendars';
 import { Modal } from '@ant-design/react-native';
@@ -265,6 +265,24 @@ class MainPage extends React.Component {
       </TabNavigator >
     )
   }
+  async requestCameraPermission() {
+    try {
+     const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+      {
+       'title': '乾坤爻',
+       'message': '探索功能需要相册读写权限'
+      }
+     )
+     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log("You can use the camera")
+     } else {
+      console.log("Camera permission denied")
+     }
+    } catch (err) {
+     console.warn(err)
+    }
+   }
 
   privacycheck()
   {
@@ -296,6 +314,8 @@ class MainPage extends React.Component {
           
         }
       })
+
+     this.requestCameraPermission()
     }
   }
 

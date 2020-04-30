@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Image, Clipboard, Alert, Linking ,NativeModules,Platform} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-import { Grid, Accordion, WhiteSpace, Tabs } from '@ant-design/react-native';
+import { Grid, Accordion, WhiteSpace, Tabs,Badge} from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig';
 import IconConfig from '../config/IconConfig';
 import ScreenConfig from '../config/ScreenConfig';
@@ -400,7 +400,7 @@ class kitPage extends React.Component {
               isCarousel={false}
               hasLine={true}
               renderItem={(el, index) => {
-                return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+                return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center'}}>
                   {el.icon}
                   <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
                 </View>)

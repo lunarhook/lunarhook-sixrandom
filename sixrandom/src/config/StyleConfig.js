@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet ,Platform} from 'react-native';
 import ScreenConfig from './ScreenConfig';
 import IconConfig from './IconConfig'
 import {HistoryArrayGroup} from './StorageModule'
@@ -38,7 +38,7 @@ class FontStyleConfig extends React.Component {
   }
   getFontApplySize()
   {
-    return FontStyleConfigThis.state.changesize - 5
+    return FontStyleConfigThis.state.changesize - 5 + (Platform.OS === 'android' ? -3 : 0)
   }
 
   buildstyle()

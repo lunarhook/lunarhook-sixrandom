@@ -81,7 +81,7 @@ class MyFontConfigPage extends React.Component {
       titleStyle={StyleConfig.menufont}>
     </TabNavigator.Item>)
     return (<View style={StyleConfig.container}>
-      <View style={{ height: ScreenConfig.__screenH()-ScreenConfig.getTabBarHeight()-ScreenConfig.getTabBarHeight()-ScreenConfig.getTabBarHeight()}}>
+      <View style={{ height: ScreenConfig.__screenH()-ScreenConfig.getTabBarHeight()*4}}>
       <FlatList
         ref={(flatList) => this._flatList = flatList}
         useFlatList={true}
@@ -93,10 +93,12 @@ class MyFontConfigPage extends React.Component {
       >
       </FlatList>
       </View>
-      <View style={{ marginBottom: ScreenConfig.getTabBarHeight()}}>
-        <List.Item
+      <View >
+        <List.Item styles={{ height:60}}
           extra={
             <Stepper
+              styles={{ height:60}}
+              inputStyle = {{fontSize:12,lineHeight:15}}
               key="0"
               max={10}
               min={1}
