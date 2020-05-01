@@ -15,7 +15,7 @@ import {LunyuBookPageModule} from './LunyuBookPageModule'
 import {MengziBookPageModule} from './MengziBookPageModule'
 import {SanZiJingPageModule} from './SanZiJingPageModule'
 import {BaiIiaXingPageModule} from './BaiIiaXingPageModule'
-
+import {QianZiWenPageModule} from './QianZiWenPageModule'
 class QIndexPage extends React.Component {
   constructor(props) {
       super(props);
@@ -32,7 +32,7 @@ class QIndexPage extends React.Component {
       var type = new Array()
       type["三字经"] = SanZiJingPageModule
       type["百家姓"] = BaiIiaXingPageModule
-      type["千字文"] = BigBookPageModule
+      type["千字文"] = QianZiWenPageModule
       type["易经"] = UniversBookPageModule
       type["老子"] = OldBookPageModule
       type["道德经"] = type["老子"]

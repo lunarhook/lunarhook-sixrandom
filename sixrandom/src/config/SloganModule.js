@@ -29,7 +29,8 @@ class sloganshow extends React.Component {
         sloganshowArray.push({contect:"\t“人法地，地法天，天法道，道法自然。”",name:"《道德经》"})
 
         sloganshowArray.push({contect:"\t“君子使物，不为物使。”",name:"《管子·任法》"})
-        sloganshowArray.push({contect:"\t“仓廪实则知礼节,衣食足则知荣辱。”",name:"《管子·牧民》"})
+        sloganshowArray.push({contect:"\t“仓廪实，则知礼节，衣食足，则知荣辱。”",name:"《管子·牧民》"})
+        sloganshowArray.push({contect:"\t“形不正者，德不来；中不精者，心不冶。正形饰德，万物毕得。”",name:"《管子·心术下》"})
         sloganshowArray.push({contect:"\t“先易者后难。”",name:"《管子·任法》"})
         sloganshowArray.push({contect:"\t“天之所助，虽小必大；天之所违，虽成必败。顺天者有其功，逆天者怀其凶，不可复振也。”",name:"《管子·形势》"})
         sloganshowArray.push({contect:"\t“故法者，天下之至道也。”",name:"《管子·任法》"})

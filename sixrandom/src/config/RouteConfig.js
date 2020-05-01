@@ -138,8 +138,8 @@ RouteConfig={
         
         "MengBookPage":{"name":"蒙学","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},  
             "AncientBaiJiaXingPage":{"name":"百家姓","titlename":"百家姓","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},
-            "AncientQianZiWenPage":{"name":"千字文","titlename":"千字文","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},
-            "AncientSanZiJingPage":{"name":"三字经","titlename":"三字经","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},
+            "AncientQianZiWenPage":{"name":"千字文","titlename":"千字文","route":"DetailBookPage","icon":IconConfig.IconLunarCourseRedO},
+            "AncientSanZiJingPage":{"name":"三字经","titlename":"三字经","route":"DetailBookPage","icon":IconConfig.IconLunarCourseRed},
             
         "AncientChineseLiteraturePage":{"name":"小学","route":"LanguagesCoursePage","icon":IconConfig.IconLunarCourse},
             "ShuoWenBookPage":{"name":"说文","titlename":"说文","route":"DetailBookPage","icon":IconConfig.IconShuoWen},
