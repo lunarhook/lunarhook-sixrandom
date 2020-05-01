@@ -25,6 +25,28 @@ class QIndexPage extends React.Component {
         title: RouteConfig["QIndexPage"].titlename,
       }
     }
+    GetBookType(ctype)
+    {
+      var type = new Array()
+      type["三字经"] = BigBookPageModule
+      type["百家姓"] = BigBookPageModule
+      type["千字文"] = BigBookPageModule
+      type["易经"] = UniversBookPageModule
+      type["老子"] = OldBookPageModule
+      type["道德经"] = type["老子"]
+      type["庄子"] = ZhuangBookPageModule
+      type["说文"] = ShuoWenBookPageModule
+      type["尔雅"] = ErYaBookModule
+      type["声律启蒙"] = ShengYunBookPageModule
+      type["论语"] = LunyuBookPageModule
+      type["孟子"] = MengziBookPageModule
+      type["大学"] = BigBookPageModule
+      type["中庸"] = ZhongBookPageModule
+
+      var booktype = new Array()
+      booktype = booktype.concat(type[ctype])
+      return booktype
+    }
     GetThreeQIndex()
     {}
     GetShuoWenQIndex()

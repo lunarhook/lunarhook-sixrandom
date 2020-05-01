@@ -15,32 +15,32 @@ const intro = [
   {icon: RouteConfig['LunarCourseAnswerPage'].icon,text: RouteConfig['LunarCourseAnswerPage'].name,url:RouteConfig['LunarCourseAnswerPage'].route},
 ]
 const base = [
-  {icon: RouteConfig['ShuoWenBookPage'].icon,text: RouteConfig['ShuoWenBookPage'].name,url:RouteConfig['ShuoWenBookPage'].route},
-  {icon: RouteConfig['ErYaBookPage'].icon,text: RouteConfig['ErYaBookPage'].name,url:RouteConfig['ErYaBookPage'].route},
+  {icon: RouteConfig['ShuoWenBookPage'].icon,text: RouteConfig['ShuoWenBookPage'].name,url:RouteConfig['ShuoWenBookPage'].route,index:{ text: "ShuoWenBookPage" }},
+  {icon: RouteConfig['ErYaBookPage'].icon,text: RouteConfig['ErYaBookPage'].name,url:RouteConfig['ErYaBookPage'].route,index:{ text: "ErYaBookPage" }},
 
-  {icon: RouteConfig['ShengYunBookPage'].icon,text: RouteConfig['ShengYunBookPage'].name,url:RouteConfig['ShengYunBookPage'].route},
-  //{icon: RouteConfig['yinyunPage'].icon,text: RouteConfig['yinyunPage'].name,url:RouteConfig['yinyunPage'].route},
+  {icon: RouteConfig['ShengYunBookPage'].icon,text: RouteConfig['ShengYunBookPage'].name,url:RouteConfig['ShengYunBookPage'].route,index:{ text: "ShengYunBookPage" }},
+  //{icon: RouteConfig['yinyunPage'].icon,text: RouteConfig['yinyunPage'].name,url:RouteConfig['yinyunPage'].route,index:{ text: "AncientQianZiWenPage" }},
 ]
 
 const three = [
-  {icon: RouteConfig['UniversBookPage'].icon,text: RouteConfig['UniversBookPage'].name,url:RouteConfig['UniversBookPage'].route},
-  {icon: RouteConfig['OldBookPage'].icon,text: RouteConfig['OldBookPage'].name,url:RouteConfig['OldBookPage'].route},
-  {icon: RouteConfig['ZhuangBookPage'].icon,text: RouteConfig['ZhuangBookPage'].name,url:RouteConfig['ZhuangBookPage'].route},
+  {icon: RouteConfig['UniversBookPage'].icon,text: RouteConfig['UniversBookPage'].name,url:RouteConfig['UniversBookPage'].route,index:{ text: "UniversBookPage" }},
+  {icon: RouteConfig['OldBookPage'].icon,text: RouteConfig['OldBookPage'].name,url:RouteConfig['OldBookPage'].route,index:{ text: "OldBookPage" }},
+  {icon: RouteConfig['ZhuangBookPage'].icon,text: RouteConfig['ZhuangBookPage'].name,url:RouteConfig['ZhuangBookPage'].route,index:{ text: "ZhuangBookPage" }},
 ]
 
 const four = [
-  {icon: RouteConfig['LunyuBookPage'].icon,text: RouteConfig['LunyuBookPage'].name,url:RouteConfig['LunyuBookPage'].route},
-  {icon: RouteConfig['MengziBookPage'].icon,text: RouteConfig['MengziBookPage'].name,url:RouteConfig['MengziBookPage'].route},
-  {icon: RouteConfig['ZhongBookPage'].icon,text: RouteConfig['ZhongBookPage'].name,url:RouteConfig['ZhongBookPage'].route},
-  {icon: RouteConfig['BigBookPage'].icon,text: RouteConfig['BigBookPage'].name,url:RouteConfig['BigBookPage'].route},
+  {icon: RouteConfig['LunyuBookPage'].icon,text: RouteConfig['LunyuBookPage'].name,url:RouteConfig['LunyuBookPage'].route,index:{ text: "LunyuBookPage" }},
+  {icon: RouteConfig['MengziBookPage'].icon,text: RouteConfig['MengziBookPage'].name,url:RouteConfig['MengziBookPage'].route,index:{ text: "MengziBookPage" }},
+  {icon: RouteConfig['ZhongBookPage'].icon,text: RouteConfig['ZhongBookPage'].name,url:RouteConfig['ZhongBookPage'].route,index:{ text: "ZhongBookPage" }},
+  {icon: RouteConfig['BigBookPage'].icon,text: RouteConfig['BigBookPage'].name,url:RouteConfig['BigBookPage'].route,index:{ text: "BigBookPage" }},
 ]
 
 const five = [
-  {icon: RouteConfig['UniversBookPage'].icon,text: RouteConfig['UniversBookPage'].name,url:RouteConfig['UniversBookPage'].route},
-  {icon: RouteConfig['ShijingBookPage'].icon,text: RouteConfig['ShijingBookPage'].name,url:RouteConfig['ShijingBookPage'].route},
-  {icon: RouteConfig['ShangshuBookPage'].icon,text: RouteConfig['ShangshuBookPage'].name,url:RouteConfig['ShangshuBookPage'].route},
-  {icon: RouteConfig['LijiBookPage'].icon,text: RouteConfig['LijiBookPage'].name,url:RouteConfig['LijiBookPage'].route},
-  {icon: RouteConfig['ChunqiuBookPage'].icon,text: RouteConfig['ChunqiuBookPage'].name,url:RouteConfig['ChunqiuBookPage'].route},
+  {icon: RouteConfig['UniversBookPage'].icon,text: RouteConfig['UniversBookPage'].name,url:RouteConfig['UniversBookPage'].route,index:{ text: "UniversBookPage" }},
+  {icon: RouteConfig['ShijingBookPage'].icon,text: RouteConfig['ShijingBookPage'].name,url:RouteConfig['ShijingBookPage'].route,index:{ text: "ShijingBookPage" }},
+  {icon: RouteConfig['ShangshuBookPage'].icon,text: RouteConfig['ShangshuBookPage'].name,url:RouteConfig['ShangshuBookPage'].route,index:{ text: "ShangshuBookPage" }},
+  {icon: RouteConfig['LijiBookPage'].icon,text: RouteConfig['LijiBookPage'].name,url:RouteConfig['LijiBookPage'].route,index:{ text: "LijiBookPage" }},
+  {icon: RouteConfig['ChunqiuBookPage'].icon,text: RouteConfig['ChunqiuBookPage'].name,url:RouteConfig['ChunqiuBookPage'].route,index:{ text: "ChunqiuBookPage" }},
 ]
 const Meng = [
   {icon: RouteConfig['AncientSanZiJingPage'].icon,text: RouteConfig['AncientSanZiJingPage'].name,url:RouteConfig['AncientSanZiJingPage'].route,index:{ text: "AncientSanZiJingPage" }},
@@ -49,9 +49,9 @@ const Meng = [
 ]
 
 const yi = [
-  {icon: RouteConfig['HuangDiNeiJingPage'].icon,text: RouteConfig['HuangDiNeiJingPage'].name,url:RouteConfig['HuangDiNeiJingPage'].route},
-  {icon: RouteConfig['BenCaoGangMuPage'].icon,text: RouteConfig['BenCaoGangMuPage'].name,url:RouteConfig['BenCaoGangMuPage'].route},
-  {icon: RouteConfig['LunShangHanPage'].icon,text: RouteConfig['LunShangHanPage'].name,url:RouteConfig['LunShangHanPage'].route},
+  {icon: RouteConfig['HuangDiNeiJingPage'].icon,text: RouteConfig['HuangDiNeiJingPage'].name,url:RouteConfig['HuangDiNeiJingPage'].route,index:{ text: "HuangDiNeiJingPage" }},
+  {icon: RouteConfig['BenCaoGangMuPage'].icon,text: RouteConfig['BenCaoGangMuPage'].name,url:RouteConfig['BenCaoGangMuPage'].route,index:{ text: "BenCaoGangMuPage" }},
+  {icon: RouteConfig['LunShangHanPage'].icon,text: RouteConfig['LunShangHanPage'].name,url:RouteConfig['LunShangHanPage'].route,index:{ text: "LunShangHanPage" }},
   
   
 ]

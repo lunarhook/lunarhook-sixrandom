@@ -81,7 +81,7 @@ import SearchPage from './src/tools/SearchPage'
   
   import IntroAncientPage from './src/LunarCourse/Ancient/IntroAncientPage'
   import IntroThreePage from './src/LunarCourse/Three/IntroThreePage'
-  import ShuoWenBookPage from './src/LunarCourse/Ancient/ShuoWenBookPage'
+  /*import ShuoWenBookPage from './src/LunarCourse/Ancient/ShuoWenBookPage'
 
   import ErYaBookPage from './src/LunarCourse/Ancient/ErYaBookPage'
   import ShengYunBookPage from './src/LunarCourse/Ancient/ShengYunBookPage'
@@ -95,6 +95,8 @@ import SearchPage from './src/tools/SearchPage'
   import BigBookPage from './src/LunarCourse/Four/BigBookPage'
   import CourseSearchPage from './src/LunarCourse/CourseSearchPage'
   import MengBookPage from './src/LunarCourse/meng/MengBookPage'
+  */
+  import DetailBookPage from './src/LunarCourse/DetailBookPage'
   
   
     import SloganShare from './src/kit/tools/SloganShare'
@@ -312,6 +314,7 @@ const  sixrandom= createStackNavigator({
     LunarMasterPage:{screen:LunarMasterPage},
     IntroAncientPage:{screen:IntroAncientPage},
     IntroThreePage:{screen:IntroThreePage},
+    /*
     ShuoWenBookPage:{screen:ShuoWenBookPage},
     ErYaBookPage:{screen:ErYaBookPage},
     ShengYunBookPage:{screen:ShengYunBookPage},
@@ -326,6 +329,8 @@ const  sixrandom= createStackNavigator({
     MengziBookPage:{screen:MengziBookPage},
     ZhongBookPage:{screen:ZhongBookPage},
     MengBookPage:{screen:MengBookPage},
+    */
+    DetailBookPage:{screen:DetailBookPage},
 
     MyPage:{screen:MyPage},
     MyFontConfigPage:{screen:MyFontConfigPage},

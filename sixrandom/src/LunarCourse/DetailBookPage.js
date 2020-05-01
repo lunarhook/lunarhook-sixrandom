@@ -1,19 +1,21 @@
 
 import React, {Component} from 'react';
-import {StyleSheet,View, Text,ScrollView,TouchableOpacity,RefreshControl,FlatList,Dimensions} from 'react-native';
+import {StyleSheet,View, Text,ScrollView,TouchableOpacity,RefreshControl,FlatList,NativeModules} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { Grid ,Accordion,WhiteSpace} from '@ant-design/react-native';
 import { Button, Drawer, List } from '@ant-design/react-native';
-import QIndexPage from '../QDateBase/QIndexPage'
-import ScreenConfig from '../../config/ScreenConfig';
-import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
-import IconConfig from '../../config/IconConfig'
-import WechatShare from '../../config/WechatShare'
-class MengziBookPage extends React.Component {
+import QIndexPage from './QDateBase/QIndexPage'
+import ScreenConfig from '../config/ScreenConfig';
+import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
+import IconConfig from '../config/IconConfig'
+
+import WechatShare from '../config/WechatShare'
+
+class DetailBookPage extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-        dateZhong:QIndexPage.GetMengziBookPage(),
+        dateMeng:[],
         datahistory:[],
         keyindex: 0
       };
@@ -24,7 +26,7 @@ class MengziBookPage extends React.Component {
 
     return{
       
-      title: RouteConfig["MengziBookPage"].titlename,
+      title: navigation.getParam('title', 'A Nested Details Screen'),
     }
   };
 
@@ -33,23 +35,35 @@ class MengziBookPage extends React.Component {
   
   render(){
     const { navigate } = this.props.navigation;
-    var constZhong= new Array()
-    for(var key in this.state.dateZhong){
-      constZhong[key]=this.state.dateZhong[key]
+    if(undefined!=this.props.navigation.state.params && ""!=this.props.navigation.state.params.text)
+    {
+      var Qindex = this.props.navigation.state.params.text;
+      this.props.navigation.state.params.text = ""
+      var Q = RouteConfig[Qindex]
+      this.props.navigation.setParams({ title:Q.titlename })
+      var NativePlumber = NativeModules.NativePlumber;
+      NativePlumber.PlumberRouting(Q.titlename ,"","","")          
+      var x = QIndexPage.GetBookType(Q.titlename)
+      this.setState({dateMeng:x})
+      return (<View></View>)
+    }
+    var constMeng= new Array()
+    for(var key in this.state.dateMeng){
+      constMeng[key]=this.state.dateMeng[key]
     }
       if(this.state.keyindex<0)
       {
-        this.setState({keyindex:constZhong.length-1})
+        this.setState({keyindex:constMeng.length-1})
         return(<View/>)
       }
-      if(this.state.keyindex>=constZhong.length)
+      if(this.state.keyindex>=constMeng.length)
       {
         this.setState({keyindex:0})
         return(<View/>)
       }
 
 
-      itemArr = constZhong.map(function(_, i,arr) { 
+      itemArr = constMeng.map(function(_, i,arr) { 
         return i;
       })
       .map((_i, index) => {
@@ -68,7 +82,7 @@ class MengziBookPage extends React.Component {
                 }}
               >
 
-                  <Text style={{fontSize:FontStyleConfig.getFontApplySize()+22}}>{ constZhong[index].name}</Text>
+                  <Text style={{fontSize:FontStyleConfig.getFontApplySize()+22}}>{ constMeng[index].name}</Text>
 
                 
                 <Button
@@ -97,7 +111,7 @@ class MengziBookPage extends React.Component {
                 }}
                   onPress={() => {this.setState({keyindex:index}),this.drawer.closeDrawer()}}
                 >
-                   <Text style={{fontSize:FontStyleConfig.getFontApplySize()+18}}>{constZhong[index].name  }{index==this.state.keyindex?IconConfig.IconStar:""}</Text>
+                   <Text style={{fontSize:FontStyleConfig.getFontApplySize()+18}}>{constMeng[index].name  }{index==this.state.keyindex?IconConfig.IconStar:""}</Text>
                 </Button>
           </List.Item>
         );
@@ -112,16 +126,16 @@ class MengziBookPage extends React.Component {
           <WhiteSpace size="xl" />
         </ScrollView>
       );
-      var curZhong = new Array()
-      curZhong.push(constZhong[this.state.keyindex].name )
-      if(undefined != constZhong[this.state.keyindex].content)
+      var curMeng = new Array()
+      curMeng.push(constMeng[this.state.keyindex].name )
+      if(undefined != constMeng[this.state.keyindex].content)
       {
-        curZhong=curZhong.concat(constZhong[this.state.keyindex].content)
+        curMeng=curMeng.concat(constMeng[this.state.keyindex].content)
       }
-      curZhong.push("")
-      curZhong.push("")
-      curZhong.push("")
-      curZhong.push("")
+      curMeng.push("")
+      curMeng.push("")
+      curMeng.push("")
+      curMeng.push("")
         return(
           <Drawer
           sidebar={sidebar}
@@ -142,7 +156,7 @@ class MengziBookPage extends React.Component {
                           useFlatList={true}
                           //1数据的获取和渲染
                           //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
-                          data={curZhong}
+                          data={curMeng}
                           keyExtractor={(item, index) => index.toString()}
                           renderItem={(data) => (
                           <View>
@@ -153,7 +167,7 @@ class MengziBookPage extends React.Component {
               </FlatList>
           
           
-                   
+          
               <WhiteSpace size="xl" />
             {
              (WechatShare.shareimg(this.state.shareimg))
@@ -214,4 +228,4 @@ var styles = StyleSheet.create ({
     flexDirection: 'row',
   },
 });
-module.exports=MengziBookPage;  
+module.exports=DetailBookPage;  
