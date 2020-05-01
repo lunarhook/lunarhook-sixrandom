@@ -184,7 +184,7 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
   - React-jsinspector (0.61.5)
-  - react-native-cameraroll (1.5.2):
+  - react-native-cameraroll (1.6.0):
     - React
   - react-native-compass-heading (1.0.0):
     - React
@@ -412,7 +412,7 @@ SPEC CHECKSUMS:
   React-jsi: cb2cd74d7ccf4cffb071a46833613edc79cdf8f7
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
-  react-native-cameraroll: 4360c9faab50dc6844f56d222c2d0c7ef5f1fe92
+  react-native-cameraroll: 02e60e9af9273a3cc3b641632bf651189830aaf8
   react-native-compass-heading: 97da92264e08873190c6d77c429e7792ef3cc494
   react-native-fingerprint-scanner: 03f3d966edacf2f515e361595b6778d3502db4fb
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9

@@ -12,7 +12,7 @@
   "dependencies": {
     "@ant-design/react-native": "^3.3.0",
     "@react-native-community/async-storage": "^1.9.0",
-    "@react-native-community/cameraroll": "^1.5.2",
+    "@react-native-community/cameraroll": "^1.6.0",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/viewpager": "^4.0.0",
@@ -33,7 +33,7 @@
     "react-native-fingerprint-scanner": "^4.0.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-highlight-words": "^1.0.1",
-    "react-native-paper": "^3.8.0",
+    "react-native-paper": "^3.9.0",
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-safe-area-view": "^1.1.1",
@@ -46,10 +46,10 @@
     "react-native-vector-icons": "^6.6.0",
     "react-native-view-shot": "^3.1.2",
     "react-native-wechat": "^1.9.12",
-    "react-navigation": "^4.3.8",
-    "react-navigation-material-bottom-tabs": "^2.2.11",
-    "react-navigation-stack": "^2.3.13",
-    "react-navigation-tabs": "^2.8.12",
+    "react-navigation": "^4.3.9",
+    "react-navigation-material-bottom-tabs": "^2.2.12",
+    "react-navigation-stack": "^2.4.0",
+    "react-navigation-tabs": "^2.8.13",
     "victory-native": "^34.1.0"
   },
   "devDependencies": {
@@ -60,7 +60,7 @@
     "babel-jest": "25.5.1",
     "babel-plugin-import": "^1.13.0",
     "eslint": "^6.8.0",
-    "jest": "^25.5.2",
+    "jest": "^25.5.3",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-test-renderer": "^16.13.1",
     "schedule": "^0.5.0"

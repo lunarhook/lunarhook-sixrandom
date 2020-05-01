@@ -392,7 +392,7 @@ class LunarCoursePage extends React.Component {
         </Accordion>
       )
     } 
-    /*
+
     else if ("蒙童幼学" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -400,6 +400,7 @@ class LunarCoursePage extends React.Component {
         </Accordion>
       )
     } 
+        /*
     else if ("医药经典" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
