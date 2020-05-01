@@ -1,28 +1,24 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Image, Clipboard, Alert, Linking ,NativeModules,Platform} from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Image, Clipboard, Alert, Linking, NativeModules, Platform } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-import { Grid, Accordion, WhiteSpace, Tabs,Badge} from '@ant-design/react-native';
+import { Grid, Accordion, WhiteSpace, Tabs, Badge } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig';
 import IconConfig from '../config/IconConfig';
 import ScreenConfig from '../config/ScreenConfig';
-import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
+import { StyleConfig, FontStyleConfig } from '../config/StyleConfig';
 import WechatShare from '../config/WechatShare'
 import shareimage from '../config/shareimage'
-import {HistoryArrayGroup} from '../config/StorageModule'
+import { HistoryArrayGroup } from '../config/StorageModule'
 import KitConfig from '../config/KitConfig'
 var w = ScreenConfig.__screenW()
-var coln=3
-if(w>320 &&    Platform.OS === 'ios')
-{
-  coln=4
+var coln = 3
+if (w > 320 && Platform.OS === 'ios') {
+  coln = 4
 }
 var kitlist = new Array();
 const data = [
-  //{icon: RouteConfig['CalendarPage'].icon,text: RouteConfig['CalendarPage'].name,url:RouteConfig['CalendarPage'].route},
-
- 
   { icon: RouteConfig['SixrandomNewPage'].icon, text: RouteConfig['SixrandomNewPage'].name, url: RouteConfig['SixrandomNewPage'].route },
   { icon: RouteConfig['EightrandomNewPage'].icon, text: RouteConfig['EightrandomNewPage'].name, url: RouteConfig['EightrandomNewPage'].route },
   { icon: RouteConfig['NumberMainPage'].icon, text: RouteConfig['NumberMainPage'].name, url: RouteConfig['NumberMainPage'].route },
@@ -38,7 +34,6 @@ const data1 = [
   { icon: RouteConfig['TarotStarofDavidPage'].icon, text: RouteConfig['TarotStarofDavidPage'].name, url: RouteConfig['TarotStarofDavidPage'].route },
   { icon: RouteConfig['TarotCeltsPage'].icon, text: RouteConfig['TarotCeltsPage'].name, url: RouteConfig['TarotCeltsPage'].route },
   { icon: RouteConfig['GamblePage'].icon, text: RouteConfig['GamblePage'].name, url: RouteConfig['GamblePage'].route },
-  //{icon: RouteConfig['ChangesuniversePage'].icon,text: RouteConfig['ChangesuniversePage'].name,url:RouteConfig['ChangesuniversePage'].route},
   { icon: RouteConfig['StarInfoPage'].icon, text: RouteConfig['StarInfoPage'].name, url: RouteConfig['StarInfoPage'].route },
 ]
 const consultants = [
@@ -78,9 +73,7 @@ const datadepress = [
   { icon: RouteConfig['PLCCModule'].icon, text: RouteConfig['PLCCModule'].name, url: RouteConfig['PLCCModule'].route },
   { icon: RouteConfig['IASModule'].icon, text: RouteConfig['IASModule'].name, url: RouteConfig['IASModule'].route },
   { icon: RouteConfig['PANASModule'].icon, text: RouteConfig['PANASModule'].name, url: RouteConfig['PANASModule'].route },
-  //{icon: RouteConfig['16PFModule'].icon,text: RouteConfig['16PFModule'].name,url:RouteConfig['16PFModule'].route},
 ]
-
 const relation = [
   { icon: RouteConfig['LASModule'].icon, text: RouteConfig['LASModule'].name, url: RouteConfig['LASModule'].route },
   { icon: RouteConfig['OlsonModule'].icon, text: RouteConfig['OlsonModule'].name, url: RouteConfig['OlsonModule'].route },
@@ -91,19 +84,14 @@ const relation = [
   { icon: RouteConfig['EMBUFemaleModule'].icon, text: RouteConfig['EMBUFemaleModule'].name, url: RouteConfig['EMBUFemaleModule'].route },
   { icon: RouteConfig['EMBUMaleModule'].icon, text: RouteConfig['EMBUMaleModule'].name, url: RouteConfig['EMBUMaleModule'].route },
 ]
-
-const child= [
+const child = [
   { icon: RouteConfig['CARSModule'].icon, text: RouteConfig['CARSModule'].name, url: RouteConfig['CARSModule'].route },
   { icon: RouteConfig['GATBModule'].icon, text: RouteConfig['GATBModule'].name, url: RouteConfig['GATBModule'].route },
   { icon: RouteConfig['PROFModule'].icon, text: RouteConfig['PROFModule'].name, url: RouteConfig['PROFModule'].route },
   { icon: RouteConfig['MHTModule'].icon, text: RouteConfig['MHTModule'].name, url: RouteConfig['MHTModule'].route },
   { icon: RouteConfig['MHRSPModule'].icon, text: RouteConfig['MHRSPModule'].name, url: RouteConfig['MHRSPModule'].route },
-  
 ]
 
-
-
-var NativePlumber = NativeModules.NativePlumber;
 let kitPageController = null
 class kitPage extends React.Component {
   constructor(props) {
@@ -111,14 +99,14 @@ class kitPage extends React.Component {
     super(props);
 
     this.state = {
-      tabs: itemsrandom['全部'] ,
-      selectmode:"职业性格",
+      tabs: itemsrandom['全部'],
+      selectmode: "职业性格",
       date: "",
       datahistory: [],
       historySection: [0],
-      activeSections: [0, 1, 2, 3, 4, 5, 6, 7,8],
+      activeSections: [0, 1, 2, 3, 4, 5, 6, 7, 8],
       historyactiveSections: [0],
-      Channel:""
+      Channel: ""
     };
     kitPageController = this
     this.onChange = (activeSections: number[]) => {
@@ -148,9 +136,9 @@ class kitPage extends React.Component {
 
     return {
       title: RouteConfig["kitPage"].titlename,
-      headerRight: ()=>(
+      headerRight: () => (
         <TouchableOpacity
-          style={{ padding: 10 ,alignContent:"center",alignItems:"baseline"}}
+          style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
           //onPress={() => navigate('Search')}
           onPress={() => navigate(RouteConfig['kitConfigPage'].route)}
         >
@@ -159,64 +147,61 @@ class kitPage extends React.Component {
     }
   };
   componentDidMount() {
-    NativePlumber.PlumberGetChannel((error,events) => {
+    var NativePlumber = NativeModules.NativePlumber;
+    NativePlumber.PlumberGetChannel((error, events) => {
       console.log('error', error);
       console.log('events', events);
-      this.setState({Channel:events})
+      this.setState({ Channel: events })
       this.refreshlist()
-      })
+    })
 
   }
   refreshlist() {
     var itemsrandom = KitConfig.getitemsrandom()
-    this.setState({tabs: itemsrandom['全部'] })
-    HistoryArrayGroup.GetKitConfigHistory().then(ids=>{
+    this.setState({ tabs: itemsrandom['全部'] })
+    HistoryArrayGroup.GetKitConfigHistory().then(ids => {
 
-        HistoryArrayGroup.load("kitConfigselectmode").then(async(T)=>{
-          try{
-          console.log("kitConfigselectmode",T)
+      HistoryArrayGroup.load("kitConfigselectmode").then(async (T) => {
+        try {
+          console.log("kitConfigselectmode", T)
           var alllist = KitConfig.getalllist()
-          if(undefined == alllist[T])
-          {
-            
+          if (undefined == alllist[T]) {
+
             HistoryArrayGroup.removeall("kitConfigselectmode")
             await HistoryArrayGroup.save("kitConfigselectmode", "职业性格")
             throw new Error("kitConfigselectmode")
-          } 
+          }
           if (ids.length != 0) {
-       
-            let selectedItems = ids.filter((ids,index)=>ids.isSelect)
+
+            let selectedItems = ids.filter((ids, index) => ids.isSelect)
             let tabs = new Array()
             selectedItems.forEach(element => {
-              let obj={}
+              let obj = {}
               obj.title = element.title
-              if(undefined==obj.title)
-              {
+              if (undefined == obj.title) {
                 HistoryArrayGroup.removeall("kitConfig")
                 throw new Error("kitConfig")
               }
               tabs.push(obj)
             });
-            if (this.state.datahistory.length>0 )
-            {
-              if(tabs[1].title==="关注"){}else
-              {tabs.splice(1,0,{ title: '关注' })}
-    
+            if (this.state.datahistory.length > 0) {
+              if (tabs[1].title === "关注") { } else { tabs.splice(1, 0, { title: '关注' }) }
+
             }
-            console.log("refreshlist",ids,tabs)
-            this.setState({tabs:tabs,selectmode:T})
-          }else if(undefined!=T){
+            console.log("refreshlist", ids, tabs)
+            this.setState({ tabs: tabs, selectmode: T })
+          } else if (undefined != T) {
             //从来没有选择过现实模式的人，只能使用系统默认的职业性格或者心理学初始化
-            this.setState({selectmode:T})
+            this.setState({ selectmode: T })
           }
-        }catch{
-          this.setState({selectmode:"职业性格"})
+        } catch{
+          this.setState({ selectmode: "职业性格" })
           return
         }
-        })
+      })
     })
     this.render()
-}
+  }
 
   keyExtractor = (item, index) => item.id
   onBussion(el, navigate) {
@@ -267,14 +252,12 @@ class kitPage extends React.Component {
     datahistory.push({ icon: el.icon, text: el.text, url: el.url })
     datahistory.reverse()
     tabs = this.state.tabs
-    if (datahistory.length>0 )
-    {
-      if(tabs[1].title==="关注"){}else
-      {tabs.splice(1,0,{ title: '关注' })}
+    if (datahistory.length > 0) {
+      if (tabs[1].title === "关注") { } else { tabs.splice(1, 0, { title: '关注' }) }
 
     }
-    this.setState({ datahistory: datahistory,tabs:tabs })
-    this.props.navigation.setParams({text:"refresh"})
+    this.setState({ datahistory: datahistory, tabs: tabs })
+    this.props.navigation.setParams({ text: "refresh" })
     navigate(el.url)
   }
   showshare() {
@@ -293,14 +276,14 @@ class kitPage extends React.Component {
     const { navigate } = this.props.navigation;
     var contentlist = new Array()
     contentlist["关注"] = (
-    <Accordion.Panel  header={"关注"} key={"关注"}>
+      <Accordion.Panel header={"关注"} key={"关注"}>
         <Grid
           data={this.state.datahistory}
           columnNum={coln}
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -316,7 +299,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -331,11 +314,11 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-        /></Accordion.Panel > )
+        /></Accordion.Panel >)
     contentlist["情感家庭"] = (
       <Accordion.Panel header="情感家庭" key={"情感家庭"}>
         <Grid
@@ -346,12 +329,12 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-   
+
     contentlist["塔罗占星"] = (
       <Accordion.Panel header={"塔罗占星"} key={"塔罗占星"}>
         <Grid
@@ -366,47 +349,48 @@ class kitPage extends React.Component {
         <Grid
           data={kitlist["tools"]}
           columnNum={coln}
-         isCarousel={false}
-          hasLine={true}
-          renderItem={(el, index) => {
-            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
-              {el.icon}
-              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
-            </View>)
-          }}
-          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-        /></Accordion.Panel >)
-        if("Huawei"!=kitPageController.state.Channel){
-    contentlist["大道易德"] = (
-      <Accordion.Panel header={"大道易德咨询合作"} key={"大道易德咨询合作"}>
-        <Grid
-          data={consultants}
-          columnNum={coln}
           isCarousel={false}
           hasLine={true}
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
             </View>)
           }}
-          onPress={(_el: any, index: any) => { this.onBussion(_el, navigate) }}
+          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-    contentlist["周易八卦"] = (
-          <Accordion.Panel header={"周易八卦"} key={"周易八卦"}>
-            <Grid
-              data={data}
-              columnNum={coln}
-              isCarousel={false}
-              hasLine={true}
-              renderItem={(el, index) => {
-                return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center'}}>
-                  {el.icon}
-                  <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
-                </View>)
-              }}
-              onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-            /></Accordion.Panel >)}
+    if ("Huawei" != kitPageController.state.Channel) {
+      contentlist["大道易德"] = (
+        <Accordion.Panel header={"大道易德咨询合作"} key={"大道易德咨询合作"}>
+          <Grid
+            data={consultants}
+            columnNum={coln}
+            isCarousel={false}
+            hasLine={true}
+            renderItem={(el, index) => {
+              return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+                {el.icon}
+                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              </View>)
+            }}
+            onPress={(_el: any, index: any) => { this.onBussion(_el, navigate) }}
+          /></Accordion.Panel >)
+      contentlist["周易八卦"] = (
+        <Accordion.Panel header={"周易八卦"} key={"周易八卦"}>
+          <Grid
+            data={data}
+            columnNum={coln}
+            isCarousel={false}
+            hasLine={true}
+            renderItem={(el, index) => {
+              return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center' }}>
+                {el.icon}
+                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              </View>)
+            }}
+            onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+          /></Accordion.Panel >)
+    }
     contentlist["儿童少年"] = (
       <Accordion.Panel header={"儿童青少年"} key={"儿童青少年"}>
         <Grid
@@ -417,40 +401,39 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     if ("关注" == tab.title) {
-        return (
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["关注"]}
-          </Accordion>
-        )
+      return (
+        <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+          {contentlist["关注"]}
+        </Accordion>
+      )
     } else if ("全部" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           {(function (handler) {
-              var alllist = KitConfig.getalllist()
-              var sel = alllist[handler.state.selectmode]
-              var curalllist = JSON.parse(JSON.stringify(sel))
-              var content = new Array()
-              if("Huawei"==kitPageController.state.Channel){
-                delete contentlist["大道易德"]
-                delete contentlist["周易八卦"]
-                delete contentlist["塔罗占星"]
+            var alllist = KitConfig.getalllist()
+            var sel = alllist[handler.state.selectmode]
+            var curalllist = JSON.parse(JSON.stringify(sel))
+            var content = new Array()
+            if ("Huawei" == kitPageController.state.Channel) {
+              delete contentlist["大道易德"]
+              delete contentlist["周易八卦"]
+              delete contentlist["塔罗占星"]
+            }
+            curalllist.forEach(element => {
+              if (undefined != contentlist[element.title]) {
+                content.push(contentlist[element.title])
               }
-              curalllist.forEach(element=>{
-                if(undefined!=contentlist[element.title])
-                {
-                  content.push(contentlist[element.title])
-                }
-                
-              })
 
-              return content
-            })(this)    
+            })
+
+            return content
+          })(this)
           }
 
         </Accordion>
@@ -489,7 +472,7 @@ class kitPage extends React.Component {
         </Accordion>
       )
     }
-    else if ("周易八卦" == tab.title && "Huawei"!=kitPageController.state.Channel) {
+    else if ("周易八卦" == tab.title && "Huawei" != kitPageController.state.Channel) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           {contentlist["周易八卦"]}
@@ -503,14 +486,14 @@ class kitPage extends React.Component {
         </Accordion>
       )
     }
-    else if ("大道易德" == tab.title && "Huawei"!=kitPageController.state.Channel) {
+    else if ("大道易德" == tab.title && "Huawei" != kitPageController.state.Channel) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           {contentlist["大道易德"]}
         </Accordion>
       )
     }
-    else if ("工具助手" == tab.title ) {
+    else if ("工具助手" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           {contentlist["工具助手"]}
@@ -519,13 +502,11 @@ class kitPage extends React.Component {
     }
   };
   render() {
-    if(""==this.state.Channel)
-    {
-      return(<View></View>)
+    if ("" == this.state.Channel) {
+      return (<View></View>)
     }
     const { navigate } = this.props.navigation;
-    if(undefined!=this.props.navigation.state.params && "refresh"===this.props.navigation.state.params.text)
-    {
+    if (undefined != this.props.navigation.state.params && "refresh" === this.props.navigation.state.params.text) {
       this.props.navigation.state.params.text = ""
       kitPageController.refreshlist()
       //return (<View></View>)
@@ -535,7 +516,7 @@ class kitPage extends React.Component {
       <View style={Styles.container}>
         <ScrollView>
           <View style={{ flex: 2 }} ref="tabs">
-            <Tabs tabs={this.state.tabs} page={"全部"}  tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 14 }}>
+            <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>
               {this.renderContent}
             </Tabs>
           </View>
@@ -546,15 +527,18 @@ class kitPage extends React.Component {
           <WhiteSpace size="xl" />
           <Text></Text>
         </ScrollView>
-        <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight() , backgroundColor: '#ffffff',}}>
-          { function(){if(Platform.OS === 'android'){
-            return(<TabNavigator.Item
-              title={RouteConfig["service"].name}
-              renderIcon={() => RouteConfig["service"].icon}
-              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => kitPageController.onBussion("service", navigate)}
-              titleStyle={StyleConfig.menufont}>
-            </TabNavigator.Item>)}}()
+        <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+          {function () {
+            if (Platform.OS === 'android') {
+              return (<TabNavigator.Item
+                title={RouteConfig["service"].name}
+                renderIcon={() => RouteConfig["service"].icon}
+                //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+                onPress={() => kitPageController.onBussion("service", navigate)}
+                titleStyle={StyleConfig.menufont}>
+              </TabNavigator.Item>)
+            }
+          }()
           }
           <TabNavigator.Item
             title={RouteConfig["SearchPage"].name}
@@ -569,7 +553,7 @@ class kitPage extends React.Component {
 };
 var Styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: 'white',
   },
   button: {
@@ -578,7 +562,7 @@ var Styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 4,
   },
- dateContainer: {
+  dateContainer: {
     justifyContent: 'space-between',
     flexDirection: 'row',
   },

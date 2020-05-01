@@ -10,7 +10,7 @@ import {FontStyleConfig} from './config/StyleConfig';
 var {height, width} = Dimensions.get('window')
 
 
-var imgtime = new Array()
+
 
 
 class slogan extends React.Component {
@@ -22,22 +22,24 @@ class slogan extends React.Component {
     (async()=>{
       await FontStyleConfig.reload()
     })()
+    this.imgtime = undefined
   };
 
   UNSAFE_componentWillMount()
   {
-    imgtime["子"] = require('../img/time/1s.jpg')
-    imgtime["丑"] = require('../img/time/2s.jpg')
-    imgtime["寅"] = require('../img/time/3s.jpg')
-    imgtime["卯"] = require('../img/time/4s.jpg')
-    imgtime["辰"] = require('../img/time/5s.jpg')
-    imgtime["巳"] = require('../img/time/6s.jpg')
-    imgtime["午"] = require('../img/time/7s.jpg')
-    imgtime["未"] = require('../img/time/8s.jpg')
-    imgtime["申"] = require('../img/time/9s.jpg')
-    imgtime["酉"] = require('../img/time/10s.jpg')
-    imgtime["戌"] = require('../img/time/11s.jpg')
-    imgtime["亥"] = require('../img/time/12s.jpg')
+    this.imgtime = new Array()
+    this.imgtime["子"] = require('../img/time/1s.jpg')
+    this.imgtime["丑"] = require('../img/time/2s.jpg')
+    this.imgtime["寅"] = require('../img/time/3s.jpg')
+    this.imgtime["卯"] = require('../img/time/4s.jpg')
+    this.imgtime["辰"] = require('../img/time/5s.jpg')
+    this.imgtime["巳"] = require('../img/time/6s.jpg')
+    this.imgtime["午"] = require('../img/time/7s.jpg')
+    this.imgtime["未"] = require('../img/time/8s.jpg')
+    this.imgtime["申"] = require('../img/time/9s.jpg')
+    this.imgtime["酉"] = require('../img/time/10s.jpg')
+    this.imgtime["戌"] = require('../img/time/11s.jpg')
+    this.imgtime["亥"] = require('../img/time/12s.jpg')
   }
   componentDidMount() {
     var keys = AppRegistry.getAppKeys();
@@ -50,7 +52,7 @@ class slogan extends React.Component {
     }, 1000 * 4);
   }
   componentWillUnmount() {
-    imgtime = []
+    delete this.imgtime 
     // 如果存在this.timer，则使用clearTimeout清空。
     // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
     this.timer && clearInterval(this.timer);
@@ -58,7 +60,7 @@ class slogan extends React.Component {
   render() {
     var wanNianLiInfo = SixrandomModule.lunarsix();
     var curtimelucky = wanNianLiInfo.info.gzTime
-    var imgindex = imgtime[curtimelucky[1]]
+    var imgindex = this.imgtime[curtimelucky[1]]
     Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000 }), Animated.delay(2000), Animated.timing(this.state.fadeInOpacity, { toValue: 0, duration: 1000 })]).start()
     var cur = Math.floor(Math.random() * 10000)
     var item = sloganshow.getitem(cur)
