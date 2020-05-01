@@ -379,8 +379,20 @@ class WechatShare extends React.Component {
   shareimg(ret)
   {
    
+
     if(true==ret)
     {
+      var dateDigitToString = function (num) {  
+        return num < 10 ? '0' + num : num;  
+      };  
+      var currentDate = new Date(),  
+      year = dateDigitToString(currentDate.getFullYear()),  
+      month = dateDigitToString(currentDate.getMonth() + 1),//Date.getMonth()的返回值是0-11,所以要+1  
+      date = dateDigitToString(currentDate.getDate()),  
+      hour = dateDigitToString(currentDate.getHours()),  
+      minute = dateDigitToString(currentDate.getMinutes()),  
+      second = dateDigitToString(currentDate.getSeconds()),  
+      formattedDateString = year + '年' + month + '月' + date + '日 ' + hour + ':' + minute + ':' + second;  
       var keys = AppRegistry.getAppKeys();
       return(
         <View style={{alignItems: 'center',justifyContent: 'center'}}>
@@ -388,11 +400,14 @@ class WechatShare extends React.Component {
         style={{width:  128, height:128}}
         source={{uri: shareimg[keys[0]]}}
         />
-        <Text style></Text>
-        <Text style>{appname[keys[0]]} {this.version}</Text>
+        <Text ></Text>
+        <Text >www.lunarhook.com</Text>
+        <Text ></Text>
+        <Text >{appname[keys[0]]} {this.version}</Text>
+        <Text ></Text>
+        <Text >{formattedDateString}</Text>
      
-        <Text style></Text>
-        <Text style>www.lunarhook.com</Text>
+        
         </View>
       )
     }
