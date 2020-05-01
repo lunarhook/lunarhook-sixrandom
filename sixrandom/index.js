@@ -94,6 +94,7 @@ import SearchPage from './src/tools/SearchPage'
   import ZhongBookPage from './src/LunarCourse/Four/ZhongBookPage'
   import BigBookPage from './src/LunarCourse/Four/BigBookPage'
   import CourseSearchPage from './src/LunarCourse/CourseSearchPage'
+  import MengBookPage from './src/LunarCourse/meng/MengBookPage'
   
   
     import SloganShare from './src/kit/tools/SloganShare'
@@ -324,6 +325,7 @@ const  sixrandom= createStackNavigator({
     LunyuBookPage:{screen:LunyuBookPage},
     MengziBookPage:{screen:MengziBookPage},
     ZhongBookPage:{screen:ZhongBookPage},
+    MengBookPage:{screen:MengBookPage},
 
     MyPage:{screen:MyPage},
     MyFontConfigPage:{screen:MyFontConfigPage},

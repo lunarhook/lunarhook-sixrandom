@@ -43,9 +43,9 @@ const five = [
   {icon: RouteConfig['ChunqiuBookPage'].icon,text: RouteConfig['ChunqiuBookPage'].name,url:RouteConfig['ChunqiuBookPage'].route},
 ]
 const Meng = [
-  {icon: RouteConfig['AncientSanZiJingPage'].icon,text: RouteConfig['AncientSanZiJingPage'].name,url:RouteConfig['AncientSanZiJingPage'].route},
-  {icon: RouteConfig['AncientBaiJiaXingPage'].icon,text: RouteConfig['AncientBaiJiaXingPage'].name,url:RouteConfig['AncientBaiJiaXingPage'].route},
-  {icon: RouteConfig['AncientQianZiWenPage'].icon,text: RouteConfig['AncientQianZiWenPage'].name,url:RouteConfig['AncientQianZiWenPage'].route},
+  {icon: RouteConfig['AncientSanZiJingPage'].icon,text: RouteConfig['AncientSanZiJingPage'].name,url:RouteConfig['AncientSanZiJingPage'].route,index:{ text: "AncientSanZiJingPage" }},
+  {icon: RouteConfig['AncientBaiJiaXingPage'].icon,text: RouteConfig['AncientBaiJiaXingPage'].name,url:RouteConfig['AncientBaiJiaXingPage'].route,index:{ text: "AncientBaiJiaXingPage" }},
+  {icon: RouteConfig['AncientQianZiWenPage'].icon,text: RouteConfig['AncientQianZiWenPage'].name,url:RouteConfig['AncientQianZiWenPage'].route,index:{ text: "AncientQianZiWenPage" }},
 ]
 
 const yi = [
@@ -185,7 +185,16 @@ class LunarCoursePage extends React.Component {
     }
     this.setState({ datahistory: datahistory,tabs:tabs })
     this.props.navigation.setParams({text:"refresh"})
-    navigate(el.url)
+    if(undefined!=el.index)
+    {
+     
+      var param =  JSON.parse(JSON.stringify(el.index))
+      navigate(el.url,param)
+    }
+    else{
+      navigate(el.url)
+    }
+   
   }
   onclick(el, navigate)
   {
@@ -292,6 +301,15 @@ class LunarCoursePage extends React.Component {
           hasLine={true}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
+        contentlist["蒙学"] = (
+          <Accordion.Panel header={RouteConfig['MengBookPage'].name}  key={RouteConfig['MengBookPage'].name}>
+            <Grid
+              data={Meng}
+              columnNum={coln}
+              isCarousel={false}
+              hasLine={true}
+              onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+            /></Accordion.Panel >)
         /*
     contentlist["五经"] = (
       <Accordion.Panel header={RouteConfig['FiveExtPage'].name} key={RouteConfig['FiveExtPage'].name}>
@@ -309,15 +327,7 @@ class LunarCoursePage extends React.Component {
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
        
-       contentlist["蒙学"] = (
-        <Accordion.Panel header={RouteConfig['AncientMengPage'].name}  key={RouteConfig['AncientMengPage'].name}>
-          <Grid
-            data={Meng}
-            columnNum={coln}
-            isCarousel={false}
-            hasLine={true}
-            onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-          /></Accordion.Panel >)
+
           contentlist["中医"] = (
             <Accordion.Panel header={RouteConfig['AncientMengPage'].name}  key={RouteConfig['AncientMengPage'].name}>
               <Grid

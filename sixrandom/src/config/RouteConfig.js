@@ -136,10 +136,11 @@ RouteConfig={
         "IntroAncientPage":{"name":"小学介绍","titlename":"小学","route":"IntroAncientPage","icon":IconConfig.IconShuoWenIntro},
         "IntroThreePage":{"name":"三玄介绍","titlename":"三玄","route":"IntroThreePage","icon":IconConfig.IconThreeIntro},
         
-        "AncientMengPage":{"name":"蒙学","route":"AncientMengPage","icon":IconConfig.IconLunarCourse},  
-            "AncientBaiJiaXingPage":{"name":"百家姓","route":"","icon":IconConfig.IconLunarCourse},
-            "AncientQianZiWenPage":{"name":"千字文","route":"","icon":IconConfig.IconLunarCourse},
-            "AncientSanZiJingPage":{"name":"三字经","route":"","icon":IconConfig.IconLunarCourse},
+        "MengBookPage":{"name":"蒙学","route":"MengBookPage","icon":IconConfig.IconLunarCourse},  
+            "AncientBaiJiaXingPage":{"name":"百家姓","titlename":"百家姓","route":"MengBookPage","icon":IconConfig.IconLunarCourse},
+            "AncientQianZiWenPage":{"name":"千字文","titlename":"千字文","route":"MengBookPage","icon":IconConfig.IconLunarCourse},
+            "AncientSanZiJingPage":{"name":"三字经","titlename":"三字经","route":"MengBookPage","icon":IconConfig.IconLunarCourse},
+            
         "AncientChineseLiteraturePage":{"name":"小学","route":"LanguagesCoursePage","icon":IconConfig.IconLunarCourse},
             "ShuoWenBookPage":{"name":"说文","titlename":"说文","route":"ShuoWenBookPage","icon":IconConfig.IconShuoWen},
             "ErYaBookPage":{"name":"尔雅","titlename":"尔雅","route":"ErYaBookPage","icon":IconConfig.IconErYa},
