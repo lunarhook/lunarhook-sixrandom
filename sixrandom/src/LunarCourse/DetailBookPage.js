@@ -48,6 +48,11 @@ class DetailBookPage extends React.Component {
       return (<View></View>)
     }
     var constMeng= new Array()
+    var alignTextCenter = false
+    if(undefined!=this.state.dateMeng[0].center && true == this.state.dateMeng[0].center)
+    {
+      alignTextCenter = true
+    }
     for(var key in this.state.dateMeng){
       constMeng[key]=this.state.dateMeng[key]
     }
@@ -160,7 +165,7 @@ class DetailBookPage extends React.Component {
                           keyExtractor={(item, index) => index.toString()}
                           renderItem={(data) => (
                           <View>
-                            <Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15}}>{data.item}</Text>
+                            <Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15,textAlign:alignTextCenter?"center":"auto"}}>{data.item}</Text>
                             <WhiteSpace size="xl" />
                           </View>)}
                           >

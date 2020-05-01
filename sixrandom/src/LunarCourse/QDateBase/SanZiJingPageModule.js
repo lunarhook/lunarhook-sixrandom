@@ -6,7 +6,7 @@ import { AppRegistry, View, Text } from 'react-native';
 var SanZiJingPageModule = new Array()
 SanZiJingPageModule[0] = {
     "index": "三字经",
-    "name": "十句",
+    "name": "三字经·十句",
     "content": [
         "人之初，性本善。性相近，习相远。",
         "苟不教，性乃迁。教之道，贵以专。",
@@ -19,10 +19,11 @@ SanZiJingPageModule[0] = {
         "香九龄，能温席。孝于亲，所当执。",
         "融四岁，能让梨。弟于长，宜先知。",
     ],
+    "center":true,
 }
 SanZiJingPageModule[1] = {
     "index": "三字经",
-    "name": "二十",
+    "name": "三字经·二十",
     "content": [
         "首孝悌，次见闻。知某数，识某文。",
         "一而十，十而百。百而千，千而万。",
@@ -38,7 +39,7 @@ SanZiJingPageModule[1] = {
 }
 SanZiJingPageModule[2] = {
     "index": "三字经",
-    "name": "三十",
+    "name": "三字经·三十",
     "content": [
         "寒燠均，霜露改。右高原，左大海。",
         "曰江河，曰淮济。此四渎，水之纪。",
@@ -54,7 +55,7 @@ SanZiJingPageModule[2] = {
 }
 SanZiJingPageModule[3] = {
     "index": "三字经",
-    "name": "四十",
+    "name": "三字经·四十",
     "content": [
         "曰喜怒，曰哀惧。爱恶欲，七情具。",
 "青赤黄，及黑白。此五色，目所识。",
@@ -70,7 +71,7 @@ SanZiJingPageModule[3] = {
 }
 SanZiJingPageModule[4] = {
     "index": "三字经",
-    "name": "五十",
+    "name": "三字经·五十",
     "content": [
         "此十义，人所同。当师叙，勿违背。",
 "斩齐衰，大小功。至缌麻，五服终。",
@@ -86,7 +87,7 @@ SanZiJingPageModule[4] = {
 }
 SanZiJingPageModule[5] = {
     "index": "三字经",
-    "name": "六十",
+    "name": "三字经·六十",
     "content": [
         "作中庸，子思笔。中不偏，庸不易。",
 "作大学，乃曾子。自修齐，至平治。",
@@ -102,7 +103,7 @@ SanZiJingPageModule[5] = {
 }
 SanZiJingPageModule[6] = {
     "index": "三字经",
-    "name": "七十",
+    "name": "三字经·七十",
     "content": [
         "三传者，有公羊。有左氏，有谷梁。",
 "经既明，方读子。撮其要，记其事。",
@@ -118,7 +119,7 @@ SanZiJingPageModule[6] = {
 }
 SanZiJingPageModule[7] = {
     "index": "三字经",
-    "name": "八十",
+    "name": "三字经·八十",
     "content": [
         "周辙东，王纲坠。逞干戈，尚游说。",
         "始春秋，终战国。五霸强，七雄出。",
@@ -134,7 +135,7 @@ SanZiJingPageModule[7] = {
 }
 SanZiJingPageModule[8] = {
     "index": "三字经",
-    "name": "九十",
+    "name": "三字经·九十",
     "content": [
         "二十传，三百载。梁灭之，国乃改。",
 "梁唐晋，及汉周。称五代，皆有由。",
@@ -150,7 +151,7 @@ SanZiJingPageModule[8] = {
 }
 SanZiJingPageModule[9] = {
     "index": "三字经",
-    "name": "正百",
+    "name": "三字经·正百",
     "content": [
         "道咸间，变乱起。始英法，扰都鄙。",
         "同光后，宣统弱。传九帝，满清殁。",
@@ -166,7 +167,7 @@ SanZiJingPageModule[9] = {
 }
 SanZiJingPageModule[10] = {
     "index": "三字经",
-    "name": "百十",
+    "name": "三字经·百十",
     "content": [
         "披蒲编，削竹简。彼无书，且知勉。",
 "头悬梁，锥刺股。彼不教，自勤苦。",
@@ -182,7 +183,7 @@ SanZiJingPageModule[10] = {
 }
 SanZiJingPageModule[11] = {
     "index": "三字经",
-    "name": "百二十",
+    "name": "三字经·百二十",
     "content": [
         "蔡文姬，能辩琴。谢道韫，能咏吟。",
         "彼女子，且聪敏。尔男子，当自警。",

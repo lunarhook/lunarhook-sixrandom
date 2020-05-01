@@ -53,74 +53,14 @@ class QIndexPage extends React.Component {
     {}
     GetShuoWenQIndex()
     {}
-    GetMengziBookPage()
-    {
-      var MengziBook = new Array()
-      MengziBook = MengziBook.concat(MengziBookPageModule)
-      return MengziBook
-
-    }
-    GetLunyuBookPage()
-    {
-      var LunyuBook = new Array()
-      LunyuBook = LunyuBook.concat(LunyuBookPageModule)
-      return LunyuBook
-
-    }
-    GetUniversBook()
-    {
-      var UniversBook = new Array()
-      UniversBook = UniversBook.concat(UniversBookPageModule)
-      return UniversBook
-
-    }
+    
     GetAllQIndex()
     {
       var AllIndex = new Array()
       AllIndex = AllIndex.concat(ThreePageModule)
       return AllIndex
     }
-    GetZhuangBook(){
-      var ZhuangBook = new Array()
-      ZhuangBook = ZhuangBook.concat(ZhuangBookPageModule)
-      return ZhuangBook;
-    }
-    GetBigBook()
-    {
-      var BigBook = new Array()
-      BigBook = BigBook.concat(BigBookPageModule)
-      return BigBook;
-    }
-    GetOldBook()
-    {
-      var OldBook = new Array()
-      OldBook = OldBook.concat(OldBookPageModule)
-      return OldBook;
-    }
-    GetErYaBook()
-    {
-      var ErYaBook = new Array()
-      ErYaBook = ErYaBook.concat(ErYaBookModule)
-      return ErYaBook;
-    }
-    GetZhongBook()
-    {
-      var ZhongBook = new Array()
-      ZhongBook = ZhongBook.concat(ZhongBookPageModule)
-      return ZhongBook;
-    }
-    GetShuoWenBook()
-    {
-      var ShuoWenBook = new Array()
-      ShuoWenBook = ShuoWenBook.concat(ShuoWenBookPageModule)
-      return ShuoWenBook;
-    }
-    GetShengYunBook()
-    {
-      var ShengYunBook = new Array()
-      ShengYunBook = ShengYunBook.concat(ShengYunBookPageModule)
-      return ShengYunBook;
-    }
+    
     FindArray(text,book)
     {
       var list = new Array()

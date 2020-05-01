@@ -6,7 +6,7 @@ import { AppRegistry, View, Text } from 'react-native';
 var QianZiWenPageModule = new Array()
 QianZiWenPageModule[0] = {
     "index": "千字文",
-    "name": "十句",
+    "name": "千字文·十句",
     "content": [
         "天地玄黄，宇宙洪荒。",
         "日月盈昃，辰宿列张。",
@@ -19,10 +19,11 @@ QianZiWenPageModule[0] = {
         "海咸河淡，鳞潜羽翔。",
         "龙师火帝，鸟官人皇。",
     ],
+    "center":true,
 }
 QianZiWenPageModule[1] = {
     "index": "千字文",
-    "name": "二十",
+    "name": "千字文·二十",
     "content": [
         "始制文字，乃服衣裳。",
         "推位让国，有虞陶唐。",
@@ -38,7 +39,7 @@ QianZiWenPageModule[1] = {
 }
 QianZiWenPageModule[2] = {
     "index": "千字文",
-    "name": "三十",
+    "name": "千字文·三十",
     "content": [
         "女慕贞洁，男效才良。",
         "知过必改，得能莫忘。",
@@ -54,7 +55,7 @@ QianZiWenPageModule[2] = {
 }
 QianZiWenPageModule[3] = {
     "index": "千字文",
-    "name": "四十",
+    "name": "千字文·四十",
     "content": [
         "资父事君，曰严与敬。",
         "孝当竭力，忠则尽命。",
@@ -70,7 +71,7 @@ QianZiWenPageModule[3] = {
 }
 QianZiWenPageModule[4] = {
     "index": "千字文",
-    "name": "五十",
+    "name": "千字文·五十",
     "content": [
         "乐殊贵贱，礼别尊卑。",
         "上和下睦，夫唱妇随。",
@@ -86,7 +87,7 @@ QianZiWenPageModule[4] = {
 }
 QianZiWenPageModule[5] = {
     "index": "千字文",
-    "name": "六十",
+    "name": "千字文·六十",
     "content": [
         "坚持雅操，好爵自縻。",
         "都邑华夏，东西二京。",
@@ -102,7 +103,7 @@ QianZiWenPageModule[5] = {
 }
 QianZiWenPageModule[6] = {
     "index": "千字文",
-    "name": "七十",
+    "name": "千字文·七十",
     "content": [
         "杜稿钟隶，漆书壁经。",
         "府罗将相，路侠槐卿。",
@@ -118,7 +119,7 @@ QianZiWenPageModule[6] = {
 }
 QianZiWenPageModule[7] = {
     "index": "千字文",
-    "name": "八十",
+    "name": "千字文·八十",
     "content": [
         "俊乂密勿，多士实宁。",
         "晋楚更霸，赵魏困横。",
@@ -134,7 +135,7 @@ QianZiWenPageModule[7] = {
 }
 QianZiWenPageModule[8] = {
     "index": "千字文",
-    "name": "九十",
+    "name": "千字文·九十",
     "content": [
         "旷远绵邈，岩岫杳冥。",
         "治本于农，务兹稼穑。",
@@ -150,7 +151,7 @@ QianZiWenPageModule[8] = {
 }
 QianZiWenPageModule[9] = {
     "index": "千字文",
-    "name": "正百",
+    "name": "千字文·正百",
     "content": [
         "两疏见机，解组谁逼。",
         "索居闲处，沉默寂寥。",
@@ -166,7 +167,7 @@ QianZiWenPageModule[9] = {
 }
 QianZiWenPageModule[10] = {
     "index": "千字文",
-    "name": "百十",
+    "name": "千字文·百十",
     "content": [
         "具膳餐饭，适口充肠。",
         "饱饫烹宰，饥厌糟糠。",
@@ -182,7 +183,7 @@ QianZiWenPageModule[10] = {
 }
 QianZiWenPageModule[11] = {
     "index": "千字文",
-    "name": "百二十",
+    "name": "千字文·百二十",
     "content": [
         "笺牒简要，顾答审详。",
         "骸垢想浴，执热愿凉。",
@@ -198,7 +199,7 @@ QianZiWenPageModule[11] = {
 }
 QianZiWenPageModule[12] = {
     "index": "千字文",
-    "name": "末五",
+    "name": "千字文·末五",
     "content": [
         "指薪修祜，永绥吉劭。",
         "矩步引领，俯仰廊庙。",
