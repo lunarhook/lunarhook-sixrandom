@@ -54,7 +54,7 @@ class sloganshow extends React.Component {
         sloganshowArray.push({contect:"\t“观国者观君，观军者观将，观备者观野。”",name:"《管子·霸言》"})
         sloganshowArray.push({contect:"\t“无土而欲富者忧，无德而欲王者危，施薄而求厚者孤。”",name:"《管子·霸言》"})
         sloganshowArray.push({contect:"\t“仁从中出，义从外作”",name:"《管子·戒》"})
-        sloganshowArray.push({contect:"\t“不务天时则财不生，不务地利则仓廪不盈。”",name:"《管子》"})
+        sloganshowArray.push({contect:"\t“不务天时，则财不生，不务地利，则仓廪不盈。”",name:"《管子》"})
         sloganshowArray.push({contect:"\t“不作无补之功，不为无益之事。”",name:"《管子》"})
         sloganshowArray.push({contect:"\t“圣人畏微，而愚者畏明。”",name:"《管子》"})
         sloganshowArray.push({contect:"\t“天下不患无财，患无人以分之。”",name:"《管子》"})
