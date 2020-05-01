@@ -57,6 +57,9 @@ RouteConfig={
                 "taiyiNewPage":{"name":"太乙神数","route":"taiyiNewPage","icon":IconConfig.Icontaiyi},
                 "taiyiMainPage":{"name":"太乙神数","route":"taiyiMainPage","icon":IconConfig.Icontaiyi},
                 "taiyiHistoryPage":{"name":"太乙神数历史","route":"taiyiHistoryPage","icon":IconConfig.IconDetail},
+        "ziweiNewPage":{"name":"紫薇斗数","route":"ziweiNewPage","icon":IconConfig.IconZiWei},
+        "ziweiMainPage":{"name":"紫薇斗数","route":"ziweiMainPage","icon":IconConfig.IconZiWei},
+        "ziweiHistoryPage":{"name":"紫薇历史","route":"ziweiHistoryPage","icon":IconConfig.IconDetail},
         //星座星盘
         "ChangesuniversePage":{"name":"占星星盘","route":"ChangesuniversePage","icon":IconConfig.IconChangesuniverse},
             "StarInfoPage":{"name":"星座知识","route":"StarInfoPage","icon":IconConfig.IconStarInfo},

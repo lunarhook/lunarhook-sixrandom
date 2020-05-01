@@ -71,8 +71,9 @@ import SearchPage from './src/tools/SearchPage'
         import TarotVenusPage from './src/kit/ChangesuniverseLib/TarotLib/TarotVenusPage'
         import TarotStarofDavidPage from './src/kit/ChangesuniverseLib/TarotLib/TarotStarofDavidPage'
         import TarotCeltsPage from './src/kit/ChangesuniverseLib/TarotLib/TarotCeltsPage'
-
-
+  import ziweiHistoryPage from './src/kit/ziwei/ziweiHistoryPage'
+  import ziweiMainPage from './src/kit/ziwei/ziweiMainPage'
+  import ziweiNewPage from './src/kit/ziwei/ziweiNewPage'
 
   import LunarCoursePage from './src/LunarCourse/LunarCoursePage';
   import LunarMasterPage from './src/LunarCourse/LunarMasterPage'
@@ -253,6 +254,9 @@ const  sixrandom= createStackNavigator({
     taiyiNewPage:{screen:taiyiNewPage},
     taiyiHistoryPage:{screen:taiyiHistoryPage},
     taiyiMainPage:{screen:taiyiMainPage},
+    ziweiHistoryPage:{screen:ziweiHistoryPage},
+    ziweiMainPage:{screen:ziweiMainPage},
+    ziweiNewPage:{screen:ziweiNewPage},
     ChangesuniversePage:{screen:ChangesuniversePage},
     StarInfoPage:{screen:StarInfoPage},
     GamblePage:{screen:GamblePage},

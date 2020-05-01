@@ -156,6 +156,7 @@ class IconConfig extends React.Component {
   static IconShuoWen = (<FontAwesome name="language" size={buttonsize} color={green}/>)
   static IconErYa = (<FontAwesome name="language" size={buttonsize} color={blue}/>)
   static IconShengYun = (<FontAwesome name="language" size={buttonsize} color={fire}/>)
+  static IconZiWei = (<FontAwesome5 name="connectdevelop" size={buttonsize} color={orange}/>)  
   //static IconUniversBook= (<MaterialCommunityIcons name="comment-arrow-left" size={buttonsize} color={LightPink}/>)
   //static IconUniversBook= (<FontAwesome5 name="schlix" size={buttonsize} color={black}/>)
   static IconUniversBook= (<FontAwesome name="language" size={buttonsize} color={gold}/>)

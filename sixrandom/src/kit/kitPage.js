@@ -29,7 +29,7 @@ const data = [
   { icon: RouteConfig['SixCourseNewPage'].icon, text: RouteConfig['SixCourseNewPage'].name, url: RouteConfig['SixCourseNewPage'].route },
   { icon: RouteConfig['qimenNewPage'].icon, text: RouteConfig['qimenNewPage'].name, url: RouteConfig['qimenNewPage'].route },
   { icon: RouteConfig['taiyiNewPage'].icon, text: RouteConfig['taiyiNewPage'].name, url: RouteConfig['taiyiNewPage'].route },
-
+  { icon: RouteConfig['ziweiNewPage'].icon, text: RouteConfig['ziweiNewPage'].name, url: RouteConfig['ziweiNewPage'].route },
   { icon: RouteConfig['TrackStarPage'].icon, text: RouteConfig['TrackStarPage'].name, url: RouteConfig['TrackStarPage'].route },
 ]
 const data1 = [
