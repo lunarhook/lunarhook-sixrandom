@@ -3,6 +3,7 @@ package com.plumber;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -105,6 +106,26 @@ public class NativePlumber extends ReactContextBaseJavaModule {
     callback.invoke("","default");
   }
 
+  /**
+   * 使用ReactMethod注解，使这个方法被js调用
+   * @param message 文本
+   * @param duration 时长
+   */
+  @ReactMethod
+  public void PlumberGetAppVersion(Callback callback) {
+      try {
+        Activity r =  this.getCurrentActivity();
+        Context context = r.getApplicationContext();
+        PackageManager pm = context.getPackageManager();
+        PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(), 0);
+        //返回版本号
+        callback.invoke("",packageInfo.packageName,packageInfo.versionCode);
+      } catch (PackageManager.NameNotFoundException e) {
+        e.printStackTrace();
+        callback.invoke(e.getMessage(),"","");
+      }
+
+  }
   /**
    * 使用ReactMethod注解，使这个方法被js调用
    * @param message 文本

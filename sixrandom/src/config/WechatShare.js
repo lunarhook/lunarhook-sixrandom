@@ -1,6 +1,6 @@
 
 import React,{Component} from 'react';
-import {Alert ,Platform,AppRegistry ,View,Image,Text,Linking} from 'react-native';
+import {Alert ,Platform,AppRegistry ,View,Image,Text,Linking,NativeModules} from 'react-native';
 import CameraRoll from "@react-native-community/cameraroll";
 import TabNavigator from 'react-native-tab-navigator';
 import { captureRef } from "react-native-view-shot";
@@ -19,6 +19,7 @@ class WechatError extends Error {
   constructor(resp) {
     const message = resp.errStr || resp.errCode.toString();
     super(message);
+    
     this.name = 'WechatError';
     this.code = resp.errCode;
     if (typeof Object.setPrototypeOf === 'function') {
@@ -26,7 +27,9 @@ class WechatError extends Error {
     } else {
       this.__proto__ = WechatError.prototype;
     }
+
   }
+
 }
 
 class WechatShare extends React.Component {
@@ -34,12 +37,19 @@ class WechatShare extends React.Component {
 
   constructor(props) {
     super(props);
+    this.version = ""
+    this.app = ""
     this.state = {
       apiVersion: 'waiting...',
       isWXAppSupportApi: 'waiting...',
       isWXAppInstalled: 'waiting...',
       init:false,
-		};
+    };
+    var NativePlumber = NativeModules.NativePlumber;
+    NativePlumber.PlumberGetAppVersion((error,appname,appver) => {
+      this.app = appname
+      this.version = appver
+    })
 	
   }
   init() {
@@ -379,7 +389,8 @@ class WechatShare extends React.Component {
         source={{uri: shareimg[keys[0]]}}
         />
         <Text style></Text>
-        <Text style>{appname[keys[0]]}</Text>
+        <Text style>{appname[keys[0]]} {this.version}</Text>
+     
         <Text style></Text>
         <Text style>www.lunarhook.com</Text>
         </View>

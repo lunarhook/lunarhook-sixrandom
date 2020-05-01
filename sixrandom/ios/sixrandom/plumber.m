@@ -42,6 +42,12 @@ RCT_EXPORT_METHOD(PlumberGetChannel:(RCTResponseSenderBlock)callBack){
       NSString *build =@"Ios";
       callBack(@[[NSNull null],build]);
 }
+RCT_EXPORT_METHOD(PlumberGetAppVersion:(RCTResponseSenderBlock)callBack){
+  NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+      NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+  NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+      callBack(@[[NSNull null],app_Name,app_Version]);
+}
 
 
 @end
