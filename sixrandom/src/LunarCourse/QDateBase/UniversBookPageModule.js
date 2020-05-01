@@ -5,7 +5,13 @@ import {six_random_NaJia} from '../../kit/UniversechangesLib/SixrandomLib/Sixran
 
 var UniversBookPageModule = new Array()
 var UniversBookPageModule = new Array()
-UniversBookPageModule[0] = {"icon":"☯️","key":"0","name": "六十四卦序","p":"总序"}
+UniversBookPageModule[0] = {"icon":"☯️","key":"0","name": "六十四卦序","p":"总序","content":[
+    "乾、坤、震、艮、离、坎、兑、巽",
+    "☰、☷、☳、☶、☲、☵、☱、☴",
+    "乾三连，坤六断；震仰盂，艮覆碗。",
+    "离中虚，坎中满；兑上缺，巽下断。",
+
+]}
 var randomindex = 0
 for(var key in six_random_NaJia){
   randomindex = six_random_NaJia[key].key
