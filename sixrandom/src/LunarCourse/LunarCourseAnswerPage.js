@@ -1,15 +1,12 @@
 
 import React, {Component} from 'react';
 import {StyleSheet,View, Text,ScrollView,RefreshControl,FlatList,Dimensions} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
 import { Grid ,WingBlank,WhiteSpace} from '@ant-design/react-native';
 import { Button, Drawer, List } from '@ant-design/react-native';
-import {six_random_NaJia} from '../kit/UniversechangesLib/SixrandomLib/SixrandomModule'
 import IconConfig from '../config/IconConfig';
 import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 import RouteConfig from '../config/RouteConfig'
 import QIndexPage from './QDateBase/QIndexPage'
-import { object, array, element } from 'prop-types';
 
 let LunarCourseAnswerPagethis = null
 class LunarCourseAnswerPage extends React.Component {
