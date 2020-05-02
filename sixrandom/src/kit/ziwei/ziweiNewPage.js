@@ -29,11 +29,13 @@ class ziweiNewPage extends React.Component {
     var curday = new Date();
         super(porp);
         this.state= {
+          switchstate: true,
             datepicker:"",
             switchtype:true,
             datatype:"公历",
             Tip: "",
-            value:curday
+            value:curday,
+            selectedValue: '男',
     }
    
   }
@@ -82,7 +84,15 @@ class ziweiNewPage extends React.Component {
               >
             <List.Item arrow="horizontal">紫薇时间:</List.Item>
             </DatePicker>
-
+            <List.Item
+                extra={
+                  <Switch
+                    checked={this.state.switchstate}
+                    onChange={(value) => this.setState({ switchstate: value, selectedValue: false == value ? "女" : "男" })}
+                  />
+                }
+              >{this.state.selectedValue}
+              </List.Item>
             <List.Item
               extra={
                 <Switch
@@ -152,9 +162,14 @@ class ziweiNewPage extends React.Component {
       var savedate = new Array()
       savedate[0] = index;
       savedate[1] = SixCourseDate.gzYear+SixCourseDate.gzMonth +SixCourseDate.gzDate +SixCourseDate.gzTime;
-      savedate[2] = ""+this.state.Tip
+      if ('男' == this.state.selectedValue) {
+        savedate[2] = '乾造'
+      }
+      else {
+        savedate[2] = '坤造'
+      }
       savedate[3] = myDate
-
+      savedate[4] = ""+this.state.Tip
       var obj = {}
       obj.id = index
       obj.tip = this.state.Tip
@@ -162,6 +177,7 @@ class ziweiNewPage extends React.Component {
       obj.date = myDate
       obj.kind ="ZiWei"
       obj.sync = false 
+      obj.sex = savedate[2] 
       var Jstr = JSON.stringify(obj)
       console.log("convertJsonSave",Jstr);
             
@@ -171,7 +187,7 @@ class ziweiNewPage extends React.Component {
       }
       //await HistoryArrayGroup.saveid(obj.kind ,obj.id,Jstr)
       //HistoryArrayGroup.GetQimenHistory()
-      var parameter = "?qimenDate="+savedate[1] + "&tip=" + savedate[2] + "&Date=" + savedate[3]
+      var parameter = "?ziweiDate="+savedate[1] + "&sex=" + savedate[2] + "&Date=" + savedate[3] + "&tip=" + savedate[4]
       //HistoryArrayGroup.saveid("qimen",index,savedate)
       //StorageModule.save({key:"lastqimen",data:savedate})
       this.props.navigation.navigate('ziweiMainPage',parameter)
