@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {StyleSheet,View, Text,ScrollView,TouchableOpacity,RefreshControl,FlatList,Dimensions} from 'react-native';
 import RouteConfig from '../../config/RouteConfig'
-import ThreePageModule from './ThreePageModule'
+import AllQPageModule from './AllQPageModule'
 import {ErYaBookPageModule,ErYaBookModule} from './ErYaBookPageModule'
 import {ShuoWenBookPageModule} from './ShuoWenBookPageModule'
 import {OldBookPageModule} from './OldBookPageModule'
@@ -57,7 +57,7 @@ class QIndexPage extends React.Component {
     GetAllQIndex()
     {
       var AllIndex = new Array()
-      AllIndex = AllIndex.concat(ThreePageModule)
+      AllIndex = AllIndex.concat(AllQPageModule)
       return AllIndex
     }
     
