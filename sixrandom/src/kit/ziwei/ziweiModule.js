@@ -463,30 +463,30 @@ class ziweiModule extends React.Component {
 		var mlo = "空庙陷空庙陷空庙陷空庙陷";//陀罗
 		var mwc = "地庙陷旺地庙陷利地庙陷利";//文昌
 		var mwq = "地庙平旺地庙陷旺地庙陷旺";//文曲
-		if (g > 40) alert(g + '=' + s);
+		if (g > 40) alert(g + ' ' + s);
 		g = (g - 0 + 12) % 12;
-		if (s == "文曲") { s = s + '=' + mwq[g] + ',' }
-		else if (s == "文昌") { s = s + '=' + mwc[g] + ',' }
-		else if (s == "紫微") { s = s + '=' + mzw[g] + ',' }
-		else if (s == "天机") { s = s + '=' + mtj[g] + ',' }
-		else if (s == "太阳") { s = s + '=' + mya[g] + ',' }
-		else if (s == "武曲") { s = s + '=' + mwu[g] + ',' }
-		else if (s == "天同") { s = s + '=' + mtt[g] + ',' }
-		else if (s == "廉贞") { s = s + '=' + mlz[g] + ',' }
-		else if (s == "天府") { s = s + '=' + mtf[g] + ',' }
-		else if (s == "太阴") { s = s + '=' + myi[g] + ',' }
-		else if (s == "贪狼") { s = s + '=' + mla[g] + ',' }
-		else if (s == "巨门") { s = s + '=' + mju[g] + ',' }
-		else if (s == "天相") { s = s + '=' + mtx[g] + ',' }
-		else if (s == "天梁") { s = s + '=' + mtl[g] + ',' }
-		else if (s == "七杀") { s = s + '=' + mqs[g] + ',' }
-		else if (s == "破军") { s = s + '=' + mpj[g] + ',' }
-		else if (s == "火星") { s = s + '=' + mhx[g] + ',' }
-		else if (s == "铃星") { s = s + '=' + mlx[g] + ',' }
-		else if (s == "擎羊") { s = s + '=' + mqy[g] + ',' }
-		else if (s == "陀罗") { s = s + '=' + mlo[g] + ',' }
-		else if (s == "文昌") { s = s + '=' + mwc[g] + ',' }
-		else if (s == "文曲") { s = s + '=' + mwq[g] + ',' }
+		if (s == "文曲") { s = s + ' ' + mwq[g] + ',' }
+		else if (s == "文昌") { s = s + ' ' + mwc[g] + ',' }
+		else if (s == "紫微") { s = s + ' ' + mzw[g] + ',' }
+		else if (s == "天机") { s = s + ' ' + mtj[g] + ',' }
+		else if (s == "太阳") { s = s + ' ' + mya[g] + ',' }
+		else if (s == "武曲") { s = s + ' ' + mwu[g] + ',' }
+		else if (s == "天同") { s = s + ' ' + mtt[g] + ',' }
+		else if (s == "廉贞") { s = s + ' ' + mlz[g] + ',' }
+		else if (s == "天府") { s = s + ' ' + mtf[g] + ',' }
+		else if (s == "太阴") { s = s + ' ' + myi[g] + ',' }
+		else if (s == "贪狼") { s = s + ' ' + mla[g] + ',' }
+		else if (s == "巨门") { s = s + ' ' + mju[g] + ',' }
+		else if (s == "天相") { s = s + ' ' + mtx[g] + ',' }
+		else if (s == "天梁") { s = s + ' ' + mtl[g] + ',' }
+		else if (s == "七杀") { s = s + ' ' + mqs[g] + ',' }
+		else if (s == "破军") { s = s + ' ' + mpj[g] + ',' }
+		else if (s == "火星") { s = s + ' ' + mhx[g] + ',' }
+		else if (s == "铃星") { s = s + ' ' + mlx[g] + ',' }
+		else if (s == "擎羊") { s = s + ' ' + mqy[g] + ',' }
+		else if (s == "陀罗") { s = s + ' ' + mlo[g] + ',' }
+		else if (s == "文昌") { s = s + ' ' + mwc[g] + ',' }
+		else if (s == "文曲") { s = s + ' ' + mwq[g] + ',' }
 		else if (s == "地空") { s = s + ',' }
 		else if (s == "地劫") { s = s + ',' }
 		var _4hua = this.s4hua.substring(this.gan2i(this.niangz[0]) * 6 + 1, this.gan2i(this.niangz[0]) * 6 + 5);
@@ -507,7 +507,7 @@ class ziweiModule extends React.Component {
 				this._4hua[g] = this._4hua[g] + ',' + s
 			}
 			else {
-				this._4hua[g] = this._4hua[g] + ',' + s + "禄权科忌"[ind]
+				this._4hua[g] = this._4hua[g] + ',' + s.substr(0,s.length-1) +" "+ "禄权科忌"[ind]
 			}
 		}
 
@@ -1199,7 +1199,7 @@ class ziweiModule extends React.Component {
 		this.imonth = EightDate.lunarMonth
 		this.niangz = EightDate.gzYear
 		this.yuegz = EightDate.gzMonth
-		this.sShi = EightDate.gzTime
+		this.sShi = EightDate.gzTime[1]
 		this.sex = sex
 
 

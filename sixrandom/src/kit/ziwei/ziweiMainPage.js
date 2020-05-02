@@ -76,22 +76,22 @@ class ziweiMainPage extends React.Component {
       //this.build(Gstr)
       var ziweRet = ziweiModule.calc(info.Date, info.sex)
       var gong = new Array()
-      gong.push(ziweRet.gong[0])
-      gong.push(ziweRet.gong[1])
-      gong.push(ziweRet.gong[2])
-      gong.push(ziweRet.gong[3])
-      gong.push(ziweRet.gong[11])
+      gong.push(ziweRet.gong[5].split(","))
+      gong.push(ziweRet.gong[6].split(","))
+      gong.push(ziweRet.gong[7].split(","))
+      gong.push(ziweRet.gong[8].split(","))
+      gong.push(ziweRet.gong[4].split(","))
+      gong.push(ziweRet.ju + "\n\t" + ziweRet.zhihua)
+      gong.push(" ")
+      gong.push(ziweRet.gong[9].split(","))
+      gong.push(ziweRet.gong[3].split(","))
       gong.push(" ")
       gong.push(" ")
-      gong.push(ziweRet.gong[4])
-      gong.push(ziweRet.gong[10])
-      gong.push(" ")
-      gong.push(" ")
-      gong.push(ziweRet.gong[5])
-      gong.push(ziweRet.gong[9])
-      gong.push(ziweRet.gong[8])
-      gong.push(ziweRet.gong[7])
-      gong.push(ziweRet.gong[6])
+      gong.push(ziweRet.gong[10].split(","))
+      gong.push(ziweRet.gong[2].split(","))
+      gong.push(ziweRet.gong[1].split(","))
+      gong.push(ziweRet.gong[0].split(","))
+      gong.push(ziweRet.gong[11].split(","))
 
       this.setState({
         zhihua: ziweRet.zhihua,
@@ -127,6 +127,46 @@ class ziweiMainPage extends React.Component {
       <Text>{item.item}</Text>
     );
   }
+  getShensha(str)
+  {
+    var s = str.split(" ")
+    var itemArr = s.map(function (_, i, arr) {
+      return i;
+    }).map((_i, index) => {
+      if (undefined != s[index] && "" != s[index]) {
+        var c= "black"
+        if("权" == s[index]) c = "red"
+        if("禄" == s[index]) c = "green"
+        if("科" == s[index]) c = "blue"
+        if("忌" == s[index]) c = "darkred"
+        return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11, flexDirection: "column", width: 12 ,color:c}}>{s[index]}</Text>)
+      }
+    })
+    return itemArr
+
+  }
+  getColor(king) {
+    if ("甲" == king || "乙" == king || "寅" == king || "卯" == king) {
+      return (<Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'green' }}>{king}</Text>)
+    }
+    if ("丙" == king || "丁" == king || "午" == king || "巳" == king) {
+      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'red' }}>{king}</Text>)
+    }
+    if ("戊" == king || "己" == king || "丑" == king || "未" == king || "辰" == king || "戌" == king) {
+      return (<Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'brown' }}>{king}</Text>)
+    }
+    if ("庚" == king || "辛" == king || "申" == king || "酉" == king) {
+      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'gold' }}>{king}</Text>)
+    }
+    if ("癸" == king || "壬" == king || "子" == king || "亥" == king) {
+      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'blue' }}>{king}</Text>)
+    }
+    if (undefined != king && king.toString().length > 1) {
+      return king
+    }
+
+    return (<Text style={{fontSize: FontStyleConfig.getFontApplySize()}}>{king}</Text>)
+  } 
 
   render() {
     const { navigate } = this.props.navigation;
@@ -141,12 +181,65 @@ class ziweiMainPage extends React.Component {
                 <Grid
                   data={this.state.gong}
                   columnNum={4}
-                  hasLine={true}
+                  hasLine={false}
+                  itemStyle={{ width: (width - 30) / 4, height: (height - 100) / 5 }}
                   renderItem={(el, index) => {
-                    return (
-                      <View style={StyleConfig.container}>
-                        <Text>{el}</Text>
-                      </View>)
+                    var bs = 0.2
+                    var s = 1
+
+                    if (-1 != [5, 6, 9, 10].indexOf(index)) {
+                      bs = 0
+                    }
+                    if (-1 != [5].indexOf(index)) {
+                      s = 2
+                      return (
+                        <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
+                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11 }}>{el}</Text>
+                        </View>)
+                    }
+                    else if (-1 != [6, 9, 10].indexOf(index)) {
+                      s = 0
+                      return (
+                        <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
+                        </View>)
+                    } else {
+                      var ds = new Array()
+                      ds = ds.concat(el)
+                      if ("[身宫]" == el[3]) {
+                        el[3] = el[3] + el[4]
+                        ds = ds.splice(5, ds.length - 2)
+                      }
+                      else {
+                        ds = ds.splice(4, ds.length - 2)
+                      }
+                      delete ds[ds.length - 1]
+                      var itemArr = ds.map(function (_, i, arr) {
+                        return i;
+                      }).map((_i, index) => {
+                        if (undefined != ds[index] && "" != ds[index]) {
+                          return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11, flexDirection: "column", width: 12 }}>{this.getShensha(ds[index])}</Text>)
+                        }
+                      })
+                      return (
+                        <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
+
+                          <View style={{ bottom: -s * (height - 100) / 5 + 30, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11 ,color:"red"}}>{el[2]}</Text>
+                            <Text>{this.getColor(el[1][0])}{this.getColor(el[1][1])}</Text>
+                          </View>
+                          <View style={{ bottom: -s * (height - 100) / 5 + 80, justifyContent: "center", alignItems: 'center', }}>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el[3]}</Text>
+                          </View>
+                          <View style={{ bottom: -s * (height - 100) / 5 + 70, justifyContent: "flex-start", alignItems: 'flex-start', }}>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13 }}>{el[el.length - 1]}</Text>
+                          </View>
+                          <View style={{ top: -55, flexWrap: 'wrap', flexDirection: 'row', justifyContent: "flex-start" }}>
+                            {itemArr}
+
+                          </View>
+                        </View>)
+                    }
+
                   }}
                 />
                 <WhiteSpace size="xl" />
@@ -170,7 +263,7 @@ class ziweiMainPage extends React.Component {
       return (<View></View>)
     }
 
-  
+
   }
 };
 
