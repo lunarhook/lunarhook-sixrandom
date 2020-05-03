@@ -13,15 +13,21 @@ import { StyleConfig, FontStyleConfig } from '../../config/StyleConfig';
 import WechatShare from '../../config/WechatShare'
 import ziweiModule from './ziweiModule'
 import RouteConfig from '../../config/RouteConfig';
+import IconConfig from '../../config/IconConfig'
+import EightrandomModule from '../UniversechangesLib/EightrandomLib/EightrandomModule'
+import { SixrandomModule } from '../UniversechangesLib/SixrandomLib/SixrandomModule'
 const { width, height } = Dimensions.get('window');
 
+let ziweiMainPagethis = null
 class ziweiMainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sanchuanarray: "",
-      Gstr: "",
+      curluckyearnum: 0,
+      curminiluckyearnum: 0,
+      beginlucky: 0,
     };
+    ziweiMainPagethis = this
   };
 
   componentDidMount() {
@@ -71,6 +77,42 @@ class ziweiMainPage extends React.Component {
       info = args
       //this.build(Gstr)
       var ziweRet = ziweiModule.calc(info.Date, info.sex)
+      var luckyyear = new Array();
+      luckyyear = EightrandomModule.getbigluckyear(info.ziweiDate, info.sex);
+      var luckyearrelation = new Array();
+      var luckyyearposition = new Array();
+      for (var i in luckyyear) {
+
+        var rel = luckyyear[i].slice(0, 1);
+        //console.log("luckyyear",rel, luckyyear[i]);
+        rel = EightrandomModule.parentday(rel, info.ziweiDate[4])
+        //console.log(rel);
+        luckyearrelation.push(rel);
+        luckyyearposition.push(EightrandomModule.gettwelfthposition(info.ziweiDate[4] + luckyyear[i].slice(1, 2)))
+      }
+      var buildeight = new Array()
+      buildeight[0] = EightrandomModule.parentday(info.ziweiDate[0], info.ziweiDate[4])
+      buildeight[2] = EightrandomModule.parentday(info.ziweiDate[2], info.ziweiDate[4])
+      buildeight[4] = "元"//this.parentday(info.ziweiDate[4],info.ziweiDate[4])
+      buildeight[6] = EightrandomModule.parentday(info.ziweiDate[6], info.ziweiDate[4])
+      buildeight[1] = EightrandomModule.parentearth(info.ziweiDate[1], info.ziweiDate[4])
+      buildeight[3] = EightrandomModule.parentearth(info.ziweiDate[3], info.ziweiDate[4])
+      buildeight[5] = EightrandomModule.parentearth(info.ziweiDate[5], info.ziweiDate[4])
+      buildeight[7] = EightrandomModule.parentearth(info.ziweiDate[7], info.ziweiDate[4])
+      var buildeightExt = new Array()
+      buildeightExt[0] = EightrandomModule.gethide(info.ziweiDate[1]);
+      buildeightExt[2] = EightrandomModule.gethide(info.ziweiDate[3]);
+      buildeightExt[4] = EightrandomModule.gethide(info.ziweiDate[5]);
+      buildeightExt[6] = EightrandomModule.gethide(info.ziweiDate[7]);
+      buildeightExt[1] = EightrandomModule.gethideshishen(buildeightExt[0], info.ziweiDate[4]);
+      buildeightExt[3] = EightrandomModule.gethideshishen(buildeightExt[2], info.ziweiDate[4]);
+      buildeightExt[5] = EightrandomModule.gethideshishen(buildeightExt[4], info.ziweiDate[4]);
+      buildeightExt[7] = EightrandomModule.gethideshishen(buildeightExt[6], info.ziweiDate[4]);
+      var precent = new Array();
+      var daykey = new Array();
+      var o = EightrandomModule.getfive(info.ziweiDate)
+      precent = o.q
+      daykey = o.p
       var gong = new Array()
       gong.push(ziweRet.gong[5].split(","))
       gong.push(ziweRet.gong[6].split(","))
@@ -89,13 +131,29 @@ class ziweiMainPage extends React.Component {
       gong.push(ziweRet.gong[0].split(","))
       gong.push(ziweRet.gong[11].split(","))
 
+      var t = info.birth.split(" ");
+      var gz = new Date(t[0]);
+      var retterm = EightrandomModule.getYearTerm(gz.getFullYear())
+      var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.ziweiDate, info.sex);
+
       this.setState({
+        EightDate: info.ziweiDate,
         zhihua: ziweRet.zhihua,
         gong: gong,
         ju: ziweRet.ju,
         geju: ziweRet.geju,
-        gejudetail: ziweRet.gejudetail
+        gejudetail: ziweRet.gejudetail,
+        luckyyear: luckyyear,
+        luckyearrelation: luckyearrelation,
+        luckyyearposition: luckyyearposition,
+        buildeight: buildeight,
+        buildeightExt: buildeightExt,
+        daykey: daykey,
+        beginlucky: beginlucky,
+
+
       })
+      this.changeyear("", (new Date()).getFullYear())
     }
     else {
       StorageModule.load({
@@ -120,51 +178,121 @@ class ziweiMainPage extends React.Component {
       <Text>{item.item}</Text>
     );
   }
-  getShensha(str)
-  {
+  getShensha(str) {
     var s = str.split(" ")
     var itemArr = s.map(function (_, i, arr) {
       return i;
     }).map((_i, index) => {
       if (undefined != s[index] && "" != s[index]) {
-        var c= "black"
-        if("权" == s[index]) c = "red"
-        if("禄" == s[index]) c = "green"
-        if("科" == s[index]) c = "blue"
-        if("忌" == s[index]) c = "darkred"
-        return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11, flexDirection: "column", width: 12 ,color:c}}>{s[index]}</Text>)
+        var c = "black"
+        if ("权" == s[index]) c = "red"
+        if ("禄" == s[index]) c = "green"
+        if ("科" == s[index]) c = "blue"
+        if ("忌" == s[index]) c = "darkred"
+        return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, flexDirection: "column", width: 16, color: c }}>{s[index]}</Text>)
       }
     })
     return itemArr
 
   }
+  checksub(hide) {
+    if (undefined != hide) {
+      return (
+        <View style={styles.gridfix}>
+          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{hide}</Text>
+        </View>
+      )
+    }
+  }
   getColor(king) {
     if ("甲" == king || "乙" == king || "寅" == king || "卯" == king) {
-      return (<Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'green' }}>{king}</Text>)
+      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13, color: 'green' }}>{king}</Text>)
     }
     if ("丙" == king || "丁" == king || "午" == king || "巳" == king) {
-      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'red' }}>{king}</Text>)
+      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13, color: 'red' }}>{king}</Text>)
     }
     if ("戊" == king || "己" == king || "丑" == king || "未" == king || "辰" == king || "戌" == king) {
-      return (<Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'brown' }}>{king}</Text>)
+      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13, color: 'brown' }}>{king}</Text>)
     }
     if ("庚" == king || "辛" == king || "申" == king || "酉" == king) {
-      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'gold' }}>{king}</Text>)
+      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13, color: 'gold' }}>{king}</Text>)
     }
     if ("癸" == king || "壬" == king || "子" == king || "亥" == king) {
-      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,color: 'blue' }}>{king}</Text>)
+      return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13, color: 'blue' }}>{king}</Text>)
     }
     if (undefined != king && king.toString().length > 1) {
       return king
     }
 
-    return (<Text style={{fontSize: FontStyleConfig.getFontApplySize()}}>{king}</Text>)
-  } 
+    return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() }}>{king}</Text>)
+  }
+  changeyear(bigyear, miniyear) {
+    var by = 0
+    var my = new Date()
+    my = my.getFullYear()
+    if ("" !== bigyear) {
+      //console.log("changeyearbig",bigyear,miniyear)
+      by = Number(bigyear)
+      my = Math.floor(Number(by * 10 + this.state.beginlucky))
+      this.setState({ curluckyearnum: by, curminiluckyearnum: my })
 
+    }
+    else if ("" !== miniyear) {
+      //console.log("changeyearmini",bigyear,miniyear)
+      my = Number(miniyear)
+      if (my >= this.state.beginlucky) {
+        by = Math.floor((my - this.state.beginlucky) / 10)
+      }
+
+      this.setState({ curluckyearnum: by, curminiluckyearnum: my })
+    }
+    //console.log("changeyear",bigyear,miniyear,by,my,this.state.beginlucky)
+  }
+  renderminyearItem(item) {
+
+    var year = item.split(" ");
+    var yearcolor = IconConfig.colororange
+    if (year[1] == this.state.curminiluckyearnum) {
+      yearcolor = IconConfig.colorblue
+    }
+    //console.log("color",yearcolor,year[1],this.state.curminiluckyearnum)
+    return (
+      <View style={[styles.gridmid]}>
+        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12, color: yearcolor }}>{year[0]}</Text>
+        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12, color: yearcolor }}>{year[1]}</Text>
+      </View>
+
+    );
+  }
+  testselectyear(item, curluckyear) {
+    var yearcolor = IconConfig.colorred
+    if (this.state.curluckyearnum == curluckyear) {
+      yearcolor = IconConfig.colorgreen
+    }
+    //console.log("testselectyear",item,curluckyear,yearcolor)
+    return (
+      <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12, color: yearcolor }}>{item}</Text>
+    )
+  }
   render() {
     const { navigate } = this.props.navigation;
 
+
+
     if (undefined != this.state.gong) {
+      var eightyear = SixrandomModule.lunar_f(new Date())
+      var years = new Array()
+      years = this.state.luckyearrelation.concat(this.state.luckyyear, this.state.luckyyearposition)
+      var minluckyyear = new Array()
+      var birthdayyear = new Date()
+
+      birthdayyear.setYear(eightyear.Year)
+      birthdayyear.setMonth(eightyear.Month)
+      birthdayyear = SixrandomModule.lunar_f(birthdayyear)
+      birthdayyear = birthdayyear.gzYear + birthdayyear.gzMonth + birthdayyear.gzDate + birthdayyear.gzTime;
+      minluckyyear = EightrandomModule.getminlucky(birthdayyear, this.state.sex, eightyear.Year);
+
+
       return (
         <View style={StyleConfig.container} >
           <ScrollView ref="location" style={{ backgroundColor: '#ffffff' }}>
@@ -177,17 +305,85 @@ class ziweiMainPage extends React.Component {
                   hasLine={false}
                   itemStyle={{ width: (width - 30) / 4, height: (height - 100) / 5 }}
                   renderItem={(el, index) => {
-                    var bs = 0.2
+                    var bs = 0.5
                     var s = 1
 
                     if (-1 != [5, 6, 9, 10].indexOf(index)) {
                       bs = 0
                     }
                     if (-1 != [5].indexOf(index)) {
+                      var test = new Array()
+
+                      var gzYear = eightyear.gzYear
+                      var curluckyear = ziweiMainPagethis.state.luckyyear[ziweiMainPagethis.state.curluckyearnum]
+                      test.push({ info: "时辰", hide: '' })
+                      test.push({ info: "运", hide: '' })
+                      test.push({ info: "流", hide: '' })
+                      test.push({ info: "年", hide: '' })
+                      test.push({ info: "月", hide: '' })
+                      test.push({ info: "日", hide: '' })
+                      test.push({ info: "时", hide: '' })
+
+                      test.push({ info: "十神", hide: '' })
+                      //console.log(gzYear[0],this.state.EightDate[4])
+                      test.push({ info: EightrandomModule.parentday(curluckyear[0], this.state.EightDate[4]), hide: '' })
+                      test.push({ info: EightrandomModule.parentday(gzYear[0], this.state.EightDate[4]), hide: '' })
+                      for (var i = 0; i < 4; i++) {
+                        test.push({ info: this.state.buildeight[i * 2], hide: '' })
+                      }
+
+                      test.push({ info: "天干", hide: '' })
+                      test.push({ info: curluckyear[0], hide: '' })
+                      test.push({ info: gzYear[0], hide: '' })
+                      for (var i = 0; i < 4; i++) {
+                        test.push({ info: this.state.EightDate[i * 2], hide: '' })
+                      }
+
+                      test.push({ info: "地支", hide: '藏干' })
+                      test.push({ info: curluckyear[1], hide: EightrandomModule.gethide(curluckyear[1]) })
+                      test.push({ info: gzYear[1], hide: EightrandomModule.gethide(gzYear[1]) })
+                      for (var i = 0; i < 4; i++) {
+                        test.push({ info: this.state.EightDate[i * 2 + 1], hide: this.state.buildeightExt[i * 2] })
+                      }
+
+                      test.push({ info: "十神", hide: '副星' })
+                      test.push({ info: EightrandomModule.parentearth(curluckyear[1], this.state.EightDate[4]), hide: EightrandomModule.gethideshishen(EightrandomModule.gethide(curluckyear[1]), this.state.EightDate[4]) })
+                      test.push({ info: EightrandomModule.parentearth(gzYear[1], this.state.EightDate[4]), hide: EightrandomModule.gethideshishen(EightrandomModule.gethide(gzYear[1]), this.state.EightDate[4]) })
+
+                      for (var i = 0; i < 4; i++) {
+                        test.push({ info: this.state.buildeight[i * 2 + 1], hide: this.state.buildeightExt[i * 2 + 1] })
+                      }
+
+                      test.push({ info: "长生", hide: '' })
+                      test.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDate[4] + curluckyear[1]), hide: '' })
+                      test.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDate[4] + gzYear[1]), hide: '' })
+                      for (var i = 0; i < 4; i++) {
+                        var x = EightrandomModule.gettwelfthposition(this.state.EightDate[4] + this.state.EightDate[i * 2 + 1])
+                        test.push({ info: x, hide: "" })
+                      }
+
+
                       s = 2
                       return (
                         <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
-                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11 }}>{el}</Text>
+                          <WhiteSpace size="xl" />
+                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{this.state.ju}</Text>
+                          <WhiteSpace size="xl" />
+                          <Grid
+                            data={test}
+                            columnNum={7}
+                            hasLine={true}
+                            itemStyle={{ height: 20 }}
+                            renderItem={dataItem => (
+                              <View style={styles.container}>
+                                <View style={styles.gridmid}>
+                                  <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{this.getColor(dataItem.info)}</Text>
+                                </View>
+                              </View>
+                            )}
+                          />
+                          <WhiteSpace size="xl" />
+
                         </View>)
                     }
                     else if (-1 != [6, 9, 10].indexOf(index)) {
@@ -198,12 +394,11 @@ class ziweiMainPage extends React.Component {
                     } else {
                       var ds = new Array()
                       ds = ds.concat(el)
-                      var shengong = ""
+                      var shengong = " "
                       if ("[身宫]" == el[3]) {
-                        shengong = el[3]
-                        el[3] = el[4]
+                        shengong = shengong.concat(el[3])
                         ds = ds.splice(5, ds.length - 2)
-                       
+
                       }
                       else {
                         ds = ds.splice(4, ds.length - 2)
@@ -213,24 +408,24 @@ class ziweiMainPage extends React.Component {
                         return i;
                       }).map((_i, index) => {
                         if (undefined != ds[index] && "" != ds[index]) {
-                          return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11, flexDirection: "column", width: 12 }}>{this.getShensha(ds[index])}</Text>)
+                          return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, flexDirection: "column", width: 16 }}>{this.getShensha(ds[index])}</Text>)
                         }
                       })
                       return (
                         <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
 
                           <View style={{ bottom: -s * (height - 100) / 5 + 30, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
-                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11 ,color:"red"}}>{el[2]}</Text>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12, color: "red" }}>{el[2]}</Text>
                             <Text>{this.getColor(el[1][0])}{this.getColor(el[1][1])}</Text>
                           </View>
                           <View style={{ bottom: -s * (height - 100) / 5 + 100, justifyContent: "center", alignItems: 'center', }}>
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{shengong}</Text>
-                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el[3]}</Text>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el[" " != shengong ? 4 : 3]}</Text>
                           </View>
                           <View style={{ bottom: -s * (height - 100) / 5 + 80, justifyContent: "flex-start", alignItems: 'flex-start', }}>
-                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13 }}>{el[el.length - 1]}</Text>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el[el.length - 1]}</Text>
                           </View>
-                          <View style={{ top: -70, flexWrap: 'wrap', flexDirection: 'row', justifyContent: "flex-start" }}>
+                          <View style={{ top: -75, flexWrap: 'wrap', flexDirection: 'row', justifyContent: "flex-start" }}>
                             {itemArr}
 
                           </View>
@@ -240,6 +435,41 @@ class ziweiMainPage extends React.Component {
                   }}
                 />
                 <WhiteSpace size="xl" />
+                <Grid
+                  data={years}
+                  columnNum={8}
+                  hasLine={true}
+                  itemStyle={{ height: 25 }}
+                  //当选择大运的时候，相当于选择了流年小运
+                  onPress={(_el: any, index: any) => this.changeyear(Number(index % 8), "")}
+                  renderItem={(dataItem, itemIndex) => (
+                    <View style={styles.container}>
+                      <View style={styles.gridmid}>
+                        {this.testselectyear(dataItem, itemIndex % 8)}
+                      </View>
+                    </View>
+                  )}
+                />
+                <WhiteSpace size="xl" />
+                <Grid
+                  data={minluckyyear}
+                  columnNum={6}
+                  hasLine={true}
+                  itemStyle={{ height: 35 }}
+                  isCarousel={true}
+                  carouselMaxRow={4}
+                  //当选择大运的时候，相当于选择了流年小运
+                  onPress={(_el: any, index: any) => this.changeyear("", Number(_el.split(" ")[1]))}
+                  renderItem={dataItem => this.renderminyearItem(dataItem)}
+                //isCarousel
+                //onClick={()}
+                />
+                <WhiteSpace size="xl" />
+                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{this.state.zhihua}</Text>
+                <WhiteSpace size="xl" />
+                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{this.state.geju}</Text>
+                <WhiteSpace size="xl" />
+                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{this.state.gejudetail}</Text>
                 <WhiteSpace size="xl" />
                 {
                   (WechatShare.shareimg(this.state.shareimg))
@@ -279,6 +509,13 @@ var styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     textAlignVertical: "top",
+  },
+  gridmid: {
+    //flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlignVertical: "center",
+    //alignItems: 'center',
   },
 });
 module.exports = ziweiMainPage;  

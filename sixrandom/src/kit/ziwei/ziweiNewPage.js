@@ -170,6 +170,8 @@ class ziweiNewPage extends React.Component {
       }
       savedate[3] = myDate
       savedate[4] = ""+this.state.Tip
+      savedate[5] = myDate.getFullYear() + "/" + (myDate.getMonth() + 1) + "/" + myDate.getDate() + " " + myDate.getHours() + " " + myDate.getMinutes() + " " + myDate.getSeconds();
+    
       var obj = {}
       obj.id = index
       obj.tip = this.state.Tip
@@ -178,6 +180,7 @@ class ziweiNewPage extends React.Component {
       obj.kind ="ZiWei"
       obj.sync = false 
       obj.sex = savedate[2] 
+      obj.birth = savedate[5]
       var Jstr = JSON.stringify(obj)
       console.log("convertJsonSave",Jstr);
             
@@ -187,7 +190,7 @@ class ziweiNewPage extends React.Component {
       }
       //await HistoryArrayGroup.saveid(obj.kind ,obj.id,Jstr)
       //HistoryArrayGroup.GetQimenHistory()
-      var parameter = "?ziweiDate="+savedate[1] + "&sex=" + savedate[2] + "&Date=" + savedate[3] + "&tip=" + savedate[4]
+      var parameter = "?ziweiDate="+savedate[1] + "&sex=" + savedate[2] + "&Date=" + savedate[3] + "&tip=" + savedate[4] + "&birth=" + savedate[5]
       //HistoryArrayGroup.saveid("qimen",index,savedate)
       //StorageModule.save({key:"lastqimen",data:savedate})
       this.props.navigation.navigate('ziweiMainPage',parameter)
