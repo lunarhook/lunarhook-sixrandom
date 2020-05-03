@@ -184,7 +184,7 @@ class ziweiNewPage extends React.Component {
   
       //await HistoryArrayGroup.saveid(obj.kind ,obj.id,Jstr)
       //HistoryArrayGroup.GetQimenHistory()
-      var parameter = "?EightDate="+savedate[1] + "&sex=" + savedate[2] + "&Date=" + savedate[3] + "&birth=" + savedate[5]
+      var parameter = "?EightDate="+savedate[1] + "&sex=" + savedate[2] + "&Date=" + savedate[0] + "&birth=" + savedate[5]
       await HistoryArrayGroup.saveid(obj.kind, obj.id, Jstr)
       //await HistoryArrayGroup.saveid("name",index,savedate)
       //await HistoryArrayGroup.save("lastname",savedate)

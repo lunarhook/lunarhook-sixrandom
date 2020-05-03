@@ -12,6 +12,10 @@ class ziweiModule extends React.Component {
 		this.sJian = "廉破武阳机梁紫阴同昌巨贪弼曲左";
 		this.sFull = "廉贞破军武曲太阳天机天梁紫微太阴天同文昌巨门贪狼右弼文曲左辅";
 
+		this.init()
+	}
+	init()
+	{
 		this.niangz = undefined
 		this.yuegz = undefined
 		this.sShi = undefined
@@ -416,13 +420,13 @@ class ziweiModule extends React.Component {
 		return  str 
 	}
 	setgoodgeju(geju, des) {
-		this.geju = this.geju + geju
-		this.gejudetail = this.gejudetail + des;
+		this.geju = this.geju + geju + " "
+		this.gejudetail = this.gejudetail + " "+ des + " ";
 		//alert(des);
 	}
 	setbadgeju(geju, des) {
-		this.geju = this.geju + this.badstr(geju);
-		this.gejudetail = this.gejudetail+ des;
+		this.geju = this.geju + this.badstr(geju) + " ";
+		this.gejudetail = this.gejudetail+ " "+ des + " ";
 		//alert(des);
 	}
 	isEmpty(obj) {
@@ -1193,6 +1197,7 @@ class ziweiModule extends React.Component {
 
 	}
 	calc(myDate, sex) {
+		this.init()
 		var i, j;
 		var EightDate = SixrandomModule.lunar_f(myDate)
 		this.iday = EightDate.lunarDate

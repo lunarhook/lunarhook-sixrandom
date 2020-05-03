@@ -618,7 +618,7 @@ class HistoryArrayGroup extends React.Component {
 							star: savedate[5],
 							birth: birthdate.toLocaleString(),
 							time: date.toLocaleDateString(),
-							url: "?EightDate=" + savedate[1] + "&sex=" + savedate[2] + "&birth=" + savedate[4],
+							url: "?EightDate=" + savedate[1] + "&sex=" + savedate[2] + "&birth=" + savedate[4] + "&Date=" + savedate[0],
 							id: savedate[0]
 						}
 						EightRandomHistoryNameArray[i] = obj

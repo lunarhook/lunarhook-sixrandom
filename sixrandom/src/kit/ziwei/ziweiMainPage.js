@@ -76,7 +76,7 @@ class ziweiMainPage extends React.Component {
       }
       info = args
       //this.build(Gstr)
-      var ziweRet = ziweiModule.calc(info.Date, info.sex)
+      var ziweRet = ziweiModule.calc(info.data, info.sex)
       var luckyyear = new Array();
       luckyyear = EightrandomModule.getbigluckyear(info.EightDate, info.sex);
       var luckyearrelation = new Array();
