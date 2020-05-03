@@ -78,39 +78,39 @@ class ziweiMainPage extends React.Component {
       //this.build(Gstr)
       var ziweRet = ziweiModule.calc(info.Date, info.sex)
       var luckyyear = new Array();
-      luckyyear = EightrandomModule.getbigluckyear(info.ziweiDate, info.sex);
+      luckyyear = EightrandomModule.getbigluckyear(info.EightDate, info.sex);
       var luckyearrelation = new Array();
       var luckyyearposition = new Array();
       for (var i in luckyyear) {
 
         var rel = luckyyear[i].slice(0, 1);
         //console.log("luckyyear",rel, luckyyear[i]);
-        rel = EightrandomModule.parentday(rel, info.ziweiDate[4])
+        rel = EightrandomModule.parentday(rel, info.EightDate[4])
         //console.log(rel);
         luckyearrelation.push(rel);
-        luckyyearposition.push(EightrandomModule.gettwelfthposition(info.ziweiDate[4] + luckyyear[i].slice(1, 2)))
+        luckyyearposition.push(EightrandomModule.gettwelfthposition(info.EightDate[4] + luckyyear[i].slice(1, 2)))
       }
       var buildeight = new Array()
-      buildeight[0] = EightrandomModule.parentday(info.ziweiDate[0], info.ziweiDate[4])
-      buildeight[2] = EightrandomModule.parentday(info.ziweiDate[2], info.ziweiDate[4])
-      buildeight[4] = "元"//this.parentday(info.ziweiDate[4],info.ziweiDate[4])
-      buildeight[6] = EightrandomModule.parentday(info.ziweiDate[6], info.ziweiDate[4])
-      buildeight[1] = EightrandomModule.parentearth(info.ziweiDate[1], info.ziweiDate[4])
-      buildeight[3] = EightrandomModule.parentearth(info.ziweiDate[3], info.ziweiDate[4])
-      buildeight[5] = EightrandomModule.parentearth(info.ziweiDate[5], info.ziweiDate[4])
-      buildeight[7] = EightrandomModule.parentearth(info.ziweiDate[7], info.ziweiDate[4])
+      buildeight[0] = EightrandomModule.parentday(info.EightDate[0], info.EightDate[4])
+      buildeight[2] = EightrandomModule.parentday(info.EightDate[2], info.EightDate[4])
+      buildeight[4] = "元"//this.parentday(info.EightDate[4],info.EightDate[4])
+      buildeight[6] = EightrandomModule.parentday(info.EightDate[6], info.EightDate[4])
+      buildeight[1] = EightrandomModule.parentearth(info.EightDate[1], info.EightDate[4])
+      buildeight[3] = EightrandomModule.parentearth(info.EightDate[3], info.EightDate[4])
+      buildeight[5] = EightrandomModule.parentearth(info.EightDate[5], info.EightDate[4])
+      buildeight[7] = EightrandomModule.parentearth(info.EightDate[7], info.EightDate[4])
       var buildeightExt = new Array()
-      buildeightExt[0] = EightrandomModule.gethide(info.ziweiDate[1]);
-      buildeightExt[2] = EightrandomModule.gethide(info.ziweiDate[3]);
-      buildeightExt[4] = EightrandomModule.gethide(info.ziweiDate[5]);
-      buildeightExt[6] = EightrandomModule.gethide(info.ziweiDate[7]);
-      buildeightExt[1] = EightrandomModule.gethideshishen(buildeightExt[0], info.ziweiDate[4]);
-      buildeightExt[3] = EightrandomModule.gethideshishen(buildeightExt[2], info.ziweiDate[4]);
-      buildeightExt[5] = EightrandomModule.gethideshishen(buildeightExt[4], info.ziweiDate[4]);
-      buildeightExt[7] = EightrandomModule.gethideshishen(buildeightExt[6], info.ziweiDate[4]);
+      buildeightExt[0] = EightrandomModule.gethide(info.EightDate[1]);
+      buildeightExt[2] = EightrandomModule.gethide(info.EightDate[3]);
+      buildeightExt[4] = EightrandomModule.gethide(info.EightDate[5]);
+      buildeightExt[6] = EightrandomModule.gethide(info.EightDate[7]);
+      buildeightExt[1] = EightrandomModule.gethideshishen(buildeightExt[0], info.EightDate[4]);
+      buildeightExt[3] = EightrandomModule.gethideshishen(buildeightExt[2], info.EightDate[4]);
+      buildeightExt[5] = EightrandomModule.gethideshishen(buildeightExt[4], info.EightDate[4]);
+      buildeightExt[7] = EightrandomModule.gethideshishen(buildeightExt[6], info.EightDate[4]);
       var precent = new Array();
       var daykey = new Array();
-      var o = EightrandomModule.getfive(info.ziweiDate)
+      var o = EightrandomModule.getfive(info.EightDate)
       precent = o.q
       daykey = o.p
       var gong = new Array()
@@ -135,10 +135,10 @@ class ziweiMainPage extends React.Component {
       var gz = new Date(t[0]);
       var EightDate = SixrandomModule.lunar_f(gz)
       var retterm = EightrandomModule.getYearTerm(gz.getFullYear())
-      var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.ziweiDate, info.sex);
+      var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.EightDate, info.sex);
 
       this.setState({
-        EightDate: info.ziweiDate,
+        EightDate: info.EightDate,
         zhihua: ziweRet.zhihua,
         gong: gong,
         ju: ziweRet.ju,

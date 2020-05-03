@@ -14,14 +14,6 @@ import RouteConfig from '../../config/RouteConfig';
 import ScreenConfig from '../../config/ScreenConfig';
 import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
 
-const dataitem = [
-  [
-    {label: "自动",value: 0,},
-    {label: "昼",value: 1},
-    {label: "夜",value: 2,},
-
-  ],
-];
 
 class ziweiNewPage extends React.Component {
 
@@ -82,7 +74,7 @@ class ziweiNewPage extends React.Component {
                 onChange={this.onChange}
                 format="YYYY-MM-DD-HH"
               >
-            <List.Item arrow="horizontal">紫薇时间:</List.Item>
+            <List.Item arrow="horizontal">紫薇生辰:</List.Item>
             </DatePicker>
             <List.Item
                 extra={
@@ -174,25 +166,29 @@ class ziweiNewPage extends React.Component {
     
       var obj = {}
       obj.id = index
+      obj.ret = savedate[1]
       obj.tip = this.state.Tip
-      obj.star = false
-      obj.date = myDate
-      obj.kind ="ZiWei"
-      obj.sync = false 
       obj.sex = savedate[2] 
+      obj.star = false
+      obj.date = savedate[0]
       obj.birth = savedate[5]
+      obj.kind ="eightrandom"
+      obj.sync = false 
       var Jstr = JSON.stringify(obj)
       console.log("convertJsonSave",Jstr);
             
-      let T = await UserModule.SyncFileServer(obj.kind,obj.id,Jstr)
-      if(undefined!=T && 2000==T.code ){
-          Jstr = HistoryArrayGroup.MakeJsonSync(Jstr)
+      let T = await UserModule.SyncFileServer(obj.kind, obj.id, Jstr)
+      if (undefined != T && 2000 == T.code) {
+        Jstr = HistoryArrayGroup.MakeJsonSync(Jstr)
       }
+  
       //await HistoryArrayGroup.saveid(obj.kind ,obj.id,Jstr)
       //HistoryArrayGroup.GetQimenHistory()
-      var parameter = "?ziweiDate="+savedate[1] + "&sex=" + savedate[2] + "&Date=" + savedate[3] + "&birth=" + savedate[5]
-      //HistoryArrayGroup.saveid("qimen",index,savedate)
-      //StorageModule.save({key:"lastqimen",data:savedate})
+      var parameter = "?EightDate="+savedate[1] + "&sex=" + savedate[2] + "&Date=" + savedate[3] + "&birth=" + savedate[5]
+      await HistoryArrayGroup.saveid(obj.kind, obj.id, Jstr)
+      //await HistoryArrayGroup.saveid("name",index,savedate)
+      //await HistoryArrayGroup.save("lastname",savedate)
+      HistoryArrayGroup.GetEightRandomHistory()
       this.props.navigation.navigate('ziweiMainPage',parameter)
     }
 }
