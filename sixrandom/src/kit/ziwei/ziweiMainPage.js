@@ -156,20 +156,7 @@ class ziweiMainPage extends React.Component {
       this.changeyear("", (new Date()).getFullYear())
     }
     else {
-      StorageModule.load({
-        key: "lastziwei",
-      }).then(ret => {
-        var ziweRet = ziweiModule.calc(ret.Date, ret.sex)
-        this.setState({
-          zhihua: ziweRet.zhihua,
-          gong: ziweRet.gong,
-          ju: ziweRet.ju,
-          geju: ziweRet.geju,
-          gejudetail: ziweRet.gejudetail
-        })
-      }).catch(err => {
         this.props.navigation.goBack()
-      })
     }
   }
   keyExtractor = (item, index) => index.toString()

@@ -190,7 +190,7 @@ class ziweiNewPage extends React.Component {
       }
       //await HistoryArrayGroup.saveid(obj.kind ,obj.id,Jstr)
       //HistoryArrayGroup.GetQimenHistory()
-      var parameter = "?ziweiDate="+savedate[1] + "&sex=" + savedate[2] + "&Date=" + savedate[3] + "&tip=" + savedate[4] + "&birth=" + savedate[5]
+      var parameter = "?ziweiDate="+savedate[1] + "&sex=" + savedate[2] + "&Date=" + savedate[3] + "&birth=" + savedate[5]
       //HistoryArrayGroup.saveid("qimen",index,savedate)
       //StorageModule.save({key:"lastqimen",data:savedate})
       this.props.navigation.navigate('ziweiMainPage',parameter)
