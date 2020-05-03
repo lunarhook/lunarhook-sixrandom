@@ -133,6 +133,7 @@ class ziweiMainPage extends React.Component {
 
       var t = info.birth.split(" ");
       var gz = new Date(t[0]);
+      var EightDate = SixrandomModule.lunar_f(gz)
       var retterm = EightrandomModule.getYearTerm(gz.getFullYear())
       var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.ziweiDate, info.sex);
 
@@ -150,13 +151,14 @@ class ziweiMainPage extends React.Component {
         buildeightExt: buildeightExt,
         daykey: daykey,
         beginlucky: beginlucky,
-
+        curyear: EightDate.Year,
+        curmonth:EightDate.Month,
 
       })
       this.changeyear("", (new Date()).getFullYear())
     }
     else {
-        this.props.navigation.goBack()
+      this.props.navigation.goBack()
     }
   }
   keyExtractor = (item, index) => index.toString()
@@ -207,11 +209,8 @@ class ziweiMainPage extends React.Component {
     if ("癸" == king || "壬" == king || "子" == king || "亥" == king) {
       return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13, color: 'blue' }}>{king}</Text>)
     }
-    if (undefined != king && king.toString().length > 1) {
-      return king
-    }
 
-    return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() }}>{king}</Text>)
+    return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13 }}>{king}</Text>)
   }
   changeyear(bigyear, miniyear) {
     var by = 0
@@ -267,17 +266,20 @@ class ziweiMainPage extends React.Component {
 
 
     if (undefined != this.state.gong) {
-      var eightyear = SixrandomModule.lunar_f(new Date())
+      var thisyear = new Date()//这里应该选小运的年份
+      if(0!=this.state.curminiluckyearnum)
+      {thisyear.setFullYear(this.state.curminiluckyearnum)}
+      var eightyear = SixrandomModule.lunar_f(thisyear)
       var years = new Array()
       years = this.state.luckyearrelation.concat(this.state.luckyyear, this.state.luckyyearposition)
       var minluckyyear = new Array()
       var birthdayyear = new Date()
 
-      birthdayyear.setYear(eightyear.Year)
-      birthdayyear.setMonth(eightyear.Month)
+      birthdayyear.setYear(this.state.curyear)
+      birthdayyear.setMonth(this.state.curmonth)
       birthdayyear = SixrandomModule.lunar_f(birthdayyear)
       birthdayyear = birthdayyear.gzYear + birthdayyear.gzMonth + birthdayyear.gzDate + birthdayyear.gzTime;
-      minluckyyear = EightrandomModule.getminlucky(birthdayyear, this.state.sex, eightyear.Year);
+      minluckyyear = EightrandomModule.getminlucky(birthdayyear, this.state.sex, this.state.curyear);
 
 
       return (
@@ -303,7 +305,6 @@ class ziweiMainPage extends React.Component {
 
                       var gzYear = eightyear.gzYear
                       var curluckyear = ziweiMainPagethis.state.luckyyear[ziweiMainPagethis.state.curluckyearnum]
-                      test.push({ info: "时辰", hide: '' })
                       test.push({ info: "运", hide: '' })
                       test.push({ info: "流", hide: '' })
                       test.push({ info: "年", hide: '' })
@@ -311,29 +312,24 @@ class ziweiMainPage extends React.Component {
                       test.push({ info: "日", hide: '' })
                       test.push({ info: "时", hide: '' })
 
-                      test.push({ info: "十神", hide: '' })
-                      //console.log(gzYear[0],this.state.EightDate[4])
                       test.push({ info: EightrandomModule.parentday(curluckyear[0], this.state.EightDate[4]), hide: '' })
                       test.push({ info: EightrandomModule.parentday(gzYear[0], this.state.EightDate[4]), hide: '' })
                       for (var i = 0; i < 4; i++) {
                         test.push({ info: this.state.buildeight[i * 2], hide: '' })
                       }
 
-                      test.push({ info: "天干", hide: '' })
                       test.push({ info: curluckyear[0], hide: '' })
                       test.push({ info: gzYear[0], hide: '' })
                       for (var i = 0; i < 4; i++) {
                         test.push({ info: this.state.EightDate[i * 2], hide: '' })
                       }
 
-                      test.push({ info: "地支", hide: '藏干' })
                       test.push({ info: curluckyear[1], hide: EightrandomModule.gethide(curluckyear[1]) })
                       test.push({ info: gzYear[1], hide: EightrandomModule.gethide(gzYear[1]) })
                       for (var i = 0; i < 4; i++) {
                         test.push({ info: this.state.EightDate[i * 2 + 1], hide: this.state.buildeightExt[i * 2] })
                       }
 
-                      test.push({ info: "十神", hide: '副星' })
                       test.push({ info: EightrandomModule.parentearth(curluckyear[1], this.state.EightDate[4]), hide: EightrandomModule.gethideshishen(EightrandomModule.gethide(curluckyear[1]), this.state.EightDate[4]) })
                       test.push({ info: EightrandomModule.parentearth(gzYear[1], this.state.EightDate[4]), hide: EightrandomModule.gethideshishen(EightrandomModule.gethide(gzYear[1]), this.state.EightDate[4]) })
 
@@ -341,15 +337,12 @@ class ziweiMainPage extends React.Component {
                         test.push({ info: this.state.buildeight[i * 2 + 1], hide: this.state.buildeightExt[i * 2 + 1] })
                       }
 
-                      test.push({ info: "长生", hide: '' })
                       test.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDate[4] + curluckyear[1]), hide: '' })
                       test.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDate[4] + gzYear[1]), hide: '' })
                       for (var i = 0; i < 4; i++) {
                         var x = EightrandomModule.gettwelfthposition(this.state.EightDate[4] + this.state.EightDate[i * 2 + 1])
                         test.push({ info: x, hide: "" })
                       }
-
-
                       s = 2
                       return (
                         <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
@@ -358,7 +351,7 @@ class ziweiMainPage extends React.Component {
                           <WhiteSpace size="xl" />
                           <Grid
                             data={test}
-                            columnNum={7}
+                            columnNum={6}
                             hasLine={true}
                             itemStyle={{ height: 20 }}
                             renderItem={dataItem => (
@@ -370,7 +363,6 @@ class ziweiMainPage extends React.Component {
                             )}
                           />
                           <WhiteSpace size="xl" />
-
                         </View>)
                     }
                     else if (-1 != [6, 9, 10].indexOf(index)) {
@@ -385,7 +377,6 @@ class ziweiMainPage extends React.Component {
                       if ("[身宫]" == el[3]) {
                         shengong = shengong.concat(el[3])
                         ds = ds.splice(5, ds.length - 2)
-
                       }
                       else {
                         ds = ds.splice(4, ds.length - 2)
@@ -400,7 +391,6 @@ class ziweiMainPage extends React.Component {
                       })
                       return (
                         <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
-
                           <View style={{ bottom: -s * (height - 100) / 5 + 30, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12, color: "red" }}>{el[2]}</Text>
                             <Text>{this.getColor(el[1][0])}{this.getColor(el[1][1])}</Text>
@@ -414,11 +404,9 @@ class ziweiMainPage extends React.Component {
                           </View>
                           <View style={{ top: -75, flexWrap: 'wrap', flexDirection: 'row', justifyContent: "flex-start" }}>
                             {itemArr}
-
                           </View>
                         </View>)
                     }
-
                   }}
                 />
                 <WhiteSpace size="xl" />
@@ -476,8 +464,6 @@ class ziweiMainPage extends React.Component {
     else {
       return (<View></View>)
     }
-
-
   }
 };
 
