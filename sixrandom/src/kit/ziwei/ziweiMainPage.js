@@ -15,9 +15,6 @@ import ziweiModule from './ziweiModule'
 import RouteConfig from '../../config/RouteConfig';
 const { width, height } = Dimensions.get('window');
 
-var jump = false
-let curyear = 0
-let ziweiMainPagethis
 class ziweiMainPage extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +22,6 @@ class ziweiMainPage extends React.Component {
       sanchuanarray: "",
       Gstr: "",
     };
-    ziweiMainPagethis = this
   };
 
   componentDidMount() {
@@ -114,10 +110,7 @@ class ziweiMainPage extends React.Component {
           gejudetail: ziweRet.gejudetail
         })
       }).catch(err => {
-        if (false == jump) {
-          this.begin('ziweiNewPage')
-          jump = true
-        }
+        this.props.navigation.goBack()
       })
     }
   }
@@ -205,9 +198,12 @@ class ziweiMainPage extends React.Component {
                     } else {
                       var ds = new Array()
                       ds = ds.concat(el)
+                      var shengong = ""
                       if ("[身宫]" == el[3]) {
-                        el[3] = el[3] + el[4]
+                        shengong = el[3]
+                        el[3] = el[4]
                         ds = ds.splice(5, ds.length - 2)
+                       
                       }
                       else {
                         ds = ds.splice(4, ds.length - 2)
@@ -227,13 +223,14 @@ class ziweiMainPage extends React.Component {
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11 ,color:"red"}}>{el[2]}</Text>
                             <Text>{this.getColor(el[1][0])}{this.getColor(el[1][1])}</Text>
                           </View>
-                          <View style={{ bottom: -s * (height - 100) / 5 + 80, justifyContent: "center", alignItems: 'center', }}>
+                          <View style={{ bottom: -s * (height - 100) / 5 + 100, justifyContent: "center", alignItems: 'center', }}>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{shengong}</Text>
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el[3]}</Text>
                           </View>
-                          <View style={{ bottom: -s * (height - 100) / 5 + 70, justifyContent: "flex-start", alignItems: 'flex-start', }}>
+                          <View style={{ bottom: -s * (height - 100) / 5 + 80, justifyContent: "flex-start", alignItems: 'flex-start', }}>
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13 }}>{el[el.length - 1]}</Text>
                           </View>
-                          <View style={{ top: -55, flexWrap: 'wrap', flexDirection: 'row', justifyContent: "flex-start" }}>
+                          <View style={{ top: -70, flexWrap: 'wrap', flexDirection: 'row', justifyContent: "flex-start" }}>
                             {itemArr}
 
                           </View>
