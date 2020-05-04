@@ -136,12 +136,12 @@ class ziweiMainPage extends React.Component {
       var EightDate = SixrandomModule.lunar_f(gz)
       var retterm = EightrandomModule.getYearTerm(gz.getFullYear())
       var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.EightDate, info.sex);
-
+      var ju = ziweRet.ju.split(" ")
       this.setState({
         EightDate: info.EightDate,
         zhihua: ziweRet.zhihua,
         gong: gong,
-        ju: ziweRet.ju,
+        ju: ju,
         geju: ziweRet.geju,
         gejudetail: ziweRet.gejudetail,
         luckyyear: luckyyear,
@@ -150,9 +150,11 @@ class ziweiMainPage extends React.Component {
         buildeight: buildeight,
         buildeightExt: buildeightExt,
         daykey: daykey,
-        beginlucky: beginlucky,
+        beginlucky: Math.floor(beginlucky),
         curyear: EightDate.Year,
         curmonth:EightDate.Month,
+        birth:info.birth,
+        sex:info.sex,
 
       })
       this.changeyear("", (new Date()).getFullYear())
@@ -346,9 +348,13 @@ class ziweiMainPage extends React.Component {
                       s = 2
                       return (
                         <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
-                          <WhiteSpace size="xl" />
-                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{this.state.ju}</Text>
-                          <WhiteSpace size="xl" />
+                          <WhiteSpace size="xl" /><WingBlank size="sm">
+                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{this.state.ju[0]+" "+this.state.ju[1]}</Text>
+                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{this.state.ju[2]+" "+this.state.ju[3]+" "+this.state.ju[4]}</Text>
+                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{this.state.birth}</Text>
+                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{this.state.sex}</Text>
+                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{"起运:"+this.state.beginlucky}</Text>
+                          </WingBlank><WhiteSpace size="xl" />
                           <Grid
                             data={test}
                             columnNum={6}
