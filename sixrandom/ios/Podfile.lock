@@ -188,7 +188,7 @@ PODS:
     - React
   - react-native-compass-heading (1.0.0):
     - React
-  - react-native-fingerprint-scanner (4.0.0):
+  - react-native-fingerprint-scanner (4.1.0):
     - React
   - react-native-geolocation (2.0.2):
     - React
@@ -414,7 +414,7 @@ SPEC CHECKSUMS:
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
   react-native-cameraroll: 02e60e9af9273a3cc3b641632bf651189830aaf8
   react-native-compass-heading: 97da92264e08873190c6d77c429e7792ef3cc494
-  react-native-fingerprint-scanner: 03f3d966edacf2f515e361595b6778d3502db4fb
+  react-native-fingerprint-scanner: 8d3dc1470f1822e4cbbdfc5b0d773e5ab4b9ea34
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-safe-area-context: e200d4433aba6b7e60b52da5f37af11f7a0b0392
   react-native-shake: de052eaa3eadc4a326b8ddd7ac80c06e8d84528c
