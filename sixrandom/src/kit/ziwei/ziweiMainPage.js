@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Dimensions, TouchableOpacity, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, Dimensions, TouchableOpacity, FlatList, ScrollView, Platform } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import Storage from 'react-native-storage';
 
@@ -17,6 +17,7 @@ import IconConfig from '../../config/IconConfig'
 import EightrandomModule from '../UniversechangesLib/EightrandomLib/EightrandomModule'
 import { SixrandomModule } from '../UniversechangesLib/SixrandomLib/SixrandomModule'
 const { width, height } = Dimensions.get('window');
+//if("android"===Platform.OS)
 
 let ziweiMainPagethis = null
 class ziweiMainPage extends React.Component {
@@ -267,7 +268,11 @@ class ziweiMainPage extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
 
-
+    var androidh = 1.0
+    //if("android"===Platform.OS)
+    {
+        androidh = 1.3
+    }
 
     if (undefined != this.state.gong) {
       var thisyear = new Date()//这里应该选小运的年份
@@ -296,10 +301,13 @@ class ziweiMainPage extends React.Component {
                   data={this.state.gong}
                   columnNum={4}
                   hasLine={false}
-                  itemStyle={{ width: (width - 30) / 4, height: (height - 100) / 5 }}
+                  itemStyle={{ width: (width - 30) / 4, height: ((height - 100) / 5 )*androidh}}
                   renderItem={(el, index) => {
                     var bs = 0.5
                     var s = 1
+
+
+                    
 
                     if (-1 != [5, 6, 9, 10].indexOf(index)) {
                       bs = 0
@@ -348,8 +356,9 @@ class ziweiMainPage extends React.Component {
                         test.push({ info: x, hide: "" })
                       }
                       s = 2
+                      var hi = (s * (height - 100) / 5)*androidh
                       return (
-                        <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
+                        <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height:hi, flex: 1, }}>
                           <WhiteSpace size="xl" /><WingBlank size="sm">
                           <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{this.state.ju[0]+" "+this.state.ju[1]}</Text>
                           <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{this.state.ju[2]+" "+this.state.ju[3]+" "+this.state.ju[4]}</Text>
@@ -375,8 +384,9 @@ class ziweiMainPage extends React.Component {
                     }
                     else if (-1 != [6, 9, 10].indexOf(index)) {
                       s = 0
+                      var hi = (s * (height - 100) / 5)*androidh
                       return (
-                        <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
+                        <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height:hi, flex: 1, }}>
                         </View>)
                     } else {
                       var ds = new Array()
@@ -397,17 +407,19 @@ class ziweiMainPage extends React.Component {
                           return (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, flexDirection: "column", width: 16 }}>{this.getShensha(ds[index])}</Text>)
                         }
                       })
+                      var hi = (s * (height - 100) / 5)*androidh
                       return (
-                        <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height: s * (height - 100) / 5, flex: 1, }}>
-                          <View style={{ bottom: -s * (height - 100) / 5 + 30, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
+                        
+                        <View style={{ borderWidth: bs, width: s * (width - 30) / 4, height:hi , flex: 1, }}>
+                          <View style={{ bottom: - hi+ 30, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 12, color: "red" }}>{el[2]}</Text>
                             <Text>{this.getColor(el[1][0])}{this.getColor(el[1][1])}</Text>
                           </View>
-                          <View style={{ bottom: -s * (height - 100) / 5 + 100, justifyContent: "center", alignItems: 'center', }}>
+                          <View style={{ bottom: - hi + 100, justifyContent: "center", alignItems: 'center', }}>
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{shengong}</Text>
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el[" " != shengong ? 4 : 3]}</Text>
                           </View>
-                          <View style={{ bottom: -s * (height - 100) / 5 + 80, justifyContent: "flex-start", alignItems: 'flex-start', }}>
+                          <View style={{ bottom: - hi + 80, justifyContent: "flex-start", alignItems: 'flex-start', }}>
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el[el.length - 1]}</Text>
                           </View>
                           <View style={{ top: -75, flexWrap: 'wrap', flexDirection: 'row', justifyContent: "flex-start" }}>
