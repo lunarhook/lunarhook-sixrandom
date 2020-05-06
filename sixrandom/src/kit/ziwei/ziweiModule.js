@@ -1202,8 +1202,8 @@ class ziweiModule extends React.Component {
 		var EightDate = SixrandomModule.lunar_f(myDate)
 		this.iday = EightDate.lunarDate
 		this.imonth = EightDate.lunarMonth
-		this.niangz = EightDate.gzYear
-		this.yuegz = EightDate.gzMonth
+		this.niangz = EightDate.lunargzYear
+		this.yuegz = EightDate.lunargzMonth
 		this.sShi = EightDate.gzTime[1]
 		this.sex = sex
 

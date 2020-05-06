@@ -153,7 +153,7 @@ class ziweiNewPage extends React.Component {
       var index = (new Date()).valueOf().toString();
       var savedate = new Array()
       savedate[0] = index;
-      savedate[1] = SixCourseDate.gzYear+SixCourseDate.gzMonth +SixCourseDate.gzDate +SixCourseDate.gzTime;
+      savedate[1] = SixCourseDate.lunargzYear+SixCourseDate.lunargzMonth +SixCourseDate.luanrgzDate +SixCourseDate.gzTime;
       if ('男' == this.state.selectedValue) {
         savedate[2] = '乾造'
       }
