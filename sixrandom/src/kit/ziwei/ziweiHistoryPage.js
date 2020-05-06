@@ -173,7 +173,13 @@ class ziweiHistoryPage extends React.Component {
           this.props.navigation.goBack()
           return
         }
-        this.setState({dataSource: ids})
+        var filterArray = []
+        for (var i = 0; i < ids.length; i++) {
+          if (10==ids[i].ret.length) {
+            filterArray.push(ids[i])
+          }
+        }
+        this.setState({dataSource: filterArray})
       })
   }
 
@@ -250,7 +256,10 @@ changeViewLayout(e,data) {
           //1数据的获取和渲染
           data={this.state.dataSource}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={(data,index) => (
+          renderItem={(data,index) => {
+            var ret = data.item.ret
+            ret = ret.split(0,7)
+            return(
             <View >
               <SwipeAction
               
@@ -288,7 +297,7 @@ changeViewLayout(e,data) {
                 <Card style={{ width: width - 20,paddingLeft:10 } } >
                   <TouchableOpacity onPress={() => navigate('ziweiMainPage', data.item.url)}>
                     <Card.Header
-                      title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.ret}</Text>}
+                      title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{ret}</Text>}
                       //thumbStyle={{ width: 30, height: 30 }}
                       thumb={true == data.item.star ? IconConfig.IconStar : IconConfig.IconUStar}
                       extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.time}</Text>} />
@@ -306,7 +315,7 @@ changeViewLayout(e,data) {
               </SwipeAction>
               <WhiteSpace size="xs" />
             </View>
-          )}
+          )}}
         />
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />

@@ -78,7 +78,9 @@ class ziweiMainPage extends React.Component {
       //this.build(Gstr)
       var ziweRet = ziweiModule.calc(info.data, info.sex)
       var luckyyear = new Array();
-      luckyyear = EightrandomModule.getbigluckyear(info.EightDate, info.sex);
+      var ziweiEightDate = info.EightDate
+      ziweiEightDate.split(0,7)
+      luckyyear = EightrandomModule.getbigluckyear(ziweiEightDate, info.sex);
       var luckyearrelation = new Array();
       var luckyyearposition = new Array();
       for (var i in luckyyear) {
@@ -135,10 +137,10 @@ class ziweiMainPage extends React.Component {
       var gz = new Date(t[0]);
       var EightDate = SixrandomModule.lunar_f(gz)
       var retterm = EightrandomModule.getYearTerm(gz.getFullYear())
-      var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.EightDate, info.sex);
+      var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, ziweiEightDate, info.sex);
       var ju = ziweRet.ju.split(" ")
       this.setState({
-        EightDate: info.EightDate,
+        EightDate: ziweiEightDate,
         zhihua: ziweRet.zhihua,
         gong: gong,
         ju: ju,
