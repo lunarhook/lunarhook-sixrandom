@@ -221,6 +221,18 @@ changeViewLayout(e,data) {
 
 }
 
+onPress(item){
+  const { navigate } = this.props.navigation;
+  if(10==item.ret.length)
+  {
+    navigate('ziweiMainPage', item.url)
+  }
+  if(8==item.ret.length)
+  {
+    navigate('EightrandomMainPage', item.url)
+  }
+}
+
   render() {
     this.animationIsRunning=false
     this.rowTranslateAnimatedValues = {};
@@ -289,7 +301,7 @@ changeViewLayout(e,data) {
                     ref={ref => { this.refs[data.item.id] = ref }}
                      >
                 <Card style={{ width: width - 20,paddingLeft:10 } } >
-                  <TouchableOpacity onPress={() => navigate('EightrandomMainPage', data.item.url)}>
+                  <TouchableOpacity onPress={()=>{this.onPress(data.item)}}>
                     <Card.Header
                       title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.ret}</Text>}
                       //thumbStyle={{ width: 30, height: 30 }}
