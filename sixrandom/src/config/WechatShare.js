@@ -403,7 +403,7 @@ class WechatShare extends React.Component {
         <Text ></Text>
         <Text >www.lunarhook.com</Text>
         <Text ></Text>
-        <Text >{appname[keys[0]]} {this.version}</Text>
+        <Text >{appname[keys[0]]} {Platform.OS.toUpperCase() + " " +  this.version}</Text>
         <Text ></Text>
         <Text >{formattedDateString}</Text>
      

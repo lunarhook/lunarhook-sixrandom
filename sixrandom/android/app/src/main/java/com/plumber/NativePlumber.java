@@ -119,7 +119,7 @@ public class NativePlumber extends ReactContextBaseJavaModule {
         PackageManager pm = context.getPackageManager();
         PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(), 0);
         //返回版本号
-        callback.invoke("",packageInfo.packageName,packageInfo.versionCode);
+        callback.invoke("",packageInfo.packageName,packageInfo.versionName);
       } catch (PackageManager.NameNotFoundException e) {
         e.printStackTrace();
         callback.invoke(e.getMessage(),"","");
