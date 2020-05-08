@@ -33,7 +33,7 @@
     "react-native-fingerprint-scanner": "^5.0.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-highlight-words": "^1.0.1",
-    "react-native-paper": "^3.9.0",
+    "react-native-paper": "^3.10.1",
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-safe-area-view": "^1.1.1",
