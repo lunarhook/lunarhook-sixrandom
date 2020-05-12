@@ -136,15 +136,8 @@ if(__DEV__)
 const LunarCoursePageTab = createBottomTabNavigator(
   {
     LunarCoursePage: LunarCoursePage,
-/*
-    LunarMasterPageFake:createStackNavigator(
-      { "LunarMasterPageFake": "训练大师" },
-      {
-        navigationOptions: ({ navigation }) => ({
-          title: RouteConfig["LunarMasterPage"].name,
-        })
-      }),
-*/
+
+
     CourseSearchPageFake:createStackNavigator(
       { "CourseSearchPageFake": "说文助手" },
       {
@@ -162,6 +155,13 @@ const LunarCoursePageTab = createBottomTabNavigator(
       }),
       */
       
+    LunarMasterPageFake:createStackNavigator(
+      { "LunarMasterPageFake": "训练大师" },
+      {
+        navigationOptions: ({ navigation }) => ({
+          title: RouteConfig["LunarMasterPage"].name,
+        })
+      }),
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({

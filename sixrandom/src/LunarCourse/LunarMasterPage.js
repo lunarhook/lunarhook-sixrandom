@@ -13,13 +13,13 @@ import MasterConfig from '../config/MasterConfig'
 const intro = [
 
   //{icon: RouteConfig['MasterSearchPage'].icon,text: RouteConfig['MasterSearchPage'].name,url:RouteConfig['MasterSearchPage'].route},
-  {icon: IconConfig.IconStar,text:"MBTI3",url:""},
-  {icon:IconConfig.IconStar,text:"MBTI4",url:""},
+  {icon: IconConfig.IconStar,text:"MBTI L1",url:""},
+  {icon:IconConfig.IconStar,text:"MBTI L2",url:""},
 
 ]
 const MBTI = [
-  {icon: IconConfig.IconStar,text:"MBTI3",url:""},
-  {icon:IconConfig.IconStar,text:"MBTI4",url:""},
+  {icon: IconConfig.IconStar,text:"MBTI L1",url:""},
+  {icon:IconConfig.IconStar,text:"MBTI L2",url:""},
   //{icon: RouteConfig['ErYaBookPage'].icon,text: RouteConfig['ErYaBookPage'].name,url:RouteConfig['ErYaBookPage'].route},
 
   //{icon: RouteConfig['ShengYunBookPage'].icon,text: RouteConfig['ShengYunBookPage'].name,url:RouteConfig['ShengYunBookPage'].route},
@@ -27,8 +27,8 @@ const MBTI = [
 ]
 
 const Univers = [
-  {icon: IconConfig.IconStar,text:"MBTI3",url:""},
-  {icon:IconConfig.IconStar,text:"MBTI4",url:""},
+  {icon: IconConfig.IconStar,text:"Five L1",url:""},
+  {icon:IconConfig.IconStar,text:"Five L2",url:""},
 ]
 
 
