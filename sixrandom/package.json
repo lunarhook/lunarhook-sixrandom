@@ -35,7 +35,7 @@
     "react-native-highlight-words": "^1.0.1",
     "react-native-paper": "^3.10.1",
     "react-native-reanimated": "^1.8.0",
-    "react-native-safe-area-context": "^0.7.3",
+    "react-native-safe-area-context": "^1.0.0",
     "react-native-safe-area-view": "^1.1.1",
     "react-native-screens": "^2.7.0",
     "react-native-search-box": "^0.0.19",
@@ -48,7 +48,7 @@
     "react-native-wechat": "^1.9.12",
     "react-navigation": "^4.3.9",
     "react-navigation-material-bottom-tabs": "^2.2.12",
-    "react-navigation-stack": "^2.4.0",
+    "react-navigation-stack": "^2.5.0",
     "react-navigation-tabs": "^2.8.13",
     "victory-native": "^34.1.0"
   },
