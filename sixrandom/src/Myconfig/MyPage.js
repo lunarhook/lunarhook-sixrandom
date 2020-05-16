@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, TouchableOpacity, Alert, Text, RefreshControl, Image, ScrollView, Platform } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Alert, Text, NativeModules, Image, ScrollView, Platform } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { InputItem, WhiteSpace, List, Icon, WingBlank, Button, Switch } from '@ant-design/react-native';
 import IconConfig from '../config/IconConfig'
@@ -10,12 +10,14 @@ import {FontStyleConfig} from '../config/StyleConfig';
 import UserModule from '../config/UserModule'
 import { HistoryArrayGroup } from '../config/StorageModule'
 import { DevTimeManager } from '../net/NetApi'
-
+import {appinfo,appname} from '../config/appinfo'
 let MyPagethis = undefined
 class MyPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      version : "",
+      appname : "",
       islogin: false,
       passtype: "password",
       mobile: "", password: "", logindisable: true, networkstate: true, checked: false, sync: false
@@ -27,7 +29,12 @@ class MyPage extends React.Component {
         checked: value,
       });
     }; MyPagethis = this
-
+    var NativePlumber = NativeModules.NativePlumber;
+    NativePlumber.PlumberGetAppVersion((error,appname,appver) => {
+      this.state.appname = appname
+      this.state.version = appver
+      this.forceUpdate()
+    })
   }
   UNSAFE_componentWillMount() {
     //console.log("MyPage", "componentWillMount")
@@ -273,6 +280,7 @@ class MyPage extends React.Component {
           <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
           <Text style={{ textAlign: "center", marginBottom: 20, }} type="warning" onPress={() => this.props.navigation.navigate("MyUpdateRegister")}>-忘记密码-</Text>
+          <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname+ " " +  this.state.version}</Text>
           {this.showprivary()}
           <WhiteSpace size="xl" />
             {this.rendersync()}

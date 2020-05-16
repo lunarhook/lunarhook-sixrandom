@@ -38,7 +38,7 @@ CourseSelectMode = [
   {title: '三玄',isSelect: true},
   {title: '四书',isSelect: true},
   {title: '五经',isSelect: true},
-  {title: '中医',isSelect: false},
+  {title: '医药经典',isSelect: false},
 
 ]
 Coursealllist['医药经典'] = [
@@ -80,7 +80,7 @@ CourseRandom['全部'] = [
   //{title: '人工智能',isSelect: true},
 ]
 CourseRandom['国学经典'] = [
-  {title: '全部',isSelect: true},
+  {title: '全部',isSelect: false},
   {title: '蒙童幼学',isSelect: false},
   {title: '小学三玄',isSelect: true},
   {title: '四书五经',isSelect: true},

@@ -54,7 +54,7 @@ class LunarCourseConfigPage extends React.Component {
             //obj.isSelect = element.isSelect
             arr.push(element);
         })
-        await HistoryArrayGroup.save("CourseConfigselectmode", "国学经典")
+        
         console.log("LunarCourseConfigPage", typeof (arr), arr)
         var selectmode = CourseConfig.getCourseSelectMode()
         this.setState({
@@ -62,11 +62,14 @@ class LunarCourseConfigPage extends React.Component {
             selectedItems: arr.filter((item, index) => item.isSelect),
             unselectedItems: arr.filter((item, index) => !item.isSelect), selectmode: selectmode, selectmodetitle: ""
         })
+        await HistoryArrayGroup.save("CourseConfigselectmode", "国学经典")
     }
 
     componentDidMount() {
-        this.recover()
+     
+        const result = this.recover()
         this.refreshlist()
+
     }
     static navigationOptions = ({ navigation }) => {
         const { navigate } = navigation;

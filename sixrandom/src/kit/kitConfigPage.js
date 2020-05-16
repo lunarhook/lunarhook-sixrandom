@@ -54,7 +54,7 @@ class kitConfigPage extends React.Component {
             //obj.isSelect = element.isSelect
             arr.push(element);
         })
-        await HistoryArrayGroup.save("kitConfigselectmode", "职业性格")
+        
         console.log("kitConfigPage", typeof (arr), arr)
         var selectmode = KitConfig.getselectmode()
         this.setState({
@@ -62,6 +62,7 @@ class kitConfigPage extends React.Component {
             selectedItems: arr.filter((item, index) => item.isSelect),
             unselectedItems: arr.filter((item, index) => !item.isSelect), selectmode: selectmode, selectmodetitle: ""
         })
+        await HistoryArrayGroup.save("kitConfigselectmode", "职业性格")
     }
 
     componentDidMount() {
