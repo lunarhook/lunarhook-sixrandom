@@ -57,7 +57,7 @@ class WechatShare extends React.Component {
         var keys = AppRegistry.getAppKeys();
         var str = appinfo[keys[0]]
         console.log("wechatshare",str,keys,appname)
-          WeChat.registerApp(str,"https://www.lunarhook.com/Uni_lunarhook/");
+          WeChat.registerApp(str,"https://www.lunarhook.com/Uni_"+keys[0]+"/");
           WechatSharethis.apiVersion = await WeChat.getApiVersion();
           WechatSharethis.wxAppInstallUrl = Platform.OS === 'ios' ? await WeChat.getWXAppInstallUrl(): null;
           WechatSharethis.isWXAppSupportApi = await WeChat.isWXAppSupportApi();
