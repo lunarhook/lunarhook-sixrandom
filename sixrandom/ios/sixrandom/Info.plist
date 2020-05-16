@@ -49,6 +49,7 @@
 	<array>
 		<string>weixin</string>
 		<string>wechat</string>
+		<string>weixinULAPI</string>
 		<string>mqqapi</string>
 		<string>mqq</string>
 		<string>mqqOpensdkSSoLogin</string>

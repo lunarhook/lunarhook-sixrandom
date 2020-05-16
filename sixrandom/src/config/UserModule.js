@@ -5,7 +5,6 @@ import { Alert } from 'react-native';
 //import fs from 'react-native-fs';
 import NetModule from '../net/NetModule'
 import {NetApi} from '../net/NetApi'
-import * as WeChat from 'react-native-wechat';
 import WechatShare from './WechatShare'
 
 let UserModulethis

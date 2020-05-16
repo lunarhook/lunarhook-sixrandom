@@ -273,6 +273,7 @@ def releaseTime() {
 }
 
 dependencies {
+    implementation project(':react-native-wechat-lib')
     implementation project(':react-native-exit-app')
     implementation project(':react-native-safe-area-context')
 
@@ -286,7 +287,6 @@ dependencies {
     implementation project(':react-native-svg')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-shake')
-    implementation project(':react-native-wechat')
     implementation files('PlumberAndroid_v2.5.jar')
     implementation project(':react-native-view-shot')
     implementation project(':react-native-vector-icons')
