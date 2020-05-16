@@ -163,6 +163,7 @@ class DetailBookPage extends React.Component {
                           //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
                           data={curMeng}
                           keyExtractor={(item, index) => index.toString()}
+                          getItemLayout={this.getItemLayout}
                           renderItem={(data) => (
                           <View>
                             <Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15,textAlign:alignTextCenter?"center":"auto"}}>{data.item}</Text>
@@ -198,7 +199,7 @@ class DetailBookPage extends React.Component {
                         renderIcon={() => RouteConfig["IconLast"].icon}
 
                         //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => this.setState({keyindex:this.state.keyindex-1},this._flatList.scrollToOffset({animated: true, viewPosition: 0, index: 0}))}  
+                        onPress={() => this.setState({keyindex:this.state.keyindex-1},this.refs['location'].scrollTo({x:0,y: 0,animated:true}))}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
 
@@ -207,7 +208,7 @@ class DetailBookPage extends React.Component {
                         //renderIcon={() => BaseCourseConfig["CourseToolsPage"].icon}
 
                         renderIcon={() => RouteConfig["IconNext"].icon}
-                        onPress={() => this.setState({keyindex:this.state.keyindex+1},this._flatList.scrollToOffset({animated: true, viewPosition: 0, index: 0}) )}  
+                        onPress={() => this.setState({keyindex:this.state.keyindex+1},this.refs['location'].scrollTo({x:0,y: 0,animated:true}))}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
             {
