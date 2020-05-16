@@ -138,7 +138,7 @@ RouteConfig={
         "IntroPage":{"name":"导读","titlename":"导读","route":"","icon":IconConfig.IconShuoWenIntro},
         "IntroAncientPage":{"name":"小学介绍","titlename":"小学","route":"IntroAncientPage","icon":IconConfig.IconShuoWenIntro},
         "IntroThreePage":{"name":"三玄介绍","titlename":"三玄","route":"IntroThreePage","icon":IconConfig.IconThreeIntro},
-        "IntroBooksPage":{"name":"思无邪","titlename":"思无邪","route":"IntroBooksPage","icon":IconConfig.IconThreeIntro},
+        "IntroBooksPage":{"name":"思无邪","titlename":"思无邪","route":"IntroBooksPage","icon":IconConfig.IconLunarCourseIntro},
         
         
         "MengBookPage":{"name":"蒙学","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},  
@@ -164,8 +164,8 @@ RouteConfig={
             "ShangshuBookPage":{"name":"尚书","route":"","icon":IconConfig.IconShangShuBook},
             "LijiBookPage":{"name":"礼记","route":"","icon":IconConfig.IconLijiBook},
             "ChunqiuBookPage":{"name":"春秋","route":"","icon":IconConfig.IconChunQiuBook},
-        "ChineseMedicationPage":{"name":"医药经典","titlename":"医药经典","route":"","icon":IconConfig.IconThreeIntro}, 
-            "HuangDiNeiJingPage":{"name":"黄帝内经","titlename":"黄帝内经","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},
+        "ChineseMedicationPage":{"name":"医药经典","titlename":"医药经典","route":"","icon":IconConfig.IconBookMedic}, 
+            "HuangDiNeiJingPage":{"name":"黄帝内经","titlename":"黄帝内经","route":"DetailBookPage","icon":IconConfig.IconBookMedic},
             "BenCaoGangMuPage":{"name":"本草纲目","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},
             "LunShangHanPage":{"name":"论伤寒","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},
         "BingFaPage":{"name":"兵家法家","titlename":"兵家法家","route":"","icon":IconConfig.IconThreeIntro}, 

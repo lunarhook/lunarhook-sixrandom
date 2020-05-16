@@ -85,6 +85,7 @@ class IconConfig extends React.Component {
   static IconScreen = (<Ionicons name="ios-images" size={size} color={blue} />)
   static IconDetail = (<Ionicons name="ios-more" size={size} color={orange} />)
   static IconLunarCourse = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={green} />)
+  static IconLunarCourseIntro = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={green} />)
   static IconLunarCourseBlue = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={blue} />)
   static IconLunarCourseRed = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={fire} />)
   static IconLunarCourseRedO = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={orange} />)
@@ -168,6 +169,9 @@ class IconConfig extends React.Component {
   static IconZhongYongBook= (<FontAwesome name="language" size={buttonsize} color={Coral}/>)
   static IconBigBook= (<FontAwesome name="language" size={buttonsize} color={fire}/>)
 
+
+
+  static IconBookMedic = (<FontAwesome5 name="medrt" size={buttonsize} color={green}/>) 
   static IconShiJingBook= (<FontAwesome name="language" size={buttonsize} color={LightPink}/>)
   static IconShangShuBook= (<FontAwesome name="language" size={buttonsize} color={orange}/>)
   static IconLijiBook= (<FontAwesome name="language" size={buttonsize} color={green}/>)
