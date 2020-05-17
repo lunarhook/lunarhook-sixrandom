@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNSwissephPackage;
 import com.theweflex.react.WeChatPackage;
 import com.github.wumke.RNExitApp.RNExitAppPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;

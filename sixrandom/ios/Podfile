@@ -54,6 +54,8 @@ target 'sixrandom' do
 
   pod 'RCTWeChat', :path => '../node_modules/react-native-wechat-lib'
 
+  pod 'RNSwisseph', :path => '../node_modules/react-native-swisseph'
+
   target 'sixrandomTests' do
     inherit! :search_paths
     # Pods for testing
