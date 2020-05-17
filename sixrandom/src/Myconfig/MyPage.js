@@ -221,6 +221,7 @@ class MyPage extends React.Component {
             <WhiteSpace size="xl" />
             {this.showprivary()}
             <WhiteSpace size="xl" />
+            <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname+ " " +  this.state.version}</Text>
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
