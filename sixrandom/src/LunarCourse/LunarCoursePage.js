@@ -10,6 +10,8 @@ import {HistoryArrayGroup} from '../config/StorageModule'
 import CourseConfig from '../config/CourseConfig'
 
 const intro = [
+  
+  {icon: RouteConfig['IntroBooksPage'].icon,text: RouteConfig['IntroBooksPage'].name,url:RouteConfig['IntroBooksPage'].route},
   {icon: RouteConfig['IntroAncientPage'].icon,text: RouteConfig['IntroAncientPage'].name,url:RouteConfig['IntroAncientPage'].route},
   {icon: RouteConfig['IntroThreePage'].icon,text: RouteConfig['IntroThreePage'].name,url:RouteConfig['IntroThreePage'].route},
   {icon: RouteConfig['LunarCourseAnswerPage'].icon,text: RouteConfig['LunarCourseAnswerPage'].name,url:RouteConfig['LunarCourseAnswerPage'].route},
@@ -50,8 +52,8 @@ const Meng = [
 
 const yi = [
   {icon: RouteConfig['HuangDiNeiJingPage'].icon,text: RouteConfig['HuangDiNeiJingPage'].name,url:RouteConfig['HuangDiNeiJingPage'].route,index:{ text: "HuangDiNeiJingPage" }},
-  {icon: RouteConfig['BenCaoGangMuPage'].icon,text: RouteConfig['BenCaoGangMuPage'].name,url:RouteConfig['BenCaoGangMuPage'].route,index:{ text: "BenCaoGangMuPage" }},
-  {icon: RouteConfig['LunShangHanPage'].icon,text: RouteConfig['LunShangHanPage'].name,url:RouteConfig['LunShangHanPage'].route,index:{ text: "LunShangHanPage" }},
+  //{icon: RouteConfig['BenCaoGangMuPage'].icon,text: RouteConfig['BenCaoGangMuPage'].name,url:RouteConfig['BenCaoGangMuPage'].route,index:{ text: "BenCaoGangMuPage" }},
+  //{icon: RouteConfig['LunShangHanPage'].icon,text: RouteConfig['LunShangHanPage'].name,url:RouteConfig['LunShangHanPage'].route,index:{ text: "LunShangHanPage" }},
   
   
 ]
@@ -327,9 +329,9 @@ class LunarCoursePage extends React.Component {
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
        
-
+               */
           contentlist["中医"] = (
-            <Accordion.Panel header={RouteConfig['AncientMengPage'].name}  key={RouteConfig['AncientMengPage'].name}>
+            <Accordion.Panel header={RouteConfig['ChineseMedicationPage'].name}  key={RouteConfig['ChineseMedicationPage'].name}>
               <Grid
                 data={yi}
                 columnNum={coln}
@@ -337,7 +339,7 @@ class LunarCoursePage extends React.Component {
                 hasLine={true}
                 onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
               /></Accordion.Panel >)
-               */
+
     if ("关注" == tab.title) {
         return (
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -400,7 +402,7 @@ class LunarCoursePage extends React.Component {
         </Accordion>
       )
     } 
-        /*
+        
     else if ("医药经典" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -408,6 +410,7 @@ class LunarCoursePage extends React.Component {
         </Accordion>
       )
     } 
+    /*
     else if ("人工智能" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>

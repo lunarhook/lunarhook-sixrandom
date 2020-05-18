@@ -8,6 +8,8 @@ import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNSwissephPackage;
+import com.theweflex.react.WeChatPackage;
 import com.github.wumke.RNExitApp.RNExitAppPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
@@ -21,7 +23,6 @@ import com.reactnativecommunity.geolocation.GeolocationPackage;
 import com.horcrux.svg.SvgPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.clipsub.RNShake.RNShakeEventPackage;
-import com.theweflex.react.WeChatPackage;
 //import com.hieuvp.fingerprint.ReactNativeFingerprintScannerPackage;
 
 import fr.greweb.reactnativeviewshot.RNViewShotPackage;

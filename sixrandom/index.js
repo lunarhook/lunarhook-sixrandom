@@ -80,8 +80,10 @@ import SearchPage from './src/tools/SearchPage'
   import LunarCourseConfigPage from './src/LunarCourse/LunarCourseConfigPage'
   import LunarCourseAnswerPage from './src/LunarCourse/LunarCourseAnswerPage'
   import CourseSearchPage from './src/LunarCourse/CourseSearchPage'
-  import IntroAncientPage from './src/LunarCourse/Ancient/IntroAncientPage'
-  import IntroThreePage from './src/LunarCourse/Three/IntroThreePage'
+  import IntroBooksPage from './src/LunarCourse/Intro/IntroBooksPage'
+  
+  import IntroAncientPage from './src/LunarCourse/Intro/IntroAncientPage'
+  import IntroThreePage from './src/LunarCourse/Intro/IntroThreePage'
   import DetailBookPage from './src/LunarCourse/DetailBookPage'
   
   
@@ -303,6 +305,7 @@ const  sixrandom= createStackNavigator({
     LunarMasterPage:{screen:LunarMasterPage},
     IntroAncientPage:{screen:IntroAncientPage},
     IntroThreePage:{screen:IntroThreePage},
+    IntroBooksPage:{screen:IntroBooksPage},
     LunarCourseAnswerPage:{screen:LunarCourseAnswerPage},
     DetailBookPage:{screen:DetailBookPage},
 
