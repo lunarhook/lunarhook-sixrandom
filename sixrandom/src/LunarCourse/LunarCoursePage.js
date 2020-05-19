@@ -51,7 +51,10 @@ const Meng = [
 ]
 
 const yi = [
-  {icon: RouteConfig['HuangDiNeiJingPage'].icon,text: RouteConfig['HuangDiNeiJingPage'].name,url:RouteConfig['HuangDiNeiJingPage'].route,index:{ text: "HuangDiNeiJingPage" }},
+  {icon: RouteConfig['HuangDiNeiJingSuWenPage'].icon,text: RouteConfig['HuangDiNeiJingSuWenPage'].name,url:RouteConfig['HuangDiNeiJingSuWenPage'].route,index:{ text: "HuangDiNeiJingSuWenPage" }},
+  {icon: RouteConfig['HuangDiNeiJingLingShuPage'].icon,text: RouteConfig['HuangDiNeiJingLingShuPage'].name,url:RouteConfig['HuangDiNeiJingLingShuPage'].route,index:{ text: "HuangDiNeiJingLingShuPage" }},
+  {icon: RouteConfig['nanjingPage'].icon,text: RouteConfig['nanjingPage'].name,url:RouteConfig['nanjingPage'].route,index:{ text: "nanjingPage" }},
+  
   //{icon: RouteConfig['BenCaoGangMuPage'].icon,text: RouteConfig['BenCaoGangMuPage'].name,url:RouteConfig['BenCaoGangMuPage'].route,index:{ text: "BenCaoGangMuPage" }},
   //{icon: RouteConfig['LunShangHanPage'].icon,text: RouteConfig['LunShangHanPage'].name,url:RouteConfig['LunShangHanPage'].route,index:{ text: "LunShangHanPage" }},
   
