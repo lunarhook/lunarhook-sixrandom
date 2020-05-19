@@ -909,17 +909,17 @@ class TrackStarPage extends React.Component {
                   return(
                   <View style={styles.container}>
                     <View style={{marginTop:5,justifyContent: 'space-between',flexDirection: 'row',}}>
-                    <Text>{x[0]}</Text>
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13}}>{x[0]}</Text>
     <Text >{x[1]}</Text>
                   </View>
                     <View style={styles.grid}>
-                  <Text style={{color:track[2]}}>{"九运："}{track[0]}</Text>
-                <Text style={{color:yearflowtrack[2]}}>{"流年："}{yearflowtrack[0]}</Text>
-                <Text style={{color:monthflowtrack[2]}}>{"流月："}{monthflowtrack[0]}</Text>
-                <Text >{undefined!=x[2]?x[2]:""}</Text>
+                  <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,color:track[2]}}>{"九运："}{track[0]}</Text>
+                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,color:yearflowtrack[2]}}>{"流年："}{yearflowtrack[0]}</Text>
+                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,color:monthflowtrack[2]}}>{"流月："}{monthflowtrack[0]}</Text>
+                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13}}>{undefined!=x[2]?x[2]:""}</Text>
                       
                     </View>
-                    <Text style={{marginBottom:5,textAlign:"center"}}>{"飞星："}{yeartrack[0][itemIndex]}</Text>
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 13,marginBottom:5,textAlign:"center"}}>{"飞星："}{yeartrack[0][itemIndex]}</Text>
                   </View>
                 )}}
               /></Accordion.Panel>
