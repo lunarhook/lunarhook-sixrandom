@@ -9,6 +9,7 @@ import ChangesuniverseConfig from './ChangesuniverseConfig';
 import RouteConfig from '../../config/RouteConfig'
 import ScreenConfig from '../../config/ScreenConfig';
 import {StyleConfig,FontStyleConfig} from '../../config/StyleConfig';
+import swisseph from 'react-native-swisseph';
 import Svg,{
   Circle,
   Ellipse,
@@ -32,8 +33,120 @@ class ChangesuniversePage extends React.Component {
    constructor(props) {
     super(props);
 		this.state = {
+      message:""
 		};
   }
+
+  async julday() {
+    var cur = new Date()
+    var years = cur.getFullYear()
+    var month = cur.getMonth()+1
+    var day = cur.getDay()
+    var time = cur.getHours()
+    let task1 = async () => swisseph.swe_julday(years, month, day, time, swisseph.SE_MOON).then(
+        (result) => {
+            return result;
+        }
+    );
+    let task2 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.SE_MERCURY).then(
+        (result) => {
+            return result;
+        }
+    );
+    let task3 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.SE_VENUS).then(
+        (result) => {
+
+            return result;
+        }
+    );
+    let task4 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.SE_MARS).then(
+      (result) => {
+          return result;
+      }
+  );
+  let task5 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.SE_JUPITER).then(
+      (result) => {
+          return result;
+      }
+  );
+  let task6 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.SE_SATURN).then(
+      (result) => {
+
+          return result;
+      }
+  );
+  let task7 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.SE_URANUS).then(
+    (result) => {
+        return result;
+    }
+);
+let task8 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.SE_NEPTUNE).then(
+    (result) => {
+        return result;
+    }
+);
+let task9 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.SE_PLUTO).then(
+    (result) => {
+
+        return result;
+    }
+);
+let task0 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.SE_EARTH).then(
+  (result) => {
+
+      return result;
+  }
+);
+
+
+    let [result1, result2, result3,result4, result5, result6,result7, result8, result9, result0] = await Promise.all([
+        task1(), task2(), task3(), task4(), task5(), task6(), task7(), task8(), task9(), task0()
+    ]);
+    let message = [
+        ...this.state.message,
+        "julday():" +JSON.stringify({
+            'SE_MOON' : result1,
+            'SE_MERCURY' : result2,
+            'SE_VENUS' : result3,
+            'SE_MARS' : result4,
+            'SE_JUPITER' : result5,
+            'SE_SATURN' : result6,
+            'SE_URANUS' : result7,
+            'SE_NEPTUNE' : result8,
+            'SE_PLUTO' : result9,
+            'SE_EARTH' : result0,
+        })
+
+    ];
+
+
+    this.setState({
+        message: message
+    });
+
+}
+
+async swe_calc_ut() {
+  let flag = swisseph.SEFLG_SPEED | swisseph.SEFLG_MOSEPH;
+
+  swisseph.swe_julday(2012, 1, 1, 0, swisseph.SE_GREG_CAL).then(
+      (jul_ut) => {
+          swisseph.swe_calc_ut (jul_ut, swisseph.SE_SUN, flag).then(
+              (result) => {
+                  this.setState({
+                      message: [
+                          ...this.state.message,
+                          "swe_calc_ut():" + JSON.stringify(result)
+                      ]
+                  });
+              }
+          )
+
+
+      }
+  );
+
+}
 
 
   static navigationOptions = ({navigation})=>{
@@ -42,6 +155,11 @@ class ChangesuniversePage extends React.Component {
     title: RouteConfig["ChangesuniversePage"].name,
     }
   };
+
+  async componentDidMount(){
+    await this.julday()
+    //await this.swe_calc_ut()
+  }
 
   render()
   {
@@ -56,7 +174,7 @@ class ChangesuniversePage extends React.Component {
         <View style={styles.clock}>
         </View>
       <Svg
-                height={height}
+                height={width}
                 width={width}
             >
             <Defs> 
@@ -138,6 +256,7 @@ class ChangesuniversePage extends React.Component {
                 <Path fill="none" stroke="#ffffff" d="M93.329721188,214.545817042L47.9956654256,193.454980451" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></Path>
                 <Path fill="none" stroke="#a6a4b2" d="M160,320L80,320" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></Path>
                 </Svg>
+              <Text>{this.state.message}</Text>
       </ScrollView>
     </View>
 					)
