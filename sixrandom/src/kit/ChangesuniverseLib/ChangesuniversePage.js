@@ -128,19 +128,95 @@ let task0 = async () => swisseph.swe_julday(years, month, day, time,  swisseph.S
 
 async swe_calc_ut() {
   let flag = swisseph.SEFLG_SPEED | swisseph.SEFLG_MOSEPH;
+  var cur = new Date()
+  var years = cur.getFullYear()
+  var month = cur.getMonth()+1
+  var day = cur.getDay()
+  var time = cur.getHours()
 
-  swisseph.swe_julday(2012, 1, 1, 0, swisseph.SE_GREG_CAL).then(
-      (jul_ut) => {
-          swisseph.swe_calc_ut (jul_ut, swisseph.SE_SUN, flag).then(
-              (result) => {
-                  this.setState({
-                      message: [
-                          ...this.state.message,
-                          "swe_calc_ut():" + JSON.stringify(result)
-                      ]
-                  });
-              }
-          )
+  swisseph.swe_julday(years, month, day,time, swisseph.SE_GREG_CAL).then(
+      async(jul_ut) => {
+        let task0 = async () =>  swisseph.swe_calc_ut (jul_ut, swisseph.SE_SUN, flag).then(
+          (result) => {
+              return result;
+          }
+        );
+        let task1 = async () => swisseph.swe_calc_ut (jul_ut, swisseph.SE_MOON, flag).then(
+          (result) => {
+              return result;
+          }
+      );
+      let task2 = async () => swisseph.swe_calc_ut (jul_ut,  swisseph.SE_MERCURY, flag).then(
+          (result) => {
+              return result;
+          }
+      );
+      let task3 = async () => swisseph.swe_calc_ut (jul_ut,  swisseph.SE_VENUS, flag).then(
+          (result) => {
+  
+              return result;
+          }
+      );
+      let task4 = async () =>swisseph.swe_calc_ut (jul_ut,  swisseph.SE_MARS, flag).then(
+        (result) => {
+            return result;
+        }
+    );
+    let task5 = async () => swisseph.swe_calc_ut (jul_ut,  swisseph.SE_JUPITER, flag).then(
+        (result) => {
+            return result;
+        }
+    );
+    let task6 = async () =>swisseph.swe_calc_ut (jul_ut,  swisseph.SE_SATURN, flag).then(
+        (result) => {
+  
+            return result;
+        }
+    );
+    let task7 = async () => swisseph.swe_calc_ut (jul_ut,  swisseph.SE_URANUS, flag).then(
+      (result) => {
+          return result;
+      })
+  
+  let task8 = async () => swisseph.swe_calc_ut (jul_ut,  swisseph.SE_NEPTUNE, flag).then(
+      (result) => {
+          return result;
+      })
+  let task9 = async () => swisseph.swe_calc_ut (jul_ut,  swisseph.SE_PLUTO, flag).then(
+      (result) => {
+  
+          return result;
+      })
+  let task10 = async () => swisseph.swe_calc_ut (jul_ut,  swisseph.SE_EARTH, flag).then(
+    (result) => {
+  
+        return result;
+    })
+        let [result0,result1, result2, result3,result4, result5, result6,result7, result8, result9, result10] = await Promise.all([
+          task0(),task1(), task2(), task3(), task4(), task5(), task6(), task7(), task8(), task9(), task10()
+      ]);
+      let message = [
+          ...this.state.message,
+          "julday():" +JSON.stringify({
+            'SE_SUN':result0,
+              'SE_MOON' : result1,
+              'SE_MERCURY' : result2,
+              'SE_VENUS' : result3,
+              'SE_MARS' : result4,
+              'SE_JUPITER' : result5,
+              'SE_SATURN' : result6,
+              'SE_URANUS' : result7,
+              'SE_NEPTUNE' : result8,
+              'SE_PLUTO' : result9,
+              'SE_EARTH' : result10,
+          })
+  
+      ];
+  
+  
+      this.setState({
+          message: message
+      });
 
 
       }
@@ -157,8 +233,8 @@ async swe_calc_ut() {
   };
 
   async componentDidMount(){
-    await this.julday()
-    //await this.swe_calc_ut()
+    //await this.julday()
+    await this.swe_calc_ut()
   }
 
   render()
