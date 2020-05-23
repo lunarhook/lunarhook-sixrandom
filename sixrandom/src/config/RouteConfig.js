@@ -171,8 +171,8 @@ RouteConfig={
             "nanjingPage":{"name":"难经","titlename":"难经","route":"DetailBookPage","icon":IconConfig.IconBookMedicGreen},
             //"BenCaoGangMuPage":{"name":"本草纲目","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},
             //"LunShangHanPage":{"name":"论伤寒","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},
-        "BingFaPage":{"name":"谋略","titlename":"谋略","route":"","icon":IconConfig.IconThreeIntro}, 
-            "sanshiliujiPage":{"name":"三十六计","route":"","icon":IconConfig.IconJiBook},
+        "BingFaPage":{"name":"谋略","titlename":"谋略","route":"DetailBookPage","icon":IconConfig.IconThreeIntro}, 
+            "sanshiliujiPage":{"name":"三十六计","titlename":"三十六计","route":"DetailBookPage","icon":IconConfig.IconJiBook},
             /*
             兵家，法家，也应该入选以思考思维为主的内容，是否扩大，以后商量
             "guiguziPage":{"name":"鬼谷子","route":"","icon":IconConfig.IconLunarCourse},
@@ -182,11 +182,11 @@ RouteConfig={
             "sunzibingfaPage":{"name":"孙子兵法","route":"","icon":IconConfig.IconLunarCourse},
             */
         "CePage":{"name":"策论","titlename":"策论","route":"","icon":IconConfig.IconThreeIntro}, 
-            "zhanguoPage":{"name":"战国策","route":"","icon":IconConfig.IconLunarCourseIntroRed},
-            "guanziPage":{"name":"管子","route":"","icon":IconConfig.IconLunarCourseIntroGold},
-            "gongsunlongziPage":{"name":"公孙龙子","route":"","icon":IconConfig.IconLunarCourseIntroOrange},
-            "sushuPage":{"name":"素书","route":"","icon":IconConfig.IconLunarCourseIntroBlue},
-            "fanjingPage":{"name":"反经","route":"","icon":IconConfig.IconLunarCourseIntroClaygreen},
+            "zhanguoPage":{"name":"战国策","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroRed},
+            "guanziPage":{"name":"管子","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroGold},
+            "gongsunlongziPage":{"name":"公孙龙子","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroOrange},
+            "sushuPage":{"name":"素书","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroBlue},
+            "fanjingPage":{"name":"反经","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroClaygreen},
             
            
         "PoemPage":{"name":"唐诗宋词","titlename":"唐诗宋词","route":"","icon":IconConfig.IconThreeIntro},      
