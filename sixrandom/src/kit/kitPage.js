@@ -28,12 +28,14 @@ const data = [
   { icon: RouteConfig['ziweiNewPage'].icon, text: RouteConfig['ziweiNewPage'].name, url: RouteConfig['ziweiNewPage'].route },
   { icon: RouteConfig['TrackStarPage'].icon, text: RouteConfig['TrackStarPage'].name, url: RouteConfig['TrackStarPage'].route },
 ]
-const data1 = [
-  { icon: RouteConfig['ChangesuniversePage'].icon, text: RouteConfig['ChangesuniversePage'].name, url: RouteConfig['ChangesuniversePage'].route },
+const Tarot = [
   { icon: RouteConfig['TarotPage'].icon, text: RouteConfig['TarotPage'].name, url: RouteConfig['TarotPage'].route },
   { icon: RouteConfig['TarotVenusPage'].icon, text: RouteConfig['TarotVenusPage'].name, url: RouteConfig['TarotVenusPage'].route },
   { icon: RouteConfig['TarotStarofDavidPage'].icon, text: RouteConfig['TarotStarofDavidPage'].name, url: RouteConfig['TarotStarofDavidPage'].route },
   { icon: RouteConfig['TarotCeltsPage'].icon, text: RouteConfig['TarotCeltsPage'].name, url: RouteConfig['TarotCeltsPage'].route },
+]
+const data1 = [
+  { icon: RouteConfig['ChangesuniversePage'].icon, text: RouteConfig['ChangesuniversePage'].name, url: RouteConfig['ChangesuniversePage'].route },
   { icon: RouteConfig['GamblePage'].icon, text: RouteConfig['GamblePage'].name, url: RouteConfig['GamblePage'].route },
   { icon: RouteConfig['StarInfoPage'].icon, text: RouteConfig['StarInfoPage'].name, url: RouteConfig['StarInfoPage'].route },
 ]
@@ -335,11 +337,20 @@ class kitPage extends React.Component {
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-
-    contentlist["塔罗占星"] = (
-      <Accordion.Panel header={"塔罗占星"} key={"塔罗占星"}>
+        
+        contentlist["星盘星座"] = (
+          <Accordion.Panel header={"星盘星座"} key={"星盘星座"}>
+            <Grid
+              data={data1}
+              columnNum={coln}
+              isCarousel={false}
+              hasLine={true}
+              onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+            /></Accordion.Panel >)
+    contentlist["塔罗牌阵"] = (
+      <Accordion.Panel header={"塔罗牌阵"} key={"塔罗牌阵"}>
         <Grid
-          data={data1}
+          data={Tarot}
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
@@ -480,10 +491,17 @@ class kitPage extends React.Component {
         </Accordion>
       )
     }
-    else if ("塔罗占星" == tab.title) {
+    else if ("塔罗牌阵" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-          {contentlist["塔罗占星"]}
+          {contentlist["塔罗牌阵"]}
+        </Accordion>
+      )
+    }
+    else if ("星盘星座" == tab.title) {
+      return (
+        <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+          {contentlist["星盘星座"]}
         </Accordion>
       )
     }
