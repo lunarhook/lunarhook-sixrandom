@@ -61,6 +61,20 @@ const yi = [
   
 ]
 
+const ji = [
+  {icon: RouteConfig['sanshiliujiPage'].icon,text: RouteConfig['sanshiliujiPage'].name,url:RouteConfig['sanshiliujiPage'].route,index:{ text: "sanshiliujiPage" }},
+]
+const celun = [
+  {icon: RouteConfig['zhanguoPage'].icon,text: RouteConfig['zhanguoPage'].name,url:RouteConfig['zhanguoPage'].route,index:{ text: "zhanguoPage" }},
+  {icon: RouteConfig['guanziPage'].icon,text: RouteConfig['guanziPage'].name,url:RouteConfig['guanziPage'].route,index:{ text: "guanziPage" }},
+  {icon: RouteConfig['gongsunlongziPage'].icon,text: RouteConfig['gongsunlongziPage'].name,url:RouteConfig['gongsunlongziPage'].route,index:{ text: "gongsunlongziPage" }},
+  
+  {icon: RouteConfig['sushuPage'].icon,text: RouteConfig['sushuPage'].name,url:RouteConfig['sushuPage'].route,index:{ text: "sushuPage" }},
+  {icon: RouteConfig['fanjingPage'].icon,text: RouteConfig['fanjingPage'].name,url:RouteConfig['fanjingPage'].route,index:{ text: "fanjingPage" }},
+  
+  
+]
+
 var w = ScreenConfig.__screenW()
 var coln=4
 if(w>320 &&    Platform.OS === 'ios')
@@ -315,7 +329,7 @@ class LunarCoursePage extends React.Component {
               hasLine={true}
               onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
             /></Accordion.Panel >)
-        /*
+        
     contentlist["五经"] = (
       <Accordion.Panel header={RouteConfig['FiveExtPage'].name} key={RouteConfig['FiveExtPage'].name}>
         <Grid
@@ -332,7 +346,8 @@ class LunarCoursePage extends React.Component {
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
        
-               */
+
+              
           contentlist["中医"] = (
             <Accordion.Panel header={RouteConfig['ChineseMedicationPage'].name}  key={RouteConfig['ChineseMedicationPage'].name}>
               <Grid
@@ -342,6 +357,24 @@ class LunarCoursePage extends React.Component {
                 hasLine={true}
                 onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
               /></Accordion.Panel >)
+              contentlist["谋略"] = (
+                <Accordion.Panel header={RouteConfig['BingFaPage'].name}  key={RouteConfig['BingFaPage'].name}>
+                  <Grid
+                    data={ji}
+                    columnNum={coln}
+                    isCarousel={false}
+                    hasLine={true}
+                    onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+                  /></Accordion.Panel >)
+                  contentlist["策论"] = (
+                    <Accordion.Panel header={RouteConfig['CePage'].name}  key={RouteConfig['CePage'].name}>
+                      <Grid
+                        data={celun}
+                        columnNum={coln}
+                        isCarousel={false}
+                        hasLine={true}
+                        onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+                      /></Accordion.Panel >)
 
     if ("关注" == tab.title) {
         return (
@@ -393,7 +426,7 @@ class LunarCoursePage extends React.Component {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           {contentlist["四书"]}
-          {/*contentlist["五经"]*/}
+          {contentlist["五经"]}
         </Accordion>
       )
     } 
@@ -413,15 +446,22 @@ class LunarCoursePage extends React.Component {
         </Accordion>
       )
     } 
-    /*
-    else if ("人工智能" == tab.title) {
+    
+    else if ("计策谋略" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-          {contentlist["关注"]}
+          {contentlist["谋略"]}
         </Accordion>
       )
     } 
-    */
+    else if ("策论" == tab.title) {
+      return (
+        <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+          {contentlist["策论"]}
+        </Accordion>
+      )
+    } 
+    
   };
   
   render(){

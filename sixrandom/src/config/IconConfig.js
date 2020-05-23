@@ -86,10 +86,18 @@ class IconConfig extends React.Component {
   static IconDetail = (<Ionicons name="ios-more" size={size} color={orange} />)
   static IconLunarCourse = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={green} />)
   static IconLunarCourseIntro = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={green} />)
+  static IconLunarCourseIntroRed = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={fire} />)
+  static IconLunarCourseIntroBlue = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={green} />)
+  static IconLunarCourseIntroOrange = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={blue} />)
+  static IconLunarCourseIntroGold = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={gold} />)
+  static IconLunarCourseIntroClaygreen = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={claygreen} />)
+
   static IconLunarCourseBlue = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={blue} />)
   static IconLunarCourseRed = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={fire} />)
   static IconLunarCourseRedO = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={orange} />)
   static IconLunarCourseGold = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={gold} />)
+  
+
   static IconKit = (<FontAwesome name="wpexplorer" size={size} color={startblue} />)
   static IconThreechanges = (<MaterialCommunityIcons name="google-circles-communities" size={buttonsize} color="#06F" />)
   static IconSixCourse = (<Foundation name="die-six" size={buttonsize} color={blue} />)
@@ -168,6 +176,7 @@ class IconConfig extends React.Component {
   static IconMengZiBook= (<FontAwesome name="language" size={buttonsize} color={blue}/>)
   static IconZhongYongBook= (<FontAwesome name="language" size={buttonsize} color={Coral}/>)
   static IconBigBook= (<FontAwesome name="language" size={buttonsize} color={fire}/>)
+  static IconJiBook = (<MaterialCommunityIcons name="chemical-weapon" size={size} color={fire} />)
 
 
 
