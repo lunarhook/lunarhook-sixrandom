@@ -122,13 +122,13 @@ RouteConfig={
         //课程是进一步提高成本，解决问题的方法，合理收费
         "LunarCoursePage":{"name":"思无邪","route":"LunarCoursePage","titlename":"无邪书院","icon":IconConfig.IconLunarCourse},
         "LunarCourseConfigPage":{"name":"课程配置","route":"LunarCourseConfigPage","icon":IconConfig.IconSubmit},
-        "LunarMasterConfigPage":{"name":"训练大师配置","route":"LunarMasterConfigPage","icon":IconConfig.IconSubmit},
+        "LunarMasterConfigPage":{"name":"课程训练配置","route":"LunarMasterConfigPage","icon":IconConfig.IconSubmit},
         "CourseSearchPage":{"name":"说文助手","route":"CourseSearchPage","titlename":"说文解字","icon":IconConfig.IconSearch},
         "CourseSearchPageFake":{"name":"说文助手","route":"CourseSearchPage","titlename":"说文解字","icon":IconConfig.IconSearch},
         "LunarCourseAnswerPage":{"name":"答疑解惑","route":"LunarCourseAnswerPage","titlename":"答疑解惑","icon":IconConfig.IconAnswerIntro},
         "LunarCourseAnswerPageFake":{"name":"答疑解惑","route":"LunarCourseAnswerPage","titlename":"答疑解惑","icon":IconConfig.IconAnswerIntro},
-        "LunarMasterPage":{"name":"训练大师","route":"LunarMasterPage","titlename":"训练大师","icon":IconConfig.IconMaster},
-        "LunarMasterPageFake":{"name":"训练大师","route":"LunarMasterPage","titlename":"训练大师","icon":IconConfig.IconMaster},
+        "LunarMasterPage":{"name":"课程训练","route":"LunarMasterPage","titlename":"课程训练","icon":IconConfig.IconMaster},
+        "LunarMasterPageFake":{"name":"课程训练","route":"LunarMasterPage","titlename":"课程训练","icon":IconConfig.IconMaster},
   
         "ReadPage":{"name":"阅读","route":"ReadPage","titlename":"阅读","icon":IconConfig.IconLunarCourse},     
         "service":{"name":"服务支持","route":"service","icon":IconConfig.Service},     
