@@ -159,8 +159,8 @@ RouteConfig={
             "MengziBookPage":{"name":"孟子","titlename":"孟子","route":"DetailBookPage","icon":IconConfig.IconMengZiBook},
             "ZhongBookPage":{"name":"中庸","titlename":"中庸","route":"DetailBookPage","icon":IconConfig.IconZhongYongBook},
             "BigBookPage":{"name":"大学","titlename":"大学","route":"DetailBookPage","icon":IconConfig.IconBigBook},
-            "ShangshuBookPage":{"name":"尚书","route":"","icon":IconConfig.IconShangShuBook},
-            "LijiBookPage":{"name":"礼记","route":"","icon":IconConfig.IconLijiBook},
+            "ShangshuBookPage":{"name":"尚书","titlename":"尚书","route":"DetailBookPage","icon":IconConfig.IconShangShuBook},
+            "LijiBookPage":{"name":"礼记","titlename":"礼记","route":"DetailBookPage","icon":IconConfig.IconLijiBook},
         "ChineseMedicationPage":{"name":"医药经典","titlename":"医药经典","route":"","icon":IconConfig.IconBookMedic}, 
             //皇帝内景，难经，论伤寒，本草纲目，考虑早期内容主要以思考为主，只入选论黄帝内经，难经
             "HuangDiNeiJingSuWenPage":{"name":"素问","titlename":"黄帝内经·素问","route":"DetailBookPage","icon":IconConfig.IconBookMedicRed},
