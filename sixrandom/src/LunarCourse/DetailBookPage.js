@@ -43,6 +43,13 @@ class DetailBookPage extends React.Component {
       var NativePlumber = NativeModules.NativePlumber;
       NativePlumber.PlumberRouting(Q.titlename, "", "", "")
       var x = QIndexPage.GetBookType(Q.titlename)
+     
+      if(x.length===1)
+      {
+        ScreenConfig.DeviceToast("资料未开放")
+        this.props.navigation.goBack()
+        return (<View></View>)
+      }
       this.setState({ dateMeng: x })
       return (<View></View>)
     }

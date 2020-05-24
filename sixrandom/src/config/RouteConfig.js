@@ -61,7 +61,7 @@ RouteConfig={
         "ziweiMainPage":{"name":"紫薇斗数","route":"ziweiMainPage","icon":IconConfig.IconZiWei},
         "ziweiHistoryPage":{"name":"紫薇历史","route":"ziweiHistoryPage","icon":IconConfig.IconDetail},
         //星座星盘
-        "ChangesuniversePage":{"name":"占星星盘","route":"ChangesuniversePage","icon":IconConfig.IconChangesuniverse},
+        "ChangesuniversePage":{"name":"古典星盘","route":"ChangesuniversePage","icon":IconConfig.IconChangesuniverseSel},
             "StarInfoPage":{"name":"星座知识","route":"StarInfoPage","icon":IconConfig.IconStarInfo},
                 "GamblePage":{"name":"星座骰子","route":"GamblePage","icon":IconConfig.IconGamble},       
                 "AstroPage":{"name":"星盘人格","route":"AstroPage","icon":IconConfig.AstroPage},
@@ -112,7 +112,7 @@ RouteConfig={
         "relationshipcalcpage":{"name":"亲戚关系查询","route":"relationshipcalcpage","icon":IconConfig.IconLunarCourse},
         "SloganShare":{"name":"SLOGAN\n国风开屏语","titlename":"国风开屏语","route":"SloganShare","icon":IconConfig.IconSloganShare},
         "NamePage":{"name":"智能生辰\n五行起名","titlename":"智能生辰五行起名","route":"NamePage","icon":IconConfig.IconNamePage},
-        "NameModule":{"name":"名字五行查询","titlename":"名字五行查询","route":"NameModule","icon":IconConfig.IconNameSearchPage},
+        "NameModule":{"name":"姓名\n五行查询","titlename":"名字五行查询","route":"NameModule","icon":IconConfig.IconNameSearchPage},
         //心理咨询录音工具
         "ConsultantAudioRecord":{"name":"咨询录音","route":"ConsultantAudioRecord","icon":IconConfig.ConfigIcon},
         "permutationcombination":{"name":"排列组合计算器","route":"permutationcombination","icon":IconConfig.ConfigIcon},

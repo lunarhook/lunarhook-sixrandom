@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import {StyleSheet,View,Dimensions,Alert,Button, Text,RefreshControl,ScrollView} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -38,7 +39,7 @@ class IconConfig extends React.Component {
   static IconPagelines = (<FontAwesome name="pagelines" size={size} color="#06F" />)
   static Iconchat = (<FontAwesome5 name="canadian-maple-leaf" size={midsize} color={gold} />)
   static IconChangesuniverse = (<Ionicons name="md-planet" size={buttonsize} color="#06F" />)
-  static IconChangesuniverseSel = (<Ionicons name="md-planet" size={buttonsize} color="#06F" />)
+  static IconChangesuniverseSel = (<View style={{borderRadius:15, backgroundColor:'#F0F9FF',borderColor:'#00C0FF',borderWidth:1}}><MaterialCommunityIcons name="zodiac-scorpio" size={size} color={'#00C0FF'} /></View>)
   static IconQuiz = (<Ionicons name="ios-pulse" size={size} color={fire} />)
   static IconQuizSel = (<Ionicons name="ios-pulse" size={size} color={fire} />)
   static IconLunarExplain = (<Ionicons name="ios-people" size={size} color="#06F" />)
@@ -47,7 +48,7 @@ class IconConfig extends React.Component {
   static Eightrandom = (<Ionicons name="md-finger-print" size={buttonsize} color={red} />)
   static EightrandomSel = (<Ionicons name="md-finger-print" size={buttonsize} color={red} />)
   static Sixrandom = (<FontAwesome name="moon-o" size={buttonsize} color={blue} />)
-  static SixrandomSel = (<FontAwesome name="moon-o" size={buttonsize} color={blue} />)
+  static SixrandomSel = (<MaterialCommunityIcons name="yin-yang" size={buttonsize} color={blue} />)
   static numlucky = (<FontAwesome name="signal" size={buttonsize} color={green} />)
   static numluckySel = (<FontAwesome name="signal" size={buttonsize} color={green} />)
   static IconSelf = (<Ionicons name="ios-time" size={size} color={orange} />)
@@ -103,8 +104,8 @@ class IconConfig extends React.Component {
   static IconSixCourse = (<Foundation name="die-six" size={buttonsize} color={blue} />)
   static Iconqimen = (<MaterialCommunityIcons name="blur" size={buttonsize} color={gold} />)
   static Icontaiyi = (<MaterialCommunityIcons name="atom" size={buttonsize} color={fire} />)
-  static IconGamble = (<FontAwesome name="low-vision" size={buttonsize} color={startblue} />)
-  static IconGambleButton = (<FontAwesome name="eye" size={buttonsize} color={startblue} />)
+  static IconGamble = (<FontAwesome name="low-vision" size={buttonsize} color={fire} />)
+  static IconGambleButton = (<FontAwesome name="eye" size={buttonsize} color={fire}/>)
   static AstroPage = (<FontAwesome name="first-order" size={buttonsize} color={startblue} />)
   static TarotTab = (<FontAwesome name="key" size={buttonsize} color={fire} />)
   static TarotStart = (<FontAwesome name="free-code-camp" size={buttonsize} color={fire} />)
@@ -113,7 +114,7 @@ class IconConfig extends React.Component {
   static TarotStarofDavid = (<MaterialIcons name="filter-vintage" size={buttonsize} color={gold} />)
   static TarotCelts = (<MaterialIcons name="brightness-high" size={buttonsize} color={blue} />)
   static PrivateChat = (<FontAwesome name="microphone" size={size} color="#06F" />)
-  static IconStarInfo = (<Ionicons name="md-bonfire" size={buttonsize} color={fire} />)
+  static IconStarInfo = (<Ionicons name="ios-information-circle-outline" size={buttonsize} color={green} />)
   static CalendarIcon = (<Ionicons name="ios-calendar" size={size} color={orange} />)
   static ConfigIcon = (<Ionicons name="ios-options" size={size} color="#06F" />)
   static MyConfigIcon = (<Ionicons name="ios-contact" size={size} color="#06F" />)

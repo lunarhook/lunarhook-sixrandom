@@ -234,6 +234,8 @@ async swe_calc_ut() {
 
   async componentDidMount(){
     //await this.julday()
+    ScreenConfig.DeviceToast("资料未开放")
+    this.props.navigation.goBack()
     await this.swe_calc_ut()
   }
 
