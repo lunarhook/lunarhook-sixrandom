@@ -179,11 +179,11 @@ RouteConfig={
             "sunzibingfaPage":{"name":"孙子兵法","route":"","icon":IconConfig.IconLunarCourse},
             */
         "CePage":{"name":"策论","titlename":"策论","route":"","icon":IconConfig.IconThreeIntro}, 
-            "zhanguoPage":{"name":"战国策","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroRed},
-            "guanziPage":{"name":"管子","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroGold},
-            "gongsunlongziPage":{"name":"公孙龙子","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroOrange},
-            "sushuPage":{"name":"素书","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroBlue},
-            "fanjingPage":{"name":"反经","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroClaygreen},
+            "zhanguoPage":{"name":"战国策","titlename":"战国策","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroRed},
+            "guanziPage":{"name":"管子","titlename":"管子","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroGold},
+            "gongsunlongziPage":{"name":"公孙龙子","titlename":"公孙龙子","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroOrange},
+            "sushuPage":{"name":"素书","titlename":"素书","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroBlue},
+            "fanjingPage":{"name":"反经","titlename":"反经","route":"DetailBookPage","icon":IconConfig.IconLunarCourseIntroClaygreen},
             
            
         "PoemPage":{"name":"唐诗宋词","titlename":"唐诗宋词","route":"","icon":IconConfig.IconThreeIntro},      
