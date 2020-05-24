@@ -35,14 +35,8 @@ const four = [
   {icon: RouteConfig['MengziBookPage'].icon,text: RouteConfig['MengziBookPage'].name,url:RouteConfig['MengziBookPage'].route,index:{ text: "MengziBookPage" }},
   {icon: RouteConfig['ZhongBookPage'].icon,text: RouteConfig['ZhongBookPage'].name,url:RouteConfig['ZhongBookPage'].route,index:{ text: "ZhongBookPage" }},
   {icon: RouteConfig['BigBookPage'].icon,text: RouteConfig['BigBookPage'].name,url:RouteConfig['BigBookPage'].route,index:{ text: "BigBookPage" }},
-]
-
-const five = [
-  {icon: RouteConfig['UniversBookPage'].icon,text: RouteConfig['UniversBookPage'].name,url:RouteConfig['UniversBookPage'].route,index:{ text: "UniversBookPage" }},
-  {icon: RouteConfig['ShijingBookPage'].icon,text: RouteConfig['ShijingBookPage'].name,url:RouteConfig['ShijingBookPage'].route,index:{ text: "ShijingBookPage" }},
   {icon: RouteConfig['ShangshuBookPage'].icon,text: RouteConfig['ShangshuBookPage'].name,url:RouteConfig['ShangshuBookPage'].route,index:{ text: "ShangshuBookPage" }},
   {icon: RouteConfig['LijiBookPage'].icon,text: RouteConfig['LijiBookPage'].name,url:RouteConfig['LijiBookPage'].route,index:{ text: "LijiBookPage" }},
-  {icon: RouteConfig['ChunqiuBookPage'].icon,text: RouteConfig['ChunqiuBookPage'].name,url:RouteConfig['ChunqiuBookPage'].route,index:{ text: "ChunqiuBookPage" }},
 ]
 const Meng = [
   {icon: RouteConfig['AncientSanZiJingPage'].icon,text: RouteConfig['AncientSanZiJingPage'].name,url:RouteConfig['AncientSanZiJingPage'].route,index:{ text: "AncientSanZiJingPage" }},
@@ -311,7 +305,7 @@ class LunarCoursePage extends React.Component {
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
    
-    contentlist["四书"] = (
+    contentlist["四书五经"] = (
       <Accordion.Panel header={RouteConfig['FourExtPage'].name}  key={RouteConfig['FourExtPage'].name}>
         <Grid
           data={four}
@@ -329,25 +323,6 @@ class LunarCoursePage extends React.Component {
               hasLine={true}
               onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
             /></Accordion.Panel >)
-        
-    contentlist["五经"] = (
-      <Accordion.Panel header={RouteConfig['FiveExtPage'].name} key={RouteConfig['FiveExtPage'].name}>
-        <Grid
-          data={five}
-          columnNum={coln}
-         isCarousel={false}
-          hasLine={true}
-          renderItem={(el, index) => {
-            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
-              {el.icon}
-              <Text style={{ textAlign: "center", fontSize:FontStyleConfig.getFontApplySize()+ 12 }}>{el.text}</Text>
-            </View>)
-          }}
-          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-        /></Accordion.Panel >)
-       
-
-              
           contentlist["中医"] = (
             <Accordion.Panel header={RouteConfig['ChineseMedicationPage'].name}  key={RouteConfig['ChineseMedicationPage'].name}>
               <Grid
@@ -425,8 +400,7 @@ class LunarCoursePage extends React.Component {
     } else if ("四书五经" == tab.title) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-          {contentlist["四书"]}
-          {contentlist["五经"]}
+          {contentlist["四书五经"]}
         </Accordion>
       )
     } 

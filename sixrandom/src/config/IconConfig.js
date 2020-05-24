@@ -183,10 +183,9 @@ class IconConfig extends React.Component {
   static IconBookMedicRed = (<FontAwesome5 name="medrt" size={buttonsize} color={red} />)
   static IconBookMedicBlue = (<FontAwesome5 name="medrt" size={buttonsize} color={blue} />)
   static IconBookMedicGreen = (<FontAwesome5 name="medrt" size={buttonsize} color={green} />)
-  static IconShiJingBook = (<FontAwesome name="language" size={buttonsize} color={LightPink} />)
-  static IconShangShuBook = (<FontAwesome name="language" size={buttonsize} color={orange} />)
-  static IconLijiBook = (<FontAwesome name="language" size={buttonsize} color={green} />)
-  static IconChunQiuBook = (<FontAwesome name="language" size={buttonsize} color={darkgold} />)
+  static IconShangShuBook = (<FontAwesome name="language" size={buttonsize} color={LightPink} />)
+  static IconLijiBook = (<FontAwesome name="language" size={buttonsize} color={darkgold} />)
+
 
   static IconFontSmall = (<EvilIcons name="minus" size={buttonsize} color={green} />)
   static IconFontLarge = (<EvilIcons name="plus" size={buttonsize} color={green} />)

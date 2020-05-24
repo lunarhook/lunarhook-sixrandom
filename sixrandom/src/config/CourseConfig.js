@@ -36,8 +36,7 @@ CourseSelectMode = [
   {title: '蒙学',isSelect: false},
   {title: '小学',isSelect: false},
   {title: '三玄',isSelect: true},
-  {title: '四书',isSelect: true},
-  {title: '五经',isSelect: true},
+  {title: '四书五经',isSelect: true},
   {title: '谋略',isSelect: true},
   {title: '策论',isSelect: true},
   {title: '医药经典',isSelect: false},
@@ -48,16 +47,14 @@ Coursealllist['医药经典'] = [
   {title: '蒙学',isSelect: false},
   {title: '小学',isSelect: false},
   {title: '三玄',isSelect: true},
-  {title: '四书',isSelect: false},
-  {title: '五经',isSelect: false},
+  {title: '四书五经',isSelect: false},
   {title: '谋略',isSelect: false},
   {title: '策论',isSelect: false},
   {title: '医药经典',isSelect: true},
 ]
  Coursealllist['经史子集'] = [
 
-  {title: '四书',isSelect: true},
-  {title: '五经',isSelect: true},
+  {title: '四书五经',isSelect: true},
 ]
 
  Coursealllist['蒙童幼学'] = [
