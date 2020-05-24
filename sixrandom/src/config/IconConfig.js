@@ -174,6 +174,8 @@ class IconConfig extends React.Component {
   static IconYN = (<Foundation name="list-number" size={buttonsize} color={green} />)
   static IconLunYuBook = (<FontAwesome name="language" size={buttonsize} color={green} />)
   static IconMengZiBook = (<FontAwesome name="language" size={buttonsize} color={blue} />)
+  static IconShangShuBook = (<FontAwesome name="language" size={buttonsize} color={Coral} />)
+  static IconLijiBook = (<FontAwesome name="language" size={buttonsize} color={fire} />)
   static IconZhongYongBook = (<FontAwesome name="language" size={buttonsize} color={Coral} />)
   static IconBigBook = (<FontAwesome name="language" size={buttonsize} color={fire} />)
   static IconJiBook = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={LightPink} />)
@@ -183,8 +185,7 @@ class IconConfig extends React.Component {
   static IconBookMedicRed = (<FontAwesome5 name="medrt" size={buttonsize} color={red} />)
   static IconBookMedicBlue = (<FontAwesome5 name="medrt" size={buttonsize} color={blue} />)
   static IconBookMedicGreen = (<FontAwesome5 name="medrt" size={buttonsize} color={green} />)
-  static IconShangShuBook = (<FontAwesome name="language" size={buttonsize} color={LightPink} />)
-  static IconLijiBook = (<FontAwesome name="language" size={buttonsize} color={darkgold} />)
+
 
 
   static IconFontSmall = (<EvilIcons name="minus" size={buttonsize} color={green} />)

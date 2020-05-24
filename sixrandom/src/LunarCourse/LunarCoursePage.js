@@ -19,9 +19,7 @@ const intro = [
 const base = [
   {icon: RouteConfig['ShuoWenBookPage'].icon,text: RouteConfig['ShuoWenBookPage'].name,url:RouteConfig['ShuoWenBookPage'].route,index:{ text: "ShuoWenBookPage" }},
   {icon: RouteConfig['ErYaBookPage'].icon,text: RouteConfig['ErYaBookPage'].name,url:RouteConfig['ErYaBookPage'].route,index:{ text: "ErYaBookPage" }},
-
   {icon: RouteConfig['ShengYunBookPage'].icon,text: RouteConfig['ShengYunBookPage'].name,url:RouteConfig['ShengYunBookPage'].route,index:{ text: "ShengYunBookPage" }},
-  //{icon: RouteConfig['yinyunPage'].icon,text: RouteConfig['yinyunPage'].name,url:RouteConfig['yinyunPage'].route,index:{ text: "AncientQianZiWenPage" }},
 ]
 
 const three = [
@@ -33,10 +31,14 @@ const three = [
 const four = [
   {icon: RouteConfig['LunyuBookPage'].icon,text: RouteConfig['LunyuBookPage'].name,url:RouteConfig['LunyuBookPage'].route,index:{ text: "LunyuBookPage" }},
   {icon: RouteConfig['MengziBookPage'].icon,text: RouteConfig['MengziBookPage'].name,url:RouteConfig['MengziBookPage'].route,index:{ text: "MengziBookPage" }},
-  {icon: RouteConfig['ZhongBookPage'].icon,text: RouteConfig['ZhongBookPage'].name,url:RouteConfig['ZhongBookPage'].route,index:{ text: "ZhongBookPage" }},
-  {icon: RouteConfig['BigBookPage'].icon,text: RouteConfig['BigBookPage'].name,url:RouteConfig['BigBookPage'].route,index:{ text: "BigBookPage" }},
   {icon: RouteConfig['ShangshuBookPage'].icon,text: RouteConfig['ShangshuBookPage'].name,url:RouteConfig['ShangshuBookPage'].route,index:{ text: "ShangshuBookPage" }},
   {icon: RouteConfig['LijiBookPage'].icon,text: RouteConfig['LijiBookPage'].name,url:RouteConfig['LijiBookPage'].route,index:{ text: "LijiBookPage" }},
+]
+
+const fouradd = [
+  {icon: RouteConfig['ZhongBookPage'].icon,text: RouteConfig['ZhongBookPage'].name,url:RouteConfig['ZhongBookPage'].route,index:{ text: "ZhongBookPage" }},
+  {icon: RouteConfig['BigBookPage'].icon,text: RouteConfig['BigBookPage'].name,url:RouteConfig['BigBookPage'].route,index:{ text: "BigBookPage" }},
+  
 ]
 const Meng = [
   {icon: RouteConfig['AncientSanZiJingPage'].icon,text: RouteConfig['AncientSanZiJingPage'].name,url:RouteConfig['AncientSanZiJingPage'].route,index:{ text: "AncientSanZiJingPage" }},
@@ -48,11 +50,6 @@ const yi = [
   {icon: RouteConfig['HuangDiNeiJingSuWenPage'].icon,text: RouteConfig['HuangDiNeiJingSuWenPage'].name,url:RouteConfig['HuangDiNeiJingSuWenPage'].route,index:{ text: "HuangDiNeiJingSuWenPage" }},
   {icon: RouteConfig['HuangDiNeiJingLingShuPage'].icon,text: RouteConfig['HuangDiNeiJingLingShuPage'].name,url:RouteConfig['HuangDiNeiJingLingShuPage'].route,index:{ text: "HuangDiNeiJingLingShuPage" }},
   {icon: RouteConfig['nanjingPage'].icon,text: RouteConfig['nanjingPage'].name,url:RouteConfig['nanjingPage'].route,index:{ text: "nanjingPage" }},
-  
-  //{icon: RouteConfig['BenCaoGangMuPage'].icon,text: RouteConfig['BenCaoGangMuPage'].name,url:RouteConfig['BenCaoGangMuPage'].route,index:{ text: "BenCaoGangMuPage" }},
-  //{icon: RouteConfig['LunShangHanPage'].icon,text: RouteConfig['LunShangHanPage'].name,url:RouteConfig['LunShangHanPage'].route,index:{ text: "LunShangHanPage" }},
-  
-  
 ]
 
 const ji = [
@@ -62,11 +59,8 @@ const celun = [
   {icon: RouteConfig['zhanguoPage'].icon,text: RouteConfig['zhanguoPage'].name,url:RouteConfig['zhanguoPage'].route,index:{ text: "zhanguoPage" }},
   {icon: RouteConfig['guanziPage'].icon,text: RouteConfig['guanziPage'].name,url:RouteConfig['guanziPage'].route,index:{ text: "guanziPage" }},
   {icon: RouteConfig['gongsunlongziPage'].icon,text: RouteConfig['gongsunlongziPage'].name,url:RouteConfig['gongsunlongziPage'].route,index:{ text: "gongsunlongziPage" }},
-  
   {icon: RouteConfig['sushuPage'].icon,text: RouteConfig['sushuPage'].name,url:RouteConfig['sushuPage'].route,index:{ text: "sushuPage" }},
   {icon: RouteConfig['fanjingPage'].icon,text: RouteConfig['fanjingPage'].name,url:RouteConfig['fanjingPage'].route,index:{ text: "fanjingPage" }},
-  
-  
 ]
 
 var w = ScreenConfig.__screenW()
@@ -307,13 +301,22 @@ class LunarCoursePage extends React.Component {
    
     contentlist["四书五经"] = (
       <Accordion.Panel header={RouteConfig['FourExtPage'].name}  key={RouteConfig['FourExtPage'].name}>
+        <View>
         <Grid
           data={four}
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-        /></Accordion.Panel >)
+        />
+        <Grid
+          data={fouradd}
+          columnNum={coln}
+          isCarousel={false}
+          hasLine={true}
+          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+        /></View>
+        </Accordion.Panel >)
         contentlist["蒙学"] = (
           <Accordion.Panel header={RouteConfig['MengBookPage'].name}  key={RouteConfig['MengBookPage'].name}>
             <Grid
