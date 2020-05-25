@@ -9,6 +9,7 @@ brew install flow
 brew install cocoapods
 brew install coreutils
 brew install maven
+brew install clang-format
 brew cask install android-sdk
 brew cask install homebrew/cask-versions/adoptopenjdk8
 brew cleanup
