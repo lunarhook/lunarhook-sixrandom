@@ -184,7 +184,7 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
   - React-jsinspector (0.61.5)
-  - react-native-cameraroll (1.7.1):
+  - react-native-cameraroll (1.7.2):
     - React
   - react-native-compass-heading (1.0.2):
     - React
@@ -192,7 +192,7 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-safe-area-context (2.0.0):
+  - react-native-safe-area-context (2.0.2):
     - React
   - react-native-shake (3.4.0):
     - React
@@ -239,7 +239,7 @@ PODS:
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNDeviceInfo (5.5.8):
+  - RNDeviceInfo (5.6.0):
     - React
   - RNExitApp (1.1.0):
     - React
@@ -417,11 +417,11 @@ SPEC CHECKSUMS:
   React-jsi: cb2cd74d7ccf4cffb071a46833613edc79cdf8f7
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
-  react-native-cameraroll: 53663a679e973ff98b60708d93a9f203d7b41b8d
+  react-native-cameraroll: 06e60780a4e6e7bb9a588eca72506744cf6e133b
   react-native-compass-heading: 18742617bdb9e06ce104bd3b90f0dc700b791fd1
   react-native-fingerprint-scanner: 3e8c46641b5751a31f45e66789d4b6f342be5e6d
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-safe-area-context: 60f654e00b6cc416573f6d5dbfce3839958eb57a
+  react-native-safe-area-context: 3cecc12a70698e46b5357f04c7cc8826ef7422e1
   react-native-shake: de052eaa3eadc4a326b8ddd7ac80c06e8d84528c
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
   react-native-viewpager: 859f14262726819ab9bc993838511289edec46f2
@@ -437,7 +437,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNDeviceInfo: 655265668063a05fff096c6819da0b7289753ef7
+  RNDeviceInfo: f7e473fc3cc0a7648d5c57c5413c7e875718a740
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
   RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
