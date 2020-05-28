@@ -26,6 +26,7 @@ import {SuShuBookPageModule} from './SuShuBookPageModule'
 import {GongSunLongZiBookPageModule} from './GongSunLongZiBookPageModule'
 import {FanBookPageModule} from './FanBookPageModule'
 import {GuanZiBookPageModule} from './GuanZiBookPageModule'
+import {ZhanGuoBookPageModule} from './ZhanGuoBookPageModule'
 class QIndexPage extends React.Component {
   constructor(props) {
       super(props);
@@ -64,6 +65,7 @@ class QIndexPage extends React.Component {
       type["公孙龙子"] = GongSunLongZiBookPageModule
       type["反经"] = FanBookPageModule
       type["管子"] = GuanZiBookPageModule
+      type["战国策"] = ZhanGuoBookPageModule
       var booktype = new Array()
       booktype = booktype.concat(type[ctype])
       return booktype
