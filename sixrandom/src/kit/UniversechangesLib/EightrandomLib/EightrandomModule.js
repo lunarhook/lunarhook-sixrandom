@@ -1,6 +1,7 @@
 
 
 import React, {Component} from 'react';
+import LunarCalendar from '../solar2lunar/LunarCalendar'
 //import DatePicker from 'react-native-datepicker'
 //import DateTimePicker from 'react-native-modal-datetime-picker';
 /*
@@ -1279,19 +1280,6 @@ class EightrandomModule extends React.Component {
         }
         return ""
     }
-    /**
-	 * 某年的第n个节气为几日
-	 * 31556925974.7为地球公转周期，是毫秒
-	 * 1890年的正小寒点：01-05 16:02:31，1890年为基准点
-	 * @param {Number} y 公历年
-	 * @param {Number} n 第几个节气，从0小寒起算
-	 * 由于农历24节气交节时刻采用近似算法，可能存在少量误差(30分钟内)
-	 */
-    getTerm(y,n) {
-        var termInfo = [0,21208,42467,63836,85337,107014,128867,150921,173149,195551,218072,240693,263343,285989,308563,331033,353350,375494,397447,419210,440795,462224,483532,504758]; 
-        var offDate = new Date( ( 31556925974.7*(y-1890) + termInfo[n]*60000  ) + Date.UTC(1890,0,5,16,2,31) );
-        return(offDate.getUTCDate());
-    }
     isLeapYear(year) {  return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);  }
     formateDayD4(month,day,year){
         var monthdays = [31,28,31,30,31,30,31,31,30,31,30,31];
@@ -1306,6 +1294,7 @@ class EightrandomModule extends React.Component {
         }
 		return Number(ret+day);
     };
+    //这里是模拟计算，所以导致大运会有4-8个月的偏差计算不准，需要精确到天的小时才能准确消除掉4个月的问题
     getYearTerm(year){
         var solarTerm= ['小寒', '大寒', '立春', '雨水', '惊蛰', '春分', '清明', '谷雨', '立夏', '小满', '芒种', '夏至', '小暑', '大暑', '立秋', '处暑', '白露', '秋分', '寒露', '霜降', '立冬', '小雪', '大雪','冬至'] //二十四节气
         var res = []
@@ -1315,7 +1304,7 @@ class EightrandomModule extends React.Component {
         }
         var month = 0;
 		for(var i=0;i<24;i++){
-            var day = this.getTerm(year,i);
+            var day = LunarCalendar.getTerm(year,i);
             if(i%2==0)month++
             var key = Number(this.formateDayD4(month-1,day,year))
             
@@ -1323,7 +1312,7 @@ class EightrandomModule extends React.Component {
             console.log("getYearTermday",key,res[key] ,month,day,year)
         }
 
-        var nextterm = this.getTerm(year+1,0)
+        var nextterm = LunarCalendar.getTerm(year+1,0)
         var nextyearkey = this.formateDayD4(0,nextterm)
  
         if(this.isLeapYear(year)) {
@@ -1349,6 +1338,7 @@ class EightrandomModule extends React.Component {
             next++;
             console.log("next",term[mytime+next],mybirth.getDate())
         }
+        next--
 
         if(0==term[mytime])
         {
@@ -1360,7 +1350,7 @@ class EightrandomModule extends React.Component {
                 {//回到上一年了
                     var lastyear = mybirth.getFullYear()-1
                     
-                    var lastterm = this.getTerm(lastyear,23)
+                    var lastterm = LunarCalendar.getTerm(lastyear,23)
                     last = last + 31 - lastterm;
                     console.log("getbigluckyearbegintolastyear",lastterm,last)
                     break;
@@ -1376,10 +1366,10 @@ class EightrandomModule extends React.Component {
             //key为年干男顺女逆
             if(sex=="乾造")
             {
-                return Number(mybirth.getFullYear() + next/3 + mybirth.getMonth()/12 )
+                return Number(mybirth.getFullYear() + next/3 +(mybirth.getHours()/6 +next%3)/12)
             }
             else{
-                return Number(mybirth.getFullYear() + last/3 + mybirth.getMonth()/12)
+                return Number(mybirth.getFullYear() + last/3 +(mybirth.getHours()/6+last%3)/12)
             }
         }
         else(neg.indexOf(key[0])>0)
@@ -1387,10 +1377,10 @@ class EightrandomModule extends React.Component {
             //key为年干女顺男逆
             if(sex=="乾造")
             {
-                return Number(mybirth.getFullYear() + last/3 + mybirth.getMonth()/12)
+                return Number(mybirth.getFullYear() + last/3 +(mybirth.getHours()/6+last%3)/12)
             }
             else{
-                return Number( mybirth.getFullYear() + next/3 + mybirth.getMonth()/12 )
+                return Number( mybirth.getFullYear() + next/3  +(mybirth.getHours()/6 +next%3)/12 )
             }
         }
     }

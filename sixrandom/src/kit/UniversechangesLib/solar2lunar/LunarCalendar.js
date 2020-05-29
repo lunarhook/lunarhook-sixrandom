@@ -607,6 +607,7 @@
 	};
 
 	var LunarCalendar = {
+		getTerm : getTerm,
 		solarToLunar : solarToLunar,
 		lunarToSolar : lunarToSolar,
 		calendar : calendar,
