@@ -1304,11 +1304,12 @@ class EightrandomModule extends React.Component {
         }
         var month = 0;
 		for(var i=0;i<24;i++){
+            var daydate = LunarCalendar.getTermDate(year,i);
             var day = LunarCalendar.getTerm(year,i);
             if(i%2==0)month++
             var key = Number(this.formateDayD4(month-1,day,year))
             
-            if(i%2==0) res[key] = solarTerm[i];
+            if(i%2==0)res[key] = solarTerm[i] + "|" + daydate.getDate()+"|"+daydate.getHours();
             console.log("getYearTermday",key,res[key] ,month,day,year)
         }
 
@@ -1338,7 +1339,13 @@ class EightrandomModule extends React.Component {
             next++;
             console.log("next",term[mytime+next],mybirth.getDate())
         }
-        next--
+        var t = term[mytime+next]
+        t = t.split("|")
+        if(mybirth.getHours() > Number(t[2]))
+        {
+            next--
+        }
+       
 
         if(0==term[mytime])
         {
@@ -1349,7 +1356,6 @@ class EightrandomModule extends React.Component {
                 if(mytime-last<=0)
                 {//回到上一年了
                     var lastyear = mybirth.getFullYear()-1
-                    
                     var lastterm = LunarCalendar.getTerm(lastyear,23)
                     last = last + 31 - lastterm;
                     console.log("getbigluckyearbegintolastyear",lastterm,last)
@@ -1360,16 +1366,22 @@ class EightrandomModule extends React.Component {
         else{
             last = 0
         }
+        var l = term[mytime-last]
+        l = l.split("|")
+        if(mybirth.getHours() < Number(l[2]))
+        {
+            last++
+        }
         console.log("getbigluckyearbegin",mytime,next,last,key,next%3)
         if(pos.indexOf(key[0])>0)
         {
             //key为年干男顺女逆
             if(sex=="乾造")
             {
-                return Number(mybirth.getFullYear() + next/3 +(mybirth.getHours()/6 +next%3)/12)
+                return Number(mybirth.getFullYear() + Math.floor(next/3) +(mybirth.getHours()/6/30 +next%3*4+ mybirth.getMonth())/12 )
             }
             else{
-                return Number(mybirth.getFullYear() + last/3 +(mybirth.getHours()/6+last%3)/12)
+                return Number(mybirth.getFullYear() + Math.floor(last/3) +(mybirth.getHours()/6/30+last%3*4+ mybirth.getMonth())/12)
             }
         }
         else(neg.indexOf(key[0])>0)
@@ -1377,10 +1389,10 @@ class EightrandomModule extends React.Component {
             //key为年干女顺男逆
             if(sex=="乾造")
             {
-                return Number(mybirth.getFullYear() + last/3 +(mybirth.getHours()/6+last%3)/12)
+                return Number(mybirth.getFullYear() + Math.floor(last/3) +(mybirth.getHours()/6/30+last%3*4+ mybirth.getMonth())/12)
             }
             else{
-                return Number( mybirth.getFullYear() + next/3  +(mybirth.getHours()/6 +next%3)/12 )
+                return Number( mybirth.getFullYear() + Math.floor(next/3)  +(mybirth.getHours()/6/30 +next%3*4+ mybirth.getMonth())/12 )
             }
         }
     }

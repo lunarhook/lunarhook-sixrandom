@@ -337,6 +337,11 @@
 		var offDate = new Date( ( 31556925974.7*(y-1890) + termInfo[n]*60000  ) + Date.UTC(1890,0,5,16,2,31) );
 		return(offDate.getUTCDate());
 	};
+
+	function getTermDate(y,n) {
+		var offDate = new Date( ( 31556925974.7*(y-1890) + termInfo[n]*60000  ) + Date.UTC(1890,0,5,16,2,31) );
+		return offDate;
+	};
 	
 	/**
 	 * 获取公历年一年的二十四节气
@@ -607,6 +612,7 @@
 	};
 
 	var LunarCalendar = {
+		getTermDate : getTermDate,
 		getTerm : getTerm,
 		solarToLunar : solarToLunar,
 		lunarToSolar : lunarToSolar,
