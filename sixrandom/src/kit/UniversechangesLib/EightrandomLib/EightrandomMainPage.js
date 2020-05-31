@@ -254,27 +254,27 @@ class EightrandomMainPage extends React.Component {
     this.changeyear("", (new Date()).getFullYear())
   }
 
-  getColor(king,size) {
+  getColor(king, size) {
     if ("甲" == king || "乙" == king || "寅" == king || "卯" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'green',fontSize:size }]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'green', fontSize: size }]}>{king}</Text>)
     }
     if ("丙" == king || "丁" == king || "午" == king || "巳" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'red' ,fontSize:size}]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'red', fontSize: size }]}>{king}</Text>)
     }
     if ("戊" == king || "己" == king || "丑" == king || "未" == king || "辰" == king || "戌" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'brown' ,fontSize:size}]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'brown', fontSize: size }]}>{king}</Text>)
     }
     if ("庚" == king || "辛" == king || "申" == king || "酉" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'gold' ,fontSize:size}]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'gold', fontSize: size }]}>{king}</Text>)
     }
     if ("癸" == king || "壬" == king || "子" == king || "亥" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'blue' ,fontSize:size}]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'blue', fontSize: size }]}>{king}</Text>)
     }
     if (undefined != king && king.toString().length > 1) {
       return king
     }
 
-    return (<Text style={[styles.Eightstylewithfont],{fontSize:size}}>{king}</Text>)
+    return (<Text style={[styles.Eightstylewithfont], { fontSize: size }}>{king}</Text>)
   }
 
   //keyExtractor = (item,index) => item.key
@@ -459,7 +459,7 @@ class EightrandomMainPage extends React.Component {
     }
 
     var test1 = new Array()
-    test1.push({ info: ["","藏干"], hide: '' })
+    test1.push({ info: ["", "藏干"], hide: '' })
     var hidelist = EightrandomModule.gethide(curluckyear[1])
     hidelist = hidelist.split("")
     var hindinfo = new Array()
@@ -598,7 +598,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={base}
                     columnNum={1}
-                    hasLine={false}
+                    hasLine={true}
                     itemStyle={{ height: 25, alignItems: "flex-start", flexwrap: "wrap" }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
@@ -613,7 +613,7 @@ class EightrandomMainPage extends React.Component {
                     <Grid
                       data={test}
                       columnNum={7}
-                      hasLine={false}
+                      hasLine={true}
                       itemStyle={{ height: 25 }}
                       renderItem={dataItem => {
                         if (Array.isArray(dataItem.info)) {
@@ -631,7 +631,7 @@ class EightrandomMainPage extends React.Component {
                           return (
                             <View style={styles.container}>
                               <View style={styles.grid}>
-                                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {this.getColor(dataItem.info,20)}</Text>
+                                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {this.getColor(dataItem.info, 20)}</Text>
                               </View>
                             </View>
                           )
@@ -640,21 +640,22 @@ class EightrandomMainPage extends React.Component {
                     <Grid
                       data={test1}
                       columnNum={7}
-                      hasLine={false}
-                      itemStyle={{alignItems:"center",textAlignVertical:"center",flex:1,justifyContent:"flex-start",marginTop:5}}
+                      hasLine={true}
+                      itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 }}
                       renderItem={dataItem => (
-                            dataItem.info.map((item, idx) => {
-                              return (
-                              <View key={idx} >
-                                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14,textAlign:"center",textAlignVertical:"center" }}>  {item}</Text>
-                              </View>)}
-                            )
-                       
-                      )}/>
+                        dataItem.info.map((item, idx) => {
+                          return (
+                            <View key={idx} >
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center", textAlignVertical: "center" }}>  {item}</Text>
+                            </View>)
+                        }
+                        )
+
+                      )} />
                     <Grid
                       data={test2}
                       columnNum={7}
-                      hasLine={false}
+                      hasLine={true}
                       itemStyle={{ height: 25 }}
                       renderItem={dataItem => (
 
@@ -669,7 +670,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={shensha}
                     columnNum={1}
-                    hasLine={false}
+                    hasLine={true}
                     itemStyle={{ height: 25, alignItems: "flex-start" }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
@@ -685,7 +686,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={years}
                     columnNum={8}
-                    hasLine={false}
+                    hasLine={true}
                     itemStyle={{ height: 25 }}
                     //当选择大运的时候，相当于选择了流年小运
                     onPress={(_el: any, index: any) => this.changeyear(Number(index % 8), "")}
@@ -710,7 +711,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={minluckyyear}
                     columnNum={6}
-                    hasLine={false}
+                    hasLine={true}
                     itemStyle={{ height: 35 }}
                     isCarousel={true}
                     carouselMaxRow={4}
