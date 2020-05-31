@@ -598,7 +598,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={base}
                     columnNum={1}
-                    hasLine={true}
+                    hasLine={false}
                     itemStyle={{ height: 25, alignItems: "flex-start", flexwrap: "wrap" }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
@@ -614,7 +614,7 @@ class EightrandomMainPage extends React.Component {
                       data={test}
                       columnNum={7}
                       hasLine={false}
-                      itemStyle={{ height: 40 }}
+                      itemStyle={{ height: 25 }}
                       renderItem={dataItem => {
                         if (Array.isArray(dataItem.info)) {
                           const a = dataItem.info.forEach(element => {
@@ -655,7 +655,7 @@ class EightrandomMainPage extends React.Component {
                       data={test2}
                       columnNum={7}
                       hasLine={false}
-                      itemStyle={{ height: 40 }}
+                      itemStyle={{ height: 25 }}
                       renderItem={dataItem => (
 
                         <View style={styles.container}>
@@ -669,7 +669,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={shensha}
                     columnNum={1}
-                    hasLine={true}
+                    hasLine={false}
                     itemStyle={{ height: 25, alignItems: "flex-start" }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
@@ -685,7 +685,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={years}
                     columnNum={8}
-                    hasLine={true}
+                    hasLine={false}
                     itemStyle={{ height: 25 }}
                     //当选择大运的时候，相当于选择了流年小运
                     onPress={(_el: any, index: any) => this.changeyear(Number(index % 8), "")}
@@ -710,7 +710,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={minluckyyear}
                     columnNum={6}
-                    hasLine={true}
+                    hasLine={false}
                     itemStyle={{ height: 35 }}
                     isCarousel={true}
                     carouselMaxRow={4}
