@@ -1,23 +1,23 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView, Image ,Dimensions} from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView, Image, Dimensions } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import Storage from 'react-native-storage';
 
 import { captureRef } from "react-native-view-shot";
-import { Grid, Accordion, WhiteSpace, WingBlank ,List} from '@ant-design/react-native';
+import { Grid, Accordion, WhiteSpace, WingBlank, List } from '@ant-design/react-native';
 const Item = List.Item;
 import StorageModule from '../../../config/StorageModule'
-import {SixrandomModule} from '../SixrandomLib/SixrandomModule'
+import { SixrandomModule } from '../SixrandomLib/SixrandomModule'
 import EightrandomModule from './EightrandomModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
+import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import IconConfig from '../../../config/IconConfig'
-import {VictoryPie,VictoryLegend,} from 'victory-native';
+import { VictoryPie, VictoryLegend, } from 'victory-native';
 
-import Svg,{
+import Svg, {
   Ellipse,
   G,
   LinearGradient,
@@ -88,13 +88,13 @@ class EightrandomMainPage extends React.Component {
       buildeightExt: buildeightExt,
       precent: precent,
       daykey: daykey,
-      luckyyear:"",
-      luckyyearposition:"",
-      luckyearrelation:"",
-      curluckyearnum:0,
-      curminiluckyearnum:0,
-      beginlucky:0,
-      activeSections: [0, 1, 2, 3, 4, 5, 6,7,8,9],
+      luckyyear: "",
+      luckyyearposition: "",
+      luckyearrelation: "",
+      curluckyearnum: 0,
+      curminiluckyearnum: 0,
+      beginlucky: 0,
+      activeSections: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     };
 
 
@@ -135,7 +135,7 @@ class EightrandomMainPage extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     return {
-      
+
       //headerLeft:(<Button title="万年历" onPress={  () => navigate('MainPage')  }/>),
       //headerRight:(<Button title="历史" onPress={  () => navigate('HistoryPage')  }/>),
       title: '八字分析',
@@ -169,22 +169,22 @@ class EightrandomMainPage extends React.Component {
       var t = info.birth.split(" ");
       var gz = new Date(t[0]);
       gz.setHours(t[1]);
-      gz.setMinutes(undefined != t[2] ? t[2]: t[2]=0)
-      gz.setSeconds(undefined != t[3] ? t[3]: t[3]=0)
-      info.birth = t[0]+" "+("00"+t[1]).slice(-2)+":"+("00"+t[2]).slice(-2)+":"+("00"+t[3]).slice(-2)
+      gz.setMinutes(undefined != t[2] ? t[2] : t[2] = 0)
+      gz.setSeconds(undefined != t[3] ? t[3] : t[3] = 0)
+      info.birth = t[0] + " " + ("00" + t[1]).slice(-2) + ":" + ("00" + t[2]).slice(-2) + ":" + ("00" + t[3]).slice(-2)
       console.log(gz);
       var EightDate = SixrandomModule.lunar_f(gz)
-      var gzDate = EightDate.gzYear + " " + EightDate.gzMonth + " " + EightDate.gzDate + " "+EightDate.gzTime;
+      var gzDate = EightDate.gzYear + " " + EightDate.gzMonth + " " + EightDate.gzDate + " " + EightDate.gzTime;
       curyear = EightDate.Year;
       curmonth = EightDate.Month
 
       var retterm = EightrandomModule.getYearTerm(gz.getFullYear())
-      var beginlucky = EightrandomModule.getbigluckyearbegin(retterm,gz,info.EightDate,info.sex);
-      console.log("beginlucky",Math.floor(beginlucky),Number(gz.getFullYear()))
+      var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.EightDate, info.sex);
+      console.log("beginlucky", Math.floor(beginlucky), Number(gz.getFullYear()))
       this.setState({
-        sex: info.sex, EightDate: info.EightDate, birth: info.birth, gzbirth: gzDate,beginlucky:Math.floor(beginlucky),
+        sex: info.sex, EightDate: info.EightDate, birth: info.birth, gzbirth: gzDate, beginlucky: Math.floor(beginlucky),
       });
-      this.buildeight();
+      this.buildeight(info.sex);
     }
     else {
       StorageModule.load({
@@ -202,11 +202,11 @@ class EightrandomMainPage extends React.Component {
     }
   }
 
-  buildeight() {
+  buildeight(sex) {
     var buildeight = new Array()
     buildeight[0] = EightrandomModule.parentday(this.state.EightDate[0], this.state.EightDate[4])
     buildeight[2] = EightrandomModule.parentday(this.state.EightDate[2], this.state.EightDate[4])
-    buildeight[4] = "元"//this.parentday(this.state.EightDate[4],this.state.EightDate[4])
+    buildeight[4] = "乾造" == sex ? "元男" : "元女"
     buildeight[6] = EightrandomModule.parentday(this.state.EightDate[6], this.state.EightDate[4])
     buildeight[1] = EightrandomModule.parentearth(this.state.EightDate[1], this.state.EightDate[4])
     buildeight[3] = EightrandomModule.parentearth(this.state.EightDate[3], this.state.EightDate[4])
@@ -227,7 +227,7 @@ class EightrandomMainPage extends React.Component {
     precent = o.q
     daykey = o.p
 
-   
+
 
     var luckyyear = new Array();
     luckyyear = EightrandomModule.getbigluckyear(this.state.EightDate, this.state.sex);
@@ -243,38 +243,38 @@ class EightrandomMainPage extends React.Component {
       luckyyearposition.push(EightrandomModule.gettwelfthposition(this.state.EightDate[4] + luckyyear[i].slice(1, 2)))
     }
 
-   
+
     this.setState({
       buildeight: buildeight, buildeightExt: buildeightExt,
       daykey: daykey, precent: precent,
-      luckyyear:luckyyear,
-      luckyyearposition:luckyyearposition,
-      luckyearrelation:luckyearrelation,
+      luckyyear: luckyyear,
+      luckyyearposition: luckyyearposition,
+      luckyearrelation: luckyearrelation,
     });
-    this.changeyear("",(new Date()).getFullYear())
+    this.changeyear("", (new Date()).getFullYear())
   }
 
-  getColor(king) {
+  getColor(king,size) {
     if ("甲" == king || "乙" == king || "寅" == king || "卯" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'green' }]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'green',fontSize:size }]}>{king}</Text>)
     }
     if ("丙" == king || "丁" == king || "午" == king || "巳" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'red' }]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'red' ,fontSize:size}]}>{king}</Text>)
     }
     if ("戊" == king || "己" == king || "丑" == king || "未" == king || "辰" == king || "戌" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'brown' }]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'brown' ,fontSize:size}]}>{king}</Text>)
     }
     if ("庚" == king || "辛" == king || "申" == king || "酉" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'gold' }]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'gold' ,fontSize:size}]}>{king}</Text>)
     }
     if ("癸" == king || "壬" == king || "子" == king || "亥" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'blue' }]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: 'blue' ,fontSize:size}]}>{king}</Text>)
     }
     if (undefined != king && king.toString().length > 1) {
       return king
     }
 
-    return (<Text style={[styles.Eightstylewithfont]}>{king}</Text>)
+    return (<Text style={[styles.Eightstylewithfont],{fontSize:size}}>{king}</Text>)
   }
 
   //keyExtractor = (item,index) => item.key
@@ -289,45 +289,40 @@ class EightrandomMainPage extends React.Component {
   }
 
   renderminyearItem(item) {
-    
+
     var year = item.split(" ");
     var yearcolor = IconConfig.colororange
-    if(year[1]==this.state.curminiluckyearnum)
-    {
-        yearcolor = IconConfig.colorblue
+    if (year[1] == this.state.curminiluckyearnum) {
+      yearcolor = IconConfig.colorblue
     }
     //console.log("color",yearcolor,year[1],this.state.curminiluckyearnum)
     return (
-      <View style={[styles.grid,{height:25}]}>
-        <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+ 14 ,color:yearcolor}}>{year[0]}</Text>
-        <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+ 14 ,color:yearcolor}}>{year[1]}</Text>
+      <View style={[styles.grid, { height: 25 }]}>
+        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: yearcolor }}>{year[0]}</Text>
+        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: yearcolor }}>{year[1]}</Text>
       </View>
 
     );
   }
-  changeyear(bigyear,miniyear)
-  {
+  changeyear(bigyear, miniyear) {
     var by = 0
     var my = new Date()
     my = my.getFullYear()
-    if(""!==bigyear)
-    {
+    if ("" !== bigyear) {
       //console.log("changeyearbig",bigyear,miniyear)
       by = Number(bigyear)
-      my = Math.floor(Number(by*10+this.state.beginlucky))
-      this.setState({curluckyearnum:by,curminiluckyearnum:my})
+      my = Math.floor(Number(by * 10 + this.state.beginlucky))
+      this.setState({ curluckyearnum: by, curminiluckyearnum: my })
 
     }
-    else if(""!==miniyear)
-    {
+    else if ("" !== miniyear) {
       //console.log("changeyearmini",bigyear,miniyear)
       my = Number(miniyear)
-      if(my>=this.state.beginlucky)
-      {
-        by = Math.floor((my-this.state.beginlucky)/10)
+      if (my >= this.state.beginlucky) {
+        by = Math.floor((my - this.state.beginlucky) / 10)
       }
-      
-      this.setState({curluckyearnum:by,curminiluckyearnum:my})
+
+      this.setState({ curluckyearnum: by, curminiluckyearnum: my })
     }
     //console.log("changeyear",bigyear,miniyear,by,my,this.state.beginlucky)
   }
@@ -337,40 +332,37 @@ class EightrandomMainPage extends React.Component {
     if (undefined != hide) {
       return (
         <View style={styles.gridfix}>
-          <Text style={{fontSize :FontStyleConfig.getFontApplySize()+ 14}}>{hide}</Text>
+          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{hide}</Text>
         </View>
       )
     }
   }
-  testselectyear(item,curluckyear)
-  {
+  testselectyear(item, curluckyear) {
     var yearcolor = IconConfig.colorred
-    if(this.state.curluckyearnum==curluckyear)
-    {
-        yearcolor = IconConfig.colorgreen
+    if (this.state.curluckyearnum == curluckyear) {
+      yearcolor = IconConfig.colorgreen
     }
     //console.log("testselectyear",item,curluckyear,yearcolor)
-    return(
-      <Text style={{fontSize :FontStyleConfig.getFontApplySize()+ 14,color : yearcolor}}>{item}</Text>
+    return (
+      <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: yearcolor }}>{item}</Text>
     )
   }
 
-  createpie()
-  {
+  createpie() {
     if (this.state.precent != "") {
       var ret = this.state.pie
-      console.log("createpie",ret)
+      console.log("createpie", ret)
       return (
         <View style={[{ textAlign: 'center', alignItems: 'center' }]}>
           <Svg width={300} height={300} >
             <VictoryPie
-              colorScale={["green", "red","brown",  "yellow", "blue"]}
+              colorScale={["green", "red", "brown", "yellow", "blue"]}
               data={[
-                { x: 1, y: this.state.precent[5]+0, label: '木' },
-                { x: 2, y: this.state.precent[6]+0, label: '火' },
-                { x: 3, y: this.state.precent[7]+0, label: '土' },
-                { x: 4, y: this.state.precent[8]+0, label: '金' },
-                { x: 5, y: this.state.precent[9]+0, label: '水' },
+                { x: 1, y: this.state.precent[5] + 0, label: '木' },
+                { x: 2, y: this.state.precent[6] + 0, label: '火' },
+                { x: 3, y: this.state.precent[7] + 0, label: '土' },
+                { x: 4, y: this.state.precent[8] + 0, label: '金' },
+                { x: 5, y: this.state.precent[9] + 0, label: '水' },
               ]}
               standalone={false}
               width={300} height={300}
@@ -382,8 +374,7 @@ class EightrandomMainPage extends React.Component {
   render() {
 
 
-    if(undefined==this.state.luckyyear || ""==this.state.luckyyear)
-    {
+    if (undefined == this.state.luckyyear || "" == this.state.luckyyear) {
       return null
     }
     //这里是大运确定
@@ -391,13 +382,11 @@ class EightrandomMainPage extends React.Component {
     //console.log("curluckyearnum",Number(this.state.curluckyearnum))
     //这里小运，如果选了小运，用小运去换算大运
     var thisyear
-    if(0==this.state.curminiluckyearnum)
-    {
+    if (0 == this.state.curminiluckyearnum) {
       thisyear = new Date();
     }
-    else
-    {
-      console.log("curminiluckyearnum",Number(this.state.curminiluckyearnum))
+    else {
+      console.log("curminiluckyearnum", Number(this.state.curminiluckyearnum))
       thisyear = new Date()//这里应该选小运的年份
       thisyear.setFullYear(this.state.curminiluckyearnum)
       //curluckyear 这里应该更新大运
@@ -407,14 +396,14 @@ class EightrandomMainPage extends React.Component {
     var eightyear = SixrandomModule.lunar_f(thisyear)
     var gzYear = eightyear.gzYear
     //计算大运，流年，原句的所有冲克信息
-    console.log("curluckyear",this.state.luckyyear,this.state.curluckyearnum)
-    var r = EightrandomModule.getrelationship(this.state.EightDate,gzYear[1],curluckyear)
+    console.log("curluckyear", this.state.luckyyear, this.state.curluckyearnum)
+    var r = EightrandomModule.getrelationship(this.state.EightDate, gzYear[1], curluckyear)
 
     const { navigate } = this.props.navigation;
 
     jump = false;
-    
-    
+
+
     var luckyyearposition = this.state.luckyyearposition;
     var minluckyyear = new Array()
     var luckyearrelation = this.state.luckyearrelation;
@@ -423,8 +412,8 @@ class EightrandomMainPage extends React.Component {
     birthdayyear.setYear(curyear)
     birthdayyear.setMonth(curmonth)
     birthdayyear = SixrandomModule.lunar_f(birthdayyear)
-    birthdayyear = birthdayyear.gzYear  + birthdayyear.gzMonth  + birthdayyear.gzDate +birthdayyear.gzTime;
-    console.log("birthdayyear",birthdayyear,curyear,curmonth)
+    birthdayyear = birthdayyear.gzYear + birthdayyear.gzMonth + birthdayyear.gzDate + birthdayyear.gzTime;
+    console.log("birthdayyear", birthdayyear, curyear, curmonth)
     minluckyyear = EightrandomModule.getminlucky(birthdayyear, this.state.sex, curyear);
 
 
@@ -432,17 +421,17 @@ class EightrandomMainPage extends React.Component {
 
     var test = new Array()
     test.push({ info: "时辰", hide: '' })
-    test.push({ info: "运", hide: '' })
-    test.push({ info: "流", hide: '' })
-    test.push({ info: "年", hide: '' })
-    test.push({ info: "月", hide: '' })
-    test.push({ info: "日", hide: '' })
-    test.push({ info: "时", hide: '' })
+    test.push({ info: "大运", hide: '' })
+    test.push({ info: "流年", hide: '' })
+    test.push({ info: "年柱", hide: '' })
+    test.push({ info: "月柱", hide: '' })
+    test.push({ info: "日柱", hide: '' })
+    test.push({ info: "时柱", hide: '' })
 
     test.push({ info: "十神", hide: '' })
     //console.log(gzYear[0],this.state.EightDate[4])
-    test.push({ info:EightrandomModule.parentday(curluckyear[0],this.state.EightDate[4]), hide: '' })
-    test.push({ info:EightrandomModule.parentday(gzYear[0],this.state.EightDate[4]), hide: '' })
+    test.push({ info: EightrandomModule.parentday(curluckyear[0], this.state.EightDate[4]), hide: '' })
+    test.push({ info: EightrandomModule.parentday(gzYear[0], this.state.EightDate[4]), hide: '' })
     for (var i = 0; i < 4; i++) {
       test.push({ info: this.state.buildeight[i * 2], hide: '' })
     }
@@ -454,35 +443,72 @@ class EightrandomMainPage extends React.Component {
       test.push({ info: this.state.EightDate[i * 2], hide: '' })
     }
 
-    test.push({ info: "地支", hide: '藏干' })
-    test.push({ info: curluckyear[1],hide: EightrandomModule.gethide(curluckyear[1])})
-    test.push({ info: gzYear[1], hide: EightrandomModule.gethide(gzYear[1]) })
+    test.push({ info: "地支", hide: '' })
+    test.push({ info: curluckyear[1], hide: "" })
+    test.push({ info: gzYear[1], hide: "" })
     for (var i = 0; i < 4; i++) {
-      test.push({ info: this.state.EightDate[i * 2 + 1], hide: this.state.buildeightExt[i * 2] })
+      test.push({ info: this.state.EightDate[i * 2 + 1], hide: "" })
     }
 
-    test.push({ info: "十神", hide: '副星' })
-    test.push({ info:EightrandomModule.parentearth(curluckyear[1],this.state.EightDate[4]), hide:EightrandomModule.gethideshishen(EightrandomModule.gethide(curluckyear[1]),this.state.EightDate[4])})
-    test.push({ info:EightrandomModule.parentearth(gzYear[1],this.state.EightDate[4]), hide:EightrandomModule.gethideshishen(EightrandomModule.gethide(gzYear[1]),this.state.EightDate[4])})
+    test.push({ info: "十神", hide: '' })
+    test.push({ info: EightrandomModule.parentearth(curluckyear[1], this.state.EightDate[4]), hide: "" })
+    test.push({ info: EightrandomModule.parentearth(gzYear[1], this.state.EightDate[4]), hide: "" })
+
+    for (var i = 0; i < 4; i++) {
+      test.push({ info: this.state.buildeight[i * 2 + 1], hide: "" })
+    }
+
+    var test1 = new Array()
+    test1.push({ info: ["","藏干"], hide: '' })
+    var hidelist = EightrandomModule.gethide(curluckyear[1])
+    hidelist = hidelist.split("")
+    var hindinfo = new Array()
+    hidelist.forEach(element => {
+
+      hindinfo.push(element + EightrandomModule.parentday(element, this.state.EightDate[4]))
+    });
+    test1.push({ info: hindinfo, hide: "" })
+
+    hidelist = EightrandomModule.gethide(gzYear[1])
+    hidelist = hidelist.split("")
+    hindinfo = new Array()
+    hidelist.forEach(element => {
+      hindinfo.push(element + EightrandomModule.parentday(element, this.state.EightDate[4]))
+    });
+    test1.push({ info: hindinfo, hide: "" })
+    for (var i = 0; i < 4; i++) {
+      hidelist = this.state.buildeightExt[i * 2]
+      hidelist = hidelist.split("")
+      hindinfo = new Array()
+      hidelist.forEach(element => {
+        hindinfo.push(element + EightrandomModule.parentday(element, this.state.EightDate[4]))
+      });
+      test1.push({ info: hindinfo, hide: "" })
+    }
+    /*
+        test.push({ info: "副星", hide: '' })
+        test.push({ info: EightrandomModule.gethide(curluckyear[1]) + EightrandomModule.parentearth(curluckyear[1], this.state.EightDate[4]), hide: "" })
+        test.push({ info: EightrandomModule.gethide(gzYear[1]) + EightrandomModule.parentearth(gzYear[1], this.state.EightDate[4]), hide: "" })
     
-    for (var i = 0; i < 4; i++) {
-      test.push({ info: this.state.buildeight[i * 2 + 1], hide: this.state.buildeightExt[i * 2 + 1] })
-    }
-
-    test.push({ info: "长生", hide: '' })
-    test.push({ info:  EightrandomModule.gettwelfthposition(this.state.EightDate[4] + curluckyear[1]), hide: '' })
-    test.push({ info:  EightrandomModule.gettwelfthposition(this.state.EightDate[4] + gzYear[1]), hide: '' })
+        for (var i = 0; i < 4; i++) {
+          test.push({ info: this.state.buildeightExt[i * 2] + this.state.buildeight[i * 2 + 1], hide: this.state.buildeightExt[i * 2 + 1] })
+        }
+    */
+    var test2 = new Array()
+    test2.push({ info: "长生", hide: '' })
+    test2.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDate[4] + curluckyear[1]), hide: '' })
+    test2.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDate[4] + gzYear[1]), hide: '' })
     for (var i = 0; i < 4; i++) {
       var x = EightrandomModule.gettwelfthposition(this.state.EightDate[4] + this.state.EightDate[i * 2 + 1])
-      test.push({ info: x, hide: "" })
+      test2.push({ info: x, hide: "" })
     }
 
-    test.push({ info: "纳音", hide: '' })
-    test.push({ info:  EightrandomModule.gettwelfth( curluckyear[0] + curluckyear[1]), hide: '' })
-    test.push({ info:  EightrandomModule.gettwelfth( gzYear[0] + gzYear[1]), hide: '' })
+    test2.push({ info: "纳音", hide: '' })
+    test2.push({ info: EightrandomModule.gettwelfth(curluckyear[0] + curluckyear[1]), hide: '' })
+    test2.push({ info: EightrandomModule.gettwelfth(gzYear[0] + gzYear[1]), hide: '' })
     for (var i = 0; i < 4; i++) {
       var x = EightrandomModule.gettwelfth(this.state.EightDate[i * 2] + this.state.EightDate[i * 2 + 1])
-      test.push({ info: x, hide: "" })
+      test2.push({ info: x, hide: "" })
     }
 
     var years = new Array()
@@ -490,32 +516,32 @@ class EightrandomMainPage extends React.Component {
     //console.log("years", years, luckyearrelation, this.state.luckyyear, luckyyearposition)
 
     var five = new Array();
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'green' }}>木</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'red' }}>火</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,color: 'brown' }}>土</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'gold' }}>金</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'blue' }}>水</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'green' }}>甲:{this.state.daykey['甲']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'red' }}>丙:{this.state.daykey['丙']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'brown' }}>戊:{this.state.daykey['戊']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'gold' }}>庚:{this.state.daykey['庚']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,color: 'blue' }}>壬:{this.state.daykey['壬']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'green' }}>乙:{this.state.daykey['乙']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'red' }}>丁:{this.state.daykey['丁']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, color: 'brown' }}>己:{this.state.daykey['己']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'gold' }}>辛:{this.state.daykey['辛']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'blue' }}>癸:{this.state.daykey['癸']}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'green' }}>{this.state.precent[5]}%</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'red' }}>{this.state.precent[6]}%</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'brown' }}>{this.state.precent[7]}%</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'gold' }}>{this.state.precent[8]}%</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'blue' }}>{this.state.precent[9]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>木</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>火</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>土</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>金</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>水</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>甲:{this.state.daykey['甲']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丙:{this.state.daykey['丙']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>戊:{this.state.daykey['戊']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>庚:{this.state.daykey['庚']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>壬:{this.state.daykey['壬']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>乙:{this.state.daykey['乙']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丁:{this.state.daykey['丁']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>己:{this.state.daykey['己']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>辛:{this.state.daykey['辛']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>癸:{this.state.daykey['癸']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{this.state.precent[5]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{this.state.precent[6]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>{this.state.precent[7]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>{this.state.precent[8]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>{this.state.precent[9]}%</Text>)
     var fivepower = EightrandomModule.geikeypower(this.state.EightDate[3]);
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'green' }}>{fivepower[0]}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'red' }}>{fivepower[1]}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'brown' }}>{fivepower[2]}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'gold' }}>{fivepower[3]}</Text>)
-    five.push(<Text style={{fontSize : FontStyleConfig.getFontApplySize()+14,  color: 'blue' }}>{fivepower[4]}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{fivepower[0]}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{fivepower[1]}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>{fivepower[2]}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>{fivepower[3]}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>{fivepower[4]}</Text>)
     //console.log("five",five)
 
 
@@ -526,42 +552,38 @@ class EightrandomMainPage extends React.Component {
     shensha[1] = '月柱：'
     shensha[2] = '日柱：'
     shensha[3] = '时柱：'
-    for(i=0;i<4;i++)
-    {
+    for (i = 0; i < 4; i++) {
       this.state.EightDate[i]
-      shensha[i] =shensha[i] +  EightrandomModule.shensha_dayg2earthz(this.state.EightDate[4],this.state.EightDate[i*2+1]);
-      shensha[i] =shensha[i] +  EightrandomModule.shensha_moon(this.state.EightDate[3],this.state.EightDate[i*2]);
-      if(i!=1)
-      {
-        shensha[i] =shensha[i] +  EightrandomModule.shensha_moon(this.state.EightDate[3],this.state.EightDate[i*2+1]);//月支不见月支
+      shensha[i] = shensha[i] + EightrandomModule.shensha_dayg2earthz(this.state.EightDate[4], this.state.EightDate[i * 2 + 1]);
+      shensha[i] = shensha[i] + EightrandomModule.shensha_moon(this.state.EightDate[3], this.state.EightDate[i * 2]);
+      if (i != 1) {
+        shensha[i] = shensha[i] + EightrandomModule.shensha_moon(this.state.EightDate[3], this.state.EightDate[i * 2 + 1]);//月支不见月支
       }
-      if(i!=2)
-      {
-        shensha[i] =shensha[i] +  EightrandomModule.shensha_dayz2earthz(this.state.EightDate[5],this.state.EightDate[i*2+1]);//日支不见自己
+      if (i != 2) {
+        shensha[i] = shensha[i] + EightrandomModule.shensha_dayz2earthz(this.state.EightDate[5], this.state.EightDate[i * 2 + 1]);//日支不见自己
       }
-      if(i!=0)
-      {
-        shensha[i] =shensha[i] +  EightrandomModule.shensha_tianluo(this.state.EightDate[0]+this.state.EightDate[1],this.state.EightDate[i*2+1]);//年支不见年支
-        shensha[i] =shensha[i] +  EightrandomModule.shensha_diwang(this.state.EightDate[0]+this.state.EightDate[1],this.state.EightDate[i*2+1]);//年支不见年支
-        shensha[i] =shensha[i] +  EightrandomModule.shensha_yearz2earthz(this.state.EightDate[1],this.state.EightDate[i*2+1]);//年支不见年支
+      if (i != 0) {
+        shensha[i] = shensha[i] + EightrandomModule.shensha_tianluo(this.state.EightDate[0] + this.state.EightDate[1], this.state.EightDate[i * 2 + 1]);//年支不见年支
+        shensha[i] = shensha[i] + EightrandomModule.shensha_diwang(this.state.EightDate[0] + this.state.EightDate[1], this.state.EightDate[i * 2 + 1]);//年支不见年支
+        shensha[i] = shensha[i] + EightrandomModule.shensha_yearz2earthz(this.state.EightDate[1], this.state.EightDate[i * 2 + 1]);//年支不见年支
       }
-      
+
     }
 
-    var marryinfo = EightrandomModule.getmarryinfo(this.state.EightDate,this.state.sex,r,this.state.buildeight)
+    var marryinfo = EightrandomModule.getmarryinfo(this.state.EightDate, this.state.sex, r, this.state.buildeight)
 
-    var locationself = EightrandomModule.getlocationself(curyear,this.state.sex=="乾造"?0:1)
+    var locationself = EightrandomModule.getlocationself(curyear, this.state.sex == "乾造" ? 0 : 1)
     var house = EightrandomModule.gethouselocation(locationself)
-    console.log("locationself",locationself)
+    console.log("locationself", locationself)
     var base = new Array()
-    base.push("公历: "+this.state.birth)
-    base.push("四柱: "+this.state.gzbirth)
-    base.push("命造: "+this.state.sex)
-    base.push("起运: "+this.state.beginlucky)
-    base.push("命卦: "+locationself)
-    
+    base.push("公历: " + this.state.birth)
+    base.push("四柱: " + this.state.gzbirth)
+    base.push("命造: " + this.state.sex)
+    base.push("起运: " + this.state.beginlucky)
+    base.push("命卦: " + locationself)
 
-   
+
+
 
     return (
       <View style={styles.container} >
@@ -577,45 +599,84 @@ class EightrandomMainPage extends React.Component {
                     data={base}
                     columnNum={1}
                     hasLine={true}
-                    itemStyle={{ height: 25 ,alignItems:"flex-start",flexwrap:"wrap"}}
-                    renderItem={dataItem => (
-                      <View style={styles.container}>
-                      <View style={styles.grid}>
-                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+16}}>  {dataItem}</Text>
-                      </View>
-                    </View>
-                  )}/></Accordion.Panel >
-                <Accordion.Panel header={"八字排盘"}>
-                  <Grid
-                    data={test}
-                    columnNum={7}
-                    hasLine={true}
-                    itemStyle={{ height: 40 }}
+                    itemStyle={{ height: 25, alignItems: "flex-start", flexwrap: "wrap" }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
                         <View style={styles.grid}>
-                          <Text style={{fontSize :FontStyleConfig.getFontApplySize()+16}}>{this.getColor(dataItem.info)}</Text>
+                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {dataItem}</Text>
                         </View>
-                        {this.checksub(dataItem.hide)}
                       </View>
+                    )} />
+                </Accordion.Panel >
+                <Accordion.Panel header={"八字排盘"}>
+                  <View>
+                    <Grid
+                      data={test}
+                      columnNum={7}
+                      hasLine={false}
+                      itemStyle={{ height: 40 }}
+                      renderItem={dataItem => {
+                        if (Array.isArray(dataItem.info)) {
+                          const a = dataItem.info.forEach(element => {
+                            <View>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {element}</Text>
+                            </View>
+                          })
+                          return (
+                            <View style={{ height: 90 }}>
+                              {a}
+                            </View>
+                          )
+                        } else {
+                          return (
+                            <View style={styles.container}>
+                              <View style={styles.grid}>
+                                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {this.getColor(dataItem.info,20)}</Text>
+                              </View>
+                            </View>
+                          )
+                        }
+                      }} />
+                    <Grid
+                      data={test1}
+                      columnNum={7}
+                      hasLine={false}
+                      itemStyle={{alignItems:"center",textAlignVertical:"center",flex:1,justifyContent:"flex-start",marginTop:5}}
+                      renderItem={dataItem => (
+                            dataItem.info.map((item, idx) => {
+                              return (
+                              <View key={idx} >
+                                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14,textAlign:"center",textAlignVertical:"center" }}>  {item}</Text>
+                              </View>)}
+                            )
+                       
+                      )}/>
+                    <Grid
+                      data={test2}
+                      columnNum={7}
+                      hasLine={false}
+                      itemStyle={{ height: 40 }}
+                      renderItem={dataItem => (
 
-
-                    )}
-                  //isCarousel
-                  //onClick={()}
-                  /></Accordion.Panel >
-                  <Accordion.Panel header="八字神煞">
+                        <View style={styles.container}>
+                          <View style={styles.grid}>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center" }}>  {dataItem.info}</Text>
+                          </View>
+                        </View>
+                      )} /></View>
+                </Accordion.Panel >
+                <Accordion.Panel header="八字神煞">
                   <Grid
                     data={shensha}
                     columnNum={1}
                     hasLine={true}
-                    itemStyle={{ height: 25 ,alignItems:"flex-start"}}
-                    renderItem={dataItem  => (
+                    itemStyle={{ height: 25, alignItems: "flex-start" }}
+                    renderItem={dataItem => (
                       <View style={styles.container}>
-                      <View style={styles.grid}>
-                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14}}>  {dataItem}</Text>
+                        <View style={styles.grid}>
+                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {dataItem}</Text>
+                        </View>
                       </View>
-                    </View>
                     )}
                   //isCarousel
                   //onClick={()}
@@ -627,12 +688,12 @@ class EightrandomMainPage extends React.Component {
                     hasLine={true}
                     itemStyle={{ height: 25 }}
                     //当选择大运的时候，相当于选择了流年小运
-                    onPress={(_el: any, index: any) => this.changeyear(Number(index%8),"")}
+                    onPress={(_el: any, index: any) => this.changeyear(Number(index % 8), "")}
                     renderItem={(dataItem, itemIndex) => (
                       <View style={styles.container}>
                         <View style={styles.grid}>
 
-                          {this.testselectyear(dataItem,itemIndex%8)}
+                          {this.testselectyear(dataItem, itemIndex % 8)}
 
 
                         </View>
@@ -651,27 +712,27 @@ class EightrandomMainPage extends React.Component {
                     columnNum={6}
                     hasLine={true}
                     itemStyle={{ height: 35 }}
-                    isCarousel = {true}
-                    carouselMaxRow = {4}
+                    isCarousel={true}
+                    carouselMaxRow={4}
                     //当选择大运的时候，相当于选择了流年小运
-                    onPress={(_el: any, index: any) => this.changeyear("",Number(_el.split(" ")[1]))}
+                    onPress={(_el: any, index: any) => this.changeyear("", Number(_el.split(" ")[1]))}
                     renderItem={dataItem => this.renderminyearItem(dataItem)}
                   //isCarousel
                   //onClick={()}
                   />
 
-                  </Accordion.Panel >
-                  
+                </Accordion.Panel >
+
 
                 <Accordion.Panel header="五行衰旺">
                   <Grid
                     data={five}
                     columnNum={5}
                     hasLine={true}
-                    itemStyle={{ height: 25}}
+                    itemStyle={{ height: 25 }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
-                        <View style={[styles.grid,{fontSize : FontStyleConfig.getFontApplySize()+12}]}>
+                        <View style={[styles.grid, { fontSize: FontStyleConfig.getFontApplySize() + 12 }]}>
                           {dataItem}
 
 
@@ -681,16 +742,16 @@ class EightrandomMainPage extends React.Component {
 
                     )}
                   />
-                  
-                  </Accordion.Panel >
-                  <Accordion.Panel>
+
+                </Accordion.Panel >
+                <Accordion.Panel>
                   {this.createpie()}
-                  </Accordion.Panel >
+                </Accordion.Panel >
                 <Accordion.Panel header="八字冲克">
-                <List>
+                  <List>
                     <Item wrap multipleLine
                     ><Text > {r.dr}</Text><WhiteSpace size="xl" /></Item>
-                    
+
                     <Item wrap multipleLine
                     ><Text > {r.er}</Text><WhiteSpace size="xl" /></Item>
                     <Item wrap multipleLine
@@ -698,41 +759,41 @@ class EightrandomMainPage extends React.Component {
                     <Item wrap multipleLine
                     ><Text > {r.br}</Text><WhiteSpace size="xl" /></Item>
                   </List>
-                  </Accordion.Panel >
+                </Accordion.Panel >
                 <Accordion.Panel header="日柱信息">
                   <List>
                     <Item wrap multipleLine
                     >
-                    <Text > {day.self}</Text><WhiteSpace size="xl" />
-                    <Text > {day.tip}</Text><WhiteSpace size="xl" />
-                    <Text > 家宅:{house}</Text><WhiteSpace size="xl" />
+                      <Text > {day.self}</Text><WhiteSpace size="xl" />
+                      <Text > {day.tip}</Text><WhiteSpace size="xl" />
+                      <Text > 家宅:{house}</Text><WhiteSpace size="xl" />
                     </Item>
-                    
+
                   </List>
-                  </Accordion.Panel >
-                                  <Accordion.Panel header="婚姻提示(受大运流年影响)">
+                </Accordion.Panel >
+                <Accordion.Panel header="婚姻提示(受大运流年影响)">
                   <List>
                     <Item wrap multipleLine
                     ><Text > {marryinfo}</Text><WhiteSpace size="xl" /></Item>
                   </List>
-                  </Accordion.Panel >
-                  
+                </Accordion.Panel >
+
               </Accordion>
             </WingBlank>
             <WhiteSpace size="xl" />
             {
-             (WechatShare.shareimg(this.state.shareimg))
+              (WechatShare.shareimg(this.state.shareimg))
             }
-            
+
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
-            
+
           </View>
         </ScrollView>
-              {WechatShare.shareRetBar(WechatShare,this,"八字格局")}
+        {WechatShare.shareRetBar(WechatShare, this, "八字格局")}
       </View>
 
     )
@@ -775,7 +836,7 @@ var styles = StyleSheet.create({
     marginLeft: 1,
     paddingLeft: 1,
     borderRadius: 4,
-    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
+    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效
     flexWrap: 'wrap',
     alignItems: 'flex-start',
     flexDirection: 'row',
@@ -799,18 +860,18 @@ var styles = StyleSheet.create({
     flex: 1
   },
   Eightstylewithfont: {
-    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    fontSize:FontStyleConfig.getFontApplySize()+ 18
+    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效
+    fontSize: FontStyleConfig.getFontApplySize() + 18
   },
   EightstyleSectionline: {
-    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效
     flexDirection: 'row',
     marginLeft: 5,
     marginRight: 5,
     marginTop: 30,
   },
   EightstyleCoreline: {
-    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效
     flexDirection: 'row',
     marginLeft: 5,
     marginRight: 5,
@@ -822,7 +883,7 @@ var styles = StyleSheet.create({
     paddingLeft: 5
   },
   flatText: {
-    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效
     flexDirection: 'row',
     alignItems: 'stretch',
     marginLeft: 5,
