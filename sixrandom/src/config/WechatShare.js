@@ -1,6 +1,7 @@
 
 import React,{Component} from 'react';
 import {Alert ,Platform,AppRegistry ,View,Image,Text,Linking,NativeModules} from 'react-native';
+import { Modal } from '@ant-design/react-native';
 import CameraRoll from "@react-native-community/cameraroll";
 import TabNavigator from 'react-native-tab-navigator';
 import { captureRef } from "react-native-view-shot";
@@ -385,25 +386,29 @@ class WechatShare extends React.Component {
   }
 
   snapshot(ref,ds,rthis){
-    //if (Platform.OS == 'ios' )
+    if (Platform.OS === 'ios' )
     {
       Alert.alert('截图分享\n','' ,[
-        {text: '保存到相册', onPress: () => this.capture(ref,ds,"",rthis)},
+       
         {text: '发送给朋友', onPress: () => this.capture(ref,ds,"session",rthis)},
         {text: '发送到朋友圈', onPress: () => this.capture(ref,ds,"ttl",rthis)},
         {text: '微信收藏', onPress: () => this.capture(ref,ds,"wechatcollect",rthis)},
-        //{text: '分享朋友圈', onPress: () => this.capture(ref,ds,"ttl")},
-        {text: '取消', onPress: () => this.closeshareimage(rthis)}
+        {text: '保存到相册', onPress: () => this.capture(ref,ds,"",rthis)},
+        {text: '取消', onPress: () => this.closeshareimage(rthis)},
+
       ]) 
     }
-    /*
-    else
-    {
-      Alert.alert('安卓目前不支持截图分享\n','' ,[
-        {text: '取消', onPress: () => this.closeshareimage(rthis)}
-      ]) 
+    else if(Platform.OS === 'android'){
+      Modal.alert('截图分享\n',"", [
+
+        {text: '发送给朋友', onPress: () => this.capture(ref,ds,"session",rthis)},
+        {text: '发送到朋友圈', onPress: () => this.capture(ref,ds,"ttl",rthis)},
+        {text: '微信收藏', onPress: () => this.capture(ref,ds,"wechatcollect",rthis)},
+        {text: '保存到相册', onPress: () => this.capture(ref,ds,"",rthis)},
+        {text: '取消', onPress:() => {this.closeshareimage(rthis)},style: 'cancel',},
+      ])
     }
-    */
+    
 
   }
   capture(ref,ds,sw,rthis){
