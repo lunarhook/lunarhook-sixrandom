@@ -66,21 +66,21 @@ class IntroAncientPage extends React.Component {
                         title={RouteConfig["ShuoWenBookPage"].name} 
                         renderIcon={() => RouteConfig["ShuoWenBookPage"].icon}
                         //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["ShuoWenBookPage"].route) }}  
+                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["ShuoWenBookPage"].route,{text:"ShuoWenBookPage"}) }}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
             <TabNavigator.Item
                         title={RouteConfig["ErYaBookPage"].name} 
                         renderIcon={() => RouteConfig["ErYaBookPage"].icon}
                         //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["ErYaBookPage"].route) }}  
+                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["ErYaBookPage"].route,{text:"ErYaBookPage"}) }}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
             <TabNavigator.Item
                         title={RouteConfig["ShengYunBookPage"].name} 
                         renderIcon={() => RouteConfig["ShengYunBookPage"].icon}
                         //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["ShengYunBookPage"].route) }}  
+                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["ShengYunBookPage"].route,{text:"ShengYunBookPage"}) }}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
           </TabNavigator >

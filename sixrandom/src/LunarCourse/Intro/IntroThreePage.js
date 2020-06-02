@@ -85,21 +85,21 @@ class IntroThreePage extends React.Component {
                         title={RouteConfig["UniversBookPage"].name} 
                         renderIcon={() => RouteConfig["UniversBookPage"].icon}
                         //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["UniversBookPage"].route) }}  
+                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["UniversBookPage"].route,{text:"UniversBookPage"}) }}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
             <TabNavigator.Item
                         title={RouteConfig["OldBookPage"].name} 
                         renderIcon={() => RouteConfig["OldBookPage"].icon}
                         //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["OldBookPage"].route) }}  
+                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["OldBookPage"].route,{text:"OldBookPage"}) }}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
             <TabNavigator.Item
                         title={RouteConfig["ZhuangBookPage"].name} 
                         renderIcon={() => RouteConfig["ZhuangBookPage"].icon}
                         //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["ZhuangBookPage"].route) }}  
+                        onPress={() => {navigate(RouteConfig["LunarCoursePage"].route),navigate(RouteConfig["ZhuangBookPage"].route,{text:"ZhuangBookPage"}) }}  
                         titleStyle={StyleConfig.menufont}>  
             </TabNavigator.Item>  
           </TabNavigator >

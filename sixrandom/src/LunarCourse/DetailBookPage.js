@@ -55,7 +55,7 @@ class DetailBookPage extends React.Component {
     }
     var constMeng = new Array()
     var alignTextCenter = false
-    if([]==this.state.dateMeng)
+    if(this.state.dateMeng.length<1)
     {
       return (<View></View>)
     }
