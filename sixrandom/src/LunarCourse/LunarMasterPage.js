@@ -85,6 +85,7 @@ class LunarMasterPage extends React.Component {
     }
   };
   componentDidMount() {
+
     NativePlumber.PlumberGetChannel((error,events) => {
       this.setState({Channel:events})
       //this.refreshlist()
@@ -303,6 +304,7 @@ class LunarMasterPage extends React.Component {
   
   render(){
       const { navigate } = this.props.navigation;
+
       if(""==this.state.Channel)
     {
       return(<View></View>)
