@@ -3804,8 +3804,8 @@ class SixrandomModule extends React.Component {
 六神
 甲乙起青龙.丙丁起朱雀.戊己起勾陈,庚辛起白虎.壬癸起玄武
 */ {
-		var a = ["青龙", "朱雀", "勾陈", "縢蛇", "白虎", "玄武"];
-		var n = ["青龙", "青龙", "朱雀", "朱雀", "勾陈", "縢蛇", "白虎", "白虎", "玄武", "玄武"];
+		var a = ["青龙", "朱雀", "勾陈", "螣蛇", "白虎", "玄武"];
+		var n = ["青龙", "青龙", "朱雀", "朱雀", "勾陈", "螣蛇", "白虎", "白虎", "玄武", "玄武"];
 		var m = startinfo.gzDate.slice(0, 1)
 		var b = h.indexOf(m);
 		var c = a.indexOf(n[b])
