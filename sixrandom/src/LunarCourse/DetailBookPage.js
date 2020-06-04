@@ -23,16 +23,10 @@ class DetailBookPage extends React.Component {
   };
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
-
     return {
-
       title: navigation.getParam('title', 'A Nested Details Screen'),
     }
   };
-
-
-
-
   render() {
     const { navigate } = this.props.navigation;
     if (undefined != this.props.navigation.state.params && "" != this.props.navigation.state.params.text) {
@@ -43,9 +37,8 @@ class DetailBookPage extends React.Component {
       var NativePlumber = NativeModules.NativePlumber;
       NativePlumber.PlumberRouting(Q.titlename, "", "", "")
       var x = QIndexPage.GetBookType(Q.titlename)
-     
-      if(x.length===1)
-      {
+
+      if (x.length === 1) {
         ScreenConfig.DeviceToast("资料未开放")
         this.props.navigation.goBack()
         return (<View></View>)
@@ -55,8 +48,7 @@ class DetailBookPage extends React.Component {
     }
     var constMeng = new Array()
     var alignTextCenter = false
-    if(this.state.dateMeng.length<1)
-    {
+    if (this.state.dateMeng.length < 1) {
       return (<View></View>)
     }
     if (undefined != this.state.dateMeng[0].center && true == this.state.dateMeng[0].center) {
@@ -123,7 +115,7 @@ class DetailBookPage extends React.Component {
               }}
               onPress={() => { this.setState({ keyindex: index }), this.drawer.closeDrawer() }}
             >
-              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 16 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}{index == this.state.keyindex ? IconConfig.IconStar : ""}</Text>
+              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 15 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}{index == this.state.keyindex ? IconConfig.IconStar : ""}</Text>
             </Button>
           </List.Item>
         );
