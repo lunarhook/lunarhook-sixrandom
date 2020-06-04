@@ -94,7 +94,7 @@ class DetailBookPage extends React.Component {
                 }}
               >
 
-                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 22 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}</Text>
+                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 20 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}</Text>
 
 
                 <Button
@@ -123,7 +123,7 @@ class DetailBookPage extends React.Component {
               }}
               onPress={() => { this.setState({ keyindex: index }), this.drawer.closeDrawer() }}
             >
-              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 18 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}{index == this.state.keyindex ? IconConfig.IconStar : ""}</Text>
+              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 16 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}{index == this.state.keyindex ? IconConfig.IconStar : ""}</Text>
             </Button>
           </List.Item>
         );
