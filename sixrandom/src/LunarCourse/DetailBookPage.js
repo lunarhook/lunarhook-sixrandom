@@ -19,7 +19,6 @@ class DetailBookPage extends React.Component {
       datahistory: [],
       keyindex: 0
     };
-
   };
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
@@ -37,7 +36,6 @@ class DetailBookPage extends React.Component {
       var NativePlumber = NativeModules.NativePlumber;
       NativePlumber.PlumberRouting(Q.titlename, "", "", "")
       var x = QIndexPage.GetBookType(Q.titlename)
-
       if (x.length === 1) {
         ScreenConfig.DeviceToast("资料未开放")
         this.props.navigation.goBack()
@@ -85,10 +83,7 @@ class DetailBookPage extends React.Component {
                   alignItems: 'center',
                 }}
               >
-
                 <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 20 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}</Text>
-
-
                 <Button
                   type="primary"
                   size="small"
@@ -150,10 +145,8 @@ class DetailBookPage extends React.Component {
       >
         <View style={StyleConfig.container}>
           <ScrollView ref="location" style={{ backgroundColor: '#ffffff' }}>
-
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
-
             <FlatList
               ref={(flatList) => this._flatList = flatList}
               useFlatList={true}
@@ -169,20 +162,15 @@ class DetailBookPage extends React.Component {
                 </View>)}
             >
             </FlatList>
-
-
-
             <WhiteSpace size="xl" />
             {
               (WechatShare.shareimg(this.state.shareimg))
             }
-
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
-
           </ScrollView>
           <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
             <TabNavigator.Item
@@ -195,16 +183,13 @@ class DetailBookPage extends React.Component {
             <TabNavigator.Item
               title={"上一页"}
               renderIcon={() => RouteConfig["IconLast"].icon}
-
               //renderSelectedIcon={() => IconConfig.IconDvinationSel}
               onPress={() => this.setState({ keyindex: this.state.keyindex - 1 }, this.refs['location'].scrollTo({ x: 0, y: 0, animated: true }))}
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
-
             <TabNavigator.Item
               title={"下一页"}
               //renderIcon={() => BaseCourseConfig["CourseToolsPage"].icon}
-
               renderIcon={() => RouteConfig["IconNext"].icon}
               onPress={() => this.setState({ keyindex: this.state.keyindex + 1 }, this.refs['location'].scrollTo({ x: 0, y: 0, animated: true }))}
               titleStyle={StyleConfig.menufont}>
