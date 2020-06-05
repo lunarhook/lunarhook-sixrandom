@@ -156,14 +156,14 @@ const LunarCoursePageTab = createBottomTabNavigator(
         })
       }),
       
-      
+      */
     LunarMasterPageFake:createStackNavigator(
       { "LunarMasterPageFake": "训练大师" },
       {
         navigationOptions: ({ navigation }) => ({
           title: RouteConfig["LunarMasterPage"].name,
         })
-      }),*/
+      }),
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
