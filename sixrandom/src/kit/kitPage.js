@@ -435,7 +435,8 @@ class kitPage extends React.Component {
             if ("Huawei" == kitPageController.state.Channel) {
               delete contentlist["大道易德"]
               delete contentlist["周易八卦"]
-              delete contentlist["塔罗占星"]
+              delete contentlist["塔罗牌阵"]
+              delete contentlist["星盘星座"]
             }
             curalllist.forEach(element => {
               if (undefined != contentlist[element.title]) {
@@ -498,7 +499,7 @@ class kitPage extends React.Component {
         </Accordion>
       )
     }
-    else if ("星盘星座" == tab.title) {
+    else if ("星盘星座" == tab.title && "Huawei" != kitPageController.state.Channel) {
       return (
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           {contentlist["星盘星座"]}

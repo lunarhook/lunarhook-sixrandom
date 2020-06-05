@@ -207,7 +207,7 @@ itemsrandom['星盘塔罗'] = [
         for (i=0;i<element.length;i++)
         {
           
-          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗牌阵" || element[i].title=="大道易德"))
+          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗牌阵" || element[i].title=="大道易德" || element[i].title=="星盘星座"))
           {
             T.push(element[i])
           }
@@ -220,7 +220,7 @@ itemsrandom['星盘塔罗'] = [
         for (i=0;i<element.length;i++)
         {
           
-          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗牌阵" || element[i].title=="大道易德"))
+          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗牌阵" || element[i].title=="大道易德" || element[i].title=="星盘星座"))
           {
             T.push(element[i])
           }
