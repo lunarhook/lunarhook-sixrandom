@@ -24,7 +24,7 @@
     "react": "16.13.1",
     "react-dom": "^16.13.1",
     "react-native": "^0.61.5",
-    "react-native-calendars": "^1.282.0",
+    "react-native-calendars": "^1.289.0",
     "react-native-compass-heading": "^1.0.2",
     "react-native-device-info": "^5.6.1",
     "react-native-drag-sort": "^2.1.1",
@@ -49,7 +49,7 @@
     "react-native-wechat-lib": "^1.1.16",
     "react-navigation": "^4.3.9",
     "react-navigation-material-bottom-tabs": "^2.2.12",
-    "react-navigation-stack": "^2.5.1",
+    "react-navigation-stack": "^2.6.0",
     "react-navigation-tabs": "^2.8.13",
     "victory-native": "^34.3.0"
   },
