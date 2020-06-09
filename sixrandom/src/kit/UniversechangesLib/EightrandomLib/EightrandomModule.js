@@ -1427,7 +1427,7 @@ class EightrandomModule extends React.Component {
             var count = 0
             for(i=0;i<shishen.length;i++)
             {
-                if("财"==shishen[i] || "才"==shishen[i]) count++
+                if("正财"==shishen[i] || "偏财"==shishen[i]) count++
             }
             if (0==count) info = info + (""==info?"":"，")+"命无财星，婚姻难成"
             if (3<=count) info = info + (""==info?"":"，")+"财星过多，多婚之象"
@@ -1442,7 +1442,7 @@ class EightrandomModule extends React.Component {
             var count = 0
             for(i=0;i<shishen.length;i++)
             {
-                if("官"==shishen[i] || "杀"==shishen[i]) count++
+                if("正官"==shishen[i] || "七杀"==shishen[i]) count++
             }
             if (0==count) info = info + (""==info?"":"，")+"命无官星，婚姻难成"
             if (3<=count) info = info + (""==info?"":"，")+"官星过多，多婚之象"
