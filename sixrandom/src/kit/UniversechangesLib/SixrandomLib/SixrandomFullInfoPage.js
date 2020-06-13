@@ -6,14 +6,12 @@ import { findNodeHandle, Image, StyleSheet, View, Alert, Text, Dimensions, FlatL
 import { captureRef } from "react-native-view-shot";
 import TabNavigator from 'react-native-tab-navigator';
 import { Grid, Accordion, WhiteSpace, WingBlank, List } from '@ant-design/react-native';
-import {SixrandomModule} from '../SixrandomLib/SixrandomModule'
+import { SixrandomModule } from '../SixrandomLib/SixrandomModule'
 import StorageModule from '../../../config/StorageModule'
 import ScreenConfig from '../../../config/ScreenConfig';
-import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
+import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 
-var kWidth = Dimensions.get('window').width;
-var kHeight = Dimensions.get('window').height;
 class SixrandomFullinfoPage extends React.Component {
   constructor(props) {
     super(props);
@@ -27,9 +25,8 @@ class SixrandomFullinfoPage extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     return {
-
       // headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline() }/>),
-      title: '卦象详解',
+      title: RouteConfig["SixrandomFullInfoPage"].name,
     }
   };
 
@@ -61,8 +58,6 @@ class SixrandomFullinfoPage extends React.Component {
       var ggrid = __ret.infogrid
       var infoext = __ret.infoext
       var infobase = __ret.infobase
-
-
       for (var index = 0; index < ggrid.length; index++) {
         var o = {}
         if (undefined != ggrid[index]) {
@@ -81,9 +76,6 @@ class SixrandomFullinfoPage extends React.Component {
         infogrid.push(o)
       }
       console.log(infogrid)
-
-
-
       this.setState({
         date: _build, parameter: parameter, infogrid: infogrid, infoext: infoext, infobase: infobase
       });
@@ -108,8 +100,6 @@ class SixrandomFullinfoPage extends React.Component {
         var ggrid = __ret.infogrid
         var infoext = __ret.infoext
         var infobase = __ret.infobase
-
-
         for (var index = 0; index < ggrid.length; index++) {
           var o = {}
           if (undefined != ggrid[index]) {
@@ -128,9 +118,6 @@ class SixrandomFullinfoPage extends React.Component {
           infogrid.push(o)
         }
         console.log(infogrid)
-
-
-
         this.setState({
           date: _build, parameter: parameter, infogrid: infogrid, infoext: infoext, infobase: infobase
         });
@@ -141,20 +128,16 @@ class SixrandomFullinfoPage extends React.Component {
         }
       })
     }
-
   }
-
   renderItem(item) {
     return (
       <View style={styles.list}>
-        <Text style={[{fontSize : FontStyleConfig.getFontApplySize()+14},styles.rowhigth]}>{item.item}</Text>
+        <Text style={[{ fontSize: FontStyleConfig.getFontApplySize() + 14 }, styles.rowhigth]}>{item.item}</Text>
       </View>
     );
   }
-
   keyExtractor = (item, index) => index.toString()
   render() {
-
     const { navigate } = this.props.navigation;
     jump = false;
     return (
@@ -168,9 +151,6 @@ class SixrandomFullinfoPage extends React.Component {
                 renderItem={this.renderItem}
               />
             </View>
-
-
-
             <WingBlank>
               <Grid
                 data={this.state.infogrid}
@@ -180,28 +160,23 @@ class SixrandomFullinfoPage extends React.Component {
                 renderItem={(dataItem, index) => {
                   if (index < 8) {
                     return (
-
                       <View style={{ flexDirection: 'row', textAlign: 'left' }}>
-                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 100 }}>{dataItem.myth}</Text>
-                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 120 }}>{dataItem.sixrandom}</Text>
-                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 120 }}>{dataItem.change}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 100 }}>{dataItem.myth}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 120 }}>{dataItem.sixrandom}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 120 }}>{dataItem.change}</Text>
                       </View>
                     )
                   }
                   else {
                     return (
-
                       <View style={{ flexDirection: 'row', textAlign: 'left' }}>
-                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 100 }}>{dataItem.myth}</Text>
-                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 120 }}>{dataItem.sixrandom}</Text>
-                        <Text style={{fontSize : FontStyleConfig.getFontApplySize()+14, width: 120 }}>{dataItem.change}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 100 }}>{dataItem.myth}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 120 }}>{dataItem.sixrandom}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 120 }}>{dataItem.change}</Text>
                       </View>
                     )
                   }
-
                 }
-
-
                 }
               /></WingBlank>
             <View style={styles.container} >
@@ -211,7 +186,6 @@ class SixrandomFullinfoPage extends React.Component {
                 renderItem={this.renderItem}
               />
             </View>
-
             <WhiteSpace size="xl" />
             {
               (WechatShare.shareimg(this.state.shareimg))
@@ -223,9 +197,7 @@ class SixrandomFullinfoPage extends React.Component {
             <WhiteSpace size="xl" />
           </View>
         </ScrollView>
-        {WechatShare.shareRetBar(WechatShare,this,"六爻详情")}
-
-
+        {WechatShare.shareRetBar(WechatShare, this,  RouteConfig["SixrandomFullInfoPage"].name)}
       </View>
     )
   }

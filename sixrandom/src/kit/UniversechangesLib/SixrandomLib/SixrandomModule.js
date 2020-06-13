@@ -4104,9 +4104,9 @@ class SixrandomModule extends React.Component {
 		var infobase = new Array()
 		var infogrid = new Array();
 		var _build = new Array();
-		_build.push("")
-		_build.push("求测：" + six_random_question)
-		_build.push(six_random_date[7]["base"]);
+		//_build.push("")
+		//_build.push("求测：" + six_random_question)
+		//_build.push(six_random_date[7]["base"]);
 		if ("" != six_random_question) {
 			try {
 				//_build.push(six_random_question);
@@ -4133,29 +4133,29 @@ class SixrandomModule extends React.Component {
 		_build.push("")
 
 
-		_build.push("")
 		infobase = _build;
 		//console.log("infobase",infobase)
 		//_build.push(("      本卦：  "+six_random_date[7].name+"   变卦：  "+six_random_date[8].name))
 		//infogrd目前是按一行5列设计的
 		//卦的名称
 		infogrid[0] = new Array()
+		infogrid[0].push("求测")
 		infogrid[0].push("")
-		infogrid[0].push("")
-		infogrid[0].push("本卦:" + six_random_date[7].name)
-		infogrid[0].push("变卦:" + six_random_date[8].name)
+		infogrid[0].push(six_random_date[7].name)
+		infogrid[0].push(six_random_date[8].name+(six_random_date[8].name == six_random_date[7].name?"(静卦)":"(变卦)"))
 
+		/*
 		infogrid[1] = new Array()
 		infogrid[1].push("")
 		infogrid[1].push("")
 		infogrid[1].push("")
 		infogrid[1].push("")
-
-		infogrid[2] = new Array()
-		infogrid[2].push("")
-		infogrid[2].push("")
-		infogrid[2].push(six_random_date[7]["poem"])
-		infogrid[2].push(six_random_date[8]["poem"])
+*/
+		infogrid[1] = new Array()
+		infogrid[1].push(six_random_question)
+		infogrid[1].push("")
+		infogrid[1].push(six_random_date[7]["poem"])
+		infogrid[1].push(six_random_date[8]["poem"])
 
 		//console.log();
 		var o = ["", "上爻", "五爻", "四爻", "三爻", "二爻", "初爻"]
@@ -4279,18 +4279,14 @@ class SixrandomModule extends React.Component {
 
 		var infoext = new Array()
 		infoext.push("")
-		infoext.push("《序卦传》《杂卦传》解释")
-		infoext.push("")
-		infoext.push(six_random_date[7].name)
-		infoext.push(six_random_date[7]["def"]);
-		infoext.push(six_random_date[7]["story"]);
-		infoext.push("")
-		infoext.push(six_random_date[8].name)
-		infoext.push(six_random_date[8]["def"]);
-		infoext.push(six_random_date[8]["story"]);
+		//infoext.push("《序卦传》《杂卦传》解释")
+		//infoext.push("")
+		infoext.push(six_random_date[7].name+"："+six_random_date[7]["def"]+","+six_random_date[7]["story"])
+		infoext.push(six_random_date[8].name+"："+six_random_date[8]["def"]+","+six_random_date[8]["story"])
+
 		infoext.push("")
 		infoext.push("《卦象》(伏羲)、 《卦辞》(文王)解释")
-		infoext.push("")
+		//infoext.push("")
 		infoext.push(six_random_date[7].base)
 		infoext.push(six_random_date[7].extname)
 		infoext.push(six_random_date[7].extnameexp)
