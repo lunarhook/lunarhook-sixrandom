@@ -32,6 +32,7 @@ import Svg, {
   Defs,
   Stop
 } from 'react-native-svg';
+import { dateAdd } from '../solar2lunar/chinese-lunar';
 const { width, height } = Dimensions.get('window');
 
 var jump = false
@@ -262,13 +263,13 @@ class EightrandomMainPage extends React.Component {
       return (<Text style={[styles.Eightstylewithfont, { color: 'red', fontSize: size }]}>{king}</Text>)
     }
     if ("戊" == king || "己" == king || "丑" == king || "未" == king || "辰" == king || "戌" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'brown', fontSize: size }]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: '#8B4513', fontSize: size }]}>{king}</Text>)
     }
     if ("庚" == king || "辛" == king || "申" == king || "酉" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'gold', fontSize: size }]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: '#DAA520', fontSize: size }]}>{king}</Text>)
     }
     if ("癸" == king || "壬" == king || "子" == king || "亥" == king) {
-      return (<Text style={[styles.Eightstylewithfont, { color: 'blue', fontSize: size }]}>{king}</Text>)
+      return (<Text style={[styles.Eightstylewithfont, { color: '#1E90FF', fontSize: size }]}>{king}</Text>)
     }
     if (undefined != king && king.toString().length > 1) {
       return king
@@ -356,7 +357,7 @@ class EightrandomMainPage extends React.Component {
         <View style={[{ textAlign: 'center', alignItems: 'center' }]}>
           <Svg width={300} height={300} >
             <VictoryPie
-              colorScale={["green", "red", "brown", "yellow", "blue"]}
+              colorScale={["green", "red", "#8B4513", "#DAA520", "#1E90FF"]}
               data={[
                 { x: 1, y: this.state.precent[5] + 0, label: '木' },
                 { x: 2, y: this.state.precent[6] + 0, label: '火' },
@@ -511,37 +512,41 @@ class EightrandomMainPage extends React.Component {
       test2.push({ info: x, hide: "" })
     }
 
+    var yearsnumber = new Array()
+    for (var i = 0; i < 8; i++) {
+      yearsnumber.push(i == 0 ? this.state.beginlucky : yearsnumber[i - 1] + 10)
+    }
     var years = new Array()
-    years = luckyearrelation.concat(this.state.luckyyear, luckyyearposition)
+    years = luckyearrelation.concat(yearsnumber,this.state.luckyyear, luckyyearposition)
     //console.log("years", years, luckyearrelation, this.state.luckyyear, luckyyearposition)
 
     var five = new Array();
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>木</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>火</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>土</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>金</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>水</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>土</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>金</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>水</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>甲:{this.state.daykey['甲']}</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丙:{this.state.daykey['丙']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>戊:{this.state.daykey['戊']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>庚:{this.state.daykey['庚']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>壬:{this.state.daykey['壬']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>戊:{this.state.daykey['戊']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>庚:{this.state.daykey['庚']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>壬:{this.state.daykey['壬']}</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>乙:{this.state.daykey['乙']}</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丁:{this.state.daykey['丁']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>己:{this.state.daykey['己']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>辛:{this.state.daykey['辛']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>癸:{this.state.daykey['癸']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>己:{this.state.daykey['己']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>辛:{this.state.daykey['辛']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>癸:{this.state.daykey['癸']}</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{this.state.precent[5]}%</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{this.state.precent[6]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>{this.state.precent[7]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>{this.state.precent[8]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>{this.state.precent[9]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{this.state.precent[7]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{this.state.precent[8]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{this.state.precent[9]}%</Text>)
     var fivepower = EightrandomModule.geikeypower(this.state.EightDate[3]);
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{fivepower[0]}</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{fivepower[1]}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'brown' }}>{fivepower[2]}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'gold' }}>{fivepower[3]}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'blue' }}>{fivepower[4]}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{fivepower[2]}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{fivepower[3]}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{fivepower[4]}</Text>)
     //console.log("five",five)
 
 
@@ -616,7 +621,7 @@ class EightrandomMainPage extends React.Component {
                       hasLine={true}
                       itemStyle={{ height: 25 }}
                       renderItem={dataItem => {
-                        if (Array.isArray(dataItem.info)) {
+                        if (undefined!=dataItem.info && dataItem.info.length===3) {
                           const a = dataItem.info.forEach(element => {
                             <View>
                               <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {element}</Text>
@@ -644,6 +649,14 @@ class EightrandomMainPage extends React.Component {
                       itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 }}
                       renderItem={dataItem => (
                         dataItem.info.map((item, idx) => {
+                          if(3===item.length)
+                          {
+                            return (
+                              <View key={idx} style={{flexDirection:"row"}}>
+                                { this.getColor(item[0])}
+                                <Text style={{ justifyContent: 'space-around',fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {item[1]+item[2]}</Text>
+                              </View>)
+                          }
                           return (
                             <View key={idx} >
                               <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center", textAlignVertical: "center" }}>  {item}</Text>
