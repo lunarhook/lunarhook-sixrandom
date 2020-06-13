@@ -517,7 +517,7 @@ class EightrandomMainPage extends React.Component {
       yearsnumber.push(i == 0 ? this.state.beginlucky : yearsnumber[i - 1] + 10)
     }
     var years = new Array()
-    years = luckyearrelation.concat(yearsnumber,this.state.luckyyear, luckyyearposition)
+    years = luckyearrelation.concat(yearsnumber, this.state.luckyyear, luckyyearposition)
     //console.log("years", years, luckyearrelation, this.state.luckyyear, luckyyearposition)
 
     var five = new Array();
@@ -599,29 +599,28 @@ class EightrandomMainPage extends React.Component {
             <WingBlank size="lg">
 
               <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-                <Accordion.Panel header="基本信息">
-                  <Grid
-                    data={base}
-                    columnNum={1}
-                    hasLine={true}
-                    itemStyle={{ height: 25, alignItems: "flex-start", flexwrap: "wrap" }}
-                    renderItem={dataItem => (
-                      <View style={styles.container}>
-                        <View style={styles.grid}>
-                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {dataItem}</Text>
-                        </View>
-                      </View>
-                    )} />
-                </Accordion.Panel >
                 <Accordion.Panel header={"八字排盘"}>
                   <View>
+                    <Grid
+                      data={base}
+                      columnNum={1}
+                      hasLine={true}
+                      itemStyle={{ height: 25, alignItems: "flex-start", flexwrap: "wrap" }}
+                      renderItem={dataItem => (
+                        <View style={styles.container}>
+                          <View style={styles.grid}>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {dataItem}</Text>
+                          </View>
+                        </View>
+                      )} />
+                    <WhiteSpace size="xl" />
                     <Grid
                       data={test}
                       columnNum={7}
                       hasLine={true}
                       itemStyle={{ height: 25 }}
                       renderItem={dataItem => {
-                        if (undefined!=dataItem.info && dataItem.info.length===3) {
+                        if (undefined != dataItem.info && dataItem.info.length === 3) {
                           const a = dataItem.info.forEach(element => {
                             <View>
                               <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {element}</Text>
@@ -649,12 +648,11 @@ class EightrandomMainPage extends React.Component {
                       itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 }}
                       renderItem={dataItem => (
                         dataItem.info.map((item, idx) => {
-                          if(3===item.length)
-                          {
+                          if (3 === item.length) {
                             return (
-                              <View key={idx} style={{flexDirection:"row"}}>
-                                { this.getColor(item[0])}
-                                <Text style={{ justifyContent: 'space-around',fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {item[1]+item[2]}</Text>
+                              <View key={idx} style={{ flexDirection: "row" }}>
+                                {this.getColor(item[0])}
+                                <Text style={{ justifyContent: 'space-around', fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {item[1] + item[2]}</Text>
                               </View>)
                           }
                           return (
@@ -677,24 +675,20 @@ class EightrandomMainPage extends React.Component {
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center" }}>  {dataItem.info}</Text>
                           </View>
                         </View>
+                      )} /><WhiteSpace size="xl" />
+                    <Grid
+                      data={shensha}
+                      columnNum={1}
+                      hasLine={true}
+                      itemStyle={{ height: 25, alignItems: "flex-start" }}
+                      renderItem={dataItem => (
+                        <View style={styles.container}>
+                          <View style={styles.grid}>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {dataItem}</Text>
+                          </View>
+                        </View>
                       )} /></View>
                 </Accordion.Panel >
-                <Accordion.Panel header="八字神煞">
-                  <Grid
-                    data={shensha}
-                    columnNum={1}
-                    hasLine={true}
-                    itemStyle={{ height: 25, alignItems: "flex-start" }}
-                    renderItem={dataItem => (
-                      <View style={styles.container}>
-                        <View style={styles.grid}>
-                          <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {dataItem}</Text>
-                        </View>
-                      </View>
-                    )}
-                  //isCarousel
-                  //onClick={()}
-                  /></Accordion.Panel >
                 <Accordion.Panel header={"大运排盘"}>
                   <Grid
                     data={years}
