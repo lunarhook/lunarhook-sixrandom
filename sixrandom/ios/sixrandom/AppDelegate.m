@@ -92,7 +92,7 @@ NSString *const RCTJSNavigationScheme = @"react-js-navigation";
 }
 
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {    _mTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countAction) userInfo:nil repeats:YES];
+- (void)applicationDidEnterBackground:(UIApplication *)application {    _mTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(countAction) userInfo:nil repeats:YES];
   [[NSRunLoop currentRunLoop] addTimer:_mTimer forMode:NSRunLoopCommonModes];
   [self beginTask];
 }
@@ -100,15 +100,19 @@ NSString *const RCTJSNavigationScheme = @"react-js-navigation";
 //计时
 -(void)countAction{
     NSLog(@"%li",count++);
+  if ([UIApplication sharedApplication].backgroundTimeRemaining < 60) {
+  [[UIApplication sharedApplication] endBackgroundTask:self.backIden];
+  self.backIden = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+      [[UIApplication sharedApplication] endBackgroundTask:self.backIden];
+      self.backIden = UIBackgroundTaskInvalid;
+  }];
+  }
 }
 
 //申请后台
 -(void)beginTask
 {
-    NSLog(@"begin=============");
     _backIden = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        //在时间到之前会进入这个block，一般是iOS7及以上是3分钟。按照规范，在这里要手动结束后台，你不写也是会结束的（据说会crash）
-        NSLog(@"将要挂起=============");
         [self endBack];
     }];
 }
