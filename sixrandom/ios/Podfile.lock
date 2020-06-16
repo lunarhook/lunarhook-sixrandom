@@ -194,7 +194,11 @@ PODS:
     - React
   - react-native-safe-area-context (3.0.5):
     - React
+  - react-native-segmented-control (2.0.0):
+    - React
   - react-native-shake (3.4.0):
+    - React
+  - react-native-slider (3.0.0):
     - React
   - react-native-view-shot (3.1.2):
     - React
@@ -239,6 +243,8 @@ PODS:
     - React
   - RNCMaskedView (0.1.10):
     - React
+  - RNCPicker (1.6.3):
+    - React
   - RNDeviceInfo (5.6.1):
     - React
   - RNExitApp (1.1.0):
@@ -280,7 +286,9 @@ DEPENDENCIES:
   - react-native-fingerprint-scanner (from `../node_modules/react-native-fingerprint-scanner`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - "react-native-segmented-control (from `../node_modules/@react-native-community/segmented-control`)"
   - react-native-shake (from `../node_modules/react-native-shake`)
+  - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
   - react-native-view-shot (from `../node_modules/react-native-view-shot`)
   - "react-native-viewpager (from `../node_modules/@react-native-community/viewpager`)"
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -296,6 +304,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - "RNCPicker (from `../node_modules/@react-native-community/picker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNExitApp (from `../node_modules/react-native-exit-app`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -351,8 +360,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/geolocation"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-segmented-control:
+    :path: "../node_modules/@react-native-community/segmented-control"
   react-native-shake:
     :path: "../node_modules/react-native-shake"
+  react-native-slider:
+    :path: "../node_modules/@react-native-community/slider"
   react-native-view-shot:
     :path: "../node_modules/react-native-view-shot"
   react-native-viewpager:
@@ -381,6 +394,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/async-storage"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNCPicker:
+    :path: "../node_modules/@react-native-community/picker"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
   RNExitApp:
@@ -422,7 +437,9 @@ SPEC CHECKSUMS:
   react-native-fingerprint-scanner: 3e8c46641b5751a31f45e66789d4b6f342be5e6d
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-safe-area-context: e768fca90207ee68924b3d0877633f2ce9cc9d68
+  react-native-segmented-control: 450c563d38339ba50ae8303fb12b1fe7ec01f7bd
   react-native-shake: de052eaa3eadc4a326b8ddd7ac80c06e8d84528c
+  react-native-slider: 12bd76d3d568c9c5500825db54123d44b48e4ad4
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
   react-native-viewpager: 1af972f5a745647b51250285f4da26d3fb3d5f0f
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
@@ -437,6 +454,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
+  RNCPicker: 1c63b084bcbcd33d159a83144543f3bda4cd1793
   RNDeviceInfo: b6e650fbd234732c759544218657d549b4339038
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
