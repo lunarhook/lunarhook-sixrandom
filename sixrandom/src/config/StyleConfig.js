@@ -38,7 +38,7 @@ class FontStyleConfig extends React.Component {
   }
   getFontApplySize()
   {
-    return FontStyleConfigThis.state.changesize - 5 + (Platform.OS === 'android' ? -3 : 0)
+    return FontStyleConfigThis.state.changesize - 5 + (Platform.OS === 'android' ? -5 : 0)
   }
 
   buildstyle()

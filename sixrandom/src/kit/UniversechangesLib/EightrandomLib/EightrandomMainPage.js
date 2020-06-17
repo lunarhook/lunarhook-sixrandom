@@ -623,7 +623,7 @@ class EightrandomMainPage extends React.Component {
                         if (undefined != dataItem.info && dataItem.info.length === 3) {
                           const a = dataItem.info.forEach(element => {
                             <View>
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {element}</Text>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14}}>  {element}</Text>
                             </View>
                           })
                           return (
@@ -635,7 +635,7 @@ class EightrandomMainPage extends React.Component {
                           return (
                             <View style={styles.container}>
                               <View style={styles.grid}>
-                                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {this.getColor(dataItem.info, 20)}</Text>
+                                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {this.getColor(dataItem.info, FontStyleConfig.getFontApplySize() + 14 +4)}</Text>
                               </View>
                             </View>
                           )
@@ -651,7 +651,7 @@ class EightrandomMainPage extends React.Component {
                           if (3 === item.length) {
                             return (
                               <View key={idx} style={{ flexDirection: "row" }}>
-                                {this.getColor(item[0])}
+                                {this.getColor(item[0],FontStyleConfig.getFontApplySize() + 14 )}
                                 <Text style={{ justifyContent: 'space-around', fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {item[1] + item[2]}</Text>
                               </View>)
                           }

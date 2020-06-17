@@ -209,7 +209,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#ffffff'
   },
   rowhigth: {
-    lineHeight: 25,
+    lineHeight: 20,
   },
   list: {
     //lineHigeht:25,
