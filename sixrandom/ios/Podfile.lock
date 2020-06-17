@@ -194,7 +194,7 @@ PODS:
     - React
   - react-native-safe-area-context (3.0.5):
     - React
-  - react-native-segmented-control (2.0.0):
+  - react-native-segmented-control (2.0.1):
     - React
   - react-native-shake (3.4.0):
     - React
@@ -437,7 +437,7 @@ SPEC CHECKSUMS:
   react-native-fingerprint-scanner: 3e8c46641b5751a31f45e66789d4b6f342be5e6d
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-safe-area-context: e768fca90207ee68924b3d0877633f2ce9cc9d68
-  react-native-segmented-control: 450c563d38339ba50ae8303fb12b1fe7ec01f7bd
+  react-native-segmented-control: b922568e7ff4e1ee241c9b747a29cea89f68548c
   react-native-shake: de052eaa3eadc4a326b8ddd7ac80c06e8d84528c
   react-native-slider: 12bd76d3d568c9c5500825db54123d44b48e4ad4
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
@@ -467,4 +467,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9b918c14ee5eb708d759250e14b18db7840e3fcb
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
