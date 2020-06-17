@@ -138,6 +138,10 @@ class LunarCoursePage extends React.Component {
       HistoryArrayGroup.load("CourseConfigselectmode").then(T => {
         try {
           console.log("CourseConfigselectmode", T)
+          if (T == undefined) {
+            this.setState({ selectmode: "国学经典" })
+            return
+          }
           if (ids.length != 0) {
 
             let selectedItems = ids.filter((ids, index) => ids.isSelect)
@@ -166,6 +170,11 @@ class LunarCoursePage extends React.Component {
           return
         }
       })
+    }).then(T2 => {
+      console.log(T2)
+      this.setState({ selectmode: "国学经典" })
+      return
+
     })
     this.render()
   }
