@@ -17,7 +17,9 @@ npm config set registry https://registry.npm.taobao.org --global
 npm config set disturl https://npm.taobao.org/dist --global
 yarn global add react-native-cli
 npm install -g npm-check-updates
+git stash
 git pull
+git stash pop
 ncu -u -x react-native
 yarn global add @tarojs/cli@latest
 yarn config set registry https://registry.npm.taobao.org --global
