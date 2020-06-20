@@ -23,6 +23,8 @@
 		79DE898BAFF8589D3D050560 /* libPods-sixrandom-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 618840D029901D2A23660D2A /* libPods-sixrandom-tvOS.a */; };
 		A64A37F52C3BFCE0FF0940E6 /* libPods-sixrandom-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B25220DD333035CA0EE008B2 /* libPods-sixrandom-tvOSTests.a */; };
 		B2CCD215EFB4C7E686432123 /* libPods-sixrandom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E257E407B06566B31F00F545 /* libPods-sixrandom.a */; };
+		CB61EF68249E8B8F00034F12 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB61EF66249E8B8F00034F12 /* antfill.ttf */; };
+		CB61EF69249E8B8F00034F12 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB61EF67249E8B8F00034F12 /* antoutline.ttf */; };
 		CBA1CC3924704DF500C8FC09 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA1CC3824704DF500C8FC09 /* WebKit.framework */; };
 		CBA1CC3B24704DFE00C8FC09 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA1CC3A24704DFE00C8FC09 /* SystemConfiguration.framework */; };
 		CBA1CC3D24704E0500C8FC09 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA1CC3C24704E0500C8FC09 /* CoreTelephony.framework */; };
@@ -84,6 +86,8 @@
 		B25220DD333035CA0EE008B2 /* libPods-sixrandom-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sixrandom-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36ECEFDAA4C1C551BC90F0E /* Pods-sixrandom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom.release.xcconfig"; path = "Target Support Files/Pods-sixrandom/Pods-sixrandom.release.xcconfig"; sourceTree = "<group>"; };
 		BBC860DE5C1F15C1C7396D67 /* Pods-sixrandom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom.debug.xcconfig"; path = "Target Support Files/Pods-sixrandom/Pods-sixrandom.debug.xcconfig"; sourceTree = "<group>"; };
+		CB61EF66249E8B8F00034F12 /* antfill.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
+		CB61EF67249E8B8F00034F12 /* antoutline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
 		CBA1CC3824704DF500C8FC09 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CBA1CC3A24704DFE00C8FC09 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CBA1CC3C24704E0500C8FC09 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -251,6 +255,8 @@
 		F4D32F3A5A594A4FA5B3BA08 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB61EF66249E8B8F00034F12 /* antfill.ttf */,
+				CB61EF67249E8B8F00034F12 /* antoutline.ttf */,
 				0A0B9EAA2381939100AF980D /* xxastro5.ttf */,
 			);
 			name = Resources;
@@ -416,6 +422,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CB61EF69249E8B8F00034F12 /* antoutline.ttf in Resources */,
+				CB61EF68249E8B8F00034F12 /* antfill.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				0A0B9EAB2381939100AF980D /* xxastro5.ttf in Resources */,
 			);
