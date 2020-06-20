@@ -6,18 +6,18 @@ import TabNavigator from 'react-native-tab-navigator';
 import { InputItem, WhiteSpace, List, Icon, WingBlank, Button, Switch } from '@ant-design/react-native';
 import IconConfig from '../config/IconConfig'
 import ScreenConfig from '../config/ScreenConfig';
-import {FontStyleConfig} from '../config/StyleConfig';
+import { FontStyleConfig } from '../config/StyleConfig';
 import UserModule from '../config/UserModule'
 import { HistoryArrayGroup } from '../config/StorageModule'
 import { DevTimeManager } from '../net/NetApi'
-import {appinfo,appname} from '../config/appinfo'
+import { appinfo, appname } from '../config/appinfo'
 let MyPagethis = undefined
 class MyPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      version : "",
-      appname : "",
+      version: "",
+      appname: "",
       islogin: false,
       passtype: "password",
       mobile: "", password: "", logindisable: true, networkstate: true, checked: false, sync: false
@@ -30,7 +30,7 @@ class MyPage extends React.Component {
       });
     }; MyPagethis = this
     var NativePlumber = NativeModules.NativePlumber;
-    NativePlumber.PlumberGetAppVersion((error,appname,appver) => {
+    NativePlumber.PlumberGetAppVersion((error, appname, appver) => {
       this.state.appname = appname
       this.state.version = appver
       this.forceUpdate()
@@ -80,15 +80,15 @@ class MyPage extends React.Component {
 
     return {
 
-      headerRight:()=> (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => MyPagethis.setState({ sync: !MyPagethis.state.sync })} />),
+      headerRight: () => (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => MyPagethis.setState({ sync: !MyPagethis.state.sync })} />),
       title: RouteConfig["MyPage"].name,
     }
   };
 
   checkbutton(password) {
-    console.log("checkbutton",this.state.password.length>5,this.state.password)
+    console.log("checkbutton", this.state.password.length > 5, this.state.password)
     if (this.state.mobile.length == 11 && password.length > 5 && "" != password) {
-      if (this.state.logindisable == true){
+      if (this.state.logindisable == true) {
         this.setState({ logindisable: false })
       }
     }
@@ -161,11 +161,11 @@ class MyPage extends React.Component {
         </View>
       )
     }
-    else if (true == MyPagethis.state.sync){
+    else if (true == MyPagethis.state.sync) {
       return (
         <View>
           <WhiteSpace size="xl" />
-          <Button type="primary"  onPress={() => this.props.navigation.navigate("MyFontConfigPage")}>字体大小</Button>
+          <Button type="primary" onPress={() => this.props.navigation.navigate("MyFontConfigPage")}>字体大小</Button>
           <WhiteSpace size="xl" />
 
         </View>
@@ -179,13 +179,12 @@ class MyPage extends React.Component {
       this.setState({ passtype: "password" })
     }
   }
-  showprivary(){
-    if(Platform.OS === 'android')
-    {
-      return(<View>
+  showprivary() {
+    if (Platform.OS === 'android') {
+      return (<View>
         <Text style={{ textAlign: "center", marginBottom: 20, }} onPress={() => this.props.navigation.navigate("AgreePage")}>《用户协议》</Text>
         <Text style={{ textAlign: "center", marginBottom: 20, }} onPress={() => this.props.navigation.navigate("PrivacyPage")}>《隐私政策》</Text>
-        </View>
+      </View>
       )
     }
 
@@ -202,10 +201,10 @@ class MyPage extends React.Component {
         { title: '同步' },
 
       ];
-      
+
       return (
         <ScrollView>
-          <View style={styles.inputpicker}>
+          <View style={styles.container}>
             <WhiteSpace size="xl" />
             <View style={{ alignItems: "center" }}>
               <Image source={require('../../img/sixrandom_qq100.jpg')} style={{ width: 50, height: 50, borderRadius: 10, justifyContent: "center" }} />
@@ -221,7 +220,7 @@ class MyPage extends React.Component {
             <WhiteSpace size="xl" />
             {this.showprivary()}
             <WhiteSpace size="xl" />
-            <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname+ " " +  this.state.version}</Text>
+            <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname + " " + this.state.version}</Text>
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
@@ -234,35 +233,37 @@ class MyPage extends React.Component {
     }
     else {
       return (<ScrollView>
-        <View style={styles.inputpicker}>
+        <View style={styles.container}>
           <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
+
           <InputItem
             clear
             type="phone"
-            value={this.state.mobile}
+            //value={this.state.mobile}
             onChange={(value: any) => {
               this.setState({ mobile: this.updatenumber(value) })
-              
+
             }}
             extra={<TouchableOpacity >{this.state.mobile.length == 11 ? IconConfig.CheckOk : <></>}</TouchableOpacity>}
-            placeholder="phone">
-            电话
+            placeholder="+86 ｜ 输入手机号">
+            {IconConfig.IconPhone}
           </InputItem>
+
           <InputItem
             clear
             maxLength={16}
             type={this.state.passtype}
-            value={this.state.password}
+            //value={this.state.password}
             onChange={(value: any) => {
               this.setState({ password: value })
             }}
-            placeholder="password"
+            placeholder="输入密码"
             extra={<View style={{ flexDirection: "row", justifyContent: "space-between" }}>
               <TouchableOpacity style={{ alignItems: "flex-end" }} onPress={() => { this.passshow() }}>{this.state.passtype == "password" ? IconConfig.Passclose : IconConfig.Passshow}</TouchableOpacity>
               <Text>{"   "}</Text>
               <TouchableOpacity >{this.state.password.length > 5 ? IconConfig.CheckOk : <></>}</TouchableOpacity></View>}>
-            密码
+            {IconConfig.IconPhonePassword}
           </InputItem>
           <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
@@ -281,10 +282,10 @@ class MyPage extends React.Component {
           <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
           <Text style={{ textAlign: "center", marginBottom: 20, }} type="warning" onPress={() => this.props.navigation.navigate("MyUpdateRegister")}>-忘记密码-</Text>
-          <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname+ " " +  this.state.version}</Text>
+          <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname + " " + this.state.version}</Text>
           {this.showprivary()}
           <WhiteSpace size="xl" />
-            {this.rendersync()}
+          {this.rendersync()}
         </View>
       </ScrollView>
       )
@@ -314,6 +315,7 @@ class MyPage extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "white",
   },
   subtitleView: {
     flexDirection: 'row',
@@ -330,7 +332,7 @@ var styles = StyleSheet.create({
     //marginLeft: 10,
     //paddingLeft:10,
     textAlign: 'center',
-    fontSize:FontStyleConfig.getFontApplySize()+ 15,
+    fontSize: FontStyleConfig.getFontApplySize() + 15,
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
     alignItems: 'center',
   },
@@ -345,12 +347,6 @@ var styles = StyleSheet.create({
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
     //textAlign:'center', 
     //textDecorationLine:'underline'
-  },
-  inputpicker: {
-
-    marginLeft: 35,
-    marginRight: 35,
-    marginTop: 50,
   },
 });
 module.exports = MyPage;  

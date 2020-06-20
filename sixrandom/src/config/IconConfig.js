@@ -189,6 +189,10 @@ class IconConfig extends React.Component {
 
 
 
+  static IconPhone = (<MaterialCommunityIcons name="cellphone-screenshot" size={size} color={green} />)
+  static IconPhonePassword = (<MaterialCommunityIcons name="cellphone-lock" size={size} color={green} />)
+  static IconPhoneCode= (<MaterialCommunityIcons name="cellphone-text" size={size} color={green} />)
+  
   static IconFontSmall = (<EvilIcons name="minus" size={buttonsize} color={green} />)
   static IconFontLarge = (<EvilIcons name="plus" size={buttonsize} color={green} />)
   static IconFontDefault = (<EvilIcons name="refresh" size={size} color={green} />)
