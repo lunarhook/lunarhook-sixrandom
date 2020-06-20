@@ -317,36 +317,5 @@ var styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-  subtitleView: {
-    flexDirection: 'row',
-    paddingLeft: 10,
-    //paddingTop:5
-  },
-  ratingText: {
-    paddingLeft: 10,
-    color: 'blue'
-  },
-  index:
-  {
-    lineHeight: 24,
-    //marginLeft: 10,
-    //paddingLeft:10,
-    textAlign: 'center',
-    fontSize: FontStyleConfig.getFontApplySize() + 15,
-    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    alignItems: 'center',
-  },
-
-  list: {
-    height: 45,
-    //borderWidth:1,
-    marginLeft: 10,
-    paddingLeft: 10,
-    //borderColor: '#ccc',
-    borderRadius: 4,
-    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
-    //textAlign:'center', 
-    //textDecorationLine:'underline'
-  },
 });
 module.exports = MyPage;  
