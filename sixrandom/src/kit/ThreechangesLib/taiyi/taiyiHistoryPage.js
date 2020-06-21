@@ -222,7 +222,7 @@ class taiyiHistoryPage extends React.Component {
    
 
 
-    return (<View>
+    return (<View style={styles.container}>
             <Search
           ref="search_box"
           onSearch={this.onSearch}
@@ -325,7 +325,8 @@ class taiyiHistoryPage extends React.Component {
 
 var styles = StyleSheet.create ({
   container: {
-    flex:1
+    flex:1,
+    backgroundColor: "white"
   },
   list:{
     height:45,
