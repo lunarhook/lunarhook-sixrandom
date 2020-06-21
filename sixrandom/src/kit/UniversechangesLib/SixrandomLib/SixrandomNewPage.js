@@ -204,6 +204,7 @@ var styles = StyleSheet.create ({
    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
    alignItems: 'center',
    lineHeight:45,     //行高  
+
     
   },
   inputbutton: {
@@ -231,6 +232,7 @@ var styles = StyleSheet.create ({
   },
   container: {
     flex:1,
+    backgroundColor:"white"
   },
   textline:{
     textAlign:'center',     

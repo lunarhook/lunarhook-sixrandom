@@ -225,7 +225,7 @@ class SixrandomHistoryPage extends React.Component {
     });
     const { errorMessage, popupShowed } = this.state;
     const { navigate } = this.props.navigation;
-    return (<View>
+    return (<View style={styles.container}>
 <Search
           ref="search_box"
           onSearch={this.onSearch}
@@ -329,7 +329,8 @@ class SixrandomHistoryPage extends React.Component {
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "white"
   },
   list: {
     height: 45,

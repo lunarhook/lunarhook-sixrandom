@@ -206,7 +206,7 @@ class SixrandomFullinfoPage extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff'
+    backgroundColor: 'white'
   },
   rowhigth: {
     lineHeight: 20,
