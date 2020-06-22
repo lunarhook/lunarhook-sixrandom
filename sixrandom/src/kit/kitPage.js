@@ -451,7 +451,13 @@ class kitPage extends React.Component {
               return content
             })(this)
             }
-          </Accordion></ScrollView>
+
+          </Accordion>
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+        </ScrollView>
       )
     } else if ("儿童少年" == tab.title) {
       return (
@@ -475,7 +481,12 @@ class kitPage extends React.Component {
             {contentlist["心理测评"]}
             {contentlist["情感家庭"]}
             {contentlist["儿童少年"]}
-          </Accordion></ScrollView>
+
+          </Accordion>
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" /></ScrollView>
       )
     } else if ("性格测评" == tab.title) {
       return (
