@@ -269,9 +269,6 @@ class LunarMasterPage extends React.Component {
               var curalllist = JSON.parse(JSON.stringify(sel))
               var content = new Array()
               if("Huawei"==LunarMasterPagethis.state.Channel){
-                delete contentlist["大道易德"]
-                delete contentlist["周易八卦"]
-                delete contentlist["塔罗占星"]
               }
               curalllist.forEach(element=>{
                 if(undefined!=contentlist[element.title])
@@ -289,15 +286,19 @@ class LunarMasterPage extends React.Component {
       )
     } else if ("MBTI训练" == tab.title) {
       return (
+        <ScrollView>
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           { contentlist["MBTI训练"]}
         </Accordion>
+        </ScrollView>
       )
     } else if ("五行掌握" == tab.title) {
       return (
+        <ScrollView>
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           {contentlist["五行掌握"]}
         </Accordion>
+        </ScrollView>
       )
     } 
   };
@@ -317,59 +318,12 @@ class LunarMasterPage extends React.Component {
     }
       
       return(
+
           <View style={StyleConfig.container}>
-          
-          <ScrollView>
-          <View style={{ flex: 2 }} ref="tabs">
-            <Tabs tabs={this.state.tabs} page={"全部"}  tabBarPosition="top" >
+            <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 } }>
               {this.renderContent}
             </Tabs>
           </View>
-
-        <WhiteSpace size="xl" />
-        <WhiteSpace size="xl" />
-        <WhiteSpace size="xl" />
-        <WhiteSpace size="xl" />
-
-        <Text></Text>
-          </ScrollView>
-          {/*}
-          <TabNavigator tabBarStyle={[{height:ScreenConfig.getTabBarHeight()}]}>
-          <TabNavigator.Item
-                        title={RouteConfig["LanguagesMasterPage"].name} 
-                        renderIcon={() => RouteConfig["LanguagesMasterPage"].icon}
-                        //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => navigate(RouteConfig["LanguagesMasterPage"].route) }  
-                        titleStyle={StyleConfig.menufont}>  
-            </TabNavigator.Item>  
-            <TabNavigator.Item
-                        title={RouteConfig["AncientChineseLiteraturePage"].name} 
-                        renderIcon={() => RouteConfig["AncientChineseLiteraturePage"].icon}
-                        //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => {navigate(RouteConfig["AncientChineseLiteraturePage"].route) }}  
-                        titleStyle={StyleConfig.menufont}>  
-            </TabNavigator.Item>  
-            <TabNavigator.Item
-                        title={RouteConfig["MasterToolsPage"].name} 
-                        renderIcon={() => RouteConfig["MasterToolsPage"].icon}
-                        //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => {navigate(RouteConfig["MasterToolsPage"].route) }}  
-                        titleStyle={StyleConfig.menufont}>  
-            </TabNavigator.Item>  
-            <TabNavigator.Item
-                        title={RouteConfig["ArtMasterPage"].name} 
-                        renderIcon={() => RouteConfig["ArtMasterPage"].icon}
-                        //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => navigate(RouteConfig["ArtMasterPage"].route) }  
-                        titleStyle={StyleConfig.menufont}>  
-            </TabNavigator.Item>  
-
-
-
-
-          </TabNavigator >
-      {*/}
-              </View>  
               )
     }
   };
