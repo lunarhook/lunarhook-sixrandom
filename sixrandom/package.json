@@ -38,7 +38,7 @@
     "react-native-highlight-words": "^1.0.1",
     "react-native-paper": "^3.10.1",
     "react-native-reanimated": "^1.9.0",
-    "react-native-safe-area-context": "^3.0.6",
+    "react-native-safe-area-context": "^3.0.7",
     "react-native-safe-area-view": "^1.1.1",
     "react-native-screens": "^2.9.0",
     "react-native-search-box": "^0.0.19",
@@ -54,7 +54,7 @@
     "react-navigation-material-bottom-tabs": "^2.3.0",
     "react-navigation-stack": "^2.8.2",
     "react-navigation-tabs": "^2.9.0",
-    "victory-native": "^34.3.0"
+    "victory-native": "^35.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
