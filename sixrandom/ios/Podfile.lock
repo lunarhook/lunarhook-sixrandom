@@ -192,7 +192,7 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-safe-area-context (3.0.6):
+  - react-native-safe-area-context (3.0.7):
     - React
   - react-native-segmented-control (2.0.1):
     - React
@@ -436,7 +436,7 @@ SPEC CHECKSUMS:
   react-native-compass-heading: 18742617bdb9e06ce104bd3b90f0dc700b791fd1
   react-native-fingerprint-scanner: ac6656f18c8e45a7459302b84da41a44ad96dbbe
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-safe-area-context: e22a8ca00f758273d2408953965cb8db67da7925
+  react-native-safe-area-context: ef6f16c66b0797ecae1bf86c103dfb3dc16fc33d
   react-native-segmented-control: b922568e7ff4e1ee241c9b747a29cea89f68548c
   react-native-shake: de052eaa3eadc4a326b8ddd7ac80c06e8d84528c
   react-native-slider: 12bd76d3d568c9c5500825db54123d44b48e4ad4
@@ -467,4 +467,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9b918c14ee5eb708d759250e14b18db7840e3fcb
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.2
