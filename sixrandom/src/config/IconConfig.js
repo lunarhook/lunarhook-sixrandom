@@ -84,7 +84,7 @@ class IconConfig extends React.Component {
 
   static IconPROF = (<FontAwesome name="university" size={size} color={fire} />)
   static IconScreen = (<Ionicons name="ios-images" size={size} color={blue} />)
-  static IconDetail = (<Ionicons name="ios-more" size={size} color={orange} />)
+  static IconDetail = (<Ionicons name="ios-menu" size={size} color={orange} />)
   static IconLunarCourse = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={green} />)
   static IconLunarCourseIntro = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={green} />)
   static IconLunarCourseIntroRed = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={fire} />)
@@ -141,7 +141,7 @@ class IconConfig extends React.Component {
   static Iconemail = (<MaterialCommunityIcons name="email" size={midsize} color={claygreen} />)
   static Iconqrcode = (<AntDesign name="qrcode" size={midsize} color={claygreen} />)
   static Iconqwechat = (<AntDesign name="wechat" size={midsize} color={green} />)
-  static IconMore = (<Ionicons name="ios-more" size={size} color={green} />)
+  static IconMore = (<Ionicons name="ios-menu" size={size} color={green} />)
   static IconNext = (<AntDesign name="rightcircleo" size={22} color={green} />)
   static IconLast = (<AntDesign name="leftcircleo" size={22} color={green} />)
   static IconSloganShare = (<MaterialIcons name="screen-share" size={buttonsize} color={orange} />)
