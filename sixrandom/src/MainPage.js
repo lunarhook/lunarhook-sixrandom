@@ -73,6 +73,7 @@ class MainPage extends React.Component {
     RouteConfig["MainPage"].name = appname[keys[0]]
     //console.log("getAppKeys", RouteConfig["MainPage"].name, keys[0], appname)
     return {
+      headerLeft:"",
       headerRight: ()=>(
         <TouchableOpacity
         style={[styles.dateContainer, { paddingRight: 40 }]}

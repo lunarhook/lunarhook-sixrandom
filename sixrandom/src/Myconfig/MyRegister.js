@@ -149,6 +149,7 @@ class MyRegister extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+        <WingBlank size="lg">
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />
 
@@ -219,7 +220,7 @@ class MyRegister extends React.Component {
           }}>
           <Button type="warning" disabled={this.state.regdisable} onPress={() => this.RegCheck()}>注册</Button>
         </WingBlank>
-
+        </WingBlank>
       </View>
     )
   }

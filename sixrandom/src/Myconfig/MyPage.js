@@ -204,6 +204,7 @@ class MyPage extends React.Component {
 
       return (
         <ScrollView>
+          
           <View style={styles.container}>
             <WhiteSpace size="xl" />
             <View style={{ alignItems: "center" }}>
@@ -304,9 +305,11 @@ class MyPage extends React.Component {
     }
     return (
       <View style={styles.container}>
+        <WingBlank size="lg">
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />
         {this.renderreg()}
+        </WingBlank>
       </View>
     )
   }

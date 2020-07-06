@@ -160,6 +160,7 @@ class MyUpdateRegister extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+        <WingBlank size="lg">
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />
         <View style={styles.inputpicker}>
@@ -249,6 +250,7 @@ class MyUpdateRegister extends React.Component {
             <Button type="warning" disabled={this.state.regdisable} onPress={() => this.UpdateRegCheck()}>更新</Button>
           </WingBlank>
         </View>
+        </WingBlank>
       </View>
     )
   }
