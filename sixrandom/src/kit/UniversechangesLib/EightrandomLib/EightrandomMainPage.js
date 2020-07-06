@@ -709,7 +709,13 @@ class EightrandomMainPage extends React.Component {
                     columnNum={6}
                     itemStyle={{ height: 35 }}
                     isCarousel={true}
-                    carouselMaxRow={6}
+                    carouselMaxRow={4}
+                    carouselProps={{
+                      style: {
+                        width: "100%",
+                        height: 170
+                      }
+                    }}
                     onPress={(_el: any, index: any) => this.changeyear("", Number(_el.split(" ")[1]))}
                     renderItem={(dataItem, itemIndex) => (this.renderminyearItem(dataItem))}
                   />
