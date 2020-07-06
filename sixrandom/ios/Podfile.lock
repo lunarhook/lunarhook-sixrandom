@@ -194,7 +194,7 @@ PODS:
     - React
   - react-native-safe-area-context (3.0.7):
     - React
-  - react-native-segmented-control (2.0.1):
+  - react-native-segmented-control (2.1.0):
     - React
   - react-native-shake (3.4.0):
     - React
@@ -259,7 +259,7 @@ PODS:
     - React
   - RNSwisseph (0.0.17):
     - React
-  - RNVectorIcons (6.7.0):
+  - RNVectorIcons (7.0.0):
     - React
   - Yoga (1.14.0)
 
@@ -437,7 +437,7 @@ SPEC CHECKSUMS:
   react-native-fingerprint-scanner: ac6656f18c8e45a7459302b84da41a44ad96dbbe
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-safe-area-context: ef6f16c66b0797ecae1bf86c103dfb3dc16fc33d
-  react-native-segmented-control: b922568e7ff4e1ee241c9b747a29cea89f68548c
+  react-native-segmented-control: 4ce904755f67bf17d5250d265d57e40db045ac34
   react-native-shake: de052eaa3eadc4a326b8ddd7ac80c06e8d84528c
   react-native-slider: 12bd76d3d568c9c5500825db54123d44b48e4ad4
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
@@ -462,7 +462,7 @@ SPEC CHECKSUMS:
   RNScreens: c526239bbe0e957b988dacc8d75ac94ec9cb19da
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNSwisseph: 74fa73befd5d9ca79ba8e7030b4340023c12ecfd
-  RNVectorIcons: 368d6d8b8301224e5ffb6254191f4f8876c2be0d
+  RNVectorIcons: da6fe858f5a65d7bbc3379540a889b0b12aa5976
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: 9b918c14ee5eb708d759250e14b18db7840e3fcb
