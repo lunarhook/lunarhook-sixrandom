@@ -137,7 +137,15 @@ if(__DEV__)
 }
 const LunarCoursePageTab = createBottomTabNavigator(
   {
-    LunarCoursePage: LunarCoursePage,
+    LunarCoursePageFake:createStackNavigator(
+      { "LunarCoursePage": LunarCoursePage },
+      {
+        navigationOptions: ({ navigation }) => ({
+          title: RouteConfig["LunarCoursePage"].name,
+        })
+      }),
+
+    //LunarCoursePage: LunarCoursePage,
 
 
     CourseSearchPageFake:createStackNavigator(

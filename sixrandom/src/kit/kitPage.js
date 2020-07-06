@@ -564,6 +564,13 @@ class kitPage extends React.Component {
         </Tabs>
         <View>
           <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+          <TabNavigator.Item
+              title={RouteConfig["kitExplorationPage"].name}
+              renderIcon={() => RouteConfig["kitExplorationPage"].icon}
+              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+              onPress={() => navigate(RouteConfig["kitExplorationPage"].route)}
+              titleStyle={StyleConfig.menufont}>
+            </TabNavigator.Item>
             {function () {
               if (Platform.OS === 'android') {
                 return (<TabNavigator.Item

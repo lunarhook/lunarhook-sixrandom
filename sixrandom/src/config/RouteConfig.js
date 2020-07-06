@@ -34,7 +34,8 @@ RouteConfig={
        
         
     //工具是优先解决需求的工具，尽量免费
-    "kitPage":{"name":"探索","route":"kitPage","titlename":"鹿鸣测评","icon":IconConfig.IconKit},
+    "kitPage":{"name":"探索","route":"kitPage","titlename":"探索","icon":IconConfig.IconKit},
+        "kitExplorationPage":{"name":"呦呦鹿鸣","route":"kitPage","titlename":"呦呦鹿鸣","icon":IconConfig.IconKit},
         //周易工具
         "UniversechangesPage":{"name":"周易测评","route":"UniversechangesPage","icon":IconConfig.IconUniversechanges},
             "CalendarPage":{"name":"浑天甲子历","route":"UniversechangesPage","icon":IconConfig.CalendarIcon},
@@ -116,11 +117,12 @@ RouteConfig={
         //心理咨询录音工具
         "ConsultantAudioRecord":{"name":"咨询录音","route":"ConsultantAudioRecord","icon":IconConfig.ConfigIcon},
         "permutationcombination":{"name":"排列组合计算器","route":"permutationcombination","icon":IconConfig.ConfigIcon},
-        "LunarCoursePageTab":{"name":"思想","route":"LunarCoursePageTab","titlename":"思无邪","icon":IconConfig.IconLunarCourse},
+        "LunarCoursePageTab":{"name":"思想","route":"LunarCoursePageTab","titlename":"思想","icon":IconConfig.IconLunarCourse},
        
     
         //课程是进一步提高成本，解决问题的方法，合理收费
-        "LunarCoursePage":{"name":"思无邪","route":"LunarCoursePage","titlename":"无邪书院","icon":IconConfig.IconLunarCourse},
+        "LunarCoursePage":{"name":"思无邪","route":"LunarCoursePage","titlename":"思想","icon":IconConfig.IconLunarCourse},
+        "LunarCoursePageFake":{"name":"思想","route":"LunarCoursePageFake","titlename":"思想","icon":IconConfig.IconLunarCourse},
         "LunarCourseConfigPage":{"name":"课程配置","route":"LunarCourseConfigPage","icon":IconConfig.IconSubmit},
         "LunarMasterConfigPage":{"name":"课程训练配置","route":"LunarMasterConfigPage","icon":IconConfig.IconSubmit},
         "CourseSearchPage":{"name":"说文助手","route":"CourseSearchPage","titlename":"说文解字","icon":IconConfig.IconSearch},
@@ -138,7 +140,7 @@ RouteConfig={
         "IntroPage":{"name":"导读","titlename":"导读","route":"","icon":IconConfig.IconShuoWenIntro},
         "IntroAncientPage":{"name":"小学介绍","titlename":"小学","route":"IntroAncientPage","icon":IconConfig.IconShuoWenIntro},
         "IntroThreePage":{"name":"三玄介绍","titlename":"三玄","route":"IntroThreePage","icon":IconConfig.IconThreeIntro},
-        "IntroBooksPage":{"name":"思无邪","titlename":"思无邪","route":"IntroBooksPage","icon":IconConfig.IconLunarCourseIntro},
+        "IntroBooksPage":{"name":"思想介绍","titlename":"思想介绍","route":"IntroBooksPage","icon":IconConfig.IconLunarCourseIntro},
         
         
         "MengBookPage":{"name":"蒙学","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},  
