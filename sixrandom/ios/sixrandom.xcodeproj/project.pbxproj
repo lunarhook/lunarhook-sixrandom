@@ -781,7 +781,7 @@
 				CODE_SIGN_ENTITLEMENTS = sixrandom/sixrandom.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = JD2G9A573K;
 				HEADER_SEARCH_PATHS = (
@@ -807,7 +807,7 @@
 				);
 				INFOPLIST_FILE = sixrandom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.9.13;
+				MARKETING_VERSION = 2.9.14;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -828,7 +828,7 @@
 				CODE_SIGN_ENTITLEMENTS = sixrandom/sixrandom.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JD2G9A573K;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -853,7 +853,7 @@
 				);
 				INFOPLIST_FILE = sixrandom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.9.13;
+				MARKETING_VERSION = 2.9.14;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
