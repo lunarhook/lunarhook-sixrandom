@@ -9,6 +9,7 @@
 
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
+#import <BackgroundTasks/BackgroundTasks.h>
 #import <Foundation/Foundation.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -123,6 +124,55 @@ NSString *const RCTJSNavigationScheme = @"react-js-navigation";
     NSLog(@"end=============");
     [[UIApplication sharedApplication] endBackgroundTask:_backIden];
     _backIden = UIBackgroundTaskInvalid;
+}
+
+
+- (void)registerBgTask {
+    
+    if (@available(iOS 13.0, *)) {
+        BOOL registerFlag = [[BGTaskScheduler sharedScheduler] registerForTaskWithIdentifier:@"com.sixrandom.kRefreshTaskId" usingQueue:nil launchHandler:^(__kindof BGTask * _Nonnull task) {
+            [self handleAppRefresh:task];
+        }];
+        if (registerFlag) {
+            NSLog(@"注册成功");
+        } else {
+            NSLog(@"注册失败");
+        }
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    if (@available(iOS 13.0, *)) {
+        [[BGTaskScheduler sharedScheduler] registerForTaskWithIdentifier:@"com.sixrandom.kCleanTaskId" usingQueue:nil launchHandler:^(__kindof BGTask * _Nonnull task) {
+            [self handleAppRefresh:task];
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
+}
+
+- (void)scheduleAppRefresh {
+    
+    if (@available(iOS 13.0, *)) {
+        BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:@"com.sixrandom.kRefreshTaskId"];
+        // 最早15分钟后启动后台任务请求
+        request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:15.0 * 60];
+        NSError *error = nil;
+        [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error:&error];
+        if (error) {
+            NSLog(@"错误信息：%@", error);
+        }
+        
+    } else {
+        // Fallback on earlier versions
+    }
+}
+- (void)handleAppRefresh:(BGAppRefreshTask *)appRefreshTask  API_AVAILABLE(ios(13.0)){
+    
+    [self scheduleAppRefresh];
+    
+    NSLog(@"App刷新====================================================================");
+
 }
 @end
 
