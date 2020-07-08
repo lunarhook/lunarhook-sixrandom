@@ -69,6 +69,7 @@ NSString *const RCTJSNavigationScheme = @"react-js-navigation";
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [self registerBgTask];
   plumberConfiguration* pConf =[[plumberConfiguration alloc] init];
   pConf.allowCatchException = true;//true is default
   pConf.allowInterveneNetwork = false; // false is default
