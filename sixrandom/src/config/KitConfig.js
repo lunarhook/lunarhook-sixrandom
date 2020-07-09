@@ -42,11 +42,11 @@ selectmode = [
   {title: '星盘星座',isSelect: true},
   
   {title: '工具助手',isSelect: true},
-  {title: '大道易德',isSelect: true},
+  //{title: '大道易德',isSelect: true},
 ]
  alllist['周易八卦'] = [
   {title: '周易八卦',isSelect: true},
-  {title: '大道易德',isSelect: true},
+  //{title: '大道易德',isSelect: true},
   {title: '性格测评',isSelect: true},
   {title: '心理测评',isSelect: true},
   {title: '情感家庭',isSelect: true},
@@ -59,7 +59,7 @@ selectmode = [
  alllist['焦虑抑郁'] = [
   {title: '心理测评',isSelect: true},
   {title: '周易八卦',isSelect: true},
-  {title: '大道易德',isSelect: true},
+  //{title: '大道易德',isSelect: true},
   {title: '性格测评',isSelect: true},
 
   {title: '情感家庭',isSelect: true},
@@ -73,7 +73,7 @@ alllist['星盘塔罗'] = [
   {title: '星盘星座',isSelect: true},
   {title: '心理测评',isSelect: true},
   {title: '周易八卦',isSelect: true},
-  {title: '大道易德',isSelect: true},
+  //{title: '大道易德',isSelect: true},
   {title: '性格测评',isSelect: true},
   {title: '情感家庭',isSelect: true},
   {title: '儿童少年',isSelect: true},
@@ -88,7 +88,7 @@ alllist['星盘塔罗'] = [
   {title: '塔罗牌阵',isSelect: true},
   {title: '星盘星座',isSelect: true},
   {title: '工具助手',isSelect: true},
-  {title: '大道易德',isSelect: true},
+  //{title: '大道易德',isSelect: true},
 ]
  alllist['职业性格'] = [
   {title: '性格测评',isSelect: true},
@@ -99,7 +99,7 @@ alllist['星盘塔罗'] = [
   {title: '塔罗牌阵',isSelect: true},
   {title: '星盘星座',isSelect: true},
   {title: '工具助手',isSelect: true},
-  {title: '大道易德',isSelect: true},
+  //{title: '大道易德',isSelect: true},
 
 ]
 
@@ -114,13 +114,13 @@ itemsrandom['全部'] = [
   {title: '周易八卦',isSelect: true},
   {title: '塔罗牌阵',isSelect: true},
   {title: '星盘星座',isSelect: true},
-  {title: '大道易德',isSelect: true},
+  //{title: '大道易德',isSelect: true},
   {title: '工具助手',isSelect: true},
 ]
 itemsrandom['周易八卦'] = [
     {title: '全部',isSelect: true},
     {title: '周易八卦',isSelect: true},
-    {title: '大道易德',isSelect: true},
+    //{title: '大道易德',isSelect: true},
     {title: '儿童少年',isSelect: true},
     {title: '情感家庭',isSelect: true},
     {title: '心理学',isSelect: true},
@@ -140,7 +140,7 @@ itemsrandom['心理测试'] = [
     {title: '周易八卦',isSelect: true},
     {title: '塔罗牌阵',isSelect: true},
     {title: '星盘星座',isSelect: true},
-    {title: '大道易德',isSelect: true},
+    //{title: '大道易德',isSelect: true},
     {title: '工具助手',isSelect: false},
 ]
 itemsrandom['焦虑抑郁'] = [
@@ -153,7 +153,7 @@ itemsrandom['焦虑抑郁'] = [
     {title: '周易八卦',isSelect: false},
     {title: '塔罗牌阵',isSelect: false},
     {title: '星盘星座',isSelect: false},
-    {title: '大道易德',isSelect: true},
+    //{title: '大道易德',isSelect: true},
     {title: '工具助手',isSelect: false},
 ]
 itemsrandom['儿童少年'] = [
@@ -166,7 +166,7 @@ itemsrandom['儿童少年'] = [
     {title: '周易八卦',isSelect: false},
     {title: '塔罗牌阵',isSelect: false},
     {title: '星盘星座',isSelect: false},
-    {title: '大道易德',isSelect: true},
+    //{title: '大道易德',isSelect: true},
     {title: '工具助手',isSelect: false},
 ]
 itemsrandom['职业性格'] = [
@@ -179,7 +179,7 @@ itemsrandom['职业性格'] = [
     {title: '周易八卦',isSelect: false},
     {title: '塔罗牌阵',isSelect: false},
     {title: '星盘星座',isSelect: false},
-    {title: '大道易德',isSelect: true},
+    //{title: '大道易德',isSelect: true},
     {title: '工具助手',isSelect: false},
 ]
 itemsrandom['星盘塔罗'] = [
@@ -192,7 +192,7 @@ itemsrandom['星盘塔罗'] = [
   {title: '周易八卦',isSelect: false},
   {title: '塔罗牌阵',isSelect: true},
   {title: '星盘星座',isSelect: true},
-  {title: '大道易德',isSelect: true},
+  //{title: '大道易德',isSelect: true},
   {title: '工具助手',isSelect: false},
 ]
   }
@@ -207,7 +207,7 @@ itemsrandom['星盘塔罗'] = [
         for (i=0;i<element.length;i++)
         {
           
-          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗牌阵" || element[i].title=="大道易德" || element[i].title=="星盘星座"))
+          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗牌阵" || element[i].title=="星盘星座"))
           {
             T.push(element[i])
           }
@@ -220,7 +220,7 @@ itemsrandom['星盘塔罗'] = [
         for (i=0;i<element.length;i++)
         {
           
-          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗牌阵" || element[i].title=="大道易德" || element[i].title=="星盘星座"))
+          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗牌阵" || element[i].title=="星盘星座"))
           {
             T.push(element[i])
           }

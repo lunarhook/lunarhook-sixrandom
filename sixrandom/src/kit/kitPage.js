@@ -222,6 +222,7 @@ class kitPage extends React.Component {
         }
       });
     }
+    /*
     else if ("wechat" == el.url) {
       Alert.alert('请关注公众号\n大道易德\n', '', [
         //{text: '打开微信', onPress: () =>{}},
@@ -229,6 +230,7 @@ class kitPage extends React.Component {
         { text: '取消', onPress: () => { } }
       ])
     }
+    */
     else if ("openqrcode" == el.url) {
       this.setState({ shareimage: true == this.state.shareimage ? false : true })
     }
@@ -264,6 +266,7 @@ class kitPage extends React.Component {
     this.props.navigation.setParams({ text: "refresh" })
     navigate(el.url)
   }
+  /*
   showshare() {
     if (this.state.shareimage) {
       return (
@@ -275,6 +278,7 @@ class kitPage extends React.Component {
       )
     }
   }
+  */
   renderContent = (tab, index) => {
     console.log("renderContentfunc", tab, index)
     const { navigate } = this.props.navigation;
@@ -527,6 +531,7 @@ class kitPage extends React.Component {
           </Accordion></ScrollView>
       )
     }
+    /*
     else if ("大道易德" == tab.title && "Huawei" != kitPageController.state.Channel) {
       return (
         <ScrollView>
@@ -535,6 +540,7 @@ class kitPage extends React.Component {
           </Accordion></ScrollView>
       )
     }
+    */
     else if ("工具助手" == tab.title) {
       return (
         <ScrollView>
@@ -572,7 +578,7 @@ class kitPage extends React.Component {
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
             {function () {
-              if (Platform.OS === 'android') {
+              if (Platform.OS === 'android' || Platform.OS === 'ios' ) {
                 return (<TabNavigator.Item
                   title={RouteConfig["service"].name}
                   renderIcon={() => RouteConfig["service"].icon}
