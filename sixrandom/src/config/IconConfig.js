@@ -117,7 +117,7 @@ class IconConfig extends React.Component {
   static IconStarInfo = (<Ionicons name="ios-information-circle-outline" size={buttonsize} color={green} />)
   static CalendarIcon = (<Ionicons name="ios-calendar" size={size} color={orange} />)
   static ConfigIcon = (<Ionicons name="ios-options" size={size} color="#06F" />)
-  static MyConfigIcon = (<Ionicons name="ios-contact" size={size} color="#06F" />)
+  static MyConfigIcon = (<Ionicons name="ios-menu" size={size} color={claygreen} />)
   static IconCyclefresh = (<FontAwesome name="refresh" size={size} color={green} />)
   static IconPerson = (<Ionicons name="ios-person" size={size} color={gold} />)
   static IconLunarchanges = (<Ionicons name="md-aperture" size={size} color={claygreen} />)
@@ -204,5 +204,7 @@ class IconConfig extends React.Component {
   static colorblue = blue
   static colorstartblue = startblue
   static colororange = orange
+  static colorblack = black
+  static colorCoral = Coral
 }
 module.exports = IconConfig;  
