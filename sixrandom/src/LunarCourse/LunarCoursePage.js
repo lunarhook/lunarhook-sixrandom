@@ -245,7 +245,7 @@ class LunarCoursePage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -261,7 +261,7 @@ class LunarCoursePage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -276,7 +276,7 @@ class LunarCoursePage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -291,7 +291,7 @@ class LunarCoursePage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -305,6 +305,12 @@ class LunarCoursePage extends React.Component {
             columnNum={coln}
             isCarousel={false}
             hasLine={true}
+            renderItem={(el, index) => {
+              return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+                {el.icon}
+                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
+              </View>)
+            }}
             onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
           />
           <Grid
@@ -312,6 +318,12 @@ class LunarCoursePage extends React.Component {
             columnNum={coln}
             isCarousel={false}
             hasLine={true}
+            renderItem={(el, index) => {
+              return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+                {el.icon}
+                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
+              </View>)
+            }}
             onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
           /></View>
       </Accordion.Panel >)
@@ -322,6 +334,12 @@ class LunarCoursePage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
+          renderItem={(el, index) => {
+            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+              {el.icon}
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
+            </View>)
+          }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     contentlist["中医"] = (
@@ -331,6 +349,12 @@ class LunarCoursePage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
+          renderItem={(el, index) => {
+            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+              {el.icon}
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
+            </View>)
+          }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     contentlist["谋略"] = (
@@ -340,6 +364,12 @@ class LunarCoursePage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
+          renderItem={(el, index) => {
+            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+              {el.icon}
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
+            </View>)
+          }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     contentlist["策论"] = (
@@ -349,6 +379,12 @@ class LunarCoursePage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
+          renderItem={(el, index) => {
+            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+              {el.icon}
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
+            </View>)
+          }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
 

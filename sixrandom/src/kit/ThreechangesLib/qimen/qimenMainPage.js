@@ -374,7 +374,7 @@ class qimenMainPage extends React.Component {
   renderItem(item) {
     return (
   
-        <Text>{item.item}</Text>
+        <Text style={{fontSize:FontStyleConfig.getFontApplySize() + 14}}>{item.item}</Text>
   
     );
   }
@@ -384,9 +384,9 @@ class qimenMainPage extends React.Component {
     let content = (
       <View style={styles.container}>
             <View style={styles.grid}>
-            <Text style={[fontSize=11]}>{dataItem.line1}{dataItem.kong}</Text>
-            <Text style={[fontSize=11]}>{dataItem.line2}</Text>
-            <Text style={[fontSize=11]}>{dataItem.line3}</Text>
+            <Text style={{fontSize:FontStyleConfig.getFontApplySize() + 14}}>{dataItem.line1}{dataItem.kong}</Text>
+            <Text style={{fontSize:FontStyleConfig.getFontApplySize() + 14}}>{dataItem.line2}</Text>
+            <Text style={{fontSize:FontStyleConfig.getFontApplySize() + 14}}>{dataItem.line3}</Text>
             
             </View>
             <View style={styles.gridfix}>
@@ -468,6 +468,7 @@ var styles = StyleSheet.create ({
     justifyContent: 'flex-end',
     alignItems:'flex-end',
     textAlignVertical:"bottom",
+    fontSize:FontStyleConfig.getFontApplySize() + 14,
   },
 
  rowhigth:{

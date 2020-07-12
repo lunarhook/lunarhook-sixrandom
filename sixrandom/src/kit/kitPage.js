@@ -291,7 +291,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -307,7 +307,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -322,7 +322,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -337,7 +337,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -371,7 +371,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -387,7 +387,7 @@ class kitPage extends React.Component {
             renderItem={(el, index) => {
               return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
                 {el.icon}
-                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
               </View>)
             }}
             onPress={(_el: any, index: any) => { this.onBussion(_el, navigate) }}
@@ -402,7 +402,7 @@ class kitPage extends React.Component {
             renderItem={(el, index) => {
               return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center' }}>
                 {el.icon}
-                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
               </View>)
             }}
             onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
@@ -418,7 +418,7 @@ class kitPage extends React.Component {
           renderItem={(el, index) => {
             return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
               {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
             </View>)
           }}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}

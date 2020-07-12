@@ -203,7 +203,7 @@ class NumberMainPage extends React.Component {
     }
     return (
 
-      <Text key={item.item} style={[{ paddingLeft: 60, color: c }]}>{item.item}</Text>
+      <Text key={item.item} style={[{ paddingLeft:30, color: c }]}>{item.item}</Text>
 
     );
   }
@@ -268,7 +268,7 @@ class NumberMainPage extends React.Component {
                   onChange={(value: any) => {
                     this.setState({ number: this.updatenumber(value) })
                   }}
-                  extra="输入数字"
+                  extra=""
                 >
                   数字:
           </InputItem>
