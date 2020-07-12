@@ -279,6 +279,12 @@ class kitPage extends React.Component {
     }
   }
   */
+  renderItemel(el, index) {
+    return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+      {el.icon}
+      <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
+    </View>)
+  }
   renderContent = (tab, index) => {
     console.log("renderContentfunc", tab, index)
     const { navigate } = this.props.navigation;
@@ -288,12 +294,7 @@ class kitPage extends React.Component {
         <Grid
           data={this.state.datahistory}
           columnNum={coln}
-          renderItem={(el, index) => {
-            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
-              {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
-            </View>)
-          }}
+          renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >
     )
@@ -304,12 +305,7 @@ class kitPage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
-          renderItem={(el, index) => {
-            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
-              {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
-            </View>)
-          }}
+          renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     contentlist["心理测评"] = (
@@ -319,12 +315,7 @@ class kitPage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
-          renderItem={(el, index) => {
-            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
-              {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
-            </View>)
-          }}
+          renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     contentlist["情感家庭"] = (
@@ -334,12 +325,7 @@ class kitPage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
-          renderItem={(el, index) => {
-            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
-              {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
-            </View>)
-          }}
+          renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
 
@@ -350,6 +336,7 @@ class kitPage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
+          renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     contentlist["塔罗牌阵"] = (
@@ -359,6 +346,7 @@ class kitPage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
+          renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     contentlist["工具助手"] = (
@@ -368,12 +356,7 @@ class kitPage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
-          renderItem={(el, index) => {
-            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
-              {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
-            </View>)
-          }}
+          renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     if ("Huawei" != kitPageController.state.Channel) {
@@ -384,12 +367,7 @@ class kitPage extends React.Component {
             columnNum={coln}
             isCarousel={false}
             hasLine={true}
-            renderItem={(el, index) => {
-              return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
-                {el.icon}
-                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
-              </View>)
-            }}
+            renderItem={this.renderItemel}
             onPress={(_el: any, index: any) => { this.onBussion(_el, navigate) }}
           /></Accordion.Panel >)
       contentlist["周易八卦"] = (
@@ -399,12 +377,7 @@ class kitPage extends React.Component {
             columnNum={coln}
             isCarousel={false}
             hasLine={true}
-            renderItem={(el, index) => {
-              return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center' }}>
-                {el.icon}
-                <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
-              </View>)
-            }}
+            renderItem={this.renderItemel}
             onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
           /></Accordion.Panel >)
     }
@@ -415,12 +388,7 @@ class kitPage extends React.Component {
           columnNum={coln}
           isCarousel={false}
           hasLine={true}
-          renderItem={(el, index) => {
-            return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
-              {el.icon}
-              <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
-            </View>)
-          }}
+          renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     if ("关注" == tab.title) {
@@ -570,7 +538,7 @@ class kitPage extends React.Component {
         </Tabs>
         <View>
           <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
-          <TabNavigator.Item
+            <TabNavigator.Item
               title={RouteConfig["kitExplorationPage"].name}
               renderIcon={() => RouteConfig["kitExplorationPage"].icon}
               //renderSelectedIcon={() => IconConfig.IconDvinationSel}
@@ -578,7 +546,7 @@ class kitPage extends React.Component {
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
             {function () {
-              if (Platform.OS === 'android' || Platform.OS === 'ios' ) {
+              if (Platform.OS === 'android' || Platform.OS === 'ios') {
                 return (<TabNavigator.Item
                   title={RouteConfig["service"].name}
                   renderIcon={() => RouteConfig["service"].icon}
