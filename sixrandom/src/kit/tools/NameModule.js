@@ -42,7 +42,7 @@ class NameModule extends React.Component {
   
     try{item.fx.forEach(element=>{
       obj = JSON.parse(element)
-      elements.push(<Text style={{ marginLeft: 16, }}>{obj.text + " " + obj.feature+ "属性,笔画:" + obj.step+",五行补"+obj.feature}</Text>)
+      elements.push(<Text style={{ marginLeft: 16, fontSize: FontStyleConfig.getFontApplySize() + 14}}>{obj.text + " " + obj.feature+ "属性,笔画:" + obj.step+",五行补"+obj.feature}</Text>)
     })}catch(e)
     {
       elements.pop()
@@ -52,7 +52,7 @@ class NameModule extends React.Component {
           return(<View>
             <Card>
                   <Card.Header
-                    title={item.name  + " " +item.py}
+                    title={<Text style={{fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{item.name  + " " +item.py}</Text>}
                     
                   />
                   <Card.Body>
@@ -62,7 +62,7 @@ class NameModule extends React.Component {
                     </View>
                   </Card.Body>
                   <Card.Footer
-                    content={"繁体: "+item.tname}
+                    content={<Text style={{fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{"繁体: "+item.tname}</Text>}
                     extra=""           />
                 </Card><Text></Text>
       
@@ -92,7 +92,6 @@ class NameModule extends React.Component {
             onChange={(value: any) => {
               this.setState({nameinfo:this.updatename(value)})
             }}
-            extra="名字"
           >
           名字:
           </InputItem>

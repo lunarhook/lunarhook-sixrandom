@@ -293,7 +293,7 @@ class qimenHistoryPage extends React.Component {
                                     <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+14,marginLeft: 16 }}>奇门排盘：{data.item.tip}</Text>
                                   </View>
                                 </Card.Body>
-                                <Card.Footer content="" extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.name}</Text>}/>
+                                <Card.Footer content="" extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.name.slice(0,data.item.name.indexOf(" "))}</Text>}/>
                               </TouchableOpacity>
                             </Card>
                             </Animated.View>

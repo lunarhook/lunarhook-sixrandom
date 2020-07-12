@@ -61,7 +61,7 @@ class NamePage extends React.Component {
   
     try{item.fx.forEach(element=>{
       obj = JSON.parse(element)
-      elements.push(<Text style={{ marginLeft: 16, }}>{obj.text + " " + obj.feature+ "属性,笔画:" + obj.step+",五行补"+obj.feature}</Text>)
+      elements.push(<Text style={{ marginLeft: 16,fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{obj.text + " " + obj.feature+ "属性,笔画:" + obj.step+",五行补"+obj.feature}</Text>)
     })}catch(e)
     {
       elements.pop()
@@ -71,21 +71,21 @@ class NamePage extends React.Component {
           return(<View>
             <Card>
                   <Card.Header
-                    title={item.name  + " " +item.py}
+                    title={<Text style={{fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{item.name  + " " +item.py}</Text>}
                     
                   />
                   <Card.Body>
                     <View >
                     {elements}
                     <Text></Text>
-                    <Text style={{ marginLeft: 16 }}>{"《"+item.title+"》"}</Text>
+                    <Text style={{ marginLeft: 16,fontSize: FontStyleConfig.getFontApplySize() + 14  }}>{"《"+item.title+"》"}</Text>
                     <Text></Text>
-                      <Text style={{ marginLeft: 16 }}>{item.sentence}</Text>
+                      <Text style={{ marginLeft: 16 ,fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{item.sentence}</Text>
 
                     </View>
                   </Card.Body>
                   <Card.Footer
-                    content={"繁体: "+item.tname}
+                    content={<Text style={{fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{"繁体: "+item.tname}</Text>}
                     extra={item.book+(item.author!=null?"·"+item.author:"")}            />
                 </Card><Text></Text>
       
