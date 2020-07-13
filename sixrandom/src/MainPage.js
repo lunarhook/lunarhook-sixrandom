@@ -1,16 +1,16 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, Animated, AppRegistry, FlatList, Image, Dimensions,DeviceEventEmitter,TouchableOpacity, Platform ,PermissionsAndroid} from 'react-native';
+import { StyleSheet, View, Text, ScrollView, Animated, AppRegistry, FlatList, Image, Dimensions, DeviceEventEmitter, TouchableOpacity, Platform, PermissionsAndroid } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { Calendar, CalendarList, LocaleConfig } from 'react-native-calendars';
 import { Modal } from '@ant-design/react-native';
 import RouteConfig from './config/RouteConfig';
 import IconConfig from './config/IconConfig';
 import ScreenConfig from './config/ScreenConfig';
-import {FontStyleConfig} from './config/StyleConfig';
+import { FontStyleConfig } from './config/StyleConfig';
 import NetModule from './net/NetModule'
 import { appinfo, appname } from './config/appinfo'
-import {SixrandomModule} from './kit/UniversechangesLib/SixrandomLib/SixrandomModule'
+import { SixrandomModule } from './kit/UniversechangesLib/SixrandomLib/SixrandomModule'
 import UniversechangesConfig from './kit/UniversechangesLib/UniversechangesConfig';
 import { WhiteSpace, Card, WingBlank } from '@ant-design/react-native'
 import { HistoryArrayGroup } from './config/StorageModule'
@@ -25,19 +25,10 @@ LocaleConfig.locales['cn'] = {
 };
 
 LocaleConfig.defaultLocale = 'cn';
-
-
 const { width, height } = Dimensions.get('window');
-
-
 var imgtime = new Array()
-
 var infotime = new Array()
-
 var infotimedetail = new Array()
-//var StyleConfig = undefined
-
-
 let MainPagethis = undefined
 class MainPage extends React.Component {
   constructor(props) {
@@ -47,8 +38,6 @@ class MainPage extends React.Component {
     var imgindex = imgtime[curtimelucky[1]]
     var day = new Date();
     var sel = this.getDateFormat(day)
-    //var info = UniversechangesConfig.GetInfo(wanNianLiInfo)
-
     var timelucky = UniversechangesConfig.gettimelucky(wanNianLiInfo.info.gzDate)
     this.state = {
       wanNianLiInfo: wanNianLiInfo,
@@ -57,7 +46,7 @@ class MainPage extends React.Component {
       timelucky: timelucky,
       imgindex: imgindex,
       fadeInOpacity: new Animated.Value(0),
-      handler:0,
+      handler: 0,
     };
     if (undefined == MainPagethis) {
       //console.log("MainPageload")
@@ -73,15 +62,14 @@ class MainPage extends React.Component {
     RouteConfig["MainPage"].name = appname[keys[0]]
     //console.log("getAppKeys", RouteConfig["MainPage"].name, keys[0], appname)
     return {
-      headerLeft:"",
-      headerRight: ()=>(
+      headerLeft: () => (<></>),
+      headerRight: () => (
         <TouchableOpacity
-        style={[styles.dateContainer, { paddingRight: 40 }]}
-        //onPress={() => navigate('Search')}
-        onPress={() => MainPagethis.today()}
-      >
-         {('off' == navigation.getParam('otherParam', 'off') ? (null) : IconConfig.ReCover)}
-      </TouchableOpacity>),
+          style={[styles.dateContainer, { paddingRight: 40 }]}
+          //onPress={() => navigate('Search')}
+          onPress={() => MainPagethis.today()}>
+          {('off' == navigation.getParam('otherParam', 'off') ? (null) : IconConfig.ReCover)}
+        </TouchableOpacity>),
       title: RouteConfig["MainPage"].name,
       cardStack: { gesturesEnabled: true }
     }
@@ -157,8 +145,8 @@ class MainPage extends React.Component {
       }
       //console.log("refresh calendar:",wanNianLiInfo)
     }, 1000 * 60);
-    this.subscription = DeviceEventEmitter.addListener('privacycheck', ()=>this.setState({handler:0}))
-    
+    this.subscription = DeviceEventEmitter.addListener('privacycheck', () => this.setState({ handler: 0 }))
+
   }
   componentWillUnmount() {
     imgtime = []
@@ -250,7 +238,7 @@ class MainPage extends React.Component {
 
     if ("sixrandom" == keys) {
       return (
-        <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight() , backgroundColor: '#ffffff',}}>
+        <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
           {kitPage}
           {LunarCoursePageTab}
           {MyPage}
@@ -258,7 +246,7 @@ class MainPage extends React.Component {
       )
     }
     return (
-      <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight() , backgroundColor: '#ffffff',}}>
+      <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
         {kitPage}
         {LunarCoursePageTab}
         {ExplorationTab}
@@ -268,61 +256,58 @@ class MainPage extends React.Component {
   }
   async requestCameraPermission() {
     try {
-     const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-      {
-       'title': '乾坤爻',
-       'message': '探索功能需要相册读写权限'
-      }
-     )
-     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the camera")
-     } else {
-      console.log("Camera permission denied")
-     }
-    } catch (err) {
-     console.warn(err)
-    }
-   }
-
-  privacycheck()
-  {
-    if(Platform.OS === 'android'){
-    HistoryArrayGroup.GetFirstTime().then(T => {
-      if (undefined == T) {
-        if(0==this.state.handler)
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA, PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
         {
-          var handler = Modal.alert('服务协议和隐私政策', '用户请审慎阅读，充分理解"服务协议"和"隐私政策"各项条款，包括但不限于：为了向您提供即时通信，内容分享等服务，同时需要收集用户您的设备信息，日志和个人信息。您可以在"设置"查看变更删除您的各项信息并管理授权。您可以阅读"服务协议"和"隐私政策"了解详细信息，如果您同意，请点击"同意"并开始接受我们的服务', [
-            {
-              text: '《用户协议》',
-              onPress: () => {this.setState({handler:1}),this.props.navigation.navigate("AgreePage")},
-            },
-            {
-              text: '《隐私政策》',
-              onPress: () => {this.setState({handler:2}),this.props.navigation.navigate("PrivacyPage")},
-            },
-            {
-              text: '退出',
-              onPress: () => RNExitApp.exitApp(),
-              style: 'cancel',
-            },
-            { text: '同意', onPress: () =>  {HistoryArrayGroup.SaveFirstTime(),this.setState({handler:3})} },
-          ])
-          //navigate(RouteConfig["MyPage"].route)
-          
-          console.log("privacycheck",handler)
+          'title': '乾坤爻',
+          'message': '探索功能需要相册读写权限'
+        }
+      )
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log("You can use the camera")
+      } else {
+        console.log("Camera permission denied")
+      }
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
+  privacycheck() {
+    if (Platform.OS === 'android') {
+      HistoryArrayGroup.GetFirstTime().then(T => {
+        if (undefined == T) {
+          if (0 == this.state.handler) {
+            var handler = Modal.alert('服务协议和隐私政策', '用户请审慎阅读，充分理解"服务协议"和"隐私政策"各项条款，包括但不限于：为了向您提供即时通信，内容分享等服务，同时需要收集用户您的设备信息，日志和个人信息。您可以在"设置"查看变更删除您的各项信息并管理授权。您可以阅读"服务协议"和"隐私政策"了解详细信息，如果您同意，请点击"同意"并开始接受我们的服务', [
+              {
+                text: '《用户协议》',
+                onPress: () => { this.setState({ handler: 1 }), this.props.navigation.navigate("AgreePage") },
+              },
+              {
+                text: '《隐私政策》',
+                onPress: () => { this.setState({ handler: 2 }), this.props.navigation.navigate("PrivacyPage") },
+              },
+              {
+                text: '退出',
+                onPress: () => RNExitApp.exitApp(),
+                style: 'cancel',
+              },
+              { text: '同意', onPress: () => { HistoryArrayGroup.SaveFirstTime(), this.setState({ handler: 3 }) } },
+            ])
+            //navigate(RouteConfig["MyPage"].route)
+
+            console.log("privacycheck", handler)
           }
-          
+
         }
       })
 
-     this.requestCameraPermission()
+      this.requestCameraPermission()
     }
   }
 
   render() {
-    if(undefined!=this.props.navigation.state.params && "refresh"===this.props.navigation.state.params.text)
-    {
+    if (undefined != this.props.navigation.state.params && "refresh" === this.props.navigation.state.params.text) {
       this.props.navigation.state.params.text = ""
       StyleConfig = FontStyleConfig.buildstyle()
     }
@@ -377,7 +362,7 @@ class MainPage extends React.Component {
 
               <Animated.View style={{ opacity: this.state.fadeInOpacity }}>
                 <Image
-                  style={{ width: width - 20, height: 200, borderRadius: 15 , backgroundColor: '#ffffff', }}
+                  style={{ width: width - 20, height: 200, borderRadius: 15, backgroundColor: '#ffffff', }}
                   source={imgindex}
                 />
               </Animated.View>
@@ -385,55 +370,55 @@ class MainPage extends React.Component {
           </Card>
 
           <WingBlank>
-          <Animated.View style={{ opacity: this.state.fadeInOpacity , backgroundColor: '#ffffff', }}>
+            <Animated.View style={{ opacity: this.state.fadeInOpacity, backgroundColor: '#ffffff', }}>
+              <View style={styles.dateContainer}>
+                <Text style={StyleConfig.list}>
+                  {curgztime} {infoindexdetail}
+                </Text>
+                <Text style={StyleConfig.list}>
+                  {infoindex}
+                </Text></View>
+            </Animated.View>
             <View style={styles.dateContainer}>
               <Text style={StyleConfig.list}>
-                {curgztime} {infoindexdetail}
+                {wanNianLiInfo.info.Year}年{wanNianLiInfo.info.Month}月{wanNianLiInfo.info.Date}日 星期{wanNianLiInfo.info.cnDay}
               </Text>
               <Text style={StyleConfig.list}>
-                {infoindex}
-              </Text></View>
-          </Animated.View>
-          <View style={styles.dateContainer}>
+                {wanNianLiInfo.info.gzYear}年{wanNianLiInfo.info.lMonth}月{wanNianLiInfo.info.lDate} ({wanNianLiInfo.info.animal})
+        </Text>
+            </View>
+            <Text style={StyleConfig.list}>{wanNianLiInfo.six_random_date[2]}</Text>
+            <Text style={StyleConfig.list}>{wanNianLiInfo.six_random_date[3]}</Text>
+            <Text style={StyleConfig.list}>{wanNianLiInfo.six_random_date[4]}</Text>
+            <FlatList
+              data={info}
+              keyExtractor={this.keyExtractor}
+              renderItem={this.renderItem}
+            />
             <Text style={StyleConfig.list}>
-              {wanNianLiInfo.info.Year}年{wanNianLiInfo.info.Month}月{wanNianLiInfo.info.Date}日 星期{wanNianLiInfo.info.cnDay}
+            </Text>
+            <Text style={StyleConfig.list}>十二吉时:{curtimelucky}
+            </Text>
+
+            <FlatList
+              style={{ backgroundColor: 'white' }}
+              data={this.state.timelucky}
+              keyExtractor={this.keyExtractor}
+              renderItem={this.renderItemTimeLucky}
+              columnWrapperStyle={{ justifyContent: 'space-around', alignItems: 'stretch', backgroundColor: 'white', }}
+              numColumns={12}
+            />
+            <Text style={StyleConfig.list}>
             </Text>
             <Text style={StyleConfig.list}>
-              {wanNianLiInfo.info.gzYear}年{wanNianLiInfo.info.lMonth}月{wanNianLiInfo.info.lDate} ({wanNianLiInfo.info.animal})
-        </Text>
-          </View>
-          <Text style={StyleConfig.list}>{wanNianLiInfo.six_random_date[2]}</Text>
-          <Text style={StyleConfig.list}>{wanNianLiInfo.six_random_date[3]}</Text>
-          <Text style={StyleConfig.list}>{wanNianLiInfo.six_random_date[4]}</Text>
-          <FlatList
-            data={info}
-            keyExtractor={this.keyExtractor}
-            renderItem={this.renderItem}
-          />
-          <Text style={StyleConfig.list}>
-          </Text>
-          <Text style={StyleConfig.list}>十二吉时:{curtimelucky}
-          </Text>
-
-          <FlatList
-            style={{backgroundColor: 'white'}}
-            data={this.state.timelucky}
-            keyExtractor={this.keyExtractor}
-            renderItem={this.renderItemTimeLucky}
-            columnWrapperStyle={{ justifyContent: 'space-around', alignItems: 'stretch', backgroundColor: 'white', }}
-            numColumns={12}
-          />
-          <Text style={StyleConfig.list}>
-          </Text>
-          <Text style={StyleConfig.list}>
-          </Text>
-          <Text style={StyleConfig.list}>
-          </Text>
-          <Text style={StyleConfig.list}>
-          </Text>
+            </Text>
+            <Text style={StyleConfig.list}>
+            </Text>
+            <Text style={StyleConfig.list}>
+            </Text>
           </WingBlank>
         </ScrollView>
-              {this.renderTabbar()}
+        {this.renderTabbar()}
       </View>
     )
   }
@@ -499,7 +484,7 @@ var styles = StyleSheet.create({
 
 
   dateContainer: {
-    backgroundColor: '#ffffff', 
+    backgroundColor: '#ffffff',
     justifyContent: 'space-between',
     flexDirection: 'row',
   },

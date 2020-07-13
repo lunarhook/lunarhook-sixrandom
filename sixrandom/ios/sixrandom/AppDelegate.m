@@ -97,6 +97,7 @@ NSString *const RCTJSNavigationScheme = @"react-js-navigation";
 - (void)applicationDidEnterBackground:(UIApplication *)application {    _mTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(countAction) userInfo:nil repeats:YES];
   [[NSRunLoop currentRunLoop] addTimer:_mTimer forMode:NSRunLoopCommonModes];
   [self beginTask];
+  [self scheduleAppRefresh];
 }
 
 //计时
