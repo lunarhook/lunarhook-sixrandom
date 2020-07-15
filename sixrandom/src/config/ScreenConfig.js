@@ -39,7 +39,7 @@ class ScreenConfig extends React.Component {
       } else if (Platform.OS === 'ios') {
           return 49
       } else {
-          return 49 + 5
+          return 49 + 20
       }
     }
     getFontheight()

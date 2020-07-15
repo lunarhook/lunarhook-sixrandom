@@ -218,21 +218,36 @@ const LunarCoursePageTab = createBottomTabNavigator(
       inactiveTintColor: '#000000',
       scrollEnabled: true,
       showIcon: true,
+
       labelStyle: {
         backgroundColor: '#ffffff',
         color: '#000000',
+        fontSize: Platform.OS === 'ios'?ScreenConfig.__navigationMenuFontsize():ScreenConfig.__navigationMenuFontsize()-2,
+        paddingBottom: Platform.OS === 'ios'?0:10,
+        //height: ScreenConfig.getFontheight(),
       },
-      Style: {
+      indicatorStyle:{
+        
+      },
+      style: {
+        //paddingBottom: 60,
         backgroundColor: '#ffffff',
-        //height: 100,
+        height: Platform.OS === 'ios'?ScreenConfig.getTabBarHeight()-33:ScreenConfig.getTabBarHeight(),
+        //fontSize:9,
+        
       },
       tabStyle: {
+        
         width: ScreenConfig.__screenW() / 2,
+        //
         backgroundColor: '#ffffff',
-        // height: 100,
+        //height:10,
+
       },
+
     },
-    tabBarPosition: 'top',
+    tabBarPosition: 'bottom',
+
     //swipeEnabled:true,
   }
 )
