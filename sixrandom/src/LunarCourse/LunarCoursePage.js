@@ -382,7 +382,12 @@ class LunarCoursePage extends React.Component {
             })(this)
             }
 
-          </Accordion></ScrollView>
+          </Accordion>
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" /></ScrollView>
       )
     } else if ("小学三玄" == tab.title) {
       return (
@@ -457,10 +462,10 @@ class LunarCoursePage extends React.Component {
         <View>
           <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
             <TabNavigator.Item
-              title={RouteConfig["LunarCoursePage"].name}
-              renderIcon={() => RouteConfig["LunarCoursePage"].icon}
+              title={RouteConfig["LunarBooks"].name}
+              renderIcon={() => RouteConfig["LunarBooks"].icon}
               //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => navigate(RouteConfig["LunarCoursePage"].route)}
+              onPress={() => navigate(RouteConfig["LunarBooks"].route)}
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
                 <TabNavigator.Item
