@@ -545,6 +545,14 @@ class kitPage extends React.Component {
               onPress={() => navigate(RouteConfig["kitExplorationPage"].route)}
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
+
+            <TabNavigator.Item
+              title={RouteConfig["SearchPage"].name}
+              renderIcon={() => RouteConfig["SearchPage"].icon}
+              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+              onPress={() => navigate(RouteConfig["SearchPage"].route)}
+              titleStyle={StyleConfig.menufont}>
+            </TabNavigator.Item>
             {function () {
               if (Platform.OS === 'android' || Platform.OS === 'ios') {
                 return (<TabNavigator.Item
@@ -557,13 +565,6 @@ class kitPage extends React.Component {
               }
             }()
             }
-            <TabNavigator.Item
-              title={RouteConfig["SearchPage"].name}
-              renderIcon={() => RouteConfig["SearchPage"].icon}
-              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => navigate(RouteConfig["SearchPage"].route)}
-              titleStyle={StyleConfig.menufont}>
-            </TabNavigator.Item>
           </TabNavigator >
         </View>
       </View>)

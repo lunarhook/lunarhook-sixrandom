@@ -135,123 +135,6 @@ if(__DEV__)
 {
   setJSExceptionHandler(exceptionhandler, true);
 }
-const LunarCoursePageTab = createBottomTabNavigator(
-  {
-    LunarCoursePageFake:createStackNavigator(
-      { "LunarCoursePage": LunarCoursePage },
-      {
-        navigationOptions: ({ navigation }) => ({
-          title: RouteConfig["LunarCoursePage"].name,
-        })
-      }),
-
-    //LunarCoursePage: LunarCoursePage,
-
-
-    CourseSearchPageFake:createStackNavigator(
-      { "CourseSearchPageFake": "说文助手" },
-      {
-        navigationOptions: ({ navigation }) => ({
-          title: RouteConfig["CourseSearchPage"].name,
-        })
-      }),
-      /*
-    LunarCourseAnswerPageFake: createStackNavigator(
-      { "LunarCourseAnswerPageFake": "答疑解惑" },
-      {
-        navigationOptions: ({ navigation }) => ({
-          title: RouteConfig["LunarCourseAnswerPage"].name,
-        })
-      }),
-      
-      */
-    LunarMasterPageFake:createStackNavigator(
-      { "LunarMasterPageFake": "训练大师" },
-      {
-        navigationOptions: ({ navigation }) => ({
-          title: RouteConfig["LunarMasterPage"].name,
-        })
-      }),
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, horizontal, tintColor }) => {
-        const { routeName } = navigation.state;
-        //console.log("routeName",routeName)
-        return RouteConfig[routeName].icon;
-      },
-      tabBarOnPress: (nv) => {
-        const { routeName } = navigation.state;
-        if ("LunarCourseAnswerPageFake" == routeName) {
-          navigation.navigate("LunarCoursePageTab")
-          navigation.navigate("LunarCourseAnswerPage")
-        }
-        else if ("CourseSearchPageFake" == routeName) {
-          navigation.navigate("LunarCoursePageTab")
-          navigation.navigate("CourseSearchPage")
-        }
-        else if ("LunarMasterPageFake" == routeName) {
-          navigation.navigate("LunarCoursePageTab")
-          navigation.navigate("LunarMasterPage")
-        }
-        else {
-          console.log("tabBarOnPress", routeName)
-          nv.defaultHandler();
-        }
-      }
-    }),
-    navigationOptions: ({ navigation }) => ({
-
-          //title: RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].titlename + " - " + RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].name,
-          title: RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].titlename,
-          headerRight: ()=>(
-            <TouchableOpacity
-              style={{ padding: 10 ,alignContent:"center",alignItems:"baseline"}}
-              //onPress={() => navigate('Search')}
-              onPress={() => navigation.navigate(RouteConfig['LunarCourseConfigPage'].route)}
-            >
-              {RouteConfig['LunarCourseConfigPage'].icon}
-            </TouchableOpacity>),
-    }),
-    tabBarOptions: {
-      activeTintColor: '#000000',
-      inactiveTintColor: '#000000',
-      scrollEnabled: true,
-      showIcon: true,
-
-      labelStyle: {
-        backgroundColor: '#ffffff',
-        color: '#000000',
-        fontSize: Platform.OS === 'ios'?ScreenConfig.__navigationMenuFontsize():ScreenConfig.__navigationMenuFontsize()-2,
-        paddingBottom: Platform.OS === 'ios'?0:10,
-        //height: ScreenConfig.getFontheight(),
-      },
-      indicatorStyle:{
-        
-      },
-      style: {
-        //paddingBottom: 60,
-        backgroundColor: '#ffffff',
-        height: Platform.OS === 'ios'?ScreenConfig.getTabBarHeight()-33:ScreenConfig.getTabBarHeight(),
-        //fontSize:9,
-        
-      },
-      tabStyle: {
-        
-        width: ScreenConfig.__screenW() / 2,
-        //
-        backgroundColor: '#ffffff',
-        //height:10,
-
-      },
-
-    },
-    tabBarPosition: 'bottom',
-
-    //swipeEnabled:true,
-  }
-)
-
 
 
 const  sixrandom= createStackNavigator({
@@ -322,7 +205,8 @@ const  sixrandom= createStackNavigator({
     MHRSPModule:{screen:MHRSPModule},
     SloganShare:{screen:SloganShare},
 
-    LunarCoursePageTab:LunarCoursePageTab,    
+    //LunarCoursePageTab:LunarCoursePageTab,    
+    LunarCoursePage:{screen:LunarCoursePage},
     LunarCourseConfigPage:{screen:LunarCourseConfigPage} ,
     CourseSearchPage:{screen:CourseSearchPage},
     LunarMasterPage:{screen:LunarMasterPage},
