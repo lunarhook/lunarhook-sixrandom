@@ -180,7 +180,7 @@ class IconConfig extends React.Component {
   static IconZhongYongBook = (<FontAwesome name="language" size={buttonsize} color={Coral} />)
   static IconBigBook = (<FontAwesome name="language" size={buttonsize} color={fire} />)
   static IconJiBook = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={LightPink} />)
-  static IconBooks = (<FontAwesome5 name="university" size={size} color={claygreen} />)
+  static IconBooks = (<MaterialCommunityIcons name="bookshelf" size={size} color={claygreen} />)
 
 
   static IconBookMedicRed = (<FontAwesome5 name="medrt" size={buttonsize} color={red} />)
