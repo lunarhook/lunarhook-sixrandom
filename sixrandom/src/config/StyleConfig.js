@@ -107,7 +107,7 @@ class FontStyleConfig extends React.Component {
       columehigth: {
         backgroundColor: 'white',
         fontSize:this.getFontApplySize()+14,
-        width: 20,
+        width: Platform.OS=='android'?10:20,
         height: 150,
       },
       columelist: {
