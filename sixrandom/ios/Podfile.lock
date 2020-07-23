@@ -245,13 +245,13 @@ PODS:
     - React
   - RNCPicker (1.6.5):
     - React
-  - RNDeviceInfo (5.6.2):
+  - RNDeviceInfo (5.6.3):
     - React
   - RNExitApp (1.1.0):
     - React
-  - RNGestureHandler (1.6.1):
+  - RNGestureHandler (1.7.0):
     - React
-  - RNReanimated (1.9.0):
+  - RNReanimated (1.10.1):
     - React
   - RNScreens (2.9.0):
     - React
@@ -455,10 +455,10 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNCPicker: 55b9b4240d0a9eba8733d02616775d4040de2e7d
-  RNDeviceInfo: ed8557a8bd6443cbc0ab5d375e6808a38a279744
+  RNDeviceInfo: 5be12a5bfbb8da3528c43ee4373abd9c30d04616
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
-  RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
-  RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
+  RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
+  RNReanimated: c2bb7438b57a3d987bb2e4e6e4bca94787e30b02
   RNScreens: c526239bbe0e957b988dacc8d75ac94ec9cb19da
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNSwisseph: 74fa73befd5d9ca79ba8e7030b4340023c12ecfd

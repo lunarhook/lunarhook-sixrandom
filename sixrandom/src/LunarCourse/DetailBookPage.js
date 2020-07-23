@@ -1,15 +1,16 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, RefreshControl, FlatList, NativeModules } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, RefreshControl, FlatList, NativeModules } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import { Grid, Accordion, WhiteSpace } from '@ant-design/react-native';
-import { Button, Drawer, List } from '@ant-design/react-native';
+import { Button, Drawer, List ,InputItem} from '@ant-design/react-native';
 import QIndexPage from './QDateBase/QIndexPage'
-import ScreenConfig from '../config/ScreenConfig';
 import { StyleConfig, FontStyleConfig } from '../config/StyleConfig';
+import ScreenConfig from '../config/ScreenConfig';
 import IconConfig from '../config/IconConfig'
-
+import Search from 'react-native-search-box';
 import WechatShare from '../config/WechatShare'
+var constMeng = new Array()
 
 class DetailBookPage extends React.Component {
   constructor(props) {
@@ -17,7 +18,9 @@ class DetailBookPage extends React.Component {
     this.state = {
       dateMeng: [],
       datahistory: [],
-      keyindex: 0
+      keyindex: 0,
+      searchText: "",
+      itemArr:[],
     };
   };
   static navigationOptions = ({ navigation }) => {
@@ -26,6 +29,75 @@ class DetailBookPage extends React.Component {
       title: navigation.getParam('title', 'A Nested Details Screen'),
     }
   };
+
+  updatesearchText(filtertext) {
+    this.setState({ searchText: filtertext })
+    console.log("updatesearchTextupdatesearchText",filtertext)
+    this.renderDrawer(filtertext,this.state.keyindex)
+    return filtertext;
+  }
+
+  renderDrawer(filtertext,keyindex){
+    itemArr = constMeng.map(function (_, i, arr) {
+      return i;
+    })
+      .map((_i, index) => {
+
+        if (index === 0) {
+
+            return (
+              <List.Item
+                key={index}
+                multipleLine
+              >
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 20 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}</Text>
+                  <Button
+                    type="primary"
+                    size="small"
+                    onPress={() => this.drawer.closeDrawer()}
+                  >
+                    {"返回"}
+                  </Button>
+                </View>
+              </List.Item>
+            );
+          } 
+
+          var x = constMeng[index].name
+          if (filtertext != "" && (-1 != x.indexOf(filtertext) ) || filtertext == "") {
+            return (
+              <List.Item
+                key={index}
+              >
+                <Button
+                  style={{
+                    justifyContent: "center",
+                    alignItems: 'flex-start',
+                    alignContent: "center",
+    
+                  }}
+                  onPress={() => { this.setState({ keyindex: index }),this.renderDrawer(this.state.searchText,index), this.drawer.closeDrawer() }}
+                >
+                  <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 15 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}{index == keyindex ? IconConfig.IconStar : ""}</Text>
+                </Button>
+              </List.Item>
+            );
+          }
+        
+        
+      })
+      this.setState({itemArr:itemArr})
+      console.log(itemArr.length)
+      
+    }
+
   render() {
     const { navigate } = this.props.navigation;
     if (undefined != this.props.navigation.state.params && "" != this.props.navigation.state.params.text) {
@@ -44,7 +116,7 @@ class DetailBookPage extends React.Component {
       this.setState({ dateMeng: x })
       return (<View></View>)
     }
-    var constMeng = new Array()
+    constMeng = []
     var alignTextCenter = false
     if (this.state.dateMeng.length < 1) {
       return (<View></View>)
@@ -63,62 +135,26 @@ class DetailBookPage extends React.Component {
       this.setState({ keyindex: 0 })
       return (<View />)
     }
+    if(""==this.state.searchText && this.state.itemArr.length == 0)
+    {
+      this.renderDrawer(this.state.searchText)
+    }
 
+      
 
-    itemArr = constMeng.map(function (_, i, arr) {
-      return i;
-    })
-      .map((_i, index) => {
-
-        if (index === 0) {
-          return (
-            <List.Item
-              key={index}
-              multipleLine
-            >
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 20 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}</Text>
-                <Button
-                  type="primary"
-                  size="small"
-                  onPress={() => this.drawer.closeDrawer()}
-                >
-                  {"返回"}
-                </Button>
-              </View>
-            </List.Item>
-          );
-        }
-        return (
-
-          <List.Item
-            key={index}
-          >
-
-            <Button
-              style={{
-                justifyContent: "center",
-                alignItems: 'flex-start',
-                alignContent: "center",
-
-              }}
-              onPress={() => { this.setState({ keyindex: index }), this.drawer.closeDrawer() }}
-            >
-              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 15 }}>{undefined != constMeng[index].icon ? constMeng[index].icon : ""}{constMeng[index].name}{index == this.state.keyindex ? IconConfig.IconStar : ""}</Text>
-            </Button>
-          </List.Item>
-        );
-      });
-
-    const sidebar = (
+    sidebartips = (
       <ScrollView style={[styles.container]}>
-        <List>{itemArr}</List>
+        <InputItem
+          clear
+          value={this.state.searchText}
+          onChange={(value: any) => {
+            this.setState({ searchText: this.updatesearchText(value) })
+          }}
+          extra=""
+          Style={{backgroundColor:"000000"}}
+        >
+        </InputItem>
+        <List>{this.state.itemArr}</List>
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />
         <WhiteSpace size="xl" />
@@ -136,12 +172,12 @@ class DetailBookPage extends React.Component {
     curMeng.push("")
     return (
       <Drawer
-        sidebar={sidebar}
+        sidebar={sidebartips}
         position="left"
         open={false}
         drawerRef={el => (this.drawer = el)}
         onOpenChange={this.onOpenChange}
-        drawerBackgroundColor="#ccc"
+        drawerBackgroundColor="#ffffff"
       >
         <View style={StyleConfig.container}>
           <ScrollView ref="location" style={{ backgroundColor: '#ffffff' }}>
@@ -177,21 +213,21 @@ class DetailBookPage extends React.Component {
               title={"目录"}
               renderIcon={() => RouteConfig["IconMore"].icon}
               //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => this.drawer && this.drawer.openDrawer()}
+              onPress={() => this.drawer  && this.drawer.openDrawer()}
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
             <TabNavigator.Item
               title={"上一页"}
               renderIcon={() => RouteConfig["IconLast"].icon}
               //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => this.setState({ keyindex: this.state.keyindex - 1 }, this.refs['location'].scrollTo({ x: 0, y: 0, animated: true }))}
+              onPress={() => this.setState({ keyindex: this.state.keyindex - 1 },this.refs['location'].scrollTo({ x: 0, y: 0, animated: true }),this.renderDrawer(this.state.searchText,this.state.keyindex - 1) )}
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
             <TabNavigator.Item
               title={"下一页"}
               //renderIcon={() => BaseCourseConfig["CourseToolsPage"].icon}
               renderIcon={() => RouteConfig["IconNext"].icon}
-              onPress={() => this.setState({ keyindex: this.state.keyindex + 1 }, this.refs['location'].scrollTo({ x: 0, y: 0, animated: true }))}
+              onPress={() => this.setState({ keyindex: this.state.keyindex + 1 },this.refs['location'].scrollTo({ x: 0, y: 0, animated: true }),this.renderDrawer(this.state.searchText,this.state.keyindex + 1) )}
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
             {
