@@ -93,11 +93,11 @@ class SloganShare extends React.Component {
                   source={imgindex}
                 />
                 </View>
-                  <Text style={{ marginLeft: 32, marginRight: 32,lineHeight:40, borderColor: "#ffffff" }}>
+                  <Text style={{ marginLeft: 32, marginRight: 32,lineHeight:24, borderColor: "#ffffff" }}>
                     {item.contect}
                   </Text>
                   <Text></Text>
-                  <Text style={{ textAlign: "right", marginRight: 32,lineHeight:40, borderColor: "#ffffff" }}>
+                  <Text style={{ textAlign: "right", marginRight: 32,lineHeight:24, borderColor: "#ffffff" }}>
                     {item.name}
                   </Text>
                 </Animated.View>
