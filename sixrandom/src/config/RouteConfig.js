@@ -201,6 +201,8 @@ RouteConfig={
             "zhanguoPage":{"name":"古文观止","route":"","icon":IconConfig.IconLunarCourse},
             "zhanguoPage":{"name":"山海经","route":"","icon":IconConfig.IconLunarCourse},
         */
+       "fivelevel1Module":{"name":"五行掌握·感受自然","titlename":"五行掌握","route":"CourseBookPage","icon":""},      
+       "fivelevel2Module":{"name":"五行掌握·感受自然","titlename":"五行掌握","route":"CourseBookPage","icon":""},   
 
 
     "MyPage":{"name":"我的","card":"管理","route":"MyPage","icon":IconConfig.IconPerson},

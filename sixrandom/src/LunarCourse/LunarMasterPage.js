@@ -13,7 +13,7 @@ import MasterConfig from '../config/MasterConfig'
 const intro = [
 
   //{icon: RouteConfig['MasterSearchPage'].icon,text: RouteConfig['MasterSearchPage'].name,url:RouteConfig['MasterSearchPage'].route},
-  { icon: IconConfig.IconStar, text: "MBTI L1", url: "" },
+  { icon: IconConfig.IconStar, text: "MBTI L1", url: "" ,},
   { icon: IconConfig.IconStar, text: "MBTI L2", url: "" },
 
 ]
@@ -27,8 +27,8 @@ const MBTI = [
 ]
 
 const Univers = [
-  { icon: IconConfig.IconStar, text: "Five L1", url: "" },
-  { icon: IconConfig.IconStar, text: "Five L2", url: "" },
+  { icon: IconConfig.IconStar, text: "Five L1", url: RouteConfig['fivelevel1Module'].route, index: { text: "fivelevel1Module" } },
+  { icon: IconConfig.IconStar, text: "Five L2", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
 ]
 
 
@@ -150,8 +150,12 @@ class LunarMasterPage extends React.Component {
     }
     this.setState({ datahistory: datahistory, tabs: tabs })
     this.props.navigation.setParams({ text: "refresh" })
-    if(""!=el.url)
-    {
+    if (undefined != el.index) {
+
+      var param = JSON.parse(JSON.stringify(el.index))
+      navigate(el.url, param)
+    }
+    else {
       navigate(el.url)
     }
   }

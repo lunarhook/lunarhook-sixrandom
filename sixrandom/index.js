@@ -85,6 +85,7 @@ import SearchPage from './src/tools/SearchPage'
   import IntroAncientPage from './src/LunarCourse/Intro/IntroAncientPage'
   import IntroThreePage from './src/LunarCourse/Intro/IntroThreePage'
   import DetailBookPage from './src/LunarCourse/DetailBookPage'
+  import CourseBookPage from './src/LunarCourse/CourseBookPage'
   
   
     import SloganShare from './src/kit/tools/SloganShare'
@@ -215,6 +216,7 @@ const  sixrandom= createStackNavigator({
     IntroBooksPage:{screen:IntroBooksPage},
     LunarCourseAnswerPage:{screen:LunarCourseAnswerPage},
     DetailBookPage:{screen:DetailBookPage},
+    CourseBookPage:{screen:CourseBookPage},
 
     MyPage:{screen:MyPage},
     MyFontConfigPage:{screen:MyFontConfigPage},
