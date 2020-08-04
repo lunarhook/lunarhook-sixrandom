@@ -360,7 +360,7 @@ class kitPage extends React.Component {
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     if ("Huawei" != kitPageController.state.Channel) {
-      contentlist["大道易德"] = (
+      /*contentlist["大道易德"] = (
         <Accordion.Panel header={"大道易德咨询合作"} key={"大道易德咨询合作"}>
           <Grid
             data={consultants}
@@ -369,7 +369,7 @@ class kitPage extends React.Component {
             hasLine={true}
             renderItem={this.renderItemel}
             onPress={(_el: any, index: any) => { this.onBussion(_el, navigate) }}
-          /></Accordion.Panel >)
+          /></Accordion.Panel >)*/
       contentlist["周易八卦"] = (
         <Accordion.Panel header={"周易八卦"} key={"周易八卦"}>
           <Grid
