@@ -247,13 +247,7 @@ class CourseBookPage extends React.Component {
               onPress={() => this.drawer && this.drawer.openDrawer()}
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
-            <TabNavigator.Item
-              title={"测试"}
-              renderIcon={() => RouteConfig["IconLast"].icon}
-              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => this.setState({ keyindex: this.state.keyindex - 1 }, this.refs['location'].scrollTo({ x: 0, y: 0, animated: true }), this.renderDrawer(this.state.searchText, this.state.keyindex - 1))}
-              titleStyle={StyleConfig.menufont}>
-            </TabNavigator.Item>
+
             <TabNavigator.Item
               title={"新课"}
               //renderIcon={() => BaseCourseConfig["CourseToolsPage"].icon}
