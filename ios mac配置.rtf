@@ -3,13 +3,11 @@
 \f3\fswiss\fcharset0 Helvetica;\f4\fswiss\fcharset0 Helvetica-Bold;\f5\fswiss\fcharset0 Helvetica-Oblique;
 \f6\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red57\green0\blue160;
-\red92\green38\blue153;\red155\green35\blue147;\red28\green0\blue207;\red15\green104\blue160;\red0\green0\blue0;
-\red50\green109\blue116;\red108\green54\blue169;\red196\green26\blue22;\red0\green0\blue109;\red82\green0\blue103;
+\red92\green38\blue153;\red155\green35\blue147;\red28\green0\blue207;\red0\green0\blue109;\red82\green0\blue103;
 \red15\green112\blue3;\red0\green0\blue254;\red109\green109\blue109;\red10\green77\blue204;\red255\green255\blue255;
 \red27\green31\blue34;}
 {\*\expandedcolortbl;;\csgenericrgb\c0\c0\c0;\csgenericrgb\c100000\c100000\c100000;\csgenericrgb\c22454\c0\c62803;
-\csgenericrgb\c35922\c14825\c60191;\csgenericrgb\c60759\c13753\c57628;\csgenericrgb\c11000\c0\c81000;\csgenericrgb\c5882\c40784\c62745;\csgenericrgb\c0\c0\c0\c85000;
-\csgenericrgb\c19418\c42935\c45455;\csgenericrgb\c42190\c21278\c66379;\csgenericrgb\c77000\c10200\c8600;\csgenericrgb\c0\c0\c42745;\csgenericrgb\c32157\c0\c40392;
+\csgenericrgb\c35922\c14825\c60191;\csgenericrgb\c60759\c13753\c57628;\csgenericrgb\c11000\c0\c81000;\csgenericrgb\c0\c0\c42745;\csgenericrgb\c32157\c0\c40392;
 \csgenericrgb\c5882\c43922\c1176;\csgenericrgb\c0\c0\c99608;\csgenericrgb\c42745\c42745\c42745;\cssrgb\c1176\c40000\c83922;\cssrgb\c100000\c100000\c100000;
 \cssrgb\c14118\c16078\c18039;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww18720\viewh16980\viewkind0
@@ -33,50 +31,8 @@
     \cf5 UIImage\cf2  *image = \cf4 UIGraphicsGetImageFromCurrentImageContext\cf2 ();\
     \cf4 UIGraphicsEndImageContext\cf2 ();\
 \
-\
-		iOS
-\f1 \'b5\'c4
-\f0 \cf8 renderChildrenViewControllers\cf9  
-\f1 \'b2\'bb\'d4\'ca\'d0\'ed\'b4\'b0\'bf\'da\'b6\'e0\'d7\'d3\'b4\'b0\'bf\'da\'b9\'b2\'cf\'ed\'a3\'ac\'d0\'e8\'d2\'aatry catch\'a3\'ac\'d4\'dareactnativepageView.m\'b5\'c4 343\'d0\'d0\'a3\'ac\'bd\'d8\'bb\'f1\'d2\'ec\'b3\'a3\'b6\'aa\'b5\'f4\
 \pard\tx593\pardeftab593\pardirnatural\partightenfactor0
-
-\f2\b \cf6 	for
-\f0\b0 \cf9  (\cf4 UIView\cf9  *view 
-\f2\b \cf6 in
-\f0\b0 \cf9  [
-\f2\b \cf6 self
-\f0\b0 \cf9  \cf10 reactSubviews\cf9 ]) \{\
-        
-\f2\b \cf6 @try
-\f0\b0 \cf9 \{\
-        [view \cf11 removeFromSuperview\cf9 ];\
-        \cf4 UIViewController\cf9  *pageViewController = [
-\f2\b \cf6 self
-\f0\b0 \cf9  \cf10 createChildViewController\cf9 :view];\
-            
-\f2\b \cf6 if
-\f0\b0 \cf9  (index == \cf10 _initialPage\cf9 ) \{\
-                       [
-\f2\b \cf6 self
-\f0\b0 \cf9 \
-                        \cf10 setReactViewControllers\cf9 :index\
-                        \cf10 with\cf9 :pageViewController\
-                        \cf10 direction\cf9 :\cf11 UIPageViewControllerNavigationDirectionForward\cf9 \
-                        \cf10 animated\cf9 :
-\f2\b \cf6 YES
-\f0\b0 \cf9 ];\
-                   \}\
-                   [\cf10 _childrenViewControllers\cf9  \cf11 addObject\cf9 :pageViewController];\
-                   index++;\
-        \}
-\f2\b \cf6 @catch
-\f0\b0 \cf9 (NSException *exception) \{\
-            \cf11 NSLog\cf9 (\cf12 @"0"\cf9 ,exception.\cf11 reason\cf9 ,
-\f2\b \cf6 nil
-\f0\b0 \cf9 );\
-        \}\
-       \
-    \}\cf2 \
+\cf2 \
 \pard\tx296\pardeftab296\pardirnatural\partightenfactor0
 \cf2 \
 		android
@@ -87,32 +43,32 @@
 
 \f3 \cf0 \cb1 \
 
-\f4\b \cf13 if
+\f4\b \cf8 if
 \f3\b0 \cf0 (
-\f4\b \cf14 snapshotContentContainer
+\f4\b \cf9 snapshotContentContainer
 \f3\b0 \cf0 )\
 \{\
     
-\f4\b \cf13 try
+\f4\b \cf8 try
 \f3\b0 \cf0 \{\
         ReactScrollView r = (ReactScrollView)view;\
         r.setOverflow(
-\f4\b \cf15 "visible"
+\f4\b \cf10 "visible"
 \f3\b0 \cf0 );\
         view.draw(c);\
         r.setOverflow(
-\f4\b \cf15 "scroll"
+\f4\b \cf10 "scroll"
 \f3\b0 \cf0 );\
     \}\
     
-\f4\b \cf13 catch 
+\f4\b \cf8 catch 
 \f3\b0 \cf0 (Exception e)\
     \{\
 \
     \}\
 \}\
 
-\f4\b \cf13 else\
+\f4\b \cf8 else\
 
 \f3\b0 \cf0 \{\
     view.draw(c);\
@@ -123,26 +79,26 @@
 \f3 \
 \
 
-\f4\b \cf13 private void 
+\f4\b \cf8 private void 
 \f3\b0 \cf0 _getImage(Uri uri, 
-\f4\b \cf13 final 
+\f4\b \cf8 final 
 \f3\b0 \cf0 ImageCallback imageCallback) \{\
     
-\f4\b \cf13 int 
-\f3\b0 \cf0 maxBytes = \cf16 1024 \cf0 * \cf16 1024 \cf0 * \cf16 10\cf0 ;\
+\f4\b \cf8 int 
+\f3\b0 \cf0 maxBytes = \cf11 1024 \cf0 * \cf11 1024 \cf0 * \cf11 10\cf0 ;\
     String fileUri = uri.toString();\
     
-\f4\b \cf13 if 
+\f4\b \cf8 if 
 \f3\b0 \cf0 (fileUri.startsWith(
-\f4\b \cf15 "file://"
+\f4\b \cf10 "file://"
 \f3\b0 \cf0 )) \{\
         fileUri = fileUri.replace(
-\f4\b \cf15 "file://"
+\f4\b \cf10 "file://"
 \f3\b0 \cf0 , 
-\f4\b \cf15 ""
+\f4\b \cf10 ""
 \f3\b0 \cf0 );\
         
-\f5\i \cf17 //Log.d("file", fileUri);\
+\f5\i \cf12 //Log.d("file", fileUri);\
     
 \f3\i0 \cf0 \}\
     Bitmap bitmap = BitmapFactory.
@@ -150,17 +106,17 @@
 \f3\i0 (fileUri);\
 \
     
-\f4\b \cf13 while 
+\f4\b \cf8 while 
 \f3\b0 \cf0 (bitmap.getByteCount() > maxBytes) \{\
         Matrix matrix = 
-\f4\b \cf13 new 
+\f4\b \cf8 new 
 \f3\b0 \cf0 Matrix();\
-        matrix.postScale(\cf16 0.95f\cf0 , \cf16 0.95f\cf0 );\
+        matrix.postScale(\cf11 0.95f\cf0 , \cf11 0.95f\cf0 );\
         Bitmap resizeBitmap = Bitmap.
 \f5\i createBitmap
-\f3\i0 (bitmap, \cf16 0\cf0 , \cf16 0\cf0 , bitmap.getWidth(), bitmap\
+\f3\i0 (bitmap, \cf11 0\cf0 , \cf11 0\cf0 , bitmap.getWidth(), bitmap\
                 .getHeight(), matrix, 
-\f4\b \cf13 true
+\f4\b \cf8 true
 \f3\b0 \cf0 );\
 \
         bitmap.recycle();\
@@ -176,12 +132,12 @@
 \clvertalc \clshdrawnil \clwWidth13540\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt300 \clpadl300 \clpadb300 \clpadr300 \gaph\cellx8640
 \pard\intbl\itap1\pardeftab720\sl420\partightenfactor0
 
-\f6\fs28 \cf18 \expnd0\expndtw0\kerning0
+\f6\fs28 \cf13 \expnd0\expndtw0\kerning0
 \cell \lastrow\row
 \pard\pardeftab720\sl360\partightenfactor0
-\cf18 \cb19 \'a0\cb1 \
+\cf13 \cb14 \'a0\cb1 \
 \pard\pardeftab720\sl340\partightenfactor0
-\cf20 \
+\cf15 \
 \
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab296\pardirnatural\partightenfactor0
 
