@@ -97,7 +97,9 @@ class IconConfig extends React.Component {
   static IconLunarCourseRed = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={fire} />)
   static IconLunarCourseRedO = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={orange} />)
   static IconLunarCourseGold = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={gold} />)
-
+  static IconLunarCourseclaygreen = (<MaterialCommunityIcons name="lightbulb-on-outline" size={midsize} color={green} />)
+  static IconLunarCourseGreen = (<MaterialCommunityIcons name="lightbulb-on-outline" size={buttonsize} color={claygreen} />)
+  static IconLunarCourseLightPink = (<MaterialCommunityIcons name="lightbulb-on-outline" size={buttonsize} color={LightPink} />)
 
   static IconKit = (<FontAwesome name="wpexplorer" size={size} color={startblue} />)
   static IconThreechanges = (<MaterialCommunityIcons name="google-circles-communities" size={buttonsize} color="#06F" />)

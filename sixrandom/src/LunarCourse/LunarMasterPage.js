@@ -13,24 +13,35 @@ import MasterConfig from '../config/MasterConfig'
 const intro = [
 
   //{icon: RouteConfig['MasterSearchPage'].icon,text: RouteConfig['MasterSearchPage'].name,url:RouteConfig['MasterSearchPage'].route},
-  { icon: IconConfig.IconStar, text: "MBTI L1", url: "" ,},
-  { icon: IconConfig.IconStar, text: "MBTI L2", url: "" },
+  { icon: IconConfig.IconStar, text: "由内而外", url: "" ,},
+  { icon: IconConfig.IconStar, text: "敏锐感知", url: "" },
+  { icon: IconConfig.IconStar, text: "情感逻辑", url: "" },
+  { icon: IconConfig.IconStar, text: "探索判断", url: "" },
+  { icon: IconConfig.IconStar, text: "运用变化", url: "" },
+  { icon: IconConfig.IconStar, text: "社交基本", url: "" },
 
 ]
 const MBTI = [
-  { icon: IconConfig.IconStar, text: "MBTI L1", url: "" },
-  { icon: IconConfig.IconStar, text: "MBTI L2", url: "" },
-  //{icon: RouteConfig['ErYaBookPage'].icon,text: RouteConfig['ErYaBookPage'].name,url:RouteConfig['ErYaBookPage'].route},
-
-  //{icon: RouteConfig['ShengYunBookPage'].icon,text: RouteConfig['ShengYunBookPage'].name,url:RouteConfig['ShengYunBookPage'].route},
-  //{icon: RouteConfig['yinyunPage'].icon,text: RouteConfig['yinyunPage'].name,url:RouteConfig['yinyunPage'].route},
+  { icon: IconConfig.IconStar, text: "由内而外", url: "" ,},
+  { icon: IconConfig.IconStar, text: "敏锐感知", url: "" },
+  { icon: IconConfig.IconStar, text: "情感逻辑", url: "" },
+  { icon: IconConfig.IconStar, text: "探索判断", url: "" },
+  { icon: IconConfig.IconStar, text: "运用变化", url: "" },
+  { icon: IconConfig.IconStar, text: "社交关系", url: "" },
+  { icon: IconConfig.IconStar, text: "需求满足", url: "" },
 ]
 
 const Univers = [
-  { icon: IconConfig.IconStar, text: "Five L1", url: RouteConfig['fivelevel1Module'].route, index: { text: "fivelevel1Module" } },
-  { icon: IconConfig.IconStar, text: "Five L2", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  { icon: IconConfig.IconLunarCourseRed, text: "感受自然", url: RouteConfig['fivelevel1Module'].route, index: { text: "fivelevel1Module" } },
+  { icon: IconConfig.IconLunarCourseBlue, text: "世间万象", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  { icon: IconConfig.IconLunarCourseclaygreen, text: "人间百态", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  { icon: IconConfig.IconLunarCourseLightPink, text: "家道伦常", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
 ]
-
+const old = [
+  { icon: IconConfig.IconLunarCourseGold, text: "道德原本", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  { icon: IconConfig.IconLunarCourseGreen, text: "矛盾变化", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  { icon: IconConfig.IconLunarCourseclaygreen, text: "人间道", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+]
 
 var w = ScreenConfig.__screenW()
 var coln = 4
@@ -220,7 +231,16 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-
+    contentlist["道德经"] = (
+          <Accordion.Panel header={"道德经"} key={"道德经"}>
+            <Grid
+              data={old}
+              columnNum={coln}
+              isCarousel={false}
+              hasLine={true}
+              renderItem={this.renderItemel}
+              onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+            /></Accordion.Panel >)
 
     if ("关注" == tab.title) {
       return (
@@ -267,7 +287,15 @@ class LunarMasterPage extends React.Component {
           </Accordion>
         </ScrollView>
       )
-    }
+    } else if ("道德经" == tab.title) {
+    return (
+      <ScrollView>
+        <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+          {contentlist["道德经"]}
+        </Accordion>
+      </ScrollView>
+    )
+  }
   };
 
   render() {
