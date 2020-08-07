@@ -192,7 +192,7 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-safe-area-context (3.1.1):
+  - react-native-safe-area-context (3.1.3):
     - React
   - react-native-segmented-control (2.1.0):
     - React
@@ -436,7 +436,7 @@ SPEC CHECKSUMS:
   react-native-compass-heading: 18742617bdb9e06ce104bd3b90f0dc700b791fd1
   react-native-fingerprint-scanner: ac6656f18c8e45a7459302b84da41a44ad96dbbe
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-safe-area-context: 344b969c45af3d8464d36e8dea264942992ef033
+  react-native-safe-area-context: b0bdaac4c56a861b06aaf1569efd1121c6a2427e
   react-native-segmented-control: 4ce904755f67bf17d5250d265d57e40db045ac34
   react-native-shake: de052eaa3eadc4a326b8ddd7ac80c06e8d84528c
   react-native-slider: e99fc201cefe81270fc9d81714a7a0f5e566b168

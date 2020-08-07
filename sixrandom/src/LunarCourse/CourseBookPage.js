@@ -148,7 +148,8 @@ class CourseBookPage extends React.Component {
       return (<View />)
     }
     if (this.state.keyindex >= constMeng.length) {
-      this.setState({ keyindex: 0 })
+      this.renderDrawer(this.state.searchText, this.state.keyindex - 1)
+      this.setState({ keyindex: this.state.keyindex-1 })
       return (<View />)
     }
     if ("" == this.state.searchText && this.state.itemArr.length == 0) {
@@ -156,7 +157,15 @@ class CourseBookPage extends React.Component {
     }
 
 
-
+    const tip = (<TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff'  }}>
+      <TabNavigator.Item
+        title={"回顶部"}
+        renderIcon={() => IconConfig.IconUp}
+        //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+        onPress={() => this.refs['Drawer'].scrollTo({ x: 0, y: 0, animated: true })}
+        titleStyle={StyleConfig.menufont}>
+      </TabNavigator.Item>
+    </TabNavigator >)
     sidebartips = (
       <View>
         <ScrollView ref="Drawer" style={{ backgroundColor: '#ffffff' }}>
@@ -170,26 +179,19 @@ class CourseBookPage extends React.Component {
               extra=""
               Style={{ backgroundColor: "000000" }}
             >检索
-        </InputItem>
+          </InputItem>
           </List>
-
           <List>{this.state.itemArr}</List>
           <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
-
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
         </ScrollView>
-        <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff' }}>
-              <TabNavigator.Item
-                title={"回顶部"}
-                renderIcon={() => IconConfig.IconUp}
-                //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                onPress={() => this.refs['Drawer'].scrollTo({ x: 0, y: 0, animated: true })}
-                titleStyle={StyleConfig.menufont}>
-              </TabNavigator.Item>
-      </TabNavigator >
- 
+        {
+              (this.state.itemArr.length>11?tip:<View />)
+        }
       </View>
     );
     var curMeng = new Array()
@@ -248,7 +250,7 @@ class CourseBookPage extends React.Component {
               titleStyle={StyleConfig.menufont}>
             </TabNavigator.Item>
             <TabNavigator.Item
-              title={"测试"}
+              title={"回顾"}
               renderIcon={() => RouteConfig["IconLast"].icon}
               //renderSelectedIcon={() => IconConfig.IconDvinationSel}
               onPress={() => this.setState({ keyindex: this.state.keyindex - 1 }, this.refs['location'].scrollTo({ x: 0, y: 0, animated: true }), this.renderDrawer(this.state.searchText, this.state.keyindex - 1))}
