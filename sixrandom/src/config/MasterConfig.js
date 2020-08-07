@@ -23,19 +23,21 @@ var MasterRandom = [];
   init(){
 MasterSelectMode = [
   {title: '训练大师',isSelect: true},
+  {title: '故事课',isSelect: true},
   {title: 'MBTI训练',isSelect: true},
   {title: '五行掌握',isSelect: true},
   {title: '道德经',isSelect: true},
-  {title: '故事课',isSelect: true},
+
   //{title: '数理逻辑',isSelect: true},
   //{title: '人工智能',isSelect: true},
 ]
 
 Masteralllist['训练大师'] = [
+  {title: '故事课',isSelect: true},
   {title: 'MBTI训练',isSelect: true},
   {title: '五行掌握',isSelect: true},
   {title: '道德经',isSelect: true},
-  {title: '故事课',isSelect: true},
+
 
 ]
  Masteralllist['MBTI训练'] = [

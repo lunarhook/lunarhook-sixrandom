@@ -217,6 +217,16 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
+    contentlist["故事课"] = (
+      <Accordion.Panel header={"故事课"} key={"故事课"}>
+        <Grid
+          data={story}
+          columnNum={coln}
+          isCarousel={false}
+          hasLine={true}
+          renderItem={this.renderItemel}
+          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+        /></Accordion.Panel >)
     contentlist["MBTI训练"] = (
       <Accordion.Panel header={"MBTI训练"} key={"MBTI训练"}>
         <Grid
@@ -247,16 +257,7 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-    contentlist["故事课"] = (
-      <Accordion.Panel header={"故事课"} key={"故事课"}>
-        <Grid
-          data={story}
-          columnNum={coln}
-          isCarousel={false}
-          hasLine={true}
-          renderItem={this.renderItemel}
-          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-        /></Accordion.Panel >)
+
 
 
 
