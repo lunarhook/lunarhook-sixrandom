@@ -460,30 +460,17 @@ class LunarCoursePage extends React.Component {
           {this.renderContent}
         </Tabs>
         <View>
-          <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
-            <TabNavigator.Item
-              title={RouteConfig["LunarBooks"].name}
-              renderIcon={() => RouteConfig["LunarBooks"].icon}
-              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => navigate(RouteConfig["LunarBooks"].route)}
-              titleStyle={StyleConfig.menufont}>
-            </TabNavigator.Item>
-                <TabNavigator.Item
-                  title={RouteConfig["CourseSearchPage"].name}
-                  renderIcon={() => RouteConfig["CourseSearchPage"].icon}
-                  //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                  onPress={() => navigate(RouteConfig["CourseSearchPage"].route)}
-                  titleStyle={StyleConfig.menufont}>
-                </TabNavigator.Item>
-            <TabNavigator.Item
-              title={RouteConfig["LunarMasterPage"].name}
-              renderIcon={() => RouteConfig["LunarMasterPage"].icon}
-              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => navigate(RouteConfig["LunarMasterPage"].route)}
-              titleStyle={StyleConfig.menufont}>
-            </TabNavigator.Item>
-          </TabNavigator >
-        </View>
+        <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+
+<TabNavigator.Item
+  title={RouteConfig["CourseSearchPage"].name}
+  renderIcon={() => RouteConfig["CourseSearchPage"].icon}
+  //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+  onPress={() => navigate(RouteConfig["CourseSearchPage"].route)}
+  titleStyle={StyleConfig.menufont}>
+</TabNavigator.Item>
+</TabNavigator >
+</View>
       </View>
     )
   }

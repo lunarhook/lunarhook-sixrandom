@@ -316,6 +316,18 @@ class LunarMasterPage extends React.Component {
         <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>
           {this.renderContent}
         </Tabs>
+        <View>
+          <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+
+                <TabNavigator.Item
+              title={RouteConfig["LunarCoursePage"].name}
+              renderIcon={() => RouteConfig["LunarCoursePage"].icon}
+              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+              onPress={() => navigate(RouteConfig["LunarCoursePage"].route)}
+              titleStyle={StyleConfig.menufont}>
+            </TabNavigator.Item>
+          </TabNavigator >
+        </View>
       </View>
     )
   }

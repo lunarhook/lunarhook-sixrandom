@@ -219,11 +219,11 @@ class MainPage extends React.Component {
       onPress={() => navigate(RouteConfig["kitPage"].route)}
       titleStyle={StyleConfig.menufont}>
     </TabNavigator.Item>)
-    LunarCoursePage = (<TabNavigator.Item
-      title={RouteConfig["LunarCoursePage"].name}
-      renderIcon={() => RouteConfig["LunarCoursePage"].icon}
+    LunarMasterPage = (<TabNavigator.Item
+      title={RouteConfig["LunarMasterPage"].name}
+      renderIcon={() => RouteConfig["LunarMasterPage"].icon}
       //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-      onPress={() => navigate(RouteConfig["LunarCoursePage"].route)}
+      onPress={() => navigate(RouteConfig["LunarMasterPage"].route)}
       titleStyle={StyleConfig.menufont}>
     </TabNavigator.Item>
     )
@@ -240,7 +240,7 @@ class MainPage extends React.Component {
       return (
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
           {kitPage}
-          {LunarCoursePage}
+          {LunarMasterPage}
           {MyPage}
         </TabNavigator >
       )
@@ -248,7 +248,7 @@ class MainPage extends React.Component {
     return (
       <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
         {kitPage}
-        {LunarCoursePage}
+        {LunarMasterPage}
         {ExplorationTab}
         {MyPage}
       </TabNavigator >

@@ -164,7 +164,7 @@ class IconConfig extends React.Component {
   static IconShuoWenIntro = (<Feather name="message-circle" size={buttonsize} color={blue} />)
   static IconThreeIntro = (<FontAwesome name="universal-access" size={buttonsize} color={Coral} />)
   static IconAnswerIntro = (<Entypo name="google-hangouts" size={buttonsize} color={red} />)
-  static IconMaster = (<Fontisto name="sait-boat" size={buttonsize} color={gold} />)
+  static IconMaster = (<FontAwesome name="bookmark-o" size={buttonsize} color={orange} />)
   static IconShuoWen = (<MaterialCommunityIcons name="lightbulb-on-outline" size={buttonsize} color={claygreen} />)
   static IconErYa = (<MaterialCommunityIcons name="lightbulb-on-outline" size={buttonsize} color={blue} />)
   static IconShengYun = (<MaterialCommunityIcons name="lightbulb-on-outline" size={buttonsize} color={LightPink} />)

@@ -117,18 +117,18 @@ RouteConfig={
         //心理咨询录音工具
         "ConsultantAudioRecord":{"name":"咨询录音","route":"ConsultantAudioRecord","icon":IconConfig.ConfigIcon},
         "permutationcombination":{"name":"排列组合计算器","route":"permutationcombination","icon":IconConfig.ConfigIcon},
-        "LunarCoursePageTab":{"name":"思想","route":"LunarCoursePageTab","titlename":"思想","icon":IconConfig.IconLunarCourse},
+        "LunarCoursePageTab":{"name":"无邪书院","route":"LunarCoursePageTab","titlename":"无邪书院","icon":IconConfig.IconLunarCourse},
        
     
         //课程是进一步提高成本，解决问题的方法，合理收费
-        "LunarCoursePage":{"name":"思想","route":"LunarCoursePage","titlename":"思想","icon":IconConfig.IconLunarCourse},
+        "LunarCoursePage":{"name":"无邪书院","route":"LunarCoursePage","titlename":"无邪书院","icon":IconConfig.IconMaster},
         "LunarBooks":{"name":"无邪书院","route":"LunarCoursePage","titlename":"思无邪","icon":IconConfig.IconBooks},
         
-        "LunarCourseConfigPage":{"name":"课程配置","route":"LunarCourseConfigPage","icon":IconConfig.IconSubmit},
+        "LunarCourseConfigPage":{"name":"书院配置","route":"LunarCourseConfigPage","icon":IconConfig.IconSubmit},
         "LunarMasterConfigPage":{"name":"课程训练配置","route":"LunarMasterConfigPage","icon":IconConfig.IconSubmit},
         "CourseSearchPage":{"name":"说文助手","route":"CourseSearchPage","titlename":"说文解字","icon":IconConfig.IconSearch},
         "LunarCourseAnswerPage":{"name":"答疑解惑","route":"LunarCourseAnswerPage","titlename":"答疑解惑","icon":IconConfig.IconAnswerIntro},
-        "LunarMasterPage":{"name":"课程训练","route":"LunarMasterPage","titlename":"课程训练","icon":IconConfig.IconMaster},
+        "LunarMasterPage":{"name":"思想","route":"LunarMasterPage","titlename":"思想课程","icon":IconConfig.IconLunarCourse},
 
         "ReadPage":{"name":"阅读","route":"ReadPage","titlename":"阅读","icon":IconConfig.IconLunarCourse},     
         "service":{"name":"服务支持","route":"service","icon":IconConfig.Service},     
