@@ -13,7 +13,7 @@ import MasterConfig from '../config/MasterConfig'
 const intro = [
 
   //{icon: RouteConfig['MasterSearchPage'].icon,text: RouteConfig['MasterSearchPage'].name,url:RouteConfig['MasterSearchPage'].route},
-  { icon: IconConfig.IconStar, text: "由内而外", url: "" ,},
+  { icon: IconConfig.IconStar, text: "由内而外", url: "", },
   { icon: IconConfig.IconStar, text: "敏锐感知", url: "" },
   { icon: IconConfig.IconStar, text: "情感逻辑", url: "" },
   { icon: IconConfig.IconStar, text: "探索判断", url: "" },
@@ -22,7 +22,7 @@ const intro = [
 
 ]
 const MBTI = [
-  { icon: IconConfig.IconStar, text: "由内而外", url: "" ,},
+  { icon: IconConfig.IconStar, text: "由内而外", url: "", },
   { icon: IconConfig.IconStar, text: "敏锐感知", url: "" },
   { icon: IconConfig.IconStar, text: "情感逻辑", url: "" },
   { icon: IconConfig.IconStar, text: "探索判断", url: "" },
@@ -41,6 +41,12 @@ const old = [
   { icon: IconConfig.IconLunarCourseGold, text: "道德原本", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
   { icon: IconConfig.IconLunarCourseGreen, text: "矛盾变化", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
   { icon: IconConfig.IconLunarCourseclaygreen, text: "人间道", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+]
+
+const story = [
+  { icon: IconConfig.IconLunarCourseGold, text: "故事课", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  //{ icon: IconConfig.IconLunarCourseGreen, text: "矛盾变化", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  //{ icon: IconConfig.IconLunarCourseclaygreen, text: "人间道", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
 ]
 
 var w = ScreenConfig.__screenW()
@@ -232,15 +238,27 @@ class LunarMasterPage extends React.Component {
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
     contentlist["道德经"] = (
-          <Accordion.Panel header={"道德经"} key={"道德经"}>
-            <Grid
-              data={old}
-              columnNum={coln}
-              isCarousel={false}
-              hasLine={true}
-              renderItem={this.renderItemel}
-              onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-            /></Accordion.Panel >)
+      <Accordion.Panel header={"道德经"} key={"道德经"}>
+        <Grid
+          data={old}
+          columnNum={coln}
+          isCarousel={false}
+          hasLine={true}
+          renderItem={this.renderItemel}
+          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+        /></Accordion.Panel >)
+    contentlist["故事课"] = (
+      <Accordion.Panel header={"故事课"} key={"故事课"}>
+        <Grid
+          data={story}
+          columnNum={coln}
+          isCarousel={false}
+          hasLine={true}
+          renderItem={this.renderItemel}
+          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+        /></Accordion.Panel >)
+
+
 
     if ("关注" == tab.title) {
       return (
@@ -262,13 +280,10 @@ class LunarMasterPage extends React.Component {
               if (undefined != contentlist[element.title]) {
                 content.push(contentlist[element.title])
               }
-
             })
-
             return content
           })(this)
           }
-
         </Accordion>
       )
     } else if ("MBTI训练" == tab.title) {
@@ -288,14 +303,14 @@ class LunarMasterPage extends React.Component {
         </ScrollView>
       )
     } else if ("道德经" == tab.title) {
-    return (
-      <ScrollView>
-        <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-          {contentlist["道德经"]}
-        </Accordion>
-      </ScrollView>
-    )
-  }
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["道德经"]}
+          </Accordion>
+        </ScrollView>
+      )
+    }
   };
 
   render() {
@@ -319,7 +334,7 @@ class LunarMasterPage extends React.Component {
         <View>
           <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
 
-                <TabNavigator.Item
+            <TabNavigator.Item
               title={RouteConfig["LunarCoursePage"].name}
               renderIcon={() => RouteConfig["LunarCoursePage"].icon}
               //renderSelectedIcon={() => IconConfig.IconDvinationSel}

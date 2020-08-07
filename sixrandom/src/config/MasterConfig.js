@@ -26,6 +26,7 @@ MasterSelectMode = [
   {title: 'MBTI训练',isSelect: true},
   {title: '五行掌握',isSelect: true},
   {title: '道德经',isSelect: true},
+  {title: '故事课',isSelect: true},
   //{title: '数理逻辑',isSelect: true},
   //{title: '人工智能',isSelect: true},
 ]
@@ -34,6 +35,7 @@ Masteralllist['训练大师'] = [
   {title: 'MBTI训练',isSelect: true},
   {title: '五行掌握',isSelect: true},
   {title: '道德经',isSelect: true},
+  {title: '故事课',isSelect: true},
 
 ]
  Masteralllist['MBTI训练'] = [
@@ -64,6 +66,7 @@ MasterRandom['全部'] = [
   {title: 'MBTI训练',isSelect: true},
   {title: '五行掌握',isSelect: true},
   {title: '道德经',isSelect: true},
+
   //{title: '逻辑思维',isSelect: true},
   //{title: '数理逻辑',isSelect: true},
   //{title: '人工智能',isSelect: true},
