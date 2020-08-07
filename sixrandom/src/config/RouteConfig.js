@@ -35,7 +35,7 @@ RouteConfig={
         
     //工具是优先解决需求的工具，尽量免费
     "kitPage":{"name":"探索","route":"kitPage","titlename":"探索","icon":IconConfig.IconKit},
-        "kitExplorationPage":{"name":"呦呦鹿鸣","route":"kitPage","titlename":"呦呦鹿鸣","icon":IconConfig.IconKit},
+        "kitExplorationPage":{"name":"呦呦鹿鸣","route":"kitExplorationPage","titlename":"呦呦鹿鸣","icon":IconConfig.IconKit},
         //周易工具
         "UniversechangesPage":{"name":"周易测评","route":"UniversechangesPage","icon":IconConfig.IconUniversechanges},
             "CalendarPage":{"name":"浑天甲子历","route":"UniversechangesPage","icon":IconConfig.CalendarIcon},

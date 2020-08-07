@@ -21,6 +21,7 @@ import SearchPage from './src/tools/SearchPage'
   import NumberMainPage from './src/kit/UniversechangesLib/NumberLib/NumberMainPage'
   import NumberMotionNewPage from './src/kit/NumberMotionsLib/NumberMotionNewPage'
   import kitPage from './src/kit/kitPage'
+  import kitExplorationPage from './src/kit/kitExplorationPage'
   import kitConfigPage from './src/kit/kitConfigPage';
     import PsychTestPage from './src/kit/LunarMotionsLib/PsychTestPage'
       import MBTIModule from './src/kit/LunarMotionsLib/PsychLib/MBTIModule'
@@ -153,6 +154,7 @@ const  sixrandom= createStackNavigator({
     NameModule:{screen:NameModule},
     TrackStarPage:{screen:TrackStarPage},
     kitPage:{screen:kitPage},
+    kitExplorationPage:{screen:kitExplorationPage},
     kitConfigPage:{screen:kitConfigPage},
     SixCourseNewPage:{screen:SixCourseNewPage},
     SixCourseMainPage:{screen:SixCourseMainPage},
