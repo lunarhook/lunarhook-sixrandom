@@ -49,7 +49,7 @@ class slogan extends React.Component {
     this.timer = setTimeout(() => {
       //console.log("test",keys[0])
       this.props.navigation.navigate(keys[0])
-      this.props.navigation.navigate("kitPage")
+      //this.props.navigation.navigate("kitPage")
     }, 1000 * 4);
   }
   componentWillUnmount() {

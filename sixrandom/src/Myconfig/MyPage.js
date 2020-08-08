@@ -36,6 +36,12 @@ class MyPage extends React.Component {
       this.forceUpdate()
     })
   }
+  static ShareInstance(){
+    if(!MyPagethis){
+      MyPagethis = new MyPage();
+    }
+    return MyPagethis;
+  }
   UNSAFE_componentWillMount() {
     //console.log("MyPage", "componentWillMount")
     this.LoginCheck()//这里迅速检测登陆状态
@@ -53,7 +59,10 @@ class MyPage extends React.Component {
   RSYNC() {
     this.LoginCheck(true)
   }
-
+  compontupdate()
+  {
+    MyPage.ShareInstance().setState({ sync: !MyPage.ShareInstance().state.sync })
+  }
 
   LoginCheck(rsync) {
     UserModule.islogin(rsync).then(ret => {

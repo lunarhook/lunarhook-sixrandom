@@ -38,7 +38,7 @@ RouteConfig={
         "kitExplorationPage":{"name":"呦呦鹿鸣","route":"kitExplorationPage","titlename":"呦呦鹿鸣","icon":IconConfig.IconKit},
         //周易工具
         "UniversechangesPage":{"name":"周易测评","route":"UniversechangesPage","icon":IconConfig.IconUniversechanges},
-            "CalendarPage":{"name":"浑天甲子历","route":"UniversechangesPage","icon":IconConfig.CalendarIcon},
+            "CalendarPage":{"name":"乾坤","route":"CalendarPage","icon":IconConfig.IconCalendar},
                 "SixrandomNewPage":{"name":"六爻问卦","route":"SixrandomNewPage","icon":IconConfig.SixrandomSel},
                 "SixrandomFullInfoPage":{"name":"卦象详解","route":"SixrandomFullInfoPage","icon":IconConfig.SixrandomSel},
                 "SixrandomHistoryPage":{"name":"六爻历史","route":"SixrandomHistoryPage","icon":IconConfig.IconDetail},
@@ -206,6 +206,7 @@ RouteConfig={
 
 
     "MyPage":{"name":"我的","card":"管理","route":"MyPage","icon":IconConfig.IconPerson},
+    "MyPageFake":{"name":"我的","card":"管理","route":"MyPage","icon":IconConfig.IconPerson},
     "MyFontConfigPage":{"name":"字体显示","card":"字体显示","route":"MyPage","icon":IconConfig.IconPerson},
     
     "MyRegister":{"name":"注册","card":"管理","route":"MyRegister","icon":IconConfig.IconPerson},

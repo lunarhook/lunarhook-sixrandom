@@ -165,7 +165,16 @@ class kitPage extends React.Component {
       this.setState({ Channel: events })
       this.refreshlist()
     })
-
+    this._navListener = this.props.navigation.addListener('didFocus', () => {
+      this.props.navigation.headerRight = (
+        <TouchableOpacity
+          style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
+          //onPress={() => navigate('Search')}
+          onPress={() => navigate(RouteConfig['kitConfigPage'].route)}
+        >
+          {RouteConfig['kitConfigPage'].icon}
+        </TouchableOpacity>)
+    });
   }
   refreshlist() {
     var itemsrandom = KitConfig.getitemsrandom()

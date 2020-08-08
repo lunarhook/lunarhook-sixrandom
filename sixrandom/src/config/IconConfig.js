@@ -81,6 +81,7 @@ class IconConfig extends React.Component {
   static IconGATB = (<FontAwesome name="graduation-cap" size={size} color={green} />)
   static IconMHT = (<FontAwesome5 name="school" size={size} color={blue} />)
   static IconMHRSP = (<FontAwesome name="child" size={size} color={orange} />)
+  static IconCalendar = (<MaterialIcons name="timelapse" size={midsize} color={Coral} />)
 
   static IconPROF = (<FontAwesome name="university" size={size} color={fire} />)
   static IconScreen = (<Ionicons name="ios-images" size={size} color={blue} />)
