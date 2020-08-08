@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler'
-import { AppRegistry, TouchableOpacity } from 'react-native';
+import { AppRegistry, TouchableOpacity ,Text} from 'react-native';
 import React, { Component } from 'react';
 import { Provider, Icon } from '@ant-design/react-native';
 import { StyleSheet, View, Alert, NativeModules } from 'react-native';
@@ -7,6 +7,13 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs'
 import { setJSExceptionHandler, getJSExceptionHandler } from './src/config/ExceptionModule';
+import { MenuProvider } from 'react-native-popup-menu';
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu';
 import IconConfig from './src/config/IconConfig'
 import slogan from './src/slogan'
 import CalendarPage from './src/CalendarPage';
@@ -176,13 +183,14 @@ const MainPage = createBottomTabNavigator({
         if (undefined != navigation.state) {
           var curpage = navigation.state.routes[navigation.state.index].routeName
           if ("kitPage" == curpage) {
-            return (<TouchableOpacity
-              style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
-              //onPress={() => navigate('Search')}
-              onPress={() => navigation.navigate(RouteConfig['kitConfigPage'].route)}
-            >
-              {RouteConfig['kitConfigPage'].icon}
-            </TouchableOpacity>)
+            return (<Menu style={{ paddingRight: 20,alignContent: "center", alignItems: "baseline" }}>
+              <MenuTrigger>{RouteConfig['kitConfigPage'].icon}</MenuTrigger>
+              <MenuOptions >
+                <MenuOption onSelect={() => navigation.navigate(RouteConfig['kitConfigPage'].route)}>{RouteConfig['kitConfigPage'].icon}</MenuOption>
+                <MenuOption onSelect={() => navigation.navigate(RouteConfig["SearchPage"].route)}>{RouteConfig["SearchPage"].icon}</MenuOption>
+                <MenuOption onSelect={() => kitPage.ShareInstance().onBussion("service", navigation.navigate)}>{RouteConfig["service"].icon}</MenuOption>
+                </MenuOptions>
+            </Menu>)
           } else if ("CalendarPage" == curpage) {
             return (
               <TouchableOpacity
@@ -191,7 +199,14 @@ const MainPage = createBottomTabNavigator({
                 onPress={() => CalendarPage.ShareInstance().today()}>
                 {(false == CalendarPage.ShareInstance().state.otherParam) ? IconConfig.ReCover : IconConfig.ReCover}
               </TouchableOpacity>)
-          } else if ("MyPage" == curpage) {
+          } else if ("LunarMasterPage" == curpage) {
+            return (
+              <TouchableOpacity
+                style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}
+                //onPress={() => navigate('Search')}
+                onPress={() =>navigation.navigate(RouteConfig["LunarCoursePage"].route)}>{RouteConfig["LunarCoursePage"].icon}
+              </TouchableOpacity>)
+          }else if ("MyPage" == curpage) {
             return (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => MyPage.ShareInstance().compontupdate()} />)
           }
         }
@@ -351,6 +366,7 @@ const AppContainer = createAppContainer(RootStack);
 
 const SixrandomApp = () =>
   <Provider >
+    <MenuProvider>
     <AppContainer
       onNavigationStateChange={(prevState, currentState) => {
         const currentScreen = getActiveRouteName(currentState);
@@ -370,6 +386,7 @@ const SixrandomApp = () =>
         }
       }}
     />
+    </MenuProvider>
   </Provider>
 
 AppRegistry.registerComponent('sixrandom', () => SixrandomApp);

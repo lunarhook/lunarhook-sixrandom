@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Image, Clipboard, Alert, Linking, NativeModules, Platform } from 'react-native';
+
 import TabNavigator from 'react-native-tab-navigator';
 import { Grid, Accordion, WhiteSpace, Tabs, Badge } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig';
@@ -141,6 +142,12 @@ class kitPage extends React.Component {
       }
     };
   };
+  static ShareInstance(){
+    if(!kitPageController){
+      kitPageController = new kitPage();
+    }
+    return kitPageController;
+  }
 
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
@@ -577,8 +584,7 @@ class kitPage extends React.Component {
           {this.renderContent}
         </Tabs>
         <View>
-          <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
-            {function () {
+        {function () {
               /*
               return (<TabNavigator.Item
                 title={this.state.less == false ? RouteConfig["kitExplorationPage"].name : RouteConfig["kitPage"].name}
@@ -591,6 +597,7 @@ class kitPage extends React.Component {
               */
             }()}
             {function () {
+              /*
               if (kitPageController && kitPageController.state.less == false) {
                 return (<TabNavigator.Item
                   title={RouteConfig["SearchPage"].name}
@@ -599,9 +606,10 @@ class kitPage extends React.Component {
                   onPress={() => navigate(RouteConfig["SearchPage"].route)}
                   titleStyle={StyleConfig.menufont}>
                 </TabNavigator.Item>)
-              }
+              }*/
             }()}
             {function () {
+              /*
               if (Platform.OS === 'android' || Platform.OS === 'ios') {
                 return (<TabNavigator.Item
                   title={RouteConfig["service"].name}
@@ -611,9 +619,10 @@ class kitPage extends React.Component {
                   titleStyle={StyleConfig.menufont}>
                 </TabNavigator.Item>)
               }
+              */
             }()
             }
-          </TabNavigator >
+
         </View>
       </View>)
   }
