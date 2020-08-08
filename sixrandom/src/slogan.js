@@ -46,9 +46,10 @@ class slogan extends React.Component {
     if (true == __DEV__) {
       //this.props.navigation.navigate(keys[0])
     }
-    this.timer = setInterval(() => {
+    this.timer = setTimeout(() => {
       //console.log("test",keys[0])
       this.props.navigation.navigate(keys[0])
+      this.props.navigation.navigate("kitPage")
     }, 1000 * 4);
   }
   componentWillUnmount() {

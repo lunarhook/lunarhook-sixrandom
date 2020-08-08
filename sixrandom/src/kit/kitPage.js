@@ -95,6 +95,12 @@ const child = [
   { icon: RouteConfig['MHTModule'].icon, text: RouteConfig['MHTModule'].name, url: RouteConfig['MHTModule'].route },
   { icon: RouteConfig['MHRSPModule'].icon, text: RouteConfig['MHRSPModule'].name, url: RouteConfig['MHRSPModule'].route },
 ]
+const Exploration1 = [
+  { icon: RouteConfig['MBTIModule'].icon, text: RouteConfig['MBTIModule'].name, url: RouteConfig['MBTIModule'].route },
+  { icon: RouteConfig['EnneagramModule'].icon, text: RouteConfig['EnneagramModule'].name, url: RouteConfig['EnneagramModule'].route },
+  { icon: RouteConfig['EightrandomNewPage'].icon, text: RouteConfig['EightrandomNewPage'].name, url: RouteConfig['EightrandomNewPage'].route },
+  { icon: RouteConfig['SCL90Module'].icon, text: RouteConfig['SCL90Module'].name, url: RouteConfig['SCL90Module'].route },
+]
 
 let kitPageController = null
 class kitPage extends React.Component {
@@ -110,7 +116,8 @@ class kitPage extends React.Component {
       historySection: [0],
       activeSections: [0, 1, 2, 3, 4, 5, 6, 7, 8],
       historyactiveSections: [0],
-      Channel: ""
+      Channel: "",
+      less: false
     };
     kitPageController = this
     this.onChange = (activeSections: number[]) => {
@@ -391,135 +398,159 @@ class kitPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-    if ("关注" == tab.title) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["关注"]}
-          </Accordion></ScrollView>
-      )
+
+    if (true == this.state.less) {
+      contentlist = new Array()
+      contentlist["呦呦鹿鸣"] = (
+        <Accordion.Panel header={"呦呦鹿鸣"} key={"呦呦鹿鸣"}>
+          <Grid
+            data={Exploration1}
+            columnNum={2}
+            isCarousel={false}
+            hasLine={true}
+            renderItem={this.renderItemel}
+            onPress={(_el: any, index: any) => { navigate(_el.url) }}
+          /></Accordion.Panel >)
+    }
+    if (false == this.state.less) {
+      if ("关注" == tab.title) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["关注"]}
+            </Accordion></ScrollView>
+        )
+      } else if ("全部" == tab.title) {
+        return (
+          <ScrollView style={Styles.container}>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {(function (handler) {
+                var alllist = KitConfig.getalllist()
+                var sel = alllist[handler.state.selectmode]
+                var curalllist = JSON.parse(JSON.stringify(sel))
+                var content = new Array()
+                if ("Huawei" == kitPageController.state.Channel) {
+                  delete contentlist["大道易德"]
+                  delete contentlist["周易八卦"]
+                  delete contentlist["塔罗牌阵"]
+                  delete contentlist["星盘星座"]
+                }
+                curalllist.forEach(element => {
+                  if (undefined != contentlist[element.title]) {
+                    content.push(contentlist[element.title])
+                  }
+
+                })
+
+                return content
+              })(this)
+              }
+
+            </Accordion>
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+          </ScrollView>
+        )
+      } else if ("儿童少年" == tab.title) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["儿童少年"]}
+            </Accordion></ScrollView>
+        )
+      } else if ("情感家庭" == tab.title) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["情感家庭"]}
+            </Accordion></ScrollView>
+        )
+      } else if ("心理学" == tab.title) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["性格测评"]}
+              {contentlist["心理测评"]}
+              {contentlist["情感家庭"]}
+              {contentlist["儿童少年"]}
+
+            </Accordion>
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" /></ScrollView>
+        )
+      } else if ("性格测评" == tab.title) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["性格测评"]}
+            </Accordion></ScrollView>
+        )
+      } else if ("抑郁焦虑" == tab.title) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["心理测评"]}
+            </Accordion></ScrollView>
+        )
+      }
+      else if ("周易八卦" == tab.title && "Huawei" != kitPageController.state.Channel) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["周易八卦"]}
+            </Accordion></ScrollView>
+        )
+      }
+      else if ("塔罗牌阵" == tab.title) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["塔罗牌阵"]}
+            </Accordion></ScrollView>
+        )
+      }
+      else if ("星盘星座" == tab.title && "Huawei" != kitPageController.state.Channel) {
+        return (
+          <ScrollView >
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["星盘星座"]}
+            </Accordion></ScrollView>
+        )
+      }
+      /*
+      else if ("大道易德" == tab.title && "Huawei" != kitPageController.state.Channel) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["大道易德"]}
+            </Accordion></ScrollView>
+        )
+      }
+      */
+      else if ("工具助手" == tab.title) {
+        return (
+          <ScrollView>
+            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+              {contentlist["工具助手"]}
+            </Accordion></ScrollView>
+        )
+      }
     } else if ("全部" == tab.title) {
       return (
         <ScrollView style={Styles.container}>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {(function (handler) {
-              var alllist = KitConfig.getalllist()
-              var sel = alllist[handler.state.selectmode]
-              var curalllist = JSON.parse(JSON.stringify(sel))
-              var content = new Array()
-              if ("Huawei" == kitPageController.state.Channel) {
-                delete contentlist["大道易德"]
-                delete contentlist["周易八卦"]
-                delete contentlist["塔罗牌阵"]
-                delete contentlist["星盘星座"]
-              }
-              curalllist.forEach(element => {
-                if (undefined != contentlist[element.title]) {
-                  content.push(contentlist[element.title])
-                }
+            {contentlist["呦呦鹿鸣"]}
+          </Accordion></ScrollView>
+      )
+    }
 
-              })
-
-              return content
-            })(this)
-            }
-
-          </Accordion>
-          <WhiteSpace size="xl" />
-          <WhiteSpace size="xl" />
-          <WhiteSpace size="xl" />
-          <WhiteSpace size="xl" />
-        </ScrollView>
-      )
-    } else if ("儿童少年" == tab.title) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["儿童少年"]}
-          </Accordion></ScrollView>
-      )
-    } else if ("情感家庭" == tab.title) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["情感家庭"]}
-          </Accordion></ScrollView>
-      )
-    } else if ("心理学" == tab.title) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["性格测评"]}
-            {contentlist["心理测评"]}
-            {contentlist["情感家庭"]}
-            {contentlist["儿童少年"]}
-
-          </Accordion>
-          <WhiteSpace size="xl" />
-          <WhiteSpace size="xl" />
-          <WhiteSpace size="xl" />
-          <WhiteSpace size="xl" /></ScrollView>
-      )
-    } else if ("性格测评" == tab.title) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["性格测评"]}
-          </Accordion></ScrollView>
-      )
-    } else if ("抑郁焦虑" == tab.title) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["心理测评"]}
-          </Accordion></ScrollView>
-      )
-    }
-    else if ("周易八卦" == tab.title && "Huawei" != kitPageController.state.Channel) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["周易八卦"]}
-          </Accordion></ScrollView>
-      )
-    }
-    else if ("塔罗牌阵" == tab.title) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["塔罗牌阵"]}
-          </Accordion></ScrollView>
-      )
-    }
-    else if ("星盘星座" == tab.title && "Huawei" != kitPageController.state.Channel) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["星盘星座"]}
-          </Accordion></ScrollView>
-      )
-    }
-    /*
-    else if ("大道易德" == tab.title && "Huawei" != kitPageController.state.Channel) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["大道易德"]}
-          </Accordion></ScrollView>
-      )
-    }
-    */
-    else if ("工具助手" == tab.title) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["工具助手"]}
-          </Accordion></ScrollView>
-      )
-    }
   };
   render() {
-    if ("" == this.state.Channel) {
+    if ("" == this.state.Channe) {
       return (<View></View>)
     }
     const { navigate } = this.props.navigation;
@@ -528,7 +559,7 @@ class kitPage extends React.Component {
       kitPageController.refreshlist()
       //return (<View></View>)
     }
-
+    var itemsrandom = KitConfig.getitemsrandom()
     return (
       <View style={Styles.container}>
 
@@ -538,21 +569,29 @@ class kitPage extends React.Component {
         </Tabs>
         <View>
           <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
-            <TabNavigator.Item
-              title={RouteConfig["kitExplorationPage"].name}
-              renderIcon={() => RouteConfig["kitExplorationPage"].icon}
-              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => navigate(RouteConfig["kitExplorationPage"].route)}
-              titleStyle={StyleConfig.menufont}>
-            </TabNavigator.Item>
-
-            <TabNavigator.Item
-              title={RouteConfig["SearchPage"].name}
-              renderIcon={() => RouteConfig["SearchPage"].icon}
-              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-              onPress={() => navigate(RouteConfig["SearchPage"].route)}
-              titleStyle={StyleConfig.menufont}>
-            </TabNavigator.Item>
+            {function () {
+              /*
+              return (<TabNavigator.Item
+                title={this.state.less == false ? RouteConfig["kitExplorationPage"].name : RouteConfig["kitPage"].name}
+                renderIcon={() => RouteConfig["kitExplorationPage"].icon}
+                //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+                //onPress={() => navigate(RouteConfig["kitExplorationPage"].route)}
+                onPress={() => this.setState({ less: !this.state.less, tabs: false == this.state.less ? [{ title: '全部', isSelect: true }] : itemsrandom["全部"] })}
+                titleStyle={StyleConfig.menufont}>
+              </TabNavigator.Item>)
+              */
+            }()}
+            {function () {
+              if (kitPageController && kitPageController.state.less == false) {
+                return (<TabNavigator.Item
+                  title={RouteConfig["SearchPage"].name}
+                  renderIcon={() => RouteConfig["SearchPage"].icon}
+                  //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+                  onPress={() => navigate(RouteConfig["SearchPage"].route)}
+                  titleStyle={StyleConfig.menufont}>
+                </TabNavigator.Item>)
+              }
+            }()}
             {function () {
               if (Platform.OS === 'android' || Platform.OS === 'ios') {
                 return (<TabNavigator.Item
