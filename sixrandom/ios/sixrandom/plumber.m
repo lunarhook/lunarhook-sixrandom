@@ -12,7 +12,7 @@
 #include <libkern/OSAtomic.h>
 #include <execinfo.h>
 #import "plumber.h"
-
+#import "plumberIOSManager.h"
 
 @implementation NativePlumber
 
@@ -20,6 +20,7 @@ RCT_EXPORT_MODULE(NativePlumber);
 
 // 导出方法，桥接到js的方法返回值类型必须是void
 RCT_EXPORT_METHOD(PlumberRouting:(NSString *)routing GroupRouting:(NSString *)grouprouting filtername:(NSString*)filtername eventfilter:(NSString*)eventfilter){
+  plumberIOSManager push_routing_group:routing grouprouting:grouprouting filtername:filtername eventfilter:eventfilter];
   NSLog(@"%@ ===> PlumberRouting",routing);
 
 }
