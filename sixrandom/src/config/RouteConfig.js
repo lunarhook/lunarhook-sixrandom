@@ -13,21 +13,22 @@ import IconConfig from './IconConfig'
 所以人生就是寻找问题并解决问题的过程，如果想扩大收益即解决成功，需要解决更大的问题，因此需要社交来扩大组织规模以提高安全和效率，所以需要一个足够良好的组织，因为探索问题以后需要分享所有成功到组织内，让组织效率更高，同时扩大组织规模
 */
 RouteConfig={
-    "MainPage":{"name":"月如钩","titlename":"知否社区","route":"MainPage","icon":IconConfig.IconLunarConfide},
+    "MainPage":{"name":"月如钩","titlename":"知否","route":"MainPage","icon":IconConfig.IconLunarConfide},
     //社区是所有流量和需求的大入口，社区对沟通的需求是巨大的，必须免费获得流量
-    "ExplorationTab":{"name":"知否","titlename":"知否社区","route":"ExplorationTab","icon":IconConfig.IconLunarConfide},
-        "NightPage":{"name":"围炉夜话","titlename":"知否社区","route":"NightPage","icon":IconConfig.IconLunarConfide},
-            "NightDetailPage":{"name":"夜话点评","titlename":"知否社区","route":"NightDetailPage","icon":IconConfig.IconNightFm},
-        "ExplorationPage":{"name":"树洞寄语","titlename":"知否社区","route":"ExplorationPage","icon":IconConfig.IconNightFm},   
-            "ExplorationDetailPage":{"name":"寄语详情","titlename":"寄语详情","route":"ExplorationDetailPage","icon":IconConfig.IconDetail},
-            "ExplorationAnswerPage":{"name":"参与话题","titlename":"参与话题","route":"ExplorationAnswerPage","icon":IconConfig.IconLunarExplain},
+    "ExplorationTab":{"name":"知否","titlename":"知否","route":"ExplorationTab","icon":IconConfig.IconLunarConfide},
+    "ExplorationTabFake":{"name":"知否","titlename":"知否","route":"ExplorationTab","icon":IconConfig.IconLunarConfide},
+        "NightPage":{"name":"夜话","titlename":"知否","route":"NightPage","icon":IconConfig.IconLunarConfide},
+            "NightDetailPage":{"name":"夜话","titlename":"知否","route":"NightDetailPage","icon":IconConfig.IconNightFm},
+        "ExplorationPage":{"name":"树洞","titlename":"知否","route":"ExplorationPage","icon":IconConfig.IconNightFm},   
+            "ExplorationDetailPage":{"name":"寄语","titlename":"寄语","route":"ExplorationDetailPage","icon":IconConfig.IconDetail},
+            "ExplorationAnswerPage":{"name":"话题","titlename":"话题","route":"ExplorationAnswerPage","icon":IconConfig.IconLunarExplain},
             "ExplorationAskPage":{"name":"提个话题","titlename":"提个话题","route":"ExplorationAskPage","icon":IconConfig.IconDetail},
         //生活咨询服务包括所有咨询服务，可以给课程导流，其中简单的生活类咨询免费，心理咨询是需要收费的，因为必须立刻请人来协助解决，收费解决
-        "ChatPage":{"name":"飞鸟拾音","titlename":"知否社区","route":"ChatPaged","icon":IconConfig.Iconchat},   
+        "ChatPage":{"name":"拾音","titlename":"知否","route":"ChatPaged","icon":IconConfig.Iconchat},   
         "ConfidePage":{"name":"私信列表","route":"ConfidePage","icon":IconConfig.IconPagelines}, 
         "MyExplorationPage":{"name":"我的话题","titlename":"我的话题","route":"MyExplorationPage","icon":IconConfig.IconUniversechanges},
-            "LunaranswerPage":{"name":"知否话题","route":"LunaranswerPage","icon":IconConfig.IconLunask},
-            "LunaranswerPageFake":{"name":"知否话题","route":"LunaranswerPageFake","icon":IconConfig.IconLunask},
+            "LunaranswerPage":{"name":"话题","route":"LunaranswerPage","icon":IconConfig.IconLunask},
+            "LunaranswerPageFake":{"name":"话题","route":"LunaranswerPageFake","icon":IconConfig.IconLunask},
             "LunarConsultantListPage":{"name":"咨询师","route":"LunarConsultantListPage","icon":IconConfig.IconLunarchanges},
             "ConsultantDetailPage":{"name":"咨询师介绍","route":"ConsultantDetailPage","icon":IconConfig.IconLunask},
             "ConsultantChatPage":{"name":"咨询沟通","route":"ConsultantChatPage","icon":IconConfig.IconLunask}, 

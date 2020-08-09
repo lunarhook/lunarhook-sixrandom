@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler'
-import { AppRegistry, TouchableOpacity ,Text} from 'react-native';
+import { AppRegistry, TouchableOpacity, Text } from 'react-native';
 import React, { Component } from 'react';
 import { Provider, Icon } from '@ant-design/react-native';
 import { StyleSheet, View, Alert, NativeModules } from 'react-native';
@@ -170,6 +170,9 @@ const MainPage = createBottomTabNavigator({
         if ("MyPageFake" == routeName) {
           navigation.navigate("MyPage")
         }
+        else if ("ExplorationTabFake" == routeName) {
+          navigation.navigate("ExplorationTab")
+        }
         else {
           console.log("tabBarOnPress", routeName)
           nv.defaultHandler();
@@ -183,14 +186,14 @@ const MainPage = createBottomTabNavigator({
         if (undefined != navigation.state) {
           var curpage = navigation.state.routes[navigation.state.index].routeName
           if ("kitPage" == curpage) {
-            return (<Menu style={{ paddingRight: 20,alignContent: "center", alignItems: "baseline" }}>
+            return (<Menu style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}>
               <MenuTrigger>{RouteConfig['kitConfigPage'].icon}</MenuTrigger>
-              <MenuOptions style={{width:175 ,flex:1}}>
-                <MenuOption style={{flexDirection:"row",alignItems:"center",flex:1}}  onSelect={() => navigation.navigate(RouteConfig['kitConfigPage'].route)}><Text style={{includeFontPadding: false,textAlignVertical:"center",height:30,width:20}}>{RouteConfig['kitConfigPage'].icon}</Text><Text style={{paddingLeft:20}}>{RouteConfig['kitConfigPage'].name}</Text></MenuOption>
-                <MenuOption style={{flexDirection:"row",alignItems:"center",flex:1}}  onSelect={() => navigation.navigate(RouteConfig["SearchPage"].route)}><Text style={{alignItems:"center",textAlignVertical:"center",height:30,width:20}}>{RouteConfig["SearchPage"].icon}</Text><Text style={{paddingLeft:20}}>{RouteConfig["SearchPage"].name+"支持"}</Text></MenuOption>
-                <MenuOption style={{flexDirection:"row",alignItems:"center",flex:1}} onSelect={() => kitPage.ShareInstance().onBussion("service", navigation.navigate)}><Text style={{alignItems:"center",textAlignVertical:"center",height:30,width:20}}>{RouteConfig["service"].icon}</Text><Text style={{paddingLeft:20}}>{RouteConfig["service"].name}</Text></MenuOption>
-                <MenuOption style={{flexDirection:"row",alignItems:"center",flex:1}} onSelect={() => kitPage.ShareInstance().setState({less:!kitPage.ShareInstance().state.less})}><Text style={{alignItems:"center",textAlignVertical:"center",height:30,width:20}}>{IconConfig.IconFirstUserFace}</Text><Text style={{paddingLeft:20}}>{"引导页面"}</Text></MenuOption>
-                </MenuOptions>
+              <MenuOptions style={{ width: 175, flex: 1 }}>
+                <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig['kitConfigPage'].route)}><Text style={{ includeFontPadding: false, textAlignVertical: "center", height: 30, width: 20 }}>{RouteConfig['kitConfigPage'].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig['kitConfigPage'].name}</Text></MenuOption>
+                <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig["SearchPage"].route)}><Text style={{ alignItems: "center", textAlignVertical: "center", height: 30, width: 20 }}>{RouteConfig["SearchPage"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["SearchPage"].name + "支持"}</Text></MenuOption>
+                <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => kitPage.ShareInstance().onBussion("service", navigation.navigate)}><Text style={{ alignItems: "center", textAlignVertical: "center", height: 30, width: 20 }}>{RouteConfig["service"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["service"].name}</Text></MenuOption>
+                <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => kitPage.ShareInstance().setState({ less: !kitPage.ShareInstance().state.less })}><Text style={{ alignItems: "center", textAlignVertical: "center", height: 30, width: 20 }}>{IconConfig.IconFirstUserFace}</Text><Text style={{ paddingLeft: 20 }}>{"引导页面"}</Text></MenuOption>
+              </MenuOptions>
             </Menu>)
           } else if ("CalendarPage" == curpage) {
             return (
@@ -205,9 +208,9 @@ const MainPage = createBottomTabNavigator({
               <TouchableOpacity
                 style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}
                 //onPress={() => navigate('Search')}
-                onPress={() =>navigation.navigate(RouteConfig["LunarCoursePage"].route)}>{IconConfig.IconBooks}
+                onPress={() => navigation.navigate(RouteConfig["LunarCoursePage"].route)}>{IconConfig.IconBooks}
               </TouchableOpacity>)
-          }else if ("MyPage" == curpage) {
+          } else if ("MyPage" == curpage) {
             return (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => MyPage.ShareInstance().compontupdate()} />)
           }
         }
@@ -368,25 +371,25 @@ const AppContainer = createAppContainer(RootStack);
 const SixrandomApp = () =>
   <Provider >
     <MenuProvider>
-    <AppContainer
-      onNavigationStateChange={(prevState, currentState) => {
-        const currentScreen = getActiveRouteName(currentState);
-        const prevScreen = getActiveRouteName(prevState);
+      <AppContainer
+        onNavigationStateChange={(prevState, currentState) => {
+          const currentScreen = getActiveRouteName(currentState);
+          const prevScreen = getActiveRouteName(prevState);
 
-        if (prevScreen !== currentScreen) {
-          // the line below uses the Google Analytics tracker
-          // change the tracker here to use other Mobile analytics SDK.
-          //console.log("onNavigationStateChange"," cur:",currentScreen," prev:",prevScreen);
-          var eventfilter = ""
-          if (currentScreen == "SixrandomNewPage") {
-            //eventfilter = "SixrandomNewPage"
+          if (prevScreen !== currentScreen) {
+            // the line below uses the Google Analytics tracker
+            // change the tracker here to use other Mobile analytics SDK.
+            //console.log("onNavigationStateChange"," cur:",currentScreen," prev:",prevScreen);
+            var eventfilter = ""
+            if (currentScreen == "SixrandomNewPage") {
+              //eventfilter = "SixrandomNewPage"
+            }
+
+            NativePlumber.PlumberRouting(currentScreen, "", "", eventfilter)
+
           }
-
-          NativePlumber.PlumberRouting(currentScreen, "", "", eventfilter)
-
-        }
-      }}
-    />
+        }}
+      />
     </MenuProvider>
   </Provider>
 
