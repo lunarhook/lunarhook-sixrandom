@@ -1,10 +1,10 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, DeviceEventEmitter, Clipboard, Alert, Linking, NativeModules, Platform } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, DeviceEventEmitter, Clipboard, Alert, Linking, NativeModules, Platform ,PermissionsAndroid} from 'react-native';
 
 import TabNavigator from 'react-native-tab-navigator';
-import { Grid, Accordion, WhiteSpace, Tabs, Modal,  Button,Card } from '@ant-design/react-native';
+import { Grid, Accordion, WhiteSpace, Tabs, Modal, Button, Card } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig';
 import IconConfig from '../config/IconConfig';
 import ScreenConfig from '../config/ScreenConfig';
@@ -118,9 +118,8 @@ class kitPage extends React.Component {
       activeSections: [0, 1, 2, 3, 4, 5, 6, 7, 8],
       historyactiveSections: [0],
       Channel: "",
-      less: true,
+      less: false,
       handler: 0,
-      subscription: null
     };
     kitPageController = this
     this.onChange = (activeSections: number[]) => {
@@ -166,6 +165,10 @@ class kitPage extends React.Component {
         </TouchableOpacity>),
     }
   };
+  UNSAFE_componentWillMount() {
+    this.setState({ handler: 0 })
+    this.privacycheck()
+  }
   componentDidMount() {
     var NativePlumber = NativeModules.NativePlumber;
     NativePlumber.PlumberGetChannel((error, events) => {
@@ -174,22 +177,29 @@ class kitPage extends React.Component {
       this.setState({ Channel: events })
       this.refreshlist()
     })
-    this._navListener = this.props.navigation.addListener('didFocus', () => {
-      this.props.navigation.headerRight = (
-        <TouchableOpacity
-          style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
-          //onPress={() => navigate('Search')}
-          onPress={() => navigate(RouteConfig['kitConfigPage'].route)}
-        >
-          {RouteConfig['kitConfigPage'].icon}
-        </TouchableOpacity>)
-    });
-    this.setState({ handler: 0 })
-    this.privacycheck()
   }
-  privacycheck() {
+  async requestCameraPermission() {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA, PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        {
+          'title': '乾坤爻',
+          'message': '探索功能需要相册读写权限'
+        }
+      )
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log("You can use the camera")
+      } else {
+        console.log("Camera permission denied")
+      }
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
+  async privacycheck() {
     //this.setState({ less: true })
-    HistoryArrayGroup.GetFirstTime().then(T => {
+    await HistoryArrayGroup.GetFirstTime().then(T => {
       if (Platform.OS === 'android') {
         if (undefined == T) {
           this.setState({ less: true })
@@ -208,7 +218,7 @@ class kitPage extends React.Component {
                 onPress: () => RNExitApp.exitApp(),
                 style: 'cancel',
               },
-              { text: '同意', onPress: () => { HistoryArrayGroup.SaveFirstTime(), this.setState({ handler: 3 }), kitPage.ShareInstance().subscription.remove() ,this.NewUserFace()} },
+              { text: '同意', onPress: () => { HistoryArrayGroup.SaveFirstTime(), this.setState({ handler: 3 })} },
             ])
             //navigate(RouteConfig["MyPage"].route)
 
@@ -216,15 +226,14 @@ class kitPage extends React.Component {
           }
 
         }
-        else{
+        else {
           this.setState({ less: false })
         }
         this.requestCameraPermission()
       } else {
         if (undefined == T) {
           this.setState({ less: true })
-        }else
-        {
+        } else {
           this.setState({ less: false })
         }
         HistoryArrayGroup.SaveFirstTime()
@@ -232,6 +241,7 @@ class kitPage extends React.Component {
         DeviceEventEmitter.removeListener('privacycheck')
       }
     })
+    this.render()
   }
 
   refreshlist() {
@@ -481,132 +491,132 @@ class kitPage extends React.Component {
     }
     */
     //if (false == this.state.less) {
-      if ("关注" == tab.title) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["关注"]}
-            </Accordion></ScrollView>
-        )
-      } else if ("全部" == tab.title) {
-        return (
-          <ScrollView style={Styles.container}>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {(function (handler) {
-                var alllist = KitConfig.getalllist()
-                var sel = alllist[handler.state.selectmode]
-                var curalllist = JSON.parse(JSON.stringify(sel))
-                var content = new Array()
-                if ("Huawei" == kitPageController.state.Channel) {
-                  delete contentlist["大道易德"]
-                  delete contentlist["周易八卦"]
-                  delete contentlist["塔罗牌阵"]
-                  delete contentlist["星盘星座"]
-                }
-                curalllist.forEach(element => {
-                  if (undefined != contentlist[element.title]) {
-                    content.push(contentlist[element.title])
-                  }
-
-                })
-
-                return content
-              })(this)
+    if ("关注" == tab.title) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["关注"]}
+          </Accordion></ScrollView>
+      )
+    } else if ("全部" == tab.title) {
+      return (
+        <ScrollView style={Styles.container}>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {(function (handler) {
+              var alllist = KitConfig.getalllist()
+              var sel = alllist[handler.state.selectmode]
+              var curalllist = JSON.parse(JSON.stringify(sel))
+              var content = new Array()
+              if ("Huawei" == kitPageController.state.Channel) {
+                delete contentlist["大道易德"]
+                delete contentlist["周易八卦"]
+                delete contentlist["塔罗牌阵"]
+                delete contentlist["星盘星座"]
               }
+              curalllist.forEach(element => {
+                if (undefined != contentlist[element.title]) {
+                  content.push(contentlist[element.title])
+                }
 
-            </Accordion>
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" />
-          </ScrollView>
-        )
-      } else if ("儿童少年" == tab.title) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["儿童少年"]}
-            </Accordion></ScrollView>
-        )
-      } else if ("情感家庭" == tab.title) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["情感家庭"]}
-            </Accordion></ScrollView>
-        )
-      } else if ("心理学" == tab.title) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["性格测评"]}
-              {contentlist["心理测评"]}
-              {contentlist["情感家庭"]}
-              {contentlist["儿童少年"]}
+              })
 
-            </Accordion>
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" /></ScrollView>
-        )
-      } else if ("性格测评" == tab.title) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["性格测评"]}
-            </Accordion></ScrollView>
-        )
-      } else if ("抑郁焦虑" == tab.title) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["心理测评"]}
-            </Accordion></ScrollView>
-        )
-      }
-      else if ("周易八卦" == tab.title && "Huawei" != kitPageController.state.Channel) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["周易八卦"]}
-            </Accordion></ScrollView>
-        )
-      }
-      else if ("塔罗牌阵" == tab.title) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["塔罗牌阵"]}
-            </Accordion></ScrollView>
-        )
-      }
-      else if ("星盘星座" == tab.title && "Huawei" != kitPageController.state.Channel) {
-        return (
-          <ScrollView >
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["星盘星座"]}
-            </Accordion></ScrollView>
-        )
-      }
-      /*
-      else if ("大道易德" == tab.title && "Huawei" != kitPageController.state.Channel) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["大道易德"]}
-            </Accordion></ScrollView>
-        )
-      }
-      */
-      else if ("工具助手" == tab.title) {
-        return (
-          <ScrollView>
-            <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-              {contentlist["工具助手"]}
-            </Accordion></ScrollView>
-        )
-      }
+              return content
+            })(this)
+            }
+
+          </Accordion>
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+        </ScrollView>
+      )
+    } else if ("儿童少年" == tab.title) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["儿童少年"]}
+          </Accordion></ScrollView>
+      )
+    } else if ("情感家庭" == tab.title) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["情感家庭"]}
+          </Accordion></ScrollView>
+      )
+    } else if ("心理学" == tab.title) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["性格测评"]}
+            {contentlist["心理测评"]}
+            {contentlist["情感家庭"]}
+            {contentlist["儿童少年"]}
+
+          </Accordion>
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
+          <WhiteSpace size="xl" /></ScrollView>
+      )
+    } else if ("性格测评" == tab.title) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["性格测评"]}
+          </Accordion></ScrollView>
+      )
+    } else if ("抑郁焦虑" == tab.title) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["心理测评"]}
+          </Accordion></ScrollView>
+      )
+    }
+    else if ("周易八卦" == tab.title && "Huawei" != kitPageController.state.Channel) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["周易八卦"]}
+          </Accordion></ScrollView>
+      )
+    }
+    else if ("塔罗牌阵" == tab.title) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["塔罗牌阵"]}
+          </Accordion></ScrollView>
+      )
+    }
+    else if ("星盘星座" == tab.title && "Huawei" != kitPageController.state.Channel) {
+      return (
+        <ScrollView >
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["星盘星座"]}
+          </Accordion></ScrollView>
+      )
+    }
+    /*
+    else if ("大道易德" == tab.title && "Huawei" != kitPageController.state.Channel) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["大道易德"]}
+          </Accordion></ScrollView>
+      )
+    }
+    */
+    else if ("工具助手" == tab.title) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["工具助手"]}
+          </Accordion></ScrollView>
+      )
+    }
     //}
     /*
      else if ("全部" == tab.title) {
@@ -633,62 +643,66 @@ class kitPage extends React.Component {
     var itemsrandom = KitConfig.getitemsrandom()
     return (
       <View style={Styles.container}>
-        <Modal
-          title="欢迎来到乾坤爻"
-          transparent
-          onClose={()=>this.setState({less:false})}
-          maskClosable
-          visible={this.state.less}
-          closable
-        >
-          <View style={{ paddingVertical: 20 }}>
-
-            <Text style={{ textAlign: 'center' }}>新用户推荐</Text>
-            <WhiteSpace size="lg" />
-            <TouchableOpacity onPress={()=>{this.setState({less:false}),navigate(RouteConfig['MBTIModule'].route)}}>
-          <Card>
-            <Card.Header
-              extra={RouteConfig['MBTIModule'].name}
-              thumbStyle={{ width: 30, height: 30 }}
-              thumb={RouteConfig['MBTIModule'].icon}
-            />
-            <Card.Body>
-                <Text style={{ marginLeft: 16 }}>通过MBTI职业性格测试可以全面的了解人的内外向性格以及行动模式偏向思考还是感受</Text>
-            </Card.Body>
-          </Card>
-          </TouchableOpacity >
-          <WhiteSpace size="lg" />
-          <TouchableOpacity onPress={()=>{this.setState({less:false}),navigate(RouteConfig['NumberMainPage'].route)}}>
-          <Card>
-            <Card.Header
-              extra={RouteConfig['NumberMainPage'].name}
-              thumbStyle={{ width: 30, height: 30 }}
-              thumb={RouteConfig['NumberMainPage'].icon}
-            />
-            <Card.Body>
-                <Text style={{ marginLeft: 16 }}>通过对数字例如电话号码的排列组合可以对固定数字组合的运势做判断快</Text>
-            </Card.Body>
-          </Card>
-          </TouchableOpacity>
-          <WhiteSpace size="lg" />
-          <TouchableOpacity onPress={()=>{this.setState({less:false}),navigate(RouteConfig['GamblePage'].route)}}>
-          <Card>
-            <Card.Header
-              extra={RouteConfig['GamblePage'].name}
-              thumbStyle={{ width: 30, height: 30 }}
-              thumb={RouteConfig['GamblePage'].icon}
-            />
-            <Card.Body>
-                <Text style={{ marginLeft: 16 }}>当你的情感不顺利的时候可以尝试用星座骰子去探索下问题</Text>
-            </Card.Body>
-          </Card>
-          </TouchableOpacity>
-          <WhiteSpace size="lg" />
-          </View>
-          <Button type="primary" onPress={()=>this.setState({less:false})}>
-           关闭
+        {function () {
+          let cthis = kitPage.ShareInstance()
+          if (true == cthis.state.less) {
+            return (<Modal
+              title="欢迎来到乾坤爻"
+              transparent
+              onClose={() => cthis.setState({ less: false })}
+              maskClosable
+              visible={cthis.state.less}
+              closable>
+              <View style={{ paddingVertical: 20 }}>
+                <Text style={{ textAlign: 'center' }}>新用户推荐</Text>
+                <WhiteSpace size="lg" />
+                <TouchableOpacity onPress={() => { cthis.setState({ less: false }), navigate(RouteConfig['MBTIModule'].route) }}>
+                  <Card>
+                    <Card.Header
+                      extra={RouteConfig['MBTIModule'].name}
+                      thumbStyle={{ width: 30, height: 30 }}
+                      thumb={RouteConfig['MBTIModule'].icon}
+                    />
+                    <Card.Body>
+                      <Text style={{ marginLeft: 16 }}>通过MBTI职业性格测试可以全面的了解人的内外向性格以及行动模式偏向思考还是情感</Text>
+                    </Card.Body>
+                  </Card>
+                </TouchableOpacity >
+                <WhiteSpace size="lg" />
+                <TouchableOpacity onPress={() => { this.setState({ less: false }), navigate(RouteConfig['NumberMainPage'].route) }}>
+                  <Card>
+                    <Card.Header
+                      extra={RouteConfig['NumberMainPage'].name}
+                      thumbStyle={{ width: 30, height: 30 }}
+                      thumb={RouteConfig['NumberMainPage'].icon}
+                    />
+                    <Card.Body>
+                      <Text style={{ marginLeft: 16 }}>通过对数字例如电话号码的排列组合可以对固定数字组合的运势做判断快</Text>
+                    </Card.Body>
+                  </Card>
+                </TouchableOpacity>
+                <WhiteSpace size="lg" />
+                <TouchableOpacity onPress={() => { this.setState({ less: false }), navigate(RouteConfig['GamblePage'].route) }}>
+                  <Card>
+                    <Card.Header
+                      extra={RouteConfig['GamblePage'].name}
+                      thumbStyle={{ width: 30, height: 30 }}
+                      thumb={RouteConfig['GamblePage'].icon}
+                    />
+                    <Card.Body>
+                      <Text style={{ marginLeft: 16 }}>当你的情感不顺利的时候可以尝试用星座骰子去探索下问题</Text>
+                    </Card.Body>
+                  </Card>
+                </TouchableOpacity>
+                <WhiteSpace size="lg" />
+              </View>
+              <Button type="primary" onPress={() => cthis.setState({ less: false })}>
+                关闭
           </Button>
-        </Modal>
+            </Modal>)
+          }
+        }()}
+
 
         <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14, }}>
           {this.renderContent}

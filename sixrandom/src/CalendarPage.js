@@ -48,7 +48,7 @@ class CalendarPage extends React.Component {
       imgindex: imgindex,
       fadeInOpacity: new Animated.Value(0),
       handler: 0,
-      otherParam:false,
+      otherParam: false,
     };
     if (undefined == CalendarPagethis) {
       //console.log("CalendarPageload")
@@ -77,8 +77,8 @@ class CalendarPage extends React.Component {
     }
   };
 
-  static ShareInstance(){
-    if(!CalendarPagethis){
+  static ShareInstance() {
+    if (!CalendarPagethis) {
       CalendarPagethis = new CalendarPage();
     }
     return CalendarPagethis;
@@ -150,7 +150,7 @@ class CalendarPage extends React.Component {
       var cur = new Date();
       cur = this.getDateFormat(cur)
       if (cur != this.state.selected) {
-        this.setState({otherParam:true})
+        this.setState({ otherParam: true })
       }
       //console.log("refresh calendar:",wanNianLiInfo)
     }, 1000 * 60);
@@ -162,7 +162,6 @@ class CalendarPage extends React.Component {
     infotimedetail = []
     // 如果存在this.timer，则使用clearTimeout清空。
     // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
-    this.subscription.remove();
     this.timer && clearInterval(this.timer);
   }
   renderItem(item) {
@@ -243,46 +242,28 @@ class CalendarPage extends React.Component {
         onPress={() => navigate(RouteConfig["MyPage"].route)}
         titleStyle={StyleConfig.menufont}>
       </TabNavigator.Item>)
-  /*
-    if ("sixrandom" == keys) {
+    /*
+      if ("sixrandom" == keys) {
+        return (
+          <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+            {kitPage}
+            {LunarMasterPage}
+            {MyPage}
+          </TabNavigator >
+        )
+      }
       return (
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
           {kitPage}
           {LunarMasterPage}
+          {ExplorationTab}
           {MyPage}
         </TabNavigator >
       )
-    }
-    return (
-      <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
-        {kitPage}
-        {LunarMasterPage}
-        {ExplorationTab}
-        {MyPage}
-      </TabNavigator >
-    )
-    */
-  }
-  async requestCameraPermission() {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CAMERA, PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        {
-          'title': '乾坤爻',
-          'message': '探索功能需要相册读写权限'
-        }
-      )
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log("You can use the camera")
-      } else {
-        console.log("Camera permission denied")
-      }
-    } catch (err) {
-      console.warn(err)
-    }
+      */
   }
 
-  
+
 
   render() {
     if (undefined != this.props.navigation.state.params && "refresh" === this.props.navigation.state.params.text) {
@@ -407,7 +388,7 @@ class CalendarPage extends React.Component {
     this.state.info = UniversechangesConfig.GetInfo(this.state.wanNianLiInfo)
     var sday = this.getDateFormat(now);
     this.setState({
-      selected :sday
+      selected: sday
     })
   }
   onDayPress(day) {
@@ -424,7 +405,7 @@ class CalendarPage extends React.Component {
       this.setState({
         selected: day.dateString
       });
-      this.setState({otherParam:true})
+      this.setState({ otherParam: true })
     }
 
   }
