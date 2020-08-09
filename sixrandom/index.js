@@ -177,7 +177,9 @@ const MainPage = createBottomTabNavigator({
           console.log("tabBarOnPress", routeName)
           nv.defaultHandler();
         }
-      }
+      },
+      headerRight: <View/>,
+      headerLeft: <View/> 
     }),
     navigationOptions: ({ navigation }) => ({
       title: RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].name,
@@ -196,12 +198,20 @@ const MainPage = createBottomTabNavigator({
               </MenuOptions>
             </Menu>)
           } else if ("CalendarPage" == curpage) {
+            recover = (navigation.state.routes[navigation.state.index]).params
+            if(undefined!=recover)
+            {
+              recover = recover.otherParam
+            }
+            else{
+              recover = false
+            }
             return (
               <TouchableOpacity
                 style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}
                 //onPress={() => navigate('Search')}
                 onPress={() => CalendarPage.ShareInstance().today()}>
-                {(false == CalendarPage.ShareInstance().state.otherParam) ? IconConfig.ReCover : IconConfig.ReCover}
+                {(false == recover) ? (null) : IconConfig.ReCover}
               </TouchableOpacity>)
           } else if ("LunarMasterPage" == curpage) {
             return (

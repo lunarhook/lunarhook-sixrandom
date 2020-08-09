@@ -15,6 +15,7 @@ import UniversechangesConfig from './kit/UniversechangesLib/UniversechangesConfi
 import { WhiteSpace, Card, WingBlank } from '@ant-design/react-native'
 import { HistoryArrayGroup } from './config/StorageModule'
 import RNExitApp from 'react-native-exit-app';
+import { useNavigation } from '@react-navigation/native';
 HistoryArrayGroup.init()
 
 
@@ -388,8 +389,10 @@ class CalendarPage extends React.Component {
     this.state.info = UniversechangesConfig.GetInfo(this.state.wanNianLiInfo)
     var sday = this.getDateFormat(now);
     this.setState({
-      selected: sday
+      selected: sday,
+      otherParam: false
     })
+    this.props.navigation.setParams({otherParam: false})
   }
   onDayPress(day) {
     var now = new Date();
@@ -403,9 +406,9 @@ class CalendarPage extends React.Component {
       this.state.wanNianLiInfo = SixrandomModule.build(parameter);
       this.state.info = UniversechangesConfig.GetInfo(this.state.wanNianLiInfo)
       this.setState({
-        selected: day.dateString
+        selected: day.dateString,otherParam: true 
       });
-      this.setState({ otherParam: true })
+      this.props.navigation.setParams({otherParam: true })
     }
 
   }
