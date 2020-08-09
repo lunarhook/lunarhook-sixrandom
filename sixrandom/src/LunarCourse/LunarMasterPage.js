@@ -263,12 +263,14 @@ class LunarMasterPage extends React.Component {
 
     if ("关注" == tab.title) {
       return (
+        <ScrollView>
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           {contentlist["关注"]}
-        </Accordion>
+        </Accordion></ScrollView>
       )
     } else if ("全部" == tab.title) {
       return (
+        <ScrollView>
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
           {(function (handler) {
             var alllist = MasterConfig.getMasteralllist()
@@ -285,7 +287,7 @@ class LunarMasterPage extends React.Component {
             return content
           })(this)
           }
-        </Accordion>
+        </Accordion></ScrollView>
       )
     } else if ("MBTI训练" == tab.title) {
       return (

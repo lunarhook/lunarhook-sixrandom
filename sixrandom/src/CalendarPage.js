@@ -154,7 +154,6 @@ class CalendarPage extends React.Component {
       }
       //console.log("refresh calendar:",wanNianLiInfo)
     }, 1000 * 60);
-    this.subscription = DeviceEventEmitter.addListener('privacycheck', () => this.setState({ handler: 0 }))
 
   }
   componentWillUnmount() {
@@ -283,45 +282,13 @@ class CalendarPage extends React.Component {
     }
   }
 
-  privacycheck() {
-    if (Platform.OS === 'android') {
-      HistoryArrayGroup.GetFirstTime().then(T => {
-        if (undefined == T) {
-          if (0 == this.state.handler) {
-            var handler = Modal.alert('服务协议和隐私政策', '用户请审慎阅读，充分理解"服务协议"和"隐私政策"各项条款，包括但不限于：为了向您提供即时通信，内容分享等服务，同时需要收集用户您的设备信息，日志和个人信息。您可以在"设置"查看变更删除您的各项信息并管理授权。您可以阅读"服务协议"和"隐私政策"了解详细信息，如果您同意，请点击"同意"并开始接受我们的服务', [
-              {
-                text: '《用户协议》',
-                onPress: () => { this.setState({ handler: 1 }), this.props.navigation.navigate("AgreePage") },
-              },
-              {
-                text: '《隐私政策》',
-                onPress: () => { this.setState({ handler: 2 }), this.props.navigation.navigate("PrivacyPage") },
-              },
-              {
-                text: '退出',
-                onPress: () => RNExitApp.exitApp(),
-                style: 'cancel',
-              },
-              { text: '同意', onPress: () => { HistoryArrayGroup.SaveFirstTime(), this.setState({ handler: 3 }) } },
-            ])
-            //navigate(RouteConfig["MyPage"].route)
-
-            console.log("privacycheck", handler)
-          }
-
-        }
-      })
-
-      this.requestCameraPermission()
-    }
-  }
+  
 
   render() {
     if (undefined != this.props.navigation.state.params && "refresh" === this.props.navigation.state.params.text) {
       this.props.navigation.state.params.text = ""
       StyleConfig = FontStyleConfig.buildstyle()
     }
-    this.privacycheck()
     const { navigate } = this.props.navigation;
     var wanNianLiInfo = this.state.wanNianLiInfo;
 

@@ -1,10 +1,10 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Image, Clipboard, Alert, Linking, NativeModules, Platform } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, DeviceEventEmitter, Clipboard, Alert, Linking, NativeModules, Platform } from 'react-native';
 
 import TabNavigator from 'react-native-tab-navigator';
-import { Grid, Accordion, WhiteSpace, Tabs, Badge } from '@ant-design/react-native';
+import { Grid, Accordion, WhiteSpace, Tabs, Modal,  Button,Card } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig';
 import IconConfig from '../config/IconConfig';
 import ScreenConfig from '../config/ScreenConfig';
@@ -118,7 +118,9 @@ class kitPage extends React.Component {
       activeSections: [0, 1, 2, 3, 4, 5, 6, 7, 8],
       historyactiveSections: [0],
       Channel: "",
-      less: false
+      less: true,
+      handler: 0,
+      subscription: null
     };
     kitPageController = this
     this.onChange = (activeSections: number[]) => {
@@ -142,8 +144,8 @@ class kitPage extends React.Component {
       }
     };
   };
-  static ShareInstance(){
-    if(!kitPageController){
+  static ShareInstance() {
+    if (!kitPageController) {
       kitPageController = new kitPage();
     }
     return kitPageController;
@@ -182,7 +184,56 @@ class kitPage extends React.Component {
           {RouteConfig['kitConfigPage'].icon}
         </TouchableOpacity>)
     });
+    this.setState({ handler: 0 })
+    this.privacycheck()
   }
+  privacycheck() {
+    //this.setState({ less: true })
+    HistoryArrayGroup.GetFirstTime().then(T => {
+      if (Platform.OS === 'android') {
+        if (undefined == T) {
+          this.setState({ less: true })
+          if (0 == this.state.handler) {
+            var handler = Modal.alert('服务协议和隐私政策', '用户请审慎阅读，充分理解"服务协议"和"隐私政策"各项条款，包括但不限于：为了向您提供即时通信，内容分享等服务，同时需要收集用户您的设备信息，日志和个人信息。您可以在"设置"查看变更删除您的各项信息并管理授权。您可以阅读"服务协议"和"隐私政策"了解详细信息，如果您同意，请点击"同意"并开始接受我们的服务', [
+              {
+                text: '《用户协议》',
+                onPress: () => { this.setState({ handler: 1 }), this.props.navigation.navigate("AgreePage") },
+              },
+              {
+                text: '《隐私政策》',
+                onPress: () => { this.setState({ handler: 2 }), this.props.navigation.navigate("PrivacyPage") },
+              },
+              {
+                text: '退出',
+                onPress: () => RNExitApp.exitApp(),
+                style: 'cancel',
+              },
+              { text: '同意', onPress: () => { HistoryArrayGroup.SaveFirstTime(), this.setState({ handler: 3 }), kitPage.ShareInstance().subscription.remove() ,this.NewUserFace()} },
+            ])
+            //navigate(RouteConfig["MyPage"].route)
+
+            console.log("privacycheck", handler)
+          }
+
+        }
+        else{
+          this.setState({ less: false })
+        }
+        this.requestCameraPermission()
+      } else {
+        if (undefined == T) {
+          this.setState({ less: true })
+        }else
+        {
+          this.setState({ less: false })
+        }
+        HistoryArrayGroup.SaveFirstTime()
+        this.setState({ handler: 3 })
+        DeviceEventEmitter.removeListener('privacycheck')
+      }
+    })
+  }
+
   refreshlist() {
     var itemsrandom = KitConfig.getitemsrandom()
     this.setState({ tabs: itemsrandom['全部'] })
@@ -414,7 +465,7 @@ class kitPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-
+    /*
     if (true == this.state.less) {
       contentlist = new Array()
       contentlist["呦呦鹿鸣"] = (
@@ -428,7 +479,8 @@ class kitPage extends React.Component {
             onPress={(_el: any, index: any) => { navigate(_el.url) }}
           /></Accordion.Panel >)
     }
-    if (false == this.state.less) {
+    */
+    //if (false == this.state.less) {
       if ("关注" == tab.title) {
         return (
           <ScrollView>
@@ -555,7 +607,9 @@ class kitPage extends React.Component {
             </Accordion></ScrollView>
         )
       }
-    } else if ("全部" == tab.title) {
+    //}
+    /*
+     else if ("全部" == tab.title) {
       return (
         <ScrollView style={Styles.container}>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -563,9 +617,10 @@ class kitPage extends React.Component {
           </Accordion></ScrollView>
       )
     }
-
+    */
   };
   render() {
+
     if ("" == this.state.Channe) {
       return (<View></View>)
     }
@@ -578,50 +633,105 @@ class kitPage extends React.Component {
     var itemsrandom = KitConfig.getitemsrandom()
     return (
       <View style={Styles.container}>
+        <Modal
+          title="欢迎来到乾坤爻"
+          transparent
+          onClose={()=>this.setState({less:false})}
+          maskClosable
+          visible={this.state.less}
+          closable
+        >
+          <View style={{ paddingVertical: 20 }}>
 
+            <Text style={{ textAlign: 'center' }}>新用户推荐</Text>
+            <WhiteSpace size="lg" />
+            <TouchableOpacity onPress={()=>{this.setState({less:false}),navigate(RouteConfig['MBTIModule'].route)}}>
+          <Card>
+            <Card.Header
+              extra={RouteConfig['MBTIModule'].name}
+              thumbStyle={{ width: 30, height: 30 }}
+              thumb={RouteConfig['MBTIModule'].icon}
+            />
+            <Card.Body>
+                <Text style={{ marginLeft: 16 }}>通过MBTI职业性格测试可以全面的了解人的内外向性格以及行动模式偏向思考还是感受</Text>
+            </Card.Body>
+          </Card>
+          </TouchableOpacity >
+          <WhiteSpace size="lg" />
+          <TouchableOpacity onPress={()=>{this.setState({less:false}),navigate(RouteConfig['NumberMainPage'].route)}}>
+          <Card>
+            <Card.Header
+              extra={RouteConfig['NumberMainPage'].name}
+              thumbStyle={{ width: 30, height: 30 }}
+              thumb={RouteConfig['NumberMainPage'].icon}
+            />
+            <Card.Body>
+                <Text style={{ marginLeft: 16 }}>通过对数字例如电话号码的排列组合可以对固定数字组合的运势做判断快</Text>
+            </Card.Body>
+          </Card>
+          </TouchableOpacity>
+          <WhiteSpace size="lg" />
+          <TouchableOpacity onPress={()=>{this.setState({less:false}),navigate(RouteConfig['GamblePage'].route)}}>
+          <Card>
+            <Card.Header
+              extra={RouteConfig['GamblePage'].name}
+              thumbStyle={{ width: 30, height: 30 }}
+              thumb={RouteConfig['GamblePage'].icon}
+            />
+            <Card.Body>
+                <Text style={{ marginLeft: 16 }}>当你的情感不顺利的时候可以尝试用星座骰子去探索下问题</Text>
+            </Card.Body>
+          </Card>
+          </TouchableOpacity>
+          <WhiteSpace size="lg" />
+          </View>
+          <Button type="primary" onPress={()=>this.setState({less:false})}>
+           关闭
+          </Button>
+        </Modal>
 
         <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14, }}>
           {this.renderContent}
         </Tabs>
         <View>
-        {function () {
-              /*
+          {function () {
+            /*
+            return (<TabNavigator.Item
+              title={this.state.less == false ? RouteConfig["kitExplorationPage"].name : RouteConfig["kitPage"].name}
+              renderIcon={() => RouteConfig["kitExplorationPage"].icon}
+              //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+              //onPress={() => navigate(RouteConfig["kitExplorationPage"].route)}
+              onPress={() => this.setState({ less: !this.state.less, tabs: false == this.state.less ? [{ title: '全部', isSelect: true }] : itemsrandom["全部"] })}
+              titleStyle={StyleConfig.menufont}>
+            </TabNavigator.Item>)
+            */
+          }()}
+          {function () {
+            /*
+            if (kitPageController && kitPageController.state.less == false) {
               return (<TabNavigator.Item
-                title={this.state.less == false ? RouteConfig["kitExplorationPage"].name : RouteConfig["kitPage"].name}
-                renderIcon={() => RouteConfig["kitExplorationPage"].icon}
+                title={RouteConfig["SearchPage"].name}
+                renderIcon={() => RouteConfig["SearchPage"].icon}
                 //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                //onPress={() => navigate(RouteConfig["kitExplorationPage"].route)}
-                onPress={() => this.setState({ less: !this.state.less, tabs: false == this.state.less ? [{ title: '全部', isSelect: true }] : itemsrandom["全部"] })}
+                onPress={() => navigate(RouteConfig["SearchPage"].route)}
                 titleStyle={StyleConfig.menufont}>
               </TabNavigator.Item>)
-              */
-            }()}
-            {function () {
-              /*
-              if (kitPageController && kitPageController.state.less == false) {
-                return (<TabNavigator.Item
-                  title={RouteConfig["SearchPage"].name}
-                  renderIcon={() => RouteConfig["SearchPage"].icon}
-                  //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                  onPress={() => navigate(RouteConfig["SearchPage"].route)}
-                  titleStyle={StyleConfig.menufont}>
-                </TabNavigator.Item>)
-              }*/
-            }()}
-            {function () {
-              /*
-              if (Platform.OS === 'android' || Platform.OS === 'ios') {
-                return (<TabNavigator.Item
-                  title={RouteConfig["service"].name}
-                  renderIcon={() => RouteConfig["service"].icon}
-                  //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                  onPress={() => kitPageController.onBussion("service", navigate)}
-                  titleStyle={StyleConfig.menufont}>
-                </TabNavigator.Item>)
-              }
-              */
-            }()
+            }*/
+          }()}
+          {function () {
+            /*
+            if (Platform.OS === 'android' || Platform.OS === 'ios') {
+              return (<TabNavigator.Item
+                title={RouteConfig["service"].name}
+                renderIcon={() => RouteConfig["service"].icon}
+                //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+                onPress={() => kitPageController.onBussion("service", navigate)}
+                titleStyle={StyleConfig.menufont}>
+              </TabNavigator.Item>)
             }
+            */
+          }()
+          }
 
         </View>
       </View>)
