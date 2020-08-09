@@ -192,9 +192,9 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-safe-area-context (3.1.3):
+  - react-native-safe-area-context (3.1.4):
     - React
-  - react-native-segmented-control (2.1.0):
+  - react-native-segmented-control (2.1.1):
     - React
   - react-native-shake (3.4.0):
     - React
@@ -243,7 +243,7 @@ PODS:
     - React
   - RNCMaskedView (0.1.10):
     - React
-  - RNCPicker (1.6.5):
+  - RNCPicker (1.6.6):
     - React
   - RNDeviceInfo (5.6.3):
     - React
@@ -436,8 +436,8 @@ SPEC CHECKSUMS:
   react-native-compass-heading: 18742617bdb9e06ce104bd3b90f0dc700b791fd1
   react-native-fingerprint-scanner: ac6656f18c8e45a7459302b84da41a44ad96dbbe
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-safe-area-context: b0bdaac4c56a861b06aaf1569efd1121c6a2427e
-  react-native-segmented-control: 4ce904755f67bf17d5250d265d57e40db045ac34
+  react-native-safe-area-context: eb91fe1fb3f7b87d9c30a7f0808407d8569d539d
+  react-native-segmented-control: 05d93c1c7576b53189720012a3e8a3c23608d849
   react-native-shake: de052eaa3eadc4a326b8ddd7ac80c06e8d84528c
   react-native-slider: e99fc201cefe81270fc9d81714a7a0f5e566b168
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
@@ -454,7 +454,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNCPicker: 55b9b4240d0a9eba8733d02616775d4040de2e7d
+  RNCPicker: 494015f2b7ec4bee5484b6f235aa19691426dcdb
   RNDeviceInfo: 5be12a5bfbb8da3528c43ee4373abd9c30d04616
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
   RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
