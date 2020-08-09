@@ -19,11 +19,22 @@ static KeepBG *instance = nil;
 @implementation KeepBG
 
 + (instancetype)sharedInstance {
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[KeepBG alloc] init];
     });
+    if(false==instance.needRunInBackground){
+      NSURL* urlToDocumentsFolder = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+      __autoreleasing NSError *error;
+      NSDate *installDate = [[[NSFileManager defaultManager] attributesOfItemAtPath:urlToDocumentsFolder.path error:&error] objectForKey:NSFileCreationDate];
+      NSTimeInterval t = [installDate timeIntervalSince1970];
+      NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+      NSTimeInterval curtime=[dat timeIntervalSince1970];
+      NSTimeInterval diff= curtime-t;
+      if(diff > 24*60*60){//安装超过24小时，就开始使用长驻后台了
+        instance.needRunInBackground = true;
+      }
+    }
     return instance;
 }
 
