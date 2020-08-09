@@ -669,7 +669,7 @@ class kitPage extends React.Component {
                   </Card>
                 </TouchableOpacity >
                 <WhiteSpace size="lg" />
-                <TouchableOpacity onPress={() => { this.setState({ less: false }), navigate(RouteConfig['NumberMainPage'].route) }}>
+                <TouchableOpacity onPress={() => { cthis.setState({ less: false }), navigate(RouteConfig['NumberMainPage'].route) }}>
                   <Card>
                     <Card.Header
                       extra={RouteConfig['NumberMainPage'].name}
@@ -682,7 +682,7 @@ class kitPage extends React.Component {
                   </Card>
                 </TouchableOpacity>
                 <WhiteSpace size="lg" />
-                <TouchableOpacity onPress={() => { this.setState({ less: false }), navigate(RouteConfig['GamblePage'].route) }}>
+                <TouchableOpacity onPress={() => { cthis.setState({ less: false }), navigate(RouteConfig['GamblePage'].route) }}>
                   <Card>
                     <Card.Header
                       extra={RouteConfig['GamblePage'].name}
