@@ -52,7 +52,7 @@ const story = [
 var w = ScreenConfig.__screenW()
 var coln = 4
 if (w > 320 && Platform.OS === 'ios') {
-  coln = 5
+  coln = 4
 }
 var NativePlumber = NativeModules.NativePlumber;
 let LunarMasterPagethis = null
@@ -191,7 +191,7 @@ class LunarMasterPage extends React.Component {
   renderItemel(el, index) {
     return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
       {el.icon}
-      <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 12 }}>{el.text}</Text>
+      <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
     </View>)
   }
   renderContent = (tab, index) => {
