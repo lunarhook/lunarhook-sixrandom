@@ -183,12 +183,12 @@ const MainPage = createBottomTabNavigator({
         if (undefined != navigation.state) {
           var curpage = navigation.state.routes[navigation.state.index].routeName
           if ("kitPage" == curpage) {
-            return (<Menu style={{ paddingRight: 20}}>
+            return (<Menu style={{ paddingRight: 20,alignContent: "center", alignItems: "baseline" }}>
               <MenuTrigger>{RouteConfig['kitConfigPage'].icon}</MenuTrigger>
-              <MenuOptions style={{width:175 }}>
-                <MenuOption style={{flexDirection:"row",alignItems:"center"}}  onSelect={() => navigation.navigate(RouteConfig['kitConfigPage'].route)}><Text style={{includeFontPadding: false,textAlignVertical:"center",height:30}}>{RouteConfig['kitConfigPage'].icon}</Text><Text style={{marginLeft:20}}>{RouteConfig['kitConfigPage'].name}</Text></MenuOption>
-                <MenuOption style={{flexDirection:"row",alignItems:"center"}}  onSelect={() => navigation.navigate(RouteConfig["SearchPage"].route)}><Text style={{alignItems:"center",textAlignVertical:"center",height:30}}>{RouteConfig["SearchPage"].icon}</Text><Text style={{marginLeft:20}}>{RouteConfig["SearchPage"].name}</Text></MenuOption>
-                <MenuOption style={{flexDirection:"row",alignItems:"center"}} onSelect={() => kitPage.ShareInstance().onBussion("service", navigation.navigate)}><Text style={{alignItems:"center",textAlignVertical:"center",height:30}}>{RouteConfig["service"].icon}</Text><Text style={{marginLeft:20}}>{RouteConfig["service"].name}</Text></MenuOption>
+              <MenuOptions >
+                <MenuOption onSelect={() => navigation.navigate(RouteConfig['kitConfigPage'].route)}>{RouteConfig['kitConfigPage'].icon}</MenuOption>
+                <MenuOption onSelect={() => navigation.navigate(RouteConfig["SearchPage"].route)}>{RouteConfig["SearchPage"].icon}</MenuOption>
+                <MenuOption onSelect={() => kitPage.ShareInstance().onBussion("service", navigation.navigate)}>{RouteConfig["service"].icon}</MenuOption>
                 </MenuOptions>
             </Menu>)
           } else if ("CalendarPage" == curpage) {
@@ -204,7 +204,7 @@ const MainPage = createBottomTabNavigator({
               <TouchableOpacity
                 style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}
                 //onPress={() => navigate('Search')}
-                onPress={() =>navigation.navigate(RouteConfig["LunarCoursePage"].route)}>{IconConfig.IconBooks}
+                onPress={() =>navigation.navigate(RouteConfig["LunarCoursePage"].route)}>{RouteConfig["LunarCoursePage"].icon}
               </TouchableOpacity>)
           }else if ("MyPage" == curpage) {
             return (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => MyPage.ShareInstance().compontupdate()} />)
