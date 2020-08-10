@@ -182,7 +182,7 @@ const MainPage = createBottomTabNavigator({
       headerLeft: <View/> 
     }),
     navigationOptions: ({ navigation }) => ({
-      title: RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].name,
+      title: RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].titlename,
       headerLeft: () => (<></>),
       headerRight: () => {
         if (undefined != navigation.state) {

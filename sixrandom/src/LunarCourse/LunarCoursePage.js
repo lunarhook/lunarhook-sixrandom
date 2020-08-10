@@ -1,10 +1,19 @@
 
 import React, { Component } from 'react';
 import { AppRegistry, View, Text, ScrollView, TouchableOpacity, NativeModules, FlatList, Dimensions } from 'react-native';
+import { MenuProvider } from 'react-native-popup-menu';
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu';
 import TabNavigator from 'react-native-tab-navigator';
 import { Tabs, Grid, Accordion, WhiteSpace } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig'
 import ScreenConfig from '../config/ScreenConfig';
+import IconConfig from '../config/IconConfig'
+import kitPage from '../kit/kitPage'
 import { StyleConfig, FontStyleConfig } from '../config/StyleConfig';
 import { HistoryArrayGroup } from '../config/StorageModule'
 import CourseConfig from '../config/CourseConfig'
@@ -112,13 +121,22 @@ class LunarCoursePage extends React.Component {
 
       title: RouteConfig["LunarCoursePage"].titlename,
       headerRight: () => (
-        <TouchableOpacity
+        /*<TouchableOpacity
           style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
           //onPress={() => navigate('Search')}
           onPress={() => navigate(RouteConfig['LunarCourseConfigPage'].route)}
         >
           {RouteConfig['LunarCourseConfigPage'].icon}
         </TouchableOpacity>),
+        */
+        <Menu style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}>
+          <MenuTrigger>{RouteConfig['LunarCourseConfigPage'].icon}</MenuTrigger>
+          <MenuOptions style={{ width: 175, flex: 1 }}>
+            <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig['LunarCourseConfigPage'].route)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", height: 30, width: 30 }}>{RouteConfig['LunarCourseConfigPage'].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig['LunarCourseConfigPage'].name}</Text></MenuOption>
+            <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig["CourseSearchPage"].route)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{RouteConfig["CourseSearchPage"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["CourseSearchPage"].name}</Text></MenuOption>
+            <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => kitPage.ShareInstance().onBussion("service", navigation.navigate)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{RouteConfig["service"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["service"].name}</Text></MenuOption>
+          </MenuOptions>
+        </Menu>)
     }
   };
   componentDidMount() {
@@ -442,7 +460,7 @@ class LunarCoursePage extends React.Component {
     }
 
   };
-  
+
   render() {
     const { navigate } = this.props.navigation;
     if ("" == this.state.Channel) {
@@ -460,17 +478,20 @@ class LunarCoursePage extends React.Component {
           {this.renderContent}
         </Tabs>
         <View>
-        <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+          {
+            /**        
+            <TabNavigator style={{ height: ScreenConfig.getTabBarHeight() }} tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+              <TabNavigator.Item
+                title={RouteConfig["CourseSearchPage"].name}
+                renderIcon={() => RouteConfig["CourseSearchPage"].icon}
+                //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+                onPress={() => navigate(RouteConfig["CourseSearchPage"].route)}
+                titleStyle={StyleConfig.menufont}>
+              </TabNavigator.Item>
+            </TabNavigator >*/
+          }
 
-<TabNavigator.Item
-  title={RouteConfig["CourseSearchPage"].name}
-  renderIcon={() => RouteConfig["CourseSearchPage"].icon}
-  //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-  onPress={() => navigate(RouteConfig["CourseSearchPage"].route)}
-  titleStyle={StyleConfig.menufont}>
-</TabNavigator.Item>
-</TabNavigator >
-</View>
+        </View>
       </View>
     )
   }

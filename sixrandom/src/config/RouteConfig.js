@@ -35,11 +35,11 @@ RouteConfig={
        
         
     //工具是优先解决需求的工具，尽量免费
-    "kitPage":{"name":"探索","route":"kitPage","titlename":"探索","icon":IconConfig.IconKit},
+    "kitPage":{"name":"探索","route":"kitPage","titlename":"心理探索","icon":IconConfig.IconKit},
         "kitExplorationPage":{"name":"呦呦鹿鸣","route":"kitExplorationPage","titlename":"呦呦鹿鸣","icon":IconConfig.IconKit},
         //周易工具
         "UniversechangesPage":{"name":"周易测评","route":"UniversechangesPage","icon":IconConfig.IconUniversechanges},
-            "CalendarPage":{"name":"乾坤","route":"CalendarPage","icon":IconConfig.IconCalendar},
+            "CalendarPage":{"name":"乾坤","route":"CalendarPage","titlename":"乾坤爻","icon":IconConfig.IconCalendar},
                 "SixrandomNewPage":{"name":"六爻问卦","route":"SixrandomNewPage","icon":IconConfig.SixrandomSel},
                 "SixrandomFullInfoPage":{"name":"卦象详解","route":"SixrandomFullInfoPage","icon":IconConfig.SixrandomSel},
                 "SixrandomHistoryPage":{"name":"六爻历史","route":"SixrandomHistoryPage","icon":IconConfig.IconDetail},
@@ -129,7 +129,7 @@ RouteConfig={
         "LunarMasterConfigPage":{"name":"课程训练配置","route":"LunarMasterConfigPage","icon":IconConfig.IconSubmit},
         "CourseSearchPage":{"name":"说文助手","route":"CourseSearchPage","titlename":"说文解字","icon":IconConfig.IconSearch},
         "LunarCourseAnswerPage":{"name":"答疑解惑","route":"LunarCourseAnswerPage","titlename":"答疑解惑","icon":IconConfig.IconAnswerIntro},
-        "LunarMasterPage":{"name":"课程","route":"LunarMasterPage","titlename":"课程","icon":IconConfig.IconLunarCourse},
+        "LunarMasterPage":{"name":"课程","route":"LunarMasterPage","titlename":"书院课程","icon":IconConfig.IconLunarCourse},
 
         "ReadPage":{"name":"阅读","route":"ReadPage","titlename":"阅读","icon":IconConfig.IconLunarCourse},     
         "service":{"name":"服务支持","route":"service","icon":IconConfig.Service},     

@@ -96,7 +96,7 @@ class LunarMasterPage extends React.Component {
 
     return {
 
-      title: RouteConfig["LunarMasterPage"].titlename,
+      title: RouteConfig["LunarMasterPage"].name,
 
     }
   };

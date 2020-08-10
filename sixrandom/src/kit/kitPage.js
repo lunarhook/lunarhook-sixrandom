@@ -154,7 +154,7 @@ class kitPage extends React.Component {
     const { navigate } = navigation;
 
     return {
-      title: RouteConfig["kitPage"].titlename,
+      title: RouteConfig["kitPage"].name,
       headerRight: () => (
         <TouchableOpacity
           style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
@@ -647,14 +647,13 @@ class kitPage extends React.Component {
           let cthis = kitPage.ShareInstance()
           if (true == cthis.state.less) {
             return (<Modal
-              title="欢迎来到乾坤爻"
+              title="新用户推荐"
               transparent
               onClose={() => cthis.setState({ less: false })}
               maskClosable
               visible={cthis.state.less}
               closable>
               <View style={{ paddingVertical: 20 }}>
-                <Text style={{ textAlign: 'center' }}>新用户推荐</Text>
                 <WhiteSpace size="lg" />
                 <TouchableOpacity onPress={() => { cthis.setState({ less: false }), navigate(RouteConfig['MBTIModule'].route) }}>
                   <Card>
@@ -677,7 +676,7 @@ class kitPage extends React.Component {
                       thumb={RouteConfig['NumberMainPage'].icon}
                     />
                     <Card.Body>
-                      <Text style={{ marginLeft: 16 }}>通过对数字例如电话号码的排列组合可以对固定数字组合的运势做判断快</Text>
+                      <Text style={{ marginLeft: 16 }}>通过对数字例如电话号码的排列组合对固定数字组合的运势做判断</Text>
                     </Card.Body>
                   </Card>
                 </TouchableOpacity>
