@@ -73,7 +73,7 @@ NSString *const RCTJSNavigationScheme = @"react-js-navigation";
   [plumberIOSManager plumberStart:pConf appName:@"plumber-sdk" uid:@"11111-11111-11111-11111-11111"];
   
   [[KeepBG sharedInstance] registerBgTask];
-  [KeepBG sharedInstance].needRunInBackground = YES;
+  //[KeepBG sharedInstance].needRunInBackground = YES;
   return YES;
 }
 
