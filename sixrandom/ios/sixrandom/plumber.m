@@ -32,6 +32,7 @@ RCT_EXPORT_METHOD(SetHandlerException:(NSString *)errormessage dev:(BOOL)devmode
   NSString *exceptionReason = errormessage;    //异常的信息
   NSDictionary *exceptionUserInfo = nil;
   NSException *exception = [NSException exceptionWithName:exceptionName reason:exceptionReason userInfo:exceptionUserInfo];
+  [plumberIOSManager plumberSendJSException:exception];
  if(false==devmode)
   {
     exit(0);
