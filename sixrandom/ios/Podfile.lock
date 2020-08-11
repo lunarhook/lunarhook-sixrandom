@@ -251,7 +251,7 @@ PODS:
     - React
   - RNGestureHandler (1.7.0):
     - React
-  - RNReanimated (1.11.0):
+  - RNReanimated (1.12.0):
     - React
   - RNScreens (2.10.1):
     - React
@@ -458,7 +458,7 @@ SPEC CHECKSUMS:
   RNDeviceInfo: 5be12a5bfbb8da3528c43ee4373abd9c30d04616
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
   RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
-  RNReanimated: f05ea1c5ee07891aaefee662f073f4944c87ac4d
+  RNReanimated: 9c475f9b272232351d94a1a781e8b7580bac1ff4
   RNScreens: b748efec66e095134c7166ca333b628cd7e6f3e2
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNSwisseph: 74fa73befd5d9ca79ba8e7030b4340023c12ecfd
