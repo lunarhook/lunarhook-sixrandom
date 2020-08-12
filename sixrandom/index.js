@@ -147,7 +147,8 @@ const MainPage = createBottomTabNavigator({
 
   CalendarPage: { screen: CalendarPage },
   kitPage: { screen: kitPage },
-  LunarMasterPage: { screen: LunarMasterPage },
+  LunarCoursePage:{screen:LunarCoursePage},
+  //LunarMasterPage: { screen: LunarMasterPage },
   MyPageFake: createStackNavigator(
     { "MyPageFake": "我的" },
     {

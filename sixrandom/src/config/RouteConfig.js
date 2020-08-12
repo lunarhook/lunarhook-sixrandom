@@ -118,11 +118,11 @@ RouteConfig={
         //心理咨询录音工具
         "ConsultantAudioRecord":{"name":"咨询录音","route":"ConsultantAudioRecord","icon":IconConfig.ConfigIcon},
         "permutationcombination":{"name":"排列组合计算器","route":"permutationcombination","icon":IconConfig.ConfigIcon},
-        "LunarCoursePageTab":{"name":"无邪书院","route":"LunarCoursePageTab","titlename":"无邪书院","icon":IconConfig.IconLunarCourse},
+        "LunarCoursePageTab":{"name":"无邪书院","route":"LunarCoursePageTab","titlename":"无邪书院","icon":IconConfig.IconBooks},
        
     
         //课程是进一步提高成本，解决问题的方法，合理收费
-        "LunarCoursePage":{"name":"无邪书院","route":"LunarCoursePage","titlename":"无邪书院","icon":IconConfig.IconMaster},
+        "LunarCoursePage":{"name":"思想","route":"LunarCoursePage","titlename":"思想","icon":IconConfig.IconLunarCourse},
         "LunarBooks":{"name":"无邪书院","route":"LunarCoursePage","titlename":"思无邪","icon":IconConfig.IconBooks},
         
         "LunarCourseConfigPage":{"name":"书院配置","route":"LunarCourseConfigPage","icon":IconConfig.IconSubmit},
