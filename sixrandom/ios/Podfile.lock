@@ -25,7 +25,7 @@ PODS:
     - Folly (= 2018.10.22.00)
     - RCTRequired (= 0.61.5)
     - React-Core (= 0.61.5)
-  - RCTWeChat (1.9.12):
+  - RCTWeChat (1.1.22):
     - React
   - React (0.61.5):
     - React-Core (= 0.61.5)
@@ -245,13 +245,13 @@ PODS:
     - React
   - RNCPicker (1.6.6):
     - React
-  - RNDeviceInfo (5.6.3):
+  - RNDeviceInfo (5.6.4):
     - React
   - RNExitApp (1.1.0):
     - React
   - RNGestureHandler (1.7.0):
     - React
-  - RNReanimated (1.12.0):
+  - RNReanimated (1.13.0):
     - React
   - RNScreens (2.10.1):
     - React
@@ -424,7 +424,7 @@ SPEC CHECKSUMS:
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
-  RCTWeChat: 21edc74a8d759566d226e6fa12e7ea5ac6bf2129
+  RCTWeChat: 38d5db24dba71d7c4f251f71103fd9ee366bf300
   React: b6a59ef847b2b40bb6e0180a97d0ca716969ac78
   React-Core: 688b451f7d616cc1134ac95295b593d1b5158a04
   React-CoreModules: d04f8494c1a328b69ec11db9d1137d667f916dcb
@@ -455,10 +455,10 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNCPicker: 494015f2b7ec4bee5484b6f235aa19691426dcdb
-  RNDeviceInfo: 5be12a5bfbb8da3528c43ee4373abd9c30d04616
+  RNDeviceInfo: a576aac2f2927eb7e0058a27dad811c8e7cd1474
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
   RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
-  RNReanimated: 9c475f9b272232351d94a1a781e8b7580bac1ff4
+  RNReanimated: 89f5e0a04d1dd52fbf27e7e7030d8f80a646a3fc
   RNScreens: b748efec66e095134c7166ca333b628cd7e6f3e2
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNSwisseph: 74fa73befd5d9ca79ba8e7030b4340023c12ecfd
