@@ -118,11 +118,11 @@ RouteConfig={
         //心理咨询录音工具
         "ConsultantAudioRecord":{"name":"咨询录音","route":"ConsultantAudioRecord","icon":IconConfig.ConfigIcon},
         "permutationcombination":{"name":"排列组合计算器","route":"permutationcombination","icon":IconConfig.ConfigIcon},
-        "LunarCoursePageTab":{"name":"无邪书院","route":"LunarCoursePageTab","titlename":"无邪书院","icon":IconConfig.IconBooks},
+        "LunarCoursePageTab":{"name":"无邪书院","route":"LunarCoursePageTab","titlename":"无邪书院","icon":IconConfig.IconLunarCourse},
        
     
         //课程是进一步提高成本，解决问题的方法，合理收费
-        "LunarCoursePage":{"name":"思想","route":"LunarCoursePage","titlename":"思想","icon":IconConfig.IconLunarCourse},
+        "LunarCoursePage":{"name":"无邪书院","route":"LunarCoursePage","titlename":"无邪书院","icon":IconConfig.IconMaster},
         "LunarBooks":{"name":"无邪书院","route":"LunarCoursePage","titlename":"思无邪","icon":IconConfig.IconBooks},
         
         "LunarCourseConfigPage":{"name":"书院配置","route":"LunarCourseConfigPage","icon":IconConfig.IconSubmit},
@@ -202,8 +202,18 @@ RouteConfig={
             "zhanguoPage":{"name":"古文观止","route":"","icon":IconConfig.IconLunarCourse},
             "zhanguoPage":{"name":"山海经","route":"","icon":IconConfig.IconLunarCourse},
         */
-       "fivelevel1Module":{"name":"五行掌握·感受自然","titlename":"五行掌握","route":"CourseBookPage","icon":""},      
-       "fivelevel2Module":{"name":"五行掌握·感受自然","titlename":"五行掌握","route":"CourseBookPage","icon":""},   
+
+       "story1Module":{"name":"故事课","titlename":"故事课","route":"CourseBookPage","icon":""},   
+       "MBTI1Module":{"name":"故事课","titlename":"故事课","route":"CourseBookPage","icon":""},   
+       "fivelevel1Module":{"name":"五行掌握·感受自然","titlename":"感受自然","route":"CourseBookPage","icon":""},      
+       "fivelevel2Module":{"name":"五行掌握·感受自然","titlename":"世间万象","route":"CourseBookPage","icon":""},   
+       "fivelevel3Module":{"name":"五行掌握·感受自然","titlename":"人间百态","route":"CourseBookPage","icon":""},      
+       "fivelevel4Module":{"name":"五行掌握·感受自然","titlename":"家道伦常","route":"CourseBookPage","icon":""},   
+
+       "oldlevel1Module":{"name":"道德经·道德原本","titlename":"道德原本","route":"CourseBookPage","icon":""},   
+       "oldlevel2Module":{"name":"道德经·矛盾变化","titlename":"矛盾变化","route":"CourseBookPage","icon":""},   
+       "oldlevel3Module":{"name":"道德经·沧海桑田","titlename":"沧海桑田","route":"CourseBookPage","icon":""},   
+
 
 
     "MyPage":{"name":"我的","card":"管理","route":"MyPage","icon":IconConfig.IconPerson},

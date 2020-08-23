@@ -56,9 +56,9 @@ class WechatShare extends React.Component {
     if(false==WechatSharethis.init){
       try {
         var keys = AppRegistry.getAppKeys();
-        var str = appinfo[keys[0]]
+        var str = appinfo[keys[1]]
         console.log("wechatshare",str,keys,appname)
-          WeChat.registerApp(str,"https://www.lunarhook.com/Uni_"+keys[0]+"/");
+          WeChat.registerApp(str,"https://www.lunarhook.com/Uni_"+keys[1]+"/");
           WechatSharethis.apiVersion = await WeChat.getApiVersion();
           WechatSharethis.wxAppInstallUrl = Platform.OS === 'ios' ? await WeChat.getWXAppInstallUrl(): null;
           WechatSharethis.isWXAppSupportApi = await WeChat.isWXAppSupportApi();
@@ -344,7 +344,7 @@ class WechatShare extends React.Component {
     })
   }
   saveImg(img,sw,ds) {
-    CameraRoll.saveToCameraRoll(img).then(result => {
+    CameraRoll.save(img).then(result => {
       this.share(img,sw,ds).then(v=>{
         console.log(v,sw)
         if(""!=sw)
@@ -446,12 +446,12 @@ class WechatShare extends React.Component {
         <View style={{alignItems: 'center',justifyContent: 'center'}}>
         <Image
         style={{width:  128, height:128}}
-        source={{uri: shareimg[keys[0]]}}
+        source={{uri: shareimg[keys[1]]}}
         />
         <Text ></Text>
         <Text >www.lunarhook.com</Text>
         <Text ></Text>
-        <Text >{appname[keys[0]]} {Platform.OS.toUpperCase() + " " +  this.version}</Text>
+        <Text >{appname[keys[1]]} {Platform.OS.toUpperCase() + " " +  this.version}</Text>
         <Text ></Text>
         <Text >{formattedDateString}</Text>
      

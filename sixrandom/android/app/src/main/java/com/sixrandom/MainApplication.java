@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
 import com.facebook.react.ReactApplication;
+import com.facebook.react.ReactInstanceManager;
 import com.reactlibrary.RNSwissephPackage;
 import com.theweflex.react.WeChatPackage;
 import com.github.wumke.RNExitApp.RNExitAppPackage;
@@ -39,117 +40,124 @@ import java.util.List;
 import android.content.pm.*;
 import android.content.Context;
 
-
 public class MainApplication extends Application implements ReactApplication {
 
-  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-    @Override
-    public boolean getUseDeveloperSupport() {
-      return BuildConfig.DEBUG;
-    }
+  private final ReactNativeHost mReactNativeHost =
+      new ReactNativeHost(this) {
+        @Override
+        public boolean getUseDeveloperSupport() {
+          return BuildConfig.DEBUG;
+        }
 
-    @Override
-    protected List<ReactPackage> getPackages() {
-
-      @SuppressWarnings("UnnecessaryLocalVariable")
-      List<ReactPackage> packages = new PackageList(this).getPackages();
+        @Override
+        protected List<ReactPackage> getPackages() {
+          @SuppressWarnings("UnnecessaryLocalVariable")
+          List<ReactPackage> packages = new PackageList(this).getPackages();
+          // Packages that cannot be autolinked yet can be added manually here, for example:
+          // packages.add(new MyReactNativePackage());
             packages.add(new NativePlumberPackage());
-            return packages;
-    }
+          return packages;
+        }
 
-
-    @Override
-    protected String getJSMainModuleName() {
-      return "index";
-    }
-  };
+        @Override
+        protected String getJSMainModuleName() {
+          return "index";
+        }
+      };
 
   @Override
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;
   }
 
-  private String getChannel(Context context) {
-    try {
-      PackageManager pm = context.getPackageManager();
-      String name = context.getPackageName();
-      ApplicationInfo appInfo = pm.getApplicationInfo(name, PackageManager.GET_META_DATA);
-      String channel = appInfo.metaData.getString("ChannelId");
-      return channel;
-    } catch (Exception e) {
+    private String getChannel(Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            String name = context.getPackageName();
+            ApplicationInfo appInfo = pm.getApplicationInfo(name, PackageManager.GET_META_DATA);
+            String channel = appInfo.metaData.getString("ChannelId");
+            return channel;
+        } catch (Exception e) {
+        }
+        return "default";
     }
-    return "default";
-  }
 
   @Override
   public void onCreate() {
-    Compass.init(this, getChannel(this), "", "plumber-sdk");
     super.onCreate();
-    MultiDex.install(this);
-    //MultiDex.install(this);
     SoLoader.init(this, /* native exopackage */ false);
-    initializeFlipper(this); // Remove this line if you don't want Flipper enabled
-    this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+      MultiDex.install(this);
+      SoLoader.init(this, /* native exopackage */ false);
+      initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
+      this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 
-      @Override
-      public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+          @Override
+          public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
 
-      }
+          }
 
-      @Override
-      public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+          @Override
+          public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
 
-      }
+          }
 
-      @Override
-      public void onActivityStarted(Activity activity) {
+          @Override
+          public void onActivityStarted(Activity activity) {
 
-      }
+          }
 
 
-      @Override
-      public void onActivityPaused(Activity activity) {
-        Compass.setLocationInfo(20.0f,20.0f,"testgeoinfo","testgeoinfo");
-      }
+          @Override
+          public void onActivityPaused(Activity activity) {
+              Compass.setLocationInfo(20.0f,20.0f,"testgeoinfo","testgeoinfo");
+          }
 
-      @Override
-      public void onActivityStopped(Activity activity) {
+          @Override
+          public void onActivityStopped(Activity activity) {
 
-      }
+          }
 
-      @Override
-      public void onActivityResumed(Activity activity) {
-        //Compas
-        Compass.setLocationInfo(10.0f,10.0f,"testgeoinfo","testgeoinfo");
-      }
+          @Override
+          public void onActivityResumed(Activity activity) {
+              //Compas
+              Compass.setLocationInfo(10.0f,10.0f,"testgeoinfo","testgeoinfo");
+          }
 
-      @Override
-      public void onActivityDestroyed(Activity activity) {
+          @Override
+          public void onActivityDestroyed(Activity activity) {
 
-      }
-    });
+          }
+      });
   }
 
-  private static void initializeFlipper(Context context) {
-      if (BuildConfig.DEBUG) {
-        try {
-          /*
-           We use reflection here to pick up the class that initializes Flipper,
-          since Flipper library is not available in release mode
-          */
-          Class<?> aClass = Class.forName("com.facebook.flipper.ReactNativeFlipper");
-          aClass.getMethod("initializeFlipper", Context.class).invoke(null, context);
-        } catch (ClassNotFoundException e) {
-          e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-          e.printStackTrace();
-        } catch (IllegalAccessException e) {
-          e.printStackTrace();
-        } catch (InvocationTargetException e) {
-          e.printStackTrace();
-        }
+  /**
+   * Loads Flipper in React Native templates. Call this in the onCreate method with something like
+   * initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+   *
+   * @param context
+   * @param reactInstanceManager
+   */
+  private static void initializeFlipper(
+      Context context, ReactInstanceManager reactInstanceManager) {
+    if (BuildConfig.DEBUG) {
+      try {
+        /*
+         We use reflection here to pick up the class that initializes Flipper,
+        since Flipper library is not available in release mode
+        */
+        Class<?> aClass = Class.forName("com.sixrandom.ReactNativeFlipper");
+        aClass
+            .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
+            .invoke(null, context, reactInstanceManager);
+      } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+      } catch (NoSuchMethodException e) {
+        e.printStackTrace();
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      } catch (InvocationTargetException e) {
+        e.printStackTrace();
       }
-
-
-      }
-};
+    }
+  }
+}

@@ -48,7 +48,7 @@ class slogan extends React.Component {
     }
     this.timer = setTimeout(() => {
       //console.log("test",keys[0])
-      this.props.navigation.navigate(keys[0])
+      this.props.navigation.navigate(keys[1])
       //this.props.navigation.navigate("kitPage")
     }, 1000 * 4);
   }
@@ -62,7 +62,7 @@ class slogan extends React.Component {
     var wanNianLiInfo = SixrandomModule.lunarsix();
     var curtimelucky = wanNianLiInfo.info.gzTime
     var imgindex = this.imgtime[curtimelucky[1]]
-    Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000 }), Animated.delay(2000), Animated.timing(this.state.fadeInOpacity, { toValue: 0, duration: 1000 })]).start()
+    Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000 ,useNativeDriver: true}), Animated.delay(2000), Animated.timing(this.state.fadeInOpacity, { toValue: 0, duration: 1000 ,useNativeDriver: true})]).start()
     var cur = Math.floor(Math.random() * 10000)
     var item = sloganshow.getitem(cur)
     return (

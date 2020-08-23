@@ -66,7 +66,7 @@ class SloganShare extends React.Component {
     thiscontrollor.setState({fadeInOpacity: new Animated.Value(1) })
   }
   render() {
-    let anim = Animated.sequence([ Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, }),  Animated.delay(3000), Animated.timing(this.state.fadeInOpacity, { toValue: 0, duration: 2000 }) ])
+    let anim = Animated.sequence([ Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true}),  Animated.delay(3000), Animated.timing(this.state.fadeInOpacity, { toValue: 0, duration: 2000 }) ])
       
     if (false == this.state.shareimg) {
       this.timer && clearInterval(this.timer);

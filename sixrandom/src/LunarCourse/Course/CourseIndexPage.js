@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 import {StyleSheet,View, Text,ScrollView,TouchableOpacity,RefreshControl,FlatList,Dimensions} from 'react-native';
 import RouteConfig from '../../config/RouteConfig'
 
-import {fivelevel1Module} from './fiveLevel1/fivelevel1'
+import {fivelevel1Module} from './fiveLevel/fivelevel1'
+import {oldlevel1Module} from './oldLevel/oldlevel1'
 
 class CourseIndexPage extends React.Component {
   constructor(props) {
@@ -19,7 +20,8 @@ class CourseIndexPage extends React.Component {
     GetBookType(ctype)
     {
       var type = new Array()
-      type["五行掌握"] = fivelevel1Module
+      type["感受自然"] = fivelevel1Module
+      type["道德原本"] = oldlevel1Module
       var booktype = new Array()
       booktype = booktype.concat(type[ctype])
       return booktype

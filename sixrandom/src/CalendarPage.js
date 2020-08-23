@@ -293,7 +293,7 @@ class CalendarPage extends React.Component {
         infoindexdetail = infotimedetail[x]
       }
     }
-    Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 3000 }).start()
+    Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 3000 ,useNativeDriver: true}).start()
     //console.log("icon", imgindex)
     //console.log(Platform.OS,TabNavigator.tabBarHeight)
     return (

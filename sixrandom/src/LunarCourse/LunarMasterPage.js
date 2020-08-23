@@ -22,29 +22,31 @@ const intro = [
 
 ]
 const MBTI = [
-  { icon: IconConfig.IconStar, text: "由内而外", url: "", },
+  { icon: IconConfig.IconStar, text: "由内而外", url: RouteConfig['MBTI1Module'].route, index: { text: "MBTI1Module" }, },
+  /*
   { icon: IconConfig.IconStar, text: "敏锐感知", url: "" },
   { icon: IconConfig.IconStar, text: "情感逻辑", url: "" },
   { icon: IconConfig.IconStar, text: "探索判断", url: "" },
   { icon: IconConfig.IconStar, text: "运用变化", url: "" },
   { icon: IconConfig.IconStar, text: "社交关系", url: "" },
   { icon: IconConfig.IconStar, text: "需求满足", url: "" },
+  */
 ]
 
 const Univers = [
   { icon: IconConfig.IconLunarCourseRed, text: "感受自然", url: RouteConfig['fivelevel1Module'].route, index: { text: "fivelevel1Module" } },
   { icon: IconConfig.IconLunarCourseBlue, text: "世间万象", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
-  { icon: IconConfig.IconLunarCourseclaygreen, text: "人间百态", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
-  { icon: IconConfig.IconLunarCourseLightPink, text: "家道伦常", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  { icon: IconConfig.IconLunarCourseclaygreen, text: "人间百态", url: RouteConfig['fivelevel3Module'].route, index: { text: "fivelevel3Module" } },
+  { icon: IconConfig.IconLunarCourseLightPink, text: "家道伦常", url: RouteConfig['fivelevel4Module'].route, index: { text: "fivelevel4Module" } },
 ]
 const old = [
-  { icon: IconConfig.IconLunarCourseGold, text: "道德原本", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
-  { icon: IconConfig.IconLunarCourseGreen, text: "矛盾变化", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
-  { icon: IconConfig.IconLunarCourseclaygreen, text: "人间道", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  { icon: IconConfig.IconLunarCourseGold, text: "道德原本", url: RouteConfig['oldlevel1Module'].route, index: { text: "oldlevel1Module" } },
+  { icon: IconConfig.IconLunarCourseGreen, text: "矛盾变化", url: RouteConfig['oldlevel2Module'].route, index: { text: "oldlevel2Module" } },
+  { icon: IconConfig.IconLunarCourseclaygreen, text: "人间道", url: RouteConfig['oldlevel3Module'].route, index: { text: "oldlevel3Module" } },
 ]
 
 const story = [
-  { icon: IconConfig.IconLunarCourseGold, text: "故事课", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
+  { icon: IconConfig.IconLunarCourseGold, text: "故事课", url: RouteConfig['story1Module'].route, index: { text: "story1Module" } },
   //{ icon: IconConfig.IconLunarCourseGreen, text: "矛盾变化", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
   //{ icon: IconConfig.IconLunarCourseclaygreen, text: "人间道", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
 ]
@@ -161,12 +163,14 @@ class LunarMasterPage extends React.Component {
     datahistory.push({ icon: el.icon, text: el.text, url: el.url })
     datahistory.reverse()
     tabs = this.state.tabs
+    /*
     if (datahistory.length > 0) {
       if (tabs[1].title === "关注") { } else { tabs.splice(1, 0, { title: '关注' }) }
 
     }
     this.setState({ datahistory: datahistory, tabs: tabs })
     this.props.navigation.setParams({ text: "refresh" })
+    */
     if (undefined != el.index) {
 
       var param = JSON.parse(JSON.stringify(el.index))
@@ -198,6 +202,7 @@ class LunarMasterPage extends React.Component {
     console.log("renderContentfunc", tab, index)
     const { navigate } = this.props.navigation;
     var contentlist = new Array()
+    /*
     contentlist["关注"] = (
       <Accordion.Panel header="关注" key={"关注"}>
         <Grid
@@ -217,6 +222,7 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
+        */
     contentlist["故事课"] = (
       <Accordion.Panel header={"故事课"} key={"故事课"}>
         <Grid
@@ -237,6 +243,7 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
+        
     contentlist["五行掌握"] = (
       <Accordion.Panel header={"五行掌握"} key={"五行掌握"}>
         <Grid
@@ -247,6 +254,7 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
+       
     contentlist["道德经"] = (
       <Accordion.Panel header={"道德经"} key={"道德经"}>
         <Grid
@@ -260,7 +268,7 @@ class LunarMasterPage extends React.Component {
 
 
 
-
+ /*
     if ("关注" == tab.title) {
       return (
         <ScrollView>
@@ -268,7 +276,8 @@ class LunarMasterPage extends React.Component {
           {contentlist["关注"]}
         </Accordion></ScrollView>
       )
-    } else if ("全部" == tab.title) {
+    } else 
+    */if ("全部" == tab.title) {
       return (
         <ScrollView>
         <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -289,7 +298,7 @@ class LunarMasterPage extends React.Component {
           }
         </Accordion></ScrollView>
       )
-    } else if ("MBTI训练" == tab.title) {
+    } /*else if ("MBTI训练" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -297,7 +306,7 @@ class LunarMasterPage extends React.Component {
           </Accordion>
         </ScrollView>
       )
-    } else if ("五行掌握" == tab.title) {
+    } */else if ("五行掌握" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -305,7 +314,7 @@ class LunarMasterPage extends React.Component {
           </Accordion>
         </ScrollView>
       )
-    } else if ("道德经" == tab.title) {
+    } /*else if ("道德经" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -313,7 +322,7 @@ class LunarMasterPage extends React.Component {
           </Accordion>
         </ScrollView>
       )
-    }
+    }*/
   };
 
   render() {

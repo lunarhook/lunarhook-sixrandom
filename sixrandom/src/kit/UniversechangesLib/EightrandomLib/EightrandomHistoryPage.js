@@ -158,8 +158,8 @@ class EightrandomHistoryPage extends React.Component {
   Animaterefreshlist(rowData) {
     if (!this.animationIsRunning) {
       this.animationIsRunning = true;
-      Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 0, duration: 500 }).start(() => {
-        Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 1, duration: 10 }).start(() => {
+      Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 0, duration: 500 ,useNativeDriver: true}).start(() => {
+        Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 1, duration: 10 ,useNativeDriver: true}).start(() => {
           this.animationIsRunning = false;
           this.refreshlist();
         })
