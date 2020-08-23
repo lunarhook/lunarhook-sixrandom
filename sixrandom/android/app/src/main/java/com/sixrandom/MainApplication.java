@@ -84,10 +84,10 @@ public class MainApplication extends Application implements ReactApplication {
 
   @Override
   public void onCreate() {
+      Compass.init(this, getChannel(this), "", "plumber-sdk");
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
       MultiDex.install(this);
-      SoLoader.init(this, /* native exopackage */ false);
       initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
       this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 
