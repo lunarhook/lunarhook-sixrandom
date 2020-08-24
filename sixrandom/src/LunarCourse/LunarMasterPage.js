@@ -298,7 +298,7 @@ class LunarMasterPage extends React.Component {
           }
         </Accordion></ScrollView>
       )
-    } /*else if ("MBTI训练" == tab.title) {
+    } else if ("MBTI训练" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -306,7 +306,7 @@ class LunarMasterPage extends React.Component {
           </Accordion>
         </ScrollView>
       )
-    } */else if ("五行掌握" == tab.title) {
+    } else if ("五行掌握" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -314,7 +314,7 @@ class LunarMasterPage extends React.Component {
           </Accordion>
         </ScrollView>
       )
-    } /*else if ("道德经" == tab.title) {
+    } else if ("道德经" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -322,7 +322,7 @@ class LunarMasterPage extends React.Component {
           </Accordion>
         </ScrollView>
       )
-    }*/
+    }
   };
 
   render() {
