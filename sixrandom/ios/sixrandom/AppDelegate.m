@@ -114,11 +114,10 @@ NSString *const RCTJSNavigationScheme = @"react-js-navigation";
   [[KeepBG sharedInstance] scheduleAppRefresh];
   NSLog(@"%s：应用进入后台DidEnterBackground", __FUNCTION__);
   self.backgroundTaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithName:kBgTaskName expirationHandler:^{
-
-     if ([KeepBG sharedInstance].needRunInBackground) {
-         [[KeepBG sharedInstance].player play];
-     }
   }];
+  if ([KeepBG sharedInstance].needRunInBackground) {
+      [[KeepBG sharedInstance].player play];
+  }
 }
 
 @end
