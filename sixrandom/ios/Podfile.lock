@@ -324,11 +324,11 @@ PODS:
     - React
   - RNCPicker (1.6.6):
     - React
-  - RNDeviceInfo (6.0.0):
+  - RNDeviceInfo (6.0.1):
     - React
   - RNExitApp (1.1.0):
     - React
-  - RNGestureHandler (1.7.0):
+  - RNGestureHandler (1.8.0):
     - React
   - RNReanimated (1.13.0):
     - React
@@ -532,7 +532,7 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
-  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  DoubleConversion: cde416483dac037923206447da6e1454df403714
   FBLazyVector: 3ef4a7f62e7db01092f9d517d2ebc0d0677c4a37
   FBReactNativeSpec: dc7fa9088f0f2a998503a352b0554d69a4391c5a
   Flipper: 33585e2d9810fe5528346be33bcf71b37bb7ae13
@@ -543,7 +543,7 @@ SPEC CHECKSUMS:
   Flipper-RSocket: 64e7431a55835eb953b0bf984ef3b90ae9fdddd7
   FlipperKit: bc68102cd4952a258a23c9c1b316c7bec1fecf83
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
-  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   OpenSSL-Universal: 8b48cc0d10c1b2923617dfe5c178aa9ed2689355
   RCTRequired: f13f25e7b12f925f1f6a6a8c69d929a03c0129fe
   RCTTypeSafety: 44982c5c8e43ff4141eb519a8ddc88059acd1f3a
@@ -579,9 +579,9 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 2a692bcb9b69b76a2f1a95f33db057129700af64
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNCPicker: 494015f2b7ec4bee5484b6f235aa19691426dcdb
-  RNDeviceInfo: e6a28bc6f05bf2fd3ad0ceb18d161314444fc85d
+  RNDeviceInfo: 6dd5c07a482f2a5e4a29fe8a9d99eadd4277175a
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
-  RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
+  RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
   RNReanimated: 89f5e0a04d1dd52fbf27e7e7030d8f80a646a3fc
   RNScreens: b748efec66e095134c7166ca333b628cd7e6f3e2
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
