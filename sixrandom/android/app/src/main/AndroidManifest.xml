@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.CAMERA" />
@@ -46,10 +46,10 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="true"
-
-      android:theme="@style/AppTheme">
         android:requestLegacyExternalStorage="true"
-        tools:targetApi="29"
+      android:theme="@style/AppTheme">
+
+        <!--tools:targetApi="28"-->
         <meta-data android:name="ChannelId" android:value="${CHANNEL_VALUE}"></meta-data>
       <activity
         android:name=".MainActivity"

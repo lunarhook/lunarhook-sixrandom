@@ -8,5 +8,5 @@
 
     <application android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
-        tools:targetApi="29" tools:ignore="GoogleAppIndexingWarning" />
+        tools:targetApi="28" tools:ignore="GoogleAppIndexingWarning" />
 </manifest>

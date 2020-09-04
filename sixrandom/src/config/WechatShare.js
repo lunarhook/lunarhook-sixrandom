@@ -286,12 +286,13 @@ class WechatShare extends React.Component {
               }).then(null,R=>{
                 console.log(R)
               })
+              resolve("ok")
             }
           catch(e)
           {
             console.log(e)
           }
-          resolve("ok")
+
         }
         else {
             Alert.alert('没有安装微信', '请先安装微信客户端在进行登录', [
@@ -340,11 +341,7 @@ class WechatShare extends React.Component {
         }
     })
   }
-  async saveImg(img,sw,ds) {
-    if (Platform.OS === "android" && !(await this._checkPermission())) {
-      return;
-    }
-  
+  saveImg(img,sw,ds) {
     CameraRoll.save(img,'photo',"sixrandom").then(result => {
       this.share(img,sw,ds).then(v=>{
         console.log(v,sw)
