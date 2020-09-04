@@ -1,6 +1,6 @@
 
 import React,{Component} from 'react';
-import {Alert ,Platform,AppRegistry ,View,Image,Text,Linking,NativeModules} from 'react-native';
+import {Alert ,Platform,AppRegistry ,View,Image,Text,Linking,NativeModules,PermissionsAndroid} from 'react-native';
 import { Modal } from '@ant-design/react-native';
 import CameraRoll from "@react-native-community/cameraroll";
 import TabNavigator from 'react-native-tab-navigator';
@@ -69,6 +69,7 @@ class WechatShare extends React.Component {
       }
       //console.log(WeChat);
     }
+    
     
   }
 
@@ -255,20 +256,16 @@ class WechatShare extends React.Component {
   }
   */
 
-  _checkPermission(){
-      if (Platform.OS !== 'android') {
-          return Promise.resolve(true);
-      }
+ async _checkPermission(){
+    const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
 
-      const rationale = {
-          'title': '相册权限',
-          'message': '逗戏需要您的相册权限来保存图片'
-      };
-
-      return PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE, rationale)
-          .then((result) => {
-              return (result === true || result === PermissionsAndroid.RESULTS.GRANTED);
-          });
+    const hasPermission = await PermissionsAndroid.check(permission);
+    if (hasPermission) {
+      return true;
+    }
+  
+    const status = await PermissionsAndroid.request(permission);
+    return status === 'granted';
   }
   WechaShareShareLocalImage(imageUrl,type)
   {
@@ -343,8 +340,12 @@ class WechatShare extends React.Component {
         }
     })
   }
-  saveImg(img,sw,ds) {
-    CameraRoll.save(img).then(result => {
+  async saveImg(img,sw,ds) {
+    if (Platform.OS === "android" && !(await this._checkPermission())) {
+      return;
+    }
+  
+    CameraRoll.save(img,'photo',"sixrandom").then(result => {
       this.share(img,sw,ds).then(v=>{
         console.log(v,sw)
         if(""!=sw)
