@@ -744,31 +744,31 @@ class EightrandomMainPage extends React.Component {
                 <Accordion.Panel header="八字冲克">
                   <List>
                     <Item wrap multipleLine
-                    ><Text > {r.dr}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.dr}</Text><WhiteSpace size="xl" /></Item>
 
                     <Item wrap multipleLine
-                    ><Text > {r.er}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.er}</Text><WhiteSpace size="xl" /></Item>
                     <Item wrap multipleLine
-                    ><Text > {r.lr}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.lr}</Text><WhiteSpace size="xl" /></Item>
                     <Item wrap multipleLine
-                    ><Text > {r.br}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.br}</Text><WhiteSpace size="xl" /></Item>
                   </List>
                 </Accordion.Panel >
                 <Accordion.Panel header="日柱信息">
                   <List>
                     <Item wrap multipleLine
                     >
-                      <Text > {day.self}</Text><WhiteSpace size="xl" />
-                      <Text > {day.tip}</Text><WhiteSpace size="xl" />
-                      <Text > 家宅:{house}</Text><WhiteSpace size="xl" />
+                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.self}</Text><WhiteSpace size="xl" />
+                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.tip}</Text><WhiteSpace size="xl" />
+                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> 家宅:{house}</Text><WhiteSpace size="xl" />
                     </Item>
 
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="婚姻提示(受大运流年影响)">
+                <Accordion.Panel header="婚姻提示">
                   <List>
                     <Item wrap multipleLine
-                    ><Text > {marryinfo}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {marryinfo}</Text><WhiteSpace size="xl" /></Item>
                   </List>
                 </Accordion.Panel >
 

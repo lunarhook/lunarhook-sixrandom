@@ -10,11 +10,6 @@ import shareimg from './shareimage'
 import ScreenConfig from './ScreenConfig';
 import {StyleConfig,FontStyleConfig} from './StyleConfig';
 import {appinfo,appname} from './appinfo'
-//import * as QQAPI from 'react-native-qq';
-import { EventEmitter } from 'events';
-
-
-const emitter = new EventEmitter();
 
 class WechatError extends Error {
   constructor(resp) {
@@ -57,7 +52,7 @@ class WechatShare extends React.Component {
       try {
         var keys = AppRegistry.getAppKeys();
         var str = appinfo[keys[1]]
-        console.log("wechatshare",str,keys,appname)
+          //console.log("wechatshare",str,keys,appname)
           WeChat.registerApp(str,"https://www.lunarhook.com/Uni_"+keys[1]+"/");
           WechatSharethis.apiVersion = await WeChat.getApiVersion();
           WechatSharethis.wxAppInstallUrl = Platform.OS === 'ios' ? await WeChat.getWXAppInstallUrl(): null;
@@ -256,37 +251,20 @@ class WechatShare extends React.Component {
   }
   */
 
- async _checkPermission(){
-    const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
-
-    const hasPermission = await PermissionsAndroid.check(permission);
-    if (hasPermission) {
-      return true;
-    }
-  
-    const status = await PermissionsAndroid.request(permission);
-    return status === 'granted';
-  }
   WechaShareShareLocalImage(imageUrl,type)
   {
     WechatSharethis.initWcchatshart()
-    return new Promise(resolve => { 
       WeChat.isWXAppInstalled()
       .then((isInstalled) => {
         //console.log(imageUrl)
         if (isInstalled) {
           try {
-              ret = WeChat.shareLocalImage({
-                imageUrl:imageUrl,
-                scene:type,
+              WeChat.shareLocalImage({imageUrl:imageUrl,scene:type,}).then((ret)=>{
+                console.log("shareLocalImage",ret)
+              }).then((r)=>{
+                console.log("shareLocalImage",r)
               })
-
-              ret.then(T=>{
-                console.log(T)
-              }).then(null,R=>{
-                console.log(R)
-              })
-              resolve("ok")
+              
             }
           catch(e)
           {
@@ -302,23 +280,22 @@ class WechatShare extends React.Component {
         }
         
     })
-  })
   }
   share(img,sw,ds) {
       return new Promise(resolve => { 
         if("ttl"==sw)
         {
           //this.shareimagetotimeline(img,ds).then(v=>(resolve(v)))
-          this.WechaShareShareLocalImage(img,1).then(v=>(resolve(v)))
+          this.WechaShareShareLocalImage(img,1)
         }
         else if("session"==sw)
         {
           //this.shareimagetofriend(img,ds).then(v=>(resolve(v)))
-          this.WechaShareShareLocalImage(img,0).then(v=>(resolve(v)))
+          this.WechaShareShareLocalImage(img,0)
         }
         else if("wechatcollect"==sw)
         {
-          this.WechaShareShareLocalImage(img,2).then(v=>(resolve(v)))
+          this.WechaShareShareLocalImage(img,2)
         }
         else if("qqttl"==sw)//打开qq群
         {
