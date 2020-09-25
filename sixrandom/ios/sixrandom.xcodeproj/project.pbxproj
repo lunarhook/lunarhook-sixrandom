@@ -518,6 +518,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/seasm18.se1",
+				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/seas_12.se1",
 				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/seas_18.se1",
 				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/semom18.se1",
 				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/semo_18.se1",
@@ -544,6 +545,7 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/seasm18.se1",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/seas_12.se1",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/seas_18.se1",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/semom18.se1",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/semo_18.se1",
@@ -624,6 +626,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-sixrandom/Pods-sixrandom-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/seasm18.se1",
+				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/seas_12.se1",
 				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/seas_18.se1",
 				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/semom18.se1",
 				"${PODS_ROOT}/../../node_modules/react-native-swisseph/android/src/main/assets/semo_18.se1",
@@ -650,6 +653,7 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/seasm18.se1",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/seas_12.se1",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/seas_18.se1",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/semom18.se1",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/semo_18.se1",
