@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DeviceInfo from 'react-native-device-info';
 import { StyleSheet ,Platform} from 'react-native';
 import ScreenConfig from './ScreenConfig';
 import IconConfig from './IconConfig'
@@ -8,9 +9,13 @@ let FontStyleConfigThis = null
 class FontStyleConfig extends React.Component {
   constructor(props) {
       super(props);
-      this.state = {changesize:5
+      this.state = {
+        changesize:5,
+        deviceFontSize:0
       };
       FontStyleConfigThis = this;
+
+
   }
 
   async reload()
@@ -21,6 +26,11 @@ class FontStyleConfig extends React.Component {
       console.log("FontStyleConfig recover", ret)
     }catch{
       FontStyleConfigThis.state.changesize = 5;
+    }
+    let deviceId = DeviceInfo.getDeviceId();
+    if(("iPhone13,1")==deviceId)
+    {
+      FontStyleConfigThis.state.deviceFontSize = -2
     }
      
   }
@@ -38,7 +48,7 @@ class FontStyleConfig extends React.Component {
   }
   getFontApplySize()
   {
-    return FontStyleConfigThis.state.changesize - 5 + (Platform.OS === 'android' ? -5 : 0)
+    return FontStyleConfigThis.state.changesize - 5 + (Platform.OS === 'android' ? -5 : 0) + FontStyleConfigThis.state.deviceFontSize
   }
 
   buildstyle()

@@ -35,13 +35,12 @@ class MyFontConfigPage extends React.Component {
     }
   };
 
-  changeFontRefresh()
-  {
+  changeFontRefresh() {
     const { navigate } = this.props.navigation
     FontStyleConfig.setfontsize(MyFontConfigPagethis.state.fontSizechange).then(
       T1 => {
         ScreenConfig.DeviceToast("保存字体成功")
-        navigate('MainPage', { text: "refresh" })
+        navigate('kitPage', { text: "refresh" })
         /*
         Alert.alert("", '保存字体成功', [
           { text: '确定', onPress: () => navigate('MainPage', { text: "refresh" }) }
@@ -59,6 +58,14 @@ class MyFontConfigPage extends React.Component {
     })
   }
   render() {
+
+    ReCover = (<TabNavigator.Item
+      title={" "}
+      renderIcon={() => IconConfig.IconFontResize}
+      //renderSelectedIcon={() => IconConfig.IconDvinationSel}
+      onPress={() => this.onFontChange(5)}
+      titleStyle={StyleConfig.menufont}>
+    </TabNavigator.Item>)
     Small = (<TabNavigator.Item
       title={" "}
       renderIcon={() => IconConfig.IconFontSmall}
@@ -73,6 +80,7 @@ class MyFontConfigPage extends React.Component {
       onPress={() => this.onFontChange(10)}
       titleStyle={StyleConfig.menufont}>
     </TabNavigator.Item>)
+
     Default = (<TabNavigator.Item
       title={" "}
       renderIcon={() => IconConfig.IconFontDefault}
@@ -81,28 +89,28 @@ class MyFontConfigPage extends React.Component {
       titleStyle={StyleConfig.menufont}>
     </TabNavigator.Item>)
     return (<View style={StyleConfig.container}>
-      <View style={{ height: ScreenConfig.__screenH()-ScreenConfig.getTabBarHeight()*4}}>
-      <FlatList
-        ref={(flatList) => this._flatList = flatList}
-        useFlatList={true}
-        //1数据的获取和渲染
-        //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
-        data={Agreement}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={(data) => (<View><Text style={{ fontSize: 15 + this.state.fontSizechange - 5, paddingLeft: 15, paddingRight: 15 }}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
-      >
-      </FlatList>
+      <View style={{ height: ScreenConfig.__screenH() - ScreenConfig.getTabBarHeight() * 4 }}>
+        <FlatList
+          ref={(flatList) => this._flatList = flatList}
+          useFlatList={true}
+          //1数据的获取和渲染
+          //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
+          data={Agreement}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={(data) => (<View><Text style={{ fontSize: 15 + this.state.fontSizechange - 5, paddingLeft: 15, paddingRight: 15 }}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
+        >
+        </FlatList>
       </View>
       <View >
-        <List.Item styles={{ height:60}}
+        <List.Item styles={{ height: 60 }}
           extra={
             <Stepper
-              styles={{ height:60}}
-              inputStyle = {{fontSize:12,lineHeight:15}}
+              styles={{ height: 60 }}
+              inputStyle={{ fontSize: 12, lineHeight: 15 }}
               key="0"
               max={10}
               min={1}
-              value = {this.state.fontSizechange}
+              value={this.state.fontSizechange}
               defaultValue={this.state.fontSizechange}
               onChange={this.onFontChange}
             />
@@ -112,6 +120,7 @@ class MyFontConfigPage extends React.Component {
           </List.Item></View>
       <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
         {Small}
+        {ReCover}
         {Default}
         {Big}
       </TabNavigator >

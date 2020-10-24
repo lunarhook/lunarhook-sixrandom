@@ -200,6 +200,7 @@ class IconConfig extends React.Component {
   static IconFontSmall = (<EvilIcons name="minus" size={buttonsize} color={green} />)
   static IconFontLarge = (<EvilIcons name="plus" size={buttonsize} color={green} />)
   static IconFontDefault = (<EvilIcons name="refresh" size={size} color={green} />)
+  static IconFontResize = (<MaterialCommunityIcons name="undo-variant" size={size - 7} color={blue} />)
   static colorgreen = green
   static colorclaygreen = claygreen
   static colorred = red

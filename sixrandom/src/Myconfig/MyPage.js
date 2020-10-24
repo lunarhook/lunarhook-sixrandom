@@ -28,7 +28,8 @@ class MyPage extends React.Component {
       this.setState({
         checked: value,
       });
-    }; MyPagethis = this
+    }; 
+    MyPagethis = this
     var NativePlumber = NativeModules.NativePlumber;
     NativePlumber.PlumberGetAppVersion((error, appname, appver) => {
       this.state.appname = appname
@@ -37,7 +38,7 @@ class MyPage extends React.Component {
     })
   }
   static ShareInstance(){
-    if(!MyPagethis){
+    if(undefined==MyPagethis){
       MyPagethis = new MyPage();
     }
     return MyPagethis;
@@ -54,7 +55,6 @@ class MyPage extends React.Component {
     console.log("MyPage", "componentWillUnmount")
     ScreenConfig.DeviceToastClear()
     this.timer && clearInterval(this.timer)
-    MyPagethis = undefined
   }
   RSYNC() {
     this.LoginCheck(true)
@@ -89,7 +89,7 @@ class MyPage extends React.Component {
 
     return {
 
-      headerRight: () => (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => MyPagethis.setState({ sync: !MyPagethis.state.sync })} />),
+      headerRight: () => (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => {if(undefined!=MyPagethis){MyPagethis.setState({ sync: !MyPagethis.state.sync })} }}/>),
       title: RouteConfig["MyPage"].name,
     }
   };
