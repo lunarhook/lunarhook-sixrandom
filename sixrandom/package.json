@@ -38,7 +38,7 @@
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-highlight-words": "^1.0.1",
-    "react-native-paper": "^4.2.0",
+    "react-native-paper": "^4.3.0",
     "react-native-popup-menu": "^0.15.9",
     "react-native-reanimated": "^1.13.1",
     "react-native-safe-area-context": "^3.1.8",
@@ -55,7 +55,7 @@
     "react-native-wechat-lib": "^1.1.23",
     "react-navigation": "^4.4.3",
     "react-navigation-material-bottom-tabs": "^2.3.3",
-    "react-navigation-stack": "^2.9.0",
+    "react-navigation-stack": "^2.10.0",
     "react-navigation-tabs": "^2.10.1",
     "victory-native": "^35.0.1"
   },
