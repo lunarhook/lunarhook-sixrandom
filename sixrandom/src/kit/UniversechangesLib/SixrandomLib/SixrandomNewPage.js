@@ -98,6 +98,12 @@ class SixrandomNewPage extends React.Component {
           />
         </ScrollView>
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight() , backgroundColor: '#ffffff',}}>
+        <TabNavigator.Item
+            title={RouteConfig["RefreshImage"].name}
+            renderIcon={() => RouteConfig["RefreshImage"].icon}
+            onPress={() => this.picker()}
+            titleStyle={StyleConfig.menufont}>
+          </TabNavigator.Item>
           <TabNavigator.Item
             title={RouteConfig["SixrandomHistoryPage"].name}
             renderIcon={() => RouteConfig["SixrandomHistoryPage"].icon}
