@@ -270,10 +270,7 @@ class taiyiHistoryPage extends React.Component {
                           <WingBlank size="md">
                           <Animated.View style={
                               {
-                                height: this.rowTranslateAnimatedValues[data.item.id].interpolate({
-                                      inputRange: [0, 1],
-                                      outputRange: [0,120 + (data.item.tip.length)/30 * 13],
-                                  })
+                                height: this.rowTranslateAnimatedValues[data.item.id].Value
                               }
                           }>
                           <Card style={{ width: width - 20,paddingLeft:10 }}>

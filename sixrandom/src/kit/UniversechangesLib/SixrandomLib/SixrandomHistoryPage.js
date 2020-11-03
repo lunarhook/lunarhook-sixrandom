@@ -1,17 +1,17 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, TouchableOpacity, Dimensions, Alert, Text,Animated, FlatList } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Dimensions, Alert, Text, Animated, FlatList } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import Search from 'react-native-search-box';
 import ValueTypeModule from '../../../config/ValueTypeModule'
-import {SixrandomModule} from '../SixrandomLib/SixrandomModule'
+import { SixrandomModule } from '../SixrandomLib/SixrandomModule'
 import IconConfig from '../../../config/IconConfig'
 import ScreenConfig from '../../../config/ScreenConfig';
 import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
-import {HistoryArrayGroup} from '../../../config/StorageModule'
+import { HistoryArrayGroup } from '../../../config/StorageModule'
 import UserModule from '../../../config/UserModule'
-import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
+import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
 //import FingerprintScanner from 'react-native-fingerprint-scanner';
 //import Fingerprintstyles from '../../../fingerprint/Application.container.styles';
 //import FingerprintPopup from '../../../fingerprint/FingerprintPopup.component';
@@ -30,14 +30,14 @@ class SixrandomHistoryPage extends React.Component {
     };
   }
   rowTranslateAnimatedValues = {};
-  animationIsRunning=false
+  animationIsRunning = false
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
 
     return {
-    title:RouteConfig["SixrandomHistoryPage"].name,
-  };
-}
+      title: RouteConfig["SixrandomHistoryPage"].name,
+    };
+  }
   /*
   handleFingerprintShowed = () => {
     this.setState({ popupShowed: true });
@@ -90,17 +90,16 @@ class SixrandomHistoryPage extends React.Component {
     this.timer && clearInterval(this.timer);
   }
   _starRow(rowData) {
-    HistoryArrayGroup.loadid('sixrandom', rowData.id ).then(async(ret) => {
+    HistoryArrayGroup.loadid('sixrandom', rowData.id).then(async (ret) => {
       var Jobj = JSON.parse(ret);
       Jobj.star = true == Jobj.star ? false : true
       Jobj.sync = false
       ret = JSON.stringify(Jobj)
-      let T = await UserModule.SyncFileServer("sixrandom",rowData.id,ret)
-        if(undefined !=T && 2000==T.code)
-        {
-            ret = HistoryArrayGroup.MakeJsonSync(ret)
-        }
-      await HistoryArrayGroup.saveid('sixrandom', rowData.id,ret)
+      let T = await UserModule.SyncFileServer("sixrandom", rowData.id, ret)
+      if (undefined != T && 2000 == T.code) {
+        ret = HistoryArrayGroup.MakeJsonSync(ret)
+      }
+      await HistoryArrayGroup.saveid('sixrandom', rowData.id, ret)
       this.refreshlist();
     })
   }
@@ -109,27 +108,26 @@ class SixrandomHistoryPage extends React.Component {
     modalhandler = Modal.prompt(
       '卦象提示',
       '',
-      (newtips: any) => this._updateStorage(rowData,newtips),
+      (newtips: any) => this._updateStorage(rowData, newtips),
       'default',
       '',
       [rowData.tip],
     );
     console.log(modalhandler)
   };
-  _updateStorage(rowData,newtips) {
+  _updateStorage(rowData, newtips) {
 
-    HistoryArrayGroup.loadid('sixrandom',  rowData.id).then(async(ret) => {
+    HistoryArrayGroup.loadid('sixrandom', rowData.id).then(async (ret) => {
       var Jobj = JSON.parse(ret);
       Jobj.tip = newtips;
       Jobj.sync = false
       ret = JSON.stringify(Jobj)
-      let T = await UserModule.SyncFileServer("sixrandom",rowData.id,ret)
-        if(undefined !=T && 2000==T.code)
-        {
-            //测试同步代码，登陆检查会重新同步所有的
-            ret = HistoryArrayGroup.MakeJsonSync(ret)
-        }
-      await HistoryArrayGroup.saveid('sixrandom', rowData.id,ret)
+      let T = await UserModule.SyncFileServer("sixrandom", rowData.id, ret)
+      if (undefined != T && 2000 == T.code) {
+        //测试同步代码，登陆检查会重新同步所有的
+        ret = HistoryArrayGroup.MakeJsonSync(ret)
+      }
+      await HistoryArrayGroup.saveid('sixrandom', rowData.id, ret)
       this.refreshlist();
     })
   }
@@ -162,87 +160,84 @@ class SixrandomHistoryPage extends React.Component {
       this.Animaterefreshlist(rowData)
     })
   }
-    Animaterefreshlist(rowData)
-    {
-      if (!this.animationIsRunning) {
-        this.animationIsRunning = true;
-        Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 0, duration: 500 ,useNativeDriver: true}).start(() => {
-          Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 1, duration: 10 ,useNativeDriver: true}).start(()=>{
-            this.animationIsRunning = false;
-            this.refreshlist();
-          })
-        });
-      }
+  Animaterefreshlist(rowData) {
+    if (!this.animationIsRunning) {
+      this.animationIsRunning = true;
+      Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 0, duration: 500, useNativeDriver: true }).start(() => {
+        Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 1, duration: 1000, useNativeDriver: true }).start(() => {
+          this.animationIsRunning = false;
+          this.refreshlist();
+        })
+      });
     }
+  }
 
 
   refreshlist() {
     //this.setState({isLoading: true});
-    HistoryArrayGroup.GetSixrandomHistory().then(ids=>{
+    HistoryArrayGroup.GetSixrandomHistory().then(ids => {
       if (ids.length == 0) {
         ScreenConfig.DeviceToast("暂无历史数据")
         this.props.navigation.goBack()
         return
       }
-      console.log("refreshlist",ids[0])
-      this.setState({dataSource: ids})
+      console.log("refreshlist", ids[0])
+      this.setState({ dataSource: ids })
     })
   }
 
   onSearch = (searchText) => {
     return new Promise((resolve, reject) => {
-      if(this.state.dataSource.length>0)
-      {
+      if (this.state.dataSource.length > 0) {
         var filterArray = []
         for (var i = 0, len = this.state.dataSource.length; i < len; i++) {
-          console.log(searchText,this.state.dataSource[i].name);
+          console.log(searchText, this.state.dataSource[i].name);
           if (this.state.dataSource[i].tip.match(searchText)) {
             filterArray.push(this.state.dataSource[i])
           }
         }
-        this.setState({dataSource:filterArray})
+        this.setState({ dataSource: filterArray })
       }
-        resolve();
+      resolve();
     });
-}
-  onSearchCancel= () => {
+  }
+  onSearchCancel = () => {
     return new Promise((resolve, reject) => {
-      HistoryArrayGroup.GetSixrandomHistory().then(ids=>{
-          this.setState({dataSource: ids})
-          
-        })
-        resolve();
+      HistoryArrayGroup.GetSixrandomHistory().then(ids => {
+        this.setState({ dataSource: ids })
+
+      })
+      resolve();
     });
-}
+  }
 
   render() {
-    this.animationIsRunning=false
+    this.animationIsRunning = false
     this.rowTranslateAnimatedValues = {};
     rowlist = this.state.dataSource
     rowlist.forEach((element, i) => {
-
-        this.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
+      this.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
     });
     const { errorMessage, popupShowed } = this.state;
     const { navigate } = this.props.navigation;
     return (<View style={styles.container}>
-<Search
-          ref="search_box"
-          onSearch={this.onSearch}
-          onCancel={this.onSearchCancel}
-          //defaultValue="搜索"
-          placeholder="搜索"
-          cancelTitle="取消"
-          //returnKeyType="搜索"
-          keyboardDismissOnSubmit={true}
-          backgroundColor="#ffffff"
-          titleCancelColor="#000000"
-          /**
-          * There many props that can customizable
-          * Please scroll down to Props section
-          */
-        />
-      <FlatList 
+      <Search
+        ref="search_box"
+        onSearch={this.onSearch}
+        onCancel={this.onSearchCancel}
+        //defaultValue="搜索"
+        placeholder="搜索"
+        cancelTitle="取消"
+        //returnKeyType="搜索"
+        keyboardDismissOnSubmit={true}
+        backgroundColor="#ffffff"
+        titleCancelColor="#000000"
+      /**
+      * There many props that can customizable
+      * Please scroll down to Props section
+      */
+      />
+      <FlatList
         useFlatList={true}
         //1数据的获取和渲染
         data={this.state.dataSource}
@@ -269,45 +264,43 @@ class SixrandomHistoryPage extends React.Component {
               onOpen={() => console.log('open')}
               onClose={() => console.log('close')}
             >
-              
+
               <WingBlank size="md">
-              <Animated.View style={
+                
+                <Animated.View style={
                   {
-                    height: this.rowTranslateAnimatedValues[data.item.id].interpolate({
-                          inputRange: [0, 1],
-                          outputRange: [0,120 + (data.item.tip.length)/30 * 13],
-                      })
+                    height: this.rowTranslateAnimatedValues[data.item.id].Value
                   }
-              }>
-              <Card style={{ width: width - 20,paddingLeft:10 }}>
-                <TouchableOpacity onPress={() => navigate('SixrandomFullInfoPage', data.item.url)}>
-                  <Card.Header
-                    title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.ret}</Text>}
-                    //thumbStyle={{ width: 30, height: 30 }}
-                    thumb={true == data.item.star ? IconConfig.IconStar : IconConfig.IconUStar}
-                    extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.time}</Text>}
-                    />
-                  <Card.Body>
-                    <View >
-                      <Text style={{ marginLeft: 16 ,fontSize:FontStyleConfig.getFontApplySize()+14}}>{data.item.tip}</Text>
-                    </View>
-                  </Card.Body>
-            <Card.Footer content="" extra={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{UserModule.str2date(data.item.time)+" "+data.item.name}</Text>}/>
-                </TouchableOpacity>
-              </Card>
-              </Animated.View>
+                }>
+                  <Card style={{ width: width - 20, paddingLeft: 10 }}>
+                    <TouchableOpacity onPress={() => navigate('SixrandomFullInfoPage', data.item.url)}>
+                      <Card.Header
+                        title={<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{data.item.ret}</Text>}
+                        //thumbStyle={{ width: 30, height: 30 }}
+                        thumb={true == data.item.star ? IconConfig.IconStar : IconConfig.IconUStar}
+                        extra={<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{data.item.time}</Text>}
+                      />
+                      <Card.Body>
+                        <View >
+                          <Text style={{ marginLeft: 16, fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{data.item.tip}</Text>
+                        </View>
+                      </Card.Body>
+                      <Card.Footer content="" extra={<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{UserModule.str2date(data.item.time) + " " + data.item.name}</Text>} />
+                    </TouchableOpacity>
+                  </Card>
+                </Animated.View>
               </WingBlank>
             </SwipeAction>
             <WhiteSpace size="xs" />
           </View>
         )}
       />
-              <WhiteSpace size="xl" />
-        <WhiteSpace size="xl" />
-        <WhiteSpace size="xl" />
-        <WhiteSpace size="xl" />
-        <Text style={{fontSize:FontStyleConfig.getFontApplySize()+11,color:"#DDDDDD",textAlign:"center"}}>--end--</Text>
-        <WhiteSpace size="xl" />
+      <WhiteSpace size="xl" />
+      <WhiteSpace size="xl" />
+      <WhiteSpace size="xl" />
+      <WhiteSpace size="xl" />
+      <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 11, color: "#DDDDDD", textAlign: "center" }}>--end--</Text>
+      <WhiteSpace size="xl" />
       {errorMessage && (
         <Text style={Fingerprintstyles.errorMessage}>
           {errorMessage}
@@ -321,8 +314,8 @@ class SixrandomHistoryPage extends React.Component {
         />
       )}
     </View>)
-    
-      
+
+
   }
 
 }

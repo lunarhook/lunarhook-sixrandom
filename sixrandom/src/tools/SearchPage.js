@@ -253,10 +253,7 @@ class SearchPage extends React.Component {
       <View>
       <Animated.View style={
                     {
-                      height: this.rowTranslateAnimatedValues[data.item.id].interpolate({
-                            inputRange: [0, 1],
-                            outputRange: [0,120 + (RouteConfig[data.item.urlto].name.length+data.item.tip.length)/30 * 13],
-                        })
+                      height: this.rowTranslateAnimatedValues[data.item.id].Value
                     }} 
                     ref={ref => { this.refs[data.item.id] = ref }}
                      >
