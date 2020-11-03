@@ -24,12 +24,12 @@ class SixrandomHistoryPage extends React.Component {
     this.state = {
       isLoading: false,
       dataSource: [],
-
-      //errorMessage: undefined,
-      //popupShowed: false
+      fadeout : 1,
+      fadeoutid :-1
+      
     };
   }
-  rowTranslateAnimatedValues = {};
+  rowTranslateAnimatedValues=[]
   animationIsRunning = false
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
@@ -163,8 +163,10 @@ class SixrandomHistoryPage extends React.Component {
   Animaterefreshlist(rowData) {
     if (!this.animationIsRunning) {
       this.animationIsRunning = true;
-      Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 0, duration: 500, useNativeDriver: true }).start(() => {
-        Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 1, duration: 1000, useNativeDriver: true }).start(() => {
+      fadeout = new Animated.Value(1)
+      this.setState({fadeout:fadeout,fadeoutid:rowData.id})
+      Animated.timing(fadeout, { toValue: 0, duration: 1500 ,useNativeDriver: true }).start(() => {
+        Animated.timing(fadeout, { toValue: 1, duration: 10, useNativeDriver: true }).start(() => {
           this.animationIsRunning = false;
           this.refreshlist();
         })
@@ -213,10 +215,10 @@ class SixrandomHistoryPage extends React.Component {
 
   render() {
     this.animationIsRunning = false
-    this.rowTranslateAnimatedValues = {};
+    this.state.rowTranslateAnimatedValues = [];
     rowlist = this.state.dataSource
     rowlist.forEach((element, i) => {
-      this.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
+      this.state.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
     });
     const { errorMessage, popupShowed } = this.state;
     const { navigate } = this.props.navigation;
@@ -269,7 +271,8 @@ class SixrandomHistoryPage extends React.Component {
                 
                 <Animated.View style={
                   {
-                    height: this.rowTranslateAnimatedValues[data.item.id].Value
+                    opacity:data.item.id==this.state.fadeoutid?this.state.fadeout:100,
+                    height: this.state.rowTranslateAnimatedValues[data.item.id].Value
                   }
                 }>
                   <Card style={{ width: width - 20, paddingLeft: 10 }}>

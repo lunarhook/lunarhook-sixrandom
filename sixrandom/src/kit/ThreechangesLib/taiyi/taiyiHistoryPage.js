@@ -22,6 +22,8 @@ class taiyiHistoryPage extends React.Component {
 		this.state = {
       isLoading: false,
       dataSource: [],
+      fadeout : 1,
+      fadeoutid :-1
       //errorMessage: undefined,
       //popupShowed: false
 		};
@@ -161,8 +163,10 @@ class taiyiHistoryPage extends React.Component {
     {
       if (!this.animationIsRunning) {
         this.animationIsRunning = true;
-        Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 0, duration: 500 ,useNativeDriver: true}).start(() => {
-          Animated.timing(this.rowTranslateAnimatedValues[rowData.id], { toValue: 1, duration: 10 ,useNativeDriver: true}).start(()=>{
+        fadeout = new Animated.Value(1)
+        this.setState({fadeout:fadeout,fadeoutid:rowData.id})
+        Animated.timing(fadeout, { toValue: 0, duration: 1500 ,useNativeDriver: true }).start(() => {
+          Animated.timing(fadeout, { toValue: 1, duration: 10, useNativeDriver: true }).start(() => {
             this.animationIsRunning = false;
             this.refreshlist();
           })
@@ -270,6 +274,7 @@ class taiyiHistoryPage extends React.Component {
                           <WingBlank size="md">
                           <Animated.View style={
                               {
+                                opacity:data.item.id==this.state.fadeoutid?this.state.fadeout:100,
                                 height: this.rowTranslateAnimatedValues[data.item.id].Value
                               }
                           }>
