@@ -186,10 +186,8 @@ class SearchPage extends React.Component {
       fadeout = new Animated.Value(1)
       this.setState({fadeout:fadeout,fadeoutid:rowData.id})
       Animated.timing(fadeout, { toValue: 0, duration: 1500 ,useNativeDriver: true }).start(() => {
-        Animated.timing(fadeout, { toValue: 1, duration: 10, useNativeDriver: true }).start(() => {
           this.animationIsRunning = false;
           this.onSearch()
-        })
       });
     }
   }

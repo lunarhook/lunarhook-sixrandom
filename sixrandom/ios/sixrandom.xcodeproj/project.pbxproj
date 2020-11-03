@@ -929,7 +929,7 @@
 				);
 				INFOPLIST_FILE = sixrandom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.9.17;
+				MARKETING_VERSION = 2.9.18;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1007,7 +1007,7 @@
 				);
 				INFOPLIST_FILE = sixrandom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.9.17;
+				MARKETING_VERSION = 2.9.18;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
