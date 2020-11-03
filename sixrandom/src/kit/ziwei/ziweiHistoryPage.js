@@ -22,11 +22,9 @@ class ziweiHistoryPage extends React.Component {
       errorMessage: undefined,
       popupShowed: false,
       dataSource:[],
-      fadeout : 1,
-      fadeoutid :-1
+      rowTranslateAnimatedValues:[]
     };
   }
-  rowTranslateAnimatedValues = {};
   animationIsRunning=false
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
@@ -159,9 +157,7 @@ class ziweiHistoryPage extends React.Component {
   Animaterefreshlist(rowData) {
     if (!this.animationIsRunning) {
       this.animationIsRunning = true;
-      fadeout = new Animated.Value(1)
-      this.setState({fadeout:fadeout,fadeoutid:rowData.id})
-      Animated.timing(fadeout, { toValue: 0, duration: 1500 ,useNativeDriver: true }).start(() => {
+      Animated.timing(this.state.rowTranslateAnimatedValues[rowData.id], { toValue: 0, duration: 800 ,useNativeDriver: true}).start(() => {
           this.animationIsRunning = false;
           this.refreshlist();
       });
@@ -228,10 +224,10 @@ changeViewLayout(e,data) {
 
   render() {
     this.animationIsRunning=false
-    this.rowTranslateAnimatedValues = {};
+    this.state.rowTranslateAnimatedValues = {};
     rowlist = this.state.dataSource
     rowlist.forEach((element, i) => {
-        this.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
+        this.state.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
     });
     const { errorMessage, popupShowed } = this.state;
     const { navigate } = this.props.navigation;
@@ -289,8 +285,14 @@ changeViewLayout(e,data) {
                   <View onLayout={(e)=>this.changeViewLayout(e,data)}>
                 <Animated.View style={
                     {
-                      opacity:data.item.id==this.state.fadeoutid?this.state.fadeout:100,
-                      height: this.rowTranslateAnimatedValues[data.item.id].Value
+                      opacity:this.state.rowTranslateAnimatedValues[data.item.id],
+                      scaleY:this.state.rowTranslateAnimatedValues[data.item.id],
+                      transform:[{
+                        
+                        translateY:  this.state.rowTranslateAnimatedValues[data.item.id].interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [-120 - (data.item.tip.length)/30 * 13,0],
+                    })  }],
                     }} 
                     ref={ref => { this.refs[data.item.id] = ref }}
                      >

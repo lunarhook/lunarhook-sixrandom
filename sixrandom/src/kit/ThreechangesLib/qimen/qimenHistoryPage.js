@@ -23,13 +23,11 @@ class qimenHistoryPage extends React.Component {
     this.state = {
       isLoading: false,
       dataSource: [],
-      fadeout : 1,
-      fadeoutid :-1
       //errorMessage: undefined,
       //popupShowed: false
+      rowTranslateAnimatedValues:[]
     };
   }
-  rowTranslateAnimatedValues = {};
   animationIsRunning = false
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
@@ -165,9 +163,7 @@ class qimenHistoryPage extends React.Component {
   Animaterefreshlist(rowData) {
     if (!this.animationIsRunning) {
       this.animationIsRunning = true;
-      fadeout = new Animated.Value(1)
-      this.setState({fadeout:fadeout,fadeoutid:rowData.id})
-      Animated.timing(fadeout, { toValue: 0, duration: 1500 ,useNativeDriver: true }).start(() => {
+      Animated.timing(this.state.rowTranslateAnimatedValues[rowData.id], { toValue: 0, duration: 800 ,useNativeDriver: true}).start(() => {
           this.animationIsRunning = false;
           this.refreshlist();
       });
@@ -212,11 +208,11 @@ class qimenHistoryPage extends React.Component {
   render() {
 
     this.animationIsRunning = false
-    this.rowTranslateAnimatedValues = {};
+    this.state.rowTranslateAnimatedValues = {};
     rowlist = this.state.dataSource
     rowlist.forEach((element, i) => {
 
-      this.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
+      this.state.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
     });
     const { errorMessage, popupShowed } = this.state;
     const { navigate } = this.props.navigation;
@@ -270,8 +266,12 @@ class qimenHistoryPage extends React.Component {
               <WingBlank size="md">
                 <Animated.View style={
                   {
-                    opacity:data.item.id==this.state.fadeoutid?this.state.fadeout:100,
-                    height: this.rowTranslateAnimatedValues[data.item.id].Value
+                    opacity:this.state.rowTranslateAnimatedValues[data.item.id],
+                    transform:[{
+                      translateY:  this.state.rowTranslateAnimatedValues[data.item.id].interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [-120 - (data.item.tip.length)/30 * 13,0],
+                  })  }],
                   }
                 }>
                   <Card style={{ width: width - 20, paddingLeft: 10 }}>
