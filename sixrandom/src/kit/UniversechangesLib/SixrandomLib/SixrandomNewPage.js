@@ -227,7 +227,7 @@ var styles = StyleSheet.create ({
     borderRadius: 4,
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
     textAlign:'center', 
-    textDecorationLine:'underline',
+    //textDecorationLine:'underline',
     fontSize:FontStyleConfig.getFontApplySize()+11,
   },
   container: {
