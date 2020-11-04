@@ -139,8 +139,8 @@ android {
         applicationId "com.sixrandom"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 60
-        versionName "2.9.17"
+        versionCode 61
+        versionName "2.9.18"
         ndk {
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
