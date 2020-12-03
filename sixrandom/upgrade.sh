@@ -10,7 +10,8 @@ brew install cocoapods
 brew install coreutils
 brew install maven
 brew install clang-format
-brew install dart-lang/dart/dart
+brew tap dart-lang/dart
+brew install dart
 brew install ideviceinstaller ios-webkit-debug-proxy
 brew cask install android-sdk
 brew cask install homebrew/cask-versions/adoptopenjdk8
