@@ -2,16 +2,17 @@
 
 var ReactNative = require('react-native');
 import React, { Component } from 'react';
-import { findNodeHandle, Image, StyleSheet, View, Alert, Text, Dimensions, FlatList, ScrollView } from 'react-native';
+import { findNodeHandle, Image, StyleSheet, View, Alert, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { captureRef } from "react-native-view-shot";
 import TabNavigator from 'react-native-tab-navigator';
 import { Grid, Accordion, WhiteSpace, WingBlank, List } from '@ant-design/react-native';
 import { SixrandomModule } from '../SixrandomLib/SixrandomModule'
 import StorageModule from '../../../config/StorageModule'
-import ScreenConfig from '../../../config/ScreenConfig';
+import IconConfig from '../../../config/IconConfig';
 import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
-
+import { HistoryArrayGroup } from '../../../config/StorageModule'
+let SixrandomFullinfoPagethis = null
 class SixrandomFullinfoPage extends React.Component {
   constructor(props) {
     super(props);
@@ -20,13 +21,29 @@ class SixrandomFullinfoPage extends React.Component {
       parameter: 'null',
       infogrid: []
     }
+    SixrandomFullinfoPagethis = this
   };
+
+  static ShareInstance() {
+    if (!SixrandomFullinfoPagethis) {
+      SixrandomFullinfoPagethis = new SixrandomFullinfoPage();
+    }
+    return SixrandomFullinfoPagethis;
+  }
 
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     return {
       // headerRight:(<Button title="分享" onPress={ () => ShareModule.Sharetotimeline() }/>),
       title: RouteConfig["SixrandomFullInfoPage"].name,
+      headerRight: () => (
+        <TouchableOpacity
+          style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
+          //onPress={() => navigate('Search')}
+          onPress={() =>  SixrandomFullinfoPage.ShareInstance().deletethis()}
+        >
+          {IconConfig.IconDelete}
+        </TouchableOpacity>),
     }
   };
 
@@ -38,7 +55,27 @@ class SixrandomFullinfoPage extends React.Component {
       200
     );
   }
+  async deletethis()
+  {
+    var rowid = SixrandomFullinfoPage.ShareInstance().state.rowid 
+    console.log("rowid",rowid)
+    HistoryArrayGroup.loadid('sixrandom', rowid).then(async (ret) => {
+      var Jobj = JSON.parse(ret);
+      let T = await UserModule.SyncFileServer("sixrandom", rowid, "")
+      if (undefined != T && 2000 == T.code) {
+        T.data.forEach(async (element) => {
+          filename = element.File
+          if (-1 != filename.indexOf(String(rowid)) && true == element.Del) {
+            await HistoryArrayGroup.remove('sixrandom', rowid);
+          }
+        });
+      }
+      else {
+        await HistoryArrayGroup.remove('sixrandom', rowid);
+      }
 
+    })
+  }
   componentWillUnmount() {
     // 如果存在this.timer，则使用clearTimeout清空。
     // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
@@ -58,6 +95,8 @@ class SixrandomFullinfoPage extends React.Component {
       var ggrid = __ret.infogrid
       var infoext = __ret.infoext
       var infobase = __ret.infobase
+      var kind = __ret.kind
+      var rowid = __ret.rowid
       for (var index = 0; index < ggrid.length; index++) {
         var o = {}
         if (undefined != ggrid[index]) {
@@ -77,7 +116,7 @@ class SixrandomFullinfoPage extends React.Component {
       }
       console.log(infogrid)
       this.setState({
-        date: _build, parameter: parameter, infogrid: infogrid, infoext: infoext, infobase: infobase
+        date: _build, parameter: parameter, infogrid: infogrid, infoext: infoext, infobase: infobase,kind:kind,rowid:rowid
       });
     }
     else {

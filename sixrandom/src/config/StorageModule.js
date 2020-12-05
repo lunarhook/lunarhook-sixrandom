@@ -316,7 +316,7 @@ class HistoryArrayGroup extends React.Component {
 							ret: savedate[1],
 							time: date.toLocaleDateString(),
 							tip: savedate[2],
-							url: "?taiyiDate=" + savedate[1] + "&tip=" + savedate[2] + "&Y=" + savedate[3] + "&M=" + savedate[4] + "&D=" + savedate[5] + "&H=" + savedate[6],
+							url: "?taiyiDate=" + savedate[1] + "&tip=" + savedate[2] + "&Y=" + savedate[3] + "&M=" + savedate[4] + "&D=" + savedate[5] + "&H=" + savedate[6]+ "&kind=taiyi" + "&rowid=" + savedate[0],
 							id: savedate[0],
 							star: savedate[7],
 						}
@@ -347,7 +347,7 @@ class HistoryArrayGroup extends React.Component {
 							ret: taiyiDate.gzYear+taiyiDate.gzMonth +taiyiDate.gzDate +taiyiDate.gzTime,
 							tip: Jobj.tip,
 							time: Jobj.id,
-							url: "?taiyiDate="+taiyiDate.gzYear+taiyiDate.gzMonth +taiyiDate.gzDate +taiyiDate.gzTime+ "&tip=" + Jobj.tip + "&Y=" + Jobj.Y + "&M=" + Jobj.M +"&D=" +  Jobj.D +"&H=" + Jobj.H ,
+							url: "?taiyiDate="+taiyiDate.gzYear+taiyiDate.gzMonth +taiyiDate.gzDate +taiyiDate.gzTime+ "&tip=" + Jobj.tip + "&Y=" + Jobj.Y + "&M=" + Jobj.M +"&D=" +  Jobj.D +"&H=" + Jobj.H + "&kind=taiyi" + "&rowid=" + Jobj.id,
 							id: Jobj.id,
 							star: Jobj.star,
 						}
@@ -422,7 +422,7 @@ class HistoryArrayGroup extends React.Component {
 							tip: savedate[2],
 							ret: savedate[1],
 							time: date.toLocaleDateString(),
-							url: "?SixCourseDate=" + savedate[1] + "&tip=" + savedate[2] + "&persondata=" + savedate[3] + "&timedata=" + savedate[4] + "&selvalue=" + savedate[5] + "&mydate=" + savedate[6],
+							url: "?SixCourseDate=" + savedate[1] + "&tip=" + savedate[2] + "&persondata=" + savedate[3] + "&timedata=" + savedate[4] + "&selvalue=" + savedate[5] + "&mydate=" + savedate[6] + "&kind=sixcourse" + "&rowid=" + savedate[0],
 							id: savedate[0],
 							star: savedate[7],
 						}
@@ -454,7 +454,7 @@ class HistoryArrayGroup extends React.Component {
 							time: Jobj.id,
 							ret: sixcourseDate.gzYear+sixcourseDate.gzMonth +sixcourseDate.gzDate +sixcourseDate.gzTime,
 							tip: Jobj.tip,
-							url: "?SixCourseDate=" + sixcourseDate.gzYear+sixcourseDate.gzMonth +sixcourseDate.gzDate +sixcourseDate.gzTime + "&tip=" + Jobj.tip + "&persondata=" + Jobj.selvalue+ "&timedata=" + Jobj.timedata + "&selvalue=" +Jobj.selvalue + "&mydate=" + Jobj.date ,
+							url: "?SixCourseDate=" + sixcourseDate.gzYear+sixcourseDate.gzMonth +sixcourseDate.gzDate +sixcourseDate.gzTime + "&tip=" + Jobj.tip + "&persondata=" + Jobj.selvalue+ "&timedata=" + Jobj.timedata + "&selvalue=" +Jobj.selvalue + "&mydate=" + Jobj.date + "&kind=sixcourse" + "&rowid=" + Jobj.id,
 							id: Jobj.id,
 							star: Jobj.star,
 						}
@@ -489,7 +489,7 @@ class HistoryArrayGroup extends React.Component {
 							time: date.toLocaleDateString(),
 							ret: savedate[1],
 							tip: savedate[2],
-							url: "?qimenDate=" + savedate[1] + "&tip=" + savedate[2] + "&Date=" + savedate[3],
+							url: "?qimenDate=" + savedate[1] + "&tip=" + savedate[2] + "&Date=" + savedate[3] + "&kind=qimen" + "&rowid=" + savedate[0] ,
 							id: savedate[0],
 							star: savedate[4],
 						}
@@ -521,7 +521,7 @@ class HistoryArrayGroup extends React.Component {
 							time: Jobj.id,
 							ret: qimenDate.gzYear+qimenDate.gzMonth +qimenDate.gzDate +qimenDate.gzTime,
 							tip: Jobj.tip,
-							url: "?qimenDate=" + qimenDate.gzYear+qimenDate.gzMonth +qimenDate.gzDate +qimenDate.gzTime + "&tip=" + Jobj.tip + "&Date=" + Jobj.date,
+							url: "?qimenDate=" + qimenDate.gzYear+qimenDate.gzMonth +qimenDate.gzDate +qimenDate.gzTime + "&tip=" + Jobj.tip + "&Date=" + Jobj.date + "&kind=qimen" + "&rowid=" + Jobj.id ,
 							id: Jobj.id,
 							star: Jobj.star,
 						}
@@ -560,7 +560,7 @@ class HistoryArrayGroup extends React.Component {
 						title: SixrandomModule.get_sixrandom_name(Jobj.lunar),
 						time: Jobj.id,
 						star: Jobj.star,
-						url: "?date=" + timedate + "&lunar=" + Jobj.lunar + "&question=" + Jobj.question,
+						url: "?date=" + timedate + "&lunar=" + Jobj.lunar + "&question=" + Jobj.question + "&kind=sixrandom" + "&rowid=" + Jobj.id ,
 						id: Jobj.date,
 					}
 					SixrandomHistoryNameArray[i] = obj
@@ -618,7 +618,7 @@ class HistoryArrayGroup extends React.Component {
 							star: savedate[5],
 							birth: birthdate.toLocaleString(),
 							time: date.toLocaleDateString(),
-							url: "?EightDate=" + savedate[1] + "&sex=" + savedate[2] + "&birth=" + savedate[4] + "&Date=" + savedate[0],
+							url: "?EightDate=" + savedate[1] + "&sex=" + savedate[2] + "&birth=" + savedate[4] + "&Date=" + savedate[0] + "&kind=name" + "&rowid=" + savedate[0] ,
 							id: savedate[0]
 						}
 						EightRandomHistoryNameArray[i] = obj
@@ -690,7 +690,7 @@ class HistoryArrayGroup extends React.Component {
 							star: Jobj.star,
 							birth: Jobj.birth,
 							time: Jobj.date,
-							url: "?EightDate=" + Jobj.ret + "&sex=" + Jobj.sex + "&birth=" + Jobj.birth,
+							url: "?EightDate=" + Jobj.ret + "&sex=" + Jobj.sex + "&birth=" + Jobj.birth  + "&kind=eightrandom" + "&rowid=" + Jobj.id ,
 							id: Jobj.id
 						}
 						EightRandomHistoryNameArray[i] = obj

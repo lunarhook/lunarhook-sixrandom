@@ -174,7 +174,7 @@ class SixrandomNewPage extends React.Component {
       obj.lunar = lunar
       obj.question = ValueTypeModule[question]
       obj.kind ="sixrandom"
-      var parameter = "?date="+(new Date(Number(randArray[7])))+"&lunar="+lunar+"&question="+ obj.question
+      var parameter = "?date="+(new Date(Number(randArray[7])))+"&lunar="+lunar+"&question="+ obj.question + "&kind=" + obj.kind + "&rowid=" + obj.id
       var Jstr = JSON.stringify(obj)
       console.log("convertJsonSave",Jstr);
       
