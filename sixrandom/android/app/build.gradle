@@ -139,8 +139,8 @@ android {
         applicationId "com.sixrandom"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 61
-        versionName "2.9.18"
+        versionCode 62
+        versionName "2.9.19"
         ndk {
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
@@ -310,7 +310,7 @@ dependencies {
     implementation project(':react-native-svg')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-shake')
-    implementation files('PlumberAndroid_v2.5.jar')
+    implementation files('PlumberAndroid_release_v2.6.1.jar')
     implementation project(':react-native-view-shot')
     implementation project(':react-native-vector-icons')
     implementation 'com.android.support:multidex:1.0.3'
