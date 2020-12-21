@@ -13,8 +13,8 @@ brew install clang-format
 brew tap dart-lang/dart
 brew install dart
 brew install ideviceinstaller ios-webkit-debug-proxy
-brew cask install android-sdk
-brew cask install homebrew/cask-versions/adoptopenjdk8
+brew install --cask android-sdk
+brew install --cask homebrew/cask-versions/adoptopenjdk8
 brew cleanup
 npm config set registry https://registry.npm.taobao.org --global
 npm config set disturl https://npm.taobao.org/dist --global
