@@ -76,7 +76,7 @@ PODS:
     - Folly (= 2020.01.13.00)
     - RCTRequired (= 0.63.2)
     - React-Core (= 0.63.2)
-  - RCTWeChat (1.1.25):
+  - RCTWeChat (1.1.26):
     - React-Core
   - React (0.63.2):
     - React-Core (= 0.63.2)
@@ -324,7 +324,7 @@ PODS:
     - React
   - RNCPicker (1.8.1):
     - React-Core
-  - RNDeviceInfo (7.3.1):
+  - RNDeviceInfo (8.0.1):
     - React-Core
   - RNExitApp (1.1.0):
     - React
@@ -340,8 +340,8 @@ PODS:
     - React
   - RNSwisseph (0.0.18):
     - React
-  - RNVectorIcons (7.1.0):
-    - React
+  - RNVectorIcons (8.0.0):
+    - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -419,7 +419,7 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  trunk:
+  https://gitee.com/mirrors/CocoaPods-Specs:
     - boost-for-react-native
     - CocoaAsyncSocket
     - CocoaLibEvent
@@ -552,7 +552,7 @@ SPEC CHECKSUMS:
   OpenSSL-Universal: 8b48cc0d10c1b2923617dfe5c178aa9ed2689355
   RCTRequired: f13f25e7b12f925f1f6a6a8c69d929a03c0129fe
   RCTTypeSafety: 44982c5c8e43ff4141eb519a8ddc88059acd1f3a
-  RCTWeChat: eeae3323bef0d40d78181dbc7b3a1a33cd5a358e
+  RCTWeChat: 289c92186c1f55716a6378af55388292d94b2d9e
   React: e1c65dd41cb9db13b99f24608e47dd595f28ca9a
   React-callinvoker: 552a6a6bc8b3bb794cf108ad59e5a9e2e3b4fc98
   React-Core: 9d341e725dc9cd2f49e4c49ad1fc4e8776aa2639
@@ -584,7 +584,7 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNCPicker: 914b557e20b3b8317b084aca9ff4b4edb95f61e4
-  RNDeviceInfo: 6ecb1d1c87d20e4c62354be0348de23362824dcd
+  RNDeviceInfo: 921a809eaf9de79645a24de1c6ca90db6cb91786
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
@@ -592,10 +592,10 @@ SPEC CHECKSUMS:
   RNScreens: 45c457af3d2ee9e08fc01e70da87e653d46b1198
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNSwisseph: 4492bebefd54286193f7f1f35c37e96cc5d059c1
-  RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
+  RNVectorIcons: f67a1abce2ec73e62fe4606e8110e95a832bc859
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
 PODFILE CHECKSUM: 45e2f97807fc641a1975892436bed6793febcd0b
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
