@@ -649,7 +649,7 @@ checked[i]=""
   check(){
     //if(__DEV__)
 //    {return true}
-    for(i=0;i<Dthis.state.DISC.length;i++)
+    for(i=0;i<this.state.DISC.length;i++)
     {
       if(undefined != this.state.DISC[i] && this.state.checked[i]==="")
       {
