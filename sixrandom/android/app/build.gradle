@@ -139,7 +139,7 @@ android {
         applicationId "com.sixrandom"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 62
+        versionCode 63
         versionName "2.9.19"
         ndk {
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
