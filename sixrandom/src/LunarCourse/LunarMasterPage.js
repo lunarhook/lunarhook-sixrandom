@@ -46,7 +46,7 @@ const old = [
 ]
 
 const story = [
-  { icon: IconConfig.IconLunarCourseGold, text: "故事课", url: RouteConfig['story1Module'].route, index: { text: "story1Module" } },
+  { icon: IconConfig.IconLunarCourseGold, text: "亲密三部曲", url: RouteConfig['story1Module'].route, index: { text: "story1Module" } },
   //{ icon: IconConfig.IconLunarCourseGreen, text: "矛盾变化", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
   //{ icon: IconConfig.IconLunarCourseclaygreen, text: "人间道", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
 ]

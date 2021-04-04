@@ -5,7 +5,7 @@ import RouteConfig from '../../config/RouteConfig'
 
 import {fivelevel1Module} from './fiveLevel/fivelevel1'
 import {oldlevel1Module} from './oldLevel/oldlevel1'
-
+import {story1Module} from './story/story1'
 class CourseIndexPage extends React.Component {
   constructor(props) {
       super(props);
@@ -22,6 +22,7 @@ class CourseIndexPage extends React.Component {
       var type = new Array()
       type["感受自然"] = fivelevel1Module
       type["道德原本"] = oldlevel1Module
+      type["亲密三部曲"] = story1Module
       var booktype = new Array()
       booktype = booktype.concat(type[ctype])
       return booktype

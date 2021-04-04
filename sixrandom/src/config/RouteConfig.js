@@ -203,7 +203,7 @@ RouteConfig={
             "zhanguoPage":{"name":"山海经","route":"","icon":IconConfig.IconLunarCourse},
         */
 
-       "story1Module":{"name":"故事课","titlename":"故事课","route":"CourseBookPage","icon":""},   
+       "story1Module":{"name":"亲密三部曲","titlename":"亲密三部曲","route":"CourseBookPage","icon":""},   
        "MBTI1Module":{"name":"故事课","titlename":"故事课","route":"CourseBookPage","icon":""},   
        "fivelevel1Module":{"name":"五行掌握·感受自然","titlename":"感受自然","route":"CourseBookPage","icon":""},      
        "fivelevel2Module":{"name":"五行掌握·感受自然","titlename":"世间万象","route":"CourseBookPage","icon":""},   
