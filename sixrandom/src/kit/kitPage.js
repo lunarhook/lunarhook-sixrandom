@@ -388,7 +388,7 @@ class kitPage extends React.Component {
           data={data2}
           columnNum={coln}
           isCarousel={false}
-          hasLine={true}
+          hasLine={false}
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
@@ -398,7 +398,7 @@ class kitPage extends React.Component {
           data={datadepress}
           columnNum={coln}
           isCarousel={false}
-          hasLine={true}
+          hasLine={false}
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
@@ -408,7 +408,7 @@ class kitPage extends React.Component {
           data={relation}
           columnNum={coln}
           isCarousel={false}
-          hasLine={true}
+          hasLine={false}
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
@@ -419,7 +419,7 @@ class kitPage extends React.Component {
           data={data1}
           columnNum={coln}
           isCarousel={false}
-          hasLine={true}
+          hasLine={false}
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
@@ -429,7 +429,7 @@ class kitPage extends React.Component {
           data={Tarot}
           columnNum={coln}
           isCarousel={false}
-          hasLine={true}
+          hasLine={false}
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
@@ -439,7 +439,7 @@ class kitPage extends React.Component {
           data={kitlist["tools"]}
           columnNum={coln}
           isCarousel={false}
-          hasLine={true}
+          hasLine={false}
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
@@ -450,7 +450,7 @@ class kitPage extends React.Component {
             data={consultants}
             columnNum={coln}
             isCarousel={false}
-            hasLine={true}
+            hasLine={false}
             renderItem={this.renderItemel}
             onPress={(_el: any, index: any) => { this.onBussion(_el, navigate) }}
           /></Accordion.Panel >)*/
@@ -460,7 +460,7 @@ class kitPage extends React.Component {
             data={data}
             columnNum={coln}
             isCarousel={false}
-            hasLine={true}
+            hasLine={false}
             renderItem={this.renderItemel}
             onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
           /></Accordion.Panel >)
@@ -471,7 +471,7 @@ class kitPage extends React.Component {
           data={child}
           columnNum={coln}
           isCarousel={false}
-          hasLine={true}
+          hasLine={false}
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
@@ -484,7 +484,7 @@ class kitPage extends React.Component {
             data={Exploration1}
             columnNum={2}
             isCarousel={false}
-            hasLine={true}
+            hasLine={false}
             renderItem={this.renderItemel}
             onPress={(_el: any, index: any) => { navigate(_el.url) }}
           /></Accordion.Panel >)

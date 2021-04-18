@@ -129,6 +129,9 @@
 		<string>antfill.ttf</string>
 		<string>antoutline.ttf</string>
 		<string>Fontisto.ttf</string>
+		<string>Roboto_medium.ttf</string>
+		<string>Roboto.ttf</string>
+		<string>rubicon-icon-font.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

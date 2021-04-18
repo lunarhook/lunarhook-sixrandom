@@ -15,7 +15,7 @@ import ScreenConfig from '../../../config/ScreenConfig';
 import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import IconConfig from '../../../config/IconConfig'
-import { VictoryPie, VictoryLegend, } from 'victory-native';
+import { VictoryPie, VictoryBar, VictoryGroup, } from 'victory-native';
 
 import Svg, {
   Ellipse,
@@ -367,7 +367,55 @@ class EightrandomMainPage extends React.Component {
               ]}
               standalone={false}
               width={300} height={300}
-            /></Svg></View>
+            />
+          </Svg>
+          <Svg  height={300}>
+            <VictoryGroup offset={(70)} width={400} domain={{ x: [-3, 6] }}
+              colorScale={["green", "red", "#8B4513", "#DAA520", "#1E90FF"]}
+            >
+              <VictoryBar
+                barWidth={15}
+                data={[
+                  { x: "甲", y: Number(this.state.daykey['甲']) / 10 },
+                  { x: "乙", y: Number(this.state.daykey['乙']) / 10 },
+                ]}
+                labels={["甲:" + `${this.state.daykey['甲']}`,"乙:" + `${this.state.daykey['乙']}`]}
+              />
+              <VictoryBar
+                barWidth={15}
+                data={[
+                  { x: "丙", y: Number(this.state.daykey['丙']) / 10 },
+                  { x: "丁", y: Number(this.state.daykey['丁']) / 10 },
+                ]}
+                labels={["丙:" + `${this.state.daykey['丙']}`,"丁:" + `${this.state.daykey['丁']}`]}
+              />
+              <VictoryBar
+                barWidth={15}
+                data={[
+                  { x: "戊", y: Number(this.state.daykey['戊']) / 10 },
+                  { x: "己", y: Number(this.state.daykey['己']) / 10 },
+                ]}
+                labels={["戊:" + `${this.state.daykey['戊']}`,"己:" + `${this.state.daykey['己']}`]}
+              />
+              <VictoryBar
+                barWidth={15}
+                data={[
+                  { x: "庚", y: Number(this.state.daykey['庚']) / 10 },
+                  { x: "辛", y: Number(this.state.daykey['辛']) / 10 },
+                ]}
+                labels={["庚:" + `${this.state.daykey['庚']}`,"辛:" + `${this.state.daykey['辛']}`]}
+                />
+              <VictoryBar
+                barWidth={15}
+                data={[
+                  { x: "壬", y: Number(this.state.daykey['壬']) / 10 },
+                  { x: "癸", y: Number(this.state.daykey['癸']) / 10 },
+                ]}
+                labels={["壬:" + `${this.state.daykey['壬']}`,"癸:" + `${this.state.daykey['癸']}`]}
+              />
+            </VictoryGroup>
+          </Svg>
+         </View>
       )
     }
   }
@@ -604,7 +652,7 @@ class EightrandomMainPage extends React.Component {
                     <Grid
                       data={base}
                       columnNum={1}
-                      hasLine={true}
+                      hasLine={false}
                       itemStyle={{ height: 25, alignItems: "flex-start", flexwrap: "wrap" }}
                       renderItem={dataItem => (
                         <View style={styles.container}>
@@ -617,7 +665,7 @@ class EightrandomMainPage extends React.Component {
                     <Grid
                       data={test}
                       columnNum={7}
-                      hasLine={true}
+                      hasLine={false}
                       itemStyle={{ height: 25 }}
                       renderItem={dataItem => {
                         if (undefined != dataItem.info && dataItem.info.length === 3) {
@@ -644,7 +692,7 @@ class EightrandomMainPage extends React.Component {
                     <Grid
                       data={test1}
                       columnNum={7}
-                      hasLine={true}
+                      hasLine={false}
                       itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 }}
                       renderItem={dataItem => (
                         dataItem.info.map((item, idx) => {
@@ -663,7 +711,7 @@ class EightrandomMainPage extends React.Component {
                     <Grid
                       data={test2}
                       columnNum={7}
-                      hasLine={true}
+                      hasLine={false}
                       itemStyle={{ height: 25 }}
                       renderItem={dataItem => (
 
@@ -676,7 +724,7 @@ class EightrandomMainPage extends React.Component {
                     <Grid
                       data={shensha}
                       columnNum={1}
-                      hasLine={true}
+                      hasLine={false}
                       itemStyle={{ height: 25, alignItems: "flex-start" }}
                       renderItem={dataItem => (
                         <View style={styles.container}>
@@ -690,7 +738,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={years}
                     columnNum={8}
-                    hasLine={true}
+                    hasLine={false}
                     itemStyle={{ height: 25 }}
                     //当选择大运的时候，相当于选择了流年小运
                     onPress={(_el: any, index: any) => this.changeyear(Number(index % 8), "")}
@@ -724,7 +772,7 @@ class EightrandomMainPage extends React.Component {
                   <Grid
                     data={five}
                     columnNum={5}
-                    hasLine={true}
+                    hasLine={false}
                     itemStyle={{ height: 25 }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
