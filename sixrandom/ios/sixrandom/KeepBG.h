@@ -8,6 +8,7 @@
 
 #ifndef KeepBG_h
 #define KeepBG_h
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <BackgroundTasks/BackgroundTasks.h>

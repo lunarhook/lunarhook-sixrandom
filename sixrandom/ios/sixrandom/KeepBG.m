@@ -8,15 +8,20 @@
 
 
 #import "KeepBG.h"
-
+#import <BackgroundTasks/BackgroundTasks.h>
 
 static KeepBG *instance = nil;
 
 @interface KeepBG()
 
+@property (nonatomic, assign) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
+
 @end
 
+static NSString *const kBgTaskName = @"com.sixrandom.AppRunInBackground";
+
 @implementation KeepBG
+BOOL needRunInBackground = false;
 
 + (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
@@ -119,8 +124,9 @@ static KeepBG *instance = nil;
     [self scheduleAppRefresh];
     
     NSLog(@"App刷新handleAppRefresh===================");
+    NSLog(@"%s：应用已进入后台DidEnterBackground", __FUNCTION__);
+
+
 
 }
-
-
 @end

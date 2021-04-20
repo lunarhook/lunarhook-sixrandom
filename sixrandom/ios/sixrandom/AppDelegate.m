@@ -105,19 +105,24 @@ NSString *const RCTJSNavigationScheme = @"react-js-navigation";
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [plumberIOSManager set_geoinfo:@"测试地理信息" country:@"测试地理信息" longitude:10.0f latitude:10.0f];
-    [[UIApplication sharedApplication] endBackgroundTask: self.backgroundTaskIdentifier];
     if ([KeepBG sharedInstance].needRunInBackground) {
         [[KeepBG sharedInstance].player pause];
     }
+    [[UIApplication sharedApplication] endBackgroundTask: self.backgroundTaskIdentifier];
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
   [[KeepBG sharedInstance] scheduleAppRefresh];
   NSLog(@"%s：应用进入后台DidEnterBackground", __FUNCTION__);
   self.backgroundTaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithName:kBgTaskName expirationHandler:^{
+      if (self.backgroundTaskIdentifier != UIBackgroundTaskInvalid) {
+          if ([KeepBG sharedInstance].needRunInBackground) {
+              [[KeepBG sharedInstance].player play];
+          }
+          NSLog(@"终止后台任务");
+          [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTaskIdentifier];
+          self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+      }
   }];
-  if ([KeepBG sharedInstance].needRunInBackground) {
-      [[KeepBG sharedInstance].player play];
-  }
 }
 
 @end
