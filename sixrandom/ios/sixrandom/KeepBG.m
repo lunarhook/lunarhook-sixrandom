@@ -34,7 +34,7 @@ static KeepBG *instance = nil;
 #ifdef DEBUG
       if(diff > 1){//安装超过24小时，就开始使用长驻后台了
 #else
-      if(diff > 24*60*60){//安装超过24小时，就开始使用长驻后台了
+        if(diff > 1){//24*60*60){//安装超过24小时，就开始使用长驻后台了
 #endif
         instance.needRunInBackground = true;
       }
@@ -61,7 +61,7 @@ static KeepBG *instance = nil;
     if (!_player) {
         NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"SomethingJustLikeThis" withExtension:@"mp3"];
         AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
-        player.numberOfLoops = -1;
+        player.numberOfLoops = 30;
         _player = player;
     }
     return _player;
