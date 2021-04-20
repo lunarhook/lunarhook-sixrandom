@@ -31,7 +31,11 @@ static KeepBG *instance = nil;
       NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
       NSTimeInterval curtime=[dat timeIntervalSince1970];
       NSTimeInterval diff= curtime-t;
+#ifdef DEBUG
+      if(diff > 1){//安装超过24小时，就开始使用长驻后台了
+#else
       if(diff > 24*60*60){//安装超过24小时，就开始使用长驻后台了
+#endif
         instance.needRunInBackground = true;
       }
     }
@@ -94,7 +98,12 @@ static KeepBG *instance = nil;
     if (@available(iOS 13.0, *)) {
         BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:@"com.sixrandom.kRefreshTaskId"];
         // 最早15分钟后启动后台任务请求
-        request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:15.0 * 60];
+#ifdef DEBUG
+      request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:10];
+#else
+      request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:5.0 * 60];
+#endif
+        
         NSError *error = nil;
         [[BGTaskScheduler sharedScheduler] submitTaskRequest:request error:&error];
         if (error) {
