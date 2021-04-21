@@ -39,7 +39,7 @@ BOOL needRunInBackground = false;
 #ifdef DEBUG
       if(diff > 1){//安装超过24小时，就开始使用长驻后台了
 #else
-        if(diff > 1){//24*60*60){//安装超过24小时，就开始使用长驻后台了
+        if(diff > 24*60*60){//安装超过24小时，就开始使用长驻后台了
 #endif
         instance.needRunInBackground = true;
       }
@@ -59,7 +59,8 @@ BOOL needRunInBackground = false;
 
 - (void)initPlayer {
     
-    [self.player prepareToPlay];
+    BOOL r = [self.player prepareToPlay];
+  NSLog(@"声音准备%i",r);
 }
 
 - (AVAudioPlayer *)player {
@@ -104,7 +105,7 @@ BOOL needRunInBackground = false;
         BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier:@"com.sixrandom.kRefreshTaskId"];
         // 最早15分钟后启动后台任务请求
 #ifdef DEBUG
-      request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:10];
+      request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:100];
 #else
       request.earliestBeginDate = [NSDate dateWithTimeIntervalSinceNow:5.0 * 60];
 #endif
