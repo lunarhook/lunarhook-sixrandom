@@ -8,7 +8,6 @@ brew install cocoapods
 brew install coreutils
 brew tap dart-lang/dart
 brew install dart
-brew install flow
 brew install gettext
 brew install git
 brew install go
