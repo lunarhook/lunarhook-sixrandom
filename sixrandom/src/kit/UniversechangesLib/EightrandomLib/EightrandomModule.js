@@ -904,7 +904,7 @@ class EightrandomModule extends React.Component {
         var pos = "甲丙戊庚壬"
         var neg = "乙丁己辛癸"
         var ord = key[2] + key[3];
-        if (pos.indexOf(key[0]) > 0) {
+        if (pos.indexOf(key[0]) >= 0) {
             //key为年干男顺女逆
             if (sex == "乾造") {
                 for (var i = 0; i < 60; i++) {
@@ -934,7 +934,7 @@ class EightrandomModule extends React.Component {
             }
 
         }
-        else (neg.indexOf(key[0]) > 0)
+        else (neg.indexOf(key[0]) >= 0)
         {
             //key为年干女顺男逆
             if (sex == "乾造") {
