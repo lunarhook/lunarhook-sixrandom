@@ -609,6 +609,7 @@ class EightrandomMainPage extends React.Component {
       this.state.EightDate[i]
       shensha[i] = shensha[i] + EightrandomModule.shensha_dayg2earthz(this.state.EightDate[4], this.state.EightDate[i * 2 + 1]);
       shensha[i] = shensha[i] + EightrandomModule.shensha_moon(this.state.EightDate[3], this.state.EightDate[i * 2]);
+      shensha[i] = shensha[i] + EightrandomModule.shensha_yearg2earthz(this.state.EightDate[0], this.state.EightDate[i * 2 +1]);
       if (i != 1) {
         shensha[i] = shensha[i] + EightrandomModule.shensha_moon(this.state.EightDate[3], this.state.EightDate[i * 2 + 1]);//月支不见月支
       }
