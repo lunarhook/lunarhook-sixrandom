@@ -7,7 +7,7 @@
  * Author : JasonZhou
  * Email : zzyss86@qq.com
  */
-
+ import calendarTerms from './calendarTerms'
 (function(){
 	var extend = function(o, c){
 		if(o && c && typeof c == "object"){
@@ -335,11 +335,15 @@
 	 */
 	function getTerm(y,n) {
 		var offDate = new Date( ( 31556925974.7*(y-1890) + termInfo[n]*60000  ) + Date.UTC(1890,0,5,16,2,31) );
-		return(offDate.getUTCDate());
+		var newoffDate = calendarTerms.getTerm(y,n+1)
+		//var newUTC = (newoffDate.getUTCDate());
+		var UTC = (offDate.getUTCDate());
+		return UTC
 	};
 
 	function getTermDate(y,n) {
 		var offDate = new Date( ( 31556925974.7*(y-1890) + termInfo[n]*60000  ) + Date.UTC(1890,0,5,16,2,31) );
+		var newoffDate = calendarTerms.getTerm(y,n+1)
 		return offDate;
 	};
 	

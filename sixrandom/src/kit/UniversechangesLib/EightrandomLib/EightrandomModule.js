@@ -1193,6 +1193,17 @@ class EightrandomModule extends React.Component {
             key = 365 - key
         }
         res[100-key] = solarTerm[22] + "|" + daydate.getDate() + "|" + daydate.getHours();
+        /*正式的只要节，不要气
+        daydate = LunarCalendar.getTermDate(year - 1, 23);
+        day = LunarCalendar.getTerm(year - 1, 23);
+        key = Number(this.formateDayD4(11, day, year - 1))
+        if (this.isLeapYear(year)) {
+            key = 366 - key
+        }else{
+            key = 365 - key
+        }
+        res[100-key] = solarTerm[23] + "|" + daydate.getDate() + "|" + daydate.getHours();
+        */
 
         for (var i = 0; i < 24; i++) {
             daydate = LunarCalendar.getTermDate(year, i);
@@ -1250,7 +1261,7 @@ class EightrandomModule extends React.Component {
             last++
         }
         console.log("getbigluckyearbegin", mytime, next, last, key, next % 3)
-        if (pos.indexOf(key[0]) > 0) {
+        if (pos.indexOf(key[0]) >= 0) {
             //key为年干男顺女逆
             if (sex == "乾造") {
                 return Number(mybirth.getFullYear() + Math.floor(next / 3) + (mybirth.getHours() / 6 / 30 + next % 3 * 4 + mybirth.getMonth()) / 12)
@@ -1259,7 +1270,7 @@ class EightrandomModule extends React.Component {
                 return Number(mybirth.getFullYear() + Math.floor(last / 3) + (mybirth.getHours() / 6 / 30 + last % 3 * 4 + mybirth.getMonth()) / 12)
             }
         }
-        else (neg.indexOf(key[0]) > 0)
+        else (neg.indexOf(key[0]) >= 0)
         {
             //key为年干女顺男逆
             if (sex == "乾造") {

@@ -195,7 +195,7 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-pager-view (5.1.5):
+  - react-native-pager-view (5.1.7):
     - React-Core
   - react-native-safe-area-context (3.2.0):
     - React-Core
@@ -479,11 +479,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  DoubleConversion: cde416483dac037923206447da6e1454df403714
   FBLazyVector: 3ef4a7f62e7db01092f9d517d2ebc0d0677c4a37
   FBReactNativeSpec: dc7fa9088f0f2a998503a352b0554d69a4391c5a
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
-  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   RCTRequired: f13f25e7b12f925f1f6a6a8c69d929a03c0129fe
   RCTTypeSafety: 44982c5c8e43ff4141eb519a8ddc88059acd1f3a
   RCTWeChat: 289c92186c1f55716a6378af55388292d94b2d9e
@@ -499,7 +499,7 @@ SPEC CHECKSUMS:
   react-native-compass-heading: 18742617bdb9e06ce104bd3b90f0dc700b791fd1
   react-native-fingerprint-scanner: ac6656f18c8e45a7459302b84da41a44ad96dbbe
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-pager-view: c0c3833fbf06f3c63fb0ef8c4125bf1363b073d8
+  react-native-pager-view: c60a26be051a4b88427f2475e173b5c112e98d17
   react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
   react-native-segmented-control: 65df6cd0619b780b3843d574a72d4c7cec396097
   react-native-shake: 885e76525826265f183d1e60e8e735956de6d45b
