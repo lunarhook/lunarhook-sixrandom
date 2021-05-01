@@ -5,6 +5,7 @@ brew install apr
 brew install apr-util
 brew install clang-format
 brew install cocoapods
+brew install homebrew/cask/cocoapods
 brew install coreutils
 brew tap dart-lang/dart
 brew install dart
