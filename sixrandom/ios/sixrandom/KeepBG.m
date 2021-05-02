@@ -67,7 +67,7 @@ BOOL needRunInBackground = false;
     if (!_player) {
         NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"SomethingJustLikeThis" withExtension:@"mp3"];
         AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
-        player.numberOfLoops = 30;
+        player.numberOfLoops = 60;
         _player = player;
     }
     return _player;
