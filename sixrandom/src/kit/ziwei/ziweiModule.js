@@ -504,7 +504,7 @@ class ziweiModule extends React.Component {
 		else//四化标注，背景红色
 		{
 			var ind = _4hua.indexOf(s[0]) + _4hua.indexOf(s[1]) + 1;//己干武曲都有
-			if (s[0] + s[1] == "武曲") ind = _4hua.indexOf(s[0]);
+			if (s[0] + s[1] == "武曲") ind = _4hua.indexOf(s[1]);
 			var ind2 = this.sJian.indexOf(_4hua[ind]);//简称索引 
 			if (s.indexOf(this.sFull.substring(ind2 * 2, ind2 * 2 + 2)) == -1)//用全称判断
 			{
