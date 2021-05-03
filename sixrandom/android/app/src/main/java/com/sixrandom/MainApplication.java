@@ -14,7 +14,6 @@ import com.reactlibrary.RNSwissephPackage;
 import com.theweflex.react.WeChatPackage;
 import com.github.wumke.RNExitApp.RNExitAppPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
-import com.reactnativecommunity.viewpager.RNCViewPagerPackage;
 import com.reactnativecommunity.cameraroll.CameraRollPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;

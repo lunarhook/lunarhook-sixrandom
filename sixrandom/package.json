@@ -18,7 +18,6 @@
     "@react-native-community/picker": "^1.8.1",
     "@react-native-community/segmented-control": "^2.2.2",
     "@react-native-community/slider": "^3.0.3",
-    "@react-native-picker/picker": "^1.15.0",
     "babel-core": "^6.26.3",
     "fsevents": "^2.3.2",
     "mobx": "^6.3.0",

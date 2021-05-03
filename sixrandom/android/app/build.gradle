@@ -300,7 +300,7 @@ dependencies {
     implementation project(':react-native-exit-app')
     implementation project(':react-native-safe-area-context')
 
-    implementation project(':@react-native-community_viewpager')
+    //implementation project(':@react-native-community_viewpager')
     implementation project(':@react-native-community_cameraroll')
     implementation project(':react-native-gesture-handler')
     implementation project(':react-native-device-info')
