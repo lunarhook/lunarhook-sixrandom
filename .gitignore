@@ -16,3 +16,4 @@ sixrandom/.vscode/.react/*
 sixrandom/src/.vscode/launch.json
 *.hprof
 *output-metadata.json
+sixrandom/ios/Podfile.lock
