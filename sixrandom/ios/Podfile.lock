@@ -195,14 +195,14 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-pager-view (5.1.7):
+  - react-native-pager-view (5.1.9):
     - React-Core
   - react-native-safe-area-context (3.2.0):
     - React-Core
   - react-native-segmented-control (2.2.2):
     - React-Core
-  - react-native-shake (3.5.2):
-    - React-Core
+  - react-native-shake (4.0.2):
+    - React
   - react-native-slider (3.0.3):
     - React
   - react-native-view-shot (3.1.2):
@@ -310,8 +310,9 @@ PODS:
     - React-RCTVibration
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.2.0):
+  - RNScreens (3.3.0):
     - React-Core
+    - React-RCTImage
   - RNSVG (12.1.1):
     - React
   - RNSwisseph (0.0.18):
@@ -479,11 +480,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  DoubleConversion: cde416483dac037923206447da6e1454df403714
   FBLazyVector: 3ef4a7f62e7db01092f9d517d2ebc0d0677c4a37
   FBReactNativeSpec: dc7fa9088f0f2a998503a352b0554d69a4391c5a
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
-  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   RCTRequired: f13f25e7b12f925f1f6a6a8c69d929a03c0129fe
   RCTTypeSafety: 44982c5c8e43ff4141eb519a8ddc88059acd1f3a
   RCTWeChat: 289c92186c1f55716a6378af55388292d94b2d9e
@@ -499,10 +500,10 @@ SPEC CHECKSUMS:
   react-native-compass-heading: bb83f8472786ad730947624f2a75a6563aa80b27
   react-native-fingerprint-scanner: ac6656f18c8e45a7459302b84da41a44ad96dbbe
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-pager-view: c60a26be051a4b88427f2475e173b5c112e98d17
+  react-native-pager-view: 14653de580178af7e65aa7e3fa08b4f243c86d4d
   react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
   react-native-segmented-control: 65df6cd0619b780b3843d574a72d4c7cec396097
-  react-native-shake: 885e76525826265f183d1e60e8e735956de6d45b
+  react-native-shake: 24ebfb0eda62f9c2cb4bcaa780dbc7857988e921
   react-native-slider: e99fc201cefe81270fc9d81714a7a0f5e566b168
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
   React-RCTActionSheet: 910163b6b09685a35c4ebbc52b66d1bfbbe39fc5
@@ -523,7 +524,7 @@ SPEC CHECKSUMS:
   RNFS: 3ab21fa6c56d65566d1fb26c2228e2b6132e5e32
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: 70f662b5232dd5d19ccff581e919a54ea73df51c
-  RNScreens: c277bfc4b5bb7c2fe977d19635df6f974f95dfd6
+  RNScreens: bf59f17fbf001f1025243eeed5f19419d3c11ef2
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNSwisseph: 4492bebefd54286193f7f1f35c37e96cc5d059c1
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
