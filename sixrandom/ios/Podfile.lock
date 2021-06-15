@@ -247,7 +247,7 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-pager-view (5.1.10):
+  - react-native-pager-view (5.2.1):
     - React-Core
   - react-native-safe-area-context (3.2.0):
     - React-Core
@@ -598,7 +598,7 @@ SPEC CHECKSUMS:
   react-native-compass-heading: bb83f8472786ad730947624f2a75a6563aa80b27
   react-native-fingerprint-scanner: ac6656f18c8e45a7459302b84da41a44ad96dbbe
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-pager-view: 967d50ce0f1b72e434a2d9f3b739ddbf7d5bbf83
+  react-native-pager-view: 2864530d861ab2970beb2cd0b4cf2292cd30cd84
   react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
   react-native-segmented-control: 65df6cd0619b780b3843d574a72d4c7cec396097
   react-native-shake: 24ebfb0eda62f9c2cb4bcaa780dbc7857988e921
