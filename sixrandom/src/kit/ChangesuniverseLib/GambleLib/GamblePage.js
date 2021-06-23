@@ -144,15 +144,17 @@ class GamblePage extends React.Component {
 
   UNSAFE_componentWillMount() {
     this.init();
-    RNShake.addEventListener('ShakeEvent', () => {
+    
+    RNShake.addListener(() => {
       
       this.result()
     });
+    
   }
 
 
   componentWillUnmount() {
-    RNShake.removeEventListener('ShakeEvent');
+    RNShake.removeListener();
   }
   init()
   {

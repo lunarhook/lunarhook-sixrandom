@@ -51,14 +51,14 @@ class SixrandomNewPage extends React.Component {
   };
 
   UNSAFE_componentWillMount() {
-    RNShake.addEventListener('ShakeEvent', () => {
+    RNShake.addListener( () => {
       
       this.random()
     });
   }
 
   componentWillUnmount() {
-    RNShake.removeEventListener('ShakeEvent');
+    RNShake.removeListener();
   }
   keyExtractor = (item,index) => index.toString()
   renderItem(item) {
@@ -185,7 +185,7 @@ class SixrandomNewPage extends React.Component {
       await HistoryArrayGroup.saveid(obj.kind ,obj.id,Jstr)
       HistoryArrayGroup.save("sixrandomlast",Jstr)
       HistoryArrayGroup.GetSixrandomHistory()
-      RNShake.removeEventListener('ShakeEvent');//强制卸载监听
+      RNShake.removeListener();//强制卸载监听
       this.props.navigation.navigate('SixrandomFullInfoPage',parameter)
       this.picker(0)
     }
