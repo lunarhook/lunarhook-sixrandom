@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
 import com.rnfs.RNFSPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.reactlibrary.RNSwissephPackage;
@@ -85,8 +86,8 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
       Compass.init(this, getChannel(this), "", "plumber-sdk");
-    super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
+      super.onCreate();
+      SoLoader.init(this, /* native exopackage */ false);
       MultiDex.install(this);
       initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
       this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
