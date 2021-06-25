@@ -162,9 +162,10 @@ export default class TrackMagnetometer extends Component {
   useEffect(){
     const degree_update_rate = 1;
     
-    CompassHeading.start(degree_update_rate, degree => {
-      //console.log(degree)
-      this.setState({degree:degree});
+    CompassHeading.start(degree_update_rate, ({heading,accuracy}) => {
+      console.log("x",heading,accuracy)
+      this.setState({degree:heading});
+      this.setState({accuracy:accuracy});
     });
     
     return () => {
@@ -180,6 +181,7 @@ export default class TrackMagnetometer extends Component {
   }
 
   _degree = magnetometer => {
+    console.log(1,magnetometer[0])
     return Math.floor(magnetometer * 100) / 100 
   };
 
@@ -198,6 +200,7 @@ export default class TrackMagnetometer extends Component {
   };
 
   _directionMountain= degree => {
+    console.log(degree)
     degree = (parseFloat(degree) + 180)%360
     var ret = ""
     montain.forEach(element=>{
@@ -205,6 +208,7 @@ export default class TrackMagnetometer extends Component {
         ret= element.jian +" "+ element.jin + "分金"
       }
     })
+    console.log(ret)
     return ret
   };
   _direction  = degree => {
@@ -233,7 +237,9 @@ export default class TrackMagnetometer extends Component {
   render() {
     var D = this._direction(this._degree(this.state.degree))
     var M = this._directionMountain(this._degree(this.state.degree))
+
     this.updateMeter(M)
+    console.log(D)
     return (
           <View style={{backgroundColor:"#AAAAAA",alignContent:"center"}}>
             <Text
