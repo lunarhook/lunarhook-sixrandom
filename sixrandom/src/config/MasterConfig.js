@@ -23,27 +23,28 @@ var MasterRandom = [];
   init(){
 MasterSelectMode = [
   {title: '训练大师',isSelect: true},
-  {title: '故事课',isSelect: true},
-  {title: 'MBTI训练',isSelect: true},
-  {title: '五行掌握',isSelect: true},
-  {title: '道德经',isSelect: true},
+  {title: '家庭关系',isSelect: true},
+  {title: '职涯训练',isSelect: true},
+  //{title: '五行掌握',isSelect: true},
+  //{title: '道德经',isSelect: true},
 
   //{title: '数理逻辑',isSelect: true},
   //{title: '人工智能',isSelect: true},
 ]
 
 Masteralllist['训练大师'] = [
-  {title: '故事课',isSelect: true},
-  {title: 'MBTI训练',isSelect: true},
-  {title: '五行掌握',isSelect: true},
-  {title: '道德经',isSelect: true},
+  {title: '家庭关系',isSelect: true},
+  {title: '职涯训练',isSelect: true},
+  //{title: '五行掌握',isSelect: true},
+  //{title: '道德经',isSelect: true},
 
 
 ]
- Masteralllist['MBTI训练'] = [
-  {title: 'MBTI训练',isSelect: true},
+ Masteralllist['职涯训练'] = [
+  {title: '职涯训练',isSelect: true},
 
 ]
+/*
  Masteralllist['五行掌握'] = [
 
 
@@ -53,7 +54,7 @@ Masteralllist['训练大师'] = [
  Masteralllist['道德经'] = [
   {title: '道德经',isSelect: true},
 ]
-/*
+
  Masteralllist['数理逻辑'] = [
 
 ]
@@ -65,28 +66,28 @@ Masteralllist['训练大师'] = [
 
 MasterRandom['全部'] = [
   {title: '全部',isSelect: true},
-  {title: 'MBTI训练',isSelect: true},
-  {title: '五行掌握',isSelect: true},
-  {title: '道德经',isSelect: true},
+  {title: '职涯训练',isSelect: true},
+  //{title: '五行掌握',isSelect: true},
+  //{title: '道德经',isSelect: true},
 
   //{title: '逻辑思维',isSelect: true},
   //{title: '数理逻辑',isSelect: true},
   //{title: '人工智能',isSelect: true},
 ]
-MasterRandom['MBTI训练'] = [
+MasterRandom['职涯训练'] = [
   {title: '全部',isSelect: true},
-  {title: 'MBTI训练',isSelect: true},
-  {title: '五行掌握',isSelect: false},
-  {title: '道德经',isSelect: true},
+  {title: '职涯训练',isSelect: true},
+  //{title: '五行掌握',isSelect: false},
+  //{title: '道德经',isSelect: true},
   //{title: '逻辑思维',isSelect: false},
   //{title: '数理逻辑',isSelect: false},
  // {title: '人工智能',isSelect: false},
 ]
 MasterRandom['五行掌握'] = [
   {title: '全部',isSelect: true},
-  {title: 'MBTI训练',isSelect: false},
-  {title: '五行掌握',isSelect: true},
-  {title: '道德经',isSelect: true},
+  {title: '职涯训练',isSelect: false},
+  //{title: '五行掌握',isSelect: true},
+  //{title: '道德经',isSelect: true},
  // {title: '逻辑思维',isSelect: false},
  // {title: '数理逻辑',isSelect: false},
   //{title: '人工智能',isSelect: false},

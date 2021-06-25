@@ -13,7 +13,7 @@ import MasterConfig from '../config/MasterConfig'
 const intro = [
 
   //{icon: RouteConfig['MasterSearchPage'].icon,text: RouteConfig['MasterSearchPage'].name,url:RouteConfig['MasterSearchPage'].route},
-  { icon: IconConfig.IconStar, text: "由内而外", url: "", },
+  { icon: IconConfig.IconStar, text: "MBTI初级\n由内而外", url: "", },
   { icon: IconConfig.IconStar, text: "敏锐感知", url: "" },
   { icon: IconConfig.IconStar, text: "情感逻辑", url: "" },
   { icon: IconConfig.IconStar, text: "探索判断", url: "" },
@@ -22,7 +22,7 @@ const intro = [
 
 ]
 const MBTI = [
-  { icon: IconConfig.IconStar, text: "由内而外", url: RouteConfig['MBTI1Module'].route, index: { text: "MBTI1Module" }, },
+  { icon: IconConfig.IconStar, text: "MBTI初级\n由内而外", url: RouteConfig['MBTI1Module'].route, index: { text: "MBTI1Module" }, },
   /*
   { icon: IconConfig.IconStar, text: "敏锐感知", url: "" },
   { icon: IconConfig.IconStar, text: "情感逻辑", url: "" },
@@ -32,7 +32,7 @@ const MBTI = [
   { icon: IconConfig.IconStar, text: "需求满足", url: "" },
   */
 ]
-
+/*
 const Univers = [
   { icon: IconConfig.IconLunarCourseRed, text: "感受自然", url: RouteConfig['fivelevel1Module'].route, index: { text: "fivelevel1Module" } },
   { icon: IconConfig.IconLunarCourseBlue, text: "世间万象", url: RouteConfig['fivelevel2Module'].route, index: { text: "fivelevel2Module" } },
@@ -44,6 +44,7 @@ const old = [
   { icon: IconConfig.IconLunarCourseGreen, text: "矛盾变化", url: RouteConfig['oldlevel2Module'].route, index: { text: "oldlevel2Module" } },
   { icon: IconConfig.IconLunarCourseclaygreen, text: "人间道", url: RouteConfig['oldlevel3Module'].route, index: { text: "oldlevel3Module" } },
 ]
+*/
 
 const story = [
   { icon: IconConfig.IconLunarCourseGold, text: "亲密三部曲", url: RouteConfig['story1Module'].route, index: { text: "story1Module" } },
@@ -223,8 +224,8 @@ class LunarMasterPage extends React.Component {
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
         */
-    contentlist["故事课"] = (
-      <Accordion.Panel header={"故事课"} key={"故事课"}>
+    contentlist["家庭关系"] = (
+      <Accordion.Panel header={"亲密关系"} key={"亲密关系"}>
         <Grid
           data={story}
           columnNum={coln}
@@ -233,8 +234,8 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-    contentlist["MBTI训练"] = (
-      <Accordion.Panel header={"MBTI训练"} key={"MBTI训练"}>
+    contentlist["职涯训练"] = (
+      <Accordion.Panel header={"职涯训练"} key={"职涯训练"}>
         <Grid
           data={MBTI}
           columnNum={coln}
@@ -243,7 +244,7 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-        
+    /*     
     contentlist["五行掌握"] = (
       <Accordion.Panel header={"五行掌握"} key={"五行掌握"}>
         <Grid
@@ -268,7 +269,7 @@ class LunarMasterPage extends React.Component {
 
 
 
- /*
+
     if ("关注" == tab.title) {
       return (
         <ScrollView>
@@ -298,15 +299,16 @@ class LunarMasterPage extends React.Component {
           }
         </Accordion></ScrollView>
       )
-    } else if ("MBTI训练" == tab.title) {
+    } else if ("职涯训练" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["MBTI训练"]}
+            {contentlist["职涯训练"]}
           </Accordion>
         </ScrollView>
       )
-    } else if ("五行掌握" == tab.title) {
+    } 
+    /*else if ("五行掌握" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -322,7 +324,7 @@ class LunarMasterPage extends React.Component {
           </Accordion>
         </ScrollView>
       )
-    }
+    }*/
   };
 
   render() {
