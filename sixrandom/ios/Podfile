@@ -1,4 +1,4 @@
-source 'https://gitee.com/mirrors/CocoaPods-Specs'
+#source 'https://gitee.com/mirrors/CocoaPods-Specs'
 
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
@@ -30,7 +30,6 @@ target 'sixrandom' do
   use_flipper!()
 
   post_install do |installer|
-    flipper_post_install(installer)
     react_native_post_install(installer)
   end
 end
