@@ -50,6 +50,14 @@ class SloganShare extends React.Component {
     shareimg[13] = require('../../../img/time/slogan/14.jpg')
     shareimg[14] = require('../../../img/time/slogan/15.jpg')
     shareimg[15] = require('../../../img/time/slogan/16.jpg')
+    shareimg[16] = require('../../../img/time/slogan/17.jpg')
+    shareimg[17] = require('../../../img/time/slogan/18.jpg')
+    shareimg[18] = require('../../../img/time/slogan/19.jpg')
+    shareimg[19] = require('../../../img/time/slogan/20.jpg')
+    shareimg[20] = require('../../../img/time/slogan/21.jpg')
+    shareimg[21] = require('../../../img/time/slogan/22.jpg')
+    shareimg[22] = require('../../../img/time/slogan/23.jpg')
+    shareimg[23] = require('../../../img/time/slogan/24.jpg')
   }
   random() {
     this.timer = setInterval(() => {
@@ -66,7 +74,7 @@ class SloganShare extends React.Component {
     thiscontrollor.setState({fadeInOpacity: new Animated.Value(1) })
   }
   render() {
-    let anim = Animated.sequence([ Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true}),  Animated.delay(3000), Animated.timing(this.state.fadeInOpacity, { toValue: 0, duration: 2000 }) ])
+    let anim = Animated.sequence([ Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true}),  Animated.delay(3000), Animated.timing(this.state.fadeInOpacity, { toValue: 0, duration: 2000 , useNativeDriver: true}) ])
       
     if (false == this.state.shareimg) {
       this.timer && clearInterval(this.timer);
