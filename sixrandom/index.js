@@ -145,7 +145,15 @@ if (__DEV__) {
 
 const MainPage = createBottomTabNavigator({
 
-  CalendarPage: { screen: CalendarPage },
+  CalendarPageFake: createStackNavigator(
+    { "CalendarPageFake": "乾坤" },
+    {
+      navigationOptions: ({ navigation }) => ({
+        title: RouteConfig["CalendarPage"].name,
+      })
+    }
+  ),
+  //CalendarPage: { screen: CalendarPage },
   kitPage: { screen: kitPage },
   LunarMasterPage: { screen: LunarMasterPage },
   MyPageFake: createStackNavigator(
@@ -155,7 +163,7 @@ const MainPage = createBottomTabNavigator({
         title: RouteConfig["MyPage"].name,
       })
     }),
-},
+  },
   {
     initialRouteName: 'kitPage',
     defaultNavigationOptions: ({ navigation }) => ({
@@ -167,7 +175,10 @@ const MainPage = createBottomTabNavigator({
       tabBarOnPress: (nv) => {
         const { routeName } = navigation.state;
 
-        if ("MyPageFake" == routeName) {
+        if ("CalendarPageFake" == routeName) {
+          navigation.navigate("CalendarPage")
+        }
+        else if ("MyPageFake" == routeName) {
           navigation.navigate("MyPage")
         }
         else if ("ExplorationTabFake" == routeName) {
@@ -232,8 +243,9 @@ const MainPage = createBottomTabNavigator({
 
 
 const sixrandom = createStackNavigator({
-  //CalendarPage: { screen: CalendarPage },
+
   MainPage,
+  CalendarPage: { screen: CalendarPage },
   NumberMainPage: { screen: NumberMainPage },
   SixrandomHistoryPage: { screen: SixrandomHistoryPage },
   SixrandomNewPage: { screen: SixrandomNewPage },

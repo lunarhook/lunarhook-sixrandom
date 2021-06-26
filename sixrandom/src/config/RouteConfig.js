@@ -40,6 +40,7 @@ RouteConfig={
         //周易工具
         "UniversechangesPage":{"name":"周易测评","route":"UniversechangesPage","icon":IconConfig.IconUniversechanges},
             "CalendarPage":{"name":"乾坤","route":"CalendarPage","titlename":"乾坤爻","icon":IconConfig.IconCalendar},
+            "CalendarPageFake":{"name":"乾坤","route":"CalendarPage","titlename":"乾坤爻","icon":IconConfig.IconCalendar},
                 "SixrandomNewPage":{"name":"六爻问卦","route":"SixrandomNewPage","icon":IconConfig.SixrandomSel},
                 "SixrandomFullInfoPage":{"name":"卦象详解","route":"SixrandomFullInfoPage","icon":IconConfig.SixrandomSel},
                 "SixrandomHistoryPage":{"name":"六爻历史","route":"SixrandomHistoryPage","icon":IconConfig.IconDetail},

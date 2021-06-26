@@ -65,13 +65,13 @@ class CalendarPage extends React.Component {
     //RouteConfig["CalendarPage"].name = appname[keys[0]]
     //console.log("getAppKeys", RouteConfig["CalendarPage"].name, keys[0], appname)
     return {
-      headerLeft: () => (<></>),
+      //headerLeft: () => (<></>),
       headerRight: () => (
         <TouchableOpacity
           style={[styles.dateContainer, { paddingRight: 40 }]}
           //onPress={() => navigate('Search')}
           onPress={() => CalendarPagethis.today()}>
-          {(false == CalendarPagethis.state.otherParam) ? (null) : IconConfig.ReCover}
+          {(undefined == CalendarPagethis || false == CalendarPagethis.state.otherParam) ? (null) : IconConfig.ReCover}
         </TouchableOpacity>),
       title: RouteConfig["CalendarPage"].name,
       cardStack: { gesturesEnabled: true }
