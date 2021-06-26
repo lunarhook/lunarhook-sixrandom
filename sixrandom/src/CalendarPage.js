@@ -70,7 +70,9 @@ class CalendarPage extends React.Component {
         <TouchableOpacity
           style={[styles.dateContainer, { paddingRight: 40 }]}
           //onPress={() => navigate('Search')}
-          onPress={() => CalendarPagethis.today()}>
+          onPress={() => {CalendarPagethis.today(),setTimeout(() => {
+            CalendarPagethis.today()
+          }, 200);}}>
           {(undefined == CalendarPagethis || false == CalendarPagethis.state.otherParam) ? (null) : IconConfig.ReCover}
         </TouchableOpacity>),
       title: RouteConfig["CalendarPage"].name,
@@ -388,29 +390,39 @@ class CalendarPage extends React.Component {
     this.state.wanNianLiInfo = SixrandomModule.build(parameter);
     this.state.info = UniversechangesConfig.GetInfo(this.state.wanNianLiInfo)
     var sday = this.getDateFormat(now);
+    this.props.navigation.setParams({otherParam: false})
     this.setState({
       selected: sday,
       otherParam: false
     })
-    this.props.navigation.setParams({otherParam: false})
+
+   
   }
-  onDayPress(day) {
+  onDayPress(day,repeat=false) {
     var now = new Date();
     var time = new Date(day.dateString);
     if (day.dateString == this.getDateFormat(now)) {
       this.today();
+      console.log("day",12)
     }
     else {
       time.setHours(now.getHours());
       var parameter = "?date=" + time.toString() + "&lunar=" + "999999" + "&question=";
       this.state.wanNianLiInfo = SixrandomModule.build(parameter);
       this.state.info = UniversechangesConfig.GetInfo(this.state.wanNianLiInfo)
+      this.props.navigation.setParams({otherParam: true  })
       this.setState({
         selected: day.dateString,otherParam: true 
       });
-      this.props.navigation.setParams({otherParam: true })
-    }
 
+      console.log("day",1)
+    }
+    if(true!=repeat)
+    {
+      setTimeout(() => {
+        this.onDayPress(day,true)
+      }, 200);
+    }
   }
   begin(pagename) {
     const resetAction = NavigationActions.reset({
