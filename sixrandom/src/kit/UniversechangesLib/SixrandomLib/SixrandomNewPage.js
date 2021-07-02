@@ -60,6 +60,8 @@ class SixrandomNewPage extends React.Component {
   componentWillUnmount() {
     RNShake.removeListener();
   }
+  gobackrefreshlist()
+  {}
   keyExtractor = (item,index) => index.toString()
   renderItem(item) {
     return (
@@ -186,7 +188,7 @@ class SixrandomNewPage extends React.Component {
       HistoryArrayGroup.save("sixrandomlast",Jstr)
       HistoryArrayGroup.GetSixrandomHistory()
       RNShake.removeListener();//强制卸载监听
-      this.props.navigation.navigate('SixrandomFullInfoPage',parameter)
+      this.props.navigation.navigate('SixrandomFullInfoPage',{"url":parameter})
       this.picker(0)
     }
 

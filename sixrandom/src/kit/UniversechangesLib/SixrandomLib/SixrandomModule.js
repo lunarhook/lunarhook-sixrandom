@@ -4427,6 +4427,7 @@ class SixrandomModule extends React.Component {
 		//alert(info)
 
 		ret = this.recoverlunarsix(info)
+		ret.rowid = info.rowid
 		return ret
 	}
 

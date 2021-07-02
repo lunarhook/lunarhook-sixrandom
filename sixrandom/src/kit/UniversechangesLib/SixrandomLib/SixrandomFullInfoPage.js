@@ -10,8 +10,10 @@ import { SixrandomModule } from '../SixrandomLib/SixrandomModule'
 import StorageModule from '../../../config/StorageModule'
 import IconConfig from '../../../config/IconConfig';
 import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
+import UserModule from '../../../config/UserModule'
 import WechatShare from '../../../config/WechatShare'
 import { HistoryArrayGroup } from '../../../config/StorageModule'
+import { CommonActions } from '@react-navigation/native';
 let SixrandomFullinfoPagethis = null
 class SixrandomFullinfoPage extends React.Component {
   constructor(props) {
@@ -24,13 +26,6 @@ class SixrandomFullinfoPage extends React.Component {
     SixrandomFullinfoPagethis = this
   };
 
-  static ShareInstance() {
-    if (!SixrandomFullinfoPagethis) {
-      SixrandomFullinfoPagethis = new SixrandomFullinfoPage();
-    }
-    return SixrandomFullinfoPagethis;
-  }
-
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     return {
@@ -40,7 +35,7 @@ class SixrandomFullinfoPage extends React.Component {
         <TouchableOpacity
           style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
           //onPress={() => navigate('Search')}
-          onPress={() =>  SixrandomFullinfoPage.ShareInstance().deletethis()}
+          onPress={() =>  SixrandomFullinfoPagethis.deletethis()}
         >
           {IconConfig.IconDelete}
         </TouchableOpacity>),
@@ -57,23 +52,33 @@ class SixrandomFullinfoPage extends React.Component {
   }
   async deletethis()
   {
-    var rowid = SixrandomFullinfoPage.ShareInstance().state.rowid 
+    var rowid = SixrandomFullinfoPagethis.state.rowid 
     console.log("rowid",rowid)
     HistoryArrayGroup.loadid('sixrandom', rowid).then(async (ret) => {
-      var Jobj = JSON.parse(ret);
-      let T = await UserModule.SyncFileServer("sixrandom", rowid, "")
-      if (undefined != T && 2000 == T.code) {
-        T.data.forEach(async (element) => {
-          filename = element.File
-          if (-1 != filename.indexOf(String(rowid)) && true == element.Del) {
-            await HistoryArrayGroup.remove('sixrandom', rowid);
-          }
-        });
+      if(undefined!=ret)
+      {
+        var Jobj = JSON.parse(ret);
+        let T = await UserModule.SyncFileServer("sixrandom", rowid, "")
+        if (undefined != T && 2000 == T.code) {
+          T.data.forEach(async (element) => {
+            filename = element.File
+            if (-1 != filename.indexOf(String(rowid)) && true == element.Del) {
+              await HistoryArrayGroup.remove('sixrandom', rowid);
+            }
+          });
+        }
+        else {
+          await HistoryArrayGroup.remove('sixrandom', rowid);
+        }
       }
-      else {
-        await HistoryArrayGroup.remove('sixrandom', rowid);
+      //this.props.navigation.dispatch(CommonActions.goBack());
+      this.props.navigation.goBack()
+      if(undefined!=this.props.navigation.state.params.goback)
+      {
+        this.props.navigation.state.params.goback()
       }
 
+      //this.props.navigation.navigate("SixrandomHistoryPage",{ text: "refresh" })
     })
   }
   componentWillUnmount() {
@@ -84,7 +89,7 @@ class SixrandomFullinfoPage extends React.Component {
 
   refreshlist() {
     const { navigate } = this.props.navigation;
-    parameter = this.props.navigation.state.params
+    parameter = this.props.navigation.state.params.url
     //console.log("refreshlist()",parameter)
     if ("last" != parameter) {
       var _ret = SixrandomModule.build(parameter);
@@ -96,7 +101,7 @@ class SixrandomFullinfoPage extends React.Component {
       var infoext = __ret.infoext
       var infobase = __ret.infobase
       var kind = __ret.kind
-      var rowid = __ret.rowid
+      var rowid = _ret.rowid
       for (var index = 0; index < ggrid.length; index++) {
         var o = {}
         if (undefined != ggrid[index]) {
@@ -115,7 +120,7 @@ class SixrandomFullinfoPage extends React.Component {
         infogrid.push(o)
       }
       console.log(infogrid)
-      this.setState({
+      SixrandomFullinfoPagethis.setState({
         date: _build, parameter: parameter, infogrid: infogrid, infoext: infoext, infobase: infobase,kind:kind,rowid:rowid
       });
     }
