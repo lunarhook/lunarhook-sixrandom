@@ -259,7 +259,7 @@ class EightrandomNewPage extends React.Component {
       Jstr = HistoryArrayGroup.MakeJsonSync(Jstr)
     }
 
-    var parameter = "?EightDate=" + savedate[1] + "&sex=" + savedate[2] + "&birth=" + savedate[4] + "&Date=" + savedate[0]
+    var parameter = "?EightDate=" + savedate[1] + "&sex=" + savedate[2] + "&birth=" + savedate[4] + "&Date=" + savedate[0] + "&rowid=" +obj.id
     /*
     2.9.1以后的版本八字停用name库，改用eightrandom库，也不再使用lastname库，未来考虑整体更新数据库
     */
@@ -267,7 +267,7 @@ class EightrandomNewPage extends React.Component {
     //await HistoryArrayGroup.saveid("name",index,savedate)
     //await HistoryArrayGroup.save("lastname",savedate)
     HistoryArrayGroup.GetEightRandomHistory()
-    this.props.navigation.navigate('EightrandomMainPage', parameter)
+    this.props.navigation.navigate('EightrandomMainPage', {"url":parameter})
   }
 
 }

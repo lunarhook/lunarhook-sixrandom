@@ -16,7 +16,8 @@ import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import IconConfig from '../../../config/IconConfig'
 import { VictoryPie, VictoryBar, VictoryGroup, } from 'victory-native';
-
+import { HistoryArrayGroup } from '../../../config/StorageModule'
+import UserModule from '../../../config/UserModule'
 import Svg, {
   Ellipse,
   G,
@@ -38,6 +39,7 @@ const { width, height } = Dimensions.get('window');
 var jump = false
 let curyear = 0
 let curmonth = 0
+let EightrandomMainPagethis = undefined
 /*
 八字要展现的东西就比较多了
 1、公立生日
@@ -98,7 +100,7 @@ class EightrandomMainPage extends React.Component {
       activeSections: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     };
 
-
+    EightrandomMainPagethis = this
     this.onChange = (activeSections: number[]) => {
 
       var re = this.state.activeSections
@@ -140,16 +142,54 @@ class EightrandomMainPage extends React.Component {
       //headerLeft:(<Button title="万年历" onPress={  () => navigate('MainPage')  }/>),
       //headerRight:(<Button title="历史" onPress={  () => navigate('HistoryPage')  }/>),
       title: '八字分析',
+      headerRight: () => (
+        <TouchableOpacity
+          style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
+          //onPress={() => navigate('Search')}
+          onPress={() =>  EightrandomMainPagethis.deletethis()}
+        >
+          {IconConfig.IconDelete}
+        </TouchableOpacity>),
     }
   };
 
 
+  async deletethis()
+  {
+    var rowid = EightrandomMainPagethis.state.rowid 
+    console.log("rowid",rowid)
+    HistoryArrayGroup.loadid('eightrandom', rowid).then(async (ret) => {
+      if(undefined!=ret)
+      {
+        var Jobj = JSON.parse(ret);
+        let T = await UserModule.SyncFileServer("eightrandom", rowid, "")
+        if (undefined != T && 2000 == T.code) {
+          T.data.forEach(async (element) => {
+            filename = element.File
+            if (-1 != filename.indexOf(String(rowid)) && true == element.Del) {
+              await HistoryArrayGroup.remove('eightrandom', rowid);
+            }
+          });
+        }
+        else {
+          await HistoryArrayGroup.remove('eightrandom', rowid);
+        }
+      }
+      //this.props.navigation.dispatch(CommonActions.goBack());
+      this.props.navigation.goBack()
+      if(undefined!=this.props.navigation.state.params.goback)
+      {
+        this.props.navigation.state.params.goback()
+      }
 
+      //this.props.navigation.navigate("SixrandomHistoryPage",{ text: "refresh" })
+    })
+  }
 
   refreshlist() {
     const { navigate } = this.props.navigation;
 
-    var parameter = this.props.navigation.state.params
+    var parameter = this.props.navigation.state.params.url
 
 
     if (undefined != parameter) {
@@ -182,8 +222,8 @@ class EightrandomMainPage extends React.Component {
       var retterm = EightrandomModule.getYearTerm(gz.getFullYear())
       var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.EightDate, info.sex);
       console.log("beginlucky", Math.floor(beginlucky), Number(gz.getFullYear()))
-      this.setState({
-        sex: info.sex, EightDate: info.EightDate, birth: info.birth, gzbirth: gzDate, beginlucky: Math.floor(beginlucky),
+      EightrandomMainPagethis.setState({
+        sex: info.sex, EightDate: info.EightDate, birth: info.birth, gzbirth: gzDate, beginlucky: Math.floor(beginlucky),rowid:info.rowid
       });
       this.buildeight(info.sex);
     }

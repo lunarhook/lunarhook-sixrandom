@@ -60,7 +60,10 @@ class EightrandomHistoryPage extends React.Component {
     
   };
   */
-
+  gobackrefreshlist()
+  {
+    this.refreshlist()
+  }
   componentDidMount() {
     this.refreshlist()
     /*
@@ -222,7 +225,7 @@ class EightrandomHistoryPage extends React.Component {
       navigate('ziweiMainPage', item.url)
     }
     if (8 == item.ret.length) {
-      navigate('EightrandomMainPage', item.url)
+      navigate('EightrandomMainPage', {"url":item.url ,"goback":()=>this.gobackrefreshlist()})
     }
   }
 
