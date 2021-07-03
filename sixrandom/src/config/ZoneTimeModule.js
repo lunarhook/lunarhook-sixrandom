@@ -483,7 +483,7 @@ class ZoneTimeModule extends React.Component {
     {
         try{
             m = time.getMonth() + 1
-            d = time.getDay()
+            d = time.getDate() 
             time.setTime(time.getTime() + citylist[location] * 1000)
             time.setTime(time.getTime() + DayList[m][d] * 1000)
         }catch
