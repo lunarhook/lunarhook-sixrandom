@@ -283,7 +283,7 @@ class SixrandomHistoryPage extends React.Component {
                   }
                 }>
                   <Card style={{ width: width - 20, paddingLeft: 10 }}>
-                    <TouchableOpacity onPress={() => {this.gobackrefreshlist(),navigate('SixrandomFullInfoPage', {"url":data.item.url,"goback":()=>this.gobackrefreshlist()})}}>
+                    <TouchableOpacity onPress={() => {navigate('SixrandomFullInfoPage', {"url":data.item.url,"goback":()=>this.gobackrefreshlist()})}}>
                       <Card.Header
                         title={<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{data.item.ret}</Text>}
                         //thumbStyle={{ width: 30, height: 30 }}
