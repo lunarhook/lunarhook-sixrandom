@@ -130,7 +130,7 @@ RouteConfig={
         "LunarMasterConfigPage":{"name":"课程训练配置","route":"LunarMasterConfigPage","icon":IconConfig.IconSubmit},
         "CourseSearchPage":{"name":"说文助手","route":"CourseSearchPage","titlename":"说文解字","icon":IconConfig.IconSearch},
         "LunarCourseAnswerPage":{"name":"答疑解惑","route":"LunarCourseAnswerPage","titlename":"答疑解惑","icon":IconConfig.IconAnswerIntro},
-        "LunarMasterPage":{"name":"课程","route":"LunarMasterPage","titlename":"课程工具","icon":IconConfig.IconLunarCourse},
+        "LunarMasterPage":{"name":"课程","route":"LunarMasterPage","titlename":"工具课程","icon":IconConfig.IconLunarCourse},
 
         "ReadPage":{"name":"阅读","route":"ReadPage","titlename":"阅读","icon":IconConfig.IconLunarCourse},     
         "service":{"name":"服务支持","route":"service","icon":IconConfig.Service},     

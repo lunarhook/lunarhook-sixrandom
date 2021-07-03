@@ -642,19 +642,16 @@ class EightrandomMainPage extends React.Component {
     return (
       <View style={styles.container} >
         <ScrollView ref="location" style={{ backgroundColor: '#ffffff' }}>
-
-
           <View style={styles.container} >
-            <WingBlank size="lg">
-
-              <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-                <Accordion.Panel header={"八字排盘"}>
+            <WingBlank size="lg" style={{ backgroundColor: '#ffffff' }}>
+              <Accordion onChange={this.onChange} activeSections={this.state.activeSections} styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header={"八字排盘"} styles={{ backgroundColor: '#ffffff'}}>
                   <View>
                     <Grid
                       data={base}
                       columnNum={1}
                       hasLine={false}
-                      itemStyle={{ height: 25, alignItems: "flex-start", flexwrap: "wrap" }}
+                      itemStyle={{ height: 25, alignItems: "flex-start", flexwrap: "wrap",    backgroundColor: '#ffffff' }}
                       renderItem={dataItem => (
                         <View style={styles.container}>
                           <View style={styles.grid}>
@@ -662,12 +659,12 @@ class EightrandomMainPage extends React.Component {
                           </View>
                         </View>
                       )} />
-                    <WhiteSpace size="xl" />
+                    <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
                     <Grid
                       data={test}
                       columnNum={7}
                       hasLine={false}
-                      itemStyle={{ height: 25 }}
+                      itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
                       renderItem={dataItem => {
                         if (undefined != dataItem.info && dataItem.info.length === 3) {
                           const a = dataItem.info.forEach(element => {
@@ -694,19 +691,19 @@ class EightrandomMainPage extends React.Component {
                       data={test1}
                       columnNum={7}
                       hasLine={false}
-                      itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 }}
+                      itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 ,backgroundColor: '#ffffff'}}
                       renderItem={dataItem => (
                         dataItem.info.map((item, idx) => {
                           if (3 === item.length) {
                             return (
-                              <View key={idx} style={{ flexDirection: "row" ,textAlignVertical:"center",alignItems:"center"}}>
+                              <View key={idx} style={{ flexDirection: "row" ,textAlignVertical:"center",alignItems:"center",backgroundColor: '#ffffff'}}>
                                 {this.getColor(item[0], FontStyleConfig.getFontApplySize() + 14)}
-                                <Text style={{ justifyContent: 'space-around', fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {item[1] + item[2]}</Text>
+                                <Text style={{ justifyContent: 'space-around', fontSize: FontStyleConfig.getFontApplySize() + 14 ,backgroundColor: '#ffffff'}}>  {item[1] + item[2]}</Text>
                               </View>)
                           }
                           return (
                             <View key={idx} >
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center", textAlignVertical: "center" }}>  {item}</Text>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center", textAlignVertical: "center" ,backgroundColor: '#ffffff'}}>  {item}</Text>
                             </View>)})
                       )} />
                     <Grid
@@ -721,7 +718,7 @@ class EightrandomMainPage extends React.Component {
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center" }}>  {dataItem.info}</Text>
                           </View>
                         </View>
-                      )} /><WhiteSpace size="xl" />
+                      )} /><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
                     <Grid
                       data={shensha}
                       columnNum={1}
@@ -735,7 +732,7 @@ class EightrandomMainPage extends React.Component {
                         </View>
                       )} /></View>
                 </Accordion.Panel >
-                <Accordion.Panel header={"大运排盘"}>
+                <Accordion.Panel header={"大运排盘"} styles={{ backgroundColor: '#ffffff'}}>
                   <Grid
                     data={years}
                     columnNum={8}
@@ -752,7 +749,7 @@ class EightrandomMainPage extends React.Component {
                     )}
                   /></Accordion.Panel >
 
-                <Accordion.Panel header="流年信息">
+                <Accordion.Panel header="流年信息" styles={{ backgroundColor: '#ffffff'}}>
                   <Grid
                     data={minluckyyear}
                     columnNum={6}
@@ -762,19 +759,20 @@ class EightrandomMainPage extends React.Component {
                     carouselProps={{
                       style: {
                         width: "100%",
-                        height: 170
+                        height: 170,
+                        backgroundColor: '#ffffff'
                       }
                     }}
                     onPress={(_el: any, index: any) => this.changeyear("", Number(_el.split(" ")[1]))}
                     renderItem={(dataItem, itemIndex) => (this.renderminyearItem(dataItem))}
                   />
                 </Accordion.Panel >
-                <Accordion.Panel header="五行衰旺">
+                <Accordion.Panel header="五行衰旺" styles={{ backgroundColor: '#ffffff'}}>
                   <Grid
                     data={five}
                     columnNum={5}
                     hasLine={false}
-                    itemStyle={{ height: 25 }}
+                    itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
                         <View style={[styles.grid, { fontSize: FontStyleConfig.getFontApplySize() + 12 }]}>
@@ -790,49 +788,49 @@ class EightrandomMainPage extends React.Component {
                 <Accordion.Panel>
                   {this.createpie()}
                 </Accordion.Panel >
-                <Accordion.Panel header="八字冲克">
+                <Accordion.Panel header="八字冲克" styles={{ backgroundColor: '#ffffff'}}>
                   <List>
                     <Item wrap multipleLine
-                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.dr}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.dr}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
 
                     <Item wrap multipleLine
-                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.er}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.er}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
                     <Item wrap multipleLine
-                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.lr}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.lr}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
                     <Item wrap multipleLine
-                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.br}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.br}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="日柱信息">
+                <Accordion.Panel header="日柱信息" styles={{ backgroundColor: '#ffffff'}}>
                   <List>
                     <Item wrap multipleLine
                     >
-                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.self}</Text><WhiteSpace size="xl" />
-                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.tip}</Text><WhiteSpace size="xl" />
-                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> 家宅:{house}</Text><WhiteSpace size="xl" />
+                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.self}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.tip}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> 家宅:{house}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
                     </Item>
 
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="婚姻提示">
+                <Accordion.Panel header="婚姻提示" styles={{ backgroundColor: '#ffffff'}}>
                   <List>
                     <Item wrap multipleLine
-                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {marryinfo}</Text><WhiteSpace size="xl" /></Item>
+                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {marryinfo}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
                   </List>
                 </Accordion.Panel >
 
               </Accordion>
             </WingBlank>
-            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
             {
               (WechatShare.shareimg(this.state.shareimg))
             }
 
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" />
-            <WhiteSpace size="xl" />
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
 
           </View>
         </ScrollView>
@@ -858,6 +856,7 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     textAlignVertical: "center",
     height: 50,
+    backgroundColor: '#ffffff'
     //alignItems: 'center',
   },
   gridfix:
@@ -866,6 +865,7 @@ var styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     textAlignVertical: "bottom",
+    backgroundColor: '#ffffff'
   },
   container: {
     flex: 1,
@@ -883,19 +883,21 @@ var styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'flex-start',
     flexDirection: 'row',
+    backgroundColor: '#ffffff'
   },
   textbutton: {
     flex: 1,
     justifyContent: 'center',
     flexWrap: 'wrap',
     alignItems: 'stretch',
-    flexDirection: 'row',
+    flexDirection: 'row',  backgroundColor: '#ffffff'
   },
   button: {
     height: 50,
     backgroundColor: 'transparent',
     justifyContent: 'center',
     borderRadius: 4,
+    backgroundColor: '#ffffff'
   },
   tabBarStyle: {
     flex: 1,
@@ -904,7 +906,8 @@ var styles = StyleSheet.create({
   },
   Eightstylewithfont: {
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效
-    fontSize: FontStyleConfig.getFontApplySize() + 18
+    fontSize: FontStyleConfig.getFontApplySize() + 18,
+    backgroundColor: '#ffffff'
   },
   EightstyleSectionline: {
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效
@@ -912,12 +915,14 @@ var styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     marginTop: 30,
+    backgroundColor: '#ffffff'
   },
   EightstyleCoreline: {
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效
     flexDirection: 'row',
     marginLeft: 5,
     marginRight: 5,
+    backgroundColor: '#ffffff'
   },
   Eightstylebetweenline: {
     justifyContent: 'space-between',
@@ -931,6 +936,7 @@ var styles = StyleSheet.create({
     alignItems: 'stretch',
     marginLeft: 5,
     marginRight: 5,
+    backgroundColor: '#ffffff'
   },
   flatTextfone: {
     //flex:1,
@@ -939,6 +945,7 @@ var styles = StyleSheet.create({
     textAlignVertical: "center",
     //justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
     //paddingLeft:5
+    backgroundColor: '#ffffff'
   },
 });
 module.exports = EightrandomMainPage;  
