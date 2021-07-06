@@ -9,4 +9,5 @@
     <application android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         tools:targetApi="28" tools:ignore="GoogleAppIndexingWarning" />
+    <uses-sdk tools:overrideLibrary="com.facebook.react"/>
 </manifest>

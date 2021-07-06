@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.sixrandom"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sixrandom"
     android:usesCleartextTraffic="true">
 
 
@@ -73,5 +74,6 @@
             />
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
+    <uses-sdk tools:overrideLibrary="com.facebook.react"/>
 
 </manifest>
