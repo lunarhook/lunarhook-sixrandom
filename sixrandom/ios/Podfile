@@ -20,6 +20,8 @@ target 'sixrandom' do
 
   pod 'react-native-webview', :path => '../node_modules/react-native-webview'
 
+  pod 'RNCPicker', :path => '../node_modules/@react-native-picker/picker'
+
   target 'sixrandomTests' do
     inherit! :complete
     # Pods for testing

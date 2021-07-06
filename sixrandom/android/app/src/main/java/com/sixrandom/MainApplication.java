@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.picker.RNCPickerPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.horcrux.svg.SvgPackage;
 import com.rnfs.RNFSPackage;
