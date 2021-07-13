@@ -1,7 +1,7 @@
 
 
 import React, {Component} from 'react';
-import {StyleSheet,View,Alert, Text,DeviceEventEmitter, FlatList} from 'react-native';
+import {StyleSheet,View,Alert, Text,DeviceEventEmitter, FlatList,TouchableOpacity} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { InputItem,WhiteSpace, List ,Icon,WingBlank,Button,Switch} from '@ant-design/react-native';
 import IconConfig from '../config/IconConfig'
@@ -10,6 +10,7 @@ import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 import UserModule from '../config/UserModule'
 import {HistoryArrayGroup} from '../config/StorageModule'
 import {DevTimeManager} from '../net/NetApi'
+import { HeaderBackButton } from '@react-navigation/stack';
 var Agreement= new Array()
 Agreement.push("")
 Agreement.push("用户协议")
@@ -155,6 +156,10 @@ class AgreePage extends React.Component {
     
     return{
       title: RouteConfig["AgreePage"].name,
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => {navigate(RouteConfig['kitPage'].route, { text: "refresh" })}}>
+        <HeaderBackButton >{RouteConfig['kitPage'].name}</HeaderBackButton>
+        </TouchableOpacity>),
     }
   };
   componentWillUnmount()

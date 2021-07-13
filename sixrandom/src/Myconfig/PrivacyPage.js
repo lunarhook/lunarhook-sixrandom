@@ -1,7 +1,7 @@
 
 
 import React, {Component} from 'react';
-import {StyleSheet,View,FlatList, Text,DeviceEventEmitter} from 'react-native';
+import {StyleSheet,View,FlatList, Text,DeviceEventEmitter,TouchableOpacity} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import { InputItem,WhiteSpace, List ,Icon,WingBlank,Button,Switch} from '@ant-design/react-native';
 import IconConfig from '../config/IconConfig'
@@ -10,6 +10,7 @@ import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 import UserModule from '../config/UserModule'
 import {HistoryArrayGroup} from '../config/StorageModule'
 import {DevTimeManager} from '../net/NetApi'
+import { HeaderBackButton } from '@react-navigation/stack';
 var Privacyment = new Array()
 Privacyment.push("")
 Privacyment.push("1. 乾坤爻软件尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本软件会按照本隐私权政策的规定使用和披露您的个人信息。但本软件将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下 ，本软件不会将这些信息对外披露或向第三方提供。本软件会不时更新本隐私权政策 。 您在同意本软件服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私 权政策属于本软件服务使用协议不可分割的一部分。")
@@ -36,6 +37,9 @@ Privacyment.push("4. 信息存储和交换，本软件收集的有关您的信�
 Privacyment.push("5. 信息安全")
 Privacyment.push("a) 本软件帐号均有安全保护功能，请妥善保管您的用户名及密码信息。本软件将通过对用户密码进行加密等安全措施确保您的信息不丢失，不被滥用和变造。尽管有前述安全措施 ，但同时也请您注意在信息网络上不存在“完善的安全措施”。")
 Privacyment.push("b) 在使用本软件网络服务进行网上服务时，您不可避免的要向提供服务对或潜在的服务提供方方披露自己的个人信息，如联络方式或者邮政地址。请您妥善保护自己的个人信息，仅在必要的情形下向他人提供。如您发现自己的个人信息泄密，尤其是本软件用户名及密码发生泄露，请您立即联络本软件客服，以便本软件采取相应措施。")
+Privacyment.push("6. 开发者信息")
+Privacyment.push("a) 作者范小龙")
+Privacyment.push("b) 业务邮件developer@lunarhook.com")
 Privacyment.push("")
 let PrivacyPagethis = undefined
 class PrivacyPage extends React.Component {
@@ -50,6 +54,10 @@ class PrivacyPage extends React.Component {
     
     return{
       title: RouteConfig["PrivacyPage"].name,
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => {navigate(RouteConfig['kitPage'].route, { text: "refresh" })}}>
+                    <HeaderBackButton >{RouteConfig['kitPage'].name}</HeaderBackButton>
+        </TouchableOpacity>),
     }
   };
   componentWillUnmount()

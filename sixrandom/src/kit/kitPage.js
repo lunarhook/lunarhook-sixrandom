@@ -13,6 +13,7 @@ import WechatShare from '../config/WechatShare'
 import shareimage from '../config/shareimage'
 import { HistoryArrayGroup } from '../config/StorageModule'
 import KitConfig from '../config/KitConfig'
+import RNExitApp from 'react-native-exit-app';
 var w = ScreenConfig.__screenW()
 var H = ScreenConfig.__screenH()
 var coln = 3
@@ -104,6 +105,7 @@ const Exploration1 = [
 ]
 
 let kitPageController = null
+let privacyhandler = null
 class kitPage extends React.Component {
   constructor(props) {
     var itemsrandom = KitConfig.getitemsrandom()
@@ -200,36 +202,46 @@ class kitPage extends React.Component {
   async privacycheck() {
     //this.setState({ less: true })
     await HistoryArrayGroup.GetFirstTime().then(T => {
-      if (Platform.OS === 'android') {
+      if (Platform.OS === 'android' || true) {
         if (undefined == T) {
-          this.setState({ less: true })
-          if (0 == this.state.handler) {
-            var handler = Modal.alert('服务协议和隐私政策', '用户请审慎阅读，充分理解"服务协议"和"隐私政策"各项条款，包括但不限于：为了向您提供即时通信，内容分享等服务，同时需要收集用户您的设备信息，日志和个人信息。您可以在"设置"查看变更删除您的各项信息并管理授权。您可以阅读"服务协议"和"隐私政策"了解详细信息，如果您同意，请点击"同意"并开始接受我们的服务', [
+          if (0 == this.state.handler && null==privacyhandler) {
+            privacyhandler = Modal.alert('服务协议和隐私政策', '用户请审慎阅读，充分理解"服务协议"和"隐私政策"各项条款，包括但不限于：为了向您提供即时通信，内容分享等服务，同时需要收集用户您的设备信息，日志和个人信息。您可以在"设置"查看变更删除您的各项信息并管理授权。您可以阅读"服务协议"和"隐私政策"了解详细信息，如果您同意，请点击"同意"并开始接受我们的服务', [
               {
                 text: '《用户协议》',
-                onPress: () => { this.setState({ handler: 1 }), this.props.navigation.navigate("AgreePage") },
+                onPress: () => {  setTimeout(() => {
+                  privacyhandler = null
+                  this.props.navigation.navigate("AgreePage")
+                }, 200); },
+                style: 'cancel',
               },
               {
                 text: '《隐私政策》',
-                onPress: () => { this.setState({ handler: 2 }), this.props.navigation.navigate("PrivacyPage") },
+                onPress: () => { setTimeout(() => {
+                  privacyhandler = null
+                  this.props.navigation.navigate("PrivacyPage")
+                }, 200); },
+                style: 'cancel',
               },
               {
                 text: '退出',
                 onPress: () => RNExitApp.exitApp(),
                 style: 'cancel',
               },
-              { text: '同意', onPress: () => { HistoryArrayGroup.SaveFirstTime(), this.setState({ handler: 3 })} },
+              { text: '同意', onPress: () => { HistoryArrayGroup.SaveFirstTime(), this.setState({ handler: 3 }),this.setState({ less: true })} },
             ])
             //navigate(RouteConfig["MyPage"].route)
 
-            console.log("privacycheck", handler)
+            console.log("privacycheck", privacyhandler)
           }
 
         }
         else {
           this.setState({ less: false })
         }
-        this.requestCameraPermission()
+        if (Platform.OS === 'android')
+        {
+          this.requestCameraPermission()
+        }
       } else {
         if (undefined == T) {
           this.setState({ less: true })
@@ -241,10 +253,11 @@ class kitPage extends React.Component {
         DeviceEventEmitter.removeListener('privacycheck')
       }
     })
-    this.render()
+    //this.render()
   }
 
   refreshlist() {
+    this.privacycheck()
     var itemsrandom = KitConfig.getitemsrandom()
     this.setState({ tabs: itemsrandom['全部'] })
     HistoryArrayGroup.GetKitConfigHistory().then(ids => {
@@ -638,6 +651,7 @@ class kitPage extends React.Component {
     if (undefined != this.props.navigation.state.params && "refresh" === this.props.navigation.state.params.text) {
       this.props.navigation.state.params.text = ""
       kitPageController.refreshlist()
+      this.privacycheck()
       //return (<View></View>)
     }
     var itemsrandom = KitConfig.getitemsrandom()
