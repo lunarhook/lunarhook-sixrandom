@@ -32,7 +32,7 @@
     "react-native": "0.64.2",
     "react-native-calendars": "^1.1264.0",
     "react-native-compass-heading": "^1.2.1",
-    "react-native-device-info": "^8.2.0",
+    "react-native-device-info": "^8.3.0",
     "react-native-drag-sort": "^2.4.4",
     "react-native-elements": "^3.4.2",
     "react-native-exit-app": "^1.1.0",
