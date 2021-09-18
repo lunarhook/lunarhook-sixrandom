@@ -1,13 +1,10 @@
 #!/bin/sh
 brew upgrade
-brew install adoptopenjdk8
 brew install apr
 brew install apr-util
 brew install clang-format
 brew install cocoapods
 brew install coreutils
-brew tap dart-lang/dart
-brew install dart
 brew install gettext
 brew install git
 brew install go
