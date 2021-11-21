@@ -131,10 +131,11 @@ class EightrandomNewPage extends React.Component {
                 backgroundColor='#ff00ff'
                 value={this.state.value}
                 mode="datetime"
-                minDate={new Date(1950, 1, 1)}
+                minDate={new Date(1900, 1, 1)}
                 //maxDate={new Date(2026, 11, 3)}
                 onChange={this.onChange}
-                format="YYYY-MM-DD-HH"
+                format="YYYY-MM-DD HH:mm"
+                itemStyle={{fontSize:18}}
               >
                 <List.Item arrow="horizontal">生辰:</List.Item>
               </DatePicker>
