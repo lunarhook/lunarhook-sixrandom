@@ -15,7 +15,8 @@ brew install maven
 brew install node
 brew install nghttp2
 brew install nginx
-brew install openjdk
+#brew install openjdk
+brew install --cask temurin8
 brew install pcre
 brew install pcre2
 brew install readline
@@ -24,7 +25,7 @@ brew install watchman
 brew install yarn
 brew install ideviceinstaller ios-webkit-debug-proxy
 brew install --cask android-sdk
-brew install --cask homebrew/cask-versions/adoptopenjdk8
+#brew install --cask homebrew/cask-versions/adoptopenjdk8
 brew cleanup
 npm config set registry https://registry.npm.taobao.org --global
 npm config set disturl https://npm.taobao.org/dist --global

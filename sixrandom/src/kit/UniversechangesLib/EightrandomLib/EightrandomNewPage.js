@@ -89,10 +89,19 @@ class EightrandomNewPage extends React.Component {
 
   }
 
-  onChange = (value: any) => {
+  onChangeData = (value: any) => {
     console.log(value);
-    this.setState({ value });
-    var selecttime = new Date(value)
+    var cur = new Date(value)
+    this.setState({ value:cur });
+    var selecttime = new Date(cur)
+    this.setState({ datepicker: selecttime })
+  }
+
+  onChangetime = (value: any) => {
+    console.log(value);
+    var cur = new Date(value)
+    this.setState({ value:cur });
+    var selecttime = new Date(cur)
     this.setState({ datepicker: selecttime })
   }
 
@@ -130,14 +139,30 @@ class EightrandomNewPage extends React.Component {
               <DatePicker
                 backgroundColor='#ff00ff'
                 value={this.state.value}
-                mode="datetime"
+                mode="date"
                 minDate={new Date(1900, 1, 1)}
                 //maxDate={new Date(2026, 11, 3)}
-                onChange={this.onChange}
-                format="YYYY-MM-DD HH:mm"
-                itemStyle={{fontSize:18}}
+                onChange={this.onChangeData}
+                format="YYYY-MM-DD"
+                numberOfLines={100} 
+                ellipsizeMode={'tail'}
+                //itemStyle={{fontSize:9}}
               >
                 <List.Item arrow="horizontal">生辰:</List.Item>
+              </DatePicker>
+              <DatePicker
+                backgroundColor='#ff00ff'
+                value={this.state.value}
+                mode="time"
+                minDate={new Date(1900, 1, 1)}
+                //maxDate={new Date(2026, 11, 3)}
+                onChange={this.onChangetime}
+                format="HH:mm"
+                numberOfLines={100} 
+                ellipsizeMode={'tail'}
+                //itemStyle={{fontSize:9}}
+              >
+                <List.Item arrow="horizontal">时辰:</List.Item>
               </DatePicker>
 
               <List.Item
