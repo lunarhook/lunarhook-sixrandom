@@ -34,6 +34,7 @@ import Svg, {
   Stop
 } from 'react-native-svg';
 import { dateAdd } from '../solar2lunar/chinese-lunar';
+import { tapGestureHandlerProps } from 'react-native-gesture-handler/lib/typescript/handlers/TapGestureHandler';
 const { width, height } = Dimensions.get('window');
 
 var jump = false
@@ -357,12 +358,12 @@ class EightrandomMainPage extends React.Component {
 
     }
     else if ("" !== miniyear) {
-      //console.log("changeyearmini",bigyear,miniyear)
+      
       my = Number(miniyear)
       if (my >= this.state.beginlucky) {
         by = Math.floor((my - this.state.beginlucky) / 10)
       }
-
+      console.log("changeyearmini",bigyear,miniyear,by,my)
       this.setState({ curluckyearnum: by, curminiluckyearnum: my })
     }
     //console.log("changeyear",bigyear,miniyear,by,my,this.state.beginlucky)
@@ -478,7 +479,8 @@ class EightrandomMainPage extends React.Component {
       console.log("curminiluckyearnum", Number(this.state.curminiluckyearnum))
       thisyear = new Date()//这里应该选小运的年份
       thisyear.setFullYear(this.state.curminiluckyearnum)
-      //curluckyear 这里应该更新大运
+      //这里必须要算出正月，所以流年月份按3月计算
+      thisyear.setMonth(3)
     }
 
     //根据小运计算干支
