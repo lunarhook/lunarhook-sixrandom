@@ -79,7 +79,7 @@ import com.android.build.OutputFile
 
 project.ext.react = [
         entryFile: "index.js",
-    enableHermes: false,  // clean and rebuild if changing
+    enableHermes: true,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -310,7 +310,7 @@ dependencies {
     implementation project(':react-native-svg')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-shake')
-    implementation files('PlumberAndroid_release_v2.6.1.jar')
+    implementation files('PlumberAndroid_release_v2.6.2.jar')
     implementation project(':react-native-view-shot')
     implementation project(':react-native-vector-icons')
     implementation 'com.android.support:multidex:1.0.3'
@@ -332,13 +332,13 @@ dependencies {
 // Run this once to be able to run the application with BUCK
 // puts all compile dependencies into folder libs for BUCK to use
 task copyDownloadableDepsToLibs(type: Copy) {
-    from configurations.compile
+    from configurations.implementation
     into 'libs'
 }
-
+/*
 project.ext.vectoricons = [
         iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf','MaterialIcons.ttf','Ionicons.ttf','Foundation.ttf','FontAwesome.ttf','FontAwesome5.ttf','Entypo.ttf','AntDesign.ttf','Feather.ttf','Fontisto.ttf','EvilIcons.ttf' ] // Name of the font files you want to copy
 ]
-
+*/
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

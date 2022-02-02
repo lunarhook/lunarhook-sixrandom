@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
 import com.facebook.react.ReactApplication;
+import com.facebook.react.bridge.JSIModulePackage;
 import com.reactnativecommunity.picker.RNCPickerPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.horcrux.svg.SvgPackage;
@@ -21,7 +22,8 @@ import com.reactnativecommunity.cameraroll.CameraRollPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.swmansion.rnscreens.RNScreensPackage;
-import com.swmansion.reanimated.ReanimatedPackage;
+import com.facebook.react.bridge.JSIModulePackage; // <- add
+import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactnativecommunity.geolocation.GeolocationPackage;
 import com.horcrux.svg.SvgPackage;
@@ -66,6 +68,11 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
+
+        @Override
+        protected JSIModulePackage getJSIModulePackage() {
+            return new ReanimatedJSIModulePackage(); // <- add
+        }
       };
 
   @Override
@@ -87,11 +94,12 @@ public class MainApplication extends Application implements ReactApplication {
 
   @Override
   public void onCreate() {
-      Compass.init(this, getChannel(this), "", "plumber-sdk");
+
       super.onCreate();
       SoLoader.init(this, /* native exopackage */ false);
       MultiDex.install(this);
       initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
+      Compass.init(this, getChannel(this), "", "plumber-sdk");
       this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 
           @Override
