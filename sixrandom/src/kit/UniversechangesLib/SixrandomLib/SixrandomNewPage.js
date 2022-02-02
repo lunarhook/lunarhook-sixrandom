@@ -27,16 +27,7 @@ const dataitem = [
   ],
 ];
 
-export const Myshake = () => {
-  React.useEffect(() => {
-   
-
-    return () => {
-
-    }
-  }, [])
-}
-let subscription 
+let subscription =null
 class SixrandomNewPage extends React.Component {
 
   constructor(porp) {
@@ -49,9 +40,7 @@ class SixrandomNewPage extends React.Component {
             Step: 7,
             Tip: ""
     }
-    subscription = RNShake.addListener(() => {
-      this.random()
-    })
+
   }
   
   static navigationOptions = ({navigation})=>{
@@ -64,13 +53,18 @@ class SixrandomNewPage extends React.Component {
   };
 
 
+  componentDidMount() {
+
+  }
 
   UNSAFE_componentWillMount() {
-    //Myshake.subscription()
   }
 
   componentWillUnmount() {
-    subscription.remove()
+    if(null!=subscription){
+      subscription.remove()
+    }
+    subscription=null;
   }
   gobackrefreshlist()
   {}
@@ -86,6 +80,14 @@ class SixrandomNewPage extends React.Component {
   {
     console.log(this.state.data)
     const { navigate } = this.props.navigation;
+    console.log( RouteConfig["ActiveCurPage"])
+    if(null==subscription){
+      subscription = RNShake.addListener(() => {
+        if("SixrandomNewPage"== RouteConfig["ActiveCurPage"]){
+          this.random()
+        }
+      })
+    }
     //alert(ValueTypeModule["emotion"])
     return (
       <View style={styles.container}>
@@ -199,7 +201,9 @@ class SixrandomNewPage extends React.Component {
       await HistoryArrayGroup.saveid(obj.kind ,obj.id,Jstr)
       HistoryArrayGroup.save("sixrandomlast",Jstr)
       HistoryArrayGroup.GetSixrandomHistory()
-      //RNShake.removeListener();//强制卸载监听
+      //强制卸载监听
+      //subscription.remove()
+      //subscription=null;
       this.props.navigation.navigate('SixrandomFullInfoPage',{"url":parameter})
       this.picker(0)
     }

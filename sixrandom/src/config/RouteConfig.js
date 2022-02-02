@@ -257,6 +257,6 @@ RouteConfig={
 
     "ReCover":{"name":"恢复","route":"","icon":IconConfig.ReCover},
 
-
+    "ActiveCurPage":"",
 }
 module.exports=RouteConfig;  

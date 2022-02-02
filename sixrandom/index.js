@@ -389,6 +389,8 @@ function getActiveRouteName(navigationState) {
 
 const AppContainer = createAppContainer(RootStack);
 
+
+
 const SixrandomApp = () =>
   <Provider >
     <MenuProvider>
@@ -405,6 +407,8 @@ const SixrandomApp = () =>
             if (currentScreen == "SixrandomNewPage") {
               //eventfilter = "SixrandomNewPage"
             }
+            RouteConfig["ActiveCurPage"] = currentScreen
+
 
             NativePlumber.PlumberRouting(currentScreen, "", "", eventfilter)
 
