@@ -27,6 +27,16 @@ const dataitem = [
   ],
 ];
 
+export const Myshake = () => {
+  React.useEffect(() => {
+   
+
+    return () => {
+
+    }
+  }, [])
+}
+let subscription 
 class SixrandomNewPage extends React.Component {
 
   constructor(porp) {
@@ -39,8 +49,11 @@ class SixrandomNewPage extends React.Component {
             Step: 7,
             Tip: ""
     }
+    subscription = RNShake.addListener(() => {
+      this.random()
+    })
   }
-
+  
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
@@ -50,15 +63,14 @@ class SixrandomNewPage extends React.Component {
     
   };
 
+
+
   UNSAFE_componentWillMount() {
-    RNShake.addListener( () => {
-      
-      this.random()
-    });
+    //Myshake.subscription()
   }
 
   componentWillUnmount() {
-    RNShake.removeListener();
+    subscription.remove()
   }
   gobackrefreshlist()
   {}
@@ -187,7 +199,7 @@ class SixrandomNewPage extends React.Component {
       await HistoryArrayGroup.saveid(obj.kind ,obj.id,Jstr)
       HistoryArrayGroup.save("sixrandomlast",Jstr)
       HistoryArrayGroup.GetSixrandomHistory()
-      RNShake.removeListener();//强制卸载监听
+      //RNShake.removeListener();//强制卸载监听
       this.props.navigation.navigate('SixrandomFullInfoPage',{"url":parameter})
       this.picker(0)
     }
