@@ -79,7 +79,7 @@ import com.android.build.OutputFile
 
 project.ext.react = [
         entryFile: "index.js",
-    enableHermes: true,  // clean and rebuild if changing
+    enableHermes: false,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -123,13 +123,6 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    lintOptions {
-        //build release 版本 时 开启lint 检测
-        checkReleaseBuilds false
-        //lint 遇到 error 时继续 构建
-        abortOnError false
-
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -263,6 +256,10 @@ android {
         //file1.deleteDir();
     }
     buildToolsVersion = buildToolsVersion
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
 
     project.afterEvaluate {
         tasks.matching {
