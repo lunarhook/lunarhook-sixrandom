@@ -8,26 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* sixrandomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* sixrandomTests.m */; };
-		0ABE1E872683A2CC00DB31D5 /* KeepBG.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE1E852683A2CB00DB31D5 /* KeepBG.m */; };
-		0ABE1E892683A2D200DB31D5 /* SomethingJustLikeThis.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0ABE1E882683A2D200DB31D5 /* SomethingJustLikeThis.mp3 */; };
-		0ABE1E982683A48600DB31D5 /* plumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE1E972683A48600DB31D5 /* plumber.m */; };
-		0ABE1E9E2683A4FE00DB31D5 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0ABE1E9C2683A4FE00DB31D5 /* antfill.ttf */; };
-		0ABE1E9F2683A4FE00DB31D5 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0ABE1E9D2683A4FE00DB31D5 /* antoutline.ttf */; };
-		0ABE1EA12683A51C00DB31D5 /* xxastro5.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0ABE1EA02683A51C00DB31D5 /* xxastro5.ttf */; };
-		0ABE1EA32683A55400DB31D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABE1EA22683A55400DB31D5 /* AVFoundation.framework */; };
-		0ABE1EA52683A55E00DB31D5 /* BackgroundTasks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABE1EA42683A55E00DB31D5 /* BackgroundTasks.framework */; };
-		0ABE1EA72683A5CF00DB31D5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABE1EA62683A5CF00DB31D5 /* CoreTelephony.framework */; };
-		0ABE1EA92683A5E200DB31D5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABE1EA82683A5D900DB31D5 /* libc++.tbd */; };
-		0ABE1EAC2683A60300DB31D5 /* plumberIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABE1E902683A36A00DB31D5 /* plumberIOS.framework */; };
-		0ABE1EB02683A60F00DB31D5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABE1EAF2683A60F00DB31D5 /* SystemConfiguration.framework */; };
-		0ABE1EB22683A61500DB31D5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ABE1EB12683A61500DB31D5 /* WebKit.framework */; };
-		0ABE1EBC2683C73E00DB31D5 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 0ABE1EBA2683C73E00DB31D5 /* main.jsbundle */; };
+		09A724946F5C57F5D8D27CCB /* libPods-sixrandom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 889A3B0EEF9809CFDBE08E39 /* libPods-sixrandom.a */; };
+		0A1526CE27ABC9B80032E3AA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526CD27ABC9B80032E3AA /* AVFoundation.framework */; };
+		0A1526D027ABC9C20032E3AA /* BackgroundTasks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526CF27ABC9C20032E3AA /* BackgroundTasks.framework */; };
+		0A1526D227ABC9CB0032E3AA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526D127ABC9CB0032E3AA /* CoreTelephony.framework */; };
+		0A1526D427ABC9E80032E3AA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526D327ABC9D50032E3AA /* libc++.tbd */; };
+		0A1526D627ABC9F10032E3AA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526D527ABC9F10032E3AA /* SystemConfiguration.framework */; };
+		0A1526D827ABC9F90032E3AA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526D727ABC9F90032E3AA /* WebKit.framework */; };
+		0A1526E127ABCB040032E3AA /* plumberIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526E027ABCAF50032E3AA /* plumberIOS.framework */; };
+		0A1526E227ABCB040032E3AA /* plumberIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526E027ABCAF50032E3AA /* plumberIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0A1526E627ABCB270032E3AA /* plumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1526E527ABCB270032E3AA /* plumber.m */; };
+		0A1526E927ABCB2D0032E3AA /* KeepBG.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1526E827ABCB2D0032E3AA /* KeepBG.m */; };
+		0A1526EB27ABCB390032E3AA /* SomethingJustLikeThis.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A1526EA27ABCB390032E3AA /* SomethingJustLikeThis.mp3 */; };
+		0A1526F727ABD1850032E3AA /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A1526F627ABD1840032E3AA /* main.jsbundle */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8C5C53FBDBB5B1E71F6B7F31 /* libPods-sixrandom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 916A9D8DE0CE48DAA90A56E8 /* libPods-sixrandom.a */; };
-		F80B70399EDA45E1C2B7CFEB /* libPods-sixrandom-sixrandomTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6359603714E3A0B418B7DF0 /* libPods-sixrandom-sixrandomTests.a */; };
+		AD78FF8BC9A2446581668971 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99808666D5F544D39C95037F /* antfill.ttf */; };
+		B2CBE5DFCF234A17845D20B9 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00B4475E37C24D5CA3278DF5 /* antoutline.ttf */; };
+		FE60E10C365BDA181C8600D8 /* libPods-sixrandom-sixrandomTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 509121F56A56FECAA46B3C8A /* libPods-sixrandom-sixrandomTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +38,9 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = sixrandom;
 		};
-		0ABE1E8F2683A36A00DB31D5 /* PBXContainerItemProxy */ = {
+		0A1526DF27ABCAF50032E3AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0ABE1E8A2683A36A00DB31D5 /* plumberIOS.xcodeproj */;
+			containerPortal = 0A1526DA27ABCAF50032E3AA /* plumberIOS.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C4F1D7B01F6B7CAC00391FF3;
 			remoteInfo = plumberIOS;
@@ -48,12 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0ABE1EAE2683A60400DB31D5 /* Embed Frameworks */ = {
+		0A1526E327ABCB040032E3AA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0A1526E227ABCB040032E3AA /* plumberIOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,42 +62,42 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00B4475E37C24D5CA3278DF5 /* antoutline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* sixrandomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sixrandomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* sixrandomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sixrandomTests.m; sourceTree = "<group>"; };
-		0ABE1E852683A2CB00DB31D5 /* KeepBG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeepBG.m; path = sixrandom/KeepBG.m; sourceTree = "<group>"; };
-		0ABE1E862683A2CC00DB31D5 /* KeepBG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeepBG.h; path = sixrandom/KeepBG.h; sourceTree = "<group>"; };
-		0ABE1E882683A2D200DB31D5 /* SomethingJustLikeThis.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SomethingJustLikeThis.mp3; path = sixrandom/SomethingJustLikeThis.mp3; sourceTree = "<group>"; };
-		0ABE1E8A2683A36A00DB31D5 /* plumberIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = plumberIOS.xcodeproj; path = ../plumber/plumberIOS.xcodeproj; sourceTree = "<group>"; };
-		0ABE1E952683A48600DB31D5 /* plumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = plumber.h; path = sixrandom/plumber.h; sourceTree = "<group>"; };
-		0ABE1E972683A48600DB31D5 /* plumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = plumber.m; path = sixrandom/plumber.m; sourceTree = "<group>"; };
-		0ABE1E9C2683A4FE00DB31D5 /* antfill.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = antfill.ttf; path = "../../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
-		0ABE1E9D2683A4FE00DB31D5 /* antoutline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = antoutline.ttf; path = "../../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
-		0ABE1EA02683A51C00DB31D5 /* xxastro5.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = xxastro5.ttf; path = ../../src/font/xxastro5.ttf; sourceTree = "<group>"; };
-		0ABE1EA22683A55400DB31D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		0ABE1EA42683A55E00DB31D5 /* BackgroundTasks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackgroundTasks.framework; path = System/Library/Frameworks/BackgroundTasks.framework; sourceTree = SDKROOT; };
-		0ABE1EA62683A5CF00DB31D5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		0ABE1EA82683A5D900DB31D5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		0ABE1EAA2683A5EE00DB31D5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		0ABE1EAB2683A5F700DB31D5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		0ABE1EAF2683A60F00DB31D5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		0ABE1EB12683A61500DB31D5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		0ABE1EB32683A97F00DB31D5 /* sixrandom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = sixrandom.entitlements; path = sixrandom/sixrandom.entitlements; sourceTree = "<group>"; };
-		0ABE1EBA2683C73E00DB31D5 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		0A1526CD27ABC9B80032E3AA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0A1526CF27ABC9C20032E3AA /* BackgroundTasks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BackgroundTasks.framework; path = System/Library/Frameworks/BackgroundTasks.framework; sourceTree = SDKROOT; };
+		0A1526D127ABC9CB0032E3AA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0A1526D327ABC9D50032E3AA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		0A1526D527ABC9F10032E3AA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0A1526D727ABC9F90032E3AA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		0A1526DA27ABCAF50032E3AA /* plumberIOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = plumberIOS.xcodeproj; path = ../plumber/plumberIOS.xcodeproj; sourceTree = "<group>"; };
+		0A1526E427ABCB270032E3AA /* plumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = plumber.h; path = sixrandom/plumber.h; sourceTree = "<group>"; };
+		0A1526E527ABCB270032E3AA /* plumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = plumber.m; path = sixrandom/plumber.m; sourceTree = "<group>"; };
+		0A1526E727ABCB2D0032E3AA /* KeepBG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeepBG.h; path = sixrandom/KeepBG.h; sourceTree = "<group>"; };
+		0A1526E827ABCB2D0032E3AA /* KeepBG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeepBG.m; path = sixrandom/KeepBG.m; sourceTree = "<group>"; };
+		0A1526EA27ABCB390032E3AA /* SomethingJustLikeThis.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SomethingJustLikeThis.mp3; path = sixrandom/SomethingJustLikeThis.mp3; sourceTree = "<group>"; };
+		0A1526EC27ABCB410032E3AA /* sixrandom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = sixrandom.entitlements; path = sixrandom/sixrandom.entitlements; sourceTree = "<group>"; };
+		0A1526F627ABD1840032E3AA /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		0A1526FA27ABD7B10032E3AA /* xxastro5.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = xxastro5.ttf; path = ../../src/font/xxastro5.ttf; sourceTree = "<group>"; };
+		0A1526FB27ABD7C50032E3AA /* antoutline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = antoutline.ttf; path = "../../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
+		0A1526FC27ABD7C50032E3AA /* antfill.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = antfill.ttf; path = "../../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* sixrandom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sixrandom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = sixrandom/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = sixrandom/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = sixrandom/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = sixrandom/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = sixrandom/main.m; sourceTree = "<group>"; };
-		1E857101E5FA69F812421D1B /* Pods-sixrandom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom.debug.xcconfig"; path = "Target Support Files/Pods-sixrandom/Pods-sixrandom.debug.xcconfig"; sourceTree = "<group>"; };
-		209F6BC8DDF648BC65805FC0 /* Pods-sixrandom-sixrandomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom-sixrandomTests.release.xcconfig"; path = "Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests.release.xcconfig"; sourceTree = "<group>"; };
-		5F53BA14FD4239D6535AB471 /* Pods-sixrandom-sixrandomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom-sixrandomTests.debug.xcconfig"; path = "Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests.debug.xcconfig"; sourceTree = "<group>"; };
-		604E6DE19DA01CE8EAB618B9 /* Pods-sixrandom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom.release.xcconfig"; path = "Target Support Files/Pods-sixrandom/Pods-sixrandom.release.xcconfig"; sourceTree = "<group>"; };
+		28F2F2991FC503F7FF8C3E52 /* Pods-sixrandom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom.debug.xcconfig"; path = "Target Support Files/Pods-sixrandom/Pods-sixrandom.debug.xcconfig"; sourceTree = "<group>"; };
+		509121F56A56FECAA46B3C8A /* libPods-sixrandom-sixrandomTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sixrandom-sixrandomTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = sixrandom/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		916A9D8DE0CE48DAA90A56E8 /* libPods-sixrandom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sixrandom.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6359603714E3A0B418B7DF0 /* libPods-sixrandom-sixrandomTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sixrandom-sixrandomTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		857EF120854AADA38E7600B8 /* Pods-sixrandom-sixrandomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom-sixrandomTests.debug.xcconfig"; path = "Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests.debug.xcconfig"; sourceTree = "<group>"; };
+		889A3B0EEF9809CFDBE08E39 /* libPods-sixrandom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sixrandom.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		99808666D5F544D39C95037F /* antfill.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
+		CD20A18D2E67FBDF51A31245 /* Pods-sixrandom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom.release.xcconfig"; path = "Target Support Files/Pods-sixrandom/Pods-sixrandom.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F247E476ED649D1D4AE1D89A /* Pods-sixrandom-sixrandomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sixrandom-sixrandomTests.release.xcconfig"; path = "Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F80B70399EDA45E1C2B7CFEB /* libPods-sixrandom-sixrandomTests.a in Frameworks */,
+				FE60E10C365BDA181C8600D8 /* libPods-sixrandom-sixrandomTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,14 +113,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ABE1EAC2683A60300DB31D5 /* plumberIOS.framework in Frameworks */,
-				0ABE1EB02683A60F00DB31D5 /* SystemConfiguration.framework in Frameworks */,
-				0ABE1EB22683A61500DB31D5 /* WebKit.framework in Frameworks */,
-				0ABE1EA72683A5CF00DB31D5 /* CoreTelephony.framework in Frameworks */,
-				0ABE1EA92683A5E200DB31D5 /* libc++.tbd in Frameworks */,
-				0ABE1EA32683A55400DB31D5 /* AVFoundation.framework in Frameworks */,
-				8C5C53FBDBB5B1E71F6B7F31 /* libPods-sixrandom.a in Frameworks */,
-				0ABE1EA52683A55E00DB31D5 /* BackgroundTasks.framework in Frameworks */,
+				0A1526D827ABC9F90032E3AA /* WebKit.framework in Frameworks */,
+				0A1526D227ABC9CB0032E3AA /* CoreTelephony.framework in Frameworks */,
+				0A1526E127ABCB040032E3AA /* plumberIOS.framework in Frameworks */,
+				0A1526D427ABC9E80032E3AA /* libc++.tbd in Frameworks */,
+				0A1526CE27ABC9B80032E3AA /* AVFoundation.framework in Frameworks */,
+				09A724946F5C57F5D8D27CCB /* libPods-sixrandom.a in Frameworks */,
+				0A1526D627ABC9F10032E3AA /* SystemConfiguration.framework in Frameworks */,
+				0A1526D027ABC9C20032E3AA /* BackgroundTasks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,20 +144,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0ABE1E8B2683A36A00DB31D5 /* Products */ = {
+		0A1526DB27ABCAF50032E3AA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0ABE1E902683A36A00DB31D5 /* plumberIOS.framework */,
+				0A1526E027ABCAF50032E3AA /* plumberIOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0ABE1E9B2683A4DE00DB31D5 /* resource */ = {
+		0A1526F927ABD7960032E3AA /* resource */ = {
 			isa = PBXGroup;
 			children = (
-				0ABE1EA02683A51C00DB31D5 /* xxastro5.ttf */,
-				0ABE1E9C2683A4FE00DB31D5 /* antfill.ttf */,
-				0ABE1E9D2683A4FE00DB31D5 /* antoutline.ttf */,
+				0A1526FA27ABD7B10032E3AA /* xxastro5.ttf */,
+				0A1526FC27ABD7C50032E3AA /* antfill.ttf */,
+				0A1526FB27ABD7C50032E3AA /* antoutline.ttf */,
 			);
 			path = resource;
 			sourceTree = "<group>";
@@ -164,19 +165,19 @@
 		13B07FAE1A68108700A75B9A /* sixrandom */ = {
 			isa = PBXGroup;
 			children = (
-				0ABE1EBA2683C73E00DB31D5 /* main.jsbundle */,
-				0ABE1EB32683A97F00DB31D5 /* sixrandom.entitlements */,
-				0ABE1E952683A48600DB31D5 /* plumber.h */,
-				0ABE1E972683A48600DB31D5 /* plumber.m */,
-				0ABE1E862683A2CC00DB31D5 /* KeepBG.h */,
-				0ABE1E852683A2CB00DB31D5 /* KeepBG.m */,
+				0A1526F627ABD1840032E3AA /* main.jsbundle */,
+				0A1526EC27ABCB410032E3AA /* sixrandom.entitlements */,
+				0A1526EA27ABCB390032E3AA /* SomethingJustLikeThis.mp3 */,
+				0A1526E727ABCB2D0032E3AA /* KeepBG.h */,
+				0A1526E827ABCB2D0032E3AA /* KeepBG.m */,
+				0A1526E427ABCB270032E3AA /* plumber.h */,
+				0A1526E527ABCB270032E3AA /* plumber.m */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				0ABE1E882683A2D200DB31D5 /* SomethingJustLikeThis.mp3 */,
 			);
 			name = sixrandom;
 			sourceTree = "<group>";
@@ -184,36 +185,23 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0ABE1EB12683A61500DB31D5 /* WebKit.framework */,
-				0ABE1EAF2683A60F00DB31D5 /* SystemConfiguration.framework */,
-				0ABE1EAB2683A5F700DB31D5 /* libz.tbd */,
-				0ABE1EAA2683A5EE00DB31D5 /* libsqlite3.tbd */,
-				0ABE1EA82683A5D900DB31D5 /* libc++.tbd */,
-				0ABE1EA62683A5CF00DB31D5 /* CoreTelephony.framework */,
-				0ABE1EA42683A55E00DB31D5 /* BackgroundTasks.framework */,
-				0ABE1EA22683A55400DB31D5 /* AVFoundation.framework */,
+				0A1526D727ABC9F90032E3AA /* WebKit.framework */,
+				0A1526D527ABC9F10032E3AA /* SystemConfiguration.framework */,
+				0A1526D327ABC9D50032E3AA /* libc++.tbd */,
+				0A1526D127ABC9CB0032E3AA /* CoreTelephony.framework */,
+				0A1526CF27ABC9C20032E3AA /* BackgroundTasks.framework */,
+				0A1526CD27ABC9B80032E3AA /* AVFoundation.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				916A9D8DE0CE48DAA90A56E8 /* libPods-sixrandom.a */,
-				B6359603714E3A0B418B7DF0 /* libPods-sixrandom-sixrandomTests.a */,
+				889A3B0EEF9809CFDBE08E39 /* libPods-sixrandom.a */,
+				509121F56A56FECAA46B3C8A /* libPods-sixrandom-sixrandomTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		577E9DACD32ADC3E134E6BFF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1E857101E5FA69F812421D1B /* Pods-sixrandom.debug.xcconfig */,
-				604E6DE19DA01CE8EAB618B9 /* Pods-sixrandom.release.xcconfig */,
-				5F53BA14FD4239D6535AB471 /* Pods-sixrandom-sixrandomTests.debug.xcconfig */,
-				209F6BC8DDF648BC65805FC0 /* Pods-sixrandom-sixrandomTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				0ABE1E8A2683A36A00DB31D5 /* plumberIOS.xcodeproj */,
+				0A1526DA27ABCAF50032E3AA /* plumberIOS.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -221,13 +209,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				0ABE1E9B2683A4DE00DB31D5 /* resource */,
+				0A1526F927ABD7960032E3AA /* resource */,
 				13B07FAE1A68108700A75B9A /* sixrandom */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* sixrandomTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				577E9DACD32ADC3E134E6BFF /* Pods */,
+				D786517742B2B85EF52C62D5 /* Pods */,
+				9D481D412DF241AB952AF291 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -243,6 +232,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9D481D412DF241AB952AF291 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				99808666D5F544D39C95037F /* antfill.ttf */,
+				00B4475E37C24D5CA3278DF5 /* antoutline.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
+		D786517742B2B85EF52C62D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28F2F2991FC503F7FF8C3E52 /* Pods-sixrandom.debug.xcconfig */,
+				CD20A18D2E67FBDF51A31245 /* Pods-sixrandom.release.xcconfig */,
+				857EF120854AADA38E7600B8 /* Pods-sixrandom-sixrandomTests.debug.xcconfig */,
+				F247E476ED649D1D4AE1D89A /* Pods-sixrandom-sixrandomTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,12 +260,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "sixrandomTests" */;
 			buildPhases = (
-				0633B1A7EB6684C84A6C93CB /* [CP] Check Pods Manifest.lock */,
+				4BDBAE275C661C91F40B3F2C /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				2CDC25C58BA8D69B353FF7C7 /* [CP] Embed Pods Frameworks */,
-				5BD09667A76F2D30A3D4DCE3 /* [CP] Copy Pods Resources */,
+				CC91FA7FBFF9EAFC61AB2B09 /* [CP] Embed Pods Frameworks */,
+				76247E2E3DB4422BF0B36385 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,15 +281,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "sixrandom" */;
 			buildPhases = (
-				A40546DA2C9EE8A1D7072718 /* [CP] Check Pods Manifest.lock */,
+				A57B158346D51493CDE9C7E9 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				B71CC9217A7232440D3583D6 /* [CP] Embed Pods Frameworks */,
-				EA8620B2ABF029BA039DCDD5 /* [CP] Copy Pods Resources */,
-				0ABE1EAE2683A60400DB31D5 /* Embed Frameworks */,
+				EDB1FCA497E3EFEAFA9D37DA /* [CP] Embed Pods Frameworks */,
+				4E6121169FDFE155C15F47D3 /* [CP] Copy Pods Resources */,
+				0A1526E327ABCB040032E3AA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,8 +330,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 0ABE1E8B2683A36A00DB31D5 /* Products */;
-					ProjectRef = 0ABE1E8A2683A36A00DB31D5 /* plumberIOS.xcodeproj */;
+					ProductGroup = 0A1526DB27ABCAF50032E3AA /* Products */;
+					ProjectRef = 0A1526DA27ABCAF50032E3AA /* plumberIOS.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -333,11 +343,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		0ABE1E902683A36A00DB31D5 /* plumberIOS.framework */ = {
+		0A1526E027ABCAF50032E3AA /* plumberIOS.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = plumberIOS.framework;
-			remoteRef = 0ABE1E8F2683A36A00DB31D5 /* PBXContainerItemProxy */;
+			remoteRef = 0A1526DF27ABCAF50032E3AA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -354,13 +364,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A1526EB27ABCB390032E3AA /* SomethingJustLikeThis.mp3 in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				0ABE1E9F2683A4FE00DB31D5 /* antoutline.ttf in Resources */,
-				0ABE1E9E2683A4FE00DB31D5 /* antfill.ttf in Resources */,
+				0A1526F727ABD1850032E3AA /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				0ABE1EA12683A51C00DB31D5 /* xxastro5.ttf in Resources */,
-				0ABE1EBC2683C73E00DB31D5 /* main.jsbundle in Resources */,
-				0ABE1E892683A2D200DB31D5 /* SomethingJustLikeThis.mp3 in Resources */,
+				AD78FF8BC9A2446581668971 /* antfill.ttf in Resources */,
+				B2CBE5DFCF234A17845D20B9 /* antoutline.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +390,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		0633B1A7EB6684C84A6C93CB /* [CP] Check Pods Manifest.lock */ = {
+		4BDBAE275C661C91F40B3F2C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,24 +412,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2CDC25C58BA8D69B353FF7C7 /* [CP] Embed Pods Frameworks */ = {
+		4E6121169FDFE155C15F47D3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-sixrandom/Pods-sixrandom-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-sixrandom/Pods-sixrandom-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sixrandom/Pods-sixrandom-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5BD09667A76F2D30A3D4DCE3 /* [CP] Copy Pods Resources */ = {
+		76247E2E3DB4422BF0B36385 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -437,7 +446,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A40546DA2C9EE8A1D7072718 /* [CP] Check Pods Manifest.lock */ = {
+		A57B158346D51493CDE9C7E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -459,7 +468,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B71CC9217A7232440D3583D6 /* [CP] Embed Pods Frameworks */ = {
+		CC91FA7FBFF9EAFC61AB2B09 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDB1FCA497E3EFEAFA9D37DA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -474,23 +500,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sixrandom/Pods-sixrandom-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EA8620B2ABF029BA039DCDD5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sixrandom/Pods-sixrandom-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sixrandom/Pods-sixrandom-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sixrandom/Pods-sixrandom-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -527,10 +536,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ABE1E872683A2CC00DB31D5 /* KeepBG.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				0A1526E927ABCB2D0032E3AA /* KeepBG.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				0ABE1E982683A48600DB31D5 /* plumber.m in Sources */,
+				0A1526E627ABCB270032E3AA /* plumber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +556,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F53BA14FD4239D6535AB471 /* Pods-sixrandom-sixrandomTests.debug.xcconfig */;
+			baseConfigurationReference = 857EF120854AADA38E7600B8 /* Pods-sixrandom-sixrandomTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -555,7 +564,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = sixrandomTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,12 +583,12 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 209F6BC8DDF648BC65805FC0 /* Pods-sixrandom-sixrandomTests.release.xcconfig */;
+			baseConfigurationReference = F247E476ED649D1D4AE1D89A /* Pods-sixrandom-sixrandomTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = sixrandomTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,7 +607,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E857101E5FA69F812421D1B /* Pods-sixrandom.debug.xcconfig */;
+			baseConfigurationReference = 28F2F2991FC503F7FF8C3E52 /* Pods-sixrandom.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -613,7 +622,7 @@
 					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
 					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
 					"\"${PODS_ROOT}/Headers/Public/Flipper\"",
-					"\"${PODS_ROOT}/Headers/Public/Flipper-DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Fmt\"",
 					"\"${PODS_ROOT}/Headers/Public/Flipper-Folly\"",
 					"\"${PODS_ROOT}/Headers/Public/Flipper-Glog\"",
 					"\"${PODS_ROOT}/Headers/Public/Flipper-PeerTalk\"",
@@ -642,11 +651,13 @@
 					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
 					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
 					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/React-logger\"",
 					"\"${PODS_ROOT}/Headers/Public/React-perflogger\"",
 					"\"${PODS_ROOT}/Headers/Public/React-runtimeexecutor\"",
 					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
 					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
 					"\"${PODS_ROOT}/Headers/Public/YogaKit\"",
+					"\"${PODS_ROOT}/Headers/Public/fmt\"",
 					"\"${PODS_ROOT}/Headers/Public/glog\"",
 					"\"${PODS_ROOT}/Headers/Public/libevent\"",
 					"\"${PODS_ROOT}/Headers/Public/react-native-cameraroll\"",
@@ -659,10 +670,15 @@
 					"\"${PODS_ROOT}/Headers/Public/react-native-shake\"",
 					"\"${PODS_ROOT}/Headers/Public/react-native-slider\"",
 					"\"${PODS_ROOT}/Headers/Public/react-native-view-shot\"",
-					"\"$(PODS_ROOT)/boost-for-react-native\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-webview\"",
+					"\"$(PODS_ROOT)/DoubleConversion\"",
+					"\"$(PODS_ROOT)/boost\"",
+					"\"$(PODS_ROOT)/boost\"",
 					"\"$(PODS_ROOT)/boost-for-react-native\"",
 					"\"$(PODS_ROOT)/glog\"",
 					"\"$(PODS_ROOT)/RCT-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/React-hermes\"",
+					"\"${PODS_ROOT}/Headers/Public/hermes-engine\"",
 					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
 					"\"$(PODS_TARGET_SRCROOT)/include/\"",
 					"$(SRCROOT)/../plumber/plumberIOS/Classes",
@@ -688,7 +704,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 604E6DE19DA01CE8EAB618B9 /* Pods-sixrandom.release.xcconfig */;
+			baseConfigurationReference = CD20A18D2E67FBDF51A31245 /* Pods-sixrandom.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -702,7 +718,7 @@
 					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
 					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
 					"\"${PODS_ROOT}/Headers/Public/Flipper\"",
-					"\"${PODS_ROOT}/Headers/Public/Flipper-DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Fmt\"",
 					"\"${PODS_ROOT}/Headers/Public/Flipper-Folly\"",
 					"\"${PODS_ROOT}/Headers/Public/Flipper-Glog\"",
 					"\"${PODS_ROOT}/Headers/Public/Flipper-PeerTalk\"",
@@ -731,11 +747,13 @@
 					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
 					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
 					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/React-logger\"",
 					"\"${PODS_ROOT}/Headers/Public/React-perflogger\"",
 					"\"${PODS_ROOT}/Headers/Public/React-runtimeexecutor\"",
 					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
 					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
 					"\"${PODS_ROOT}/Headers/Public/YogaKit\"",
+					"\"${PODS_ROOT}/Headers/Public/fmt\"",
 					"\"${PODS_ROOT}/Headers/Public/glog\"",
 					"\"${PODS_ROOT}/Headers/Public/libevent\"",
 					"\"${PODS_ROOT}/Headers/Public/react-native-cameraroll\"",
@@ -748,10 +766,15 @@
 					"\"${PODS_ROOT}/Headers/Public/react-native-shake\"",
 					"\"${PODS_ROOT}/Headers/Public/react-native-slider\"",
 					"\"${PODS_ROOT}/Headers/Public/react-native-view-shot\"",
-					"\"$(PODS_ROOT)/boost-for-react-native\"",
+					"\"${PODS_ROOT}/Headers/Public/react-native-webview\"",
+					"\"$(PODS_ROOT)/DoubleConversion\"",
+					"\"$(PODS_ROOT)/boost\"",
+					"\"$(PODS_ROOT)/boost\"",
 					"\"$(PODS_ROOT)/boost-for-react-native\"",
 					"\"$(PODS_ROOT)/glog\"",
 					"\"$(PODS_ROOT)/RCT-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/React-hermes\"",
+					"\"${PODS_ROOT}/Headers/Public/hermes-engine\"",
 					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
 					"\"$(PODS_TARGET_SRCROOT)/include/\"",
 					"$(SRCROOT)/../plumber/plumberIOS/Classes",
@@ -823,14 +846,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -881,14 +904,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
