@@ -3,7 +3,6 @@ package com.sixrandom;
 import android.app.Application;
 import android.app.Activity;
 import android.content.Context;
-import com.facebook.react.PackageList;
 import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
@@ -48,7 +47,10 @@ import java.util.List;
 import android.content.pm.*;
 import android.content.Context;
 
+
+
 public class MainApplication extends Application implements ReactApplication {
+
 
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
@@ -103,6 +105,7 @@ public class MainApplication extends Application implements ReactApplication {
       MultiDex.install(this);
       initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
       Compass.init(this, getChannel(this), "", "plumber-sdk");
+
       this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 
           @Override

@@ -5,7 +5,13 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+
+import androidx.core.app.ActivityCompat;
 
 public class MainActivity extends ReactActivity {
 
@@ -19,6 +25,22 @@ public class MainActivity extends ReactActivity {
   }
 
   private ReactInstanceManager mReactInstanceManager;
+
+  private static final int REQUEST_EXTERNAL_STORAGE = 1;
+  private static String[] PERMISSIONS_STORAGE = {
+          Manifest.permission.READ_EXTERNAL_STORAGE,
+          Manifest.permission.WRITE_EXTERNAL_STORAGE,
+          Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS};
+
+  public static void verifyStoragePermissions(Activity activity) {
+    int permission = ActivityCompat.checkSelfPermission(activity,
+            Manifest.permission.ACCESS_FINE_LOCATION);
+
+    if (permission != PackageManager.PERMISSION_GRANTED) {
+      ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE,
+              REQUEST_EXTERNAL_STORAGE);
+    }
+  }
 
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data){

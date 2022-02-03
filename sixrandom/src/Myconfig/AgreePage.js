@@ -1,17 +1,7 @@
-
-
-import React, {Component} from 'react';
-import {StyleSheet,View,Alert, Text,DeviceEventEmitter, FlatList,TouchableOpacity} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
-import { InputItem,WhiteSpace, List ,Icon,WingBlank,Button,Switch} from '@ant-design/react-native';
-import IconConfig from '../config/IconConfig'
-import ScreenConfig from '../config/ScreenConfig';
-import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
-import UserModule from '../config/UserModule'
-import {HistoryArrayGroup} from '../config/StorageModule'
-import {DevTimeManager} from '../net/NetApi'
-import { HeaderBackButton } from '@react-navigation/stack';
-var Agreement= new Array()
+import React, { Component } from 'react';
+import { StyleSheet, View, WhiteSpace, Text, DeviceEventEmitter, FlatList, TouchableOpacity } from 'react-native';
+import { StyleConfig, FontStyleConfig } from '../config/StyleConfig';
+var Agreement = new Array()
 Agreement.push("")
 Agreement.push("用户协议")
 Agreement.push("特别提示")
@@ -143,67 +133,66 @@ Agreement.push("3、本协议的任何条款无论因何种原因无效或不具
 Agreement.push("4、由于互联网高速发展，您与乾坤爻签署的本协议列明的条款可能并不能完整罗列并覆盖您与乾坤爻所有权利与义务，现有的约定也不能保证完全符合未来发展的需求。因此，乾坤爻隐私权政策、乾坤爻平台行为规范等均为本协议的补充协议，与本协议不可分割且具有同等法律效力。如您使用乾坤爻平台服务，视为您同意上述补充协议。")
 Agreement.push("")
 Agreement.push("")
-let AgreePagethis = undefined
+
 class AgreePage extends React.Component {
-   constructor(props) {
+  constructor(props) {
     super(props);
-		this.state = {
-    };AgreePagethis = this
+    this.state = {
+    }; 
 
   }
-  static navigationOptions = ({navigation})=>{
+  static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
-    
-    return{
+
+    return {
       title: RouteConfig["AgreePage"].name,
       headerLeft: () => (
-        <TouchableOpacity onPress={() => {navigate(RouteConfig['kitPage'].route, { text: "refresh" })}}>
-        <HeaderBackButton >{RouteConfig['kitPage'].name}</HeaderBackButton>
-        </TouchableOpacity>),
+        <TouchableOpacity onPress={() => { navigate(RouteConfig['kitPage'].route, { text: "refresh" }) }}>
+          <Text>{"     返回"}</Text>
+        </TouchableOpacity>
+
+      )
     }
-  };
-  componentWillUnmount()
-  {
+  }
+  componentWillUnmount() {
     DeviceEventEmitter.emit('privacycheck', '')
   }
 
-  render()
-  {
-    return(  
-      <FlatList 
-                        ref={(flatList)=>this._flatList = flatList}
-                        useFlatList={true}
-                        //1数据的获取和渲染
-                        //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
-                        data={Agreement}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={(data) => (<View><Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
-                        >
-            </FlatList>)
+  render() {
+    return (
+      <FlatList
+        //ref={(flatList) => this._flatList = flatList}
+        useFlatList={true}
+        //1数据的获取和渲染
+        //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
+        data={Agreement}
+        renderItem={({ item, index }) => (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 15, paddingLeft: 15, paddingRight: 15 }}>{item}</Text>)}
+      >
+      </FlatList>)
 
   }
 
 }
-var styles = StyleSheet.create ({
+var styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
   },
-  subtitleView:{
-    flexDirection:'row',
-    paddingLeft:10,
+  subtitleView: {
+    flexDirection: 'row',
+    paddingLeft: 10,
     //paddingTop:5
   },
-  ratingText:{
-    paddingLeft:10,
-    color:'blue'
+  ratingText: {
+    paddingLeft: 10,
+    color: 'blue'
   },
 
 
-  list:{
-    height:45,
+  list: {
+    height: 45,
     //borderWidth:1,
     marginLeft: 10,
-    paddingLeft:10,
+    paddingLeft: 10,
     //borderColor: '#ccc',
     borderRadius: 4,
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
@@ -213,9 +202,9 @@ var styles = StyleSheet.create ({
 
   inputpicker: {
 
-    marginLeft: 35, 
-    marginRight: 35, 
+    marginLeft: 35,
+    marginRight: 35,
     marginTop: 50,
   },
 });
-module.exports=AgreePage;  
+module.exports = AgreePage;  

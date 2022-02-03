@@ -1,16 +1,9 @@
 
 
-import React, {Component} from 'react';
-import {StyleSheet,View,FlatList, Text,DeviceEventEmitter,TouchableOpacity} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
-import { InputItem,WhiteSpace, List ,Icon,WingBlank,Button,Switch} from '@ant-design/react-native';
-import IconConfig from '../config/IconConfig'
-import ScreenConfig from '../config/ScreenConfig';
-import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
-import UserModule from '../config/UserModule'
-import {HistoryArrayGroup} from '../config/StorageModule'
-import {DevTimeManager} from '../net/NetApi'
-import { HeaderBackButton } from '@react-navigation/stack';
+import React, { Component } from 'react';
+import { WhiteSpace, View, FlatList, Text, DeviceEventEmitter, TouchableOpacity } from 'react-native';
+import { StyleConfig, FontStyleConfig } from '../config/StyleConfig';
+
 var Privacyment = new Array()
 Privacyment.push("")
 Privacyment.push("1. 乾坤爻软件尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本软件会按照本隐私权政策的规定使用和披露您的个人信息。但本软件将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下 ，本软件不会将这些信息对外披露或向第三方提供。本软件会不时更新本隐私权政策 。 您在同意本软件服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私 权政策属于本软件服务使用协议不可分割的一部分。")
@@ -41,78 +34,42 @@ Privacyment.push("6. 开发者信息")
 Privacyment.push("a) 作者范小龙")
 Privacyment.push("b) 业务邮件developer@lunarhook.com")
 Privacyment.push("")
-let PrivacyPagethis = undefined
+
 class PrivacyPage extends React.Component {
-   constructor(props) {
+  constructor(props) {
     super(props);
-		this.state = {
-    };PrivacyPagethis = this
+    this.state = {
+    };
 
   }
-  static navigationOptions = ({navigation})=>{
+  static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
-    
-    return{
+
+    return {
       title: RouteConfig["PrivacyPage"].name,
       headerLeft: () => (
-        <TouchableOpacity onPress={() => {navigate(RouteConfig['kitPage'].route, { text: "refresh" })}}>
-                    <HeaderBackButton >{RouteConfig['kitPage'].name}</HeaderBackButton>
-        </TouchableOpacity>),
+        <TouchableOpacity onPress={() => { navigate(RouteConfig['kitPage'].route, { text: "refresh" }) }}>
+          <Text>    {"     返回"}</Text>
+        </TouchableOpacity>)
     }
   };
-  componentWillUnmount()
-  {
+  componentWillUnmount() {
     DeviceEventEmitter.emit('privacycheck', '')
   }
-  render()
-  {
+  render() {
 
-    return(  
-      <FlatList 
-                        ref={(flatList)=>this._flatList = flatList}
-                        useFlatList={true}
-                        //1数据的获取和渲染
-                        //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
-                        data={Privacyment}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={(data) => (<View><Text style={{fontSize:FontStyleConfig.getFontApplySize()+15,paddingLeft:15,paddingRight:15}}>{data.item}</Text><WhiteSpace size="xl" /></View>)}
-                        >
-            </FlatList>)
+    return (
+      <FlatList
+        ref={(flatList) => this._flatList = flatList}
+        useFlatList={true}
+        //1数据的获取和渲染
+        //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
+        data={Privacyment}
+        renderItem={({ item, index }) => (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 15, paddingLeft: 15, paddingRight: 15 }}>{item}</Text>)}
+      >
+      </FlatList>)
   }
 
 }
-var styles = StyleSheet.create ({
-  container: {
-    flex:1,
-  },
-  subtitleView:{
-    flexDirection:'row',
-    paddingLeft:10,
-    //paddingTop:5
-  },
-  ratingText:{
-    paddingLeft:10,
-    color:'blue'
-  },
 
-
-  list:{
-    height:45,
-    //borderWidth:1,
-    marginLeft: 10,
-    paddingLeft:10,
-    //borderColor: '#ccc',
-    borderRadius: 4,
-    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
-    //textAlign:'center', 
-    //textDecorationLine:'underline'
-  },
-
-  inputpicker: {
-
-    marginLeft: 35, 
-    marginRight: 35, 
-    marginTop: 50,
-  },
-});
-module.exports=PrivacyPage;  
+module.exports = PrivacyPage;  
