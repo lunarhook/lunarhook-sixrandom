@@ -32,6 +32,7 @@ public class MainActivity extends ReactActivity {
           Manifest.permission.WRITE_EXTERNAL_STORAGE,
           Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS};
 
+
   public static void verifyStoragePermissions(Activity activity) {
     int permission = ActivityCompat.checkSelfPermission(activity,
             Manifest.permission.ACCESS_FINE_LOCATION);

@@ -6,6 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
+import com.facebook.react.PackageList;
+import com.facebook.react.BuildConfig;
 import com.facebook.react.ReactApplication;
 import com.swmansion.reanimated.ReanimatedPackage;
 import com.swmansion.reanimated.ReanimatedPackage;

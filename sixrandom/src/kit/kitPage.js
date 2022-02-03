@@ -182,18 +182,24 @@ class kitPage extends React.Component {
   }
   async requestCameraPermission() {
     try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CAMERA, PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        {
-          'title': '乾坤爻',
-          'message': '探索功能需要相册读写权限'
-        }
-      )
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log("You can use the camera")
+      const permissions = [
+            PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+            PermissionsAndroid.PERMISSIONS.CAMERA
+           ]
+      const granteds = await PermissionsAndroid.requestMultiple(permissions)
+      var data = data+"是否同意相机权限: "
+      if (granteds["android.permission.CAMERA"] === "granted") {
+        data = data + "是\n"
       } else {
-        console.log("Camera permission denied")
+        data = data + "否\n"
       }
+      data = data+"是否同意存储权限: "
+      if (granteds["android.permission.WRITE_EXTERNAL_STORAGE"] === "granted") {
+        data = data + "是\n"
+      } else {
+        data = data + "否\n"
+      }
+      console.warn(data)
     } catch (err) {
       console.warn(err)
     }
