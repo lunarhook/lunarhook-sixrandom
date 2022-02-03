@@ -31,7 +31,7 @@
     "prop-types": "^15.8.1",
     "react": "17.0.2",
     "react-dom": "^17.0.2",
-    "react-native": "0.64.2",
+    "react-native": "0.67.2",
     "react-native-calendars": "^1.1276.0",
     "react-native-compass-heading": "^1.4.0",
     "react-native-device-info": "^8.4.8",
@@ -66,8 +66,8 @@
     "victory-native": "^36.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.12",
-    "@babel/runtime": "^7.16.7",
+    "@babel/core": "^7.17.0",
+    "@babel/runtime": "^7.17.0",
     "@react-native-community/eslint-config": "^3.0.1",
     "babel-jest": "^27.4.6",
     "eslint": "^8.8.0",
