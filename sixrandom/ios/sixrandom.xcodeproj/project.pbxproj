@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* sixrandomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* sixrandomTests.m */; };
 		09A724946F5C57F5D8D27CCB /* libPods-sixrandom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 889A3B0EEF9809CFDBE08E39 /* libPods-sixrandom.a */; };
 		0A1526CE27ABC9B80032E3AA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526CD27ABC9B80032E3AA /* AVFoundation.framework */; };
 		0A1526D027ABC9C20032E3AA /* BackgroundTasks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526CF27ABC9C20032E3AA /* BackgroundTasks.framework */; };
@@ -16,7 +15,6 @@
 		0A1526D627ABC9F10032E3AA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526D527ABC9F10032E3AA /* SystemConfiguration.framework */; };
 		0A1526D827ABC9F90032E3AA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526D727ABC9F90032E3AA /* WebKit.framework */; };
 		0A1526E127ABCB040032E3AA /* plumberIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526E027ABCAF50032E3AA /* plumberIOS.framework */; };
-		0A1526E227ABCB040032E3AA /* plumberIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1526E027ABCAF50032E3AA /* plumberIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0A1526E627ABCB270032E3AA /* plumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1526E527ABCB270032E3AA /* plumber.m */; };
 		0A1526E927ABCB2D0032E3AA /* KeepBG.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1526E827ABCB2D0032E3AA /* KeepBG.m */; };
 		0A1526EB27ABCB390032E3AA /* SomethingJustLikeThis.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A1526EA27ABCB390032E3AA /* SomethingJustLikeThis.mp3 */; };
@@ -27,17 +25,9 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AD78FF8BC9A2446581668971 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 99808666D5F544D39C95037F /* antfill.ttf */; };
 		B2CBE5DFCF234A17845D20B9 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00B4475E37C24D5CA3278DF5 /* antoutline.ttf */; };
-		FE60E10C365BDA181C8600D8 /* libPods-sixrandom-sixrandomTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 509121F56A56FECAA46B3C8A /* libPods-sixrandom-sixrandomTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = sixrandom;
-		};
 		0A1526DF27ABCAF50032E3AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A1526DA27ABCAF50032E3AA /* plumberIOS.xcodeproj */;
@@ -47,23 +37,8 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		0A1526E327ABCB040032E3AA /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				0A1526E227ABCB040032E3AA /* plumberIOS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		00B4475E37C24D5CA3278DF5 /* antoutline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* sixrandomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sixrandomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* sixrandomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sixrandomTests.m; sourceTree = "<group>"; };
 		0A1526CD27ABC9B80032E3AA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -101,14 +76,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		00E356EB1AD99517003FC87E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FE60E10C365BDA181C8600D8 /* libPods-sixrandom-sixrandomTests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* sixrandom.app */,
-				00E356EE1AD99517003FC87E /* sixrandomTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,27 +221,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* sixrandomTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "sixrandomTests" */;
-			buildPhases = (
-				4BDBAE275C661C91F40B3F2C /* [CP] Check Pods Manifest.lock */,
-				00E356EA1AD99517003FC87E /* Sources */,
-				00E356EB1AD99517003FC87E /* Frameworks */,
-				00E356EC1AD99517003FC87E /* Resources */,
-				CC91FA7FBFF9EAFC61AB2B09 /* [CP] Embed Pods Frameworks */,
-				76247E2E3DB4422BF0B36385 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				00E356F51AD99517003FC87E /* PBXTargetDependency */,
-			);
-			name = sixrandomTests;
-			productName = sixrandomTests;
-			productReference = 00E356EE1AD99517003FC87E /* sixrandomTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		13B07F861A680F5B00A75B9A /* sixrandom */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "sixrandom" */;
@@ -288,7 +233,6 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				EDB1FCA497E3EFEAFA9D37DA /* [CP] Embed Pods Frameworks */,
 				4E6121169FDFE155C15F47D3 /* [CP] Copy Pods Resources */,
-				0A1526E327ABCB040032E3AA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,10 +251,6 @@
 			attributes = {
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
-					00E356ED1AD99517003FC87E = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 13B07F861A680F5B00A75B9A;
-					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
 					};
@@ -336,7 +276,6 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* sixrandom */,
-				00E356ED1AD99517003FC87E /* sixrandomTests */,
 			);
 		};
 /* End PBXProject section */
@@ -352,13 +291,6 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		00E356EC1AD99517003FC87E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,28 +321,6 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		4BDBAE275C661C91F40B3F2C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-sixrandom-sixrandomTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4E6121169FDFE155C15F47D3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,23 +336,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sixrandom/Pods-sixrandom-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		76247E2E3DB4422BF0B36385 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A57B158346D51493CDE9C7E9 /* [CP] Check Pods Manifest.lock */ = {
@@ -465,23 +358,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC91FA7FBFF9EAFC61AB2B09 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sixrandom-sixrandomTests/Pods-sixrandom-sixrandomTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EDB1FCA497E3EFEAFA9D37DA /* [CP] Embed Pods Frameworks */ = {
@@ -523,14 +399,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		00E356EA1AD99517003FC87E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				00E356F31AD99517003FC87E /* sixrandomTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		13B07F871A680F5B00A75B9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -544,66 +412,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* sixrandom */;
-			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		00E356F61AD99517003FC87E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 857EF120854AADA38E7600B8 /* Pods-sixrandom-sixrandomTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = sixrandomTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-					"$(inherited)",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sixrandom.app/sixrandom";
-			};
-			name = Debug;
-		};
-		00E356F71AD99517003FC87E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F247E476ED649D1D4AE1D89A /* Pods-sixrandom-sixrandomTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = sixrandomTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-					"$(inherited)",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sixrandom.app/sixrandom";
-			};
-			name = Release;
-		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 28F2F2991FC503F7FF8C3E52 /* Pods-sixrandom.debug.xcconfig */;
@@ -922,15 +731,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "sixrandomTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				00E356F61AD99517003FC87E /* Debug */,
-				00E356F71AD99517003FC87E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "sixrandom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
