@@ -8,6 +8,9 @@ import android.os.Bundle;
 
 import androidx.multidex.MultiDex;
 import com.facebook.react.ReactApplication;
+import com.swmansion.reanimated.ReanimatedPackage;
+import com.swmansion.reanimated.ReanimatedPackage;
+import com.swmansion.reanimated.ReanimatedPackage;
 import com.facebook.react.bridge.JSIModulePackage;
 import com.reactnativecommunity.picker.RNCPickerPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;

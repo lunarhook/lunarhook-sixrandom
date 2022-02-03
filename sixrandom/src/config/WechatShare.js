@@ -261,14 +261,13 @@ class WechatShare extends React.Component {
           try {
               WeChat.shareLocalImage({imageUrl:imageUrl,scene:type,}).then((ret)=>{
                 console.log("shareLocalImage",ret)
-              }).then((r)=>{
-                console.log("shareLocalImage",r)
+              }).then(r=>{
+                console.log("shareLocalImage error",r)
               })
-              
             }
           catch(e)
           {
-            console.log(e)
+            console.log("shareLocalImage error",e)
           }
 
         }
@@ -321,7 +320,7 @@ class WechatShare extends React.Component {
   saveImg(img,sw,ds) {
     CameraRoll.save(img,'photo',"sixrandom").then(result => {
       this.share(img,sw,ds).then(v=>{
-        console.log(v,sw)
+        console.log("this.share",v,sw)
         if(""!=sw)
         {
           var dellist = new Array()
@@ -388,8 +387,8 @@ class WechatShare extends React.Component {
   }
   capture(ref,ds,sw,rthis){
     captureRef(ref, {
-      format: "png",
-      quality: 1.0,
+      format: "jpg",
+      quality: 0.8,
       snapshotContentContainer: true
     })
     .then(

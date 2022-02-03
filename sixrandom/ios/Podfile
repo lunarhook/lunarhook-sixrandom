@@ -22,6 +22,8 @@ target 'sixrandom' do
 
   pod 'RNCPicker', :path => '../node_modules/@react-native-picker/picker'
 
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
   target 'sixrandomTests' do
     inherit! :complete
     # Pods for testing
