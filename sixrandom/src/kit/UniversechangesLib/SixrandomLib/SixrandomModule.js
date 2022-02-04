@@ -3602,11 +3602,11 @@ var b = function (u, r) {
 	var s = 0;
 	var q;
 	for (; s < 30; s += 5) {
-		q = (+("0x" + v.substr(s, 5))).toString();
-		t.push(q.substr(0, 1));
-		t.push(q.substr(1, 2));
-		t.push(q.substr(3, 1));
-		t.push(q.substr(4, 2))
+		q = (+("0x" + v.substring(s, 5))).toString();
+		t.push(q.substring(0, 1));
+		t.push(q.substring(1, 2));
+		t.push(q.substring(3, 1));
+		t.push(q.substring(4, 2))
 	}
 	return new Date(u, parseInt(r / 2, 10), t[r])
 };
