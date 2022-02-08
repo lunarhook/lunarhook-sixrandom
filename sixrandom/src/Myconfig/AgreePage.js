@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, WhiteSpace, Text, DeviceEventEmitter, FlatList, TouchableOpacity } from 'react-native';
-import {useNetInfo} from "@react-native-community/netinfo";
+import NetInfo from "@react-native-community/netinfo";
 import { StyleConfig, FontStyleConfig } from '../config/StyleConfig';
-
+import { WebView } from 'react-native-webview';
 
 class AgreePage extends React.Component {
   constructor(props) {
@@ -10,7 +10,6 @@ class AgreePage extends React.Component {
     this.state = {
       isConnected:false
     }; 
-
   }
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
@@ -28,10 +27,7 @@ class AgreePage extends React.Component {
   componentWillUnmount() {
     DeviceEventEmitter.emit('privacycheck', '')
   }
-  componentDidMount() {
-    const netInfo = useNetInfo();
-    this.setState({isConnected:netInfo.isConnected})
-  }
+
   render() {
     var Agreement = new Array()
     Agreement.push("")
@@ -169,10 +165,13 @@ class AgreePage extends React.Component {
     {
         return (<WebView
           source={{uri: 'https://www.lunarhook.com/agree'}}
-          style={{marginTop: 20}}
+          //style={{marginTop: 20}}
         />)
       }else
       {
+        NetInfo.fetch().then(state=>{
+          this.setState({isConnected:state.isConnected})
+        })
         return(<FlatList
           ref={(flatList) => this._flatList = flatList}
           useFlatList={true}

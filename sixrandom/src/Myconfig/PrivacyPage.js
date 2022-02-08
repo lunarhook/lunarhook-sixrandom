@@ -2,9 +2,9 @@
 
 import React, { Component } from 'react';
 import { WhiteSpace, View, FlatList, Text, DeviceEventEmitter, TouchableOpacity } from 'react-native';
-import {useNetInfo} from "@react-native-community/netinfo";
+import NetInfo from "@react-native-community/netinfo";
 import { StyleConfig, FontStyleConfig } from '../config/StyleConfig';
-
+import { WebView } from 'react-native-webview';
 
 
 class PrivacyPage extends React.Component {
@@ -13,7 +13,6 @@ class PrivacyPage extends React.Component {
     this.state = {
       isConnected:false
     };
-
   }
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
@@ -29,10 +28,7 @@ class PrivacyPage extends React.Component {
   componentWillUnmount() {
     DeviceEventEmitter.emit('privacycheck', '')
   }
-  componentDidMount() {
-    const netInfo = useNetInfo();
-    this.setState({isConnected:netInfo.isConnected})
-  }
+
   render() {
 
     var Privacyment = new Array()
@@ -72,15 +68,18 @@ class PrivacyPage extends React.Component {
     Privacyment.push("e) 允许应用拍摄照片和视频。")
     Privacyment.push("f) 允许应用读取存储卡上的照片、媒体内容和文件。")
     Privacyment.push("g) 允许应用获取本机号码、通话状态以及拨打的号码。")
-    
+
       if(true==this.state.isConnected)
       {
         return (<WebView
           source={{uri: 'https://www.lunarhook.com/privacy'}}
-          style={{marginTop: 20}}
+          //style={{marginTop: 20}}
         />)
       }else
       {
+        NetInfo.fetch().then(state=>{
+          this.setState({isConnected:state.isConnected})
+        })
         return(<FlatList
           ref={(flatList) => this._flatList = flatList}
           useFlatList={true}
