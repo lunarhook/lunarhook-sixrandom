@@ -142,12 +142,12 @@ class NumberMotionNewPage extends React.Component {
               <DatePicker
                 backgroundColor='#ff00ff'
                 value={this.state.value}
-                mode="datetime"
+                mode="date"
                 minDate={new Date(1950, 1, 1)}
                 //maxDate={new Date(2026, 11, 3)}
                 onChange={this.onChange}
-                format="YYYY-MM-DD-HH">
-                <List.Item arrow="horizontal">生辰:</List.Item>
+                format="YYYY-MM-DD">
+                <List.Item arrow="horizontal">生日:</List.Item>
               </DatePicker>
               <WhiteSpace size="xl" />
             </List>
