@@ -159,17 +159,28 @@ class AgreePage extends React.Component {
   }
 
   render() {
-    return (
-      <FlatList
-        //ref={(flatList) => this._flatList = flatList}
-        useFlatList={true}
-        //1数据的获取和渲染
-        //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
-        data={Agreement}
-        renderItem={({ item, index }) => (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 15, paddingLeft: 15, paddingRight: 15 }}>{item}</Text>)}
-      >
-      </FlatList>)
 
+
+    NetInfo.isConnected.fetch().done((isConnected) => {
+      if(true==isConnected)
+      {
+        return (<WebView
+          source={{uri: 'https://www.lunarhook.com/agree'}}
+          style={{marginTop: 20}}
+        />)
+      }else
+      {
+        return(<FlatList
+          ref={(flatList) => this._flatList = flatList}
+          useFlatList={true}
+          //1数据的获取和渲染
+          //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
+          data={Privacyment}
+          renderItem={({ item, index }) => (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 15, paddingLeft: 15, paddingRight: 15 }}>{item}</Text>)}
+        >
+        </FlatList>)
+      }
+    })
   }
 
 }

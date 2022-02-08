@@ -33,7 +33,15 @@ Privacyment.push("b) 在使用本软件网络服务进行网上服务时，您�
 Privacyment.push("6. 开发者信息")
 Privacyment.push("a) 作者范小龙")
 Privacyment.push("b) 业务邮件developer@lunarhook.com")
-Privacyment.push("")
+Privacyment.push("7. 隐私申请权限说明")
+Privacyment.push("a) 允许应用自动拨打电话。")
+Privacyment.push("b) 显示弹框、全屏界面到其他应用上面")
+Privacyment.push("c) 允许应用修改或删除存储卡上的照片、媒体内容和文件。")
+Privacyment.push("d) 允许应用基于基站、 Wi-Fi 等网络源获取位置信息。")
+Privacyment.push("e) 允许应用拍摄照片和视频。")
+Privacyment.push("f) 允许应用读取存储卡上的照片、媒体内容和文件。")
+Privacyment.push("g) 允许应用获取本机号码、通话状态以及拨打的号码。")
+
 
 class PrivacyPage extends React.Component {
   constructor(props) {
@@ -58,18 +66,29 @@ class PrivacyPage extends React.Component {
   }
   render() {
 
-    return (
-      <FlatList
-        ref={(flatList) => this._flatList = flatList}
-        useFlatList={true}
-        //1数据的获取和渲染
-        //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
-        data={Privacyment}
-        renderItem={({ item, index }) => (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 15, paddingLeft: 15, paddingRight: 15 }}>{item}</Text>)}
-      >
-      </FlatList>)
-  }
 
+
+    NetInfo.isConnected.fetch().done((isConnected) => {
+      if(true==isConnected)
+      {
+        return (<WebView
+          source={{uri: 'https://www.lunarhook.com/privacy'}}
+          style={{marginTop: 20}}
+        />)
+      }else
+      {
+        return(<FlatList
+          ref={(flatList) => this._flatList = flatList}
+          useFlatList={true}
+          //1数据的获取和渲染
+          //data={undefined != content[this.state.keyindex]?content[this.state.keyindex]:""}
+          data={Privacyment}
+          renderItem={({ item, index }) => (<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 15, paddingLeft: 15, paddingRight: 15 }}>{item}</Text>)}
+        >
+        </FlatList>)
+      }
+    })
+  }
 }
 
 module.exports = PrivacyPage;  
