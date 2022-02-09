@@ -216,14 +216,14 @@ android {
         Q360 {
             manifestPlaceholders = [CHANNEL_VALUE: "Q360"]
         }
-        Huawei {
-            manifestPlaceholders = [CHANNEL_VALUE: "Huawei"]
-        }
         MI {
             manifestPlaceholders = [CHANNEL_VALUE: "MI"]
         }
         Ali {
             manifestPlaceholders = [CHANNEL_VALUE: "Ali"]
+        }
+        Huawei {
+            manifestPlaceholders = [CHANNEL_VALUE: "Huawei"]
         }
     }
 
@@ -309,7 +309,7 @@ dependencies {
     implementation project(':react-native-svg')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-shake')
-    implementation files('PlumberAndroid_release_v2.6.2.jar')
+    implementation files('PlumberAndroid_release_v2.6.3.jar')
     implementation project(':react-native-view-shot')
     implementation project(':react-native-vector-icons')
     implementation 'com.android.support:multidex:1.0.3'
