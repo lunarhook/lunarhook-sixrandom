@@ -309,7 +309,7 @@ dependencies {
     implementation project(':react-native-svg')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-shake')
-    implementation files('PlumberAndroid_release_v2.6.3.jar')
+    implementation files('PlumberAndroid_release_v2.6.4.jar')
     implementation project(':react-native-view-shot')
     implementation project(':react-native-vector-icons')
     implementation 'com.android.support:multidex:1.0.3'
