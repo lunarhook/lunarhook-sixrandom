@@ -159,7 +159,7 @@ class kitConfigPage extends React.Component {
                         title={RouteConfig["service"].name}
                         renderIcon={() => RouteConfig["service"].icon}
                         //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-                        onPress={() => this.onBussion("service", navigate)}
+                        onPress={() => kitPage.ShareInstance().onBussion("service", navigate)}
                         titleStyle={StyleConfig.menufont}>
                         </TabNavigator.Item>)}}()
                     }
