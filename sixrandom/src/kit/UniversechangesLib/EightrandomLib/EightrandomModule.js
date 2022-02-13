@@ -153,103 +153,12 @@ import LunarCalendar from '../solar2lunar/LunarCalendar'
 　　癸水为弱时，个性内向，阳刚不足，气魄不够，处事优柔，瞻前顾后，一事无成。
 */
 
-var manlocation = ["坎", "坤", "震", "巽", "坤", "乾", "兑", "艮", "离"]
-var womanlocation = ["坎", "坤", "震", "巽", "艮", "乾", "兑", "艮", "离"]
-var locationself = new Array()
-locationself[0] = new Array()//男
-locationself[1] = new Array()//女
-for (i = 1900; i < 2100; i++) {
-    locationself[0][i] = manlocation[(2107 - i) % 9]
-    locationself[1][i] = womanlocation[(i + 3) % 9]
-    //console.log(locationself[0][i])
-    //console.log(locationself[1][i])
-}
-
-//这个家宅应该是到2044年的排表
-/*
-八运二十四个山向飞星局 旺山旺向 (旺财旺丁) 
-坐未向丑，坐丑向未，坐亥向巳，坐巳向亥，坐巽向干，坐干向巽。 
-上山下水 (捐财伤丁) 
-坐戌向辰，坐辰向戌，坐申向寅，坐寅向申，坐坤向艮，坐艮向坤。 
-双星到山 (旺丁不旺财) 
-坐壬向丙，坐甲向庚，坐丁向癸，坐酉向卯，坐午向子，坐辛向乙。 
-双星到向 (旺财不旺丁) 
-坐丙向壬，坐庚向甲，坐癸向丁，坐乙向辛，坐卯向酉，坐子向午。 
-*/
-
-var houselocation = new Array()
-houselocation["坎"] = "东四命，坐北向南纳气，正北伏位，正东天医，东南生气，正南延年为吉"
-houselocation["离"] = "东四命，坐南向北纳气，正北延年，正东生气，东南天医，正南伏位为吉"
-houselocation["震"] = "东四命，坐东向西纳气，正北天医，正东伏位，东南延年，正南生气为吉"
-houselocation["巽"] = "东四命，坐东北向西南纳气，正北生气，正东延年，东南伏位，正南天医为吉"
-houselocation["乾"] = "西四命，坐西北向东南纳气，东北天医，西北伏位，正西生气，西南延年为吉"
-houselocation["坤"] = "西四命，坐西南向东北纳气，东北生气，西北延年，正西天医，西南伏位为吉"
-houselocation["艮"] = "西四命，坐东北向西南纳气，东北延年，西北生气，正西伏位，西南天医为吉"
-houselocation["兑"] = "西四命，坐西向东纳气，东北伏位，西北天医，正西延年，西南生气为吉"
 
 
 
-var dayself = new Array();
-dayself["甲子"] = "上等日柱，得到配偶助益，配偶漂亮，但恐婚姻不利。甲木为栋梁之木，木主仁，坐下正印，为身高体健，慈祥恺悌，相貌俊秀。印为文书，身坐文书，主才学超群，有权柄。印又有生身助学之功，故主人记忆力强，学习成绩优秀。"
-dayself["戊辰"] = "上等日柱，通根身旺，坐财官比肩，但支中比肩财星化火为印，变成官印相生，故主高贵。支内戊癸化火生土，而辰本为湿土，内中有火，温暖中和，能生万物，必然根深叶茂，秀气有成。"
-dayself["庚午"] = "上等日柱，配偶英俊漂亮，利于配偶。身坐正官正印，气质清纯，必主官贵，但金坐火地，须经火炼，千锤百炼，所以仕途坎坷，有大起，也有大落。"
-dayself["丙子"] = "上等日柱，阴阳杀。阴阳差错，配偶英俊漂亮，但婚姻不顺利。为六秀，主人聪明秀气。丙火坐子无根，主人身矮。丙为太阳主光明，而子鼠狡猾，子中癸水阴湿，故主人性格双重。身坐正官，一权在握，往往自以为是，独裁固执。"
-dayself["庚辰"] = "上等日柱，十恶大败。魁罡，身坐正财、伤官、偏印，主人有财禄，聪明有学识，支中伤官带偏印有贵气，而戊癸化火为官杀，变成日坐财官，可做官，但隐含伤官，可能喜开杀戒。"
-dayself["辛巳"] = "上等日柱，十恶大败。利于婚姻。身坐正印正官劫财，辛金柔弱，有正印生身，劫财帮助，由弱转旺，而正官丙火制衡，使干支中和，必主官贵，富于成功。大多有志难伸。"
-dayself["壬午"] = "上等日柱，九鬼妨害，但恐夫妻不睦。坐下财官，无杂气，多主官贵，丁壬合财，主得妻财或因妻制富。但壬午不如癸巳，癸巳财官双美无杂气，又为日贵。另外，壬水盖头有掩火之嫌，故虽有官贵，也难免大起大落。"
-dayself["丁亥"] = "上等日柱，十恶大败，坐下正印官星，官印相生，主聪明超群，丁壬合化印星，坐贵，主官贵，与大贵人有缘。女命丁亥，可嫁贵夫。"
-dayself["戊子"] = "上等日柱，九鬼妨害，又为六秀日，主人聪明秀气，坐正财，得贤妻，因妻制富，干支戊癸化火生身，主高贵。"
-dayself["癸巳"] = "上等日柱，孤鸾煞，阴阳差错，不利婚姻。身坐正官正印正财，财官印连生，循环清正，主高贵富贵或清贵，且身康体健有钱，生活富裕，女名癸巳，可嫁贵夫。"
-dayself["丁酉"] = "上等日柱，日贵。配偶风流。坐长生偏财、夜贵、文昌，主人高贵聪明，见识超群，受人钦敬，另有叛逆创新性格。"
-dayself["己亥"] = "上等日柱，配偶长寿。坐正财正官，为财官双美，主贵。女命己亥，也可嫁贵夫。"
-dayself["癸卯"] = "上等日柱，日贵。配偶风流。坐长生、日贵，食神吐秀，主人聪明有文才。女命癸卯，生子读书有成。"
-dayself["乙巳"] = "上等日柱，十恶大败。孤鸾煞，但恐有些人不利婚姻。乙木向阳，英华外发，主人聪明，但泄气，只利他人，不利己。坐下伤官正财，正官顺生，有钱，富裕，男命乙巳，多晚婚，可得贤妻，但支中伤官见官，过于刚强，不守纪律，武将者，喜开杀戒。"
-dayself["己酉"] = "上等日柱，坐长生、文昌，主人好文学，聪明有文才，且土金相生，主人身体好，但干生支，毕竟泄气，故得失都有。"
-dayself["甲寅"] = "上等日柱，孤鸾煞，不利婚姻。坐禄通根身旺，坐下有伤官生财，主富贵，但比肩夺财，文才差一些。女命甲寅，身强克夫。"
-dayself["乙卯"] = "上等日柱，坐禄通根身旺，坐比肩，无财，清贵不富贵，上下乙木，秀气透出，文才好，人秀气，手脚纤细。"
-dayself["丙辰"] = "上等日柱，日德。身坐魁地，支藏正印、食神、七杀，主人聪明、伶俐，辰为湿土，丙为太阳，阳光普照，万物有成，人命丙辰聪明好动。"
-dayself["庚申"] = "上等日柱，不利婚姻。坐禄通根，身体好，主富贵。丑月庚申，为天月两德，主人一生身健少疾病。女命庚申带天月两德，必生贵子，聪明大器。"
-dayself["辛酉"] = "上等日柱，九鬼妨害，阴阳差错，但恐夫妻不睦。坐禄通根，得助，立于不败之地，聪明有文才，有能力。"
-dayself["壬戌"] = "上等日柱，日德。阴阳差错，但恐夫妻不睦。坐下财生杀，杀生印，杀印相生，主大贵，或武贵，但丁壬化木逢燥土，往往变成小人或坏人。"
-dayself["乙丑"] = "中等日柱，配偶相貌不扬。六秀日，主人秀气漂亮，身坐金库，无根，坐下七杀无制，自信心太过，往往一意孤行。女名乙丑，具有男性风格。"
-dayself["丙寅"] = "中等日柱，丙为太阳，身坐长生，有光彩之象，主人聪明，但坐下枭神夺食，不吉。生于冬至后夏至前，戊土长生于寅，食神旺，主人聪明，吉；生于夏至后冬至前，戊土长生在申，食神弱，稍差。"
-dayself["丁卯"] = "中等日柱，九鬼妨害，但恐夫妻不睦。坐印通根，主人聪明有学问。若四柱出现亥卯未三合局或寅卯辰三会局，为大贵人，但身坐偏印，只能为副职，辅佐他人。"
-dayself["己巳"] = "中等日柱，金神，主人刚毅、聪明，有火则贵，却火则不吉。坐下正印、劫财、伤官，伤官佩印，贵不可言，但伤官遇劫，易遭小人陷害。"
-dayself["辛未"] = "中等日柱，得库通根，身旺，坐下偏财、偏印、七杀，一片顺生，主小贵，吉。女命辛未爱情专一，夺夫权，守家，独裁。"
-dayself["甲戌"] = "中等日柱，婚姻不顺。得库通根身旺，坐下偏财正官、伤官，主人刚强正直，光明正大，为官清廉，但性格过于直爽得罪人，难免受到打击、排挤。"
-dayself["乙亥"] = "中等日柱，十灵日，人聪明。虽处死地，却坐下为正印劫财帮身，故有枯木逢春之象。男命乙亥主得贤妻；女命乙亥主得贵夫，而且对夫忠诚。另外，女命乙亥非常漂亮。"
-dayself["丁丑"] = "中等日柱，阴阳差错，但恐夫妻不睦。丁火坐丑无根，身弱，但丁为星光，无妨。坐下偏财、七杀、食神，食神生偏财，偏财生杀，也一片顺生，吉利。"
-dayself["戊寅"] = "中等日柱，阴阳差错，但恐夫妻不睦。坐长生，身旺。生于春，则坐下七杀太重，一生劳苦，多为人造福。"
-dayself["癸未"] = "中等日柱，十灵日，人聪明。坐下有食神生财、财生杀，因坐偏财、七杀，故男女命逢癸未，重婚较多，但男女均漂亮，爱情专一。"
-dayself["丙戌"] = "中等日柱，坐火库，身旺，火光熠熠，聪明漂亮。"
-dayself["己丑"] = "中等日柱，十恶大败。六秀日，貌美多才。通根，比丁丑好，生于得令时为强，比肩夺财争斗，生于失令时则有兄弟帮忙。"
-dayself["庚寅"] = "中等日柱，十灵日，阴阳差错，但恐夫妻不睦。坐绝地，无根，盖头（干克支），女命克夫再嫁，做偏房可以，男命庚寅不善终，但坐杀印有开拓精神，为官多清廉，支藏偏印宜做副手。"
-dayself["壬辰"] = "中等日柱，阴阳差错，但恐夫妻不睦。坐水库通根身旺，坐下有劫财生食，食神制杀，身旺用杀，主贵。壬辰日为壬骑龙背，亥时生，为龙归大海，主大贵，午时龙死为下等。"
-dayself["甲午"] = "中等日柱，不利婚姻，身坐死地，一生劳苦奔波，干生支，对妻子好，伤官生财，对上辈孝顺。日主泄出丁火，主利他人，故对别人照顾有加，可自己到老，却一无所有。"
-dayself["乙未"] = "中等日柱，坐库通根，财星入库，主富，但爱财小气，再逢命局或大运流年冲库主发财。"
-dayself["丙申"] = "中等日柱，十恶大败。配偶性强主家。身弱无根，妙在丙火太阳，坐下食神生财，财生杀，壬水杀旺，映照太阳光辉，主人聪明灵气。但杀旺攻身，老来孤独，一辈子辛苦，不能坐享其成。"
-dayself["戊戌"] = "中等日柱，十恶大败。坐库通根，土太燥，吉带凶。魁罡主人心直口快，临事果断，也主聪明，文章振发，但不会用阴谋，常得罪人。"
-dayself["辛丑"] = "中等日柱，通根，坐下有印比食神，主人灵秀，女命辛丑身材好，秀气，守家。"
-dayself["壬寅"] = "中等日柱，坐下食神生偏财再生杀，又为壬骑虎背，主富贵双全，干支相生，家庭圆满。"
-dayself["甲辰"] = "中等日柱，十恶大败。不利婚姻，夫妻不睦。得气通根，坐下有偏财破印，缺少贵气，前半生不太好，后半生平安，财禄丰足。"
-dayself["丁未"] = "中等日柱，阴阳差错，但恐夫妻不睦。得库通根，坐下食神旺，主人漂亮，但好吃，女命贤惠。"
-dayself["庚戌"] = "中等日柱，坐库通根身强，魁罡，聪明刚毅，有文才，忠义双全。"
-dayself["辛亥"] = "中等日柱，孤鸾煞，不利婚姻。干支相生，金水相连，文才好（女命稍差），坐沐浴，女命不贞，坐下伤官旺不利夫。男命可得妻财，或漂亮之妻。"
-dayself["癸丑"] = "中等日柱，坐库通根，人秀气，坐下杀印生比肩，利兄弟，吃力不讨好，劳累奔波。"
-dayself["己未"] = "中等日柱，六秀日，貌美多才。坐库通根，身旺，坐下有杀印，主人自我意识强。女命己未身材好。"
-dayself["壬申"] = "下等日柱，十恶大败。配偶风流。身坐长生，太旺，主人好动不拘。纳音剑锋金，男命敢于拼打争斗，不善终。女命重武好斗，具男性风格。"
-dayself["癸酉"] = "下等日柱，坐偏印，金神，外表柔和，内心阴毒。富于心计，会挣钱，但也会花钱。"
-dayself["己卯"] = "下等日柱，九鬼妨害，配偶性暴。坐杀截脚，为最差之日，人命己卯，易残疾、受伤，一生劳苦。年上己卯，祖上伤残，不善终；月上己卯，父母不团圆；日上己卯，青年时期命危；时上己卯，老年不得善终，子女不好。"
-dayself["甲申"] = "下等日柱，夫妻不睦，配偶风流。坐绝地，一辈子辛苦，奔波，但死木逢杀克削，也不失可用。"
-dayself["乙酉"] = "下等日柱，配偶性暴。坐杀截脚，生在春天有救，生在土月助杀攻身，不妙。人命乙酉多不善终或不高寿。女命乙酉漂亮，浪漫，早恋早婚。"
-dayself["辛卯"] = "下等日柱，阴阳差错，但恐夫妻不睦。坐偏财，桃花，男命喜欢女色，女命稍好，但漂亮难禁风流（因既漂亮，又浪漫，对异性富吸引力）。"
-dayself["庚子"] = "下等日柱，坐伤官，女命克夫。干支金水相生，人秀丽聪明，但耿直，讲义气。做官宜公检法部门。"
-dayself["丙午"] = "下等日柱，阴阳差错，孤鸾煞，但恐夫妻不睦。坐羊刃，过刚，人聪明有文才。男命克妻，女命克夫，不论男女生于丙午，容易受伤。"
-dayself["戊申"] = "下等日柱，阴阳差错，孤鸾煞，但恐夫妻不睦。土猴孤独，女命早婚者易离婚，或孤身，男命稍好。不论年月均漂亮，但爱情不专，作风不正。"
-dayself["壬子"] = "下等日柱，九鬼妨害，孤鸾煞。坐刃坐劫财，水太旺，漂亮。女命不会持家，有多少花多少，花心；男命好色，若经商发财，发多少失多少。"
-dayself["丁巳"] = "下等日柱，孤鸾煞，恐夫妻不睦。丁火坐丙火，阳盛阴衰，白日无光。生时丁巳，老年不能高寿。"
-dayself["戊午"] = "下等日柱，孤鸾煞。与丙午类似，坐刃太旺，女命克夫，男命克妻，易受伤灾。戊土太燥，主人性格浮躁。"
-dayself["癸亥"] = "下等日柱，十恶大败。阴阳差错，但恐夫妻不睦。玄武日，坐刃，喜欢独断专行，武将不善终。"
+
+
+
 
 var hidetable = new Array();
 hidetable['子'] = ['癸主20', '壬余10'];
@@ -269,156 +178,10 @@ var daykey = '甲乙丙丁戊己庚辛壬癸'
 var earthkey = '子丑寅卯辰巳午未申酉戌亥'
 var fivekey = '木火土金水'
 
-var earthrelationship = new Array()
-var earthcombe = new Array
-for (i = 0; i < earthkey.length; i++) {
-    var index = earthkey[i]
-    earthrelationship[index] = new Array();
-    earthcombe[index] = new Array();
-}
-//六合
-earthrelationship['子']['丑'] = '子丑合土，夫妻容易沟通，有话讲，较顾家，午可冲散未则不行'
-earthrelationship['丑']['子'] = earthrelationship['子']['丑']
-earthrelationship['寅']['亥'] = '寅亥合木，先天比较重视伦理道德，申可冲散巳则不行'
-earthrelationship['亥']['寅'] = earthrelationship['寅']['亥']
-earthrelationship['卯']['戌'] = '卯戌合火，比较爱面子，注重外表，顾家，外强内柔，辰冲不散酉可冲散（戊戌辰冲可散）'
-earthrelationship['戌']['卯'] = earthrelationship['卯']['戌']
-earthrelationship['辰']['酉'] = '辰酉合金，比较重义气，较没有定性，戌冲不散卯冲则散（戊戌辰冲可散）'
-earthrelationship['酉']['辰'] = earthrelationship['辰']['酉']
-earthrelationship['巳']['申'] = '巳申合水，很多时候聪明反被聪明误'
-earthrelationship['申']['巳'] = earthrelationship['巳']['申']
-earthrelationship['午']['未'] = '午未合火，生性积极，脾气不好，做事凭感觉，有些任性，丑冲不散子可冲散'
-earthrelationship['未']['午'] = earthrelationship['午']['午']
-//六冲 子午相冲、丑未相冲、寅申相冲、卯酉相冲、辰戌相冲、巳亥相冲
-earthrelationship['子']['午'] = '子午相冲，水火相战，桃花旺象，困惑不解，一身不安，地域之冲'
-earthrelationship['午']['子'] = earthrelationship['子']['午']
-earthrelationship['丑']['未'] = '丑未相冲，固执相持，事多逆阻，职业相冲'
-earthrelationship['未']['未'] = earthrelationship['丑']['未']
-earthrelationship['寅']['申'] = '寅申相冲，车关有害，多情泛滥，好管闲事，地域职业都冲'
-earthrelationship['申']['寅'] = earthrelationship['寅']['申']
-earthrelationship['卯']['酉'] = '卯酉相冲，桃花旺象，背约失信，忧愁多老，色情纠缠，地域之冲'
-earthrelationship['酉']['卯'] = earthrelationship['卯']['酉']
-earthrelationship['辰']['戌'] = '辰戌相冲，克亲伤子，寿短害命，天冲地克，地域之冲'
-earthrelationship['戌']['辰'] = earthrelationship['辰']['戌']
-earthrelationship['巳']['亥'] = '巳亥相冲，机会多多，烦事繁多，喜欢助人，职业之冲'
-earthrelationship['亥']['巳'] = earthrelationship['巳']['亥']
-//六害 子未相害、丑午相害、寅巳相害、卯辰相害、申亥相害、酉戌相害
-earthrelationship['子']['未'] = '子未相害，犯小人，早分离'
-earthrelationship['未']['子'] = earthrelationship['子']['未']
-earthrelationship['丑']['午'] = '丑午相害，耐性差，脾气差'
-earthrelationship['午']['丑'] = earthrelationship['丑']['午']
-earthrelationship['寅']['巳'] = '寅巳相害，无恩刑，难在家'
-earthrelationship['巳']['寅'] = earthrelationship['寅']['巳']
-earthrelationship['卯']['辰'] = '卯辰相害，手足相害'
-earthrelationship['辰']['卯'] = earthrelationship['卯']['辰']
-earthrelationship['申']['亥'] = '申亥相害，是非多'
-earthrelationship['亥']['申'] = earthrelationship['申']['亥']
-earthrelationship['酉']['戌'] = '酉戌相害，鸡犬不宁'
-earthrelationship['戌']['酉'] = earthrelationship['酉']['戌']
-//自刑 辰午酉亥自相刑
-earthrelationship['辰']['辰'] = '辰辰自刑，达非所愿'
-earthrelationship['亥']['亥'] = '亥亥自刑，无理取闹'
-earthrelationship['午']['午'] = '午午自刑，事与愿违'
-earthrelationship['酉']['酉'] = '酉酉自刑，不的认同'
-earthrelationship['子']['卯'] = earthrelationship['卯']['子'] = '子卯之刑，眼光略高，说话较直，易无礼貌'
-//地支相互破
-earthrelationship['子']['酉'] = '平生经常面临经济困难'
-earthrelationship['酉']['子'] = earthrelationship['子']['酉']
-earthrelationship['寅']['亥'] = '为人优柔寡断、耳根轻、简单被说服，破中有合、败而复成、六反皆成'
-earthrelationship['亥']['寅'] = earthrelationship['寅']['亥']
-earthrelationship['辰']['丑'] = '六亲难谐、男女多见不睦'
-earthrelationship['丑']['辰'] = earthrelationship['辰']['丑']
-earthrelationship['卯']['午'] = '多见纷争、或情感为害'
-earthrelationship['午']['卯'] = earthrelationship['卯']['午']
-earthrelationship['巳']['申'] = '仿照力强、办事拿不定主意'
-earthrelationship['申']['巳'] = earthrelationship['巳']['申']
-earthrelationship['未']['戌'] = '为人有城府'
-earthrelationship['戌']['未'] = earthrelationship['未']['戌']
 
 
-//申子、亥卯、寅午、巳酉相合称生地半合。子辰、卯未、午戌、酉丑相合称墓地半合
-earthcombe['申']['子'] = '申子生地半合水，思想多变，聪明伶俐，冷漠寡淡，生地旺合，弱于三合，强于半合'
-earthcombe['子']['申'] = earthcombe['申']['子']
-earthcombe['亥']['卯'] = '亥卯生地半合木，较不切实际，生地旺合，弱于三合，强于半合'
-earthcombe['卯']['亥'] = earthcombe['亥']['卯']
-earthcombe['寅']['午'] = '寅午生地半合火，看来做事效率高，执行力好，热情有礼貌，生地旺合，弱于三合，强于半合'
-earthcombe['午']['寅'] = earthcombe['寅']['午']
-earthcombe['巳']['酉'] = '巳酉生地半合金,比较爱出头，容易有血光之灾，较会包装自己，生地旺合，弱于三合，强于半合'
-earthcombe['酉']['巳'] = earthcombe['巳']['酉']
-earthcombe['辰']['子'] = '子辰墓地半合水，思想多变，聪明伶俐，冷漠寡淡，墓地半合，弱于半合，强于拱合'
-earthcombe['子']['辰'] = earthcombe['辰']['子']
-earthcombe['卯']['未'] = '卯未墓地半合木，比较不切实际，墓地半合，弱于半合，强于拱合'
-earthcombe['未']['卯'] = earthcombe['卯']['未']
-earthcombe['午']['戌'] = '午戌墓地半合火，看来做事效率高，执行力好，热情有礼貌，墓地半合，弱于半合，强于拱合'
-earthcombe['戌']['午'] = earthcombe['午']['戌']
-earthcombe['酉']['丑'] = '酉丑墓地半合金,比较爱出头，容易有血光之灾，较会包装自己，墓地半合，弱于半合，强于拱合'
-earthcombe['丑']['酉'] = earthcombe['酉']['丑']
-earthcombe['辰']['申'] = '申辰拱合水，思想多变，聪明伶俐，冷漠寡淡，拱合弱于半合'
-earthcombe['申']['辰'] = earthcombe['辰']['申']
-earthcombe['亥']['未'] = '亥未拱合木，比较不切实际，拱合弱于半合'
-earthcombe['未']['亥'] = earthcombe['亥']['未']
-earthcombe['寅']['戌'] = '寅戌拱合火，看来做事效率高，执行力好，热情有礼貌，拱合弱于半合'
-earthcombe['戌']['寅'] = earthcombe['寅']['戌']
-earthcombe['巳']['丑'] = '巳丑拱合金,比较爱出头，容易有血光之灾，较会包装自己，拱合弱于半合'
-earthcombe['丑']['巳'] = earthcombe['巳']['丑']
 
-var twelfth = new Array();
-twelfth["甲子"] = twelfth["乙丑"] = "海中金"
-twelfth["丙寅"] = twelfth["丁卯"] = "炉中火"
-twelfth["戊辰"] = twelfth["己巳"] = "大林木"
-twelfth["庚午"] = twelfth["辛未"] = "路旁土"
-twelfth["壬申"] = twelfth["癸酉"] = "剑锋金"
-twelfth["甲戌"] = twelfth["乙亥"] = "山头火"
-twelfth["丙子"] = twelfth["丁丑"] = "涧下水"
-twelfth["戊寅"] = twelfth["己卯"] = "城头土"
-twelfth["庚辰"] = twelfth["辛巳"] = "白蜡金"
-twelfth["壬午"] = twelfth["癸未"] = "杨柳木"
-twelfth["甲申"] = twelfth["乙酉"] = "井泉水"
-twelfth["丙戌"] = twelfth["丁亥"] = "屋上土"
-twelfth["戊子"] = twelfth["己丑"] = "霹雳火"
-twelfth["庚寅"] = twelfth["辛卯"] = "松柏木"
-twelfth["壬辰"] = twelfth["癸巳"] = "长流水"
-twelfth["甲午"] = twelfth["乙未"] = "砂中金"
-twelfth["丙申"] = twelfth["丁酉"] = "山下火"
-twelfth["戊戌"] = twelfth["己亥"] = "平地木"
-twelfth["庚子"] = twelfth["辛丑"] = "璧上土"
-twelfth["壬寅"] = twelfth["癸卯"] = "金箔金"
-twelfth["甲辰"] = twelfth["乙巳"] = "覆灯火"
-twelfth["丙午"] = twelfth["丁未"] = "天河水"
-twelfth["戊申"] = twelfth["己酉"] = "大驿土"
-twelfth["庚戌"] = twelfth["辛亥"] = "钗钏金"
-twelfth["壬子"] = twelfth["癸丑"] = "桑柘木"
-twelfth["甲寅"] = twelfth["乙卯"] = "大溪水"
-twelfth["丙辰"] = twelfth["丁巳"] = "砂中土"
-twelfth["戊午"] = twelfth["己未"] = "天上火"
-twelfth["庚申"] = twelfth["辛酉"] = "石榴木"
-twelfth["壬戌"] = twelfth["癸亥"] = "大海水"
 
-var twelfthposition = new Array();
-twelfthposition["甲亥"] = twelfthposition["乙午"] = twelfthposition["丙寅"] = twelfthposition["丁酉"] = twelfthposition["戊寅"] = "长生"
-twelfthposition["己酉"] = twelfthposition["庚巳"] = twelfthposition["辛子"] = twelfthposition["壬申"] = twelfthposition["癸卯"] = "长生"
-twelfthposition["甲子"] = twelfthposition["乙巳"] = twelfthposition["丙卯"] = twelfthposition["丁申"] = twelfthposition["戊卯"] = "沐浴"
-twelfthposition["己申"] = twelfthposition["庚午"] = twelfthposition["辛亥"] = twelfthposition["壬酉"] = twelfthposition["癸寅"] = "沐浴"
-twelfthposition["甲丑"] = twelfthposition["乙辰"] = twelfthposition["丙辰"] = twelfthposition["丁未"] = twelfthposition["戊辰"] = "冠带"
-twelfthposition["己未"] = twelfthposition["庚未"] = twelfthposition["辛戌"] = twelfthposition["壬戌"] = twelfthposition["癸丑"] = "冠带"
-twelfthposition["甲寅"] = twelfthposition["乙卯"] = twelfthposition["丙巳"] = twelfthposition["丁午"] = twelfthposition["戊巳"] = "建禄"
-twelfthposition["己午"] = twelfthposition["庚申"] = twelfthposition["辛酉"] = twelfthposition["壬亥"] = twelfthposition["癸子"] = "建禄"
-twelfthposition["甲卯"] = twelfthposition["乙寅"] = twelfthposition["丙午"] = twelfthposition["丁巳"] = twelfthposition["戊午"] = "帝旺"
-twelfthposition["己巳"] = twelfthposition["庚酉"] = twelfthposition["辛申"] = twelfthposition["壬子"] = twelfthposition["癸亥"] = "帝旺"
-twelfthposition["甲辰"] = twelfthposition["乙丑"] = twelfthposition["丙未"] = twelfthposition["丁辰"] = twelfthposition["戊未"] = "衰地"
-twelfthposition["己辰"] = twelfthposition["庚戌"] = twelfthposition["辛未"] = twelfthposition["壬丑"] = twelfthposition["癸戌"] = "衰地"
-twelfthposition["甲巳"] = twelfthposition["乙子"] = twelfthposition["丙申"] = twelfthposition["丁卯"] = twelfthposition["戊申"] = "病地"
-twelfthposition["己卯"] = twelfthposition["庚亥"] = twelfthposition["辛午"] = twelfthposition["壬寅"] = twelfthposition["癸酉"] = "病地"
-twelfthposition["甲午"] = twelfthposition["乙亥"] = twelfthposition["丙酉"] = twelfthposition["丁寅"] = twelfthposition["戊酉"] = "死地"
-twelfthposition["己寅"] = twelfthposition["庚子"] = twelfthposition["辛巳"] = twelfthposition["壬卯"] = twelfthposition["癸申"] = "死地"
-twelfthposition["甲未"] = twelfthposition["乙戌"] = twelfthposition["丙戌"] = twelfthposition["丁丑"] = twelfthposition["戊戌"] = "墓地"
-twelfthposition["己丑"] = twelfthposition["庚丑"] = twelfthposition["辛辰"] = twelfthposition["壬辰"] = twelfthposition["癸未"] = "墓地"
-twelfthposition["甲申"] = twelfthposition["乙酉"] = twelfthposition["丙亥"] = twelfthposition["丁子"] = twelfthposition["戊亥"] = "绝地"
-twelfthposition["己子"] = twelfthposition["庚寅"] = twelfthposition["辛卯"] = twelfthposition["壬巳"] = twelfthposition["癸午"] = "绝地"
-twelfthposition["甲酉"] = twelfthposition["乙申"] = twelfthposition["丙子"] = twelfthposition["丁亥"] = twelfthposition["戊子"] = "胎地"
-twelfthposition["己亥"] = twelfthposition["庚卯"] = twelfthposition["辛寅"] = twelfthposition["壬午"] = twelfthposition["癸巳"] = "胎地"
-twelfthposition["甲戌"] = twelfthposition["乙未"] = twelfthposition["丙丑"] = twelfthposition["丁戌"] = twelfthposition["戊丑"] = "养地"
-twelfthposition["己戌"] = twelfthposition["庚辰"] = twelfthposition["辛丑"] = twelfthposition["壬未"] = twelfthposition["癸辰"] = "养地"
 
 
 class EightrandomModule extends React.Component {
@@ -448,10 +211,41 @@ class EightrandomModule extends React.Component {
     }
 
     getlocationself(year, sex) {
+        var manlocation = ["坎", "坤", "震", "巽", "坤", "乾", "兑", "艮", "离"]
+        var womanlocation = ["坎", "坤", "震", "巽", "艮", "乾", "兑", "艮", "离"]
+        var locationself = new Array()
+        locationself[0] = new Array()//男
+        locationself[1] = new Array()//女
+        for (i = 1900; i < 2100; i++) {
+            locationself[0][i] = manlocation[(2107 - i) % 9]
+            locationself[1][i] = womanlocation[(i + 3) % 9]
+            //console.log(locationself[0][i])
+            //console.log(locationself[1][i])
+        }
         return locationself[sex][year];
     }
 
     gethouselocation(gua) {
+        //这个家宅应该是到2044年的排表
+        /*
+        八运二十四个山向飞星局 旺山旺向 (旺财旺丁) 
+        坐未向丑，坐丑向未，坐亥向巳，坐巳向亥，坐巽向干，坐干向巽。 
+        上山下水 (捐财伤丁) 
+        坐戌向辰，坐辰向戌，坐申向寅，坐寅向申，坐坤向艮，坐艮向坤。 
+        双星到山 (旺丁不旺财) 
+        坐壬向丙，坐甲向庚，坐丁向癸，坐酉向卯，坐午向子，坐辛向乙。 
+        双星到向 (旺财不旺丁) 
+        坐丙向壬，坐庚向甲，坐癸向丁，坐乙向辛，坐卯向酉，坐子向午。 
+        */
+        var houselocation = new Array()
+        houselocation["坎"] = "东四命，坐北向南纳气，正北伏位，正东天医，东南生气，正南延年为吉"
+        houselocation["离"] = "东四命，坐南向北纳气，正北延年，正东生气，东南天医，正南伏位为吉"
+        houselocation["震"] = "东四命，坐东向西纳气，正北天医，正东伏位，东南延年，正南生气为吉"
+        houselocation["巽"] = "东四命，坐东北向西南纳气，正北生气，正东延年，东南伏位，正南天医为吉"
+        houselocation["乾"] = "西四命，坐西北向东南纳气，东北天医，西北伏位，正西生气，西南延年为吉"
+        houselocation["坤"] = "西四命，坐西南向东北纳气，东北生气，西北延年，正西天医，西南伏位为吉"
+        houselocation["艮"] = "西四命，坐东北向西南纳气，东北延年，西北生气，正西伏位，西南天医为吉"
+        houselocation["兑"] = "西四命，坐西向东纳气，东北伏位，西北天医，正西延年，西南生气为吉"
         return houselocation[gua]
     }
 
@@ -607,6 +401,97 @@ class EightrandomModule extends React.Component {
         return er
     }
     getrelationship(key, year, bigyears,sex) {
+
+        var earthrelationship = new Array()
+        var earthcombe = new Array
+        for (i = 0; i < earthkey.length; i++) {
+            var index = earthkey[i]
+            earthrelationship[index] = new Array();
+            earthcombe[index] = new Array();
+        }
+        //六合
+        earthrelationship['子']['丑'] = '子丑合土，夫妻容易沟通，有话讲，较顾家，午可冲散未则不行'
+        earthrelationship['丑']['子'] = earthrelationship['子']['丑']
+        earthrelationship['寅']['亥'] = '寅亥合木，先天比较重视伦理道德，申可冲散巳则不行'
+        earthrelationship['亥']['寅'] = earthrelationship['寅']['亥']
+        earthrelationship['卯']['戌'] = '卯戌合火，比较爱面子，注重外表，顾家，外强内柔，辰冲不散酉可冲散（戊戌辰冲可散）'
+        earthrelationship['戌']['卯'] = earthrelationship['卯']['戌']
+        earthrelationship['辰']['酉'] = '辰酉合金，比较重义气，较没有定性，戌冲不散卯冲则散（戊戌辰冲可散）'
+        earthrelationship['酉']['辰'] = earthrelationship['辰']['酉']
+        earthrelationship['巳']['申'] = '巳申合水，很多时候聪明反被聪明误'
+        earthrelationship['申']['巳'] = earthrelationship['巳']['申']
+        earthrelationship['午']['未'] = '午未合火，生性积极，脾气不好，做事凭感觉，有些任性，丑冲不散子可冲散'
+        earthrelationship['未']['午'] = earthrelationship['午']['午']
+        //六冲 子午相冲、丑未相冲、寅申相冲、卯酉相冲、辰戌相冲、巳亥相冲
+        earthrelationship['子']['午'] = '子午相冲，水火相战，桃花旺象，困惑不解，一身不安，地域之冲'
+        earthrelationship['午']['子'] = earthrelationship['子']['午']
+        earthrelationship['丑']['未'] = '丑未相冲，固执相持，事多逆阻，职业相冲'
+        earthrelationship['未']['未'] = earthrelationship['丑']['未']
+        earthrelationship['寅']['申'] = '寅申相冲，车关有害，多情泛滥，好管闲事，地域职业都冲'
+        earthrelationship['申']['寅'] = earthrelationship['寅']['申']
+        earthrelationship['卯']['酉'] = '卯酉相冲，桃花旺象，背约失信，忧愁多老，色情纠缠，地域之冲'
+        earthrelationship['酉']['卯'] = earthrelationship['卯']['酉']
+        earthrelationship['辰']['戌'] = '辰戌相冲，克亲伤子，寿短害命，天冲地克，地域之冲'
+        earthrelationship['戌']['辰'] = earthrelationship['辰']['戌']
+        earthrelationship['巳']['亥'] = '巳亥相冲，机会多多，烦事繁多，喜欢助人，职业之冲'
+        earthrelationship['亥']['巳'] = earthrelationship['巳']['亥']
+        //六害 子未相害、丑午相害、寅巳相害、卯辰相害、申亥相害、酉戌相害
+        earthrelationship['子']['未'] = '子未相害，犯小人，早分离'
+        earthrelationship['未']['子'] = earthrelationship['子']['未']
+        earthrelationship['丑']['午'] = '丑午相害，耐性差，脾气差'
+        earthrelationship['午']['丑'] = earthrelationship['丑']['午']
+        earthrelationship['寅']['巳'] = '寅巳相害，无恩刑，难在家'
+        earthrelationship['巳']['寅'] = earthrelationship['寅']['巳']
+        earthrelationship['卯']['辰'] = '卯辰相害，手足相害'
+        earthrelationship['辰']['卯'] = earthrelationship['卯']['辰']
+        earthrelationship['申']['亥'] = '申亥相害，是非多'
+        earthrelationship['亥']['申'] = earthrelationship['申']['亥']
+        earthrelationship['酉']['戌'] = '酉戌相害，鸡犬不宁'
+        earthrelationship['戌']['酉'] = earthrelationship['酉']['戌']
+        //自刑 辰午酉亥自相刑
+        earthrelationship['辰']['辰'] = '辰辰自刑，达非所愿'
+        earthrelationship['亥']['亥'] = '亥亥自刑，无理取闹'
+        earthrelationship['午']['午'] = '午午自刑，事与愿违'
+        earthrelationship['酉']['酉'] = '酉酉自刑，不的认同'
+        earthrelationship['子']['卯'] = earthrelationship['卯']['子'] = '子卯之刑，眼光略高，说话较直，易无礼貌'
+        //地支相互破
+        earthrelationship['子']['酉'] = '平生经常面临经济困难'
+        earthrelationship['酉']['子'] = earthrelationship['子']['酉']
+        earthrelationship['寅']['亥'] = '为人优柔寡断、耳根轻、简单被说服，破中有合、败而复成、六反皆成'
+        earthrelationship['亥']['寅'] = earthrelationship['寅']['亥']
+        earthrelationship['辰']['丑'] = '六亲难谐、男女多见不睦'
+        earthrelationship['丑']['辰'] = earthrelationship['辰']['丑']
+        earthrelationship['卯']['午'] = '多见纷争、或情感为害'
+        earthrelationship['午']['卯'] = earthrelationship['卯']['午']
+        earthrelationship['巳']['申'] = '仿照力强、办事拿不定主意'
+        earthrelationship['申']['巳'] = earthrelationship['巳']['申']
+        earthrelationship['未']['戌'] = '为人有城府'
+        earthrelationship['戌']['未'] = earthrelationship['未']['戌']
+        //申子、亥卯、寅午、巳酉相合称生地半合。子辰、卯未、午戌、酉丑相合称墓地半合
+        earthcombe['申']['子'] = '申子生地半合水，思想多变，聪明伶俐，冷漠寡淡，生地旺合，弱于三合，强于半合'
+        earthcombe['子']['申'] = earthcombe['申']['子']
+        earthcombe['亥']['卯'] = '亥卯生地半合木，较不切实际，生地旺合，弱于三合，强于半合'
+        earthcombe['卯']['亥'] = earthcombe['亥']['卯']
+        earthcombe['寅']['午'] = '寅午生地半合火，看来做事效率高，执行力好，热情有礼貌，生地旺合，弱于三合，强于半合'
+        earthcombe['午']['寅'] = earthcombe['寅']['午']
+        earthcombe['巳']['酉'] = '巳酉生地半合金,比较爱出头，容易有血光之灾，较会包装自己，生地旺合，弱于三合，强于半合'
+        earthcombe['酉']['巳'] = earthcombe['巳']['酉']
+        earthcombe['辰']['子'] = '子辰墓地半合水，思想多变，聪明伶俐，冷漠寡淡，墓地半合，弱于半合，强于拱合'
+        earthcombe['子']['辰'] = earthcombe['辰']['子']
+        earthcombe['卯']['未'] = '卯未墓地半合木，比较不切实际，墓地半合，弱于半合，强于拱合'
+        earthcombe['未']['卯'] = earthcombe['卯']['未']
+        earthcombe['午']['戌'] = '午戌墓地半合火，看来做事效率高，执行力好，热情有礼貌，墓地半合，弱于半合，强于拱合'
+        earthcombe['戌']['午'] = earthcombe['午']['戌']
+        earthcombe['酉']['丑'] = '酉丑墓地半合金,比较爱出头，容易有血光之灾，较会包装自己，墓地半合，弱于半合，强于拱合'
+        earthcombe['丑']['酉'] = earthcombe['酉']['丑']
+        earthcombe['辰']['申'] = '申辰拱合水，思想多变，聪明伶俐，冷漠寡淡，拱合弱于半合'
+        earthcombe['申']['辰'] = earthcombe['辰']['申']
+        earthcombe['亥']['未'] = '亥未拱合木，比较不切实际，拱合弱于半合'
+        earthcombe['未']['亥'] = earthcombe['亥']['未']
+        earthcombe['寅']['戌'] = '寅戌拱合火，看来做事效率高，执行力好，热情有礼貌，拱合弱于半合'
+        earthcombe['戌']['寅'] = earthcombe['寅']['戌']
+        earthcombe['巳']['丑'] = '巳丑拱合金,比较爱出头，容易有血光之灾，较会包装自己，拱合弱于半合'
+        earthcombe['丑']['巳'] = earthcombe['巳']['丑']
         //console.log("getrelationship",bigyears)
         var dr = ''
         var er = ''
@@ -641,7 +526,7 @@ class EightrandomModule extends React.Component {
         dayrelationship['丁']['壬'] = '丁壬合化木,为仁寿之合,主心地仁慈,长命多寿'
         dayrelationship['戊']['癸'] = '戊癸合化火,为无情之合,主妩媚多情,薄情寡义'
         dayrelationship['癸']['戊'] = dayrelationship['戊']['癸']
-        
+
         //丁壬化木需要亥卯未寅月，火旺为妒合，水旺为淫昵之合，木旺
         if(d.indexOf("丙"))//四柱有丙
         {
@@ -846,10 +731,68 @@ class EightrandomModule extends React.Component {
     }
 
     gettwelfthposition(key) {
+
+        var twelfthposition = new Array();
+        twelfthposition["甲亥"] = twelfthposition["乙午"] = twelfthposition["丙寅"] = twelfthposition["丁酉"] = twelfthposition["戊寅"] = "长生"
+        twelfthposition["己酉"] = twelfthposition["庚巳"] = twelfthposition["辛子"] = twelfthposition["壬申"] = twelfthposition["癸卯"] = "长生"
+        twelfthposition["甲子"] = twelfthposition["乙巳"] = twelfthposition["丙卯"] = twelfthposition["丁申"] = twelfthposition["戊卯"] = "沐浴"
+        twelfthposition["己申"] = twelfthposition["庚午"] = twelfthposition["辛亥"] = twelfthposition["壬酉"] = twelfthposition["癸寅"] = "沐浴"
+        twelfthposition["甲丑"] = twelfthposition["乙辰"] = twelfthposition["丙辰"] = twelfthposition["丁未"] = twelfthposition["戊辰"] = "冠带"
+        twelfthposition["己未"] = twelfthposition["庚未"] = twelfthposition["辛戌"] = twelfthposition["壬戌"] = twelfthposition["癸丑"] = "冠带"
+        twelfthposition["甲寅"] = twelfthposition["乙卯"] = twelfthposition["丙巳"] = twelfthposition["丁午"] = twelfthposition["戊巳"] = "建禄"
+        twelfthposition["己午"] = twelfthposition["庚申"] = twelfthposition["辛酉"] = twelfthposition["壬亥"] = twelfthposition["癸子"] = "建禄"
+        twelfthposition["甲卯"] = twelfthposition["乙寅"] = twelfthposition["丙午"] = twelfthposition["丁巳"] = twelfthposition["戊午"] = "帝旺"
+        twelfthposition["己巳"] = twelfthposition["庚酉"] = twelfthposition["辛申"] = twelfthposition["壬子"] = twelfthposition["癸亥"] = "帝旺"
+        twelfthposition["甲辰"] = twelfthposition["乙丑"] = twelfthposition["丙未"] = twelfthposition["丁辰"] = twelfthposition["戊未"] = "衰地"
+        twelfthposition["己辰"] = twelfthposition["庚戌"] = twelfthposition["辛未"] = twelfthposition["壬丑"] = twelfthposition["癸戌"] = "衰地"
+        twelfthposition["甲巳"] = twelfthposition["乙子"] = twelfthposition["丙申"] = twelfthposition["丁卯"] = twelfthposition["戊申"] = "病地"
+        twelfthposition["己卯"] = twelfthposition["庚亥"] = twelfthposition["辛午"] = twelfthposition["壬寅"] = twelfthposition["癸酉"] = "病地"
+        twelfthposition["甲午"] = twelfthposition["乙亥"] = twelfthposition["丙酉"] = twelfthposition["丁寅"] = twelfthposition["戊酉"] = "死地"
+        twelfthposition["己寅"] = twelfthposition["庚子"] = twelfthposition["辛巳"] = twelfthposition["壬卯"] = twelfthposition["癸申"] = "死地"
+        twelfthposition["甲未"] = twelfthposition["乙戌"] = twelfthposition["丙戌"] = twelfthposition["丁丑"] = twelfthposition["戊戌"] = "墓地"
+        twelfthposition["己丑"] = twelfthposition["庚丑"] = twelfthposition["辛辰"] = twelfthposition["壬辰"] = twelfthposition["癸未"] = "墓地"
+        twelfthposition["甲申"] = twelfthposition["乙酉"] = twelfthposition["丙亥"] = twelfthposition["丁子"] = twelfthposition["戊亥"] = "绝地"
+        twelfthposition["己子"] = twelfthposition["庚寅"] = twelfthposition["辛卯"] = twelfthposition["壬巳"] = twelfthposition["癸午"] = "绝地"
+        twelfthposition["甲酉"] = twelfthposition["乙申"] = twelfthposition["丙子"] = twelfthposition["丁亥"] = twelfthposition["戊子"] = "胎地"
+        twelfthposition["己亥"] = twelfthposition["庚卯"] = twelfthposition["辛寅"] = twelfthposition["壬午"] = twelfthposition["癸巳"] = "胎地"
+        twelfthposition["甲戌"] = twelfthposition["乙未"] = twelfthposition["丙丑"] = twelfthposition["丁戌"] = twelfthposition["戊丑"] = "养地"
+        twelfthposition["己戌"] = twelfthposition["庚辰"] = twelfthposition["辛丑"] = twelfthposition["壬未"] = twelfthposition["癸辰"] = "养地"
         return twelfthposition[key];
     }
 
     gettwelfth(key) {
+
+        var twelfth = new Array();
+        twelfth["甲子"] = twelfth["乙丑"] = "海中金"
+        twelfth["丙寅"] = twelfth["丁卯"] = "炉中火"
+        twelfth["戊辰"] = twelfth["己巳"] = "大林木"
+        twelfth["庚午"] = twelfth["辛未"] = "路旁土"
+        twelfth["壬申"] = twelfth["癸酉"] = "剑锋金"
+        twelfth["甲戌"] = twelfth["乙亥"] = "山头火"
+        twelfth["丙子"] = twelfth["丁丑"] = "涧下水"
+        twelfth["戊寅"] = twelfth["己卯"] = "城头土"
+        twelfth["庚辰"] = twelfth["辛巳"] = "白蜡金"
+        twelfth["壬午"] = twelfth["癸未"] = "杨柳木"
+        twelfth["甲申"] = twelfth["乙酉"] = "井泉水"
+        twelfth["丙戌"] = twelfth["丁亥"] = "屋上土"
+        twelfth["戊子"] = twelfth["己丑"] = "霹雳火"
+        twelfth["庚寅"] = twelfth["辛卯"] = "松柏木"
+        twelfth["壬辰"] = twelfth["癸巳"] = "长流水"
+        twelfth["甲午"] = twelfth["乙未"] = "砂中金"
+        twelfth["丙申"] = twelfth["丁酉"] = "山下火"
+        twelfth["戊戌"] = twelfth["己亥"] = "平地木"
+        twelfth["庚子"] = twelfth["辛丑"] = "璧上土"
+        twelfth["壬寅"] = twelfth["癸卯"] = "金箔金"
+        twelfth["甲辰"] = twelfth["乙巳"] = "覆灯火"
+        twelfth["丙午"] = twelfth["丁未"] = "天河水"
+        twelfth["戊申"] = twelfth["己酉"] = "大驿土"
+        twelfth["庚戌"] = twelfth["辛亥"] = "钗钏金"
+        twelfth["壬子"] = twelfth["癸丑"] = "桑柘木"
+        twelfth["甲寅"] = twelfth["乙卯"] = "大溪水"
+        twelfth["丙辰"] = twelfth["丁巳"] = "砂中土"
+        twelfth["戊午"] = twelfth["己未"] = "天上火"
+        twelfth["庚申"] = twelfth["辛酉"] = "石榴木"
+        twelfth["壬戌"] = twelfth["癸亥"] = "大海水"
         return twelfth[key];
     }
     getbigluckyear(key, sex) {
@@ -978,6 +921,69 @@ class EightrandomModule extends React.Component {
         }
     }
     getselfinfo(key) {
+
+
+        var dayself = new Array();
+        dayself["甲子"] = "上等日柱，得到配偶助益，配偶漂亮，但恐婚姻不利。甲木为栋梁之木，木主仁，坐下正印，为身高体健，慈祥恺悌，相貌俊秀。印为文书，身坐文书，主才学超群，有权柄。印又有生身助学之功，故主人记忆力强，学习成绩优秀。"
+        dayself["戊辰"] = "上等日柱，通根身旺，坐财官比肩，但支中比肩财星化火为印，变成官印相生，故主高贵。支内戊癸化火生土，而辰本为湿土，内中有火，温暖中和，能生万物，必然根深叶茂，秀气有成。"
+        dayself["庚午"] = "上等日柱，配偶英俊漂亮，利于配偶。身坐正官正印，气质清纯，必主官贵，但金坐火地，须经火炼，千锤百炼，所以仕途坎坷，有大起，也有大落。"
+        dayself["丙子"] = "上等日柱，阴阳杀。阴阳差错，配偶英俊漂亮，但婚姻不顺利。为六秀，主人聪明秀气。丙火坐子无根，主人身矮。丙为太阳主光明，而子鼠狡猾，子中癸水阴湿，故主人性格双重。身坐正官，一权在握，往往自以为是，独裁固执。"
+        dayself["庚辰"] = "上等日柱，十恶大败。魁罡，身坐正财、伤官、偏印，主人有财禄，聪明有学识，支中伤官带偏印有贵气，而戊癸化火为官杀，变成日坐财官，可做官，但隐含伤官，可能喜开杀戒。"
+        dayself["辛巳"] = "上等日柱，十恶大败。利于婚姻。身坐正印正官劫财，辛金柔弱，有正印生身，劫财帮助，由弱转旺，而正官丙火制衡，使干支中和，必主官贵，富于成功。大多有志难伸。"
+        dayself["壬午"] = "上等日柱，九鬼妨害，但恐夫妻不睦。坐下财官，无杂气，多主官贵，丁壬合财，主得妻财或因妻制富。但壬午不如癸巳，癸巳财官双美无杂气，又为日贵。另外，壬水盖头有掩火之嫌，故虽有官贵，也难免大起大落。"
+        dayself["丁亥"] = "上等日柱，十恶大败，坐下正印官星，官印相生，主聪明超群，丁壬合化印星，坐贵，主官贵，与大贵人有缘。女命丁亥，可嫁贵夫。"
+        dayself["戊子"] = "上等日柱，九鬼妨害，又为六秀日，主人聪明秀气，坐正财，得贤妻，因妻制富，干支戊癸化火生身，主高贵。"
+        dayself["癸巳"] = "上等日柱，孤鸾煞，阴阳差错，不利婚姻。身坐正官正印正财，财官印连生，循环清正，主高贵富贵或清贵，且身康体健有钱，生活富裕，女名癸巳，可嫁贵夫。"
+        dayself["丁酉"] = "上等日柱，日贵。配偶风流。坐长生偏财、夜贵、文昌，主人高贵聪明，见识超群，受人钦敬，另有叛逆创新性格。"
+        dayself["己亥"] = "上等日柱，配偶长寿。坐正财正官，为财官双美，主贵。女命己亥，也可嫁贵夫。"
+        dayself["癸卯"] = "上等日柱，日贵。配偶风流。坐长生、日贵，食神吐秀，主人聪明有文才。女命癸卯，生子读书有成。"
+        dayself["乙巳"] = "上等日柱，十恶大败。孤鸾煞，但恐有些人不利婚姻。乙木向阳，英华外发，主人聪明，但泄气，只利他人，不利己。坐下伤官正财，正官顺生，有钱，富裕，男命乙巳，多晚婚，可得贤妻，但支中伤官见官，过于刚强，不守纪律，武将者，喜开杀戒。"
+        dayself["己酉"] = "上等日柱，坐长生、文昌，主人好文学，聪明有文才，且土金相生，主人身体好，但干生支，毕竟泄气，故得失都有。"
+        dayself["甲寅"] = "上等日柱，孤鸾煞，不利婚姻。坐禄通根身旺，坐下有伤官生财，主富贵，但比肩夺财，文才差一些。女命甲寅，身强克夫。"
+        dayself["乙卯"] = "上等日柱，坐禄通根身旺，坐比肩，无财，清贵不富贵，上下乙木，秀气透出，文才好，人秀气，手脚纤细。"
+        dayself["丙辰"] = "上等日柱，日德。身坐魁地，支藏正印、食神、七杀，主人聪明、伶俐，辰为湿土，丙为太阳，阳光普照，万物有成，人命丙辰聪明好动。"
+        dayself["庚申"] = "上等日柱，不利婚姻。坐禄通根，身体好，主富贵。丑月庚申，为天月两德，主人一生身健少疾病。女命庚申带天月两德，必生贵子，聪明大器。"
+        dayself["辛酉"] = "上等日柱，九鬼妨害，阴阳差错，但恐夫妻不睦。坐禄通根，得助，立于不败之地，聪明有文才，有能力。"
+        dayself["壬戌"] = "上等日柱，日德。阴阳差错，但恐夫妻不睦。坐下财生杀，杀生印，杀印相生，主大贵，或武贵，但丁壬化木逢燥土，往往变成小人或坏人。"
+        dayself["乙丑"] = "中等日柱，配偶相貌不扬。六秀日，主人秀气漂亮，身坐金库，无根，坐下七杀无制，自信心太过，往往一意孤行。女名乙丑，具有男性风格。"
+        dayself["丙寅"] = "中等日柱，丙为太阳，身坐长生，有光彩之象，主人聪明，但坐下枭神夺食，不吉。生于冬至后夏至前，戊土长生于寅，食神旺，主人聪明，吉；生于夏至后冬至前，戊土长生在申，食神弱，稍差。"
+        dayself["丁卯"] = "中等日柱，九鬼妨害，但恐夫妻不睦。坐印通根，主人聪明有学问。若四柱出现亥卯未三合局或寅卯辰三会局，为大贵人，但身坐偏印，只能为副职，辅佐他人。"
+        dayself["己巳"] = "中等日柱，金神，主人刚毅、聪明，有火则贵，却火则不吉。坐下正印、劫财、伤官，伤官佩印，贵不可言，但伤官遇劫，易遭小人陷害。"
+        dayself["辛未"] = "中等日柱，得库通根，身旺，坐下偏财、偏印、七杀，一片顺生，主小贵，吉。女命辛未爱情专一，夺夫权，守家，独裁。"
+        dayself["甲戌"] = "中等日柱，婚姻不顺。得库通根身旺，坐下偏财正官、伤官，主人刚强正直，光明正大，为官清廉，但性格过于直爽得罪人，难免受到打击、排挤。"
+        dayself["乙亥"] = "中等日柱，十灵日，人聪明。虽处死地，却坐下为正印劫财帮身，故有枯木逢春之象。男命乙亥主得贤妻；女命乙亥主得贵夫，而且对夫忠诚。另外，女命乙亥非常漂亮。"
+        dayself["丁丑"] = "中等日柱，阴阳差错，但恐夫妻不睦。丁火坐丑无根，身弱，但丁为星光，无妨。坐下偏财、七杀、食神，食神生偏财，偏财生杀，也一片顺生，吉利。"
+        dayself["戊寅"] = "中等日柱，阴阳差错，但恐夫妻不睦。坐长生，身旺。生于春，则坐下七杀太重，一生劳苦，多为人造福。"
+        dayself["癸未"] = "中等日柱，十灵日，人聪明。坐下有食神生财、财生杀，因坐偏财、七杀，故男女命逢癸未，重婚较多，但男女均漂亮，爱情专一。"
+        dayself["丙戌"] = "中等日柱，坐火库，身旺，火光熠熠，聪明漂亮。"
+        dayself["己丑"] = "中等日柱，十恶大败。六秀日，貌美多才。通根，比丁丑好，生于得令时为强，比肩夺财争斗，生于失令时则有兄弟帮忙。"
+        dayself["庚寅"] = "中等日柱，十灵日，阴阳差错，但恐夫妻不睦。坐绝地，无根，盖头（干克支），女命克夫再嫁，做偏房可以，男命庚寅不善终，但坐杀印有开拓精神，为官多清廉，支藏偏印宜做副手。"
+        dayself["壬辰"] = "中等日柱，阴阳差错，但恐夫妻不睦。坐水库通根身旺，坐下有劫财生食，食神制杀，身旺用杀，主贵。壬辰日为壬骑龙背，亥时生，为龙归大海，主大贵，午时龙死为下等。"
+        dayself["甲午"] = "中等日柱，不利婚姻，身坐死地，一生劳苦奔波，干生支，对妻子好，伤官生财，对上辈孝顺。日主泄出丁火，主利他人，故对别人照顾有加，可自己到老，却一无所有。"
+        dayself["乙未"] = "中等日柱，坐库通根，财星入库，主富，但爱财小气，再逢命局或大运流年冲库主发财。"
+        dayself["丙申"] = "中等日柱，十恶大败。配偶性强主家。身弱无根，妙在丙火太阳，坐下食神生财，财生杀，壬水杀旺，映照太阳光辉，主人聪明灵气。但杀旺攻身，老来孤独，一辈子辛苦，不能坐享其成。"
+        dayself["戊戌"] = "中等日柱，十恶大败。坐库通根，土太燥，吉带凶。魁罡主人心直口快，临事果断，也主聪明，文章振发，但不会用阴谋，常得罪人。"
+        dayself["辛丑"] = "中等日柱，通根，坐下有印比食神，主人灵秀，女命辛丑身材好，秀气，守家。"
+        dayself["壬寅"] = "中等日柱，坐下食神生偏财再生杀，又为壬骑虎背，主富贵双全，干支相生，家庭圆满。"
+        dayself["甲辰"] = "中等日柱，十恶大败。不利婚姻，夫妻不睦。得气通根，坐下有偏财破印，缺少贵气，前半生不太好，后半生平安，财禄丰足。"
+        dayself["丁未"] = "中等日柱，阴阳差错，但恐夫妻不睦。得库通根，坐下食神旺，主人漂亮，但好吃，女命贤惠。"
+        dayself["庚戌"] = "中等日柱，坐库通根身强，魁罡，聪明刚毅，有文才，忠义双全。"
+        dayself["辛亥"] = "中等日柱，孤鸾煞，不利婚姻。干支相生，金水相连，文才好（女命稍差），坐沐浴，女命不贞，坐下伤官旺不利夫。男命可得妻财，或漂亮之妻。"
+        dayself["癸丑"] = "中等日柱，坐库通根，人秀气，坐下杀印生比肩，利兄弟，吃力不讨好，劳累奔波。"
+        dayself["己未"] = "中等日柱，六秀日，貌美多才。坐库通根，身旺，坐下有杀印，主人自我意识强。女命己未身材好。"
+        dayself["壬申"] = "下等日柱，十恶大败。配偶风流。身坐长生，太旺，主人好动不拘。纳音剑锋金，男命敢于拼打争斗，不善终。女命重武好斗，具男性风格。"
+        dayself["癸酉"] = "下等日柱，坐偏印，金神，外表柔和，内心阴毒。富于心计，会挣钱，但也会花钱。"
+        dayself["己卯"] = "下等日柱，九鬼妨害，配偶性暴。坐杀截脚，为最差之日，人命己卯，易残疾、受伤，一生劳苦。年上己卯，祖上伤残，不善终；月上己卯，父母不团圆；日上己卯，青年时期命危；时上己卯，老年不得善终，子女不好。"
+        dayself["甲申"] = "下等日柱，夫妻不睦，配偶风流。坐绝地，一辈子辛苦，奔波，但死木逢杀克削，也不失可用。"
+        dayself["乙酉"] = "下等日柱，配偶性暴。坐杀截脚，生在春天有救，生在土月助杀攻身，不妙。人命乙酉多不善终或不高寿。女命乙酉漂亮，浪漫，早恋早婚。"
+        dayself["辛卯"] = "下等日柱，阴阳差错，但恐夫妻不睦。坐偏财，桃花，男命喜欢女色，女命稍好，但漂亮难禁风流（因既漂亮，又浪漫，对异性富吸引力）。"
+        dayself["庚子"] = "下等日柱，坐伤官，女命克夫。干支金水相生，人秀丽聪明，但耿直，讲义气。做官宜公检法部门。"
+        dayself["丙午"] = "下等日柱，阴阳差错，孤鸾煞，但恐夫妻不睦。坐羊刃，过刚，人聪明有文才。男命克妻，女命克夫，不论男女生于丙午，容易受伤。"
+        dayself["戊申"] = "下等日柱，阴阳差错，孤鸾煞，但恐夫妻不睦。土猴孤独，女命早婚者易离婚，或孤身，男命稍好。不论年月均漂亮，但爱情不专，作风不正。"
+        dayself["壬子"] = "下等日柱，九鬼妨害，孤鸾煞。坐刃坐劫财，水太旺，漂亮。女命不会持家，有多少花多少，花心；男命好色，若经商发财，发多少失多少。"
+        dayself["丁巳"] = "下等日柱，孤鸾煞，恐夫妻不睦。丁火坐丙火，阳盛阴衰，白日无光。生时丁巳，老年不能高寿。"
+        dayself["戊午"] = "下等日柱，孤鸾煞。与丙午类似，坐刃太旺，女命克夫，男命克妻，易受伤灾。戊土太燥，主人性格浮躁。"
+        dayself["癸亥"] = "下等日柱，十恶大败。阴阳差错，但恐夫妻不睦。玄武日，坐刃，喜欢独断专行，武将不善终。"
         var self = dayself[key];
         var tip = ""
         if (-1 != key.indexOf("甲")) {
