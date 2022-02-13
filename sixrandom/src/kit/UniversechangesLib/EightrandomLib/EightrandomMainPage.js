@@ -488,7 +488,7 @@ class EightrandomMainPage extends React.Component {
     var gzYear = eightyear.gzYear
     //计算大运，流年，原句的所有冲克信息
     console.log("curluckyear", this.state.luckyyear, this.state.curluckyearnum)
-    var r = EightrandomModule.getrelationship(this.state.EightDate, gzYear[1], curluckyear)
+    var r = EightrandomModule.getrelationship(this.state.EightDate, gzYear[1], curluckyear,this.state.sex)
 
     const { navigate } = this.props.navigation;
 

@@ -268,21 +268,7 @@ hidetable['亥'] = ['壬主18', '甲中5', '戊余7'];
 var daykey = '甲乙丙丁戊己庚辛壬癸'
 var earthkey = '子丑寅卯辰巳午未申酉戌亥'
 var fivekey = '木火土金水'
-var dayrelationship = new Array();
-for (i = 0; i < daykey.length; i++) {
-    var index = daykey[i]
-    dayrelationship[index] = new Array();
-}
-dayrelationship['甲']['己'] = '甲己合化土,为中正之合,主安分守己,淳朴敦厚'
-dayrelationship['己']['甲'] = dayrelationship['甲']['己']
-dayrelationship['乙']['庚'] = '乙庚合化金,为仁义之合,主刚柔兼备,重信守义'
-dayrelationship['庚']['乙'] = dayrelationship['乙']['庚']
-dayrelationship['丙']['辛'] = '丙辛合化水,为威严之合,主仪表威严,表现出众'
-dayrelationship['辛']['丙'] = dayrelationship['丙']['辛']
-dayrelationship['丁']['壬'] = '丁壬合化木,为仁寿之合,主心地仁慈,长命多寿'
-dayrelationship['丁']['壬'] = dayrelationship['壬']['丁']
-dayrelationship['戊']['癸'] = '戊癸合化火,为无情之合,主妩媚多情,薄情寡义'
-dayrelationship['戊']['癸'] = dayrelationship['癸']['戊']
+
 var earthrelationship = new Array()
 var earthcombe = new Array
 for (i = 0; i < earthkey.length; i++) {
@@ -620,7 +606,7 @@ class EightrandomModule extends React.Component {
         }
         return er
     }
-    getrelationship(key, year, bigyears) {
+    getrelationship(key, year, bigyears,sex) {
         //console.log("getrelationship",bigyears)
         var dr = ''
         var er = ''
@@ -640,7 +626,36 @@ class EightrandomModule extends React.Component {
             mm = d[1],
             dd = d[2],
             tt = d[3]
-        if (undefined != dayrelationship[yy][mm]) {
+
+        var dayrelationship = new Array();
+        for (i = 0; i < daykey.length; i++) {
+            var index = daykey[i]
+            dayrelationship[index] = new Array();
+        }
+        dayrelationship['甲']['己'] = '甲己合化土,为中正之合,主安分守己,淳朴敦厚'
+        dayrelationship['己']['甲'] = dayrelationship['甲']['己']
+        dayrelationship['乙']['庚'] = '乙庚合化金,为仁义之合,主刚柔兼备,重信守义'
+        dayrelationship['庚']['乙'] = dayrelationship['乙']['庚']
+        dayrelationship['丙']['辛'] = '丙辛合化水,为威严之合,主仪表威严,表现出众'
+        dayrelationship['辛']['丙'] = dayrelationship['丙']['辛']
+        dayrelationship['丁']['壬'] = '丁壬合化木,为仁寿之合,主心地仁慈,长命多寿'
+        dayrelationship['戊']['癸'] = '戊癸合化火,为无情之合,主妩媚多情,薄情寡义'
+        dayrelationship['癸']['戊'] = dayrelationship['戊']['癸']
+        
+        //丁壬化木需要亥卯未寅月，火旺为妒合，水旺为淫昵之合，木旺
+        if(d.indexOf("丙"))//四柱有丙
+        {
+            dayrelationship['丁']['壬'] = '丁壬合化木,为淫匿之合,贪婪之态,枕欢溺爱'
+        }
+        else if("巳午".indexOf(e[1]) && "壬癸".indexOf(d[2]) && "乾造"==sex){ //男水命火旺
+            dayrelationship['丁']['壬'] = '丁壬合化木,为淫匿之合,贪婪之态,枕欢溺爱'
+        }
+        else if("子亥".indexOf(e[1]) && "丁".indexOf(d[2]) && "坤造"==sex){ //女火命水旺
+            dayrelationship['丁']['壬'] = '丁壬合化木,为淫匿之合,贪婪之态,枕欢溺爱'
+        }
+        dayrelationship['壬']['丁'] = dayrelationship['丁']['壬']
+
+        if (undefined != dayrelationship[yy][mm] && e) {
             dr = dr + "年月" + dayrelationship[yy][mm] + " "
         }
 
