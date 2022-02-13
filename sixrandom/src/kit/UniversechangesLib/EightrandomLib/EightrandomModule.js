@@ -1408,6 +1408,7 @@ class EightrandomModule extends React.Component {
         chonglist.push("寅申");
         chonglist.push("卯酉");
         chonglist.push("巳亥");
+        //chonglist.push("辰戌")
 
 
         chonglist.forEach(element => {

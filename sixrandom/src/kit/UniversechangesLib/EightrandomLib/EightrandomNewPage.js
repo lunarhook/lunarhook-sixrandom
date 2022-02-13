@@ -238,7 +238,7 @@ class EightrandomNewPage extends React.Component {
     }
     if (myDate.getHours() >= 23) {
       //console.log("getHours",myDate.getHours())
-      myDate.setTime(myDate.getTime() + 60 * 60 * 1000)
+      //myDate.setTime(myDate.getTime() + 60 * 60 * 1000)
     }
     if (this.state.switchtype == false) {
       var isleap = false
