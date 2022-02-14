@@ -30,6 +30,7 @@ const data = [
   { icon: RouteConfig['taiyiNewPage'].icon, text: RouteConfig['taiyiNewPage'].name, url: RouteConfig['taiyiNewPage'].route },
   { icon: RouteConfig['ziweiNewPage'].icon, text: RouteConfig['ziweiNewPage'].name, url: RouteConfig['ziweiNewPage'].route },
   { icon: RouteConfig['TrackStarPage'].icon, text: RouteConfig['TrackStarPage'].name, url: RouteConfig['TrackStarPage'].route },
+  { icon: RouteConfig['MarryNewPage'].icon, text: RouteConfig['MarryNewPage'].name, url: RouteConfig['MarryNewPage'].route },
 ]
 const Tarot = [
   { icon: RouteConfig['TarotPage'].icon, text: RouteConfig['TarotPage'].name, url: RouteConfig['TarotPage'].route },
@@ -233,7 +234,15 @@ class kitPage extends React.Component {
                 onPress: () => RNExitApp.exitApp(),
                 style: 'cancel',
               },
-              { text: '同意', onPress: () => { HistoryArrayGroup.SaveFirstTime(), this.setState({ handler: 3 }),this.setState({ less: true })} },
+              { text: '同意', onPress: () => { 
+                HistoryArrayGroup.SaveFirstTime(), 
+                this.setState({ handler: 3 }),
+                this.setState({ less: true })
+                if (Platform.OS === 'android')
+                {
+                  this.requestCameraPermission()
+                }
+              } },
             ])
             //navigate(RouteConfig["MyPage"].route)
 
@@ -242,12 +251,14 @@ class kitPage extends React.Component {
 
         }
         else {
+          //非新用户要检查权限
           this.setState({ less: false })
+          if (Platform.OS === 'android')
+          {
+            this.requestCameraPermission()
+          }
         }
-        if (Platform.OS === 'android')
-        {
-          this.requestCameraPermission()
-        }
+
       } else {
         if (undefined == T) {
           this.setState({ less: true })

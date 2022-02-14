@@ -27,6 +27,8 @@ import EightrandomMainPage from './src/kit/UniversechangesLib/EightrandomLib/Eig
 import EightrandomHistoryPage from './src/kit/UniversechangesLib/EightrandomLib/EightrandomHistoryPage'
 import NumberMainPage from './src/kit/UniversechangesLib/NumberLib/NumberMainPage'
 import NumberMotionNewPage from './src/kit/NumberMotionsLib/NumberMotionNewPage'
+import MarryNewPage from './src/kit/UniversechangesLib/Marry/MarryNewPage'
+import MarryMainPage from './src/kit/UniversechangesLib/Marry/MarryMainPage'
 import kitPage from './src/kit/kitPage'
 //import kitExplorationPage from './src/kit/kitExplorationPage'
 import kitConfigPage from './src/kit/kitConfigPage';
@@ -82,6 +84,8 @@ import TarotCeltsPage from './src/kit/ChangesuniverseLib/TarotLib/TarotCeltsPage
 import ziweiHistoryPage from './src/kit/ziwei/ziweiHistoryPage'
 import ziweiMainPage from './src/kit/ziwei/ziweiMainPage'
 import ziweiNewPage from './src/kit/ziwei/ziweiNewPage'
+
+
 
 import LunarCoursePage from './src/LunarCourse/LunarCoursePage';
 import LunarMasterPage from './src/LunarCourse/LunarMasterPage'
@@ -258,6 +262,8 @@ const sixrandom = createStackNavigator({
   NamePage: { screen: NamePage },
   NameModule: { screen: NameModule },
   TrackStarPage: { screen: TrackStarPage },
+  MarryMainPage:{screen:MarryMainPage},
+  MarryNewPage:{screen:MarryNewPage},
   //kitPage:{screen:kitPage},
   //kitExplorationPage:{screen:kitExplorationPage},
   kitConfigPage: { screen: kitConfigPage },

@@ -51,6 +51,7 @@ class IconConfig extends React.Component {
   static SixrandomSel = (<MaterialCommunityIcons name="yin-yang" size={buttonsize} color={blue} />)
   static numlucky = (<FontAwesome name="signal" size={buttonsize} color={green} />)
   static numluckySel = (<FontAwesome name="signal" size={buttonsize} color={green} />)
+  static Marry =(<Fontisto name="venus-mars" size={buttonsize} color={LightPink} />)
   static IconSelf = (<Ionicons name="ios-time" size={size} color={orange} />)
   static IconMBTI = (<Ionicons name="ios-happy" size={buttonsize} color={orange} />)
   static IconEnneagram = (<Foundation name="social-myspace" size={buttonsize} color={gold} />)
