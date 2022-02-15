@@ -1,17 +1,12 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView, Image, Dimensions } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
-import Storage from 'react-native-storage';
-
-import { captureRef } from "react-native-view-shot";
-import { Grid, Accordion, WhiteSpace, WingBlank, List } from '@ant-design/react-native';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView, Dimensions } from 'react-native';
+import { Grid, Accordion, WhiteSpace, WingBlank, List, Button ,SegmentedControl} from '@ant-design/react-native';
 const Item = List.Item;
 import StorageModule from '../../../config/StorageModule'
 import { SixrandomModule } from '../SixrandomLib/SixrandomModule'
 import EightrandomModule from './EightrandomModule'
-import ScreenConfig from '../../../config/ScreenConfig';
 import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
 import WechatShare from '../../../config/WechatShare'
 import IconConfig from '../../../config/IconConfig'
@@ -84,6 +79,7 @@ class EightrandomMainPage extends React.Component {
     var daykey = new Array();
 
     this.state = {
+      enhance:"空",
       sex: sex,
       EightDate: EightDate,
       birth: birth,
@@ -391,25 +387,50 @@ class EightrandomMainPage extends React.Component {
   }
 
   createpie() {
+    var map = new Array()
+    //甲乙丙丁戊己庚辛壬癸
+    map['寅'] = [2, 2, 1.44, 1.44, 0.5, 0.5, 0.72, 0.72, 1, 1]
+    map['卯'] = [2, 2, 1.44, 1.44, 0.5, 0.5, 0.72, 0.72, 1, 1]
+    map['辰'] = [1, 1, 1.44, 1.44, 2, 2, 0.72, 0.72, 0.5, 0.5]
+    map['巳'] = [1, 1, 2, 2, 1.44, 1.44, 0.5, 0.5, 0.72, 0.72]
+    map['午'] = [1, 1, 2, 2, 1.44, 1.44, 0.5, 0.5, 0.72, 0.72]
+    map['未'] = [0.72, 0.72, 1, 1, 2, 2, 1.44, 1.44, 0.5, 0.5]
+    map['申'] = [0.5, 0.5, 0.72, 0.72, 1, 1, 2, 2, 1.44, 1.44]
+    map['酉'] = [0.5, 0.5, 0.72, 0.72, 1, 1, 2, 2, 1.44, 1.44]
+    map['戌'] = [0.5, 0.5, 0.72, 0.72, 2, 2, 1, 1, 1.44, 1.44]
+    map['亥'] = [1.44, 1.44, 0.5, 0.5, 0.72, 0.72, 1, 1, 2, 2]
+    map['子'] = [1.44, 1.44, 0.5, 0.5, 0.72, 0.72, 1, 1, 2, 2]
+    map['丑'] = [1.44, 1.44, 0.72, 0.72, 2, 2, 0.5, 0.5, 1, 1]
+    var indexcolor = '子丑寅卯辰巳午未申酉戌亥'.indexOf(this.state.EightDate[3])
+    var colorsel=[ "#1E90FF","#8B4513","green","green", "#8B4513","red", "red", "#8B4513", "#DAA520", "#DAA520","#8B4513",  "#1E90FF"]
+    console.log("colorsel",colorsel[indexcolor])
     if (this.state.precent != "") {
       var ret = this.state.pie
       console.log("createpie", ret)
       return (
         <View style={[{ textAlign: 'center', alignItems: 'center' }]}>
+          <SegmentedControl
+                    values={["空","子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"]}
+                    selectedIndex={0}
+                    tintColor={colorsel[indexcolor]}
+                    style={{ height: 40, width: 280 }}
+                    onChange={(e)=>this.setState({enhance:e.nativeEvent.value},console.log("selvales",e.nativeEvent.value))}
+                  />
           <Svg width={300} height={300} >
             <VictoryPie
               colorScale={["green", "red", "#8B4513", "#DAA520", "#1E90FF"]}
               data={[
-                { x: 1, y: this.state.precent[5] + 0, label: '木' },
-                { x: 2, y: this.state.precent[6] + 0, label: '火' },
-                { x: 3, y: this.state.precent[7] + 0, label: '土' },
-                { x: 4, y: this.state.precent[8] + 0, label: '金' },
-                { x: 5, y: this.state.precent[9] + 0, label: '水' },
+                { x: 1, y: ("空" != this.state.enhance ? map[this.state.enhance][0] * this.state.precent[5] : this.state.precent[5]), label: '木' },
+                { x: 2, y: ("空" != this.state.enhance ? map[this.state.enhance][2] * this.state.precent[6] : this.state.precent[6]), label: '火' },
+                { x: 3, y: ("空" != this.state.enhance ? map[this.state.enhance][4] * this.state.precent[7] : this.state.precent[7]), label: '土' },
+                { x: 4, y: ("空" != this.state.enhance ? map[this.state.enhance][5] * this.state.precent[8] : this.state.precent[8]), label: '金' },
+                { x: 5, y: ("空" != this.state.enhance ? map[this.state.enhance][8] * this.state.precent[9] : this.state.precent[9]), label: '水' },
               ]}
               standalone={false}
               width={300} height={300}
             />
           </Svg>
+
           <Svg  height={300}>
             <VictoryGroup offset={(70)} width={400} domain={{ x: [-3, 6] }}
               colorScale={["green", "red", "#8B4513", "#DAA520", "#1E90FF"]}
@@ -417,42 +438,42 @@ class EightrandomMainPage extends React.Component {
               <VictoryBar
                 barWidth={15}
                 data={[
-                  { x: "甲", y: Number(this.state.daykey['甲']) / 10 },
-                  { x: "乙", y: Number(this.state.daykey['乙']) / 10 },
+                  { x: "甲", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][0]*this.state.daykey['甲']):this.state.daykey['甲']) / 10 },
+                  { x: "乙", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][1]*this.state.daykey['乙']):this.state.daykey['乙']) / 10 },
                 ]}
-                labels={["甲:" + `${this.state.daykey['甲']}`,"乙:" + `${this.state.daykey['乙']}`]}
+                labels={["甲:" + `${"空"!=this.state.enhance? Math.floor(map[this.state.enhance][0]*this.state.daykey['甲']):this.state.daykey['甲']}`,"乙:" + `${"空"!=this.state.enhance?Math.floor(map[this.state.enhance][1]*this.state.daykey['乙']):this.state.daykey['乙']}`]}
               />
               <VictoryBar
                 barWidth={15}
                 data={[
-                  { x: "丙", y: Number(this.state.daykey['丙']) / 10 },
-                  { x: "丁", y: Number(this.state.daykey['丁']) / 10 },
+                  { x: "丙", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][2]*this.state.daykey['丙']):this.state.daykey['丙']) / 10 },
+                  { x: "丁", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][3]*this.state.daykey['丁']):this.state.daykey['丁']) / 10 },
                 ]}
-                labels={["丙:" + `${this.state.daykey['丙']}`,"丁:" + `${this.state.daykey['丁']}`]}
+                labels={["丙:" + `${"空"!=this.state.enhance? Math.floor(map[this.state.enhance][2]*this.state.daykey['丙']):this.state.daykey['丙']}`,"丁:" + `${"空"!=this.state.enhance?Math.floor(map[this.state.enhance][3]*this.state.daykey['丁']):this.state.daykey['丁']}`]}
               />
               <VictoryBar
                 barWidth={15}
                 data={[
-                  { x: "戊", y: Number(this.state.daykey['戊']) / 10 },
-                  { x: "己", y: Number(this.state.daykey['己']) / 10 },
+                  { x: "戊", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][4]*this.state.daykey['戊']):this.state.daykey['戊']) / 10 },
+                  { x: "己", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][5]*this.state.daykey['己']):this.state.daykey['己']) / 10 },
                 ]}
-                labels={["戊:" + `${this.state.daykey['戊']}`,"己:" + `${this.state.daykey['己']}`]}
+                labels={["戊:" + `${"空"!=this.state.enhance? Math.floor(map[this.state.enhance][4]*this.state.daykey['戊']):this.state.daykey['戊']}`,"己:" + `${"空"!=this.state.enhance?Math.floor(map[this.state.enhance][5]*this.state.daykey['己']):this.state.daykey['己']}`]}
               />
               <VictoryBar
                 barWidth={15}
                 data={[
-                  { x: "庚", y: Number(this.state.daykey['庚']) / 10 },
-                  { x: "辛", y: Number(this.state.daykey['辛']) / 10 },
+                  { x: "庚", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][6]*this.state.daykey['庚']):this.state.daykey['庚']) / 10 },
+                  { x: "辛", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][7]*this.state.daykey['辛']):this.state.daykey['辛']) / 10 },
                 ]}
-                labels={["庚:" + `${this.state.daykey['庚']}`,"辛:" + `${this.state.daykey['辛']}`]}
+                labels={["庚:" + `${"空"!=this.state.enhance? Math.floor(map[this.state.enhance][6]*this.state.daykey['庚']):this.state.daykey['庚']}`,"辛:" + `${"空"!=this.state.enhance? Math.floor(map[this.state.enhance][7]*this.state.daykey['辛']):this.state.daykey['辛']}`]}
                 />
               <VictoryBar
                 barWidth={15}
                 data={[
-                  { x: "壬", y: Number(this.state.daykey['壬']) / 10 },
-                  { x: "癸", y: Number(this.state.daykey['癸']) / 10 },
+                  { x: "壬", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][8]*this.state.daykey['壬']):this.state.daykey['壬']) / 10 },
+                  { x: "癸", y: Number("空"!=this.state.enhance? Math.floor(map[this.state.enhance][9]*this.state.daykey['癸']):this.state.daykey['癸']) / 10 },
                 ]}
-                labels={["壬:" + `${this.state.daykey['壬']}`,"癸:" + `${this.state.daykey['癸']}`]}
+                labels={["壬:" + `${"空"!=this.state.enhance? Math.floor(map[this.state.enhance][8]*this.state.daykey['壬']):this.state.daykey['壬']}`,"癸:" + `${"空"!=this.state.enhance? Math.floor(map[this.state.enhance][9]*this.state.daykey['癸']):this.state.daykey['癸']}`]}
               />
             </VictoryGroup>
           </Svg>
