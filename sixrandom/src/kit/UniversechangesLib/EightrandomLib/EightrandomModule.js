@@ -412,13 +412,13 @@ class EightrandomModule extends React.Component {
         //六合
         earthrelationship['子']['丑'] = '子丑合土，夫妻容易沟通，有话讲，较顾家，午可冲散未则不行'
         earthrelationship['丑']['子'] = earthrelationship['子']['丑']
-        earthrelationship['寅']['亥'] = '寅亥合木，先天比较重视伦理道德，申可冲散巳则不行'
+        earthrelationship['寅']['亥'] = '寅亥合木，寅亥破（破合）先天比较重视伦理道德，申可冲散巳则不行'
         earthrelationship['亥']['寅'] = earthrelationship['寅']['亥']
         earthrelationship['卯']['戌'] = '卯戌合火，比较爱面子，注重外表，顾家，外强内柔，辰冲不散酉可冲散（戊戌辰冲可散）'
         earthrelationship['戌']['卯'] = earthrelationship['卯']['戌']
         earthrelationship['辰']['酉'] = '辰酉合金，比较重义气，较没有定性，戌冲不散卯冲则散（戊戌辰冲可散）'
         earthrelationship['酉']['辰'] = earthrelationship['辰']['酉']
-        earthrelationship['巳']['申'] = '巳申合水，很多时候聪明反被聪明误'
+        earthrelationship['巳']['申'] = '巳申合水，很多时候聪明反被聪明误；巳申破（破合）仿照力强、办事拿不定主意'
         earthrelationship['申']['巳'] = earthrelationship['巳']['申']
         earthrelationship['午']['未'] = '午未合火，生性积极，脾气不好，做事凭感觉，有些任性，丑冲不散子可冲散'
         earthrelationship['未']['午'] = earthrelationship['午']['午']
@@ -455,17 +455,17 @@ class EightrandomModule extends React.Component {
         earthrelationship['酉']['酉'] = '酉酉自刑，不的认同'
         earthrelationship['子']['卯'] = earthrelationship['卯']['子'] = '子卯之刑，眼光略高，说话较直，易无礼貌'
         //地支相互破
-        earthrelationship['子']['酉'] = '平生经常面临经济困难'
+        earthrelationship['子']['酉'] = '子酉破，平生经常面临经济困难'
         earthrelationship['酉']['子'] = earthrelationship['子']['酉']
-        earthrelationship['寅']['亥'] = '为人优柔寡断、耳根轻、简单被说服，破中有合、败而复成、六反皆成'
+        earthrelationship['寅']['亥'] = '寅亥破，为人优柔寡断、耳根轻、简单被说服，破中有合、败而复成、六反皆成；（破合）寅亥合木先天比较重视伦理道德，申可冲散巳则不行'
         earthrelationship['亥']['寅'] = earthrelationship['寅']['亥']
-        earthrelationship['辰']['丑'] = '六亲难谐、男女多见不睦'
+        earthrelationship['辰']['丑'] = '辰丑破，六亲难谐、男女多见不睦'
         earthrelationship['丑']['辰'] = earthrelationship['辰']['丑']
-        earthrelationship['卯']['午'] = '多见纷争、或情感为害'
+        earthrelationship['卯']['午'] = '卯午破，多见纷争、或情感为害'
         earthrelationship['午']['卯'] = earthrelationship['卯']['午']
-        earthrelationship['巳']['申'] = '仿照力强、办事拿不定主意'
+        earthrelationship['巳']['申'] = '巳申破，仿照力强、办事拿不定主意；（破合）巳申合水，很多时候聪明反被聪明误'
         earthrelationship['申']['巳'] = earthrelationship['巳']['申']
-        earthrelationship['未']['戌'] = '为人有城府'
+        earthrelationship['未']['戌'] = '未戌破，为人有城府'
         earthrelationship['戌']['未'] = earthrelationship['未']['戌']
         //申子、亥卯、寅午、巳酉相合称生地半合。子辰、卯未、午戌、酉丑相合称墓地半合
         earthcombe['申']['子'] = '申子生地半合水，思想多变，聪明伶俐，冷漠寡淡，生地旺合，弱于三合，强于半合'
@@ -474,7 +474,7 @@ class EightrandomModule extends React.Component {
         earthcombe['卯']['亥'] = earthcombe['亥']['卯']
         earthcombe['寅']['午'] = '寅午生地半合火，看来做事效率高，执行力好，热情有礼貌，生地旺合，弱于三合，强于半合'
         earthcombe['午']['寅'] = earthcombe['寅']['午']
-        earthcombe['巳']['酉'] = '巳酉生地半合金,比较爱出头，容易有血光之灾，较会包装自己，生地旺合，弱于三合，强于半合'
+        earthcombe['巳']['酉'] = '巳酉生地半合金，比较爱出头，容易有血光之灾，较会包装自己，生地旺合，弱于三合，强于半合'
         earthcombe['酉']['巳'] = earthcombe['巳']['酉']
         earthcombe['辰']['子'] = '子辰墓地半合水，思想多变，聪明伶俐，冷漠寡淡，墓地半合，弱于半合，强于拱合'
         earthcombe['子']['辰'] = earthcombe['辰']['子']
@@ -482,7 +482,7 @@ class EightrandomModule extends React.Component {
         earthcombe['未']['卯'] = earthcombe['卯']['未']
         earthcombe['午']['戌'] = '午戌墓地半合火，看来做事效率高，执行力好，热情有礼貌，墓地半合，弱于半合，强于拱合'
         earthcombe['戌']['午'] = earthcombe['午']['戌']
-        earthcombe['酉']['丑'] = '酉丑墓地半合金,比较爱出头，容易有血光之灾，较会包装自己，墓地半合，弱于半合，强于拱合'
+        earthcombe['酉']['丑'] = '酉丑墓地半合金，比较爱出头，容易有血光之灾，较会包装自己，墓地半合，弱于半合，强于拱合'
         earthcombe['丑']['酉'] = earthcombe['酉']['丑']
         earthcombe['辰']['申'] = '申辰拱合水，思想多变，聪明伶俐，冷漠寡淡，拱合弱于半合'
         earthcombe['申']['辰'] = earthcombe['辰']['申']
@@ -490,7 +490,7 @@ class EightrandomModule extends React.Component {
         earthcombe['未']['亥'] = earthcombe['亥']['未']
         earthcombe['寅']['戌'] = '寅戌拱合火，看来做事效率高，执行力好，热情有礼貌，拱合弱于半合'
         earthcombe['戌']['寅'] = earthcombe['寅']['戌']
-        earthcombe['巳']['丑'] = '巳丑拱合金,比较爱出头，容易有血光之灾，较会包装自己，拱合弱于半合'
+        earthcombe['巳']['丑'] = '巳丑拱合金，比较爱出头，容易有血光之灾，较会包装自己，拱合弱于半合'
         earthcombe['丑']['巳'] = earthcombe['巳']['丑']
         //console.log("getrelationship",bigyears)
         var dr = ''
