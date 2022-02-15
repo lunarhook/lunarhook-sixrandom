@@ -867,45 +867,41 @@ class EightrandomMainPage extends React.Component {
                 <Accordion.Panel>
                   {this.createpie()}
                 </Accordion.Panel >
-                <Accordion.Panel header="八字冲克" styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header="八字冲克" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
-                    <Item wrap multipleLine
-                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.dr}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
-
-                    {r.er.map(item=>{
-                      return( 
-                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {item}</Text>)
+                    {r.dr.map(item => {
+                      return (
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 ,lineHeight:25}}> {item}</Text>)
+                    })}                  
+                    {r.er.map(item => {
+                      return (
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 ,lineHeight:25 }}> {item}</Text>)
                     })}
-                    {
-                      /*                    <Item wrap multipleLine
-                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.er}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
-                      */ 
-                    }
-
-                    <Item wrap multipleLine
-                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.lr}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
-                    <Item wrap multipleLine
-                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {r.br}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="日柱信息" styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header="流年大运" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     <Item wrap multipleLine
-                    >
-                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.self}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
-                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.tip}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
-                      <Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> 家宅:{house}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 ,lineHeight:25 }}> {r.lr}</Text></Item>
+                    <Item wrap multipleLine
+                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 ,lineHeight:25 }}> {r.br}</Text></Item>
+                  </List>
+                </Accordion.Panel >
+                <Accordion.Panel header="日柱信息" styles={{ backgroundColor: '#ffffff' }}>
+                  <List>
+                    <Item wrap multipleLine>
+                      <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.self}</Text>
+                      <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.tip}</Text>
+                      <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> 家宅:{house}</Text>
                     </Item>
-
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="婚姻提示" styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header="婚姻提示" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     <Item wrap multipleLine
-                    ><Text style={ { fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {marryinfo}</Text><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/></Item>
+                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {marryinfo}</Text></Item>
                   </List>
                 </Accordion.Panel >
-
               </Accordion>
             </WingBlank>
             <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>

@@ -385,16 +385,16 @@ class EightrandomModule extends React.Component {
 
         //三刑
         if (true == this.in_array('寅', e) && true == this.in_array('巳', e) && true == this.in_array('申', e)) {
-            er = er + "地支无恩之刑，无人赏识，被嫌弃，替人做事任劳任怨不得回报" + " "
+            er = er + "地支无恩之刑，无人赏识，易被嫌弃，不得回报" + " "
         }
         if ((true == this.in_array('寅', e) && true == this.in_array('巳', e)) || (true == this.in_array('申', e) && true == this.in_array('寅', e)) || (true == this.in_array('申', e) && true == this.in_array('巳', e))) {
-            er = er + "地支无恩隐刑，无人赏识，被嫌弃，替人做事任劳任怨不得回报" + " "
+            er = er + "地支无恩隐刑，无人赏识，易被嫌弃，不得回报" + " "
         }
         if (true == this.in_array('丑', e) && true == this.in_array('未', e) && true == this.in_array('戌', e)) {
-            er = er + "地支恃势之刑，太自信，固执，自负，欠考虑凭感觉" + " "
+            er = er + "地支恃势之刑，太过自信，固执自负，考虑不周" + " "
         }
         if ((true == this.in_array('丑', e) && true == this.in_array('未', e)) || (true == this.in_array('丑', e) && true == this.in_array('戌', e)) || (true == this.in_array('未', e) && true == this.in_array('戌', e))) {
-            er = er + "地支恃势隐刑，太自信，固执，自负，欠考虑凭感觉" + " "
+            er = er + "地支恃势隐刑，太过自信，固执自负，考虑不周" + " "
         }
         return er
     }
@@ -408,17 +408,17 @@ class EightrandomModule extends React.Component {
             earthcombe[index] = new Array();
         }
         //六合
-        earthrelationship['子']['丑'] = '子丑合土，夫妻容易沟通，有话讲，较顾家，午可冲散未则不行'
+        earthrelationship['子']['丑'] = '子丑合土，容易沟通，为人顾家'
         earthrelationship['丑']['子'] = earthrelationship['子']['丑']
-        earthrelationship['寅']['亥'] = '寅亥合木，寅亥破（破合）先天比较重视伦理道德，申可冲散巳则不行'
+        earthrelationship['寅']['亥'] = '寅亥合木，热情有礼'
         earthrelationship['亥']['寅'] = earthrelationship['寅']['亥']
-        earthrelationship['卯']['戌'] = '卯戌合火，比较爱面子，注重外表，顾家，外强内柔，辰冲不散酉可冲散（戊戌辰冲可散）'
+        earthrelationship['卯']['戌'] = '卯戌合火，较爱面子，注重外表，外强内柔'
         earthrelationship['戌']['卯'] = earthrelationship['卯']['戌']
-        earthrelationship['辰']['酉'] = '辰酉合金，比较重义气，较没有定性，戌冲不散卯冲则散（戊戌辰冲可散）'
+        earthrelationship['辰']['酉'] = '辰酉合金，较重义气，但无常性'
         earthrelationship['酉']['辰'] = earthrelationship['辰']['酉']
-        earthrelationship['巳']['申'] = '巳申合水，很多时候聪明反被聪明误；巳申破（破合）仿照力强、办事拿不定主意'
+        earthrelationship['巳']['申'] = '巳申合水，聪明反误'
         earthrelationship['申']['巳'] = earthrelationship['巳']['申']
-        earthrelationship['午']['未'] = '午未合火，生性积极，脾气不好，做事凭感觉，有些任性，丑冲不散子可冲散'
+        earthrelationship['午']['未'] = '午未合火，生性积极，脾气不好，仅凭感觉，有些任性'
         earthrelationship['未']['午'] = earthrelationship['午']['未']
         //六冲 子午相冲、丑未相冲、寅申相冲、卯酉相冲、辰戌相冲、巳亥相冲
         earthrelationship['子']['午'] = '子午相冲，水火相战，桃花旺象，困惑不解，一身不安，地域之冲'
@@ -434,15 +434,15 @@ class EightrandomModule extends React.Component {
         earthrelationship['巳']['亥'] = '巳亥相冲，机会多多，烦事繁多，喜欢助人，职业之冲'
         earthrelationship['亥']['巳'] = earthrelationship['巳']['亥']
         //六害 子未相害、丑午相害、寅巳相害、卯辰相害、申亥相害、酉戌相害
-        earthrelationship['子']['未'] = '子未相害，犯小人，早分离'
+        earthrelationship['子']['未'] = '子未相害，多犯小人，易早分离'
         earthrelationship['未']['子'] = earthrelationship['子']['未']
-        earthrelationship['丑']['午'] = '丑午相害，耐性差，脾气差'
+        earthrelationship['丑']['午'] = '丑午相害，耐性较少，脾气较差'
         earthrelationship['午']['丑'] = earthrelationship['丑']['午']
-        earthrelationship['寅']['巳'] = '寅巳相害，无恩刑，难在家'
+        earthrelationship['寅']['巳'] = '寅巳相害，无恩之刑，难安在家'
         earthrelationship['巳']['寅'] = earthrelationship['寅']['巳']
         earthrelationship['卯']['辰'] = '卯辰相害，手足相害'
         earthrelationship['辰']['卯'] = earthrelationship['卯']['辰']
-        earthrelationship['申']['亥'] = '申亥相害，是非多'
+        earthrelationship['申']['亥'] = '申亥相害，是非多多'
         earthrelationship['亥']['申'] = earthrelationship['申']['亥']
         earthrelationship['酉']['戌'] = '酉戌相害，鸡犬不宁'
         earthrelationship['戌']['酉'] = earthrelationship['酉']['戌']
@@ -453,45 +453,45 @@ class EightrandomModule extends React.Component {
         earthrelationship['酉']['酉'] = '酉酉自刑，不的认同'
         earthrelationship['子']['卯'] = earthrelationship['卯']['子'] = '子卯之刑，眼光略高，说话较直，易无礼貌'
         //地支相互破
-        earthrelationship['子']['酉'] = '子酉相破，平生经常面临经济困难'
+        earthrelationship['子']['酉'] = '子酉相破，财经不稳'
         earthrelationship['酉']['子'] = earthrelationship['子']['酉']
-        earthrelationship['寅']['亥'] = '寅亥相破，为人优柔寡断、耳根轻、简单被说服，破中有合、败而复成、六反皆成；（破合）寅亥合木先天比较重视伦理道德，申可冲散巳则不行'
+        earthrelationship['寅']['亥'] = '寅亥相破，优柔寡断、破中有合、败而复成、六反皆成'
         earthrelationship['亥']['寅'] = earthrelationship['寅']['亥']
-        earthrelationship['辰']['丑'] = '辰丑相破，六亲难谐、男女多见不睦'
+        earthrelationship['辰']['丑'] = '辰丑相破，六亲难谐、多见不睦'
         earthrelationship['丑']['辰'] = earthrelationship['辰']['丑']
-        earthrelationship['卯']['午'] = '卯午相破，多见纷争、或情感为害'
+        earthrelationship['卯']['午'] = '卯午相破，多见纷争、情感为害'
         earthrelationship['午']['卯'] = earthrelationship['卯']['午']
-        earthrelationship['巳']['申'] = '巳申相破，仿照力强、办事拿不定主意；（破合）巳申合水，很多时候聪明反被聪明误'
+        earthrelationship['巳']['申'] = '巳申相破，仿照力强、办事不定'
         earthrelationship['申']['巳'] = earthrelationship['巳']['申']
-        earthrelationship['未']['戌'] = '未戌相破，为人有城府'
+        earthrelationship['未']['戌'] = '未戌相破，为人城府'
         earthrelationship['戌']['未'] = earthrelationship['未']['戌']
         //申子、亥卯、寅午、巳酉相合称生地半合。子辰、卯未、午戌、酉丑相合称墓地半合
-        earthcombe['申']['子'] = '申子生地半合水，思想多变，聪明伶俐，冷漠寡淡，生地旺合，弱于三合，强于半合'
+        earthcombe['申']['子'] = '申子生半合水，思想多变，聪明伶俐，冷漠寡淡'
         earthcombe['子']['申'] = earthcombe['申']['子']
-        earthcombe['亥']['卯'] = '亥卯生地半合木，较不切实际，生地旺合，弱于三合，强于半合'
+        earthcombe['亥']['卯'] = '亥卯生半合木，不切实际'
         earthcombe['卯']['亥'] = earthcombe['亥']['卯']
-        earthcombe['寅']['午'] = '寅午生地半合火，看来做事效率高，执行力好，热情有礼貌，生地旺合，弱于三合，强于半合'
+        earthcombe['寅']['午'] = '寅午生半合火，事半功倍，执行力好，热情有貌'
         earthcombe['午']['寅'] = earthcombe['寅']['午']
-        earthcombe['巳']['酉'] = '巳酉生地半合金，比较爱出头，容易有血光之灾，较会包装自己，生地旺合，弱于三合，强于半合'
+        earthcombe['巳']['酉'] = '巳酉生半合金，爱强出头，血光之灾'
         earthcombe['酉']['巳'] = earthcombe['巳']['酉']
-        earthcombe['辰']['子'] = '子辰墓地半合水，思想多变，聪明伶俐，冷漠寡淡，墓地半合，弱于半合，强于拱合'
+        earthcombe['辰']['子'] = '子辰墓半合水，思想多变，聪明伶俐，冷漠寡淡'
         earthcombe['子']['辰'] = earthcombe['辰']['子']
-        earthcombe['卯']['未'] = '卯未墓地半合木，比较不切实际，墓地半合，弱于半合，强于拱合'
+        earthcombe['卯']['未'] = '卯未墓半合木，不切实际'
         earthcombe['未']['卯'] = earthcombe['卯']['未']
-        earthcombe['午']['戌'] = '午戌墓地半合火，看来做事效率高，执行力好，热情有礼貌，墓地半合，弱于半合，强于拱合'
+        earthcombe['午']['戌'] = '午戌墓半合火，事半功倍，执行力好，热情有礼'
         earthcombe['戌']['午'] = earthcombe['午']['戌']
-        earthcombe['酉']['丑'] = '酉丑墓地半合金，比较爱出头，容易有血光之灾，较会包装自己，墓地半合，弱于半合，强于拱合'
+        earthcombe['酉']['丑'] = '酉丑墓半合金，爱强出头，血光之灾'
         earthcombe['丑']['酉'] = earthcombe['酉']['丑']
-        earthcombe['辰']['申'] = '申辰拱合水，思想多变，聪明伶俐，冷漠寡淡，拱合弱于半合'
+        earthcombe['辰']['申'] = '申辰拱合化水，思想多变，聪明伶俐，冷漠寡淡'
         earthcombe['申']['辰'] = earthcombe['辰']['申']
-        earthcombe['亥']['未'] = '亥未拱合木，比较不切实际，拱合弱于半合'
+        earthcombe['亥']['未'] = '亥未拱合化木，不切实际'
         earthcombe['未']['亥'] = earthcombe['亥']['未']
-        earthcombe['寅']['戌'] = '寅戌拱合火，看来做事效率高，执行力好，热情有礼貌，拱合弱于半合'
+        earthcombe['寅']['戌'] = '寅戌拱合化火，事半功倍，执行力好，热情有礼'
         earthcombe['戌']['寅'] = earthcombe['寅']['戌']
-        earthcombe['巳']['丑'] = '巳丑拱合金，比较爱出头，容易有血光之灾，较会包装自己，拱合弱于半合'
+        earthcombe['巳']['丑'] = '巳丑拱合化金，爱强出头，血光之灾'
         earthcombe['丑']['巳'] = earthcombe['巳']['丑']
         //console.log("getrelationship",bigyears)
-        var dr = ''
+        var dr = new Array()
         var er = new Array()
         var lr = ''
         var br = ''
@@ -539,44 +539,44 @@ class EightrandomModule extends React.Component {
         dayrelationship['壬']['丁'] = dayrelationship['丁']['壬']
 
         if (undefined != dayrelationship[yy][mm] && e) {
-            dr = dr + "年月" + dayrelationship[yy][mm] + " "
+            dr.push("年月" + dayrelationship[yy][mm] + " ")
         }
 
         if (undefined != dayrelationship[yy][dd]) {
-            dr = dr + "年日" + dayrelationship[yy][dd] + " "
+            dr.push("年日" + dayrelationship[yy][dd] + " ")
         }
         if (undefined != dayrelationship[yy][tt]) {
-            dr = dr + "年时" + dayrelationship[yy][tt] + " "
+            dr.push("年时" + dayrelationship[yy][tt] + " ")
         }
 
         if (undefined != dayrelationship[mm][dd]) {
-            dr = dr + "月日" + dayrelationship[mm][dd] + " "
+            dr.push("月日" + dayrelationship[mm][dd] + " ")
         }
 
         if (undefined != dayrelationship[mm][tt]) {
-            dr = dr + "月时" + dayrelationship[mm][tt] + " "
+            dr.push("月时" + dayrelationship[mm][tt] + " ")
         }
 
         if (undefined != dayrelationship[dd][tt]) {
-            dr = dr + "时日" + dayrelationship[dd][tt] + " "
+            dr.push("时日" + dayrelationship[dd][tt] + " ")
         }
 
 
         if (undefined != dayrelationship[bdyear][yy]) {
-            dr = dr + "大运年年" + dayrelationship[bdyear][yy] + " "
+            dr.push("大运年年" + dayrelationship[bdyear][yy] + " ")
         }
         if (undefined != dayrelationship[bdyear][mm]) {
-            dr = dr + "大运年月" + dayrelationship[bdyear][mm] + " "
+             dr.push("大运年月" + dayrelationship[bdyear][mm] + " ")
         }
 
         if (undefined != dayrelationship[bdyear][dd]) {
-            dr = dr + "大运年日" + dayrelationship[bdyear][dd] + " "
+             dr.push("大运年日" + dayrelationship[bdyear][dd] + " ")
         }
         if (undefined != dayrelationship[bdyear][tt]) {
-            dr = dr + "大运年时" + dayrelationship[bdyear][tt] + " "
+             dr.push("大运年时" + dayrelationship[bdyear][tt] + " ")
         }
         if ("" == dr) {
-            dr = "八字天干无合"
+            dr.push("八字天干无合")
         }
 
         yy = e[0],
@@ -631,24 +631,24 @@ class EightrandomModule extends React.Component {
         //三合三会半合
 
         if (undefined != earthcombe[yy][mm]) {
-            er.push("年月半合" + earthcombe[yy][mm] + " ")
+            er.push( earthcombe[yy][mm] + " ")
         }
 
         if (undefined != earthcombe[yy][dd]) {
-            er.push("年日半合" + earthcombe[yy][dd] + " ")
+            er.push(earthcombe[yy][dd] + " ")
         }
         if (undefined != earthcombe[yy][tt]) {
-            er.push("年时半合" + earthcombe[yy][tt] + " ")
+            er.push( earthcombe[yy][tt] + " ")
         }
 
         if (undefined != earthcombe[mm][dd]) {
-            er.push("日月半合" + earthcombe[mm][dd] + " ")
+            er.push(earthcombe[mm][dd] + " ")
         }
         if (undefined != earthcombe[mm][tt]) {
-            er.push("月时半合" + earthcombe[mm][tt] + " ")
+            er.push(earthcombe[mm][tt] + " ")
         }
         if (undefined != earthcombe[dd][tt]) {
-            er.push("日时半合" + earthcombe[dd][tt] + " ")
+            er.push(earthcombe[dd][tt] + " ")
         }
 
         er.push(this.getrelationshipcombe(e))
@@ -680,7 +680,7 @@ class EightrandomModule extends React.Component {
 
         e[4] = year
         var lr_ret = this.getrelationshipcombe(e)
-        lr = lr + ("" != lr_ret ? "流年：" : "") + lr_ret
+        lr = lr + lr_ret
         if ("" == lr) {
             lr = "流年八字地支无刑冲克害"
         }
@@ -709,16 +709,16 @@ class EightrandomModule extends React.Component {
         }
         e[5] = bigyears[1]
         var br_ret = this.getrelationshipcombe(e)
-        br = br + ("" != br_ret ? "大运：" : "") + br_ret
+        br = br + br_ret
 
         if ("" == br) {
-            br = "大运八字地支无刑冲克害"
+            br.push("大运八字地支无刑冲克害")
         }
 
 
 
-        if ("" == er) {
-            er = "八字地支无刑冲克害"
+        if (null == er.length) {
+            er.push("八字地支无刑冲克害")
         }
 
 
