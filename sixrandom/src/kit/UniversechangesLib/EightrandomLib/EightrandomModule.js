@@ -421,17 +421,17 @@ class EightrandomModule extends React.Component {
         earthrelationship['午']['未'] = '午未合火，生性积极，脾气不好，仅凭感觉，有些任性'
         earthrelationship['未']['午'] = earthrelationship['午']['未']
         //六冲 子午相冲、丑未相冲、寅申相冲、卯酉相冲、辰戌相冲、巳亥相冲
-        earthrelationship['子']['午'] = '子午相冲，水火相战，桃花旺象，困惑不解，一身不安'
+        earthrelationship['子']['午'] = '子午相冲，桃花旺象，困惑不解，一身不安'
         earthrelationship['午']['子'] = earthrelationship['子']['午']
         earthrelationship['丑']['未'] = '丑未相冲，固执相持，事多逆阻，职业相冲'
         earthrelationship['未']['未'] = earthrelationship['丑']['未']
         earthrelationship['寅']['申'] = '寅申相冲，车关有害，多情泛滥，好管闲事'
         earthrelationship['申']['寅'] = earthrelationship['寅']['申']
-        earthrelationship['卯']['酉'] = '卯酉相冲，桃花旺象，背约失信，忧愁多老，色情纠缠'
+        earthrelationship['卯']['酉'] = '卯酉相冲，桃花旺象，背约失信，色情纠缠'
         earthrelationship['酉']['卯'] = earthrelationship['卯']['酉']
         earthrelationship['辰']['戌'] = '辰戌相冲，克亲伤子，寿短害命，天冲地克'
         earthrelationship['戌']['辰'] = earthrelationship['辰']['戌']
-        earthrelationship['巳']['亥'] = '巳亥相冲，机会多多，烦事繁多，喜欢助人，职业之冲'
+        earthrelationship['巳']['亥'] = '巳亥相冲，机会多多，烦事繁多，喜欢助人'
         earthrelationship['亥']['巳'] = earthrelationship['巳']['亥']
         //六害 子未相害、丑午相害、寅巳相害、卯辰相害、申亥相害、酉戌相害
         earthrelationship['子']['未'] = '子未相害，多犯小人，易早分离'
@@ -661,20 +661,20 @@ class EightrandomModule extends React.Component {
         if (undefined != earthrelationship[dd][year]) {
             lr.push("流年日" + earthrelationship[dd][year] + " ")
             if (-1 != earthrelationship[dd][year].indexOf("冲")) {
-                lr.push("年日相冲, 与亲不和" + " ")
+                //lr.push("年日相冲, 与亲不和" + " ")
             }
         }
         if (undefined != earthrelationship[tt][year]) {
             lr.push("流年时" + earthrelationship[tt][year] + " ")
             if (-1 != earthrelationship[tt][year].indexOf("冲")) {
-                lr.push("年时相冲, 与子不和" + " ")
+                //lr.push("年时相冲, 与子不和" + " ")
             }
         }
 
         if (undefined != earthrelationship[mm][year]) {
             lr.push("流年月" + earthrelationship[mm][year] + " ")
             if (-1 != earthrelationship[mm][year].indexOf("冲")) {
-                lr.push("年月相冲，离祖别乡" + " ")
+                //lr.push("年月相冲，离祖别乡" + " ")
             }
         }
 
@@ -691,19 +691,19 @@ class EightrandomModule extends React.Component {
         if (undefined != earthrelationship[mm][bzyear]) {
             br.push("大运年月" + earthrelationship[mm][bzyear] + " ")
             if (-1 != earthrelationship[mm][bzyear].indexOf("冲")) {
-                br.push("年月相冲，离祖别乡" + " ")
+                //br.push("年月相冲，离祖别乡" + " ")
             }
         }
         if (undefined != earthrelationship[dd][bzyear]) {
             br.push("大运年日" + earthrelationship[dd][bzyear] + " ")
             if (-1 != earthrelationship[dd][bzyear].indexOf("冲")) {
-                br.push("年日相冲, 与亲不和" + " ")
+                //br.push("年日相冲, 与亲不和" + " ")
             }
         }
         if (undefined != earthrelationship[tt][bzyear]) {
             br.push("大运年时" + earthrelationship[tt][bzyear] + " ")
             if (-1 != earthrelationship[tt][bzyear].indexOf("冲")) {
-                br.push("年时相冲, 与子不和" + " ")
+                //br.push("年时相冲, 与子不和" + " ")
             }
         }
         e[5] = bigyears[1]
@@ -1401,7 +1401,7 @@ class EightrandomModule extends React.Component {
         tt = teststring;
         t = tt.split("日辰戌");
         t.forEach((it,index)=>{
-            info.push("辰戌冲夫妻宫，易分离")
+            if (index<t.length-1) info.push("辰戌冲夫妻宫，易分离")
         })
         if (-1 != cc.indexOf("伤官")) {
             tt = teststring;
