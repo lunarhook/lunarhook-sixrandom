@@ -354,51 +354,51 @@ class EightrandomModule extends React.Component {
         var e = new Array()
         e = e.concat(arr)
         console.log("getrelationshipcombe", e, arr)
-        var er = ""
+        var er = new Array()
         //三会局
         if (true == this.in_array('寅', e) && true == this.in_array('卯', e) && true == this.in_array('辰', e)) {
-            er = er + "寅卯辰三会东方木" + " "
+            er.push( "寅卯辰三会东方木" + " ")
         }
         if (true == this.in_array('巳', e) && true == this.in_array('午', e) && true == this.in_array('未', e)) {
-            er = er + "巳午未三会南方火" + " "
+            er.push( "巳午未三会南方火" + " ")
         }
         if (true == this.in_array('申', e) && true == this.in_array('酉', e) && true == this.in_array('戌', e)) {
-            er = er + "申酉戌三会西方金" + " "
+            er.push(  "申酉戌三会西方金" + " ")
         }
         if (true == this.in_array('亥', e) && true == this.in_array('子', e) && true == this.in_array('丑', e)) {
-            er = er + "亥子丑三会北方水" + " "
+            er.push( "亥子丑三会北方水" + " ")
         }
 
         //三合局 申子辰合水 亥卯未合木 寅午戌合火 巳酉丑合金
         if (true == this.in_array('申', e) && true == this.in_array('子', e) && true == this.in_array('辰', e)) {
-            er = er + "申子辰三合水" + " "
+            er.push( "申子辰三合水" + " ")
         }
         if (true == this.in_array('亥', e) && true == this.in_array('卯', e) && true == this.in_array('未', e)) {
-            er = er + "亥卯未三合木" + " "
+            er.push( "亥卯未三合木" + " ")
         }
         if (true == this.in_array('寅', e) && true == this.in_array('午', e) && true == this.in_array('戌', e)) {
-            er = er + "寅午戌三合火" + " "
+            er.push( "寅午戌三合火" + " ")
         }
         if (true == this.in_array('巳', e) && true == this.in_array('酉', e) && true == this.in_array('丑', e)) {
-            er = er + "巳酉丑三合金" + " "
+            er.push( "巳酉丑三合金" + " ")
         }
 
         //三刑
         if (true == this.in_array('寅', e) && true == this.in_array('巳', e) && true == this.in_array('申', e)) {
-            er = er + "地支无恩之刑，无人赏识，易被嫌弃，不得回报" + " "
+            er.push( "地支无恩之刑，无人赏识，易被嫌弃，不得回报" + " ")
         }
         if ((true == this.in_array('寅', e) && true == this.in_array('巳', e)) || (true == this.in_array('申', e) && true == this.in_array('寅', e)) || (true == this.in_array('申', e) && true == this.in_array('巳', e))) {
-            er = er + "地支无恩隐刑，无人赏识，易被嫌弃，不得回报" + " "
+            er.push( "地支无恩隐刑，无人赏识，易被嫌弃，不得回报" + " ")
         }
         if (true == this.in_array('丑', e) && true == this.in_array('未', e) && true == this.in_array('戌', e)) {
-            er = er + "地支恃势之刑，太过自信，固执自负，考虑不周" + " "
+            er.push( "地支恃势之刑，太过自信，固执自负，考虑不周" + " ")
         }
         if ((true == this.in_array('丑', e) && true == this.in_array('未', e)) || (true == this.in_array('丑', e) && true == this.in_array('戌', e)) || (true == this.in_array('未', e) && true == this.in_array('戌', e))) {
-            er = er + "地支恃势隐刑，太过自信，固执自负，考虑不周" + " "
+            er.push( "地支恃势隐刑，太过自信，固执自负，考虑不周" + " ")
         }
         return er
     }
-    getrelationship(key, year, bigyears,sex) {
+    getrelationship(key, year, bigyears, sex) {
 
         var earthrelationship = new Array()
         var earthcombe = new Array
@@ -421,15 +421,15 @@ class EightrandomModule extends React.Component {
         earthrelationship['午']['未'] = '午未合火，生性积极，脾气不好，仅凭感觉，有些任性'
         earthrelationship['未']['午'] = earthrelationship['午']['未']
         //六冲 子午相冲、丑未相冲、寅申相冲、卯酉相冲、辰戌相冲、巳亥相冲
-        earthrelationship['子']['午'] = '子午相冲，水火相战，桃花旺象，困惑不解，一身不安，地域之冲'
+        earthrelationship['子']['午'] = '子午相冲，水火相战，桃花旺象，困惑不解，一身不安'
         earthrelationship['午']['子'] = earthrelationship['子']['午']
         earthrelationship['丑']['未'] = '丑未相冲，固执相持，事多逆阻，职业相冲'
         earthrelationship['未']['未'] = earthrelationship['丑']['未']
-        earthrelationship['寅']['申'] = '寅申相冲，车关有害，多情泛滥，好管闲事，地域职业都冲'
+        earthrelationship['寅']['申'] = '寅申相冲，车关有害，多情泛滥，好管闲事'
         earthrelationship['申']['寅'] = earthrelationship['寅']['申']
-        earthrelationship['卯']['酉'] = '卯酉相冲，桃花旺象，背约失信，忧愁多老，色情纠缠，地域之冲'
+        earthrelationship['卯']['酉'] = '卯酉相冲，桃花旺象，背约失信，忧愁多老，色情纠缠'
         earthrelationship['酉']['卯'] = earthrelationship['卯']['酉']
-        earthrelationship['辰']['戌'] = '辰戌相冲，克亲伤子，寿短害命，天冲地克，地域之冲'
+        earthrelationship['辰']['戌'] = '辰戌相冲，克亲伤子，寿短害命，天冲地克'
         earthrelationship['戌']['辰'] = earthrelationship['辰']['戌']
         earthrelationship['巳']['亥'] = '巳亥相冲，机会多多，烦事繁多，喜欢助人，职业之冲'
         earthrelationship['亥']['巳'] = earthrelationship['巳']['亥']
@@ -493,8 +493,8 @@ class EightrandomModule extends React.Component {
         //console.log("getrelationship",bigyears)
         var dr = new Array()
         var er = new Array()
-        var lr = ''
-        var br = ''
+        var lr = new Array();
+        var br = new Array();
         var d = new Array();
         var e = new Array();
         var bdyear = bigyears[0]
@@ -515,26 +515,26 @@ class EightrandomModule extends React.Component {
             var index = daykey[i]
             dayrelationship[index] = new Array();
         }
-        dayrelationship['甲']['己'] = '甲己合化土,为中正之合,主安分守己,淳朴敦厚'
+        dayrelationship['甲']['己'] = '甲己化土，中正之合，安分守己，淳朴敦厚'
         dayrelationship['己']['甲'] = dayrelationship['甲']['己']
-        dayrelationship['乙']['庚'] = '乙庚合化金,为仁义之合,主刚柔兼备,重信守义'
+        dayrelationship['乙']['庚'] = '乙庚化金，仁义之合，刚柔兼备，重信守义'
         dayrelationship['庚']['乙'] = dayrelationship['乙']['庚']
-        dayrelationship['丙']['辛'] = '丙辛合化水,为威严之合,主仪表威严,表现出众'
+        dayrelationship['丙']['辛'] = '丙辛化水，威严之合，仪表威严，表现出众'
         dayrelationship['辛']['丙'] = dayrelationship['丙']['辛']
-        dayrelationship['丁']['壬'] = '丁壬合化木,为仁寿之合,主心地仁慈,长命多寿'
-        dayrelationship['戊']['癸'] = '戊癸合化火,为无情之合,主妩媚多情,薄情寡义'
+        dayrelationship['丁']['壬'] = '丁壬化木，仁寿之合，心地仁慈，长命多寿'
+        dayrelationship['戊']['癸'] = '戊癸化火，无情之合，妩媚多情，薄情寡义'
         dayrelationship['癸']['戊'] = dayrelationship['戊']['癸']
 
         //丁壬化木需要亥卯未寅月，火旺为妒合，水旺为淫昵之合，木旺
-        if(d.indexOf("丙"))//四柱有丙
+        if (d.indexOf("丙"))//四柱有丙
         {
-            dayrelationship['丁']['壬'] = '丁壬合化木,为淫匿之合,贪婪之态,枕欢溺爱'
+            dayrelationship['丁']['壬'] = '丁壬化木，淫匿之合，贪婪之态，枕欢溺爱'
         }
-        else if("巳午".indexOf(e[1]) && "壬癸".indexOf(d[2]) && "乾造"==sex){ //男水命火旺
-            dayrelationship['丁']['壬'] = '丁壬合化木,为淫匿之合,贪婪之态,枕欢溺爱'
+        else if ("巳午".indexOf(e[1]) && "壬癸".indexOf(d[2]) && "乾造" == sex) { //男水命火旺
+            dayrelationship['丁']['壬'] = '丁壬化木，淫匿之合，贪婪之态，枕欢溺爱'
         }
-        else if("子亥".indexOf(e[1]) && "丁".indexOf(d[2]) && "坤造"==sex){ //女火命水旺
-            dayrelationship['丁']['壬'] = '丁壬合化木,为淫匿之合,贪婪之态,枕欢溺爱'
+        else if ("子亥".indexOf(e[1]) && "丁".indexOf(d[2]) && "坤造" == sex) { //女火命水旺
+            dayrelationship['丁']['壬'] = '丁壬化木，淫匿之合，贪婪之态，枕欢溺爱'
         }
         dayrelationship['壬']['丁'] = dayrelationship['丁']['壬']
 
@@ -566,14 +566,14 @@ class EightrandomModule extends React.Component {
             dr.push("大运年年" + dayrelationship[bdyear][yy] + " ")
         }
         if (undefined != dayrelationship[bdyear][mm]) {
-             dr.push("大运年月" + dayrelationship[bdyear][mm] + " ")
+            dr.push("大运年月" + dayrelationship[bdyear][mm] + " ")
         }
 
         if (undefined != dayrelationship[bdyear][dd]) {
-             dr.push("大运年日" + dayrelationship[bdyear][dd] + " ")
+            dr.push("大运年日" + dayrelationship[bdyear][dd] + " ")
         }
         if (undefined != dayrelationship[bdyear][tt]) {
-             dr.push("大运年时" + dayrelationship[bdyear][tt] + " ")
+            dr.push("大运年时" + dayrelationship[bdyear][tt] + " ")
         }
         if ("" == dr) {
             dr.push("八字天干无合")
@@ -586,7 +586,7 @@ class EightrandomModule extends React.Component {
 
         //六合，六冲，六害，自刑
         if (undefined != earthrelationship[yy][mm]) {
-            er.push("年月" + earthrelationship[yy][mm] + " ") 
+            er.push("年月" + earthrelationship[yy][mm] + " ")
             if (-1 != earthrelationship[yy][mm].indexOf("冲")) {
                 //er.push("年月相冲，离祖别乡" + " ")
             }
@@ -631,14 +631,14 @@ class EightrandomModule extends React.Component {
         //三合三会半合
 
         if (undefined != earthcombe[yy][mm]) {
-            er.push( earthcombe[yy][mm] + " ")
+            er.push(earthcombe[yy][mm] + " ")
         }
 
         if (undefined != earthcombe[yy][dd]) {
             er.push(earthcombe[yy][dd] + " ")
         }
         if (undefined != earthcombe[yy][tt]) {
-            er.push( earthcombe[yy][tt] + " ")
+            er.push(earthcombe[yy][tt] + " ")
         }
 
         if (undefined != earthcombe[mm][dd]) {
@@ -651,81 +651,71 @@ class EightrandomModule extends React.Component {
             er.push(earthcombe[dd][tt] + " ")
         }
 
-        er.push(this.getrelationshipcombe(e))
+        er.concat(this.getrelationshipcombe(e))
 
 
         if (undefined != earthrelationship[yy][year]) {
-            lr = lr + "流年" + earthrelationship[yy][year] + " "
+            lr.push("流年" + earthrelationship[yy][year] + " ")
         }
 
         if (undefined != earthrelationship[dd][year]) {
-            lr = lr + "流年日" + earthrelationship[dd][year] + " "
+            lr.push("流年日" + earthrelationship[dd][year] + " ")
             if (-1 != earthrelationship[dd][year].indexOf("冲")) {
-                lr = lr + "年日相冲, 与亲不和" + " "
+                lr.push("年日相冲, 与亲不和" + " ")
             }
         }
         if (undefined != earthrelationship[tt][year]) {
-            lr = lr + "流年时" + earthrelationship[tt][year] + " "
+            lr.push("流年时" + earthrelationship[tt][year] + " ")
             if (-1 != earthrelationship[tt][year].indexOf("冲")) {
-                lr = lr + "年时相冲, 与子不和" + " "
+                lr.push("年时相冲, 与子不和" + " ")
             }
         }
 
         if (undefined != earthrelationship[mm][year]) {
-            lr = lr + "流年月" + earthrelationship[mm][year] + " "
+            lr.push("流年月" + earthrelationship[mm][year] + " ")
             if (-1 != earthrelationship[mm][year].indexOf("冲")) {
-                lr = lr + "年月相冲，离祖别乡" + " "
+                lr.push("年月相冲，离祖别乡" + " ")
             }
         }
 
         e[4] = year
-        var lr_ret = this.getrelationshipcombe(e)
-        lr = lr + lr_ret
-        if ("" == lr) {
-            lr = "流年八字地支无刑冲克害"
+        lr = lr.concat(this.getrelationshipcombe(e))
+        if (null == lr.length) {
+            lr.push("流年八字地支无刑冲克害")
         }
 
 
         if (undefined != earthrelationship[yy][bzyear]) {
-            br = br + "大运年年" + earthrelationship[yy][bzyear] + " "
+            br.push("大运年年" + earthrelationship[yy][bzyear] + " ")
         }
         if (undefined != earthrelationship[mm][bzyear]) {
-            br = br + "大运年月" + earthrelationship[mm][bzyear] + " "
+            br.push("大运年月" + earthrelationship[mm][bzyear] + " ")
             if (-1 != earthrelationship[mm][bzyear].indexOf("冲")) {
-                br = br + "年月相冲，离祖别乡" + " "
+                br.push("年月相冲，离祖别乡" + " ")
             }
         }
         if (undefined != earthrelationship[dd][bzyear]) {
-            br = br + "大运年日" + earthrelationship[dd][bzyear] + " "
+            br.push("大运年日" + earthrelationship[dd][bzyear] + " ")
             if (-1 != earthrelationship[dd][bzyear].indexOf("冲")) {
-                br = br + "年日相冲, 与亲不和" + " "
+                br.push("年日相冲, 与亲不和" + " ")
             }
         }
         if (undefined != earthrelationship[tt][bzyear]) {
-            br = br + "大运年时" + earthrelationship[tt][bzyear] + " "
+            br.push("大运年时" + earthrelationship[tt][bzyear] + " ")
             if (-1 != earthrelationship[tt][bzyear].indexOf("冲")) {
-                br = br + "年时相冲, 与子不和" + " "
+                br.push("年时相冲, 与子不和" + " ")
             }
         }
         e[5] = bigyears[1]
-        var br_ret = this.getrelationshipcombe(e)
-        br = br + br_ret
+        br = br.concat(this.getrelationshipcombe(e))
 
-        if ("" == br) {
+        if (null == br.length) {
             br.push("大运八字地支无刑冲克害")
         }
-
-
-
         if (null == er.length) {
             er.push("八字地支无刑冲克害")
         }
-
-
-
         return { dr, er, lr, br };
-
-
     }
 
     gettwelfthposition(key) {
@@ -1005,7 +995,7 @@ class EightrandomModule extends React.Component {
         if (-1 != key.indexOf("己")) {
             tip = "己喜水养，孕育生长"
         }
-        tip = "喜用:" + tip
+        tip = tip
 
         //console.log("tip",tip)
         return { self, tip }
@@ -1369,91 +1359,102 @@ class EightrandomModule extends React.Component {
     }
     getmarryinfo(eightkey, sex, combe, shishen) {
         console.log(combe)
-        var info = ""
+        var test = new Array()
+        test = test.concat(combe.dr)
+        test = test.concat(combe.br)
+        test = test.concat(combe.lr)
+        test = test.concat(combe.er)
+        var teststring = test.toString()
+        var info =new Array()
         if ("乾造" == sex) {
-            if ((eightkey[4] == "甲" || eightkey[4] == "乙") && (eightkey[3] == "寅" || eightkey[3] == "卯")) info = info + "官星过旺，财星入墓"
-            else if ((eightkey[4] == "丙" || eightkey[4] == "丁") && (eightkey[3] == "巳" || eightkey[3] == "午")) info = info + "官星过旺，财星入墓"
-            else if ((eightkey[4] == "戊" || eightkey[4] == "己") && (eightkey[3] == "丑" || eightkey[3] == "未" || eightkey[3] == "辰" || eightkey[3] == "戌")) info = info + "官星过旺，财星入墓"
-            else if ((eightkey[4] == "庚" || eightkey[4] == "辛") && (eightkey[3] == "申" || eightkey[3] == "酉")) info = info + "官星过旺，财星入墓"
-            else if ((eightkey[4] == "壬" || eightkey[4] == "癸") && (eightkey[3] == "亥" || eightkey[3] == "子")) info = info + "官星过旺，财星入墓"
+            if ((eightkey[4] == "甲" || eightkey[4] == "乙") && (eightkey[3] == "寅" || eightkey[3] == "卯")) info.push("官星过旺，财星入墓")
+            else if ((eightkey[4] == "丙" || eightkey[4] == "丁") && (eightkey[3] == "巳" || eightkey[3] == "午")) info.push("官星过旺，财星入墓")
+            else if ((eightkey[4] == "戊" || eightkey[4] == "己") && (eightkey[3] == "丑" || eightkey[3] == "未" || eightkey[3] == "辰" || eightkey[3] == "戌")) info.push("官星过旺，财星入墓")
+            else if ((eightkey[4] == "庚" || eightkey[4] == "辛") && (eightkey[3] == "申" || eightkey[3] == "酉")) info.push("官星过旺，财星入墓")
+            else if ((eightkey[4] == "壬" || eightkey[4] == "癸") && (eightkey[3] == "亥" || eightkey[3] == "子")) info.push("官星过旺，财星入墓")
             var count = 0
             for (i = 0; i < shishen.length; i++) {
                 if ("正财" == shishen[i] || "偏财" == shishen[i]) count++
             }
-            if (0 == count) info = info + ("" == info ? "" : "，") + "命无财星，婚姻难成"
-            if (3 <= count) info = info + ("" == info ? "" : "，") + "财星过多，多婚之象"
+            if (0 == count) info.push("命无财星，婚姻难成")
+            if (3 <= count) info.push("财星过多，多婚之象")
         }
         else if ("坤造" == sex) {
-            if ((eightkey[4] == "甲" || eightkey[4] == "乙") && (eightkey[3] == "丙" || eightkey[3] == "丁")) info = info + "木火伤官，官星入墓（易木火通明）"
-            else if ((eightkey[4] == "丙" || eightkey[4] == "丁") && (eightkey[3] == "丑" || eightkey[3] == "未" || eightkey[3] == "辰" || eightkey[3] == "戌")) info = info + "火土伤官，官星入墓"
-            else if ((eightkey[4] == "戊" || eightkey[4] == "己") && (eightkey[3] == "申" || eightkey[3] == "酉")) info = info + "金土伤官，官星入墓"
-            else if ((eightkey[4] == "庚" || eightkey[4] == "辛") && (eightkey[3] == "亥" || eightkey[3] == "子")) info = info + "金水伤官，官星入墓（易金白水清）"
-            else if ((eightkey[4] == "壬" || eightkey[4] == "癸") && (eightkey[3] == "寅" || eightkey[3] == "卯")) info = info + "水木伤官，官星入墓"
+            if ((eightkey[4] == "甲" || eightkey[4] == "乙") && (eightkey[3] == "丙" || eightkey[3] == "丁")) info.push("木火伤官，官星入墓（易木火通明）")
+            else if ((eightkey[4] == "丙" || eightkey[4] == "丁") && (eightkey[3] == "丑" || eightkey[3] == "未" || eightkey[3] == "辰" || eightkey[3] == "戌")) info.push("火土伤官，官星入墓")
+            else if ((eightkey[4] == "戊" || eightkey[4] == "己") && (eightkey[3] == "申" || eightkey[3] == "酉")) info.push("金土伤官，官星入墓")
+            else if ((eightkey[4] == "庚" || eightkey[4] == "辛") && (eightkey[3] == "亥" || eightkey[3] == "子")) info.push("金水伤官，官星入墓（易金白水清）")
+            else if ((eightkey[4] == "壬" || eightkey[4] == "癸") && (eightkey[3] == "寅" || eightkey[3] == "卯")) info.push("水木伤官，官星入墓")
             var count = 0
             for (i = 0; i < shishen.length; i++) {
                 if ("正官" == shishen[i] || "七杀" == shishen[i]) count++
             }
-            if (0 == count) info = info + ("" == info ? "" : "，") + "命无官星，婚姻难成"
-            if (3 <= count) info = info + ("" == info ? "" : "，") + "官星过多，多婚之象"
+            if (0 == count) info.push("命无官星，婚姻难成")
+            if (3 <= count) info.push("官星过多，多婚之象")
         }
-        if (-1 != info.indexOf("伤官")) {
-
-            if (-1 != combe.dr.indexOf("日冲月支") || -1 != combe.er.indexOf("日冲月支") || -1 != combe.lr.indexOf("日冲月支") || -1 != combe.br.indexOf("日冲月支")) info = info + ("" == info ? "" : "，") + "入墓逢冲，易分离"
-            if (-1 != combe.dr.indexOf("日相冲") || -1 != combe.er.indexOf("日相冲") || -1 != combe.lr.indexOf("日相冲") || -1 != combe.br.indexOf("日相冲")) info = info + ("" == info ? "" : "，") + "入墓逢冲，易分离"
-            if (-1 != combe.dr.indexOf("年日半合") || -1 != combe.er.indexOf("日月半合") || -1 != combe.lr.indexOf("日时半合")) info = info + ("" == info ? "" : "，") + "入墓逢合，易分离"
-        }
-        else {
-            if (-1 != combe.dr.indexOf("日辰戌") || -1 != combe.er.indexOf("日辰戌") || -1 != combe.lr.indexOf("日辰戌") || -1 != combe.br.indexOf("日辰戌")) info = info + ("" == info ? "" : "，") + "辰戌冲克婚姻宫，易分离"
-        }
-        if (-1 != combe.dr.indexOf("隐刑") || -1 != combe.er.indexOf("隐刑") || -1 != combe.lr.indexOf("隐刑") || -1 != combe.br.indexOf("隐刑")) info = info + ("" == info ? "" : "，") + "三刑可解，易分离"
-        if (-1 != combe.dr.indexOf("之刑") || -1 != combe.er.indexOf("之刑") || -1 != combe.lr.indexOf("之刑") || -1 != combe.br.indexOf("之刑")) info = info + ("" == info ? "" : "，") + "三刑难解，易分离"
-        if (-1 != combe.dr.indexOf("三会") || -1 != combe.er.indexOf("三会") || -1 != combe.lr.indexOf("三会") || -1 != combe.br.indexOf("三会")) info = info + ("" == info ? "" : "，") + "三会成局，易分离"
-        if (-1 != combe.dr.indexOf("三合") || -1 != combe.er.indexOf("三合") || -1 != combe.lr.indexOf("三合") || -1 != combe.br.indexOf("三合")) info = info + ("" == info ? "" : "，") + "三合成局，易分离"
-        if (-1 != combe.dr.indexOf("辰戌") || -1 != combe.er.indexOf("辰戌") || -1 != combe.lr.indexOf("辰戌") || -1 != combe.br.indexOf("辰戌")) {
-            if ("辰" == eightkey[5] || "戌" == eightkey[5]) {
-                info = info + ("" == info ? "" : "，") + "辰戌有冲，若冲日支，易分离"
-            }
-
-        }
-        if (-1 != combe.dr.indexOf("酉戌") || -1 != combe.er.indexOf("酉戌") || -1 != combe.lr.indexOf("酉戌") || -1 != combe.br.indexOf("酉戌")) {
-            if ("酉" == eightkey[5] || "戌" == eightkey[5]) {
-                info = info + ("" == info ? "" : "，") + "酉戌有害，若害日支，需要好好控制情绪"
-            }
-
-        }
-        var chonglist = new Array()
-        chonglist.push("丑未");
-        chonglist.push("子午");
-        chonglist.push("寅申");
-        chonglist.push("卯酉");
-        chonglist.push("巳亥");
-        //chonglist.push("辰戌")
-
-
-        chonglist.forEach(element => {
-            console.log("foreach", element)
-            var first = element[0];
-            var last = element[1];
-            if (-1 != combe.dr.indexOf(element) || -1 != combe.er.indexOf(element) || -1 != combe.lr.indexOf(element) || -1 != combe.br.indexOf(element)) {
-                if (first == eightkey[5] || last == eightkey[5]) {
-                    info = info + ("" == info ? "" : "，") + element + "相冲，若冲日支，需要好好控制情绪"
-                }
-
-            }
-        });
-
-
-
-
-        if (-1 != combe.dr.indexOf("自刑") || -1 != combe.er.indexOf("自刑") || -1 != combe.lr.indexOf("自刑") || -1 != combe.br.indexOf("自刑")) {
-            if ("亥" == eightkey[5] || "午" == eightkey[5] || "辰" == eightkey[5] || "酉" == eightkey[5]) {
-                info = info + ("" == info ? "" : "，") + "若日支自刑，易分离"
-            }
-
+        var  cc = info.toString()
+        var tt = teststring;
+        var t = tt.split("辰戌");
+        t.forEach((it,index)=>{
+            if (index<t.length-1) info.push( "辰戌有冲，易分离")
+        })
+        tt = teststring;
+        t = tt.split("日辰戌");
+        t.forEach((it,index)=>{
+            info.push("辰戌冲夫妻宫，易分离")
+        })
+        if (-1 != cc.indexOf("伤官")) {
+            tt = teststring;
+            t = tt.split("日冲月支");
+            t.forEach((it,index)=>{
+                if (index<t.length-1) info.push("入墓逢冲，易分离")
+            })
+            tt = teststring;
+            t = tt.split("日相冲");
+            t.forEach((it,index)=>{
+                if (index<t.length-1) info.push("入墓逢冲，易分离")
+            })
+            tt = teststring;
+            t = tt.split("半合");
+            t.forEach((it,index)=>{
+                if (index<t.length-1) info.push("入墓逢合，易分离")
+            })
+            //if (-1 != teststring.indexOf("日冲月支") || -1 != teststring.indexOf("日冲月支") || -1 != teststring.indexOf("日冲月支") || -1 != teststring.indexOf("日冲月支")) info.push("入墓逢冲，易分离")
+            //if (-1 != teststring.indexOf("日相冲") || -1 != teststring.indexOf("日相冲") || -1 != teststring.indexOf("日相冲") || -1 != teststring.indexOf("日相冲")) info.push("入墓逢冲，易分离")
+            //if (-1 != teststring.indexOf("年日半合") || -1 != teststring.indexOf("日月半合") || -1 != teststring.indexOf("日时半合")) info.push("入墓逢合，易分离")
         }
 
-        if ("" == info) {
-            info = "八字婚姻无大影响（更新版本会更加详细）"
+        if (-1 != teststring.indexOf("隐刑")) info.push("三刑可解，易分离")
+        if (-1 != teststring.indexOf("之刑")) info.push("三刑难解，易分离")
+        if (-1 != teststring.indexOf("三会")) info.push("三会成局，易分离")
+        if (-1 != teststring.indexOf("三合")) info.push("三合成局，易分离")
+        if (-1 != teststring.indexOf("酉戌")) info.push("酉戌有害，需要好好控制情绪")
+        if (-1 != teststring.indexOf("子午")) info.push("子午对冲，需要好好控制情绪")
+        if (-1 != teststring.indexOf("丑未")) info.push("丑未对冲，需要好好控制情绪")
+        if (-1 != teststring.indexOf("寅申")) info.push("寅申对冲，需要好好控制情绪")
+        if (-1 != teststring.indexOf("卯酉")) info.push("卯酉对冲，需要好好控制情绪")
+        if (-1 != teststring.indexOf("巳亥")) info.push("巳亥对冲，需要好好控制情绪")
+        if (-1 != teststring.indexOf("子未")) info.push("子未相害，需要好好控制情绪")
+        if (-1 != teststring.indexOf("丑午")) info.push("丑午相害，需要好好控制情绪")
+        if (-1 != teststring.indexOf("寅巳")) info.push("寅巳相害，需要好好控制情绪")
+        if (-1 != teststring.indexOf("卯辰")) info.push("卯辰相害，需要好好控制情绪")
+        if (-1 != teststring.indexOf("申亥")) info.push("申亥相害，需要好好控制情绪")
+        if (-1 != teststring.indexOf("酉戌")) info.push("酉戌有害，需要好好控制情绪")
+        if (-1 != teststring.indexOf("子酉")) info.push("子酉相破，需要好好控制情绪")
+        if (-1 != teststring.indexOf("寅亥")) info.push("寅亥相破，需要好好控制情绪")
+        if (-1 != teststring.indexOf("辰丑")) info.push("辰丑相破，需要好好控制情绪")
+        if (-1 != teststring.indexOf("卯午")) info.push("卯午相破，需要好好控制情绪")
+        if (-1 != teststring.indexOf("巳申")) info.push("巳申相破，需要好好控制情绪")
+        if (-1 != teststring.indexOf("未戌")) info.push("未戌相破，需要好好控制情绪")
+
+        //if (-1 != teststring.indexOf("辰戌")) info.push("辰戌有害，需要好好控制情绪")
+        tt = teststring;
+        t = tt.split("自刑");
+        t.forEach((it,index)=>{
+            if (index<t.length-1)  info.push("自刑有害，需要好好控制情绪")
+        })
+        if (null == info.length) {
+            info.push("八字婚姻无大影响")
         }
         return info
 

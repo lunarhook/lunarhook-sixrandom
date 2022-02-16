@@ -73,6 +73,7 @@ class EightrandomMainPage extends React.Component {
     var EightDate = ""
     var birth = ""
     var gzbirth = ""
+    var gzxk = ""
     var buildeight = new Array();
     var buildeightExt = new Array();
     var precent = new Array();
@@ -84,6 +85,7 @@ class EightrandomMainPage extends React.Component {
       EightDate: EightDate,
       birth: birth,
       gzbirth: gzbirth,
+      gzxk:gzxk,
       buildeight: buildeight,
       buildeightExt: buildeightExt,
       precent: precent,
@@ -213,6 +215,7 @@ class EightrandomMainPage extends React.Component {
       console.log(gz);
       var EightDate = SixrandomModule.lunar_f(gz)
       var gzDate = EightDate.gzYear + " " + EightDate.gzMonth + " " + EightDate.gzDate + " " + EightDate.gzTime;
+      var gzxk = SixrandomModule.get_empty_sixty_cycle(EightDate.gzYear)+ " " + SixrandomModule.get_empty_sixty_cycle(EightDate.gzMonth) + " " + SixrandomModule.get_empty_sixty_cycle(EightDate.gzDate) + " " + SixrandomModule.get_empty_sixty_cycle(EightDate.gzTime);
       curyear = EightDate.Year;
       curmonth = EightDate.Month
 
@@ -220,7 +223,7 @@ class EightrandomMainPage extends React.Component {
       var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.EightDate, info.sex);
       console.log("beginlucky", Math.floor(beginlucky), Number(gz.getFullYear()))
       EightrandomMainPagethis.setState({
-        sex: info.sex, EightDate: info.EightDate, birth: info.birth, gzbirth: gzDate, beginlucky: Math.floor(beginlucky),rowid:info.rowid
+        sex: info.sex, EightDate: info.EightDate, birth: info.birth, gzbirth: gzDate,  gzxk: gzxk,beginlucky: Math.floor(beginlucky),rowid:info.rowid
       });
       this.buildeight(info.sex);
     }
@@ -707,10 +710,15 @@ class EightrandomMainPage extends React.Component {
 
     var locationself = EightrandomModule.getlocationself(curyear, this.state.sex == "乾造" ? 0 : 1)
     var house = EightrandomModule.gethouselocation(locationself)
+    var home = new Array()
+    home = home.concat(day.self)
+    home = home.concat(day.tip)
+    home = home.concat(house)
     console.log("locationself", locationself)
     var base = new Array()
     base.push("公历: " + this.state.birth)
     base.push("四柱: " + this.state.gzbirth)
+    base.push("旬空: " + this.state.gzxk)
     base.push("命造: " + this.state.sex)
     base.push("起运: " + this.state.beginlucky)
     base.push("命卦: " + locationself)
@@ -858,8 +866,6 @@ class EightrandomMainPage extends React.Component {
                           {dataItem}
                         </View>
                       </View>
-
-
                     )}
                   />
 
@@ -871,36 +877,42 @@ class EightrandomMainPage extends React.Component {
                   <List>
                     {r.dr.map(item => {
                       return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 ,lineHeight:25}}> {item}</Text>)
-                    })}                  
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}> {item}</Text>)
+                    })}
                     {r.er.map(item => {
                       return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 ,lineHeight:25 }}> {item}</Text>)
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}> {item}</Text>)
                     })}
                   </List>
                 </Accordion.Panel >
                 <Accordion.Panel header="流年大运" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
-                    <Item wrap multipleLine
-                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 ,lineHeight:25 }}> {r.lr}</Text></Item>
-                    <Item wrap multipleLine
-                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 ,lineHeight:25 }}> {r.br}</Text></Item>
+                    {r.lr.map(item => {
+                      return (
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 ,textAlign: 'justify'}}> {item}</Text>)
+                    })}
+                    {r.br.map(item => {
+                      return (
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 ,textAlign: 'justify'}}> {item}</Text>)
+                    })}
                   </List>
                 </Accordion.Panel >
                 <Accordion.Panel header="日柱信息" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
-                    <Item wrap multipleLine>
-                      <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.self}</Text>
-                      <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {day.tip}</Text>
-                      <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> 家宅:{house}</Text>
-                    </Item>
+
+<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25,textAlign: 'justify'}}>{home[0]}</Text>
+<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25,textAlign: 'justify'}}>{home[1]}</Text>
+<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25,textAlign: 'justify'}}>{home[2]}</Text>
                   </List>
                 </Accordion.Panel >
                 <Accordion.Panel header="婚姻提示" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
-                    <Item wrap multipleLine
-                    ><Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}> {marryinfo}</Text></Item>
+                    {marryinfo.map(item => {
+                      return (
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}> {item}</Text>)
+                    })}
                   </List>
+
                 </Accordion.Panel >
               </Accordion>
             </WingBlank>
