@@ -500,6 +500,50 @@ class EightrandomMainPage extends React.Component {
       )
     }
   }
+  tipfire(item)
+  { 
+    if(-1 != item.indexOf("辰戌") && -1 != item.indexOf("宫"))
+    {
+      var x = new Array()
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      return x
+    }
+    else if (-1 != item.indexOf("辰戌") || -1 != item.indexOf("难解"))
+    {
+      var x = new Array()
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      return x
+    }
+    else if (-1 != item.indexOf("伤官") || -1 != item.indexOf("酉戌") || -1 != item.indexOf("子未") || -1 != item.indexOf("子午") || -1 != item.indexOf("自刑"))
+    {
+      var x = new Array()
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      return x
+    }
+    else if (-1 != item.indexOf("卯辰") || -1 != item.indexOf("无官星"))
+    {
+      var x = new Array()
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      x.push(IconConfig.IconTipFire)
+      return x
+    }
+    else if (-1 != item.indexOf("害") || -1 != item.indexOf("破")|| -1 != item.indexOf("冲")|| -1 != item.indexOf("可解"))
+    {
+      var x = new Array()
+      x.push(IconConfig.IconTipFire)
+      return x
+    }
+
+  }
 
   render() {
 
@@ -877,11 +921,11 @@ class EightrandomMainPage extends React.Component {
                   <List>
                     {r.dr.map(item => {
                       return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}> {item}</Text>)
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}</Text>)
                     })}
                     {r.er.map(item => {
                       return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}> {item}</Text>)
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}</Text>)
                     })}
                   </List>
                 </Accordion.Panel >
@@ -889,30 +933,28 @@ class EightrandomMainPage extends React.Component {
                   <List>
                     {r.lr.map(item => {
                       return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 ,textAlign: 'justify'}}> {item}</Text>)
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 ,textAlign: 'justify'}}>{item}</Text>)
                     })}
                     {r.br.map(item => {
                       return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 ,textAlign: 'justify'}}> {item}</Text>)
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{item}</Text>)
                     })}
                   </List>
                 </Accordion.Panel >
                 <Accordion.Panel header="日柱信息" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
-
-<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25,textAlign: 'justify'}}>{home[0]}</Text>
-<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25,textAlign: 'justify'}}>{home[1]}</Text>
-<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25,textAlign: 'justify'}}>{home[2]}</Text>
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{home[0]}</Text>
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{home[1]}</Text>
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{home[2]}</Text>
                   </List>
                 </Accordion.Panel >
                 <Accordion.Panel header="婚姻提示" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     {marryinfo.map(item => {
                       return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}> {item}</Text>)
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{this.tipfire(item)}</Text>)
                     })}
                   </List>
-
                 </Accordion.Panel >
               </Accordion>
             </WingBlank>

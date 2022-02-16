@@ -455,7 +455,7 @@ class EightrandomModule extends React.Component {
         //地支相互破
         earthrelationship['子']['酉'] = '子酉相破，财经不稳'
         earthrelationship['酉']['子'] = earthrelationship['子']['酉']
-        earthrelationship['寅']['亥'] = '寅亥相破，优柔寡断、破中有合、败而复成、六反皆成'
+        earthrelationship['寅']['亥'] = '寅亥相破，优柔寡断、败而复成、六反皆成'
         earthrelationship['亥']['寅'] = earthrelationship['寅']['亥']
         earthrelationship['辰']['丑'] = '辰丑相破，六亲难谐、多见不睦'
         earthrelationship['丑']['辰'] = earthrelationship['辰']['丑']
@@ -1439,7 +1439,6 @@ class EightrandomModule extends React.Component {
         if (-1 != teststring.indexOf("寅巳")) info.push("寅巳相害，需要好好控制情绪")
         if (-1 != teststring.indexOf("卯辰")) info.push("卯辰相害，需要好好控制情绪")
         if (-1 != teststring.indexOf("申亥")) info.push("申亥相害，需要好好控制情绪")
-        if (-1 != teststring.indexOf("酉戌")) info.push("酉戌有害，需要好好控制情绪")
         if (-1 != teststring.indexOf("子酉")) info.push("子酉相破，需要好好控制情绪")
         if (-1 != teststring.indexOf("寅亥")) info.push("寅亥相破，需要好好控制情绪")
         if (-1 != teststring.indexOf("辰丑")) info.push("辰丑相破，需要好好控制情绪")
