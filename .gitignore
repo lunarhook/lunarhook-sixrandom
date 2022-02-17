@@ -18,3 +18,4 @@ sixrandom/src/.vscode/launch.json
 *output-metadata.json
 sixrandom/ios/Podfile.lock
 .watchman*
+*.lock
