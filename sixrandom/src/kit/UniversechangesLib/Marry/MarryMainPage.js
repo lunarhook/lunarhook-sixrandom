@@ -38,8 +38,10 @@ import { tapGestureHandlerProps } from 'react-native-gesture-handler/lib/typescr
 const { width, height } = Dimensions.get('window');
 
 var jump = false
-let curyear = 0
-let curmonth = 0
+let curyearmale = 0
+let curmonthmale = 0
+let curyearfemale = 0
+let curmonthfemale = 0
 let MarryMainPagethis = undefined
 /*
 八字要展现的东西就比较多了
@@ -142,50 +144,18 @@ class MarryMainPage extends React.Component {
 
       //headerLeft:(<Button title="万年历" onPress={  () => navigate('MainPage')  }/>),
       //headerRight:(<Button title="历史" onPress={  () => navigate('HistoryPage')  }/>),
-      title: '八字分析',
+      title: '合盘分析',
       headerRight: () => (
         <TouchableOpacity
           style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
           //onPress={() => navigate('Search')}
-          onPress={() =>  MarryMainPagethis.deletethis()}
+          //onPress={() =>  MarryMainPagethis.deletethis()}
         >
-          {IconConfig.IconDelete}
+         
         </TouchableOpacity>),
     }
   };
 
-
-  async deletethis()
-  {
-    var rowid = MarryMainPagethis.state.rowid 
-    console.log("rowid",rowid)
-    HistoryArrayGroup.loadid('eightrandom', rowid).then(async (ret) => {
-      if(undefined!=ret)
-      {
-        var Jobj = JSON.parse(ret);
-        let T = await UserModule.SyncFileServer("eightrandom", rowid, "")
-        if (undefined != T && 2000 == T.code) {
-          T.data.forEach(async (element) => {
-            filename = element.File
-            if (-1 != filename.indexOf(String(rowid)) && true == element.Del) {
-              await HistoryArrayGroup.remove('eightrandom', rowid);
-            }
-          });
-        }
-        else {
-          await HistoryArrayGroup.remove('eightrandom', rowid);
-        }
-      }
-      //this.props.navigation.dispatch(CommonActions.goBack());
-      this.props.navigation.goBack()
-      if(undefined!=this.props.navigation.state.params.goback)
-      {
-        this.props.navigation.state.params.goback()
-      }
-
-      //this.props.navigation.navigate("SixrandomHistoryPage",{ text: "refresh" })
-    })
-  }
 
   refreshlist() {
     const { navigate } = this.props.navigation;
@@ -208,25 +178,25 @@ class MarryMainPage extends React.Component {
       //console.log(info.EightDate);
       //console.log(info.sex);
       //console.log(info.birth);
-      var t = info.birth.split(" ");
-      var gz = new Date(t[0]);
-      gz.setHours(t[1]);
-      gz.setMinutes(undefined != t[2] ? t[2] : t[2] = 0)
-      gz.setSeconds(undefined != t[3] ? t[3] : t[3] = 0)
-      info.birth = t[0] + " " + ("00" + t[1]).slice(-2) + ":" + ("00" + t[2]).slice(-2) + ":" + ("00" + t[3]).slice(-2)
-      console.log(gz);
-      var EightDate = SixrandomModule.lunar_f(gz)
-      var gzDate = EightDate.gzYear + " " + EightDate.gzMonth + " " + EightDate.gzDate + " " + EightDate.gzTime;
-      curyear = EightDate.Year;
-      curmonth = EightDate.Month
+      var t = info.birthmale.split(" ");
+      var gzmale = new Date(t[0]);
+      gzmale.setHours(t[1]);
+      gzmale.setMinutes(undefined != t[2] ? t[2] : t[2] = 0)
+      gzmale.setSeconds(undefined != t[3] ? t[3] : t[3] = 0)
+      info.birthmale = t[0] + " " + ("00" + t[1]).slice(-2) + ":" + ("00" + t[2]).slice(-2) + ":" + ("00" + t[3]).slice(-2)
+      console.log(gzmale);
+      var EightDategzmale = SixrandomModule.lunar_f(gzmale)
+      var gzDatemale = EightDategzmale.gzYear + " " + EightDategzmale.gzMonth + " " + EightDategzmale.gzDate + " " + EightDategzmale.gzTime;
+      curyearmale = EightDategzmale.Year;
+      curmonthmale = EightDategzmale.Month
 
-      var retterm = EightrandomModule.getYearTerm(gz.getFullYear())
-      var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.EightDate, info.sex);
-      console.log("beginlucky", Math.floor(beginlucky), Number(gz.getFullYear()))
+      var rettermmale = EightrandomModule.getYearTerm(gzmale.getFullYear())
+      var beginluckymale = EightrandomModule.getbigluckyearbegin(rettermmale, gzmale, info.EightDatemale, "乾造");
+      console.log("beginlucky", Math.floor(beginluckymale), Number(gzmale.getFullYear()))
       MarryMainPagethis.setState({
-        sex: info.sex, EightDate: info.EightDate, birth: info.birth, gzbirth: gzDate, beginlucky: Math.floor(beginlucky),rowid:info.rowid
+         EightDatemale: info.EightDatemale, birthmale: info.birthmale, gzbirthmale: gzDatemale, beginluckymale: Math.floor(beginluckymale)
       });
-      this.buildeight(info.sex);
+      this.buildeight("乾造");
     }
     else {
       StorageModule.load({
@@ -246,43 +216,43 @@ class MarryMainPage extends React.Component {
 
   buildeight(sex) {
     var buildeight = new Array()
-    buildeight[0] = EightrandomModule.parentday(this.state.EightDate[0], this.state.EightDate[4])
-    buildeight[2] = EightrandomModule.parentday(this.state.EightDate[2], this.state.EightDate[4])
+    buildeight[0] = EightrandomModule.parentday(this.state.EightDatemale[0], this.state.EightDatemale[4])
+    buildeight[2] = EightrandomModule.parentday(this.state.EightDatemale[2], this.state.EightDatemale[4])
     buildeight[4] = "乾造" == sex ? "元男" : "元女"
-    buildeight[6] = EightrandomModule.parentday(this.state.EightDate[6], this.state.EightDate[4])
-    buildeight[1] = EightrandomModule.parentearth(this.state.EightDate[1], this.state.EightDate[4])
-    buildeight[3] = EightrandomModule.parentearth(this.state.EightDate[3], this.state.EightDate[4])
-    buildeight[5] = EightrandomModule.parentearth(this.state.EightDate[5], this.state.EightDate[4])
-    buildeight[7] = EightrandomModule.parentearth(this.state.EightDate[7], this.state.EightDate[4])
+    buildeight[6] = EightrandomModule.parentday(this.state.EightDatemale[6], this.state.EightDatemale[4])
+    buildeight[1] = EightrandomModule.parentearth(this.state.EightDatemale[1], this.state.EightDatemale[4])
+    buildeight[3] = EightrandomModule.parentearth(this.state.EightDatemale[3], this.state.EightDatemale[4])
+    buildeight[5] = EightrandomModule.parentearth(this.state.EightDatemale[5], this.state.EightDatemale[4])
+    buildeight[7] = EightrandomModule.parentearth(this.state.EightDatemale[7], this.state.EightDatemale[4])
     var buildeightExt = new Array()
-    buildeightExt[0] = EightrandomModule.gethide(this.state.EightDate[1]);
-    buildeightExt[2] = EightrandomModule.gethide(this.state.EightDate[3]);
-    buildeightExt[4] = EightrandomModule.gethide(this.state.EightDate[5]);
-    buildeightExt[6] = EightrandomModule.gethide(this.state.EightDate[7]);
-    buildeightExt[1] = EightrandomModule.gethideshishen(buildeightExt[0], this.state.EightDate[4]);
-    buildeightExt[3] = EightrandomModule.gethideshishen(buildeightExt[2], this.state.EightDate[4]);
-    buildeightExt[5] = EightrandomModule.gethideshishen(buildeightExt[4], this.state.EightDate[4]);
-    buildeightExt[7] = EightrandomModule.gethideshishen(buildeightExt[6], this.state.EightDate[4]);
+    buildeightExt[0] = EightrandomModule.gethide(this.state.EightDatemale[1]);
+    buildeightExt[2] = EightrandomModule.gethide(this.state.EightDatemale[3]);
+    buildeightExt[4] = EightrandomModule.gethide(this.state.EightDatemale[5]);
+    buildeightExt[6] = EightrandomModule.gethide(this.state.EightDatemale[7]);
+    buildeightExt[1] = EightrandomModule.gethideshishen(buildeightExt[0], this.state.EightDatemale[4]);
+    buildeightExt[3] = EightrandomModule.gethideshishen(buildeightExt[2], this.state.EightDatemale[4]);
+    buildeightExt[5] = EightrandomModule.gethideshishen(buildeightExt[4], this.state.EightDatemale[4]);
+    buildeightExt[7] = EightrandomModule.gethideshishen(buildeightExt[6], this.state.EightDatemale[4]);
     var precent = new Array();
     var daykey = new Array();
-    var o = EightrandomModule.getfive(this.state.EightDate)
+    var o = EightrandomModule.getfive(this.state.EightDatemale)
     precent = o.q
     daykey = o.p
 
 
 
     var luckyyear = new Array();
-    luckyyear = EightrandomModule.getbigluckyear(this.state.EightDate, this.state.sex);
+    luckyyear = EightrandomModule.getbigluckyear(this.state.EightDatemale, this.state.sex);
     var luckyearrelation = new Array();
     var luckyyearposition = new Array();
     for (var i in luckyyear) {
 
       var rel = luckyyear[i].slice(0, 1);
       //console.log("luckyyear",rel, luckyyear[i]);
-      rel = EightrandomModule.parentday(rel, this.state.EightDate[4])
+      rel = EightrandomModule.parentday(rel, this.state.EightDatemale[4])
       //console.log(rel);
       luckyearrelation.push(rel);
-      luckyyearposition.push(EightrandomModule.gettwelfthposition(this.state.EightDate[4] + luckyyear[i].slice(1, 2)))
+      luckyyearposition.push(EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + luckyyear[i].slice(1, 2)))
     }
 
 

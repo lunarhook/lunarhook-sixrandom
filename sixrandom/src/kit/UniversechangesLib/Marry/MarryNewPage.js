@@ -21,16 +21,18 @@ class MarryNewPage extends React.Component {
     var curday = new Date();
     super(porp);
     this.state = {
-      switchstate: true,
-      selectedValue: '男',
-      datepicker: "",
-      switchtype: true,
-      datatype: "公历",
-      switchleap: false,
-      leaptype: "常年",
-      Tip: "",
-      value: curday,
-      realtime: 0
+      datepickermale: "",
+      datepickerfemale: "",
+      switchtypemale: true,
+      switchtypefemale: true,
+      datatypemale: "公历",
+      datatypefemale: "公历",
+      switchleapmale: false,
+      switchleapfemale: false,
+      leaptypemale: "常年",
+      leaptypefemale: "常年",
+      valuemale: curday,
+      valuefemale: curday,
     }
 
   }
@@ -45,13 +47,6 @@ class MarryNewPage extends React.Component {
     }
 
   };
-
-
-  onSelect(index, value) {
-    this.setState({
-      selectedValue: value
-    })
-  }
 
   //获取value值调用的方法
   getValue(text) {
@@ -70,46 +65,70 @@ class MarryNewPage extends React.Component {
     });
   }
 
-  leapmonth() {
-    if (false == this.state.switchtype) {
+  leapmonthmale() {
+    if (false == this.state.switchtypemale) {
       return (
 
         <List.Item
           extra={
             <Switch
-              checked={this.state.switchleap}
-              onChange={(value) => this.setState({ switchleap: value, leaptype: value == false ? "常年" : "闰月" })}
+              checked={this.state.switchleapmale}
+              onChange={(value) => this.setState({ switchleapmale: value, leaptypemale: value == false ? "常年" : "闰月" })}
             />
           }
-        >{this.state.leaptype}
+        >{this.state.leaptypemale}
         </List.Item>
       )
     }
-
-
   }
 
-  onChangeData = (value: any) => {
+
+  leapmonthfemale() {
+    if (false == this.state.switchtypefemale) {
+      return (
+
+        <List.Item
+          extra={
+            <Switch
+              checked={this.state.switchleapfemale}
+              onChange={(value) => this.setState({ switchleapfemale: value, leaptypefemale: value == false ? "常年" : "闰月" })}
+            />
+          }
+        >{this.state.leaptypemale}
+        </List.Item>
+      )
+    }
+  }
+
+
+  onChangeDatamale = (value: any) => {
+    console.log(value);
+    var cur = new Date(value)
+    this.setState({ valuemale:cur });
+    var selecttime = new Date(cur)
+    this.setState({ datepickermale: selecttime })
+  }
+  onChangeDatafemale = (value: any) => {
+    console.log(value);
+    var cur = new Date(value)
+    this.setState({ valuefemale:cur });
+    var selecttime = new Date(cur)
+    this.setState({ datepickerfemale: selecttime })
+  }
+
+  onChangetimemale = (value: any) => {
     console.log(value);
     var cur = new Date(value)
     this.setState({ value:cur });
     var selecttime = new Date(cur)
-    this.setState({ datepicker: selecttime })
+    this.setState({ datepickermale: selecttime })
   }
-
-  onChangetime = (value: any) => {
+  onChangetimefemale = (value: any) => {
     console.log(value);
     var cur = new Date(value)
     this.setState({ value:cur });
     var selecttime = new Date(cur)
-    this.setState({ datepicker: selecttime })
-  }
-
-  realtime(value) {
-    let x = dataitem[0][value];
-    console.log(x)
-    ZoneTimeModule.getrealsuntime(new Date(), x.label)
-    this.setState({ realtime: value })
+    this.setState({ datepickerfemale: selecttime })
   }
 
   render() {
@@ -124,90 +143,99 @@ class MarryNewPage extends React.Component {
         <ScrollView>
           <View >
             <List style={styles.inputpicker}>
-              <InputItem
-                clear
-                //error
-                onErrorPress={() => alert('clicked me')}
-                value={this.state.Tip}
-                onChange={(value: any) => {
-                  this.setState({ Tip: value });
-                }}
-                placeholder="陈长生"
-              >
-                姓名:
-          </InputItem>
               <DatePicker
                 backgroundColor='#ff00ff'
-                value={this.state.value}
+                value={this.state.valuemale}
                 mode="date"
                 minDate={new Date(1900, 1, 1)}
                 //maxDate={new Date(2026, 11, 3)}
-                onChange={this.onChangeData}
+                onChange={this.onChangeDatamale}
                 format="YYYY-MM-DD"
-                numberOfLines={100} 
+                numberOfLines={100}
                 ellipsizeMode={'tail'}
-                //itemStyle={{fontSize:9}}
+              //itemStyle={{fontSize:9}}
               >
-                <List.Item arrow="horizontal">生辰:</List.Item>
+                <List.Item arrow="horizontal">男生辰:</List.Item>
               </DatePicker>
               <DatePicker
                 backgroundColor='#ff00ff'
-                value={this.state.value}
+                value={this.state.valuemale}
                 mode="time"
                 minDate={new Date(1900, 1, 1)}
                 //maxDate={new Date(2026, 11, 3)}
-                onChange={this.onChangetime}
+                onChange={this.onChangetimemale}
                 format="HH:mm"
-                numberOfLines={100} 
+                numberOfLines={100}
                 ellipsizeMode={'tail'}
-                //itemStyle={{fontSize:9}}
+              //itemStyle={{fontSize:9}}
               >
-                <List.Item arrow="horizontal">时辰:</List.Item>
+                <List.Item arrow="horizontal">男时辰:</List.Item>
               </DatePicker>
-
               <List.Item
                 extra={
                   <Switch
-                    checked={this.state.switchstate}
-                    onChange={(value) => this.setState({ switchstate: value, selectedValue: false == value ? "女" : "男" })}
+                    checked={this.state.switchtypemale}
+                    onChange={(value) => this.setState({ switchtypemale: value, datatypemale: value == false ? "农历" : "公历" })}
                   />
                 }
-              >{this.state.selectedValue}
+              >{this.state.datatypemale}
               </List.Item>
-
-              <List.Item
-                extra={
-                  <Switch
-                    checked={this.state.switchtype}
-                    onChange={(value) => this.setState({ switchtype: value, datatype: value == false ? "农历" : "公历" })}
-                  />
-                }
-              >{this.state.datatype}
-              </List.Item>
-
-              {this.leapmonth()}
+              {this.leapmonthmale()}
             </List>
-
+            <List style={styles.inputpicker}>
+              <DatePicker
+                backgroundColor='#ff00ff'
+                value={this.state.valuefemale}
+                mode="date"
+                minDate={new Date(1900, 1, 1)}
+                //maxDate={new Date(2026, 11, 3)}
+                onChange={this.onChangeDatafemale}
+                format="YYYY-MM-DD"
+                numberOfLines={100}
+                ellipsizeMode={'tail'}
+              //itemStyle={{fontSize:9}}
+              >
+                <List.Item arrow="horizontal">女生辰:</List.Item>
+              </DatePicker>
+              <DatePicker
+                backgroundColor='#ff00ff'
+                value={this.state.valuefemale}
+                mode="time"
+                minDate={new Date(1900, 1, 1)}
+                //maxDate={new Date(2026, 11, 3)}
+                onChange={this.onChangetimefemale}
+                format="HH:mm"
+                numberOfLines={100}
+                ellipsizeMode={'tail'}
+              //itemStyle={{fontSize:9}}
+              >
+                <List.Item arrow="horizontal">女时辰:</List.Item>
+              </DatePicker>
+              <List.Item
+                extra={
+                  <Switch
+                    checked={this.state.switchtypefemale}
+                    onChange={(value) => this.setState({ switchtypefemale: value, datatypefemale: value == false ? "农历" : "公历" })}
+                  />
+                }
+              >{this.state.datatypefemale}
+              </List.Item>
+              {this.leapmonthfemale()}
+            </List>
           </View>
-          <PickerView
-            data={dataitem}
-            value={this.state.realtime}
-            onChange={(value) => this.realtime(value)}
-            cascade={false}
-            cols={1}
-          >
-          </PickerView>
 
           <View style={styles.inputbutton}>
             <Button
               onPress={() => this.bazipaipan()}
-              title="八字排盘"
+              title="合盘"
 
             />
 
           </View>
 
         </ScrollView>
+        {
+/*
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
           <TabNavigator.Item
             title={RouteConfig["EightrandomHistoryPage"].name}
@@ -216,84 +244,89 @@ class MarryNewPage extends React.Component {
             titleStyle={StyleConfig.menufont}>
           </TabNavigator.Item>
         </TabNavigator>
+*/
+        }
+
 
       </View>
     )
   }
-  async bazipaipan() {
-    var dataArray = [];
-    dataArray["date"] = this.state.datepicker;
+  buildmale()
+  {
+    var dataArraymale = [];
+    dataArraymale["date"] = this.state.datepickermale;
+    if (undefined == dataArraymale["date"] || "" == dataArraymale["date"]) {
+      dataArraymale["date"] = new Date()
+    }
+    var myDatemale = new Date(dataArraymale["date"])
 
-    //alert(dataArray["date"])
-    dataArray["sex"] = this.state.selectedValue;
-    dataArray["name"] = this.state.Tip
-    //alert(this.state.Tip)
-    if (undefined == dataArray["date"] || "" == dataArray["date"]) {
-      dataArray["date"] = new Date()
-    }
-    var myDate = new Date(dataArray["date"])
-    if (0 != this.state.realtime) {
-      let x = dataitem[0][this.state.realtime];
-      myDate = ZoneTimeModule.getrealsuntime(myDate, x.label)
-    }
-    if (myDate.getHours() >= 23) {
-      //console.log("getHours",myDate.getHours())
-      //myDate.setTime(myDate.getTime() + 60 * 60 * 1000)
-    }
-    if (this.state.switchtype == false) {
+    if (this.state.switchtypemale == false) {
       var isleap = false
-      if (this.state.switchleap == true) {
+      if (this.state.switchleapmale == true) {
         isleap = true;
       }
-      var Json_ret = SixrandomModule.lunar2solar(myDate.getFullYear(), myDate.getMonth() + 1, myDate.getDate(), isleap)
-      console.log("solar2lunar", Json_ret, myDate.getFullYear(), myDate.getMonth() + 1, myDate.getDate())
-      Json_ret_Hours = myDate.getHours();
-      Json_ret_Min = myDate.getMinutes();
-      myDate = Json_ret
-      myDate.setHours(Json_ret_Hours)
-      myDate.setMinutes(Json_ret_Min)
+      var Json_ret = SixrandomModule.lunar2solar(myDatemale.getFullYear(), myDatemale.getMonth() + 1, myDatemale.getDate(), isleap)
+      console.log("solar2lunar", Json_ret, myDatemale.getFullYear(), myDatemale.getMonth() + 1, myDatemale.getDate())
+      Json_ret_Hours = myDatemale.getHours();
+      Json_ret_Min = myDatemale.getMinutes();
+      myDatemale = Json_ret
+      myDatemale.setHours(Json_ret_Hours)
+      myDatemale.setMinutes(Json_ret_Min)
     }
 
-    var EightDate = SixrandomModule.lunar_f(myDate)
+    var EightDatemale = SixrandomModule.lunar_f(myDatemale)
 
-    var index = (new Date()).valueOf().toString();
-    var savedate = new Array()
-    savedate[0] = index;
-    savedate[1] = EightDate.gzYear + EightDate.gzMonth + EightDate.gzDate + EightDate.gzTime;
-    if ('男' == this.state.selectedValue) {
-      savedate[2] = '乾造'
+
+    var savedatemale = new Array()
+    savedatemale[0] = (new Date()).valueOf().toString();
+    savedatemale[1] = EightDatemale.gzYear + EightDatemale.gzMonth + EightDatemale.gzDate + EightDatemale.gzTime;
+    savedatemale[2] = '乾造'
+    savedatemale[3] = ""
+    savedatemale[4] = myDatemale.getFullYear() + "/" + (myDatemale.getMonth() + 1) + "/" + myDatemale.getDate() + " " + myDatemale.getHours() + " " + myDatemale.getMinutes() + " " + myDatemale.getSeconds();
+    return savedatemale
+  }
+  buildfemale()
+  {
+    var dataArrayfemale = [];
+    dataArrayfemale["date"] = this.state.datepickerfemale;
+    if (undefined == dataArrayfemale["date"] || "" == dataArrayfemale["date"]) {
+      dataArrayfemale["date"] = new Date()
     }
-    else {
-      savedate[2] = '坤造'
-    }
-    savedate[3] = "" + this.state.Tip
-    savedate[4] = myDate.getFullYear() + "/" + (myDate.getMonth() + 1) + "/" + myDate.getDate() + " " + myDate.getHours() + " " + myDate.getMinutes() + " " + myDate.getSeconds();
-    console.log(savedate[3])
-    var obj = {}
-    obj.id = savedate[0]
-    obj.ret = savedate[1]
-    obj.tip = this.state.Tip
-    obj.sex = savedate[2]
-    obj.star = false
-    obj.date = savedate[0]
-    obj.birth = savedate[4]
-    obj.kind = "eightrandom"
-    obj.sync = false;
-    var Jstr = JSON.stringify(obj)
-    let T = await UserModule.SyncFileServer(obj.kind, obj.id, Jstr)
-    if (undefined != T && 2000 == T.code) {
-      Jstr = HistoryArrayGroup.MakeJsonSync(Jstr)
+    var myDatefemale = new Date(dataArrayfemale["date"])
+
+    if (this.state.switchtypefemale == false) {
+      var isleap = false
+      if (this.state.switchleapfemale == true) {
+        isleap = true;
+      }
+      var Json_ret = SixrandomModule.lunar2solar(myDatefemale.getFullYear(), myDatefemale.getMonth() + 1, myDatefemale.getDate(), isleap)
+      console.log("solar2lunar", Json_ret, myDatefemale.getFullYear(), myDatefemale.getMonth() + 1, myDatefemale.getDate())
+      Json_ret_Hours = myDatefemale.getHours();
+      Json_ret_Min = myDatefemale.getMinutes();
+      myDatefemale = Json_ret
+      myDatefemale.setHours(Json_ret_Hours)
+      myDatefemale.setMinutes(Json_ret_Min)
     }
 
-    var parameter = "?EightDate=" + savedate[1] + "&sex=" + savedate[2] + "&birth=" + savedate[4] + "&Date=" + savedate[0] + "&rowid=" +obj.id
-    /*
-    2.9.1以后的版本八字停用name库，改用eightrandom库，也不再使用lastname库，未来考虑整体更新数据库
-    */
-    await HistoryArrayGroup.saveid(obj.kind, obj.id, Jstr)
-    //await HistoryArrayGroup.saveid("name",index,savedate)
-    //await HistoryArrayGroup.save("lastname",savedate)
-    HistoryArrayGroup.GetEightRandomHistory()
-    this.props.navigation.navigate('EightrandomMainPage', {"url":parameter})
+    var EightDatefemale = SixrandomModule.lunar_f(myDatefemale)
+
+
+    var savedatefemale = new Array()
+    savedatefemale[0] = (new Date()).valueOf().toString();
+    savedatefemale[1] = EightDatefemale.gzYear + EightDatefemale.gzMonth + EightDatefemale.gzDate + EightDatefemale.gzTime;
+    savedatefemale[2] = '乾造'
+    savedatefemale[3] = ""
+    savedatefemale[4] = myDatefemale.getFullYear() + "/" + (myDatefemale.getMonth() + 1) + "/" + myDatefemale.getDate() + " " + myDatefemale.getHours() + " " + myDatefemale.getMinutes() + " " + myDatefemale.getSeconds();
+    return savedatefemale
+  }
+  async bazipaipan() {
+    
+    var savedatemale = this.buildmale()
+    var savedatefemale = this.buildfemale()
+    var parameter = "?EightDatemale=" + savedatemale[1]  + "&birthmale=" + savedatemale[4] + "&Datemale=" + savedatemale[0]
+    parameter = parameter + "&EightDatefemale=" + savedatefemale[1]  + "&birthfemale=" + savedatefemale[4] + "&Datefemale=" + savedatefemale[0]
+    console.log(parameter)
+    this.props.navigation.navigate('MarryMainPage', {"url":parameter})
   }
 
 }
