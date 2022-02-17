@@ -521,7 +521,7 @@ class EightrandomMainPage extends React.Component {
       x.push(IconConfig.IconTipFire)
       return x
     }
-    else if (-1 != item.indexOf("伤官") || -1 != item.indexOf("酉戌") || -1 != item.indexOf("子未") || -1 != item.indexOf("子午") || -1 != item.indexOf("自刑"))
+    else if (-1 != item.indexOf("伤官") || -1 != item.indexOf("酉戌") || -1 != item.indexOf("子未") || -1 != item.indexOf("子午") || -1 != item.indexOf("自刑")|| -1 != item.indexOf("财星过多"))
     {
       var x = new Array()
       x.push(IconConfig.IconTipFire)
