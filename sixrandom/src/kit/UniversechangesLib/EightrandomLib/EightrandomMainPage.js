@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Animated, ScrollView, Dimensions } from 'react-native';
 import { Grid, Accordion, WhiteSpace, WingBlank, List, Button ,SegmentedControl} from '@ant-design/react-native';
 const Item = List.Item;
 import StorageModule from '../../../config/StorageModule'
@@ -80,6 +80,8 @@ class EightrandomMainPage extends React.Component {
     var daykey = new Array();
 
     this.state = {
+      shareimg:false,
+      fadeInOpacity: new Animated.Value(0.3),
       enhance:"空",
       sex: sex,
       EightDate: EightDate,
@@ -125,6 +127,9 @@ class EightrandomMainPage extends React.Component {
       },
       200
     );
+    this.timerinterval = setInterval(() => {
+      this.setState({ fadeInOpacity: new Animated.Value(0.3) })
+    }, 1000 * 3);
 
   }
 
@@ -132,6 +137,7 @@ class EightrandomMainPage extends React.Component {
     // 如果存在this.timer，则使用clearTimeout清空。
     // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
     this.timer && clearInterval(this.timer);
+    this.timerinterval && clearInterval(this.timerinterval);
   }
 
   static navigationOptions = ({ navigation }) => {
@@ -767,7 +773,8 @@ class EightrandomMainPage extends React.Component {
     base.push("起运: " + this.state.beginlucky)
     base.push("命卦: " + locationself)
 
-
+    Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000 ,useNativeDriver: true}), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000 ,useNativeDriver: true})]).start()
+   
 
 
     return (
@@ -950,10 +957,14 @@ class EightrandomMainPage extends React.Component {
                 </Accordion.Panel >
                 <Accordion.Panel header="婚姻提示" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
-                    {marryinfo.map(item => {
-                      return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{this.tipfire(item)}</Text>)
-                    })}
+                    <Animated.View style={{ opacity: this.state.fadeInOpacity }}>
+                      <View>
+                        {marryinfo.map(item => {
+                          return (
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{this.tipfire(item)}</Text>)
+                        })}
+                      </View>
+                    </Animated.View>
                   </List>
                 </Accordion.Panel >
               </Accordion>
