@@ -98,6 +98,8 @@ class MarryMainPage extends React.Component {
 
     this.state = {
       gzxkmale:"",
+      shareimg:false,
+      fadeInOpacity: new Animated.Value(0.3),
       gzxkfemale:"",
       EightDatemale: "",
       EightDatefemale: "",
@@ -154,13 +156,16 @@ class MarryMainPage extends React.Component {
       },
       200
     );
-
+    this.timerinterval = setInterval(() => {
+      this.setState({ fadeInOpacity: new Animated.Value(0.3) })
+    }, 1000 * 3);
   }
 
   componentWillUnmount() {
     // 如果存在this.timer，则使用clearTimeout清空。
     // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
     this.timer && clearInterval(this.timer);
+    this.timerinterval && clearInterval(this.timerinterval);
   }
 
   static navigationOptions = ({ navigation }) => {
@@ -533,50 +538,7 @@ class MarryMainPage extends React.Component {
     }
   }
 
-  tipfire(item)
-  { 
-    if(-1 != item.indexOf("辰戌") && -1 != item.indexOf("宫"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-    else if (-1 != item.indexOf("辰戌") || -1 != item.indexOf("难解"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-    else if (-1 != item.indexOf("伤官") || -1 != item.indexOf("酉戌") || -1 != item.indexOf("子未") || -1 != item.indexOf("子午") || -1 != item.indexOf("自刑")|| -1 != item.indexOf("财星过多"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-    else if (-1 != item.indexOf("卯辰") || -1 != item.indexOf("无官星"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-    else if (-1 != item.indexOf("害") || -1 != item.indexOf("破")|| -1 != item.indexOf("冲")|| -1 != item.indexOf("可解"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-
-  }
+  
 
   render() {
 
@@ -607,8 +569,8 @@ class MarryMainPage extends React.Component {
     var gzYear = eightyear.gzYear
     //计算大运，流年，原句的所有冲克信息
     console.log("curluckyearmale", this.state.luckyyear, this.state.curluckyearnum)
-    var r = EightrandomModule.getrelationship(this.state.EightDatemale, gzYear[1], curluckyearmale,"乾造")
-
+    var rmale = EightrandomModule.getrelationship(this.state.EightDatemale, gzYear[1], curluckyearmale,"乾造")
+    var rfemale = EightrandomModule.getrelationship(this.state.EightDatefemale, gzYear[1], curluckyearfemale,"坤造")
     const { navigate } = this.props.navigation;
 
     jump = false;
@@ -732,38 +694,73 @@ class MarryMainPage extends React.Component {
     years = luckyearrelation.concat(yearsnumber, this.state.luckyyearmale, luckyyearposition)
     //console.log("years", years, luckyearrelation, this.state.luckyyear, luckyyearposition)
 
-    var five = new Array();
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>木</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>火</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>土</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>金</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>水</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>甲:{this.state.daykeymale['甲']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丙:{this.state.daykeymale['丙']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>戊:{this.state.daykeymale['戊']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>庚:{this.state.daykeymale['庚']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>壬:{this.state.daykeymale['壬']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>乙:{this.state.daykeymale['乙']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丁:{this.state.daykeymale['丁']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>己:{this.state.daykeymale['己']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>辛:{this.state.daykeymale['辛']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>癸:{this.state.daykeymale['癸']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{this.state.precentmale[5]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{this.state.precentmale[6]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{this.state.precentmale[7]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{this.state.precentmale[8]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{this.state.precentmale[9]}%</Text>)
+    var fivemale = new Array();
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>木</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>火</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>土</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>金</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>水</Text>)
+    /*
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>甲:{this.state.daykeymale['甲']}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丙:{this.state.daykeymale['丙']}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>戊:{this.state.daykeymale['戊']}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>庚:{this.state.daykeymale['庚']}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>壬:{this.state.daykeymale['壬']}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>乙:{this.state.daykeymale['乙']}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丁:{this.state.daykeymale['丁']}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>己:{this.state.daykeymale['己']}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>辛:{this.state.daykeymale['辛']}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>癸:{this.state.daykeymale['癸']}</Text>)
+    */
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{this.state.precentmale[5]}%</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{this.state.precentmale[6]}%</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{this.state.precentmale[7]}%</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{this.state.precentmale[8]}%</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{this.state.precentmale[9]}%</Text>)
     var fivepowermale = EightrandomModule.geikeypower(this.state.EightDatemale[3]);
     var fivepowerfemale = EightrandomModule.geikeypower(this.state.EightDatefemale[3]);
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{fivepowermale[0]}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{fivepowermale[1]}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{fivepowermale[2]}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{fivepowermale[3]}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{fivepowermale[4]}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{fivepowermale[0]}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{fivepowermale[1]}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{fivepowermale[2]}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{fivepowermale[3]}</Text>)
+    fivemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{fivepowermale[4]}</Text>)
+    //console.log("five",five)
+
+    var fivefemale = new Array();
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>木</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>火</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>土</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>金</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>水</Text>)
+    /*
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>甲:{this.state.daykeymale['甲']}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丙:{this.state.daykeymale['丙']}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>戊:{this.state.daykeymale['戊']}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>庚:{this.state.daykeymale['庚']}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>壬:{this.state.daykeymale['壬']}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>乙:{this.state.daykeymale['乙']}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丁:{this.state.daykeymale['丁']}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>己:{this.state.daykeymale['己']}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>辛:{this.state.daykeymale['辛']}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>癸:{this.state.daykeymale['癸']}</Text>)
+    */
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{this.state.precentfemale[5]}%</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{this.state.precentfemale[6]}%</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{this.state.precentfemale[7]}%</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{this.state.precentfemale[8]}%</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{this.state.precentfemale[9]}%</Text>)
+    var fivepowermale = EightrandomModule.geikeypower(this.state.EightDatemale[3]);
+    var fivepowerfemale = EightrandomModule.geikeypower(this.state.EightDatefemale[3]);
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{fivepowerfemale[0]}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{fivepowerfemale[1]}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{fivepowerfemale[2]}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{fivepowerfemale[3]}</Text>)
+    fivefemale.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{fivepowerfemale[4]}</Text>)
     //console.log("five",five)
 
 
-    var day = EightrandomModule.getselfinfo(this.state.EightDatemale[4] + this.state.EightDatemale[5])
+    var daymale = EightrandomModule.getselfinfo(this.state.EightDatemale[4] + this.state.EightDatemale[5])
+    var dayfemale = EightrandomModule.getselfinfo(this.state.EightDatefemale[4] + this.state.EightDatefemale[5])
 
     var shensha = new Array()
     /*
@@ -791,16 +788,20 @@ class MarryMainPage extends React.Component {
     }
     */
 
-    var marryinfo = EightrandomModule.getmarryinfo(this.state.EightDatemale, this.state.sex, r, this.state.buildeight)
-
+    var marryinfomale = EightrandomModule.getmarryinfo(this.state.EightDatemale, "乾造",rmale, this.state.buildeightmale)
+    var marryinfofemale = EightrandomModule.getmarryinfo(this.state.EightDatefemale, "坤造", rfemale, this.state.buildeightfemale)
     var locationselfmale = EightrandomModule.getlocationself(curyearmale,  0 )
     var locationselffemale = EightrandomModule.getlocationself(curyearfemale,  1)
-    var house = EightrandomModule.gethouselocation(locationselfmale)
+    var housemale = EightrandomModule.gethouselocation(locationselfmale)
     var housefemale = EightrandomModule.gethouselocation(locationselffemale)
-    var home = new Array()
-    home = home.concat(day.self)
-    home = home.concat(day.tip)
-    home = home.concat(house)
+    var homemale = new Array()
+    homemale = homemale.concat(daymale.self)
+    homemale = homemale.concat(daymale.tip)
+    homemale = homemale.concat(housemale)
+    var homefemale = new Array()
+    homefemale = homefemale.concat(dayfemale.self)
+    homefemale = homefemale.concat(dayfemale.tip)
+    homefemale = homefemale.concat(housefemale)
     console.log("locationself", locationselfmale)
     var base = new Array()
     base.push(["命  造:","乾造","坤造"] )
@@ -811,12 +812,34 @@ class MarryMainPage extends React.Component {
     base.push(["命  卦:",locationselfmale,locationselffemale ])
     base.push(["日  元:",this.state.EightDatemale[4],this.state.EightDatefemale[4]])
     base.push(["日  支:",this.state.EightDatemale[5],this.state.EightDatefemale[5]])
+    const kind = "木火土金水"
+    var ret_male = ""
+    var ret_female = ""
 
-    var ret_male = EightrandomModule.gettwelfth(this.state.EightDatemale[0] + this.state.EightDatemale[1])
-    var ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])
+    for(var i=0;i<5;i++){
+      if( this.state.precentmale[i+5]>20){ret_male=  ret_male + kind[i] + (Math.floor(this.state.precentmale[i+5]-20)).toString() }
+      if( this.state.precentfemale[i+5]>20){ret_female= ret_female + kind[i]+ (Math.floor(this.state.precentfemale[i+5]-20)).toString()}
+    }
+    base.push(["势  气:",ret_male,ret_female])
+
+    const daykey = "甲乙丙丁戊己庚辛壬癸"
+    var maleindex = Math.floor(daykey.indexOf(this.state.EightDatemale[4])/2)
+    var femaleindex = Math.floor(daykey.indexOf(this.state.EightDatefemale[4])/2)
+    var assistmaleindex = (maleindex - 1 + 4)%4
+    var assistfemaleindex = (femaleindex - 1  + 4)%4
+    var helpmale = Math.floor(50-this.state.precentmale[maleindex+5] - this.state.precentmale[assistmaleindex+5])
+    var helpfemale = Math.floor(50-this.state.precentfemale[femaleindex+5] - this.state.precentfemale[assistfemaleindex+5])
+    
+    var daykeymale = kind
+    var checkhelpmale = (helpmale>=0?kind[maleindex]+kind[assistmaleindex]:daykeymale.replace(kind[assistmaleindex],"").replace(kind[maleindex],""))+Math.abs(helpmale).toString();
+    var checkhelpfemale =  (helpfemale>=0?kind[femaleindex]+kind[assistfemaleindex]:daykeymale.replace(kind[assistfemaleindex],"").replace(kind[femaleindex],""))+Math.abs(helpfemale).toString();
+    base.push(["喜  忌:",checkhelpmale,checkhelpfemale])
+
+     ret_male = EightrandomModule.gettwelfth(this.state.EightDatemale[0] + this.state.EightDatemale[1])
+     ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])
     base.push(["纳  音:",ret_male,ret_female])
     base.push(["大  运:",curluckyearmale[0]+curluckyearmale[1],curluckyearfemale[0]+curluckyearfemale[1]])
-    const kind = "木火土金水"
+
     ret_male = ""
     ret_female = ""
     for(var i=0;i<5;i++){
@@ -824,16 +847,11 @@ class MarryMainPage extends React.Component {
       if(fivepowerfemale[i]=="旺"){ret_female=kind[i]}
     }
     base.push(["月  令:",ret_male,ret_female])
-    ret_male = this.state.precentmale[5]
-    ret_female = this.state.precentfemale[5]
-    var ret_male_five = ""
-    var ret_female_five = ""
-    for(var i=0;i<5;i++){
-      if( this.state.precentmale[i+5]>ret_male){ret_male=this.state.precentmale[i+5],ret_male_five = kind[i]}
-      if( this.state.precentmale[i+5]>ret_female){ret_female=this.state.precentfemale[i+5],ret_female_five = kind[i]}
-    }
-    base.push(["势  气:",ret_male_five+ret_male,ret_female_five+ret_female])
-    base.push(["喜  忌:",ret_male_five+ret_male,ret_female_five+ret_female])
+    base.push(["年  柱:",this.state.EightDatemale[0] + this.state.EightDatemale[1],this.state.EightDatefemale[0] + this.state.EightDatefemale[1]])
+    base.push(["月  柱:",this.state.EightDatemale[2] + this.state.EightDatemale[3],this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
+    base.push(["生  肖:",this.state.EightDatemale[1],this.state.EightDatefemale[1]])
+    Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000 ,useNativeDriver: true}), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000 ,useNativeDriver: true})]).start()
+   
 
     return (
       <View style={styles.container} >
@@ -929,9 +947,9 @@ class MarryMainPage extends React.Component {
                         </View>
                       )} /></View>
                 </Accordion.Panel >
-                <Accordion.Panel header="五行衰旺" styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header="乾造衰旺" styles={{ backgroundColor: '#ffffff'}}>
                   <Grid
-                    data={five}
+                    data={fivemale}
                     columnNum={5}
                     hasLine={false}
                     itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
@@ -945,44 +963,56 @@ class MarryMainPage extends React.Component {
                   />
 
                 </Accordion.Panel >
-                <Accordion.Panel header="八字冲克" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="坤造衰旺" styles={{ backgroundColor: '#ffffff'}}>
+                  <Grid
+                    data={fivefemale}
+                    columnNum={5}
+                    hasLine={false}
+                    itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
+                    renderItem={dataItem => (
+                      <View style={styles.container}>
+                        <View style={[styles.grid, { fontSize: FontStyleConfig.getFontApplySize() + 12 }]}>
+                          {dataItem}
+                        </View>
+                      </View>
+                    )}
+                  />
+
+                </Accordion.Panel >
+
+                <Accordion.Panel header="元男信息" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
-                    {r.dr.map(item => {
-                      return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}</Text>)
-                    })}
-                    {r.er.map(item => {
-                      return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}</Text>)
-                    })}
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homemale[0]}</Text>
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homemale[1]}</Text>
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homemale[2]}</Text>
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="流年大运" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="元女信息" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
-                    {r.lr.map(item => {
-                      return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 ,textAlign: 'justify'}}>{item}</Text>)
-                    })}
-                    {r.br.map(item => {
-                      return (
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{item}</Text>)
-                    })}
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homefemale[0]}</Text>
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homefemale[1]}</Text>
+                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homefemale[2]}</Text>
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="日柱信息" styles={{ backgroundColor: '#ffffff' }}>
-                  <List>
-                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{home[0]}</Text>
-                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{home[1]}</Text>
-                    <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{home[2]}</Text>
-                  </List>
-                </Accordion.Panel >
-                <Accordion.Panel header="婚姻提示" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="男命婚姻" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     <Animated.View style={{ opacity: this.state.fadeInOpacity }}>
                       <View>
-                        {marryinfo.map(item => {
+                        {marryinfomale.map(item => {
                           return (
-                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{this.tipfire(item)}</Text>)
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{EightrandomModule.tipfire(item)}</Text>)
+                        })}
+                      </View>
+                    </Animated.View>
+                  </List>
+                </Accordion.Panel >
+                <Accordion.Panel header="女命婚姻" styles={{ backgroundColor: '#ffffff' }}>
+                  <List>
+                    <Animated.View style={{ opacity: this.state.fadeInOpacity }}>
+                      <View>
+                        {marryinfofemale.map(item => {
+                          return (
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{EightrandomModule.tipfire(item)}</Text>)
                         })}
                       </View>
                     </Animated.View>

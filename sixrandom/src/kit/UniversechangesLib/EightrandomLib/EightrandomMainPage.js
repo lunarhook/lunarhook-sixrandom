@@ -506,50 +506,7 @@ class EightrandomMainPage extends React.Component {
       )
     }
   }
-  tipfire(item)
-  { 
-    if(-1 != item.indexOf("辰戌") && -1 != item.indexOf("宫"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-    else if (-1 != item.indexOf("辰戌") || -1 != item.indexOf("难解"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-    else if (-1 != item.indexOf("伤官") || -1 != item.indexOf("酉戌") || -1 != item.indexOf("子未") || -1 != item.indexOf("子午") || -1 != item.indexOf("自刑")|| -1 != item.indexOf("财星过多"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-    else if (-1 != item.indexOf("卯辰") || -1 != item.indexOf("无官星"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-    else if (-1 != item.indexOf("害") || -1 != item.indexOf("破")|| -1 != item.indexOf("冲")|| -1 != item.indexOf("可解"))
-    {
-      var x = new Array()
-      x.push(IconConfig.IconTipFire)
-      return x
-    }
-
-  }
+  
 
   render() {
 
@@ -961,7 +918,7 @@ class EightrandomMainPage extends React.Component {
                       <View>
                         {marryinfo.map(item => {
                           return (
-                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{this.tipfire(item)}</Text>)
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{EightrandomModule.tipfire(item)}</Text>)
                         })}
                       </View>
                     </Animated.View>

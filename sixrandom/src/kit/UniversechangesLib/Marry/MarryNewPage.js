@@ -14,15 +14,13 @@ import RouteConfig from '../../../config/RouteConfig';
 import ScreenConfig from '../../../config/ScreenConfig';
 import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
 import UserModule from '../../../config/UserModule'
-var dataitem = ZoneTimeModule.getlocationlist()
 class MarryNewPage extends React.Component {
 
   constructor(porp) {
-    var curday = new Date();
     super(porp);
     this.state = {
-      datepickermale: "",
-      datepickerfemale: "",
+      datepickermale: new Date(),
+      datepickerfemale: new Date(),
       switchtypemale: true,
       switchtypefemale: true,
       datatypemale: "公历",
@@ -31,8 +29,8 @@ class MarryNewPage extends React.Component {
       switchleapfemale: false,
       leaptypemale: "常年",
       leaptypefemale: "常年",
-      valuemale: curday,
-      valuefemale: curday,
+      valuemale: new Date('1980-11-05 08:00:00'),
+      valuefemale:new Date('1980-11-05 08:00:00'),
     }
 
   }
@@ -119,14 +117,14 @@ class MarryNewPage extends React.Component {
   onChangetimemale = (value: any) => {
     console.log(value);
     var cur = new Date(value)
-    this.setState({ value:cur });
+    this.setState({ valuemale:cur });
     var selecttime = new Date(cur)
     this.setState({ datepickermale: selecttime })
   }
   onChangetimefemale = (value: any) => {
     console.log(value);
     var cur = new Date(value)
-    this.setState({ value:cur });
+    this.setState({ valuefemale:cur });
     var selecttime = new Date(cur)
     this.setState({ datepickerfemale: selecttime })
   }
@@ -145,7 +143,8 @@ class MarryNewPage extends React.Component {
             <List style={styles.inputpicker}>
               <DatePicker
                 backgroundColor='#ff00ff'
-                value={this.state.valuemale}
+                value={this.state.datepickermale}
+                //value={new Date('1980-11-05 08:00:00')}
                 mode="date"
                 minDate={new Date(1900, 1, 1)}
                 //maxDate={new Date(2026, 11, 3)}
@@ -159,7 +158,8 @@ class MarryNewPage extends React.Component {
               </DatePicker>
               <DatePicker
                 backgroundColor='#ff00ff'
-                value={this.state.valuemale}
+                value={this.state.datepickermale}
+                //value={new Date('1979-10-16 08:00:00')}
                 mode="time"
                 minDate={new Date(1900, 1, 1)}
                 //maxDate={new Date(2026, 11, 3)}
@@ -185,7 +185,8 @@ class MarryNewPage extends React.Component {
             <List style={styles.inputpicker}>
               <DatePicker
                 backgroundColor='#ff00ff'
-                value={this.state.valuefemale}
+                value={this.state.datepickerfemale}
+                //value={new Date('1979-10-16 08:00:00')}
                 mode="date"
                 minDate={new Date(1900, 1, 1)}
                 //maxDate={new Date(2026, 11, 3)}
@@ -199,7 +200,8 @@ class MarryNewPage extends React.Component {
               </DatePicker>
               <DatePicker
                 backgroundColor='#ff00ff'
-                value={this.state.valuefemale}
+                value={this.state.datepickerfemale}
+                //value={new Date('1979-10-16 08:00:00')}
                 mode="time"
                 minDate={new Date(1900, 1, 1)}
                 //maxDate={new Date(2026, 11, 3)}
