@@ -591,48 +591,87 @@ class MarryMainPage extends React.Component {
 
     //console.log(minluckyyear)
 
-    var test = new Array()
-    test.push({ info: "时辰", hide: '' })
-    test.push({ info: "大运", hide: '' })
-    test.push({ info: "流年", hide: '' })
-    test.push({ info: "年柱", hide: '' })
-    test.push({ info: "月柱", hide: '' })
-    test.push({ info: "日柱", hide: '' })
-    test.push({ info: "时柱", hide: '' })
+    var testmale = new Array()
+    testmale.push({ info: "时辰", hide: '' })
+    testmale.push({ info: "大运", hide: '' })
+    testmale.push({ info: "流年", hide: '' })
+    testmale.push({ info: "年柱", hide: '' })
+    testmale.push({ info: "月柱", hide: '' })
+    testmale.push({ info: "日柱", hide: '' })
+    testmale.push({ info: "时柱", hide: '' })
 
-    test.push({ info: "十神", hide: '' })
+    testmale.push({ info: "十神", hide: '' })
     //console.log(gzYear[0],this.state.EightDatemale[4])
-    test.push({ info: EightrandomModule.parentday(curluckyearmale[0], this.state.EightDatemale[4]), hide: '' })
-    test.push({ info: EightrandomModule.parentday(gzYear[0], this.state.EightDatemale[4]), hide: '' })
+    testmale.push({ info: EightrandomModule.parentday(curluckyearmale[0], this.state.EightDatemale[4]), hide: '' })
+    testmale.push({ info: EightrandomModule.parentday(gzYear[0], this.state.EightDatemale[4]), hide: '' })
     for (var i = 0; i < 4; i++) {
-      test.push({ info: this.state.buildeightmale[i * 2], hide: '' })
+      testmale.push({ info: this.state.buildeightmale[i * 2], hide: '' })
     }
 
-    test.push({ info: "天干", hide: '' })
-    test.push({ info: curluckyearmale[0], hide: '' })
-    test.push({ info: gzYear[0], hide: '' })
+    testmale.push({ info: "天干", hide: '' })
+    testmale.push({ info: curluckyearmale[0], hide: '' })
+    testmale.push({ info: gzYear[0], hide: '' })
     for (var i = 0; i < 4; i++) {
-      test.push({ info: this.state.EightDatemale[i * 2], hide: '' })
+      testmale.push({ info: this.state.EightDatemale[i * 2], hide: '' })
     }
 
-    test.push({ info: "地支", hide: '' })
-    test.push({ info: curluckyearmale[1], hide: "" })
-    test.push({ info: gzYear[1], hide: "" })
+    testmale.push({ info: "地支", hide: '' })
+    testmale.push({ info: curluckyearmale[1], hide: "" })
+    testmale.push({ info: gzYear[1], hide: "" })
     for (var i = 0; i < 4; i++) {
-      test.push({ info: this.state.EightDatemale[i * 2 + 1], hide: "" })
+      testmale.push({ info: this.state.EightDatemale[i * 2 + 1], hide: "" })
     }
 
-    test.push({ info: "十神", hide: '' })
-    test.push({ info: EightrandomModule.parentearth(curluckyearmale[1], this.state.EightDatemale[4]), hide: "" })
-    test.push({ info: EightrandomModule.parentearth(gzYear[1], this.state.EightDatemale[4]), hide: "" })
+    testmale.push({ info: "十神", hide: '' })
+    testmale.push({ info: EightrandomModule.parentearth(curluckyearmale[1], this.state.EightDatemale[4]), hide: "" })
+    testmale.push({ info: EightrandomModule.parentearth(gzYear[1], this.state.EightDatemale[4]), hide: "" })
 
     for (var i = 0; i < 4; i++) {
-      test.push({ info: this.state.buildeightmale[i * 2 + 1], hide: "" })
+      testmale.push({ info: this.state.buildeightmale[i * 2 + 1], hide: "" })
     }
 
-    var test1 = new Array()
-    /*
-    test1.push({ info: ["", "藏干"], hide: '' })
+    var testfemale = new Array()
+    testfemale.push({ info: "时辰", hide: '' })
+    testfemale.push({ info: "大运", hide: '' })
+    testfemale.push({ info: "流年", hide: '' })
+    testfemale.push({ info: "年柱", hide: '' })
+    testfemale.push({ info: "月柱", hide: '' })
+    testfemale.push({ info: "日柱", hide: '' })
+    testfemale.push({ info: "时柱", hide: '' })
+
+    testfemale.push({ info: "十神", hide: '' })
+    //console.log(gzYear[0],this.state.EightDatemale[4])
+    testfemale.push({ info: EightrandomModule.parentday(curluckyearfemale[0], this.state.EightDatefemale[4]), hide: '' })
+    testfemale.push({ info: EightrandomModule.parentday(gzYear[0], this.state.EightDatefemale[4]), hide: '' })
+    for (var i = 0; i < 4; i++) {
+      testfemale.push({ info: this.state.buildeightfemale[i * 2], hide: '' })
+    }
+
+    testfemale.push({ info: "天干", hide: '' })
+    testfemale.push({ info: curluckyearfemale[0], hide: '' })
+    testfemale.push({ info: gzYear[0], hide: '' })
+    for (var i = 0; i < 4; i++) {
+      testfemale.push({ info: this.state.EightDatefemale[i * 2], hide: '' })
+    }
+
+    testfemale.push({ info: "地支", hide: '' })
+    testfemale.push({ info: curluckyearfemale[1], hide: "" })
+    testfemale.push({ info: gzYear[1], hide: "" })
+    for (var i = 0; i < 4; i++) {
+      testfemale.push({ info: this.state.EightDatefemale[i * 2 + 1], hide: "" })
+    }
+
+    testfemale.push({ info: "十神", hide: '' })
+    testfemale.push({ info: EightrandomModule.parentearth(curluckyearfemale[1], this.state.EightDatefemale[4]), hide: "" })
+    testfemale.push({ info: EightrandomModule.parentearth(gzYear[1], this.state.EightDatefemale[4]), hide: "" })
+
+    for (var i = 0; i < 4; i++) {
+      testfemale.push({ info: this.state.buildeightfemale[i * 2 + 1], hide: "" })
+    }
+
+    var test1male = new Array()
+    
+    test1male.push({ info: ["", "藏干"], hide: '' })
     var hidelist = EightrandomModule.gethide(curluckyearmale[1])
     hidelist = hidelist.split("")
     var hindinfo = new Array()
@@ -640,7 +679,7 @@ class MarryMainPage extends React.Component {
 
       hindinfo.push(element + EightrandomModule.parentday(element, this.state.EightDatemale[4]))
     });
-    test1.push({ info: hindinfo, hide: "" })
+    test1male.push({ info: hindinfo, hide: "" })
 
     hidelist = EightrandomModule.gethide(gzYear[1])
     hidelist = hidelist.split("")
@@ -648,7 +687,7 @@ class MarryMainPage extends React.Component {
     hidelist.forEach(element => {
       hindinfo.push(element + EightrandomModule.parentday(element, this.state.EightDatemale[4]))
     });
-    test1.push({ info: hindinfo, hide: "" })
+    test1male.push({ info: hindinfo, hide: "" })
     for (var i = 0; i < 4; i++) {
       hidelist = this.state.buildeightExtmale[i * 2]
       hidelist = hidelist.split("")
@@ -656,34 +695,81 @@ class MarryMainPage extends React.Component {
       hidelist.forEach(element => {
         hindinfo.push(element + EightrandomModule.parentday(element, this.state.EightDatemale[4]))
       });
-      test1.push({ info: hindinfo, hide: "" })
+      test1male.push({ info: hindinfo, hide: "" })
+    }
+
+    var test1female = new Array()
+    
+    test1female.push({ info: ["", "藏干"], hide: '' })
+    var hidelist = EightrandomModule.gethide(curluckyearfemale[1])
+    hidelist = hidelist.split("")
+    var hindinfo = new Array()
+    hidelist.forEach(element => {
+
+      hindinfo.push(element + EightrandomModule.parentday(element, this.state.EightDatefemale[4]))
+    });
+    test1female.push({ info: hindinfo, hide: "" })
+
+    hidelist = EightrandomModule.gethide(gzYear[1])
+    hidelist = hidelist.split("")
+    hindinfo = new Array()
+    hidelist.forEach(element => {
+      hindinfo.push(element + EightrandomModule.parentday(element, this.state.EightDatefemale[4]))
+    });
+    test1female.push({ info: hindinfo, hide: "" })
+    for (var i = 0; i < 4; i++) {
+      hidelist = this.state.buildeightExtfemale[i * 2]
+      hidelist = hidelist.split("")
+      hindinfo = new Array()
+      hidelist.forEach(element => {
+        hindinfo.push(element + EightrandomModule.parentday(element, this.state.EightDatefemale[4]))
+      });
+      test1female.push({ info: hindinfo, hide: "" })
     }
     /*
-        test.push({ info: "副星", hide: '' })
-        test.push({ info: EightrandomModule.gethide(curluckyearmale[1]) + EightrandomModule.parentearth(curluckyearmale[1], this.state.EightDatemale[4]), hide: "" })
-        test.push({ info: EightrandomModule.gethide(gzYear[1]) + EightrandomModule.parentearth(gzYear[1], this.state.EightDatemale[4]), hide: "" })
+        testmale.push({ info: "副星", hide: '' })
+        testmale.push({ info: EightrandomModule.gethide(curluckyearmale[1]) + EightrandomModule.parentearth(curluckyearmale[1], this.state.EightDatemale[4]), hide: "" })
+        testmale.push({ info: EightrandomModule.gethide(gzYear[1]) + EightrandomModule.parentearth(gzYear[1], this.state.EightDatemale[4]), hide: "" })
     
         for (var i = 0; i < 4; i++) {
-          test.push({ info: this.state.buildeightExt[i * 2] + this.state.buildeight[i * 2 + 1], hide: this.state.buildeightExt[i * 2 + 1] })
+          testmale.push({ info: this.state.buildeightExt[i * 2] + this.state.buildeight[i * 2 + 1], hide: this.state.buildeightExt[i * 2 + 1] })
         }
     */
 
-    var test2 = new Array()
+    var test2male = new Array()
     /*
-    test2.push({ info: "长生", hide: '' })
-    test2.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + curluckyearmale[1]), hide: '' })
-    test2.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + gzYear[1]), hide: '' })
+    test2male.push({ info: "长生", hide: '' })
+    test2male.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + curluckyearmale[1]), hide: '' })
+    test2male.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + gzYear[1]), hide: '' })
     for (var i = 0; i < 4; i++) {
       var x = EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[i * 2 + 1])
-      test2.push({ info: x, hide: "" })
+      test2male.push({ info: x, hide: "" })
     }
     */
-    test2.push({ info: "纳音", hide: '' })
-    test2.push({ info: EightrandomModule.gettwelfth(curluckyearmale[0] + curluckyearmale[1]), hide: '' })
-    test2.push({ info: EightrandomModule.gettwelfth(gzYear[0] + gzYear[1]), hide: '' })
+    test2male.push({ info: "纳音", hide: '' })
+    test2male.push({ info: EightrandomModule.gettwelfth(curluckyearmale[0] + curluckyearmale[1]), hide: '' })
+    test2male.push({ info: EightrandomModule.gettwelfth(gzYear[0] + gzYear[1]), hide: '' })
     for (var i = 0; i < 4; i++) {
       var x = EightrandomModule.gettwelfth(this.state.EightDatemale[i * 2] + this.state.EightDatemale[i * 2 + 1])
-      test2.push({ info: x, hide: "" })
+      test2male.push({ info: x, hide: "" })
+    }
+
+    var test2female = new Array()
+    /*
+    test2female.push({ info: "长生", hide: '' })
+    test2female.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + curluckyearfemale[1]), hide: '' })
+    test2female.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + gzYear[1]), hide: '' })
+    for (var i = 0; i < 4; i++) {
+      var x = EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatemale[i * 2 + 1])
+      test2female.push({ info: x, hide: "" })
+    }
+    */
+    test2female.push({ info: "纳音", hide: '' })
+    test2female.push({ info: EightrandomModule.gettwelfth(curluckyearfemale[0] + curluckyearfemale[1]), hide: '' })
+    test2female.push({ info: EightrandomModule.gettwelfth(gzYear[0] + gzYear[1]), hide: '' })
+    for (var i = 0; i < 4; i++) {
+      var x = EightrandomModule.gettwelfth(this.state.EightDatefemale[i * 2] + this.state.EightDatefemale[i * 2 + 1])
+      test2female.push({ info: x, hide: "" })
     }
 
     var yearsnumber = new Array()
@@ -859,7 +945,7 @@ class MarryMainPage extends React.Component {
           <View style={styles.container} >
             <WingBlank size="lg" style={{ backgroundColor: '#ffffff' }}>
               <Accordion onChange={this.onChange} activeSections={this.state.activeSections} styles={{ backgroundColor: '#ffffff'}}>
-                <Accordion.Panel header={"八字排盘"} styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header={"合婚排盘"} styles={{ backgroundColor: '#ffffff'}}>
                   <View>
                     <Grid
                       data={base}
@@ -875,8 +961,12 @@ class MarryMainPage extends React.Component {
                           </View>)
                       }} />
                     <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+                    </View>
+                    </Accordion.Panel >
+                <Accordion.Panel header={"男命排盘"} styles={{ backgroundColor: '#ffffff'}}>
+                <View>
                     <Grid
-                      data={test}
+                      data={testmale}
                       columnNum={7}
                       hasLine={false}
                       itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
@@ -903,7 +993,7 @@ class MarryMainPage extends React.Component {
                         }
                       }} />
                     <Grid
-                      data={test1}
+                      data={test1male}
                       columnNum={7}
                       hasLine={false}
                       itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 ,backgroundColor: '#ffffff'}}
@@ -922,7 +1012,82 @@ class MarryMainPage extends React.Component {
                             </View>)})
                       )} />
                     <Grid
-                      data={test2}
+                      data={test2male}
+                      columnNum={7}
+                      hasLine={false}
+                      itemStyle={{ height: 25 }}
+                      renderItem={dataItem => (
+
+                        <View style={styles.container}>
+                          <View style={styles.grid}>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center" }}>  {dataItem.info}</Text>
+                          </View>
+                        </View>
+                      )} /><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+                    <Grid
+                      data={shensha}
+                      columnNum={1}
+                      hasLine={false}
+                      itemStyle={{ height: 25, alignItems: "flex-start" }}
+                      renderItem={dataItem => (
+                        <View style={styles.container}>
+                          <View style={styles.grid}>
+                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {dataItem}</Text>
+                          </View>
+                        </View>
+                      )} /></View>
+                </Accordion.Panel >
+                <Accordion.Panel header={"女命排盘"} styles={{ backgroundColor: '#ffffff'}}>
+                  <View>
+                    
+                    <Grid
+                      data={testfemale}
+                      columnNum={7}
+                      hasLine={false}
+                      itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
+                      renderItem={dataItem => {
+                        if (undefined != dataItem.info && dataItem.info.length === 3) {
+                          const a = dataItem.info.forEach(element => {
+                            <View>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {element}</Text>
+                            </View>
+                          })
+                          return (
+                            <View style={{ height: 90 }}>
+                              {a}
+                            </View>
+                          )
+                        } else {
+                          return (
+                            <View style={styles.container}>
+                              <View style={styles.grid}>
+                                <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {this.getColor(dataItem.info, FontStyleConfig.getFontApplySize() + 14 + 4)}</Text>
+                              </View>
+                            </View>
+                          )
+                        }
+                      }} />
+                    <Grid
+                      data={test1female}
+                      columnNum={7}
+                      hasLine={false}
+                      itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 ,backgroundColor: '#ffffff'}}
+                      renderItem={dataItem => (
+                        dataItem.info.map((item, idx) => {
+                          if (3 === item.length) {
+                            return (
+                              <View key={idx} style={{ flexDirection: "row" ,textAlignVertical:"center",alignItems:"center",backgroundColor: '#ffffff'}}>
+                                {this.getColor(item[0], FontStyleConfig.getFontApplySize() + 14)}
+                                <Text style={{ justifyContent: 'space-around', fontSize: FontStyleConfig.getFontApplySize() + 14 ,backgroundColor: '#ffffff'}}>  {item[1] + item[2]}</Text>
+                              </View>)
+                          }
+                          return (
+                            <View key={idx} >
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center", textAlignVertical: "center" ,backgroundColor: '#ffffff'}}>  {item}</Text>
+                            </View>)})
+                      )} />
+                    <Grid
+                      data={test2female}
                       columnNum={7}
                       hasLine={false}
                       itemStyle={{ height: 25 }}
