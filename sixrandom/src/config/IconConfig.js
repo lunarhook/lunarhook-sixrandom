@@ -128,7 +128,7 @@ class IconConfig extends React.Component {
   static IconLunarchanges = (<Ionicons name="md-aperture" size={size} color={claygreen} />)
   static IconLunaranswer = (<Ionicons name="ios-bonfire" size={size} color="#06F" />)
   static IconLunask = (<FontAwesome5 name="fort-awesome" size={size} color={startblue} />)
-  static IconSubmit = (<MaterialCommunityIcons name="text-subject" size={size} color={orange} />)
+  static IconSubmit = (<MaterialCommunityIcons name="text-long" size={size} color={orange} />)
   static IconAudioPlay = (<Entypo name="controller-play" size={size} color={green} />)
   static IconAudioRecord = (<Entypo name="controller-record" size={size} color={fire} />)
   static IconAudioStop = (<Entypo name="controller-stop" size={size} color={darkgold} />)
