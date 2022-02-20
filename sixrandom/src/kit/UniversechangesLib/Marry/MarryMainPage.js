@@ -881,15 +881,22 @@ class MarryMainPage extends React.Component {
     powerselfmale.push(EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[5]))
     powerselfmale.push(this.state.buildeightmale[0])
     powerselfmale.push(this.state.buildeightmale[2])
+    var t = powerselfmale.toString()
     if (-1 != "长生冠带临官帝旺".indexOf(powerselfmale[1])) {
-      testpowerselfmale = "身旺（得令）"
+      if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
+        testpowerselfmale = "身强（失扶）"
+      } else if (-1 == "长生冠带临官帝旺".indexOf(powerselfmale[0]) && -1 == "长生冠带临官帝旺".indexOf(powerselfmale[2])) {
+        testpowerselfmale = "身强（失地）"
+      }
+      else {
+        testpowerselfmale = "身旺（得令）"
+      }
     }
     else {
-      var t = powerselfmale.toString()
-      if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))){
-        testpowerselfmale = "身旺（得地生扶）"
+      if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
+        testpowerselfmale = "身弱（得地生扶）"
       } else {
-        testpowerselfmale = "身弱（失令）"
+        testpowerselfmale = "身衰（失令）"
       }
     }
 
@@ -900,15 +907,22 @@ class MarryMainPage extends React.Component {
     powerselffemale.push(EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatefemale[5]))
     powerselffemale.push(this.state.buildeightfemale[0])
     powerselffemale.push(this.state.buildeightfemale[2])
+    t = powerselffemale.toString()
     if (-1 != "长生冠带临官帝旺".indexOf(powerselffemale[1])) {
-      testpowerselffemale = "身旺（得令）"
+      if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
+        testpowerselffemale = "身强（失扶）"
+      } else if (-1 == "长生冠带临官帝旺".indexOf(powerselffemale[0]) && -1 == "长生冠带临官帝旺".indexOf(powerselffemale[2])) {
+        testpowerselffemale = "身强（失地）"
+      }
+      else {
+        testpowerselffemale = "身旺（得令）"
+      }
     }
     else {
-      var t = powerselffemale.toString()
-      if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))){
-        testpowerselffemale = "身旺（得地生扶）"
+      if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
+        testpowerselffemale = "身弱（得地生扶）"
       } else {
-        testpowerselffemale = "身弱（失令）"
+        testpowerselffemale = "身衰（失令）"
       }
     }
 
@@ -959,7 +973,7 @@ class MarryMainPage extends React.Component {
     var daykeymale = kind
     var checkhelpmale = (helpmale>=0?kind[maleindex]+kind[assistmaleindex]:daykeymale.replace(kind[assistmaleindex],"").replace(kind[maleindex],""))+Math.abs(helpmale).toString();
     var checkhelpfemale =  (helpfemale>=0?kind[femaleindex]+kind[assistfemaleindex]:daykeymale.replace(kind[assistfemaleindex],"").replace(kind[femaleindex],""))+Math.abs(helpfemale).toString();
-    base.push(["喜  忌:",checkhelpmale,checkhelpfemale])
+    base.push(["喜  用:",checkhelpmale,checkhelpfemale])
 
      ret_male = EightrandomModule.gettwelfth(this.state.EightDatemale[0] + this.state.EightDatemale[1])
      ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])
