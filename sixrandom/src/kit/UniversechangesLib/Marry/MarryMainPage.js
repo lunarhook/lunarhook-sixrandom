@@ -873,6 +873,45 @@ class MarryMainPage extends React.Component {
 
     }
     */
+    //身旺判断
+    var testpowerselfmale = ""
+    var powerselfmale = new Array()
+    powerselfmale.push(EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[1]))
+    powerselfmale.push(EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[3]))
+    powerselfmale.push(EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[5]))
+    powerselfmale.push(this.state.buildeightmale[0])
+    powerselfmale.push(this.state.buildeightmale[2])
+    if (-1 != "长生冠带临官帝旺".indexOf(powerselfmale[1])) {
+      testpowerselfmale = "身旺（得令）"
+    }
+    else {
+      var t = powerselfmale.toString()
+      if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))){
+        testpowerselfmale = "身旺（得地生扶）"
+      } else {
+        testpowerselfmale = "身弱（失令）"
+      }
+    }
+
+    var testpowerselffemale = ""
+    var powerselffemale = new Array()
+    powerselffemale.push(EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatefemale[1]))
+    powerselffemale.push(EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatefemale[3]))
+    powerselffemale.push(EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatefemale[5]))
+    powerselffemale.push(this.state.buildeightfemale[0])
+    powerselffemale.push(this.state.buildeightfemale[2])
+    if (-1 != "长生冠带临官帝旺".indexOf(powerselffemale[1])) {
+      testpowerselffemale = "身旺（得令）"
+    }
+    else {
+      var t = powerselffemale.toString()
+      if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))){
+        testpowerselffemale = "身旺（得地生扶）"
+      } else {
+        testpowerselffemale = "身弱（失令）"
+      }
+    }
+
 
     var marryinfomale = EightrandomModule.getmarryinfo(this.state.EightDatemale, "乾造",rmale, this.state.buildeightmale)
     var marryinfofemale = EightrandomModule.getmarryinfo(this.state.EightDatefemale, "坤造", rfemale, this.state.buildeightfemale)
@@ -896,6 +935,7 @@ class MarryMainPage extends React.Component {
     base.push(["旬  空:",this.state.gzxkmale,this.state.gzxkfemale] )
     base.push(["起  运:",this.state.beginluckymale,this.state.beginluckyfemale] )
     base.push(["命  卦:",locationselfmale,locationselffemale ])
+    base.push(["身  旺:",testpowerselfmale,testpowerselffemale ])
     base.push(["日  元:",this.state.EightDatemale[4],this.state.EightDatefemale[4]])
     base.push(["日  支:",this.state.EightDatemale[5],this.state.EightDatefemale[5]])
     const kind = "木火土金水"
