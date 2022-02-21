@@ -19,8 +19,8 @@ class MarryNewPage extends React.Component {
   constructor(porp) {
     super(porp);
     this.state = {
-      datepickermale: new Date('1984-07-08'),
-      datepickerfemale: new Date('1987-08-22'),
+      datepickermale: new Date(),//new Date('1984-07-08'),
+      datepickerfemale: new Date(),//new Date('1987-08-22'),
       switchtypemale: true,
       switchtypefemale: true,
       datatypemale: "公历",
