@@ -872,6 +872,13 @@ class MarryMainPage extends React.Component {
     const eatthfive = "水土木木土火火土金金土水"
     const kind = "土木，木土，金火，火金，火水，水火，土水，水土，金木，木金"
     const congtest="辰戌，戌辰，子午，午子，寅申，申寅，卯酉，酉卯，丑未，未丑，巳亥，亥巳，子卯，卯子"
+    var tianganhuahe = []
+    tianganhuahe["甲己"] = tianganhuahe["己甲"] = "土"
+    tianganhuahe["乙庚"] = tianganhuahe["庚乙"] = "金"
+    tianganhuahe["丙辛"] = tianganhuahe["辛丙"] = "水"
+    tianganhuahe["丁壬"] = tianganhuahe["壬丁"] = "木"
+    tianganhuahe["戊癸"] = tianganhuahe["癸戊"] = "火"
+
     var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale,this.state.buildeightmale)
     var testpowerselfmale = ret_powerselfmale.powerself
 
@@ -911,42 +918,40 @@ class MarryMainPage extends React.Component {
     base.push(["仇  神:",yongshenmale.choushen,yongshenfemale.choushen])
     var maleyongshencheck = yongshenmale.yongshen+yongshenmale.xishen
     var femaleyongshencheck = yongshenfemale.yongshen+yongshenfemale.xishen
-    if((-1!=maleyongshencheck.indexOf(yongshenfemale.jishen) || -1!=maleyongshencheck.indexOf(yongshenfemale.jishen2)||-1!=maleyongshencheck.indexOf(yongshenfemale.choushen)) ){
+    if ((-1 != maleyongshencheck.indexOf(yongshenfemale.jishen) || -1 != maleyongshencheck.indexOf(yongshenfemale.jishen2) || -1 != maleyongshencheck.indexOf(yongshenfemale.choushen))) {
       maleyongshencheck = IconConfig.IconMarryCheck
     }
-    else{
+    else {
       maleyongshencheck = ""
     }
-    if( (-1!=femaleyongshencheck.indexOf(yongshenmale.jishen)||-1!=femaleyongshencheck.indexOf(yongshenmale.jishen2) ||-1!=femaleyongshencheck.indexOf(yongshenmale.choushen) )){
+    if ((-1 != femaleyongshencheck.indexOf(yongshenmale.jishen) || -1 != femaleyongshencheck.indexOf(yongshenmale.jishen2) || -1 != femaleyongshencheck.indexOf(yongshenmale.choushen))) {
       femaleyongshencheck = IconConfig.IconMarryCheck
-    }else{
+    } else {
       femaleyongshencheck = ""
     }
-    if(IconConfig.IconMarryCheck==femaleyongshencheck || IconConfig.IconMarryCheck==maleyongshencheck)
-    {    base.push(["神  合:",maleyongshencheck,femaleyongshencheck])}
+    if (IconConfig.IconMarryCheck == femaleyongshencheck || IconConfig.IconMarryCheck == maleyongshencheck) { base.push(["神  合:", maleyongshencheck, femaleyongshencheck]) }
 
 
-    base.push(["日  元:",this.state.EightDatemale[4],this.state.EightDatefemale[4]])
-    if(-1!=kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] +dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
-    {
-     
-      if(-1!=testpowerselfmale.indexOf("旺") || -1!=testpowerselfmale.indexOf("强")){
-        if(-1!=testpowerselffemale.indexOf("衰") || -1!=testpowerselffemale.indexOf("弱")){
-          base.push(["元  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+    base.push(["日  元:", this.state.EightDatemale[4], this.state.EightDatefemale[4]])
+    if (-1 != kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
+
+      if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
+        if (-1 != testpowerselffemale.indexOf("衰") || -1 != testpowerselffemale.indexOf("弱")) {
+          base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
         }
-      }else if(-1!=testpowerselfmale.indexOf("弱") || -1!=testpowerselfmale.indexOf("衰")){
-        if(-1!=testpowerselffemale.indexOf("旺") || -1!=testpowerselffemale.indexOf("衰")){
-          base.push(["元  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+      } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
+        if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("衰")) {
+          base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
         }
       }
-    }else{
-      if(-1!=testpowerselfmale.indexOf("旺") || -1!=testpowerselfmale.indexOf("强")){
-        if(-1!=testpowerselffemale.indexOf("旺") || -1!=testpowerselffemale.indexOf("强")){
-          base.push(["元  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+    } else {
+      if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
+        if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("强")) {
+          base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
         }
-      }else if(-1!=testpowerselfmale.indexOf("弱") || -1!=testpowerselfmale.indexOf("衰")){
-        if(-1!=testpowerselffemale.indexOf("弱") || -1!=testpowerselffemale.indexOf("衰")){
-          base.push(["元  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+      } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
+        if (-1 != testpowerselffemale.indexOf("弱") || -1 != testpowerselffemale.indexOf("衰")) {
+          base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
         }
       }
     }
@@ -967,7 +972,7 @@ class MarryMainPage extends React.Component {
       //if( this.state.precentmale[i+5]>20){ret_male=  ret_male + kind[i] + (Math.floor(this.state.precentmale[i+5]-20)).toString() }
       //if( this.state.precentfemale[i+5]>20){ret_female= ret_female + kind[i]+ (Math.floor(this.state.precentfemale[i+5]-20)).toString()}
     }
-    base.push(["势  气:",ret_male,ret_female])
+    //base.push(["势  气:",ret_male,ret_female])
 
     
     var maleindex = Math.floor(daykey.indexOf(this.state.EightDatemale[4])/2)
@@ -998,19 +1003,88 @@ class MarryMainPage extends React.Component {
     }
     base.push(["月  令:",ret_male,ret_female])
     base.push(["年  柱:",this.state.EightDatemale[0] + this.state.EightDatemale[1],this.state.EightDatefemale[0] + this.state.EightDatefemale[1]])
-    if(-1==kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[0])]+dayfive[daykey.indexOf(this.state.EightDatefemale[0])])){
-      base.push(["年  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
-    }
-    base.push(["月  柱:",this.state.EightDatemale[2] + this.state.EightDatemale[3],this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
-    if(Math.abs( Math.floor(daykey.indexOf(this.state.EightDatemale[2])/2)-  Math.floor(daykey.indexOf(this.state.EightDatefemale[2])/2)+5)%5!=2){
-      if(-1==congtest.indexOf(this.state.EightDatemale[2]+this.state.EightDatefemale[2]) && -1==congtest.indexOf(this.state.EightDatefemale[2]+this.state.EightDatemale[2]) )
+    if(-1==kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[0])]+dayfive[daykey.indexOf(this.state.EightDatefemale[0])]) || undefined!=tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]]){
+      if(-1==kind.indexOf(eatthfive[earthkey.indexOf(this.state.EightDatemale[1])] +  eatthfive[earthkey.indexOf(this.state.EightDatefemale[1])])){
+        if(-1==congtest.indexOf(this.state.EightDatemale[1]+this.state.EightDatefemale[1]) )
+        {
+          if(undefined!=tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]])
+          {
+            var male = ""
+            var female = ""
+            var x = tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]]
+            if(-1!=(yongshenmale.xishen+yongshenmale.yongshen).indexOf(x)){
+              male = IconConfig.IconMarryCheck
+            }
+            if(-1!=(yongshenfemale.xishen+yongshenfemale.yongshen).indexOf(x)){
+              female = IconConfig.IconMarryCheck
+            }
+            if(""!=male || ""!=female){
+              base.push(["年  合:",male,female])
+            }
+
+          }else{
+            base.push(["年  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+          }         
+          
+        }
+      }
+      else if(undefined!=tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]])
       {
-        base.push(["月  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+        var x = tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]]
+        var male = ""
+        var female = ""
+        if(-1!=(yongshenmale.xishen+yongshenmale.yongshen).indexOf(x)){
+          male = IconConfig.IconMarryCheck
+        }
+        if(-1!=(yongshenfemale.xishen+yongshenfemale.yongshen).indexOf(x)){
+          female = IconConfig.IconMarryCheck
+        }
+        if(""!=male || ""!=female)
+        base.push(["年  合:",male,female])
       }
 
     }
+    base.push(["月  柱:",this.state.EightDatemale[2] + this.state.EightDatemale[3],this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
+    if(-1==kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[2])] +  dayfive[daykey.indexOf(this.state.EightDatefemale[2])]) || undefined!=tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]]){
+      if(-1==kind.indexOf(eatthfive[earthkey.indexOf(this.state.EightDatemale[3])] +  eatthfive[earthkey.indexOf(this.state.EightDatefemale[3])])){
+        if(-1==congtest.indexOf(this.state.EightDatefemale[3]+this.state.EightDatemale[3]) )
+        {
+          if(undefined!=tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]])
+          {
+            var male = ""
+            var female = ""
+            var x = tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]]
+            if(-1!=(yongshenmale.xishen+yongshenmale.yongshen).indexOf(x)){
+              male = IconConfig.IconMarryCheck
+            }
+            if(-1!=(yongshenfemale.xishen+yongshenfemale.yongshen).indexOf(x)){
+              female = IconConfig.IconMarryCheck
+            }
+            if(""!=male || ""!=female){
+              base.push(["月  合:",male,female])
+            }
+
+          }else{
+            base.push(["月  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+          }         
+        }
+      }else if(undefined!=tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]])
+      {
+        var x = tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]]
+        var male = ""
+        var female = ""
+        if(-1!=(yongshenmale.xishen+yongshenmale.yongshen).indexOf(x)){
+          male = IconConfig.IconMarryCheck
+        }
+        if(-1!=(yongshenfemale.xishen+yongshenfemale.yongshen).indexOf(x)){
+          female = IconConfig.IconMarryCheck
+        }
+        if(""!=male || ""!=female)
+        base.push(["月  合:",male,female])
+      }
+    }
     base.push(["属  象:",this.state.EightDatemale[1],this.state.EightDatefemale[1]])
-    if(Math.abs(kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatemale[1]))]) - kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]) + 5)%5!=3)
+    if(-1==kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + eatthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]))
     {
       if(-1==congtest.indexOf(this.state.EightDatemale[1]+this.state.EightDatefemale[1]) && -1==congtest.indexOf(this.state.EightDatefemale[1]+this.state.EightDatemale[1]) )
       {

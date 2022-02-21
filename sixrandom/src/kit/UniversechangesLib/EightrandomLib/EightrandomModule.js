@@ -268,7 +268,8 @@ class EightrandomModule extends React.Component {
             if(-1!=shishenkey.indexOf("印"))
             {
                 o.yongshen = shen[assistindex]
-                o.xishen = shen[index]+shen[(index+3)%5]
+                o.xishen = shen[index]
+                o.xishen2 = shen[(index+3)%5]
                 o.xianshen = " "
                 o.jishen = shen[(index+2)%5]
                 o.jishen2 = " "
@@ -276,6 +277,7 @@ class EightrandomModule extends React.Component {
             }else{
                 o.yongshen = shen[index]
                 o.xishen = shen[assistindex]
+                o.xishen2 = " "
                 o.xianshen = shen[(index+1)%5]
                 o.jishen = shen[(index+3)%5]
                 o.jishen2 = " "
@@ -286,7 +288,8 @@ class EightrandomModule extends React.Component {
             if(-1!=shishenkey.indexOf("正官")||-1!=shishenkey.indexOf("杀"))
             {
                 o.yongshen = shen[(index+3)%5]
-                o.xishen = shen[(index+2)%5]+shen[(index+1)%5]
+                o.xishen = shen[(index+2)%5]
+                o.xishen2 = shen[(index+1)%5]
                 o.xianshen = " "
                 o.jishen = shen[(index+1)%5]
                 o.jishen2 = shen[index]
@@ -294,7 +297,8 @@ class EightrandomModule extends React.Component {
             }else
             {
                 o.yongshen = shen[(index+1)%5]
-                o.xishen = shen[(index+2)%5] + shen[(index+3)%5]
+                o.xishen = shen[(index+2)%5] 
+                o.xishen2 = + shen[(index+3)%5]
                 o.xianshen = " "
                 o.jishen = shen[assistindex]
                 o.jishen2 = shen[index]
