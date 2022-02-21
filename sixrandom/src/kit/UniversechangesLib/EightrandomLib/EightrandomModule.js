@@ -262,6 +262,7 @@ class EightrandomModule extends React.Component {
         var index = Math.floor(daykey.indexOf(EightDate[4])/2)
         var assistindex = (index - 1 + 5)%5
         var help = Math.floor(50-precent[index+5] - precent[assistindex+5])
+
         if(-1==ret_powerself.indexOf("旺") && -1==ret_powerself.indexOf("强") )
         {
             if(-1!=shishenkey.indexOf("印"))
