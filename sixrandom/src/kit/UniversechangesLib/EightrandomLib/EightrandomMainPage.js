@@ -733,31 +733,8 @@ class EightrandomMainPage extends React.Component {
     Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000 ,useNativeDriver: true}), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000 ,useNativeDriver: true})]).start()
    
     //身旺判断
-    var powerself = new Array()
-    powerself.push(EightrandomModule.gettwelfthposition(this.state.EightDate[4] + this.state.EightDate[1]))
-    powerself.push(EightrandomModule.gettwelfthposition(this.state.EightDate[4] + this.state.EightDate[3]))
-    powerself.push(EightrandomModule.gettwelfthposition(this.state.EightDate[4] + this.state.EightDate[5]))
-    powerself.push(this.state.buildeight[0])
-    powerself.push(this.state.buildeight[2])
-    var t = powerself.toString()
-    if (-1 != "长生冠带临官帝旺".indexOf(powerself[1])) {
-      if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
-        base.push("命身: " +"身强（失扶）")
-      } else if (-1 == "长生冠带临官帝旺".indexOf(powerself[0]) && -1 == "长生冠带临官帝旺".indexOf(powerself[2])) {
-        base.push("命身: " +"身强（失地）")
-      }
-      else {
-        base.push("命身: " +"身旺（得令）")
-      }
-    }
-    else {
-      
-      if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
-        base.push("命身: " +"身弱（得地生扶）")
-      } else {
-        base.push("命身: " + "身衰（失令）")
-      }
-    }
+    var ret_powerself = EightrandomModule.getpowerself(this.state.EightDate,this.state.buildeight)
+    base.push( "命身: " +ret_powerself.powerself )
 
 
     return (

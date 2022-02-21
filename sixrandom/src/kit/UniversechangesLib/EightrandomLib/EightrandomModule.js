@@ -199,8 +199,41 @@ class EightrandomModule extends React.Component {
             Tip: ""
         }
     }
+    getpowerself(EightDate,buildeight){
+        var powerself = new Array()
+        powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[1]))
+        powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[3]))
+        powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[5]))
+        powerself.push(buildeight[0])
+        powerself.push(buildeight[2])
+        var t = powerself.toString()
+        var ret = ""
+        if (-1 != "长生冠带临官帝旺".indexOf(powerself[1])) {
+          if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
+            ret = "身强（失扶）"
+          } else if (-1 == "长生冠带临官帝旺".indexOf(powerself[0]) && -1 == "长生冠带临官帝旺".indexOf(powerself[2])) {
+            ret = "身强（失地）"
+          }
+          else {
+            ret = "身旺（得令）"
+          }
+        }
+        else {
+          
+          if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
+            ret = "身弱（得地生扶）"
+          } else {
+            ret = "身衰（失令）"
+          }
+        }
+        var o ={}
+        o.powerself = ret;
+        return o
+    }
 
-    getcoupletest(EightDate,precent,sex){
+    getcoupletest(EightDate,buildeight,precent,sex){
+
+       
     const daykey = "甲乙丙丁戊己庚辛壬癸"
     var index = Math.floor(daykey.indexOf(EightDate[4])/2)
     var assistindex = (maleindex - 1 + 4)%4

@@ -874,57 +874,12 @@ class MarryMainPage extends React.Component {
     }
     */
     //身旺判断
-    var testpowerselfmale = ""
-    var powerselfmale = new Array()
-    powerselfmale.push(EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[1]))
-    powerselfmale.push(EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[3]))
-    powerselfmale.push(EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[5]))
-    powerselfmale.push(this.state.buildeightmale[0])
-    powerselfmale.push(this.state.buildeightmale[2])
-    var t = powerselfmale.toString()
-    if (-1 != "长生冠带临官帝旺".indexOf(powerselfmale[1])) {
-      if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
-        testpowerselfmale = "身强（失扶）"
-      } else if (-1 == "长生冠带临官帝旺".indexOf(powerselfmale[0]) && -1 == "长生冠带临官帝旺".indexOf(powerselfmale[2])) {
-        testpowerselfmale = "身强（失地）"
-      }
-      else {
-        testpowerselfmale = "身旺（得令）"
-      }
-    }
-    else {
-      if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
-        testpowerselfmale = "身弱（得地生扶）"
-      } else {
-        testpowerselfmale = "身衰（失令）"
-      }
-    }
+    var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale,this.state.buildeightmale)
+    var testpowerselfmale = ret_powerselfmale.powerself
 
-    var testpowerselffemale = ""
-    var powerselffemale = new Array()
-    powerselffemale.push(EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatefemale[1]))
-    powerselffemale.push(EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatefemale[3]))
-    powerselffemale.push(EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatefemale[5]))
-    powerselffemale.push(this.state.buildeightfemale[0])
-    powerselffemale.push(this.state.buildeightfemale[2])
-    t = powerselffemale.toString()
-    if (-1 != "长生冠带临官帝旺".indexOf(powerselffemale[1])) {
-      if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
-        testpowerselffemale = "身强（失扶）"
-      } else if (-1 == "长生冠带临官帝旺".indexOf(powerselffemale[0]) && -1 == "长生冠带临官帝旺".indexOf(powerselffemale[2])) {
-        testpowerselffemale = "身强（失地）"
-      }
-      else {
-        testpowerselffemale = "身旺（得令）"
-      }
-    }
-    else {
-      if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
-        testpowerselffemale = "身弱（得地生扶）"
-      } else {
-        testpowerselffemale = "身衰（失令）"
-      }
-    }
+    //身旺判断
+    var ret_powerselffemale = EightrandomModule.getpowerself(this.state.EightDatefemale,this.state.buildeightfemale)
+    var testpowerselffemale = ret_powerselffemale.powerself
 
 
     var marryinfomale = EightrandomModule.getmarryinfo(this.state.EightDatemale, "乾造",rmale, this.state.buildeightmale)
