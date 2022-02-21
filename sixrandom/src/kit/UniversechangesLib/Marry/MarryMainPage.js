@@ -728,7 +728,7 @@ class MarryMainPage extends React.Component {
     */
 
     var test2male = new Array()
-    /*
+    
     test2male.push({ info: "长生", hide: '' })
     test2male.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + curluckyearmale[1]), hide: '' })
     test2male.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + gzYear[1]), hide: '' })
@@ -736,7 +736,7 @@ class MarryMainPage extends React.Component {
       var x = EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[i * 2 + 1])
       test2male.push({ info: x, hide: "" })
     }
-    */
+    
     test2male.push({ info: "纳音", hide: '' })
     test2male.push({ info: EightrandomModule.gettwelfth(curluckyearmale[0] + curluckyearmale[1]), hide: '' })
     test2male.push({ info: EightrandomModule.gettwelfth(gzYear[0] + gzYear[1]), hide: '' })
@@ -746,7 +746,7 @@ class MarryMainPage extends React.Component {
     }
 
     var test2female = new Array()
-    /*
+    
     test2female.push({ info: "长生", hide: '' })
     test2female.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + curluckyearfemale[1]), hide: '' })
     test2female.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + gzYear[1]), hide: '' })
@@ -754,7 +754,7 @@ class MarryMainPage extends React.Component {
       var x = EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatemale[i * 2 + 1])
       test2female.push({ info: x, hide: "" })
     }
-    */
+    
     test2female.push({ info: "纳音", hide: '' })
     test2female.push({ info: EightrandomModule.gettwelfth(curluckyearfemale[0] + curluckyearfemale[1]), hide: '' })
     test2female.push({ info: EightrandomModule.gettwelfth(gzYear[0] + gzYear[1]), hide: '' })
@@ -867,10 +867,11 @@ class MarryMainPage extends React.Component {
     //身旺判断
 
     const daykey = "甲乙丙丁戊己庚辛壬癸"
+    const dayfive = "木木火火土土金金水水"
     const earthkey ="子丑寅卯辰巳午未申酉戌亥"
     const eatthfive = "水土木木土火火土金金土水"
-    const kind = "木火土金水"
-    const congtest="辰戌戌辰，子午午子，寅申申寅，卯酉酉卯，丑未未丑，巳亥亥巳"
+    const kind = "土木，木土，金火，火金，火水，水火，土水，水土，金木，木金"
+    const congtest="辰戌，戌辰，子午，午子，寅申，申寅，卯酉，酉卯，丑未，未丑，巳亥，亥巳，子卯，卯子"
     var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale,this.state.buildeightmale)
     var testpowerselfmale = ret_powerselfmale.powerself
 
@@ -926,7 +927,7 @@ class MarryMainPage extends React.Component {
 
 
     base.push(["日  元:",this.state.EightDatemale[4],this.state.EightDatefemale[4]])
-    if(Math.abs(Math.floor(daykey.indexOf(this.state.EightDatemale[4])/2) -  Math.floor(daykey.indexOf(this.state.EightDatefemale[4])/2) + 5)%5==3)
+    if(-1!=kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] +dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
     {
      
       if(-1!=testpowerselfmale.indexOf("旺") || -1!=testpowerselfmale.indexOf("强")){
@@ -951,7 +952,7 @@ class MarryMainPage extends React.Component {
     }
 
     base.push(["日  支:",this.state.EightDatemale[5],this.state.EightDatefemale[5]])
-    if(Math.abs(kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatemale[5]))]) - kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatefemale[5]))]) + 5)%5!=3)
+    if(-1==kind.indexOf(eatthfive[earthkey.indexOf(this.state.EightDatemale[5])] + eatthfive[earthkey.indexOf(this.state.EightDatefemale[5])]))
     {
       if(-1==congtest.indexOf(this.state.EightDatemale[5]+this.state.EightDatefemale[5]) && -1==congtest.indexOf(this.state.EightDatefemale[5]+this.state.EightDatemale[5]) )
       {
@@ -963,8 +964,8 @@ class MarryMainPage extends React.Component {
     var ret_female = ""
 
     for(var i=0;i<5;i++){
-      if( this.state.precentmale[i+5]>20){ret_male=  ret_male + kind[i] + (Math.floor(this.state.precentmale[i+5]-20)).toString() }
-      if( this.state.precentfemale[i+5]>20){ret_female= ret_female + kind[i]+ (Math.floor(this.state.precentfemale[i+5]-20)).toString()}
+      //if( this.state.precentmale[i+5]>20){ret_male=  ret_male + kind[i] + (Math.floor(this.state.precentmale[i+5]-20)).toString() }
+      //if( this.state.precentfemale[i+5]>20){ret_female= ret_female + kind[i]+ (Math.floor(this.state.precentfemale[i+5]-20)).toString()}
     }
     base.push(["势  气:",ret_male,ret_female])
 
@@ -984,7 +985,7 @@ class MarryMainPage extends React.Component {
      ret_male = EightrandomModule.gettwelfth(this.state.EightDatemale[0] + this.state.EightDatemale[1])
      ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])
     base.push(["纳  音:",ret_male,ret_female])
-    if(Math.abs(kind.indexOf(ret_male.charAt(2))-  kind.indexOf(ret_female.charAt(2)) + 5)%5!=3){
+    if(-1==kind.indexOf(ret_male.charAt(2)+ret_female.charAt(2))){
       base.push(["音  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
     }
     base.push(["大  运:",curluckyearmale[0]+curluckyearmale[1],curluckyearfemale[0]+curluckyearfemale[1]])
@@ -992,23 +993,23 @@ class MarryMainPage extends React.Component {
     ret_male = ""
     ret_female = ""
     for(var i=0;i<5;i++){
-      if(fivepowermale[i]=="旺"){ret_male=kind[i]}
-      if(fivepowerfemale[i]=="旺"){ret_female=kind[i]}
+      if(fivepowermale[i]=="旺"){ret_male="木火土金水"[i]}
+      if(fivepowerfemale[i]=="旺"){ret_female="木火土金水"[i]}
     }
     base.push(["月  令:",ret_male,ret_female])
     base.push(["年  柱:",this.state.EightDatemale[0] + this.state.EightDatemale[1],this.state.EightDatefemale[0] + this.state.EightDatefemale[1]])
-    if(Math.abs(kind.indexOf(this.state.EightDatemale[0])-  kind.indexOf(this.state.EightDatefemale[0]) + 5)%5!=3){
+    if(-1==kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[0])]+dayfive[daykey.indexOf(this.state.EightDatefemale[0])])){
       base.push(["年  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
     }
     base.push(["月  柱:",this.state.EightDatemale[2] + this.state.EightDatemale[3],this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
-    if(Math.abs(kind.indexOf(this.state.EightDatemale[2])-  kind.indexOf(this.state.EightDatefemale[2]) + 5)%5!=3){
+    if(Math.abs( Math.floor(daykey.indexOf(this.state.EightDatemale[2])/2)-  Math.floor(daykey.indexOf(this.state.EightDatefemale[2])/2)+5)%5!=2){
       if(-1==congtest.indexOf(this.state.EightDatemale[2]+this.state.EightDatefemale[2]) && -1==congtest.indexOf(this.state.EightDatefemale[2]+this.state.EightDatemale[2]) )
       {
         base.push(["月  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
       }
 
     }
-    base.push(["生  肖:",this.state.EightDatemale[1],this.state.EightDatefemale[1]])
+    base.push(["属  象:",this.state.EightDatemale[1],this.state.EightDatefemale[1]])
     if(Math.abs(kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatemale[1]))]) - kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]) + 5)%5!=3)
     {
       if(-1==congtest.indexOf(this.state.EightDatemale[1]+this.state.EightDatefemale[1]) && -1==congtest.indexOf(this.state.EightDatefemale[1]+this.state.EightDatemale[1]) )

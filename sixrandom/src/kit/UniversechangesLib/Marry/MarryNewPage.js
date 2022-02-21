@@ -19,8 +19,8 @@ class MarryNewPage extends React.Component {
   constructor(porp) {
     super(porp);
     this.state = {
-      datepickermale: new Date(),
-      datepickerfemale: new Date(),
+      datepickermale: new Date('1984-07-08'),
+      datepickerfemale: new Date('1987-08-22'),
       switchtypemale: true,
       switchtypefemale: true,
       datatypemale: "公历",
@@ -128,13 +128,8 @@ class MarryNewPage extends React.Component {
     var selecttime = new Date(cur)
     this.setState({ datepickerfemale: selecttime })
   }
-
   render() {
     const { navigate } = this.props.navigation;
-
-
-
-
     //alert(ValueTypeModule["emotion"])
     return (
       <View style={styles.container}>

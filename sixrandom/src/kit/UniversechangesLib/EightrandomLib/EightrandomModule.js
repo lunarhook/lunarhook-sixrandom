@@ -269,16 +269,16 @@ class EightrandomModule extends React.Component {
             {
                 o.yongshen = shen[assistindex]
                 o.xishen = shen[index]+shen[(index+3)%5]
-                o.xianshen = ""
+                o.xianshen = " "
                 o.jishen = shen[(index+2)%5]
-                o.jishen2 = ""
+                o.jishen2 = " "
                 o.choushen = shen[(index+1)%5]
             }else{
                 o.yongshen = shen[index]
                 o.xishen = shen[assistindex]
                 o.xianshen = shen[(index+1)%5]
                 o.jishen = shen[(index+3)%5]
-                o.jishen2 = ""
+                o.jishen2 = " "
                 o.choushen = shen[(index+2)%5]
             }
 
@@ -287,7 +287,7 @@ class EightrandomModule extends React.Component {
             {
                 o.yongshen = shen[(index+3)%5]
                 o.xishen = shen[(index+2)%5]+shen[(index+1)%5]
-                o.xianshen = ""
+                o.xianshen = " "
                 o.jishen = shen[(index+1)%5]
                 o.jishen2 = shen[index]
                 o.choushen = shen[assistindex]
@@ -295,7 +295,7 @@ class EightrandomModule extends React.Component {
             {
                 o.yongshen = shen[(index+1)%5]
                 o.xishen = shen[(index+2)%5] + shen[(index+3)%5]
-                o.xianshen = ""
+                o.xianshen = " "
                 o.jishen = shen[assistindex]
                 o.jishen2 = shen[index]
                 o.choushen = shen[assistindex]
