@@ -881,6 +881,8 @@ class MarryMainPage extends React.Component {
     var ret_powerselffemale = EightrandomModule.getpowerself(this.state.EightDatefemale,this.state.buildeightfemale)
     var testpowerselffemale = ret_powerselffemale.powerself
 
+    var yongshenmale = EightrandomModule.getcoupletest(this.state.EightDatemale,this.state.buildeightmale,this.state.precentmale)
+    var yongshenfemale = EightrandomModule.getcoupletest(this.state.EightDatefemale,this.state.buildeightfemale,this.state.precentfemale)
 
     var marryinfomale = EightrandomModule.getmarryinfo(this.state.EightDatemale, "乾造",rmale, this.state.buildeightmale)
     var marryinfofemale = EightrandomModule.getmarryinfo(this.state.EightDatefemale, "坤造", rfemale, this.state.buildeightfemale)
@@ -905,6 +907,10 @@ class MarryMainPage extends React.Component {
     base.push(["起  运:",this.state.beginluckymale,this.state.beginluckyfemale] )
     base.push(["命  卦:",locationselfmale,locationselffemale ])
     base.push(["身  旺:",testpowerselfmale,testpowerselffemale ])
+    base.push(["用  神:",yongshenmale.yongshen,yongshenfemale.yongshen])
+    base.push(["喜  神:",yongshenmale.xishen,yongshenfemale.xishen])
+    base.push(["忌  神:",yongshenmale.jishen,yongshenfemale.jishen])
+    base.push(["仇  神:",yongshenmale.choushen,yongshenfemale.choushen])
     base.push(["日  元:",this.state.EightDatemale[4],this.state.EightDatefemale[4]])
     base.push(["日  支:",this.state.EightDatemale[5],this.state.EightDatefemale[5]])
     const kind = "木火土金水"
@@ -928,7 +934,7 @@ class MarryMainPage extends React.Component {
     var daykeymale = kind
     var checkhelpmale = (helpmale>=0?kind[maleindex]+kind[assistmaleindex]:daykeymale.replace(kind[assistmaleindex],"").replace(kind[maleindex],""))+Math.abs(helpmale).toString();
     var checkhelpfemale =  (helpfemale>=0?kind[femaleindex]+kind[assistfemaleindex]:daykeymale.replace(kind[assistfemaleindex],"").replace(kind[femaleindex],""))+Math.abs(helpfemale).toString();
-    base.push(["喜  用:",checkhelpmale,checkhelpfemale])
+    //base.push(["喜  用:",checkhelpmale,checkhelpfemale])
 
      ret_male = EightrandomModule.gettwelfth(this.state.EightDatemale[0] + this.state.EightDatemale[1])
      ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])

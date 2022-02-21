@@ -252,35 +252,51 @@ class EightrandomModule extends React.Component {
         return o
     }
 
-    getcoupletest(EightDate,buildeight,precent,sex){
-        var ret_powerself = this.getpowerself(EightDate,buildeight)
-    
+    getcoupletest(EightDate,buildeight,precent){
+        //https://baike.baidu.com/item/%E5%96%9C%E7%94%A8%E7%A5%9E/10646208?fr=aladdin
+        var ret_powerself = (this.getpowerself(EightDate,buildeight)).powerself
+        var shishenkey = buildeight.toString()
         var o={}
         const daykey = "甲乙丙丁戊己庚辛壬癸"
         const shen = "木火土金水"
         var index = Math.floor(daykey.indexOf(EightDate[4])/2)
-        var assistindex = (maleindex - 1 + 4)%4
+        var assistindex = (index - 1 + 5)%5
         var help = Math.floor(50-precent[index+5] - precent[assistindex+5])
-        if(help<0 && (-1!=ret_powerself.indexOf("旺") ||-1!=ret_powerself.indexOf("强")) )
+        if(-1==ret_powerself.indexOf("旺") && -1==ret_powerself.indexOf("强") )
         {
-            o.yongshen = shen[index]
-            o.xishen = shen[assistindex]
-            o.xianshen = shen[(index+1)%4]
-            o.jishen = shen[(index+2)%4]
-            o.choushen = shen[(index+3)%4]
+            if(-1!=shishenkey.indexOf("印"))
+            {
+                o.yongshen = shen[assistindex]
+                o.xishen = shen[index]+shen[(index+3)%5]
+                o.xianshen = ""
+                o.jishen = shen[(index+2)%5]
+                o.choushen = shen[(index+1)%5]
+            }else{
+                o.yongshen = shen[index]
+                o.xishen = shen[assistindex]
+                o.xianshen = shen[(index+1)%5]
+                o.jishen = shen[(index+3)%5]
+                o.choushen = shen[(index+2)%5]
+            }
+
         }else{
-            o.yongshen = shen[index]
-            o.xishen = shen[assistindex]
-            o.xianshen = shen[(index+1)%4]
-            o.jishen = shen[(index+2)%4]
-            o.choushen = shen[(index+3)%4]
+            if(-1!=shishenkey.indexOf("正官")||-1!=shishenkey.indexOf("杀"))
+            {
+                o.yongshen = shen[(index+3)%5]
+                o.xishen = shen[(index+2)%5]+shen[(index+1)%5]
+                o.xianshen = ""
+                o.jishen = shen[(index+1)%5]+shen[index]
+                o.choushen = shen[assistindex]
+            }else
+            {
+                o.yongshen = shen[(index+1)%5]
+                o.xishen = shen[(index+2)%5] + shen[(index+3)%5]
+                o.xianshen = ""
+                o.jishen = shen[assistindex]+shen[index]
+                o.choushen = shen[assistindex]
+            }
         }
-   
-    //var daykey = kind
-    //喜神
-    //var checkhelp = (help>=0?kind[index]+kind[assistindex]:daykey.replace(kind[assistindex],"").replace(kind[index],""))+Math.abs(help).toString();
-
-
+        return o
         /*
         夫妻宫
 一.为用神，不受冲合
@@ -341,12 +357,6 @@ class EightrandomModule extends React.Component {
 (9)女命忌月支冲日支
 表婚姻不美，在日常生活中，可能无法有琼瑶小说式的浪漫，唯有相互体谅，才能有好的结局。
         */
-       if("乾造"==sex)
-       {
-
-       }else{
-
-       }
     }
 
     in_array(stringToSearch, arrayToSearch) {

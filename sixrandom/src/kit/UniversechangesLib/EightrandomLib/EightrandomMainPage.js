@@ -725,6 +725,7 @@ class EightrandomMainPage extends React.Component {
 
     var locationself = EightrandomModule.getlocationself(curyear, this.state.sex == "乾造" ? 0 : 1)
     var house = EightrandomModule.gethouselocation(locationself)
+    var marrytip = EightrandomModule.getcoupletest(this.state.EightDate,  this.state.buildeight,this.state.precent)
     var home = new Array()
     home = home.concat(day.self)
     home = home.concat(day.tip)
