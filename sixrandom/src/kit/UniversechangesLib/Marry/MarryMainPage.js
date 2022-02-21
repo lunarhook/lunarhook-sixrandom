@@ -86,13 +86,7 @@ let MarryMainPagethis = undefined
 
 class MarryMainPage extends React.Component {
   constructor(props) {
-
     super(props);
-
-
-    var precent = new Array();
-    var daykey = new Array();
-
     this.state = {
       gzxkmale:"",
       shareimg:false,
