@@ -153,10 +153,31 @@ import IconConfig from '../../../config/IconConfig'
 */
 
 
-
-
-
-
+//阴阳原值来处理八字命学的“调候原则”。其计算的干支阴阳气含原值如下表：
+//+7,+6,+5,+3,+2,+1,-1,-2,-3,-5,-6,-7
+var powerchange = new Array();
+powerchange["丙"] = 7
+powerchange["丁"] = 5
+powerchange["甲"] = 3
+powerchange["乙"] = 1
+powerchange["戊"] = 1
+powerchange["己"] = -1
+powerchange["庚"] = -1
+powerchange["辛"] = -3
+powerchange["壬"] = -5
+powerchange["癸"] = -7
+powerchange["巳"] = 7
+powerchange["未"] = 6
+powerchange["午"] = 5
+powerchange["寅"] = 3
+powerchange["辰"] = 2
+powerchange["卯"] = 1
+powerchange["申"] = -1
+powerchange["戌"] = -2
+powerchange["酉"] = -3
+powerchange["亥"] = -5
+powerchange["丑"] = -6
+powerchange["子"] = -7
 
 //目前一共有3类藏干表，有一种是60/30/10或者70/30分布的，目前采用总气是30的，但是在午和未的划分中，采用的后一种，按罗盘，应该是前一种，对午的最大影响就是土多火多的问题
 var hidetable = new Array();
@@ -232,12 +253,28 @@ class EightrandomModule extends React.Component {
     }
 
     getcoupletest(EightDate,buildeight,precent,sex){
-
-       
-    const daykey = "甲乙丙丁戊己庚辛壬癸"
-    var index = Math.floor(daykey.indexOf(EightDate[4])/2)
-    var assistindex = (maleindex - 1 + 4)%4
-    var help = Math.floor(50-precent[index+5] - precent[assistindex+5])
+        var ret_powerself = this.getpowerself(EightDate,buildeight)
+    
+        var o={}
+        const daykey = "甲乙丙丁戊己庚辛壬癸"
+        const shen = "木火土金水"
+        var index = Math.floor(daykey.indexOf(EightDate[4])/2)
+        var assistindex = (maleindex - 1 + 4)%4
+        var help = Math.floor(50-precent[index+5] - precent[assistindex+5])
+        if(help<0 && (-1!=ret_powerself.indexOf("旺") ||-1!=ret_powerself.indexOf("强")) )
+        {
+            o.yongshen = shen[index]
+            o.xishen = shen[assistindex]
+            o.xianshen = shen[(index+1)%4]
+            o.jishen = shen[(index+2)%4]
+            o.choushen = shen[(index+3)%4]
+        }else{
+            o.yongshen = shen[index]
+            o.xishen = shen[assistindex]
+            o.xianshen = shen[(index+1)%4]
+            o.jishen = shen[(index+2)%4]
+            o.choushen = shen[(index+3)%4]
+        }
    
     //var daykey = kind
     //喜神

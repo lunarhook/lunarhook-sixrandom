@@ -395,41 +395,16 @@ class EightrandomMainPage extends React.Component {
     )
   }
 
-  createpie() {
-    const d = 2
-    const a = 1.4
-    const c = 1
-    const h = 0.7
-    const m = 0.5
-    var map = new Array()
-    //甲乙丙丁戊己庚辛壬癸
-    map['寅'] = [d, d, a, a, m, m, h, h, c, c]
-    map['卯'] = [d, d, a, a, m, m, h, h, c, c]
-    map['辰'] = [c, c, a, a, d, d, h, h, m, m]
-    map['巳'] = [c, c, d, d, a, a, m, m, h, h]
-    map['午'] = [c, c, d, d, a, a, m, m, h, h]
-    map['未'] = [h, h, c, c, d, d, a, a, m, m]
-    map['申'] = [m, m, h, h, c, c, d, d, a, a]
-    map['酉'] = [m, m, h, h, c, c, d, d, a, a]
-    map['戌'] = [m, m, h, h, d, d, c, c, a, a]
-    map['亥'] = [a, a, m, m, h, h, c, c, d, d]
-    map['子'] = [a, a, m, m, h, h, c, c, d, d]
-    map['丑'] = [a, a, h, h, d, d, m, m, c, c]
+  createpie(display,map) {
+
+
     var indexcolor = '子丑寅卯辰巳午未申酉戌亥'.indexOf(this.state.EightDate[3])
     var colorsel = ["#1E90FF", "#8B4513", "green", "green", "#8B4513", "red", "red", "#8B4513", "#DAA520", "#DAA520", "#8B4513", "#1E90FF"]
     //console.log("colorsel",colorsel[indexcolor])
     if (this.state.precent != "") {
-      var display = new Array()
-      display['甲'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][0] * this.state.daykey['甲']) : this.state.daykey['甲']
-      display['乙'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][1] * this.state.daykey['乙']) : this.state.daykey['乙']
-      display['丙'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][2] * this.state.daykey['丙']) : this.state.daykey['丙']
-      display['丁'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][3] * this.state.daykey['丁']) : this.state.daykey['丁']
-      display['戊'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][4] * this.state.daykey['戊']) : this.state.daykey['戊']
-      display['己'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][5] * this.state.daykey['己']) : this.state.daykey['己']
-      display['庚'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][6] * this.state.daykey['庚']) : this.state.daykey['庚']
-      display['辛'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][7] * this.state.daykey['辛']) : this.state.daykey['辛']
-      display['壬'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][8] * this.state.daykey['壬']) : this.state.daykey['壬']
-      display['癸'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][9] * this.state.daykey['癸']) : this.state.daykey['癸']
+
+
+
       var ret = this.state.pie
       console.log("createpie", ret)
       return (
@@ -657,27 +632,60 @@ class EightrandomMainPage extends React.Component {
     years = luckyearrelation.concat(yearsnumber, this.state.luckyyear, luckyyearposition)
     //console.log("years", years, luckyearrelation, this.state.luckyyear, luckyyearposition)
 
+    var map = new Array()
+    //甲乙丙丁戊己庚辛壬癸
+    map['寅'] = [1.14, 1.14, 1.2, 1.2, 1.06, 1.06, 1, 1, 1, 1]
+    map['卯'] = [1.2, 1.2, 1.2, 1.2, 1, 1, 1, 1, 1, 1]
+    map['辰'] = [1.1, 1.1, 1.06, 1.06, 1.1, 1.1, 1.1, 1.1, 1.04, 1.04]
+    map['巳'] = [1, 1, 1.14, 1.14, 1.14, 1.14, 1.06, 1.06, 1.06, 1.06]
+    map['午'] = [1, 1, 1.2, 1.2, 1.2, 1.2, 1, 1, 1, 1]
+    map['未'] = [1.04, 1.04, 1.1, 1.1, 1.16, 1.16, 1.1, 1.1, 1, 1]
+    map['申'] = [1.06, 1.06, 1, 1, 1, 1, 1.14, 1.14, 1.2, 1.2]
+    map['酉'] = [1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.2, 1.2]
+    map['戌'] = [1, 1, 1.04, 1.04, 1.14, 1.14, 1.16, 1.16, 1.06, 1.6]
+    map['亥'] = [1.2, 1.2, 1, 1, 1, 1, 1, 1, 1.14, 1.14]
+    map['子'] = [1.2, 1.2, 1, 1, 1, 1, 1, 1, 1.2, 1.2]
+    map['丑'] = [1.06, 1.06, 1, 1, 1.1, 1.1, 1.14, 1.14, 1.1, 1.1]
+    var display = new Array()
+    display['甲'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][0] * this.state.daykey['甲']) : this.state.daykey['甲']
+    display['乙'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][1] * this.state.daykey['乙']) : this.state.daykey['乙']
+    display['丙'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][2] * this.state.daykey['丙']) : this.state.daykey['丙']
+    display['丁'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][3] * this.state.daykey['丁']) : this.state.daykey['丁']
+    display['戊'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][4] * this.state.daykey['戊']) : this.state.daykey['戊']
+    display['己'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][5] * this.state.daykey['己']) : this.state.daykey['己']
+    display['庚'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][6] * this.state.daykey['庚']) : this.state.daykey['庚']
+    display['辛'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][7] * this.state.daykey['辛']) : this.state.daykey['辛']
+    display['壬'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][8] * this.state.daykey['壬']) : this.state.daykey['壬']
+    display['癸'] = "空" != this.state.enhance ? Math.floor(map[this.state.enhance][9] * this.state.daykey['癸']) : this.state.daykey['癸']
+    var totalfive =  display['甲'] +  display['乙']+ display['丙']+ display['丁']+ display['戊']+ display['己']+ display['庚']+ display['辛']+ display['壬']+ display['癸']
+    var fiveprecent = new Array()
+    fiveprecent["木"] = Math.floor((display["甲"]+display["乙"])*100/totalfive)
+    fiveprecent["火"] = Math.floor((display["丙"]+display["丁"])*100/totalfive)
+    fiveprecent["土"] = Math.floor((display["戊"]+display["己"])*100/totalfive)
+    fiveprecent["金"] = Math.floor((display["庚"]+display["辛"])*100/totalfive)
+    fiveprecent["水"] = Math.floor((display["壬"]+display["癸"])*100/totalfive)
+
     var five = new Array();
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>木</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>火</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>土</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>金</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>水</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>甲:{this.state.daykey['甲']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丙:{this.state.daykey['丙']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>戊:{this.state.daykey['戊']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>庚:{this.state.daykey['庚']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>壬:{this.state.daykey['壬']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>乙:{this.state.daykey['乙']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丁:{this.state.daykey['丁']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>己:{this.state.daykey['己']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>辛:{this.state.daykey['辛']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>癸:{this.state.daykey['癸']}</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{this.state.precent[5]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{this.state.precent[6]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{this.state.precent[7]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{this.state.precent[8]}%</Text>)
-    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{this.state.precent[9]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>甲:{display['甲']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丙:{display['丙']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>戊:{display['戊']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>庚:{display['庚']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>壬:{display['壬']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>乙:{display['乙']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>丁:{display['丁']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>己:{display['己']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>辛:{display['辛']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>癸:{display['癸']}</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{fiveprecent["木"]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{fiveprecent["火"]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#8B4513' }}>{fiveprecent["土"]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#DAA520' }}>{fiveprecent["金"]}%</Text>)
+    five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: '#1E90FF' }}>{fiveprecent["水"]}%</Text>)
     var fivepower = EightrandomModule.geikeypower(this.state.EightDate[3]);
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'green' }}>{fivepower[0]}</Text>)
     five.push(<Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, color: 'red' }}>{fivepower[1]}</Text>)
@@ -735,6 +743,7 @@ class EightrandomMainPage extends React.Component {
     //身旺判断
     var ret_powerself = EightrandomModule.getpowerself(this.state.EightDate,this.state.buildeight)
     base.push( "命身: " +ret_powerself.powerself )
+    base.push( "（得令用十二长生中非沐浴计算且不使用任何时柱）" )
 
 
     return (
@@ -882,7 +891,7 @@ class EightrandomMainPage extends React.Component {
 
                 </Accordion.Panel >
                 <Accordion.Panel>
-                  {this.createpie()}
+                  {this.createpie(display,map)}
                 </Accordion.Panel >
                 <Accordion.Panel header="八字冲克" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
