@@ -865,6 +865,12 @@ class MarryMainPage extends React.Component {
     }
     */
     //身旺判断
+
+    const daykey = "甲乙丙丁戊己庚辛壬癸"
+    const earthkey ="子丑寅卯辰巳午未申酉戌亥"
+    const eatthfive = "水土木木土火火土金金土水"
+    const kind = "木火土金水"
+    const congtest="辰戌戌辰，子午午子，寅申申寅，卯酉酉卯，丑未未丑，巳亥亥巳"
     var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale,this.state.buildeightmale)
     var testpowerselfmale = ret_powerselfmale.powerself
 
@@ -900,11 +906,59 @@ class MarryMainPage extends React.Component {
     base.push(["身  旺:",testpowerselfmale,testpowerselffemale ])
     base.push(["用  神:",yongshenmale.yongshen,yongshenfemale.yongshen])
     base.push(["喜  神:",yongshenmale.xishen,yongshenfemale.xishen])
-    base.push(["忌  神:",yongshenmale.jishen,yongshenfemale.jishen])
+    base.push(["忌  神:",yongshenmale.jishen + yongshenmale.jishen2,yongshenfemale.jishen + yongshenfemale.jishen2])
     base.push(["仇  神:",yongshenmale.choushen,yongshenfemale.choushen])
+    var maleyongshencheck = yongshenmale.yongshen+yongshenmale.xishen
+    var femaleyongshencheck = yongshenfemale.yongshen+yongshenfemale.xishen
+    if((-1!=maleyongshencheck.indexOf(yongshenfemale.jishen) || -1!=maleyongshencheck.indexOf(yongshenfemale.jishen2)||-1!=maleyongshencheck.indexOf(yongshenfemale.choushen)) ){
+      maleyongshencheck = IconConfig.IconMarryCheck
+    }
+    else{
+      maleyongshencheck = ""
+    }
+    if( (-1!=femaleyongshencheck.indexOf(yongshenmale.jishen)||-1!=femaleyongshencheck.indexOf(yongshenmale.jishen2) ||-1!=femaleyongshencheck.indexOf(yongshenmale.choushen) )){
+      femaleyongshencheck = IconConfig.IconMarryCheck
+    }else{
+      femaleyongshencheck = ""
+    }
+    if(IconConfig.IconMarryCheck==femaleyongshencheck || IconConfig.IconMarryCheck==maleyongshencheck)
+    {    base.push(["神  合:",maleyongshencheck,femaleyongshencheck])}
+
+
     base.push(["日  元:",this.state.EightDatemale[4],this.state.EightDatefemale[4]])
+    if(Math.abs(Math.floor(daykey.indexOf(this.state.EightDatemale[4])/2) -  Math.floor(daykey.indexOf(this.state.EightDatefemale[4])/2) + 5)%5==3)
+    {
+     
+      if(-1!=testpowerselfmale.indexOf("旺") || -1!=testpowerselfmale.indexOf("强")){
+        if(-1!=testpowerselffemale.indexOf("衰") || -1!=testpowerselffemale.indexOf("弱")){
+          base.push(["元  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+        }
+      }else if(-1!=testpowerselfmale.indexOf("弱") || -1!=testpowerselfmale.indexOf("衰")){
+        if(-1!=testpowerselffemale.indexOf("旺") || -1!=testpowerselffemale.indexOf("衰")){
+          base.push(["元  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+        }
+      }
+    }else{
+      if(-1!=testpowerselfmale.indexOf("旺") || -1!=testpowerselfmale.indexOf("强")){
+        if(-1!=testpowerselffemale.indexOf("旺") || -1!=testpowerselffemale.indexOf("强")){
+          base.push(["元  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+        }
+      }else if(-1!=testpowerselfmale.indexOf("弱") || -1!=testpowerselfmale.indexOf("衰")){
+        if(-1!=testpowerselffemale.indexOf("弱") || -1!=testpowerselffemale.indexOf("衰")){
+          base.push(["元  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+        }
+      }
+    }
+
     base.push(["日  支:",this.state.EightDatemale[5],this.state.EightDatefemale[5]])
-    const kind = "木火土金水"
+    if(Math.abs(kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatemale[5]))]) - kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatefemale[5]))]) + 5)%5!=3)
+    {
+      if(-1==congtest.indexOf(this.state.EightDatemale[5]+this.state.EightDatefemale[5]) && -1==congtest.indexOf(this.state.EightDatefemale[5]+this.state.EightDatemale[5]) )
+      {
+        base.push(["支  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+      }
+    }
+
     var ret_male = ""
     var ret_female = ""
 
@@ -914,7 +968,7 @@ class MarryMainPage extends React.Component {
     }
     base.push(["势  气:",ret_male,ret_female])
 
-    const daykey = "甲乙丙丁戊己庚辛壬癸"
+    
     var maleindex = Math.floor(daykey.indexOf(this.state.EightDatemale[4])/2)
     var femaleindex = Math.floor(daykey.indexOf(this.state.EightDatefemale[4])/2)
     var assistmaleindex = (maleindex - 1 + 4)%4
@@ -930,6 +984,9 @@ class MarryMainPage extends React.Component {
      ret_male = EightrandomModule.gettwelfth(this.state.EightDatemale[0] + this.state.EightDatemale[1])
      ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])
     base.push(["纳  音:",ret_male,ret_female])
+    if(Math.abs(kind.indexOf(ret_male.charAt(2))-  kind.indexOf(ret_female.charAt(2)) + 5)%5!=3){
+      base.push(["音  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+    }
     base.push(["大  运:",curluckyearmale[0]+curluckyearmale[1],curluckyearfemale[0]+curluckyearfemale[1]])
 
     ret_male = ""
@@ -940,8 +997,26 @@ class MarryMainPage extends React.Component {
     }
     base.push(["月  令:",ret_male,ret_female])
     base.push(["年  柱:",this.state.EightDatemale[0] + this.state.EightDatemale[1],this.state.EightDatefemale[0] + this.state.EightDatefemale[1]])
+    if(Math.abs(kind.indexOf(this.state.EightDatemale[0])-  kind.indexOf(this.state.EightDatefemale[0]) + 5)%5!=3){
+      base.push(["年  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+    }
     base.push(["月  柱:",this.state.EightDatemale[2] + this.state.EightDatemale[3],this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
+    if(Math.abs(kind.indexOf(this.state.EightDatemale[2])-  kind.indexOf(this.state.EightDatefemale[2]) + 5)%5!=3){
+      if(-1==congtest.indexOf(this.state.EightDatemale[2]+this.state.EightDatefemale[2]) && -1==congtest.indexOf(this.state.EightDatefemale[2]+this.state.EightDatemale[2]) )
+      {
+        base.push(["月  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+      }
+
+    }
     base.push(["生  肖:",this.state.EightDatemale[1],this.state.EightDatefemale[1]])
+    if(Math.abs(kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatemale[1]))]) - kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]) + 5)%5!=3)
+    {
+      if(-1==congtest.indexOf(this.state.EightDatemale[1]+this.state.EightDatefemale[1]) && -1==congtest.indexOf(this.state.EightDatefemale[1]+this.state.EightDatemale[1]) )
+      {
+        base.push(["象  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+      }
+    }
+    base.push(["合婚共七合"])
     Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000 ,useNativeDriver: true}), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000 ,useNativeDriver: true})]).start()
    
 
@@ -959,12 +1034,22 @@ class MarryMainPage extends React.Component {
                       hasLine={true}
                       itemStyle={{ height: 25,  backgroundColor: '#ffffff' }}
                       renderItem={(dataItem,index) => {
-                        return(
-                          <View style={[styles.container,{flexDirection: 'row',alignItems:"flex-end"}]}>
-                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60 ,textAlign:"center"}}>{dataItem[0]}</Text>
-                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150 ,textAlign:"center"}}>{dataItem[1]}</Text>
-                            <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150 ,textAlign:"center"}}>{dataItem[2]}</Text>
-                          </View>)
+                        if(dataItem.length>=2)
+                        {
+                          return(
+                            <View style={[styles.container,{flexDirection: 'row',alignItems:"flex-end"}]}>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60 ,textAlign:"center"}}>{dataItem[0]}</Text>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150 ,textAlign:"center"}}>{dataItem[1]}</Text>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150 ,textAlign:"center"}}>{dataItem[2]}</Text>
+                            </View>)
+                        }
+                        else{
+                          return(
+                            <View style={[styles.container,{flexDirection: 'row',alignItems:"flex-end"}]}>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 360 ,textAlign:"center"}}>{dataItem[0]}</Text>
+                            </View>)
+                        }
+
                       }} />
                     <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
                     </View>
