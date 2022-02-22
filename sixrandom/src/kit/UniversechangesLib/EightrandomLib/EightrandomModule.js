@@ -228,6 +228,15 @@ class EightrandomModule extends React.Component {
         powerself.push(buildeight[0])
         powerself.push(buildeight[2])
         var t = powerself.toString()
+        var superself = new Array()
+        superself.push(buildeight[0])
+        superself.push(buildeight[1])
+        superself.push(buildeight[2])
+        superself.push(buildeight[3])
+        superself.push(buildeight[5])
+        superself.push(buildeight[7])
+        superself.push(buildeight[8])
+        var s = superself.toString()
         var ret = ""
         if (-1 != "长生冠带临官帝旺".indexOf(powerself[1])) {
           if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
@@ -237,14 +246,21 @@ class EightrandomModule extends React.Component {
           }
           else {
             ret = "身旺（得令）"
+            if(-1==s.indexOf("正官") && -1==s.indexOf("七杀") )
+            {
+                ret = "专旺（得令）"
+            }
           }
         }
         else {
-          
           if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
             ret = "身弱（得地生扶）"
           } else {
             ret = "身衰（失令）"
+            if(-1==s.indexOf("正官") && -1==s.indexOf("七杀") && -1==s.indexOf("印"))
+            {
+                ret = "身衰（从儿）"
+            }
           }
         }
         var o ={}
@@ -253,7 +269,7 @@ class EightrandomModule extends React.Component {
     }
 
     getcoupletest(EightDate,buildeight,precent){
-        //https://baike.baidu.com/item/%E5%96%9C%E7%94%A8%E7%A5%9E/10646208?fr=aladdin
+        //https://baike.baidu.com/item/喜用神/10646208?fr=aladdin
         var ret_powerself = (this.getpowerself(EightDate,buildeight)).powerself
         var shishenkey = buildeight.toString()
         var o={}
@@ -289,7 +305,7 @@ class EightrandomModule extends React.Component {
             {
                 o.yongshen = shen[(index+3)%5]
                 o.xishen = shen[(index+2)%5]
-                o.xishen2 = shen[(index+1)%5]
+                o.xishen2 = " "
                 o.xianshen = " "
                 o.jishen = shen[(index+1)%5]
                 o.jishen2 = shen[index]

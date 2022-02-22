@@ -869,9 +869,13 @@ class MarryMainPage extends React.Component {
     const daykey = "甲乙丙丁戊己庚辛壬癸"
     const dayfive = "木木火火土土金金水水"
     const earthkey ="子丑寅卯辰巳午未申酉戌亥"
-    const eatthfive = "水土木木土火火土金金土水"
-    const kind = "土木，木土，金火，火金，火水，水火，土水，水土，金木，木金"
-    const congtest="辰戌，戌辰，子午，午子，寅申，申寅，卯酉，酉卯，丑未，未丑，巳亥，亥巳，子卯，卯子"
+    const earthfive = "水土木木土火火土金金土水"
+    const kindmale = "木土，火金，土水，金木，水火，"
+    const kindfemale = "土木，金火，水土，木金，火水，"
+    const kindassist = "木火，火木，火土，土火，土金，金土，金水，水金，水木，木水"
+    const kind = kindmale + kindfemale
+    //四柱不应该被冲克刑
+    const congtest="辰戌，戌辰，子午，午子，寅申，申寅，卯酉，酉卯，丑未，未丑，巳亥，亥巳，子卯，卯子，午午，亥亥，酉酉，辰辰"
     var tianganhuahe = []
     tianganhuahe["甲己"] = tianganhuahe["己甲"] = "土"
     tianganhuahe["乙庚"] = tianganhuahe["庚乙"] = "金"
@@ -914,7 +918,9 @@ class MarryMainPage extends React.Component {
     base.push(["身  旺:",testpowerselfmale,testpowerselffemale ])
     base.push(["用  神:",yongshenmale.yongshen,yongshenfemale.yongshen])
     base.push(["喜  神:",yongshenmale.xishen,yongshenfemale.xishen])
-    base.push(["忌  神:",yongshenmale.jishen + yongshenmale.jishen2,yongshenfemale.jishen + yongshenfemale.jishen2])
+    base.push(["后  喜:",yongshenmale.xishen2,yongshenfemale.xishen2])
+    base.push(["忌  神:",yongshenmale.jishen,yongshenfemale.jishen])
+    base.push(["后  忌:",yongshenmale.jishen2,yongshenfemale.jishen2])
     base.push(["仇  神:",yongshenmale.choushen,yongshenfemale.choushen])
     var maleyongshencheck = yongshenmale.yongshen+yongshenmale.xishen
     var femaleyongshencheck = yongshenfemale.yongshen+yongshenfemale.xishen
@@ -929,12 +935,14 @@ class MarryMainPage extends React.Component {
     } else {
       femaleyongshencheck = ""
     }
-    if (IconConfig.IconMarryCheck == femaleyongshencheck || IconConfig.IconMarryCheck == maleyongshencheck) { base.push(["神  合:", maleyongshencheck, femaleyongshencheck]) }
+    if (IconConfig.IconMarryCheck == femaleyongshencheck || IconConfig.IconMarryCheck == maleyongshencheck) { 
+      base.push(["神  合:", maleyongshencheck, femaleyongshencheck]) 
+    }
 
 
     base.push(["日  元:", this.state.EightDatemale[4], this.state.EightDatefemale[4]])
-    if (-1 != kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
-
+    //日元不能相互克，除非男克女，可以受生
+    if (-1 != kindmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]) || -1 != kindassist.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("衰") || -1 != testpowerselffemale.indexOf("弱")) {
           base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
@@ -957,7 +965,7 @@ class MarryMainPage extends React.Component {
     }
 
     base.push(["日  支:",this.state.EightDatemale[5],this.state.EightDatefemale[5]])
-    if(-1==kind.indexOf(eatthfive[earthkey.indexOf(this.state.EightDatemale[5])] + eatthfive[earthkey.indexOf(this.state.EightDatefemale[5])]))
+    if(-1==kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[5])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[5])]))
     {
       if(-1==congtest.indexOf(this.state.EightDatemale[5]+this.state.EightDatefemale[5]) && -1==congtest.indexOf(this.state.EightDatefemale[5]+this.state.EightDatemale[5]) )
       {
@@ -990,7 +998,9 @@ class MarryMainPage extends React.Component {
      ret_male = EightrandomModule.gettwelfth(this.state.EightDatemale[0] + this.state.EightDatemale[1])
      ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])
     base.push(["纳  音:",ret_male,ret_female])
-    if(-1==kind.indexOf(ret_male.charAt(2)+ret_female.charAt(2))){
+
+    //纳音可以男克女，也可以印生，但是不好女克男
+    if(-1!=kindmale.indexOf(ret_male.charAt(2)+ret_female.charAt(2)) || -1!=kindassist.indexOf(ret_male.charAt(2)+ret_female.charAt(2))){
       base.push(["音  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
     }
     base.push(["大  运:",curluckyearmale[0]+curluckyearmale[1],curluckyearfemale[0]+curluckyearfemale[1]])
@@ -1004,7 +1014,7 @@ class MarryMainPage extends React.Component {
     base.push(["月  令:",ret_male,ret_female])
     base.push(["年  柱:",this.state.EightDatemale[0] + this.state.EightDatemale[1],this.state.EightDatefemale[0] + this.state.EightDatefemale[1]])
     if(-1==kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[0])]+dayfive[daykey.indexOf(this.state.EightDatefemale[0])]) || undefined!=tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]]){
-      if(-1==kind.indexOf(eatthfive[earthkey.indexOf(this.state.EightDatemale[1])] +  eatthfive[earthkey.indexOf(this.state.EightDatefemale[1])])){
+      if(-1==kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[1])] +  earthfive[earthkey.indexOf(this.state.EightDatefemale[1])])){
         if(-1==congtest.indexOf(this.state.EightDatemale[1]+this.state.EightDatefemale[1]) )
         {
           if(undefined!=tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]])
@@ -1046,7 +1056,7 @@ class MarryMainPage extends React.Component {
     }
     base.push(["月  柱:",this.state.EightDatemale[2] + this.state.EightDatemale[3],this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
     if(-1==kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[2])] +  dayfive[daykey.indexOf(this.state.EightDatefemale[2])]) || undefined!=tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]]){
-      if(-1==kind.indexOf(eatthfive[earthkey.indexOf(this.state.EightDatemale[3])] +  eatthfive[earthkey.indexOf(this.state.EightDatefemale[3])])){
+      if(-1==kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[3])] +  earthfive[earthkey.indexOf(this.state.EightDatefemale[3])])){
         if(-1==congtest.indexOf(this.state.EightDatefemale[3]+this.state.EightDatemale[3]) )
         {
           if(undefined!=tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]])
@@ -1084,7 +1094,7 @@ class MarryMainPage extends React.Component {
       }
     }
     base.push(["属  象:",this.state.EightDatemale[1],this.state.EightDatefemale[1]])
-    if(-1==kind.indexOf(eatthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + eatthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]))
+    if(-1==kind.indexOf(earthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + earthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]))
     {
       if(-1==congtest.indexOf(this.state.EightDatemale[1]+this.state.EightDatefemale[1]) && -1==congtest.indexOf(this.state.EightDatefemale[1]+this.state.EightDatemale[1]) )
       {
