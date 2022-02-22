@@ -89,12 +89,12 @@ class IconConfig extends React.Component {
   static IconScreen = (<Ionicons name="ios-images" size={size} color={blue} />)
   static IconDetail = (<Ionicons name="ios-menu" size={size} color={orange} />)
   static IconLunarCourse = (<MaterialCommunityIcons name="lightbulb-on-outline" size={midsize} color={green} />)
-  static IconLunarCourseIntro = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={green} />)
-  static IconLunarCourseIntroRed = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={fire} />)
-  static IconLunarCourseIntroBlue = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={green} />)
-  static IconLunarCourseIntroOrange = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={blue} />)
-  static IconLunarCourseIntroGold = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={gold} />)
-  static IconLunarCourseIntroClaygreen = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={claygreen} />)
+  static IconLunarCourseIntro = (<EvilIcons name="spinner-3" size={size} color={green} />)
+  static IconLunarCourseIntroRed = (<EvilIcons name="spinner-3" size={size} color={fire} />)
+  static IconLunarCourseIntroBlue = (<EvilIcons name="spinner-3" size={size} color={green} />)
+  static IconLunarCourseIntroOrange = (<EvilIcons name="spinner-3" size={size} color={blue} />)
+  static IconLunarCourseIntroGold = (<EvilIcons name="spinner-3" size={size} color={gold} />)
+  static IconLunarCourseIntroClaygreen = (<EvilIcons name="spinner-3" size={size} color={claygreen} />)
 
   static IconLunarCourseBlue = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={blue} />)
   static IconLunarCourseRed = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={fire} />)
@@ -184,7 +184,7 @@ class IconConfig extends React.Component {
   static IconLijiBook = (<FontAwesome name="language" size={buttonsize} color={fire} />)
   static IconZhongYongBook = (<FontAwesome name="language" size={buttonsize} color={Coral} />)
   static IconBigBook = (<FontAwesome name="language" size={buttonsize} color={fire} />)
-  static IconJiBook = (<MaterialCommunityIcons name="amazon-alexa" size={size} color={LightPink} />)
+  static IconJiBook = (<EvilIcons name="spinner-3" size={size} color={LightPink} />)
   static IconBooks = (<MaterialCommunityIcons name="bookshelf" size={size} color={claygreen} />)
 
 
