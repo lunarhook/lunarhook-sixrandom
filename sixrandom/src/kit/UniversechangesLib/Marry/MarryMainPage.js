@@ -88,14 +88,14 @@ class MarryMainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gzxkmale:"",
-      shareimg:false,
+      gzxkmale: "",
+      shareimg: false,
       fadeInOpacity: new Animated.Value(0.3),
-      gzxkfemale:"",
+      gzxkfemale: "",
       EightDatemale: "",
       EightDatefemale: "",
       birthmale: "",
-      birthfemale:"",
+      birthfemale: "",
       gzbirthmale: "",
       gzbirthfemale: "",
       buildeightmale: new Array(),
@@ -118,7 +118,7 @@ class MarryMainPage extends React.Component {
       curminiluckyearnumfemale: 0,
       beginluckyfemale: 0,
       activeSections: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      renderswitch:false,
+      renderswitch: false,
     };
 
     MarryMainPagethis = this
@@ -169,10 +169,10 @@ class MarryMainPage extends React.Component {
       headerRight: () => (
         <TouchableOpacity
           style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
-          //onPress={() => navigate('Search')}
-          //onPress={() =>  MarryMainPagethis.deletethis()}
+        //onPress={() => navigate('Search')}
+        //onPress={() =>  MarryMainPagethis.deletethis()}
         >
-         
+
         </TouchableOpacity>),
     }
   };
@@ -203,8 +203,8 @@ class MarryMainPage extends React.Component {
       console.log(gzmale);
       var EightDategzmale = SixrandomModule.lunar_f(gzmale)
       var gzDatemale = EightDategzmale.gzYear + " " + EightDategzmale.gzMonth + " " + EightDategzmale.gzDate + " " + EightDategzmale.gzTime;
-      var gzxkmale = SixrandomModule.get_empty_sixty_cycle(EightDategzmale.gzYear)+ " " + SixrandomModule.get_empty_sixty_cycle(EightDategzmale.gzMonth) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzmale.gzDate) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzmale.gzTime);
-      
+      var gzxkmale = SixrandomModule.get_empty_sixty_cycle(EightDategzmale.gzYear) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzmale.gzMonth) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzmale.gzDate) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzmale.gzTime);
+
       curyearmale = EightDategzmale.Year;
       curmonthmale = EightDategzmale.Month
 
@@ -212,7 +212,7 @@ class MarryMainPage extends React.Component {
       var beginluckymale = EightrandomModule.getbigluckyearbegin(rettermmale, gzmale, info.EightDatemale, "乾造");
       console.log("beginlucky", Math.floor(beginluckymale), Number(gzmale.getFullYear()))
       MarryMainPagethis.setState({
-         EightDatemale: info.EightDatemale, birthmale: info.birthmale, gzbirthmale: gzDatemale, beginluckymale: Math.floor(beginluckymale),gzxkmale:gzxkmale
+        EightDatemale: info.EightDatemale, birthmale: info.birthmale, gzbirthmale: gzDatemale, beginluckymale: Math.floor(beginluckymale), gzxkmale: gzxkmale
       });
       this.buildeight("乾造");
 
@@ -225,8 +225,8 @@ class MarryMainPage extends React.Component {
       console.log(gzfemale);
       var EightDategzfemale = SixrandomModule.lunar_f(gzfemale)
       var gzDatefemale = EightDategzfemale.gzYear + " " + EightDategzfemale.gzMonth + " " + EightDategzfemale.gzDate + " " + EightDategzfemale.gzTime;
-      var gzxkfemale = SixrandomModule.get_empty_sixty_cycle(EightDategzfemale.gzYear)+ " " + SixrandomModule.get_empty_sixty_cycle(EightDategzfemale.gzMonth) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzfemale.gzDate) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzfemale.gzTime);
-      
+      var gzxkfemale = SixrandomModule.get_empty_sixty_cycle(EightDategzfemale.gzYear) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzfemale.gzMonth) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzfemale.gzDate) + " " + SixrandomModule.get_empty_sixty_cycle(EightDategzfemale.gzTime);
+
       curyearfemale = EightDategzfemale.Year;
       curmonthfemale = EightDategzfemale.Month
 
@@ -234,19 +234,18 @@ class MarryMainPage extends React.Component {
       var beginluckyfemale = EightrandomModule.getbigluckyearbegin(rettermfemale, gzfemale, info.EightDatefemale, "坤造");
       console.log("beginlucky", Math.floor(beginluckyfemale), Number(gzfemale.getFullYear()))
       MarryMainPagethis.setState({
-         EightDatefemale: info.EightDatefemale, birthfemale: info.birthfemale, gzbirthfemale: gzDatefemale, beginluckyfemale: Math.floor(beginluckyfemale),gzxkfemale:gzxkfemale
+        EightDatefemale: info.EightDatefemale, birthfemale: info.birthfemale, gzbirthfemale: gzDatefemale, beginluckyfemale: Math.floor(beginluckyfemale), gzxkfemale: gzxkfemale
       });
       this.buildeight("乾造");
       this.buildeight("坤造");
 
-      this.setState({renderswitch:true})
+      this.setState({ renderswitch: true })
     }
   }
 
   buildeight(sex) {
     var buildeight = new Array()
-    if("乾造" == sex)
-    {
+    if ("乾造" == sex) {
       buildeight[0] = EightrandomModule.parentday(this.state.EightDatemale[0], this.state.EightDatemale[4])
       buildeight[2] = EightrandomModule.parentday(this.state.EightDatemale[2], this.state.EightDatemale[4])
       buildeight[4] = "乾造" == sex ? "元男" : "元女"
@@ -269,15 +268,15 @@ class MarryMainPage extends React.Component {
       var o = EightrandomModule.getfive(this.state.EightDatemale)
       precent = o.q
       daykey = o.p
-  
-  
-  
+
+
+
       var luckyyear = new Array();
       luckyyear = EightrandomModule.getbigluckyear(this.state.EightDatemale, "乾造");
       var luckyearrelation = new Array();
       var luckyyearposition = new Array();
       for (var i in luckyyear) {
-  
+
         var rel = luckyyear[i].slice(0, 1);
         //console.log("luckyyear",rel, luckyyear[i]);
         rel = EightrandomModule.parentday(rel, this.state.EightDatemale[4])
@@ -285,8 +284,8 @@ class MarryMainPage extends React.Component {
         luckyearrelation.push(rel);
         luckyyearposition.push(EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + luckyyear[i].slice(1, 2)))
       }
-  
-  
+
+
       this.setState({
         buildeightmale: buildeight, buildeightExtmale: buildeightExt,
         daykeymale: daykey, precentmale: precent,
@@ -294,8 +293,8 @@ class MarryMainPage extends React.Component {
         luckyyearpositionmale: luckyyearposition,
         luckyearrelationmale: luckyearrelation,
       });
-      this.changeyear("", (new Date()).getFullYear(),"乾造")
-    }else{
+      this.changeyear("", (new Date()).getFullYear(), "乾造")
+    } else {
       buildeight[0] = EightrandomModule.parentday(this.state.EightDatefemale[0], this.state.EightDatefemale[4])
       buildeight[2] = EightrandomModule.parentday(this.state.EightDatefemale[2], this.state.EightDatefemale[4])
       buildeight[4] = "乾造" == sex ? "元男" : "元女"
@@ -318,15 +317,15 @@ class MarryMainPage extends React.Component {
       var o = EightrandomModule.getfive(this.state.EightDatefemale)
       precent = o.q
       daykey = o.p
-  
-  
-  
+
+
+
       var luckyyear = new Array();
       luckyyear = EightrandomModule.getbigluckyear(this.state.EightDatefemale, "坤造");
       var luckyearrelation = new Array();
       var luckyyearposition = new Array();
       for (var i in luckyyear) {
-  
+
         var rel = luckyyear[i].slice(0, 1);
         //console.log("luckyyear",rel, luckyyear[i]);
         rel = EightrandomModule.parentday(rel, this.state.EightDatefemale[4])
@@ -334,8 +333,8 @@ class MarryMainPage extends React.Component {
         luckyearrelation.push(rel);
         luckyyearposition.push(EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + luckyyear[i].slice(1, 2)))
       }
-  
-  
+
+
       this.setState({
         buildeightfemale: buildeight, buildeightExtfemale: buildeightExt,
         daykeyfemale: daykey, precentfemale: precent,
@@ -345,7 +344,7 @@ class MarryMainPage extends React.Component {
       });
       this.changeyear("", (new Date()).getFullYear(), "坤造")
     }
-    
+
   }
 
   getColor(king, size) {
@@ -398,7 +397,7 @@ class MarryMainPage extends React.Component {
 
     );
   }
-  changeyear(bigyear, miniyear,sex) {
+  changeyear(bigyear, miniyear, sex) {
     var by = 0
     var my = new Date()
     my = my.getFullYear()
@@ -406,10 +405,10 @@ class MarryMainPage extends React.Component {
       //console.log("changeyearbig",bigyear,miniyear)
       by = Number(bigyear)
 
-      if("乾造"==sex){
+      if ("乾造" == sex) {
         my = Math.floor(Number(by * 10 + this.state.beginluckymale))
         this.setState({ curluckyearnummale: by, curminiluckyearnummale: my })
-      }else{
+      } else {
         my = Math.floor(Number(by * 10 + this.state.beginluckyfemale))
         this.setState({ curluckyearnumfemale: by, curminiluckyearnumfemale: my })
       }
@@ -417,17 +416,17 @@ class MarryMainPage extends React.Component {
 
     }
     else if ("" !== miniyear) {
-      
+
       my = Number(miniyear)
 
-      console.log("changeyearmini",bigyear,miniyear,by,my)
+      console.log("changeyearmini", bigyear, miniyear, by, my)
 
-      if("乾造"==sex){
+      if ("乾造" == sex) {
         if (my >= this.state.beginluckymale) {
           by = Math.floor((my - this.state.beginluckymale) / 10)
         }
         this.setState({ curluckyearnummale: by, curminiluckyearnummale: my })
-      }else{
+      } else {
         if (my >= this.state.beginluckyfemale) {
           by = Math.floor((my - this.state.beginluckyfemale) / 10)
         }
@@ -478,7 +477,7 @@ class MarryMainPage extends React.Component {
               width={300} height={300}
             />
           </Svg>
-          <Svg  height={300}>
+          <Svg height={300}>
             <VictoryGroup offset={(70)} width={400} domain={{ x: [-3, 6] }}
               colorScale={["green", "red", "#8B4513", "#DAA520", "#1E90FF"]}
             >
@@ -488,7 +487,7 @@ class MarryMainPage extends React.Component {
                   { x: "甲", y: Number(this.state.daykeymale['甲']) / 10 },
                   { x: "乙", y: Number(this.state.daykeymale['乙']) / 10 },
                 ]}
-                labels={["甲:" + `${this.state.daykeymale['甲']}`,"乙:" + `${this.state.daykeymale['乙']}`]}
+                labels={["甲:" + `${this.state.daykeymale['甲']}`, "乙:" + `${this.state.daykeymale['乙']}`]}
               />
               <VictoryBar
                 barWidth={15}
@@ -496,7 +495,7 @@ class MarryMainPage extends React.Component {
                   { x: "丙", y: Number(this.state.daykeymale['丙']) / 10 },
                   { x: "丁", y: Number(this.state.daykeymale['丁']) / 10 },
                 ]}
-                labels={["丙:" + `${this.state.daykeymale['丙']}`,"丁:" + `${this.state.daykeymale['丁']}`]}
+                labels={["丙:" + `${this.state.daykeymale['丙']}`, "丁:" + `${this.state.daykeymale['丁']}`]}
               />
               <VictoryBar
                 barWidth={15}
@@ -504,7 +503,7 @@ class MarryMainPage extends React.Component {
                   { x: "戊", y: Number(this.state.daykeymale['戊']) / 10 },
                   { x: "己", y: Number(this.state.daykeymale['己']) / 10 },
                 ]}
-                labels={["戊:" + `${this.state.daykeymale['戊']}`,"己:" + `${this.state.daykeymale['己']}`]}
+                labels={["戊:" + `${this.state.daykeymale['戊']}`, "己:" + `${this.state.daykeymale['己']}`]}
               />
               <VictoryBar
                 barWidth={15}
@@ -512,29 +511,29 @@ class MarryMainPage extends React.Component {
                   { x: "庚", y: Number(this.state.daykeymale['庚']) / 10 },
                   { x: "辛", y: Number(this.state.daykeymale['辛']) / 10 },
                 ]}
-                labels={["庚:" + `${this.state.daykeymale['庚']}`,"辛:" + `${this.state.daykeymale['辛']}`]}
-                />
+                labels={["庚:" + `${this.state.daykeymale['庚']}`, "辛:" + `${this.state.daykeymale['辛']}`]}
+              />
               <VictoryBar
                 barWidth={15}
                 data={[
                   { x: "壬", y: Number(this.state.daykeymale['壬']) / 10 },
                   { x: "癸", y: Number(this.state.daykeymale['癸']) / 10 },
                 ]}
-                labels={["壬:" + `${this.state.daykeymale['壬']}`,"癸:" + `${this.state.daykeymale['癸']}`]}
+                labels={["壬:" + `${this.state.daykeymale['壬']}`, "癸:" + `${this.state.daykeymale['癸']}`]}
               />
             </VictoryGroup>
           </Svg>
-         </View>
+        </View>
       )
     }
   }
 
-  
+
 
   render() {
 
 
-    if (undefined == this.state.luckyyearmale || "" == this.state.luckyyearmale || this.state.renderswitch==false) {
+    if (undefined == this.state.luckyyearmale || "" == this.state.luckyyearmale || this.state.renderswitch == false) {
       return null
     }
     //这里是大运确定
@@ -560,8 +559,8 @@ class MarryMainPage extends React.Component {
     var gzYear = eightyear.gzYear
     //计算大运，流年，原句的所有冲克信息
     console.log("curluckyearmale", this.state.luckyyear, this.state.curluckyearnum)
-    var rmale = EightrandomModule.getrelationship(this.state.EightDatemale, gzYear[1], curluckyearmale,"乾造")
-    var rfemale = EightrandomModule.getrelationship(this.state.EightDatefemale, gzYear[1], curluckyearfemale,"坤造")
+    var rmale = EightrandomModule.getrelationship(this.state.EightDatemale, gzYear[1], curluckyearmale, "乾造")
+    var rfemale = EightrandomModule.getrelationship(this.state.EightDatefemale, gzYear[1], curluckyearfemale, "坤造")
     const { navigate } = this.props.navigation;
 
     jump = false;
@@ -663,7 +662,7 @@ class MarryMainPage extends React.Component {
     }
 
     var test1male = new Array()
-    
+
     test1male.push({ info: ["", "藏干"], hide: '' })
     var hidelist = EightrandomModule.gethide(curluckyearmale[1])
     hidelist = hidelist.split("")
@@ -692,7 +691,7 @@ class MarryMainPage extends React.Component {
     }
 
     var test1female = new Array()
-    
+
     test1female.push({ info: ["", "藏干"], hide: '' })
     var hidelist = EightrandomModule.gethide(curluckyearfemale[1])
     hidelist = hidelist.split("")
@@ -730,7 +729,7 @@ class MarryMainPage extends React.Component {
     */
 
     var test2male = new Array()
-    
+
     test2male.push({ info: "长生", hide: '' })
     test2male.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + curluckyearmale[1]), hide: '' })
     test2male.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + gzYear[1]), hide: '' })
@@ -738,7 +737,7 @@ class MarryMainPage extends React.Component {
       var x = EightrandomModule.gettwelfthposition(this.state.EightDatemale[4] + this.state.EightDatemale[i * 2 + 1])
       test2male.push({ info: x, hide: "" })
     }
-    
+
     test2male.push({ info: "纳音", hide: '' })
     test2male.push({ info: EightrandomModule.gettwelfth(curluckyearmale[0] + curluckyearmale[1]), hide: '' })
     test2male.push({ info: EightrandomModule.gettwelfth(gzYear[0] + gzYear[1]), hide: '' })
@@ -748,7 +747,7 @@ class MarryMainPage extends React.Component {
     }
 
     var test2female = new Array()
-    
+
     test2female.push({ info: "长生", hide: '' })
     test2female.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + curluckyearfemale[1]), hide: '' })
     test2female.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + gzYear[1]), hide: '' })
@@ -756,7 +755,7 @@ class MarryMainPage extends React.Component {
       var x = EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatemale[i * 2 + 1])
       test2female.push({ info: x, hide: "" })
     }
-    
+
     test2female.push({ info: "纳音", hide: '' })
     test2female.push({ info: EightrandomModule.gettwelfth(curluckyearfemale[0] + curluckyearfemale[1]), hide: '' })
     test2female.push({ info: EightrandomModule.gettwelfth(gzYear[0] + gzYear[1]), hide: '' })
@@ -773,7 +772,7 @@ class MarryMainPage extends React.Component {
     yearsmale = luckyearrelationmale.concat(yearsnumbermale, this.state.luckyyearmale, luckyyearpositionmale)
 
 
-    
+
     var yearsnumberfemale = new Array()
     for (var i = 0; i < 8; i++) {
       yearsnumberfemale.push(i == 0 ? this.state.beginluckyfemale : yearsnumberfemale[i - 1] + 10)
@@ -879,14 +878,14 @@ class MarryMainPage extends React.Component {
 
     const daykey = "甲乙丙丁戊己庚辛壬癸"
     const dayfive = "木木火火土土金金水水"
-    const earthkey ="子丑寅卯辰巳午未申酉戌亥"
+    const earthkey = "子丑寅卯辰巳午未申酉戌亥"
     const earthfive = "水土木木土火火土金金土水"
     const kindmale = "木土，火金，土水，金木，水火，"
     const kindfemale = "土木，金火，水土，木金，火水，"
     const kindassist = "木火，火木，火土，土火，土金，金土，金水，水金，水木，木水"
     const kind = kindmale + kindfemale
     //四柱不应该被冲克刑
-    const congtest="辰戌，戌辰，子午，午子，寅申，申寅，卯酉，酉卯，丑未，未丑，巳亥，亥巳，子卯，卯子，午午，亥亥，酉酉，辰辰"
+    const congtest = "辰戌，戌辰，子午，午子，寅申，申寅，卯酉，酉卯，丑未，未丑，巳亥，亥巳，子卯，卯子，午午，亥亥，酉酉，辰辰"
     var tianganhuahe = []
     tianganhuahe["甲己"] = tianganhuahe["己甲"] = "土"
     tianganhuahe["乙庚"] = tianganhuahe["庚乙"] = "金"
@@ -894,20 +893,20 @@ class MarryMainPage extends React.Component {
     tianganhuahe["丁壬"] = tianganhuahe["壬丁"] = "木"
     tianganhuahe["戊癸"] = tianganhuahe["癸戊"] = "火"
 
-    var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale,this.state.buildeightmale)
+    var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale, this.state.buildeightmale)
     var testpowerselfmale = ret_powerselfmale.powerself
 
     //身旺判断
-    var ret_powerselffemale = EightrandomModule.getpowerself(this.state.EightDatefemale,this.state.buildeightfemale)
+    var ret_powerselffemale = EightrandomModule.getpowerself(this.state.EightDatefemale, this.state.buildeightfemale)
     var testpowerselffemale = ret_powerselffemale.powerself
 
-    var yongshenmale = EightrandomModule.getcoupletest(this.state.EightDatemale,this.state.buildeightmale,this.state.precentmale)
-    var yongshenfemale = EightrandomModule.getcoupletest(this.state.EightDatefemale,this.state.buildeightfemale,this.state.precentfemale)
+    var yongshenmale = EightrandomModule.getyongshen(this.state.EightDatemale, this.state.buildeightmale, this.state.precentmale)
+    var yongshenfemale = EightrandomModule.getyongshen(this.state.EightDatefemale, this.state.buildeightfemale, this.state.precentfemale)
 
-    var marryinfomale = EightrandomModule.getmarryinfo(this.state.EightDatemale, "乾造",rmale, this.state.buildeightmale)
+    var marryinfomale = EightrandomModule.getmarryinfo(this.state.EightDatemale, "乾造", rmale, this.state.buildeightmale)
     var marryinfofemale = EightrandomModule.getmarryinfo(this.state.EightDatefemale, "坤造", rfemale, this.state.buildeightfemale)
-    var locationselfmale = EightrandomModule.getlocationself(curyearmale,  0 )
-    var locationselffemale = EightrandomModule.getlocationself(curyearfemale,  1)
+    var locationselfmale = EightrandomModule.getlocationself(curyearmale, 0)
+    var locationselffemale = EightrandomModule.getlocationself(curyearfemale, 1)
     var housemale = EightrandomModule.gethouselocation(locationselfmale)
     var housefemale = EightrandomModule.gethouselocation(locationselffemale)
     var homemale = new Array()
@@ -920,21 +919,21 @@ class MarryMainPage extends React.Component {
     homefemale = homefemale.concat(housefemale)
     console.log("locationself", locationselfmale)
     var base = new Array()
-    base.push(["命  造:","乾造","坤造"] )
-    base.push(["公  历:",this.state.birthmale,this.state.birthfemale ])
-    base.push(["四  柱:",this.state.gzbirthmale,this.state.gzbirthfemale] )
-    base.push(["旬  空:",this.state.gzxkmale,this.state.gzxkfemale] )
-    base.push(["起  运:",this.state.beginluckymale,this.state.beginluckyfemale] )
-    base.push(["命  卦:",locationselfmale,locationselffemale ])
-    base.push(["身  旺:",testpowerselfmale,testpowerselffemale ])
-    base.push(["用  神:",yongshenmale.yongshen,yongshenfemale.yongshen])
-    base.push(["喜  神:",yongshenmale.xishen,yongshenfemale.xishen])
-    base.push(["后  喜:",yongshenmale.xishen2,yongshenfemale.xishen2])
-    base.push(["忌  神:",yongshenmale.jishen,yongshenfemale.jishen])
-    base.push(["后  忌:",yongshenmale.jishen2,yongshenfemale.jishen2])
-    base.push(["仇  神:",yongshenmale.choushen,yongshenfemale.choushen])
-    var maleyongshencheck = yongshenmale.yongshen+yongshenmale.xishen
-    var femaleyongshencheck = yongshenfemale.yongshen+yongshenfemale.xishen
+    base.push(["命  造:", "乾造", "坤造"])
+    base.push(["公  历:", this.state.birthmale, this.state.birthfemale])
+    base.push(["四  柱:", this.state.gzbirthmale, this.state.gzbirthfemale])
+    base.push(["旬  空:", this.state.gzxkmale, this.state.gzxkfemale])
+    base.push(["起  运:", this.state.beginluckymale, this.state.beginluckyfemale])
+    base.push(["命  卦:", locationselfmale, locationselffemale])
+    base.push(["身  旺:", testpowerselfmale, testpowerselffemale])
+    base.push(["用  神:", yongshenmale.yongshen, yongshenfemale.yongshen])
+    base.push(["喜  神:", yongshenmale.xishen, yongshenfemale.xishen])
+    base.push(["后  喜:", yongshenmale.xishen2, yongshenfemale.xishen2])
+    base.push(["忌  神:", yongshenmale.jishen, yongshenfemale.jishen])
+    base.push(["后  忌:", yongshenmale.jishen2, yongshenfemale.jishen2])
+    base.push(["仇  神:", yongshenmale.choushen, yongshenfemale.choushen])
+    var maleyongshencheck = yongshenmale.yongshen + yongshenmale.xishen
+    var femaleyongshencheck = yongshenfemale.yongshen + yongshenfemale.xishen
     if ((-1 != maleyongshencheck.indexOf(yongshenfemale.jishen) || -1 != maleyongshencheck.indexOf(yongshenfemale.jishen2) || -1 != maleyongshencheck.indexOf(yongshenfemale.choushen))) {
       maleyongshencheck = IconConfig.IconMarryCheck
     }
@@ -946,14 +945,14 @@ class MarryMainPage extends React.Component {
     } else {
       femaleyongshencheck = ""
     }
-    if (IconConfig.IconMarryCheck == femaleyongshencheck || IconConfig.IconMarryCheck == maleyongshencheck) { 
-      base.push(["神  合:", maleyongshencheck, femaleyongshencheck]) 
+    if (IconConfig.IconMarryCheck == femaleyongshencheck || IconConfig.IconMarryCheck == maleyongshencheck) {
+      base.push(["神  合:", maleyongshencheck, femaleyongshencheck])
     }
 
 
     base.push(["日  元:", this.state.EightDatemale[4], this.state.EightDatefemale[4]])
-    //日元不能相互克，除非男克女，可以受生
-    if (-1 != kindmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]) || -1 != kindassist.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
+    //日元不能相互克，除非男克女，旺衰对冲则用神相同
+    if (-1 != kindmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("衰") || -1 != testpowerselffemale.indexOf("弱")) {
           base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
@@ -963,7 +962,9 @@ class MarryMainPage extends React.Component {
           base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
         }
       }
-    } else {
+    }
+    //日元印生，同强同弱用神不冲突
+    else if (-1 != kindassist.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]) || dayfive[daykey.indexOf(this.state.EightDatemale[4])] == dayfive[daykey.indexOf(this.state.EightDatefemale[4])]) {
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("强")) {
           base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
@@ -974,189 +975,192 @@ class MarryMainPage extends React.Component {
         }
       }
     }
+    //日元天干化合为喜用最佳
+    else if (undefined != tianganhuahe[this.state.EightDatemale[4] + this.state.EightDatefemale[4]]) {
+      var x = tianganhuahe[this.state.EightDatemale[4] + this.state.EightDatefemale[4]]
+      var male = ""
+      var female = ""
+      if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
+        male = IconConfig.IconMarryCheck
+      }
+      if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
+        female = IconConfig.IconMarryCheck
+      }
+      if ("" != male || "" != female) {
+        base.push(["元  合:", male, female])
+      }
+    }
 
-    base.push(["日  支:",this.state.EightDatemale[5],this.state.EightDatefemale[5]])
-    if(-1==kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[5])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[5])]))
-    {
-      if(-1==congtest.indexOf(this.state.EightDatemale[5]+this.state.EightDatefemale[5]) && -1==congtest.indexOf(this.state.EightDatefemale[5]+this.state.EightDatemale[5]) )
-      {
-        base.push(["支  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+    base.push(["日  支:", this.state.EightDatemale[5], this.state.EightDatefemale[5]])
+    //日支不能相互克制
+    if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[5])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[5])])) {
+      //日支不能刑冲
+      if (-1 == congtest.indexOf(this.state.EightDatemale[5] + this.state.EightDatefemale[5])) {
+        base.push(["支  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
       }
     }
 
     var ret_male = ""
     var ret_female = ""
 
-    for(var i=0;i<5;i++){
+    for (var i = 0; i < 5; i++) {
       //if( this.state.precentmale[i+5]>20){ret_male=  ret_male + kind[i] + (Math.floor(this.state.precentmale[i+5]-20)).toString() }
       //if( this.state.precentfemale[i+5]>20){ret_female= ret_female + kind[i]+ (Math.floor(this.state.precentfemale[i+5]-20)).toString()}
     }
     //base.push(["势  气:",ret_male,ret_female])
 
-    
-    var maleindex = Math.floor(daykey.indexOf(this.state.EightDatemale[4])/2)
-    var femaleindex = Math.floor(daykey.indexOf(this.state.EightDatefemale[4])/2)
-    var assistmaleindex = (maleindex - 1 + 4)%4
-    var assistfemaleindex = (femaleindex - 1  + 4)%4
-    var helpmale = Math.floor(50-this.state.precentmale[maleindex+5] - this.state.precentmale[assistmaleindex+5])
-    var helpfemale = Math.floor(50-this.state.precentfemale[femaleindex+5] - this.state.precentfemale[assistfemaleindex+5])
-    
+
+    var maleindex = Math.floor(daykey.indexOf(this.state.EightDatemale[4]) / 2)
+    var femaleindex = Math.floor(daykey.indexOf(this.state.EightDatefemale[4]) / 2)
+    var assistmaleindex = (maleindex - 1 + 4) % 4
+    var assistfemaleindex = (femaleindex - 1 + 4) % 4
+    var helpmale = Math.floor(50 - this.state.precentmale[maleindex + 5] - this.state.precentmale[assistmaleindex + 5])
+    var helpfemale = Math.floor(50 - this.state.precentfemale[femaleindex + 5] - this.state.precentfemale[assistfemaleindex + 5])
+
     var daykeymale = kind
-    var checkhelpmale = (helpmale>=0?kind[maleindex]+kind[assistmaleindex]:daykeymale.replace(kind[assistmaleindex],"").replace(kind[maleindex],""))+Math.abs(helpmale).toString();
-    var checkhelpfemale =  (helpfemale>=0?kind[femaleindex]+kind[assistfemaleindex]:daykeymale.replace(kind[assistfemaleindex],"").replace(kind[femaleindex],""))+Math.abs(helpfemale).toString();
+    var checkhelpmale = (helpmale >= 0 ? kind[maleindex] + kind[assistmaleindex] : daykeymale.replace(kind[assistmaleindex], "").replace(kind[maleindex], "")) + Math.abs(helpmale).toString();
+    var checkhelpfemale = (helpfemale >= 0 ? kind[femaleindex] + kind[assistfemaleindex] : daykeymale.replace(kind[assistfemaleindex], "").replace(kind[femaleindex], "")) + Math.abs(helpfemale).toString();
     //base.push(["喜  用:",checkhelpmale,checkhelpfemale])
 
-     ret_male = EightrandomModule.gettwelfth(this.state.EightDatemale[0] + this.state.EightDatemale[1])
-     ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])
-    base.push(["纳  音:",ret_male,ret_female])
+    ret_male = EightrandomModule.gettwelfth(this.state.EightDatemale[0] + this.state.EightDatemale[1])
+    ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])
+    base.push(["纳  音:", ret_male, ret_female])
 
     //纳音可以男克女，也可以印生，但是不好女克男
-    if(-1!=kindmale.indexOf(ret_male.charAt(2)+ret_female.charAt(2)) || -1!=kindassist.indexOf(ret_male.charAt(2)+ret_female.charAt(2))){
-      base.push(["音  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+    if (-1 != kindmale.indexOf(ret_male.charAt(2) + ret_female.charAt(2)) || -1 != kindassist.indexOf(ret_male.charAt(2) + ret_female.charAt(2))) {
+      base.push(["音  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
     }
-    base.push(["大  运:",curluckyearmale[0]+curluckyearmale[1],curluckyearfemale[0]+curluckyearfemale[1]])
+    base.push(["大  运:", curluckyearmale[0] + curluckyearmale[1], curluckyearfemale[0] + curluckyearfemale[1]])
 
     ret_male = ""
     ret_female = ""
-    for(var i=0;i<5;i++){
-      if(fivepowermale[i]=="旺"){ret_male="木火土金水"[i]}
-      if(fivepowerfemale[i]=="旺"){ret_female="木火土金水"[i]}
+    for (var i = 0; i < 5; i++) {
+      if (fivepowermale[i] == "旺") { ret_male = "木火土金水"[i] }
+      if (fivepowerfemale[i] == "旺") { ret_female = "木火土金水"[i] }
     }
-    base.push(["月  令:",ret_male,ret_female])
-    base.push(["年  柱:",this.state.EightDatemale[0] + this.state.EightDatemale[1],this.state.EightDatefemale[0] + this.state.EightDatefemale[1]])
-    if(-1==kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[0])]+dayfive[daykey.indexOf(this.state.EightDatefemale[0])]) || undefined!=tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]]){
-      if(-1==kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[1])] +  earthfive[earthkey.indexOf(this.state.EightDatefemale[1])])){
-        if(-1==congtest.indexOf(this.state.EightDatemale[1]+this.state.EightDatefemale[1]) )
-        {
-          if(undefined!=tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]])
-          {
+    base.push(["月  令:", ret_male, ret_female])
+    base.push(["年  柱:", this.state.EightDatemale[0] + this.state.EightDatemale[1], this.state.EightDatefemale[0] + this.state.EightDatefemale[1]])
+    if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[0])] + dayfive[daykey.indexOf(this.state.EightDatefemale[0])]) || undefined != tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]) {
+      if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[1])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[1])])) {
+        if (-1 == congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1])) {
+          if (undefined != tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]) {
             var male = ""
             var female = ""
-            var x = tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]]
-            if(-1!=(yongshenmale.xishen+yongshenmale.yongshen).indexOf(x)){
+            var x = tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]
+            if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
               male = IconConfig.IconMarryCheck
+            }else{
+              male = x + "化忌"
             }
-            if(-1!=(yongshenfemale.xishen+yongshenfemale.yongshen).indexOf(x)){
+            if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
               female = IconConfig.IconMarryCheck
+            }else{
+              female = x + "化忌"
             }
-            if(""!=male || ""!=female){
-              base.push(["年  合:",male,female])
+            if ("" != male || "" != female) {
+              base.push(["年  合:", male, female])
             }
-
-          }else{
-            base.push(["年  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
-          }         
-          
+          } else {
+            base.push(["年  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
+          }
         }
       }
-      else if(undefined!=tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]])
-      {
-        var x = tianganhuahe[this.state.EightDatemale[0]+this.state.EightDatefemale[0]]
+      else if (undefined != tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]) {
+        var x = tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]
         var male = ""
         var female = ""
-        if(-1!=(yongshenmale.xishen+yongshenmale.yongshen).indexOf(x)){
+        if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
           male = IconConfig.IconMarryCheck
         }
-        if(-1!=(yongshenfemale.xishen+yongshenfemale.yongshen).indexOf(x)){
+        if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
           female = IconConfig.IconMarryCheck
         }
-        if(""!=male || ""!=female)
-        base.push(["年  合:",male,female])
+        if ("" != male || "" != female)
+          base.push(["年  合:", male, female])
       }
-
     }
-    base.push(["月  柱:",this.state.EightDatemale[2] + this.state.EightDatemale[3],this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
-    if(-1==kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[2])] +  dayfive[daykey.indexOf(this.state.EightDatefemale[2])]) || undefined!=tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]]){
-      if(-1==kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[3])] +  earthfive[earthkey.indexOf(this.state.EightDatefemale[3])])){
-        if(-1==congtest.indexOf(this.state.EightDatefemale[3]+this.state.EightDatemale[3]) )
-        {
-          if(undefined!=tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]])
-          {
+    base.push(["月  柱:", this.state.EightDatemale[2] + this.state.EightDatemale[3], this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
+    if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[2])] + dayfive[daykey.indexOf(this.state.EightDatefemale[2])]) || undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
+      if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[3])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[3])])) {
+        if (-1 == congtest.indexOf(this.state.EightDatefemale[3] + this.state.EightDatemale[3])) {
+          if (undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
             var male = ""
             var female = ""
-            var x = tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]]
-            if(-1!=(yongshenmale.xishen+yongshenmale.yongshen).indexOf(x)){
+            var x = tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]
+            if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
               male = IconConfig.IconMarryCheck
             }
-            if(-1!=(yongshenfemale.xishen+yongshenfemale.yongshen).indexOf(x)){
+            if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
               female = IconConfig.IconMarryCheck
             }
-            if(""!=male || ""!=female){
-              base.push(["月  合:",male,female])
+            if ("" != male || "" != female) {
+              base.push(["月  合:", male, female])
             }
-
-          }else{
-            base.push(["月  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
-          }         
+          } else {
+            base.push(["月  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
+          }
         }
-      }else if(undefined!=tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]])
-      {
-        var x = tianganhuahe[this.state.EightDatemale[2]+this.state.EightDatefemale[2]]
+      } else if (undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
+        var x = tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]
         var male = ""
         var female = ""
-        if(-1!=(yongshenmale.xishen+yongshenmale.yongshen).indexOf(x)){
+        if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
           male = IconConfig.IconMarryCheck
         }
-        if(-1!=(yongshenfemale.xishen+yongshenfemale.yongshen).indexOf(x)){
+        if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
           female = IconConfig.IconMarryCheck
         }
-        if(""!=male || ""!=female)
-        base.push(["月  合:",male,female])
+        if ("" != male || "" != female)
+          base.push(["月  合:", male, female])
       }
     }
-    base.push(["属  象:",this.state.EightDatemale[1],this.state.EightDatefemale[1]])
-    if(-1==kind.indexOf(earthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + earthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]))
-    {
-      if(-1==congtest.indexOf(this.state.EightDatemale[1]+this.state.EightDatefemale[1]) && -1==congtest.indexOf(this.state.EightDatefemale[1]+this.state.EightDatemale[1]) )
-      {
-        base.push(["象  合:",IconConfig.IconMarryCheck,IconConfig.IconMarryCheck])
+    base.push(["属  象:", this.state.EightDatemale[1], this.state.EightDatefemale[1]])
+    if (-1 == kind.indexOf(earthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + earthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))])) {
+      if (-1 == congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1]) && -1 == congtest.indexOf(this.state.EightDatefemale[1] + this.state.EightDatemale[1])) {
+        base.push(["象  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
       }
     }
     base.push(["合婚共七合"])
-    Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000 ,useNativeDriver: true}), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000 ,useNativeDriver: true})]).start()
-   
-
+    Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true }), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000, useNativeDriver: true })]).start()
     return (
       <View style={styles.container} >
         <ScrollView ref="location" style={{ backgroundColor: '#ffffff' }}>
           <View style={styles.container} >
             <WingBlank size="lg" style={{ backgroundColor: '#ffffff' }}>
-              <Accordion onChange={this.onChange} activeSections={this.state.activeSections} styles={{ backgroundColor: '#ffffff'}}>
-                <Accordion.Panel header={"合婚排盘"} styles={{ backgroundColor: '#ffffff'}}>
+              <Accordion onChange={this.onChange} activeSections={this.state.activeSections} styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header={"合婚排盘"} styles={{ backgroundColor: '#ffffff' }}>
                   <View>
                     <Grid
                       data={base}
                       columnNum={1}
                       hasLine={true}
-                      itemStyle={{ height: 25,  backgroundColor: '#ffffff' }}
-                      renderItem={(dataItem,index) => {
-                        if(dataItem.length>=2)
-                        {
-                          return(
-                            <View style={[styles.container,{flexDirection: 'row',alignItems:"flex-end"}]}>
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60 ,textAlign:"center"}}>{dataItem[0]}</Text>
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150 ,textAlign:"center"}}>{dataItem[1]}</Text>
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150 ,textAlign:"center"}}>{dataItem[2]}</Text>
+                      itemStyle={{ height: 25, backgroundColor: '#ffffff' }}
+                      renderItem={(dataItem, index) => {
+                        if (dataItem.length >= 2) {
+                          return (
+                            <View style={[styles.container, { flexDirection: 'row', alignItems: "flex-end" }]}>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60, textAlign: "center" }}>{dataItem[0]}</Text>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150, textAlign: "center" }}>{dataItem[1]}</Text>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150, textAlign: "center" }}>{dataItem[2]}</Text>
                             </View>)
                         }
-                        else{
-                          return(
-                            <View style={[styles.container,{flexDirection: 'row',alignItems:"flex-end"}]}>
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 360 ,textAlign:"center"}}>{dataItem[0]}</Text>
+                        else {
+                          return (
+                            <View style={[styles.container, { flexDirection: 'row', alignItems: "flex-end" }]}>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 360, textAlign: "center" }}>{dataItem[0]}</Text>
                             </View>)
                         }
-
                       }} />
-                    <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
-                    </View>
-                    </Accordion.Panel >
-                <Accordion.Panel header={"男命排盘"} styles={{ backgroundColor: '#ffffff'}}>
-                <View>
+                    <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
+                  </View>
+                </Accordion.Panel >
+                <Accordion.Panel header={"男命排盘"} styles={{ backgroundColor: '#ffffff' }}>
+                  <View>
                     <Grid
                       data={testmale}
                       columnNum={7}
                       hasLine={false}
-                      itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
+                      itemStyle={{ height: 25, backgroundColor: '#ffffff' }}
                       renderItem={dataItem => {
                         if (undefined != dataItem.info && dataItem.info.length === 3) {
                           const a = dataItem.info.forEach(element => {
@@ -1183,20 +1187,21 @@ class MarryMainPage extends React.Component {
                       data={test1male}
                       columnNum={7}
                       hasLine={false}
-                      itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 ,backgroundColor: '#ffffff'}}
+                      itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5, backgroundColor: '#ffffff' }}
                       renderItem={dataItem => (
                         dataItem.info.map((item, idx) => {
                           if (3 === item.length) {
                             return (
-                              <View key={idx} style={{ flexDirection: "row" ,textAlignVertical:"center",alignItems:"center",backgroundColor: '#ffffff'}}>
+                              <View key={idx} style={{ flexDirection: "row", textAlignVertical: "center", alignItems: "center", backgroundColor: '#ffffff' }}>
                                 {this.getColor(item[0], FontStyleConfig.getFontApplySize() + 14)}
-                                <Text style={{ justifyContent: 'space-around', fontSize: FontStyleConfig.getFontApplySize() + 14 ,backgroundColor: '#ffffff'}}>  {item[1] + item[2]}</Text>
+                                <Text style={{ justifyContent: 'space-around', fontSize: FontStyleConfig.getFontApplySize() + 14, backgroundColor: '#ffffff' }}>  {item[1] + item[2]}</Text>
                               </View>)
                           }
                           return (
                             <View key={idx} >
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center", textAlignVertical: "center" ,backgroundColor: '#ffffff'}}>  {item}</Text>
-                            </View>)})
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center", textAlignVertical: "center", backgroundColor: '#ffffff' }}>  {item}</Text>
+                            </View>)
+                        })
                       )} />
                     <Grid
                       data={test2male}
@@ -1210,7 +1215,7 @@ class MarryMainPage extends React.Component {
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center" }}>  {dataItem.info}</Text>
                           </View>
                         </View>
-                      )} /><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+                      )} /><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
                     <Grid
                       data={shensha}
                       columnNum={1}
@@ -1223,31 +1228,31 @@ class MarryMainPage extends React.Component {
                           </View>
                         </View>
                       )} />
-                      <Grid
-                    data={yearsmale}
-                    columnNum={8}
-                    hasLine={false}
-                    itemStyle={{ height: 25 }}
-                    //当选择大运的时候，相当于选择了流年小运
-                    //onPress={(_el: any, index: any) => this.changeyearmale(Number(index % 8), "")}
-                    renderItem={(dataItem, itemIndex) => (
-                      <View style={styles.container}>
-                        <View style={styles.grid}>
-                          {this.testselectyear(dataItem, itemIndex % 8)}
+                    <Grid
+                      data={yearsmale}
+                      columnNum={8}
+                      hasLine={false}
+                      itemStyle={{ height: 25 }}
+                      //当选择大运的时候，相当于选择了流年小运
+                      //onPress={(_el: any, index: any) => this.changeyearmale(Number(index % 8), "")}
+                      renderItem={(dataItem, itemIndex) => (
+                        <View style={styles.container}>
+                          <View style={styles.grid}>
+                            {this.testselectyear(dataItem, itemIndex % 8)}
+                          </View>
                         </View>
-                      </View>
-                    )}
-                  />
-                      </View>
+                      )}
+                    />
+                  </View>
                 </Accordion.Panel >
-                <Accordion.Panel header={"女命排盘"} styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header={"女命排盘"} styles={{ backgroundColor: '#ffffff' }}>
                   <View>
-                    
+
                     <Grid
                       data={testfemale}
                       columnNum={7}
                       hasLine={false}
-                      itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
+                      itemStyle={{ height: 25, backgroundColor: '#ffffff' }}
                       renderItem={dataItem => {
                         if (undefined != dataItem.info && dataItem.info.length === 3) {
                           const a = dataItem.info.forEach(element => {
@@ -1274,20 +1279,21 @@ class MarryMainPage extends React.Component {
                       data={test1female}
                       columnNum={7}
                       hasLine={false}
-                      itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5 ,backgroundColor: '#ffffff'}}
+                      itemStyle={{ alignItems: "center", textAlignVertical: "center", flex: 1, justifyContent: "flex-start", marginTop: 5, backgroundColor: '#ffffff' }}
                       renderItem={dataItem => (
                         dataItem.info.map((item, idx) => {
                           if (3 === item.length) {
                             return (
-                              <View key={idx} style={{ flexDirection: "row" ,textAlignVertical:"center",alignItems:"center",backgroundColor: '#ffffff'}}>
+                              <View key={idx} style={{ flexDirection: "row", textAlignVertical: "center", alignItems: "center", backgroundColor: '#ffffff' }}>
                                 {this.getColor(item[0], FontStyleConfig.getFontApplySize() + 14)}
-                                <Text style={{ justifyContent: 'space-around', fontSize: FontStyleConfig.getFontApplySize() + 14 ,backgroundColor: '#ffffff'}}>  {item[1] + item[2]}</Text>
+                                <Text style={{ justifyContent: 'space-around', fontSize: FontStyleConfig.getFontApplySize() + 14, backgroundColor: '#ffffff' }}>  {item[1] + item[2]}</Text>
                               </View>)
                           }
                           return (
                             <View key={idx} >
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center", textAlignVertical: "center" ,backgroundColor: '#ffffff'}}>  {item}</Text>
-                            </View>)})
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center", textAlignVertical: "center", backgroundColor: '#ffffff' }}>  {item}</Text>
+                            </View>)
+                        })
                       )} />
                     <Grid
                       data={test2female}
@@ -1301,7 +1307,7 @@ class MarryMainPage extends React.Component {
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, textAlign: "center" }}>  {dataItem.info}</Text>
                           </View>
                         </View>
-                      )} /><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+                      )} /><WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
                     <Grid
                       data={shensha}
                       columnNum={1}
@@ -1314,29 +1320,29 @@ class MarryMainPage extends React.Component {
                           </View>
                         </View>
                       )} />
-                       <Grid
-                    data={yearsfemale}
-                    columnNum={8}
-                    hasLine={false}
-                    itemStyle={{ height: 25 }}
-                    //当选择大运的时候，相当于选择了流年小运
-                    //onPress={(_el: any, index: any) => this.changeyearmale(Number(index % 8), "")}
-                    renderItem={(dataItem, itemIndex) => (
-                      <View style={styles.container}>
-                        <View style={styles.grid}>
-                          {this.testselectyear(dataItem, itemIndex % 8)}
+                    <Grid
+                      data={yearsfemale}
+                      columnNum={8}
+                      hasLine={false}
+                      itemStyle={{ height: 25 }}
+                      //当选择大运的时候，相当于选择了流年小运
+                      //onPress={(_el: any, index: any) => this.changeyearmale(Number(index % 8), "")}
+                      renderItem={(dataItem, itemIndex) => (
+                        <View style={styles.container}>
+                          <View style={styles.grid}>
+                            {this.testselectyear(dataItem, itemIndex % 8)}
+                          </View>
                         </View>
-                      </View>
-                    )}
-                  />
-                      </View>
+                      )}
+                    />
+                  </View>
                 </Accordion.Panel >
-                <Accordion.Panel header="乾造衰旺" styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header="乾造衰旺" styles={{ backgroundColor: '#ffffff' }}>
                   <Grid
                     data={fivemale}
                     columnNum={5}
                     hasLine={false}
-                    itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
+                    itemStyle={{ height: 25, backgroundColor: '#ffffff' }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
                         <View style={[styles.grid, { fontSize: FontStyleConfig.getFontApplySize() + 12 }]}>
@@ -1347,12 +1353,12 @@ class MarryMainPage extends React.Component {
                   />
 
                 </Accordion.Panel >
-                <Accordion.Panel header="坤造衰旺" styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header="坤造衰旺" styles={{ backgroundColor: '#ffffff' }}>
                   <Grid
                     data={fivefemale}
                     columnNum={5}
                     hasLine={false}
-                    itemStyle={{ height: 25,backgroundColor: '#ffffff' }}
+                    itemStyle={{ height: 25, backgroundColor: '#ffffff' }}
                     renderItem={dataItem => (
                       <View style={styles.container}>
                         <View style={[styles.grid, { fontSize: FontStyleConfig.getFontApplySize() + 12 }]}>
@@ -1405,16 +1411,16 @@ class MarryMainPage extends React.Component {
 
               </Accordion>
             </WingBlank>
-            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
             {
               (WechatShare.shareimg(this.state.shareimg))
             }
 
-            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
-            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
-            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
-            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
-            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
 
           </View>
         </ScrollView>
@@ -1474,7 +1480,7 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     flexWrap: 'wrap',
     alignItems: 'stretch',
-    flexDirection: 'row',  backgroundColor: '#ffffff'
+    flexDirection: 'row', backgroundColor: '#ffffff'
   },
   button: {
     height: 50,

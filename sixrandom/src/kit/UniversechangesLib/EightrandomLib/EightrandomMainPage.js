@@ -725,7 +725,7 @@ class EightrandomMainPage extends React.Component {
 
     var locationself = EightrandomModule.getlocationself(curyear, this.state.sex == "乾造" ? 0 : 1)
     var house = EightrandomModule.gethouselocation(locationself)
-    var marrytip = EightrandomModule.getcoupletest(this.state.EightDate,  this.state.buildeight,this.state.precent)
+    var yongshen = EightrandomModule.getyongshen(this.state.EightDate,  this.state.buildeight,this.state.precent)
     var home = new Array()
     home = home.concat(day.self)
     home = home.concat(day.tip)
@@ -744,6 +744,8 @@ class EightrandomMainPage extends React.Component {
     //身旺判断
     var ret_powerself = EightrandomModule.getpowerself(this.state.EightDate,this.state.buildeight)
     base.push( "命身: " +ret_powerself.powerself )
+    base.push( "喜用: " +yongshen.xishen + yongshen.yongshen  )
+    base.push( "忌仇: " +yongshen.jishen + yongshen.choushen  )
     base.push( "（得令用十二长生中非沐浴计算且不使用任何时柱）" )
 
 

@@ -278,7 +278,7 @@ class EightrandomModule extends React.Component {
         return o
     }
 
-    getcoupletest(EightDate,buildeight,precent){
+    getyongshen(EightDate,buildeight,precent){
         //https://baike.baidu.com/item/喜用神/10646208?fr=aladdin
         /*
         日元先根据十二长生算出衰旺
