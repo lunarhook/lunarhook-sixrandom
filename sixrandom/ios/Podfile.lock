@@ -286,7 +286,7 @@ PODS:
     - React-Core
   - react-native-pager-view (5.4.11):
     - React-Core
-  - react-native-safe-area-context (3.4.0):
+  - react-native-safe-area-context (3.4.1):
     - React-Core
   - react-native-segmented-control (2.2.2):
     - React-Core
@@ -367,14 +367,14 @@ PODS:
     - React-Core
   - RNCMaskedView (0.1.11):
     - React
-  - RNCPicker (2.2.1):
+  - RNCPicker (2.3.0):
     - React-Core
   - RNDeviceInfo (8.4.9):
     - React-Core
   - RNExitApp (1.1.0):
     - React
-  - RNFS (2.18.0):
-    - React
+  - RNFS (2.19.0):
+    - React-Core
   - RNGestureHandler (2.2.0):
     - React-Core
   - RNReanimated (2.4.1):
@@ -666,7 +666,7 @@ SPEC CHECKSUMS:
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-netinfo: ba4ea50d836c60580c59079233c400753fe5bcb6
   react-native-pager-view: 7f00d63688f7df9fad86dfb0154814419cc5eb8d
-  react-native-safe-area-context: f4f7cc09d81ae2d39dfd13e764d718969af07080
+  react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
   react-native-segmented-control: 65df6cd0619b780b3843d574a72d4c7cec396097
   react-native-shake: 67d43d6af4abfc299400b17fea7d2ec0754c72ac
   react-native-slider: 37e1cf275dab20d3c015e40969aa9f5c309645a8
@@ -686,10 +686,10 @@ SPEC CHECKSUMS:
   ReactCommon: d98c6c96b567f9b3a15f9fd4cc302c1eda8e3cf2
   RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
-  RNCPicker: cb57c823d5ce8d2d0b5dfb45ad97b737260dc59e
+  RNCPicker: c796ddf16cd93e980a5a5642eebcee9eb9da1e76
   RNDeviceInfo: 4944cf8787b9c5bffaf301fda68cc1a2ec003341
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
-  RNFS: 3ab21fa6c56d65566d1fb26c2228e2b6132e5e32
+  RNFS: fc610f78fdf8bfc89a9e5cc2f898519f4dba1002
   RNGestureHandler: bf572f552ea324acd5b5464b8d30755b2d8c1de6
   RNReanimated: 32c91e28f5780937b8efc07ddde1bab8d373fe0b
   RNScreens: 2559f98b0835103cbef3b26ba77fa61d4bb37ae7
