@@ -567,9 +567,11 @@ class MarryMainPage extends React.Component {
     jump = false;
 
 
-    var luckyyearposition = this.state.luckyyearpositionmale;
+    var luckyyearpositionmale = this.state.luckyyearpositionmale;
+    var luckyyearpositionfemale = this.state.luckyyearpositionfemale;
     var minluckyyear = new Array()
-    var luckyearrelation = this.state.luckyearrelationmale;
+    var luckyearrelationmale = this.state.luckyearrelationmale;
+    var luckyearrelationfemale = this.state.luckyearrelationfemale;
     //拍出所有小运
     var birthdayyear = new Date()
     birthdayyear.setYear(curyearmale)
@@ -763,12 +765,21 @@ class MarryMainPage extends React.Component {
       test2female.push({ info: x, hide: "" })
     }
 
-    var yearsnumber = new Array()
+    var yearsnumbermale = new Array()
     for (var i = 0; i < 8; i++) {
-      yearsnumber.push(i == 0 ? this.state.beginluckymale : yearsnumber[i - 1] + 10)
+      yearsnumbermale.push(i == 0 ? this.state.beginluckymale : yearsnumbermale[i - 1] + 10)
     }
-    var years = new Array()
-    years = luckyearrelation.concat(yearsnumber, this.state.luckyyearmale, luckyyearposition)
+    var yearsmale = new Array()
+    yearsmale = luckyearrelationmale.concat(yearsnumbermale, this.state.luckyyearmale, luckyyearpositionmale)
+
+
+    
+    var yearsnumberfemale = new Array()
+    for (var i = 0; i < 8; i++) {
+      yearsnumberfemale.push(i == 0 ? this.state.beginluckyfemale : yearsnumberfemale[i - 1] + 10)
+    }
+    var yearsfemale = new Array()
+    yearsfemale = luckyearrelationfemale.concat(yearsnumberfemale, this.state.luckyyearfemale, luckyyearpositionfemale)
     //console.log("years", years, luckyearrelation, this.state.luckyyear, luckyyearposition)
 
     var fivemale = new Array();
@@ -1211,7 +1222,23 @@ class MarryMainPage extends React.Component {
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {dataItem}</Text>
                           </View>
                         </View>
-                      )} /></View>
+                      )} />
+                      <Grid
+                    data={yearsmale}
+                    columnNum={8}
+                    hasLine={false}
+                    itemStyle={{ height: 25 }}
+                    //当选择大运的时候，相当于选择了流年小运
+                    //onPress={(_el: any, index: any) => this.changeyearmale(Number(index % 8), "")}
+                    renderItem={(dataItem, itemIndex) => (
+                      <View style={styles.container}>
+                        <View style={styles.grid}>
+                          {this.testselectyear(dataItem, itemIndex % 8)}
+                        </View>
+                      </View>
+                    )}
+                  />
+                      </View>
                 </Accordion.Panel >
                 <Accordion.Panel header={"女命排盘"} styles={{ backgroundColor: '#ffffff'}}>
                   <View>
@@ -1286,7 +1313,23 @@ class MarryMainPage extends React.Component {
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14 }}>  {dataItem}</Text>
                           </View>
                         </View>
-                      )} /></View>
+                      )} />
+                       <Grid
+                    data={yearsfemale}
+                    columnNum={8}
+                    hasLine={false}
+                    itemStyle={{ height: 25 }}
+                    //当选择大运的时候，相当于选择了流年小运
+                    //onPress={(_el: any, index: any) => this.changeyearmale(Number(index % 8), "")}
+                    renderItem={(dataItem, itemIndex) => (
+                      <View style={styles.container}>
+                        <View style={styles.grid}>
+                          {this.testselectyear(dataItem, itemIndex % 8)}
+                        </View>
+                      </View>
+                    )}
+                  />
+                      </View>
                 </Accordion.Panel >
                 <Accordion.Panel header="乾造衰旺" styles={{ backgroundColor: '#ffffff'}}>
                   <Grid

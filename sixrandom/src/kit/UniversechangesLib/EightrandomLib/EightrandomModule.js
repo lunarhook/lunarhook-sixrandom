@@ -220,13 +220,25 @@ class EightrandomModule extends React.Component {
             Tip: ""
         }
     }
+    /*
+    日干旺包括四个方面： 得令，得地，得生，得助.
+    得令： 日干旺于月支，处长生，沐浴，冠带，临官，帝旺之地为得令.
+    得地： 日干在其余各支中得长生（须阳日干），禄刃（支中藏干的本气为比，为劫）这里用的临官，或逢墓库（阳日干逢墓库为有根，阴日干无气，故无根）.
+    得生： 日干得四柱干支中的正偏印之生为得生.
+    得助： 日干与四柱其它天干同类为逢比肩劫财帮身，此为得助.
+
+    ps：目前计算，不考虑墓库计算，所以得地的标准和得令一样，但是都去掉了沐浴
+    */
     getpowerself(EightDate,buildeight){
+        const key = "长生，冠带，临官，帝旺"
         var powerself = new Array()
         powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[1]))
         powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[3]))
         powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[5]))
         powerself.push(buildeight[0])
         powerself.push(buildeight[2])
+        //这里没有计算时干支，可以考虑打开
+        //powerself.push(buildeight[6])
         var t = powerself.toString()
         var superself = new Array()
         superself.push(buildeight[0])
@@ -238,43 +250,51 @@ class EightrandomModule extends React.Component {
         superself.push(buildeight[8])
         var s = superself.toString()
         var ret = ""
-        if (-1 != "长生冠带临官帝旺".indexOf(powerself[1])) {
-          if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
-            ret = "身强（失扶）"
-          } else if (-1 == "长生冠带临官帝旺".indexOf(powerself[0]) && -1 == "长生冠带临官帝旺".indexOf(powerself[2])) {
-            ret = "身强（失地）"
-          }
-          else {
-            ret = "身旺（得令）"
-            if(-1==s.indexOf("正官") && -1==s.indexOf("七杀") )
-            {
-                ret = "专旺（得令）"
+        if (-1 != key.indexOf(powerself[1])) {
+            if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
+                ret = "身强（失扶）"
+            } else if (-1 == key.indexOf(powerself[0]) && -1 == key.indexOf(powerself[2])) {
+                ret = "身强（失地）"
             }
-          }
+            else {
+                ret = "身旺（得令）"
+                if (-1 == s.indexOf("正官") && -1 == s.indexOf("七杀")) {
+                    ret = "专旺（得令）"
+                }
+            }
         }
         else {
-          if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
-            ret = "身弱（得地生扶）"
-          } else {
-            ret = "身衰（失令）"
-            if(-1==s.indexOf("正官") && -1==s.indexOf("七杀") && -1==s.indexOf("印"))
-            {
-                ret = "身衰（从儿）"
+            if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
+                ret = "身弱（得地生扶）"
+            } else {
+                ret = "身衰（失令）"
+                if (-1 == s.indexOf("正官") && -1 == s.indexOf("七杀") && -1 == s.indexOf("印")) {
+                    ret = "身衰（从儿）"
+                }
             }
-          }
         }
-        var o ={}
+        var o = {}
         o.powerself = ret;
         return o
     }
 
     getcoupletest(EightDate,buildeight,precent){
         //https://baike.baidu.com/item/喜用神/10646208?fr=aladdin
+        /*
+        日元先根据十二长生算出衰旺
+        然后根据衰旺判断强弱
+        强
+        有官杀，用官杀 忌：食伤 喜：财 仇：印 后忌：比劫
+        无官杀，用食伤 忌：印 喜：财 仇：印 后忌：比劫
+        弱
+        有印，先用印 忌：财 喜：比劫 仇：食伤 后喜：官
+        无印，用比劫 忌：官 喜：印 仇：财 闲：食伤（凶）
+        */
         var ret_powerself = (this.getpowerself(EightDate,buildeight)).powerself
         var shishenkey = buildeight.toString()
         var o={}
         const daykey = "甲乙丙丁戊己庚辛壬癸"
-        const shen = "木火土金水"
+        const shen = "木火土金水木火土金水"
         var index = Math.floor(daykey.indexOf(EightDate[4])/2)
         var assistindex = (index - 1 + 5)%5
         var help = Math.floor(50-precent[index+5] - precent[assistindex+5])
@@ -285,7 +305,7 @@ class EightrandomModule extends React.Component {
             {
                 o.yongshen = shen[assistindex]
                 o.xishen = shen[index]
-                o.xishen2 = shen[(index+3)%5]
+                o.xishen2 = " "
                 o.xianshen = " "
                 o.jishen = shen[(index+2)%5]
                 o.jishen2 = " "
@@ -316,8 +336,8 @@ class EightrandomModule extends React.Component {
                 o.xishen = shen[(index+2)%5] 
                 o.xishen2 = + shen[(index+3)%5]
                 o.xianshen = " "
-                o.jishen = shen[assistindex]
-                o.jishen2 = shen[index]
+                o.jishen = shen[index]
+                o.jishen2 = " "
                 o.choushen = shen[assistindex]
             }
         }
@@ -385,8 +405,8 @@ class EightrandomModule extends React.Component {
     }
 
     in_array(stringToSearch, arrayToSearch) {
-        for (s = 0; s < arrayToSearch.length; s++) {
-            thisEntry = arrayToSearch[s].toString();
+        for (var s = 0; s < arrayToSearch.length; s++) {
+            var thisEntry = arrayToSearch[s].toString();
             if (thisEntry == stringToSearch) {
                 return true;
             }
