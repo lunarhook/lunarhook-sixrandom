@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, DeviceEventEmitter, Clipboard, Alert, Linking, NativeModules, Platform ,PermissionsAndroid} from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, DeviceEventEmitter, Alert, Linking, NativeModules, Platform ,PermissionsAndroid} from 'react-native';
 
 import TabNavigator from 'react-native-tab-navigator';
 import { Grid, Accordion, WhiteSpace, Tabs, Modal, Button, Card } from '@ant-design/react-native';
@@ -230,8 +230,30 @@ class kitPage extends React.Component {
                 style: 'cancel',
               },
               {
-                text: '退出',
-                onPress: () => RNExitApp.exitApp(),
+                text: '拒绝',
+                onPress: () =>{
+                  alert("您可以阅读《用户协议》和《隐私政策》，如果依然拒绝可能无法继续使用服务"
+                  [
+                    
+                    {
+                      text: '暂不使用',
+                      onPress: () =>RNExitApp.exitApp(),
+                      style: 'cancel'
+                    },
+                    {
+                      text: '同意',
+                      //onPress: () =>RNExitApp.exitApp(),
+                      style: 'cancel'
+                    }
+                  ],
+                  {
+                    cancelable: true,
+                    onDismiss: () => {
+                        //ToastAndroid.show('点击了外面', ToastAndroid.SHORT)
+                    }
+                  })
+                },
+
                 style: 'cancel',
               },
               { text: '同意', onPress: () => { 
