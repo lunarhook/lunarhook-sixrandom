@@ -232,26 +232,35 @@ class kitPage extends React.Component {
               {
                 text: '拒绝',
                 onPress: () =>{
-                  alert("您可以阅读《用户协议》和《隐私政策》，如果依然拒绝可能无法继续使用服务"
-                  [
-                    
+                  Alert.alert(
+                    "用户",
+                    "您可以阅读《用户协议》和《隐私政策》，如果依然拒绝可能无法继续使用服务",
+                    [
+                      {
+                        text: "暂不使用",
+                        onPress: () =>RNExitApp.exitApp(),
+                        style: "cancel",
+                      },
+                      {
+                        text: '同意',
+                        onPress: () =>{ HistoryArrayGroup.SaveFirstTime(), 
+                          this.setState({ handler: 3 }),
+                          this.setState({ less: true })
+                          if (Platform.OS === 'android')
+                          {
+                            this.requestCameraPermission()
+                          }},
+                        style: 'cancel'
+                      }
+                    ],
                     {
-                      text: '暂不使用',
-                      onPress: () =>RNExitApp.exitApp(),
-                      style: 'cancel'
-                    },
-                    {
-                      text: '同意',
-                      //onPress: () =>RNExitApp.exitApp(),
-                      style: 'cancel'
+                      cancelable: true,
+                      //onDismiss: () =>
+                      //  Alert.alert(
+                      //    "This alert was dismissed by tapping outside of the alert dialog."
+                      //  ),
                     }
-                  ],
-                  {
-                    cancelable: true,
-                    onDismiss: () => {
-                        //ToastAndroid.show('点击了外面', ToastAndroid.SHORT)
-                    }
-                  })
+                  );
                 },
 
                 style: 'cancel',
