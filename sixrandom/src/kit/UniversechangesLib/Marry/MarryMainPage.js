@@ -1113,7 +1113,7 @@ class MarryMainPage extends React.Component {
         }
       }
     else if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[0])] + dayfive[daykey.indexOf(this.state.EightDatefemale[0])])) {
-      male = IconConfig.IconMarryCheckfault
+      male = IconConfig.IconMarryCheck
       female = IconConfig.IconMarryCheck
     }
     base.push(["年  合:", male, female])
