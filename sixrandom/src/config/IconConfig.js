@@ -203,7 +203,9 @@ class IconConfig extends React.Component {
   static IconFontDefault = (<EvilIcons name="refresh" size={size} color={green} />)
   static IconFontResize = (<MaterialCommunityIcons name="undo-variant" size={size - 7} color={blue} />)
   static IconTipFire = (<Ionicons name="bonfire-outline" size={size - 11} color={fire} />)
-  static IconMarryCheck = (<FontAwesome name="heart" size={size-11 } color={fire} />)
+  static IconMarryCheck = (<Ionicons name="heart" size={size-11 } color={fire} />)
+  static IconMarryCheckhalf = (<Ionicons name="heart-half" size={size-11 } color={fire} />)
+  static IconMarryCheckfault = (<Ionicons name="heart-dislike-outline" size={size-11 } color={fire} />)
   static colorgreen = green
   static colorclaygreen = claygreen
   static colorred = red
