@@ -970,54 +970,61 @@ class MarryMainPage extends React.Component {
     癸 戊丁己丙
     */
     //日元不能相互克，除非男克女，旺衰对冲则用神相同
-    if (-1 != kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
+    //日元天干化合为喜用最佳
+    var male = ""
+    var female = ""
+    if (undefined != tianganhuahe[this.state.EightDatemale[4] + this.state.EightDatefemale[4]]) {
+      var x = tianganhuahe[this.state.EightDatemale[4] + this.state.EightDatefemale[4]]
+      if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
+        male = IconConfig.IconMarryCheck
+      }
+      else{
+        male = IconConfig.IconMarryCheckhalf
+      }
+      if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
+        female = IconConfig.IconMarryCheck
+      }else
+      {
+        female = IconConfig.IconMarryCheckhalf
+      }
+    }
+    else if (-1 != kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("衰") || -1 != testpowerselffemale.indexOf("弱")) {
-          base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
+          male = IconConfig.IconMarryCheck        
+          female = IconConfig.IconMarryCheck
         }
       } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
         if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("衰")) {
-          base.push(["元  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
+          male = IconConfig.IconMarryCheck        
+          female = IconConfig.IconMarryCheck
         }
       }else
       {
-        base.push(["元  合:", IconConfig.IconMarryCheckhalf, IconConfig.IconMarryCheckhalf])
+        female = IconConfig.IconMarryCheckfault
+        male = IconConfig.IconMarryCheckfault
       }
     }
     //日元印生，同强同弱用神不冲突
     else if (-1 != kindassist.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]) || dayfive[daykey.indexOf(this.state.EightDatemale[4])] == dayfive[daykey.indexOf(this.state.EightDatefemale[4])]) {
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("强")) {
-          base.push(["元  合:", IconConfig.IconMarryCheckhalf, IconConfig.IconMarryCheckhalf])
+          male = IconConfig.IconMarryCheck        
+          female = IconConfig.IconMarryCheck
         }
       } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
         if (-1 != testpowerselffemale.indexOf("弱") || -1 != testpowerselffemale.indexOf("衰")) {
-          base.push(["元  合:", IconConfig.IconMarryCheckhalf, IconConfig.IconMarryCheckhalf])
+          male = IconConfig.IconMarryCheck        
+          female = IconConfig.IconMarryCheck
         }
       }else
       {
-        base.push(["元  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
-      }
-    }
-    //日元天干化合为喜用最佳
-    else if (undefined != tianganhuahe[this.state.EightDatemale[4] + this.state.EightDatefemale[4]]) {
-      var x = tianganhuahe[this.state.EightDatemale[4] + this.state.EightDatefemale[4]]
-      var male = ""
-      var female = ""
-      if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
-        male = IconConfig.IconMarryCheck
-      }
-      else{
+        female = IconConfig.IconMarryCheckfault
         male = IconConfig.IconMarryCheckfault
       }
-      if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
-        female = IconConfig.IconMarryCheck
-      }else
-      {
-        female = IconConfig.IconMarryCheckfault
-      }
-      base.push(["元  合:", male, female])
     }
+    base.push(["元  合:", male, female])
+   
 
     base.push(["日  支:", this.state.EightDatemale[5], this.state.EightDatefemale[5]])
     //日支不能相互克制
@@ -1047,14 +1054,12 @@ class MarryMainPage extends React.Component {
     }
     //base.push(["势  气:",ret_male,ret_female])
 
-
     var maleindex = Math.floor(daykey.indexOf(this.state.EightDatemale[4]) / 2)
     var femaleindex = Math.floor(daykey.indexOf(this.state.EightDatefemale[4]) / 2)
     var assistmaleindex = (maleindex - 1 + 4) % 4
     var assistfemaleindex = (femaleindex - 1 + 4) % 4
     var helpmale = Math.floor(50 - this.state.precentmale[maleindex + 5] - this.state.precentmale[assistmaleindex + 5])
     var helpfemale = Math.floor(50 - this.state.precentfemale[femaleindex + 5] - this.state.precentfemale[assistfemaleindex + 5])
-
     var daykeymale = kind
     var checkhelpmale = (helpmale >= 0 ? kind[maleindex] + kind[assistmaleindex] : daykeymale.replace(kind[assistmaleindex], "").replace(kind[maleindex], "")) + Math.abs(helpmale).toString();
     var checkhelpfemale = (helpfemale >= 0 ? kind[femaleindex] + kind[assistfemaleindex] : daykeymale.replace(kind[assistfemaleindex], "").replace(kind[femaleindex], "")) + Math.abs(helpfemale).toString();
@@ -1121,11 +1126,13 @@ class MarryMainPage extends React.Component {
         }else{
           female = IconConfig.IconMarryCheckfault
         }
-        base.push(["年  合:", male, female])
+
       }
     }else{
-      base.push(["年  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
+      male = IconConfig.IconMarryCheckfault
+      female = IconConfig.IconMarryCheckfault
     }
+    base.push(["年  合:", male, female])
     base.push(["月  柱:", this.state.EightDatemale[2] + this.state.EightDatemale[3], this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
     if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[2])] + dayfive[daykey.indexOf(this.state.EightDatefemale[2])]) || undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
       if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[3])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[3])])) {
