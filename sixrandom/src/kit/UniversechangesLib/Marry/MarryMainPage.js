@@ -6,7 +6,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import Storage from 'react-native-storage';
 
 import { captureRef } from "react-native-view-shot";
-import { Grid, Accordion, WhiteSpace, WingBlank, List } from '@ant-design/react-native';
+import { Grid, Accordion, WhiteSpace, WingBlank, List, Icon } from '@ant-design/react-native';
 const Item = List.Item;
 import StorageModule from '../../../config/StorageModule'
 import { SixrandomModule } from '../SixrandomLib/SixrandomModule'
@@ -937,17 +937,21 @@ class MarryMainPage extends React.Component {
     if ((-1 != maleyongshencheck.indexOf(yongshenfemale.jishen) || -1 != maleyongshencheck.indexOf(yongshenfemale.jishen2) || -1 != maleyongshencheck.indexOf(yongshenfemale.choushen))) {
       maleyongshencheck = IconConfig.IconMarryCheck
     }
-    else {
-      maleyongshencheck = ""
+    else if(yongshenmale.yongshen == yongshenfemale.yongshen){
+      maleyongshencheck = IconConfig.IconMarryCheckhalf
+    }
+    else{
+      maleyongshencheck = IconConfig.IconMarryCheckfault
     }
     if ((-1 != femaleyongshencheck.indexOf(yongshenmale.jishen) || -1 != femaleyongshencheck.indexOf(yongshenmale.jishen2) || -1 != femaleyongshencheck.indexOf(yongshenmale.choushen))) {
       femaleyongshencheck = IconConfig.IconMarryCheck
+    }else if(yongshenmale.yongshen == yongshenfemale.yongshen){
+      femaleyongshencheck = IconConfig.IconMarryCheckhalf
     } else {
-      femaleyongshencheck = ""
+      femaleyongshencheck = IconConfig.IconMarryCheckfault
     }
-    if (IconConfig.IconMarryCheck == femaleyongshencheck || IconConfig.IconMarryCheck == maleyongshencheck) {
-      base.push(["神  合:", maleyongshencheck, femaleyongshencheck])
-    }
+    base.push(["神  合:", maleyongshencheck, femaleyongshencheck])
+    
 
 
     base.push(["日  元:", this.state.EightDatemale[4], this.state.EightDatefemale[4]])
@@ -1083,29 +1087,24 @@ class MarryMainPage extends React.Component {
     }
     base.push(["月  令:", ret_male, ret_female])
     base.push(["年  柱:", this.state.EightDatemale[0] + this.state.EightDatemale[1], this.state.EightDatefemale[0] + this.state.EightDatefemale[1]])
+    var male = ""
+    var female = ""
     if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[0])] + dayfive[daykey.indexOf(this.state.EightDatefemale[0])]) || undefined != tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]) {
       if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[1])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[1])])) {
         if (-1 == congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1])) {
           if (undefined != tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]) {
-            var male = ""
-            var female = ""
             var x = tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]
             if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
               male = IconConfig.IconMarryCheck
             }else{
-              male = x + "化忌"
+              male = IconConfig.IconMarryCheckfault
             }
             if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
               female = IconConfig.IconMarryCheck
             }else{
-              female = x + "化忌"
+              female = IconConfig.IconMarryCheckfault
             }
-            if ("" != male || "" != female) {
-              base.push(["年  合:", male, female])
-            }
-          } else {
-            base.push(["年  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
-          }
+          } 
         }
       }
       else if (undefined != tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]) {
@@ -1114,13 +1113,18 @@ class MarryMainPage extends React.Component {
         var female = ""
         if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
           male = IconConfig.IconMarryCheck
+        }else{
+          male = IconConfig.IconMarryCheckfault
         }
         if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
           female = IconConfig.IconMarryCheck
+        }else{
+          female = IconConfig.IconMarryCheckfault
         }
-        if ("" != male || "" != female)
-          base.push(["年  合:", male, female])
+        base.push(["年  合:", male, female])
       }
+    }else{
+      base.push(["年  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
     }
     base.push(["月  柱:", this.state.EightDatemale[2] + this.state.EightDatemale[3], this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
     if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[2])] + dayfive[daykey.indexOf(this.state.EightDatefemale[2])]) || undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
@@ -1132,13 +1136,15 @@ class MarryMainPage extends React.Component {
             var x = tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]
             if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
               male = IconConfig.IconMarryCheck
+            }else{
+              male = IconConfig.IconMarryCheckfault
             }
             if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
               female = IconConfig.IconMarryCheck
+            }else{
+              female = IconConfig.IconMarryCheckfault
             }
-            if ("" != male || "" != female) {
-              base.push(["月  合:", male, female])
-            }
+            base.push(["月  合:", male, female])
           } else {
             base.push(["月  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
           }
@@ -1149,12 +1155,15 @@ class MarryMainPage extends React.Component {
         var female = ""
         if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
           male = IconConfig.IconMarryCheck
+        }else{
+          male = IconConfig.IconMarryCheckfault
         }
         if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
           female = IconConfig.IconMarryCheck
+        }else{
+          female = IconConfig.IconMarryCheckfault
         }
-        if ("" != male || "" != female)
-          base.push(["月  合:", male, female])
+        base.push(["月  合:", male, female])
       }
     }
     base.push(["属  象:", this.state.EightDatemale[1], this.state.EightDatefemale[1]])
@@ -1162,9 +1171,13 @@ class MarryMainPage extends React.Component {
       if (-1 == congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1]) && -1 == congtest.indexOf(this.state.EightDatefemale[1] + this.state.EightDatemale[1])) {
         //生肖最好三合暗合
         base.push(["象  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
+      }else{
+        base.push(["象  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
       }
+    }else{
+      base.push(["象  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
     }
-    base.push(["合婚共七合"])
+    base.push(["共七合,四合以上为适婚"])
     Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true }), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000, useNativeDriver: true })]).start()
     return (
       <View style={styles.container} >
