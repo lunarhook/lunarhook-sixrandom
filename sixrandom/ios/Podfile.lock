@@ -286,8 +286,12 @@ PODS:
     - React-Core
   - react-native-pager-view (5.4.11):
     - React-Core
-  - react-native-safe-area-context (3.4.1):
-    - React-Core
+  - react-native-safe-area-context (4.0.1):
+    - RCT-Folly
+    - RCTRequired
+    - RCTTypeSafety
+    - React
+    - ReactCommon/turbomodule/core
   - react-native-segmented-control (2.2.2):
     - React-Core
   - react-native-shake (5.1.1):
@@ -666,7 +670,7 @@ SPEC CHECKSUMS:
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-netinfo: ba4ea50d836c60580c59079233c400753fe5bcb6
   react-native-pager-view: 7f00d63688f7df9fad86dfb0154814419cc5eb8d
-  react-native-safe-area-context: 9e40fb181dac02619414ba1294d6c2a807056ab9
+  react-native-safe-area-context: eec048ba481a7ec7b1bf9d7b7a78fb1103f4806d
   react-native-segmented-control: 65df6cd0619b780b3843d574a72d4c7cec396097
   react-native-shake: 67d43d6af4abfc299400b17fea7d2ec0754c72ac
   react-native-slider: 37e1cf275dab20d3c015e40969aa9f5c309645a8
