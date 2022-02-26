@@ -1126,7 +1126,6 @@ class MarryMainPage extends React.Component {
         }else{
           female = IconConfig.IconMarryCheckfault
         }
-
       }
     }else{
       male = IconConfig.IconMarryCheckfault
@@ -1174,16 +1173,22 @@ class MarryMainPage extends React.Component {
       }
     }
     base.push(["属  象:", this.state.EightDatemale[1], this.state.EightDatefemale[1]])
+    var male = ""
+    var female = ""
     if (-1 == kind.indexOf(earthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + earthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))])) {
       if (-1 == congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1]) && -1 == congtest.indexOf(this.state.EightDatefemale[1] + this.state.EightDatemale[1])) {
         //生肖最好三合暗合
-        base.push(["象  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
+        male = IconConfig.IconMarryCheck
+        female = IconConfig.IconMarryCheck
       }else{
-        base.push(["象  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
+        male = IconConfig.IconMarryCheckfault
+        female = IconConfig.IconMarryCheckfault
       }
     }else{
-      base.push(["象  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
+      male = IconConfig.IconMarryCheckfault
+      female = IconConfig.IconMarryCheckfault
     }
+    base.push(["象  合:", male, female])
     base.push(["共七合,四合以上为适婚"])
     Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true }), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000, useNativeDriver: true })]).start()
     return (
