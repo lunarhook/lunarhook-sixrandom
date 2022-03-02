@@ -13,7 +13,8 @@ import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
 import UserModule from '../../../config/UserModule'
 import WechatShare from '../../../config/WechatShare'
 import { HistoryArrayGroup } from '../../../config/StorageModule'
-import { CommonActions } from '@react-navigation/native';
+import ScreenConfig from '../../../config/ScreenConfig';
+
 let SixrandomFullinfoPagethis = null
 class SixrandomFullinfoPage extends React.Component {
   constructor(props) {
@@ -188,6 +189,7 @@ class SixrandomFullinfoPage extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     var jump = false;
+    const rwidth = ScreenConfig.__screenW()
     return (
       <View style={styles.container} >
         <ScrollView ref='location' style={{ backgroundColor: '#ffffff' }}>
@@ -209,19 +211,19 @@ class SixrandomFullinfoPage extends React.Component {
                   if (index < 9) {
                     return (
                       <View style={{ flexDirection: 'row', textAlign: 'left' }}>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 100 }}>{dataItem.myth}</Text>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60 }}>{dataItem.sixrandom}</Text>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60 }}>{dataItem.tip}</Text>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 120 }}>{dataItem.change}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.myth}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/6 }}>{dataItem.sixrandom}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/6 }}>{dataItem.tip}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.change}</Text>
                       </View>
                     )
                   }
                   else {
                     return (
                       <View style={{ flexDirection: 'row', textAlign: 'left' }}>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 100 }}>{dataItem.myth}</Text>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 120 }}>{dataItem.sixrandom}</Text>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 120 }}>{dataItem.change}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.myth}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.sixrandom}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.change}</Text>
                       </View>
                     )
                   }
