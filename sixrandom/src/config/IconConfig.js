@@ -30,6 +30,7 @@ const darkgold = "#AC633D"
 const gray = "#848484"
 const LightPink = "#FFB6C1"
 const black = "#000000"
+const white = "#FFFFFF"
 
 class IconConfig extends React.Component {
   static IconLunarConfide = (<Ionicons name="ios-bonfire" size={size} color={fire} />)
@@ -49,6 +50,8 @@ class IconConfig extends React.Component {
   static EightrandomSel = (<Ionicons name="md-finger-print" size={buttonsize} color={red} />)
   static Sixrandom = (<FontAwesome name="moon-o" size={buttonsize} color={blue} />)
   static SixrandomSel = (<MaterialCommunityIcons name="yin-yang" size={buttonsize} color={blue} />)
+  static IconSixradomline =  (<FontAwesome5 name="window-minimize" size={buttonsize-6} color={black} />)
+  static IconSixradomlblock =  (<FontAwesome5 name="window-minimize" size={buttonsize-6} color={white} />)
   static numlucky = (<FontAwesome name="signal" size={buttonsize} color={green} />)
   static numluckySel = (<FontAwesome name="signal" size={buttonsize} color={green} />)
   static Marry =(<Fontisto name="venus-mars" size={buttonsize} color={LightPink} />)

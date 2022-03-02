@@ -5,7 +5,7 @@ import {TextInput,StyleSheet,Keyboard,View, ScrollView, Button,Text,FlatList,Vib
 import TabNavigator from 'react-native-tab-navigator';  
 import { TextareaItem,PickerView ,Toast} from '@ant-design/react-native';
 import RNShake from 'react-native-shake';
-
+import IconConfig from '../../../config/IconConfig'
 import {HistoryArrayGroup} from '../../../config/StorageModule'
 import ValueTypeModule from '../../../config/ValueTypeModule'
 import {SixrandomModule} from '../SixrandomLib/SixrandomModule'
@@ -140,18 +140,30 @@ class SixrandomNewPage extends React.Component {
       t = t0 + t1 + t2 + 6
       //alert(t)
 
-      var x = ""
+      var x = new Array()
       if (t == 8) {
-        x = SixrandomModule.getnegativedraw()
+        //x = SixrandomModule.getnegativedraw()
+        x.push(IconConfig.IconSixradomline)
+        x.push(IconConfig.IconSixradomlblock)
+        x.push(IconConfig.IconSixradomline)
       }
       else if (t == 6) {
-        x = SixrandomModule.getnegativedraw()
+       // x = SixrandomModule.getnegativedraw()
+        x.push(IconConfig.IconSixradomline)
+        x.push(IconConfig.IconSixradomlblock)
+        x.push(IconConfig.IconSixradomline)
       }
       else if (t == 7) {
-        x = SixrandomModule.getpositivedraw()
+       // x = SixrandomModule.getpositivedraw()
+        x.push(IconConfig.IconSixradomline)
+        x.push(IconConfig.IconSixradomline)
+        x.push(IconConfig.IconSixradomline)
       }
       else if (t == 9) {
-        x = SixrandomModule.getpositivedraw()
+        //x = SixrandomModule.getpositivedraw()
+        x.push(IconConfig.IconSixradomline)
+        x.push(IconConfig.IconSixradomline)
+        x.push(IconConfig.IconSixradomline)
       }
       randArray[(this.state.Step - 1)] = t
       //dataArray[(this.state.Step-1)] = x
