@@ -410,7 +410,7 @@ class CalendarPage extends React.Component {
           if (CalendarPagethis.state.showbar) {
             return (
               <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
-                {WechatShare.CourseShareBar(WechatShare, this, "乾坤历")
+                {WechatShare.CourseShareBar(WechatShare, CalendarPagethis, "乾坤历")
                 }
               </TabNavigator>
             )
