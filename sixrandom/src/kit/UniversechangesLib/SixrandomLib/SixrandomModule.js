@@ -4176,22 +4176,26 @@ class SixrandomModule extends React.Component {
 			infogrid[curlenght +randomtime - index + 1].push("")
 			if (oldnegativevalue == six_random[randomtime - index]) {
 				six_random_draw[randomtime - index] = six_random_draw[randomtime - index] + negativedraw + " " + negativechangedraw + " "
-				infogrid[curlenght +randomtime - index + 1].push(negativedraw + " " + negativechangedraw)
+				infogrid[curlenght +randomtime - index + 1].push(negativedraw)
+				infogrid[curlenght +randomtime - index + 1].push(negativechangedraw)
 
 			}
 			else if (oldpositivevalue == six_random[randomtime - index]) {
 				six_random_draw[randomtime - index] = six_random_draw[randomtime - index] + positivedraw + " " + positivechangedraw + " "
-				infogrid[curlenght +randomtime - index + 1].push(positivedraw + " " + positivechangedraw)
+				infogrid[curlenght +randomtime - index + 1].push(positivedraw)
+				infogrid[curlenght +randomtime - index + 1].push(positivechangedraw)
 
 			}
 			else if (positivevalue == six_random[randomtime - index]) {
 				six_random_draw[randomtime - index] = six_random_draw[randomtime - index] + positivedraw + " " + nonechangedraw + " "
-				infogrid[curlenght +randomtime - index + 1].push(positivedraw + " " + nonechangedraw)
+				infogrid[curlenght +randomtime - index + 1].push(positivedraw)
+				infogrid[curlenght +randomtime - index + 1].push(nonechangedraw)
 
 			}
 			else if (negativevalue == six_random[randomtime - index]) {
 				six_random_draw[randomtime - index] = six_random_draw[randomtime - index] + negativedraw + " " + nonechangedraw + " "
-				infogrid[curlenght +randomtime - index + 1].push(negativedraw + " " + nonechangedraw)
+				infogrid[curlenght +randomtime - index + 1].push(negativedraw)
+				infogrid[curlenght +randomtime - index + 1].push(nonechangedraw)
 			}
 		}
 

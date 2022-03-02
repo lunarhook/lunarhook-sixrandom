@@ -150,8 +150,9 @@ class SixrandomFullinfoPage extends React.Component {
             var cur = ggrid[index]
             console.log(cur)
             o.myth = cur[0] + " " + cur[1];
-            o.sixrandom = cur[2];
-            o.change = cur[3];
+            o.sixrandom = cur[2]+cur[3];
+            o.change = cur[4];
+
           }
           else {
             o.myth = "";
@@ -183,7 +184,7 @@ class SixrandomFullinfoPage extends React.Component {
   keyExtractor = (item, index) => index.toString()
   render() {
     const { navigate } = this.props.navigation;
-    jump = false;
+    var jump = false;
     return (
       <View style={styles.container} >
         <ScrollView ref='location' style={{ backgroundColor: '#ffffff' }}>
