@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ValueTypeModule from '../../../config/ValueTypeModule'
 import chineseLunar from '../solar2lunar/chinese-lunar'
 import LunarCalendar from '../solar2lunar/LunarCalendar'
-
+import IconConfig from '../../../config/IconConfig'
 var six_random_NaJia = new Array();
 /*
 ---
@@ -3358,8 +3358,10 @@ const positive = 1
 const negative = 0
 const randomtime = 6
 
-const negativedraw = "--- ---";
-const positivedraw = "-------";
+//const negativedraw = "--- ---";
+const negativedraw =[IconConfig.IconSixradomline,IconConfig.IconSixradomlblock,IconConfig.IconSixradomline]
+//const positivedraw = "-------";
+const positivedraw =[IconConfig.IconSixradomline,IconConfig.IconSixradomline,IconConfig.IconSixradomline]
 const negativechangedraw = "X->";
 const positivechangedraw = "O->";
 const nonechangedraw = "      ";
@@ -4150,6 +4152,7 @@ class SixrandomModule extends React.Component {
 		infogrid[0].push("求测")
 		infogrid[0].push("")
 		infogrid[0].push(six_random_date[7].name)
+		infogrid[0].push("")
 		infogrid[0].push(six_random_date[8].name+(six_random_date[8].name == six_random_date[7].name?"(静卦)":"(变卦)"))
 
 		/*
@@ -4163,6 +4166,7 @@ class SixrandomModule extends React.Component {
 		infogrid[1].push(six_random_question)
 		infogrid[1].push("")
 		infogrid[1].push(six_random_date[7]["poem"])
+		infogrid[1].push("")
 		infogrid[1].push(six_random_date[8]["poem"])
 
 		//console.log();
@@ -4285,6 +4289,7 @@ class SixrandomModule extends React.Component {
 
 			}
 			//再装变卦
+			infogrid[curlenght + index + 1].push("")
 			infogrid[curlenght + index + 1].push(six_random_date[8][t])
 
 		}

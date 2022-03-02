@@ -109,11 +109,13 @@ class SixrandomFullinfoPage extends React.Component {
           console.log(cur)
           o.myth = cur[0] + " " + cur[1];
           o.sixrandom = cur[2];
-          o.change = cur[3];
+          o.tip = cur[3]
+          o.change = cur[4];
         }
         else {
           o.myth = "";
           o.sixrandom = "";
+          o.tip = ""
           o.change = "";
         }
         console.log(o)
@@ -150,13 +152,14 @@ class SixrandomFullinfoPage extends React.Component {
             var cur = ggrid[index]
             console.log(cur)
             o.myth = cur[0] + " " + cur[1];
-            o.sixrandom = cur[2]+cur[3];
+            o.sixrandom = cur[2];
+            o.tip = cur[3]
             o.change = cur[4];
-
           }
           else {
             o.myth = "";
             o.sixrandom = "";
+            o.tip = ""
             o.change = "";
           }
           console.log(o)
@@ -203,11 +206,12 @@ class SixrandomFullinfoPage extends React.Component {
                 hasLine={false}
                 itemStyle={{ height: 20 }}
                 renderItem={(dataItem, index) => {
-                  if (index < 8) {
+                  if (index < 9) {
                     return (
                       <View style={{ flexDirection: 'row', textAlign: 'left' }}>
                         <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 100 }}>{dataItem.myth}</Text>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 120 }}>{dataItem.sixrandom}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60 }}>{dataItem.sixrandom}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60 }}>{dataItem.tip}</Text>
                         <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 120 }}>{dataItem.change}</Text>
                       </View>
                     )
