@@ -8,6 +8,7 @@ import RouteConfig from './config/RouteConfig';
 import IconConfig from './config/IconConfig';
 import ScreenConfig from './config/ScreenConfig';
 import { FontStyleConfig } from './config/StyleConfig';
+import WechatShare from './config/WechatShare'
 import NetModule from './net/NetModule'
 import { appinfo, appname } from './config/appinfo'
 import { SixrandomModule } from './kit/UniversechangesLib/SixrandomLib/SixrandomModule'
@@ -42,6 +43,8 @@ class CalendarPage extends React.Component {
     var sel = this.getDateFormat(day)
     var timelucky = UniversechangesConfig.gettimelucky(wanNianLiInfo.info.gzDate)
     this.state = {
+      showbar:false,
+      shareimg:false,
       wanNianLiInfo: wanNianLiInfo,
       selected: sel,
       //info: info,
@@ -266,7 +269,17 @@ class CalendarPage extends React.Component {
       */
   }
 
-
+  _testend(e:Object) {
+    var offsetY = e.nativeEvent.contentOffset.y; //滑动距离
+    var contentSizeHeight = e.nativeEvent.contentSize.height*0.95; //scrollView contentSize高度
+    var oriageScrollHeight = e.nativeEvent.layoutMeasurement.height; //scrollView高度
+    if (offsetY + oriageScrollHeight >= contentSizeHeight){
+      CalendarPagethis.setState({showbar:true})
+    }
+    else{
+      CalendarPagethis.setState({showbar:false})
+    }
+  }
 
   render() {
     if (undefined != this.props.navigation.state.params && "refresh" === this.props.navigation.state.params.text) {
@@ -300,7 +313,10 @@ class CalendarPage extends React.Component {
     //console.log(Platform.OS,TabNavigator.tabBarHeight)
     return (
       <View style={StyleConfig.container}>
-        <ScrollView style={{ backgroundColor: '#ffffff', }}>
+        <ScrollView ref="location"  
+          style={{ backgroundColor: '#ffffff', }}
+          onScroll = {this._testend}
+          >
           <View style={{ height: 350, backgroundColor: '#ffffff', }}>
             <Calendar
               horizontal={true}
@@ -378,7 +394,29 @@ class CalendarPage extends React.Component {
             <Text style={StyleConfig.list}>
             </Text>
           </WingBlank>
+          <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            {
+              (WechatShare.shareimg(this.state.shareimg))
+            }
+
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+            <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff'}}/>
+
         </ScrollView>
+        {function(){
+          if (CalendarPagethis.state.showbar) {
+            return (
+              <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+                {WechatShare.CourseShareBar(WechatShare, this, "乾坤历")
+                }
+              </TabNavigator>
+            )
+          }
+        }()
+        }
         {this.renderTabbar()}
       </View>
     )
