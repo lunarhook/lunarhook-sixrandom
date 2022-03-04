@@ -1072,18 +1072,15 @@ class MarryMainPage extends React.Component {
     ret_female = EightrandomModule.gettwelfth(this.state.EightDatefemale[0] + this.state.EightDatefemale[1])
     base.push(["纳  音:", ret_male, ret_female])
 
-    //纳音可以男克女，也可以印生，但是不好女克男
-    if (-1 != kindmale.indexOf(ret_male.charAt(2) + ret_female.charAt(2)) ) {
-      base.push(["音  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
-    }
-    else if (-1 != kind.indexOf(ret_male.charAt(2) + ret_female.charAt(2)) ) {
-      base.push(["音  合:", IconConfig.IconMarryCheckhalf, IconConfig.IconMarryCheckhalf])
+    //纳音以相生为主
+    if (-1 != kind.indexOf(ret_male.charAt(2) + ret_female.charAt(2)) ) {
+      base.push(["音  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
     }
     else if(-1 != kindassist.indexOf(ret_male.charAt(2) + ret_female.charAt(2)))
     {
-      base.push(["音  合:", IconConfig.IconMarryCheckhalf, IconConfig.IconMarryCheckhalf])
+      base.push(["音  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
     }else{
-      base.push(["音  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
+      base.push(["音  合:", IconConfig.IconMarryCheckhalf, IconConfig.IconMarryCheckhalf])
     }
     base.push(["大  运:", curluckyearmale[0] + curluckyearmale[1], curluckyearfemale[0] + curluckyearfemale[1]])
 
