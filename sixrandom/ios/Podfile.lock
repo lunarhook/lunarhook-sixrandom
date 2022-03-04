@@ -296,7 +296,7 @@ PODS:
     - React-Core
   - react-native-shake (5.1.1):
     - React
-  - react-native-slider (4.2.0):
+  - react-native-slider (4.2.1):
     - React-Core
   - react-native-view-shot (3.1.2):
     - React
@@ -635,7 +635,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
-  DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FBLazyVector: 244195e30d63d7f564c55da4410b9a24e8fbceaa
   FBReactNativeSpec: c94002c1d93da3658f4d5119c6994d19961e3d52
   Flipper: 30e8eeeed6abdc98edaf32af0cda2f198be4b733
@@ -648,7 +648,7 @@ SPEC CHECKSUMS:
   Flipper-RSocket: d9d9ade67cbecf6ac10730304bf5607266dd2541
   FlipperKit: d8d346844eca5d9120c17d441a2f38596e8ed2b9
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  glog: 85ecdd10ee8d8ec362ef519a6a45ff9aa27b2e85
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   RCT-Folly: 803a9cfd78114b2ec0f140cfa6fa2a6bafb2d685
@@ -673,7 +673,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 114e9a74df2643012b9d6cc1460b94f3b6a90780
   react-native-segmented-control: 65df6cd0619b780b3843d574a72d4c7cec396097
   react-native-shake: 67d43d6af4abfc299400b17fea7d2ec0754c72ac
-  react-native-slider: 37e1cf275dab20d3c015e40969aa9f5c309645a8
+  react-native-slider: 241935e3ea8e47599c317f512f96ee8de607d4cb
   react-native-view-shot: 4475fde003fe8a210053d1f98fb9e06c1d834e1c
   react-native-webview: 380c1a03ec94b7ed764dac8db1e7c9952d08c93a
   React-perflogger: 3c9bb7372493e49036f07a82c44c8cf65cbe88db
