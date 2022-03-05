@@ -875,7 +875,8 @@ class MarryMainPage extends React.Component {
     }
     */
     //身旺判断
-
+    var totalcountmale = 0
+    var totalcountfemale = 0
     const daykey = "甲乙丙丁戊己庚辛壬癸"
     const dayfive = "木木火火土土金金水水"
     const earthkey = "子丑寅卯辰巳午未申酉戌亥"
@@ -883,10 +884,11 @@ class MarryMainPage extends React.Component {
     const kindmale = "木土，火金，土水，金木，水火，"
     const kindfemale = "土木，金火，水土，木金，火水，"
     const kindassist = "木火，火木，火土，土火，土金，金土，金水，水金，水木，木水"
+    const kindsame = "木木，火火，土土，金金，水水"
     const kind = kindmale + kindfemale
     //四柱不应该被冲克刑
     const congtest = "辰戌，戌辰，子午，午子，寅申，申寅，卯酉，酉卯，丑未，未丑，巳亥，亥巳，子卯，卯子，午午，亥亥，酉酉，辰辰"
-    const sixhetest = "子丑，丑子，寅亥，亥寅，卯戌，戌卯，辰酉，酉辰，巳申，申巳，午未，未午"
+    const sixhetest = "子丑，丑子，寅亥，亥寅，卯戌，戌卯，辰酉，酉辰，巳申，申巳，午未，未午，"
     const sanhetest = "申子，子申，亥卯，卯亥，寅午，午寅，巳酉，酉巳，子辰，辰子，卯未，未卯，午戌，戌午，酉丑，丑酉，亥未，未亥，申辰，辰申，巳丑，丑巳，寅戌，戌寅"
     const hetest = sixhetest + sanhetest
     var tianganhuahe = []
@@ -953,6 +955,10 @@ class MarryMainPage extends React.Component {
     } else {
       femaleyongshencheck = IconConfig.IconMarryCheckfault
     }
+    if(IconConfig.IconMarryCheck==maleyongshencheck){totalcountmale  = totalcountmale+20}
+    else if(IconConfig.IconMarryCheckhalf==maleyongshencheck){totalcountmale  = totalcountmale+10}
+    if(IconConfig.IconMarryCheck==femaleyongshencheck){totalcountfemale  = totalcountfemale+20}
+    else if(IconConfig.IconMarryCheckhalf==femaleyongshencheck){totalcountfemale  = totalcountfemale+10}
     base.push(["神  合:", maleyongshencheck, femaleyongshencheck])
     
 
@@ -974,9 +980,11 @@ class MarryMainPage extends React.Component {
     */
     //日元不能相互克，除非男克女，旺衰对冲则用神相同
     //日元天干化合为喜用最佳
-    var male = ""
-    var female = ""
+    var male = IconConfig.IconMarryCheckfault
+    var female = IconConfig.IconMarryCheckfault
+
     if (undefined != tianganhuahe[this.state.EightDatemale[4] + this.state.EightDatefemale[4]]) {
+      //天干化合，但是土为忌仇神，只能半合
       var x = tianganhuahe[this.state.EightDatemale[4] + this.state.EightDatefemale[4]]
       if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
         male = IconConfig.IconMarryCheck
@@ -992,6 +1000,9 @@ class MarryMainPage extends React.Component {
       }
     }
     else if (-1 != kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
+      //天干相克半合，如果衰旺配合合理，就全合
+      female = IconConfig.IconMarryCheckhalf
+      male = IconConfig.IconMarryCheckhalf
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("衰") || -1 != testpowerselffemale.indexOf("弱")) {
           male = IconConfig.IconMarryCheck        
@@ -1002,34 +1013,48 @@ class MarryMainPage extends React.Component {
           male = IconConfig.IconMarryCheck        
           female = IconConfig.IconMarryCheck
         }
-      }else
-      {
-        female = IconConfig.IconMarryCheckfault
-        male = IconConfig.IconMarryCheckfault
       }
     }
     //日元印生，同强同弱用神不冲突
-    else if (-1 != kindassist.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]) || dayfive[daykey.indexOf(this.state.EightDatemale[4])] == dayfive[daykey.indexOf(this.state.EightDatefemale[4])]) {
+    else if (-1 != kindassist.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("强")) {
-          male = IconConfig.IconMarryCheck        
-          female = IconConfig.IconMarryCheck
+          male = IconConfig.IconMarryCheckhalf        
+          female = IconConfig.IconMarryCheckhalf
         }
       } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
         if (-1 != testpowerselffemale.indexOf("弱") || -1 != testpowerselffemale.indexOf("衰")) {
-          male = IconConfig.IconMarryCheck        
-          female = IconConfig.IconMarryCheck
+          male = IconConfig.IconMarryCheckhalf        
+          female = IconConfig.IconMarryCheckhalf
         }
-      }else
-      {
-        female = IconConfig.IconMarryCheckfault
-        male = IconConfig.IconMarryCheckfault
+      }
+    }else if(dayfive[daykey.indexOf(this.state.EightDatemale[4])] == dayfive[daykey.indexOf(this.state.EightDatefemale[4])])
+    {
+      //同元总要争的
+      female = IconConfig.IconMarryCheckhalf
+      male = IconConfig.IconMarryCheckhalf
+      if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
+        if (-1 != testpowerselffemale.indexOf("衰") || -1 != testpowerselffemale.indexOf("弱")) {
+          male = IconConfig.IconMarryCheckhalf        
+          female = IconConfig.IconMarryCheckhalf
+        }
+      } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
+        if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("衰")) {
+          male = IconConfig.IconMarryCheckhalf        
+          female = IconConfig.IconMarryCheckhalf
+        }
       }
     }
+    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+20}
+    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+10}
+    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+20}
+    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+10}
     base.push(["元  合:", male, female])
    
 
     base.push(["日  支:", this.state.EightDatemale[5], this.state.EightDatefemale[5]])
+    female = IconConfig.IconMarryCheckfault
+    male = IconConfig.IconMarryCheckfault
     //日支不能相互克制
     if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[5])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[5])])) {
       //日支不能刑冲
@@ -1037,16 +1062,19 @@ class MarryMainPage extends React.Component {
         //日支最好是生，和日元完全相反，同一班，克最差，但是生也不能刑，比如子卯
         if(-1!=kindassist.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[5])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[5])]))
         {
-          base.push(["支  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
+          female = IconConfig.IconMarryCheck
+          male = IconConfig.IconMarryCheck
         }else{
-          base.push(["支  合:", IconConfig.IconMarryCheckhalf, IconConfig.IconMarryCheckhalf])
+          female = IconConfig.IconMarryCheckhalf
+          male = IconConfig.IconMarryCheckhalf
         }
-      }else{
-        base.push(["支  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
       }
-    }else{
-      base.push(["支  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
     }
+    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+20}
+    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+10}
+    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+20}
+    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+10}
+    base.push(["支  合:",male, female])
 
     var ret_male = ""
     var ret_female = ""
@@ -1073,15 +1101,29 @@ class MarryMainPage extends React.Component {
     base.push(["纳  音:", ret_male, ret_female])
 
     //纳音以相生为主
+    female = IconConfig.IconMarryCheckfault
+    male = IconConfig.IconMarryCheckfault
     if (-1 != kind.indexOf(ret_male.charAt(2) + ret_female.charAt(2)) ) {
-      base.push(["音  合:", IconConfig.IconMarryCheckfault, IconConfig.IconMarryCheckfault])
+      female = IconConfig.IconMarryCheckfault
+      male = IconConfig.IconMarryCheckfault
     }
     else if(-1 != kindassist.indexOf(ret_male.charAt(2) + ret_female.charAt(2)))
     {
-      base.push(["音  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
+      female = IconConfig.IconMarryCheck
+      male = IconConfig.IconMarryCheck
     }else{
-      base.push(["音  合:", IconConfig.IconMarryCheckhalf, IconConfig.IconMarryCheckhalf])
+      female = IconConfig.IconMarryCheckhalf
+      male = IconConfig.IconMarryCheckhalf
     }
+    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+10}
+    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+5}
+    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+10}
+    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+5}
+    base.push(["音  合:",male, female])
+
+
+
+
     base.push(["大  运:", curluckyearmale[0] + curluckyearmale[1], curluckyearfemale[0] + curluckyearfemale[1]])
 
     ret_male = ""
@@ -1096,8 +1138,6 @@ class MarryMainPage extends React.Component {
     var female = IconConfig.IconMarryCheckfault
     if (undefined != tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]) {
         var x = tianganhuahe[this.state.EightDatemale[0] + this.state.EightDatefemale[0]]
-        var male = ""
-        var female = ""
         if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
           male = IconConfig.IconMarryCheck
         }else{
@@ -1113,64 +1153,93 @@ class MarryMainPage extends React.Component {
       male = IconConfig.IconMarryCheck
       female = IconConfig.IconMarryCheck
     }
+    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+10}
+    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+5}
+    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+10}
+    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+5}
     base.push(["年  合:", male, female])
+
+
     base.push(["月  柱:", this.state.EightDatemale[2] + this.state.EightDatemale[3], this.state.EightDatefemale[2] + this.state.EightDatefemale[3]])
+    male = IconConfig.IconMarryCheckfault
+    female = IconConfig.IconMarryCheckfault
     if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[2])] + dayfive[daykey.indexOf(this.state.EightDatefemale[2])]) || undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
       if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[3])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[3])])) {
-        if (-1 == congtest.indexOf(this.state.EightDatefemale[3] + this.state.EightDatemale[3])) {
+        male = IconConfig.IconMarryCheck
+        female = IconConfig.IconMarryCheck
+        if (-1 != congtest.indexOf(this.state.EightDatefemale[3] + this.state.EightDatemale[3])) {
+          //如果有冲克，就看天干合以后的喜用
+          male = IconConfig.IconMarryCheckfault
+          female = IconConfig.IconMarryCheckfault
           if (undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
-            var male = ""
-            var female = ""
+            //因为有地支冲突，所以半合还是要扣分的
+            totalcountfemale =  totalcountfemale - 5
+            totalcountmale =  totalcountmale - 5
+            //这里对天干五合在评价，如果五合为忌仇，虽合但是无分数
+            female = IconConfig.IconMarryCheckfault
+            male = IconConfig.IconMarryCheck
+            female = IconConfig.IconMarryCheck
             var x = tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]
             if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
               male = IconConfig.IconMarryCheck
-            }else{
-              male = IconConfig.IconMarryCheckfault
+            } else {
+              male = IconConfig.IconMarryCheckhalf
             }
             if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
               female = IconConfig.IconMarryCheck
-            }else{
-              female = IconConfig.IconMarryCheckfault
+            } else {
+              female = IconConfig.IconMarryCheckhalf
             }
-            base.push(["月  合:", male, female])
+          }
+        } else if (undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
+
+          var x = tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]
+          if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
+            male = IconConfig.IconMarryCheck
           } else {
-            base.push(["月  合:", IconConfig.IconMarryCheck, IconConfig.IconMarryCheck])
+            male = IconConfig.IconMarryCheckhalf
+          }
+          if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
+            female = IconConfig.IconMarryCheck
+          } else {
+            female = IconConfig.IconMarryCheckhalf
           }
         }
-      } else if (undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
-        var x = tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]
-        var male = ""
-        var female = ""
-        if (-1 != (yongshenmale.xishen + yongshenmale.yongshen).indexOf(x)) {
-          male = IconConfig.IconMarryCheck
-        }else{
-          male = IconConfig.IconMarryCheckfault
-        }
-        if (-1 != (yongshenfemale.xishen + yongshenfemale.yongshen).indexOf(x)) {
-          female = IconConfig.IconMarryCheck
-        }else{
-          female = IconConfig.IconMarryCheckfault
-        }
-        base.push(["月  合:", male, female])
       }
     }
+    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+10}
+    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+5}
+    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+10}
+    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+5}
+    base.push(["月  合:", male, female])
+
+
+
     base.push(["属  象:", this.state.EightDatemale[1], this.state.EightDatefemale[1]])
     var male = IconConfig.IconMarryCheckfault
     var female = IconConfig.IconMarryCheckfault
-    //if (-1 == kind.indexOf(earthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + earthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))])) {
-      //生肖最好三合暗合
-      if(-1 == hetest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1]))
-      {
-        male = IconConfig.IconMarryCheck
-        female = IconConfig.IconMarryCheck
-        if (-1 != congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1])) {
-          male = IconConfig.IconMarryCheckhalf
-          female = IconConfig.IconMarryCheckhalf
-        }
+    //生肖最好三合暗合
+    if(-1 != hetest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1]))
+    {
+      male = IconConfig.IconMarryCheck
+      female = IconConfig.IconMarryCheck
+      if (-1 != congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1])) {
+        male = IconConfig.IconMarryCheckhalf
+        female = IconConfig.IconMarryCheckhalf
       }
-    //}
+    }else if ((-1 == kind.indexOf(earthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + earthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]))){
+      male = IconConfig.IconMarryCheck
+      female = IconConfig.IconMarryCheck
+    }
+
+    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+10}
+    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+5}
+    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+10}
+    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+5}
     base.push(["象  合:", male, female])
-    base.push(["共七合,四合以上为适婚"])
+    base.push(["评  分:", totalcountmale, totalcountfemale])
+    base.push(["合婚共七合,四合以上为适婚"])
+    base.push(["评分共100分，65-75以上为适婚"])
     Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true }), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000, useNativeDriver: true })]).start()
     return (
       <View style={styles.container} >
