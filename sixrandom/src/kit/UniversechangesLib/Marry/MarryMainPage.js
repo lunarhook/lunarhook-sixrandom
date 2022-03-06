@@ -1033,19 +1033,22 @@ class MarryMainPage extends React.Component {
     }else if(dayfive[daykey.indexOf(this.state.EightDatemale[4])] == dayfive[daykey.indexOf(this.state.EightDatefemale[4])])
     {
       //同元总要争的
-      totalcountfemale =  totalcountfemale - 5
-      totalcountmale =  totalcountmale - 5
       female = IconConfig.IconMarryCheckhalf
       male = IconConfig.IconMarryCheckhalf
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("衰") || -1 != testpowerselffemale.indexOf("弱")) {
           male = IconConfig.IconMarryCheckhalf        
           female = IconConfig.IconMarryCheckhalf
+          //男方强，喜官杀来克，随班同元比合，所以要扣分
+          totalcountmale =  totalcountmale - 5
         }
       } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
-        if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("衰")) {
+        if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("强")) {
           male = IconConfig.IconMarryCheckhalf        
           female = IconConfig.IconMarryCheckhalf
+          //女方强，喜官杀来克，随班同元比合，所以要扣分
+          totalcountfemale =  totalcountfemale - 5
+
         }
       }
     }
@@ -1176,7 +1179,7 @@ class MarryMainPage extends React.Component {
           male = IconConfig.IconMarryCheckfault
           female = IconConfig.IconMarryCheckfault
           if (undefined != tianganhuahe[this.state.EightDatemale[2] + this.state.EightDatefemale[2]]) {
-            //因为有地支冲突，所以半合还是要扣分的
+            //因为有地支冲突，所以天干合还是要扣分的，如果天干无合不会进来，也不会扣分
             totalcountfemale =  totalcountfemale - 5
             totalcountmale =  totalcountmale - 5
             //这里对天干五合在评价，如果五合为忌仇，虽合但是无分数
@@ -1222,18 +1225,23 @@ class MarryMainPage extends React.Component {
     base.push(["属  象:", this.state.EightDatemale[1], this.state.EightDatefemale[1]])
     var male = IconConfig.IconMarryCheckfault
     var female = IconConfig.IconMarryCheckfault
-    //生肖最好三合暗合
+    
     if(-1 != hetest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1]))
     {
+      //生肖最好三合暗合
       male = IconConfig.IconMarryCheck
       female = IconConfig.IconMarryCheck
+      //合而不冲
       if (-1 != congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1])) {
         male = IconConfig.IconMarryCheckhalf
         female = IconConfig.IconMarryCheckhalf
       }
     }else if ((-1 == kind.indexOf(earthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + earthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]))){
-      male = IconConfig.IconMarryCheck
-      female = IconConfig.IconMarryCheck
+      if (-1 != congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1])) {
+        //地支五行不克且不刑冲
+        male = IconConfig.IconMarryCheck
+        female = IconConfig.IconMarryCheck
+      }
     }
 
     if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+10}
@@ -1269,7 +1277,7 @@ class MarryMainPage extends React.Component {
                         }
                         else {
                           return (
-                            <View style={[styles.container, { flexDirection: 'row', alignItems: "flex-end" }]}>
+                            <View style={[styles.container, { flexDirection: 'row', alignItems: "flex-start" }]}>
                               <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 360, textAlign: "center" }}>{dataItem[0]}</Text>
                             </View>)
                         }
