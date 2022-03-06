@@ -1250,8 +1250,11 @@ class MarryMainPage extends React.Component {
     else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+5}
     base.push(["象  合:", male, female])
     base.push(["评  分:", totalcountmale, totalcountfemale])
-    base.push(["合婚共七合,四合以上为适婚"])
-    base.push(["评分共100分，65-75以上为适婚"])
+    base.push(["合婚四合（红心）以上为适婚，评分65-75以上为适婚"])
+    base.push(["顺序重点为:元 神 支 音 年 月 象"])
+    base.push(["以元神支为两人关系重点各占20分"])
+    base.push(["音年月象为双方主要的人际关系各项10分"])
+    base.push(["合婚主要判断双方沟通成本和人际关系复杂程度"])
     Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true }), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000, useNativeDriver: true })]).start()
     return (
       <View style={styles.container} >
@@ -1270,15 +1273,15 @@ class MarryMainPage extends React.Component {
                         if (dataItem.length >= 2) {
                           return (
                             <View style={[styles.container, { flexDirection: 'row', alignItems: "flex-end" }]}>
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60, textAlign: "center" }}>{dataItem[0]}</Text>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 60, textAlign: "left" }}>{dataItem[0]}</Text>
                               <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150, textAlign: "center" }}>{dataItem[1]}</Text>
                               <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 150, textAlign: "center" }}>{dataItem[2]}</Text>
                             </View>)
                         }
                         else {
                           return (
-                            <View style={[styles.container, { flexDirection: 'row', alignItems: "flex-start" }]}>
-                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 360, textAlign: "center" }}>{dataItem[0]}</Text>
+                            <View style={[styles.container, { flexDirection: 'row', alignItems: "flex-end" }]}>
+                              <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: 360, textAlign: "left" }}>{""+dataItem[0]}</Text>
                             </View>)
                         }
                       }} />
