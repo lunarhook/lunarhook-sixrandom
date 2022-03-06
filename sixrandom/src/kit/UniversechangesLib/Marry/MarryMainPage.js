@@ -1017,6 +1017,8 @@ class MarryMainPage extends React.Component {
     }
     //日元印生，同强同弱用神不冲突
     else if (-1 != kindassist.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
+      totalcountfemale =  totalcountfemale - 5
+      totalcountmale =  totalcountmale - 5
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("强")) {
           male = IconConfig.IconMarryCheckhalf        
@@ -1031,6 +1033,8 @@ class MarryMainPage extends React.Component {
     }else if(dayfive[daykey.indexOf(this.state.EightDatemale[4])] == dayfive[daykey.indexOf(this.state.EightDatefemale[4])])
     {
       //同元总要争的
+      totalcountfemale =  totalcountfemale - 5
+      totalcountmale =  totalcountmale - 5
       female = IconConfig.IconMarryCheckhalf
       male = IconConfig.IconMarryCheckhalf
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
