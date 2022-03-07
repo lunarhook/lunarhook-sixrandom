@@ -80,6 +80,7 @@ class EightrandomMainPage extends React.Component {
     var daykey = new Array();
 
     this.state = {
+      xingsu:"",
       shareimg:false,
       fadeInOpacity: new Animated.Value(0.3),
       enhance:"空",
@@ -229,7 +230,7 @@ class EightrandomMainPage extends React.Component {
       var beginlucky = EightrandomModule.getbigluckyearbegin(retterm, gz, info.EightDate, info.sex);
       console.log("beginlucky", Math.floor(beginlucky), Number(gz.getFullYear()))
       EightrandomMainPagethis.setState({
-        sex: info.sex, EightDate: info.EightDate, birth: info.birth, gzbirth: gzDate,  gzxk: gzxk,beginlucky: Math.floor(beginlucky),rowid:info.rowid
+        sex: info.sex, EightDate: info.EightDate, birth: info.birth, gzbirth: gzDate,  gzxk: gzxk,beginlucky: Math.floor(beginlucky),rowid:info.rowid,xingsu:EightDate.xingsu
       });
       this.buildeight(info.sex);
     }
@@ -746,6 +747,7 @@ class EightrandomMainPage extends React.Component {
     base.push( "命身: " +ret_powerself.powerself )
     base.push( "喜用: " +yongshen.xishen + yongshen.yongshen  )
     base.push( "忌仇: " +yongshen.jishen + yongshen.choushen  )
+    base.push( "星宿: " +this.state.xingsu.xingsu +this.state.xingsu.r )
     base.push( "（得令用十二长生中非沐浴计算且不使用任何时柱）" )
 
 

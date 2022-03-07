@@ -88,6 +88,8 @@ class MarryMainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      xingsumale:"",
+      xingsufemale:"",
       gzxkmale: "",
       shareimg: false,
       fadeInOpacity: new Animated.Value(0.3),
@@ -212,7 +214,7 @@ class MarryMainPage extends React.Component {
       var beginluckymale = EightrandomModule.getbigluckyearbegin(rettermmale, gzmale, info.EightDatemale, "乾造");
       console.log("beginlucky", Math.floor(beginluckymale), Number(gzmale.getFullYear()))
       MarryMainPagethis.setState({
-        EightDatemale: info.EightDatemale, birthmale: info.birthmale, gzbirthmale: gzDatemale, beginluckymale: Math.floor(beginluckymale), gzxkmale: gzxkmale
+        EightDatemale: info.EightDatemale, birthmale: info.birthmale, gzbirthmale: gzDatemale, beginluckymale: Math.floor(beginluckymale), gzxkmale: gzxkmale,xingsumale:EightDategzmale.xingsu
       });
       this.buildeight("乾造");
 
@@ -234,7 +236,7 @@ class MarryMainPage extends React.Component {
       var beginluckyfemale = EightrandomModule.getbigluckyearbegin(rettermfemale, gzfemale, info.EightDatefemale, "坤造");
       console.log("beginlucky", Math.floor(beginluckyfemale), Number(gzfemale.getFullYear()))
       MarryMainPagethis.setState({
-        EightDatefemale: info.EightDatefemale, birthfemale: info.birthfemale, gzbirthfemale: gzDatefemale, beginluckyfemale: Math.floor(beginluckyfemale), gzxkfemale: gzxkfemale
+        EightDatefemale: info.EightDatefemale, birthfemale: info.birthfemale, gzbirthfemale: gzDatefemale, beginluckyfemale: Math.floor(beginluckyfemale), gzxkfemale: gzxkfemale,xingsufemale:EightDategzfemale.xingsu
       });
       this.buildeight("乾造");
       this.buildeight("坤造");
@@ -887,7 +889,7 @@ class MarryMainPage extends React.Component {
     const kindsame = "木木，火火，土土，金金，水水"
     const kind = kindmale + kindfemale
     //四柱不应该被冲克刑
-    const congtest = "辰戌，戌辰，子午，午子，寅申，申寅，卯酉，酉卯，丑未，未丑，巳亥，亥巳，子卯，卯子，午午，亥亥，酉酉，辰辰"
+    const congtest = "辰戌，戌辰，子午，午子，寅申，申寅，卯酉，酉卯，丑未，未丑，巳亥，亥巳，子卯，卯子，午午，亥亥，酉酉，辰辰，酉戌，戌酉，卯辰，辰卯，子未，未子，丑午，午丑，申亥，亥申，寅巳，巳寅，丑午，午丑"
     const sixhetest = "子丑，丑子，寅亥，亥寅，卯戌，戌卯，辰酉，酉辰，巳申，申巳，午未，未午，"
     const sanhetest = "申子，子申，亥卯，卯亥，寅午，午寅，巳酉，酉巳，子辰，辰子，卯未，未卯，午戌，戌午，酉丑，丑酉，亥未，未亥，申辰，辰申，巳丑，丑巳，寅戌，戌寅"
     const hetest = sixhetest + sanhetest
@@ -1132,6 +1134,11 @@ class MarryMainPage extends React.Component {
 
 
     base.push(["大  运:", curluckyearmale[0] + curluckyearmale[1], curluckyearfemale[0] + curluckyearfemale[1]])
+    base.push(["星  宿:", this.state.xingsumale.xingsu+this.state.xingsumale.r, this.state.xingsufemale.xingsu+this.state.xingsufemale.r])
+    var xingsuretmale = EightrandomModule.getrongqin(this.state.xingsumale.xingsu, this.state.xingsufemale.xingsu)
+    var xingsuretfemale = EightrandomModule.getrongqin(this.state.xingsufemale.xingsu, this.state.xingsumale.xingsu)
+    base.push(["荣  亲:", xingsuretmale.r, xingsuretfemale.r])
+    base.push(["关  系:", xingsuretmale.d<=4?"近":(xingsuretmale.d<=8?"中":"远"),  xingsuretfemale.d<=4?"近":(xingsuretfemale.d<=8?"中":"远")])
 
     ret_male = ""
     ret_female = ""
@@ -1237,10 +1244,13 @@ class MarryMainPage extends React.Component {
         female = IconConfig.IconMarryCheckhalf
       }
     }else if ((-1 == kind.indexOf(earthfive[(earthkey.indexOf(this.state.EightDatemale[1]))] + earthfive[(earthkey.indexOf(this.state.EightDatefemale[1]))]))){
-      if (-1 != congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1])) {
+      if (-1 == congtest.indexOf(this.state.EightDatemale[1] + this.state.EightDatefemale[1])) {
         //地支五行不克且不刑冲
         male = IconConfig.IconMarryCheck
         female = IconConfig.IconMarryCheck
+      }else{
+        male = IconConfig.IconMarryCheckhalf
+        female = IconConfig.IconMarryCheckhalf
       }
     }
 
