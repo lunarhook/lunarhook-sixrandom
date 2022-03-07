@@ -33,7 +33,7 @@
     "react": "17.0.2",
     "react-dom": "^17.0.2",
     "react-native": "0.67.2",
-    "react-native-calendars": "^1.1278.0",
+    "react-native-calendars": "^1.1279.0",
     "react-native-compass-heading": "^1.4.0",
     "react-native-device-info": "^8.5.0",
     "react-native-drag-sort": "^2.4.4",
