@@ -1403,7 +1403,7 @@ class MBTIModule extends React.Component {
         count++
       }
     }
-    if(count<10)
+    if(count<9)
     {
       return false
     }

@@ -2009,7 +2009,7 @@ class EnneagramModule extends React.Component {
         countb++
       }
     }
-    if(counta<=9 && countb<=9)
+    if(counta<16 || countb<16)
     {
       return false
     }
@@ -2022,7 +2022,7 @@ class EnneagramModule extends React.Component {
     //console.log(runtimeEnneagram.length)
     while(runtimeEnneagram.length>limitquestEnneagram)
     {
-      var p = Math.random()*runtimeEnneagram.length
+      var p = Math.floor(Math.random()*runtimeEnneagram.length)
       if(this.clearcheck(runtimeEnneagram,p))
       {      
         runtimeEnneagram.splice(p,1)
