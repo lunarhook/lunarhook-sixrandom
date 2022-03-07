@@ -1984,6 +1984,37 @@ class EnneagramModule extends React.Component {
       pie:"",
     }
   }
+  clearcheck(runtimeEnneagram,index)
+  {
+    var typea = runtimeEnneagram[index].ret_a;
+    var typeb = runtimeEnneagram[index].ret_b;
+    var counta = 0
+    var countb = 0
+    for(i=0;i<runtimeEnneagram.length;i++)
+    {
+      if(typea.indexOf(runtimeEnneagram[i].ret_a)!=-1)
+      {
+        counta++
+      }
+      else if(typea.indexOf(runtimeEnneagram[i].ret_b)!=-1)
+      {
+        counta++
+      }
+      if(typeb.indexOf(runtimeEnneagram[i].ret_a)!=-1)
+      {
+        countb++
+      }
+      else if(typeb.indexOf(runtimeEnneagram[i].ret_b)!=-1)
+      {
+        countb++
+      }
+    }
+    if(counta<=9 && countb<=9)
+    {
+      return false
+    }
+    return true
+  }
   clear(){
     var ret = new Array();
     ret["1"]=ret["2"]=ret["3"]=ret["4"]=ret["5"]=ret["6"]=ret["7"]=ret["8"]=ret["9"]=0
@@ -1992,7 +2023,10 @@ class EnneagramModule extends React.Component {
     while(runtimeEnneagram.length>limitquestEnneagram)
     {
       var p = Math.random()*runtimeEnneagram.length
-      runtimeEnneagram.splice(p,1)
+      if(this.clearcheck(runtimeEnneagram,p))
+      {      
+        runtimeEnneagram.splice(p,1)
+      }
     }
     var checked = new Array();
     for(i=0;i<runtimeEnneagram.length;i++)
