@@ -266,7 +266,7 @@ class EightrandomModule extends React.Component {
         tt["井"]=["亲","友","坏","成","危","安","衰","荣","胎","亲","友","坏","成","","危","安","衰","荣","业","亲","友","坏","成","危","安","衰","荣","命"]
         var o ={}
         o.r = tt[t[index]][indextarget]
-        o.d = Math.abs(indextarget - index)%13
+        o.d = (indextarget - index + 30)%30
         return o;
 
     }
