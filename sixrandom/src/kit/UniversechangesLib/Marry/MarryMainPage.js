@@ -1012,8 +1012,8 @@ class MarryMainPage extends React.Component {
         }
       } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
         if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("衰")) {
-          male = IconConfig.IconMarryCheck        
-          female = IconConfig.IconMarryCheck
+          male = IconConfig.IconMarryCheckfault        
+          female = IconConfig.IconMarryCheckfault
         }
       }
     }
