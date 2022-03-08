@@ -1005,17 +1005,56 @@ class MarryMainPage extends React.Component {
     }
     else if (-1 != kind.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
       //天干相克半合，如果衰旺配合合理，就全合
-      female = IconConfig.IconMarryCheckhalf
-      male = IconConfig.IconMarryCheckhalf
+      female = IconConfig.IconMarryCheck
+      male = IconConfig.IconMarryCheck
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("衰") || -1 != testpowerselffemale.indexOf("弱")) {
-          male = IconConfig.IconMarryCheck        
-          female = IconConfig.IconMarryCheck
+          if(-1 != kindmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
+          {
+            //男强女弱男克女，不加分
+            //totalcountmale = totalcountmale + 5
+            //totalcountfemale = totalcountfemale + 5
+          }else{
+            //男强女弱女克男，男加分
+            totalcountmale = totalcountmale + 5
+            //totalcountfemale = totalcountfemale + 5
+          }
+
+        }else{
+          if(-1 != kindmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
+          {
+            //男强女强男克女，男女加分
+            totalcountmale = totalcountmale + 5
+            totalcountfemale = totalcountfemale + 5
+          }else{
+            //男强女强女克男，女加分
+            //totalcountmale = totalcountmale + 5
+            totalcountfemale = totalcountfemale + 5
+          }
         }
       } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
         if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("强")) {
-          male = IconConfig.IconMarryCheck        
-          female = IconConfig.IconMarryCheck
+          if(-1 != kindmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
+          {
+            //男弱女强男克女，女加分
+            //totalcountmale = totalcountmale + 5
+            totalcountfemale = totalcountfemale + 5
+          }else{
+            //男弱女强女克男，女加分男加分
+            totalcountmale = totalcountmale - 5
+            totalcountfemale = totalcountfemale + 5
+          }
+        }else{
+          if(-1 != kindmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
+          {
+            //男弱女弱男克女，不加分
+            //totalcountmale = totalcountmale + 5
+            //totalcountfemale = totalcountfemale + 5
+          }else{
+            //男弱女强女克男，女男减分
+            totalcountmale = totalcountmale - 5
+            totalcountfemale = totalcountfemale - 5
+          }
         }
       }
     }
@@ -1059,7 +1098,7 @@ class MarryMainPage extends React.Component {
           }
           else{
             //女方弱旺男方
-            male = IconConfig.IconMarryCheckhalf   
+            male = IconConfig.IconMarryCheck   
             female = IconConfig.IconMarryCheckfault
           }
         }else{
