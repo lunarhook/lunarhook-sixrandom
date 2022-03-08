@@ -885,7 +885,9 @@ class MarryMainPage extends React.Component {
     const earthfive = "水土木木土火火土金金土水"
     const kindmale = "木土，火金，土水，金木，水火，"
     const kindfemale = "土木，金火，水土，木金，火水，"
-    const kindassist = "木火，火木，火土，土火，土金，金土，金水，水金，水木，木水"
+    const kindassistmale = "木火,火土,土金,金水,水木,"
+    const kindassistfemale = "火木,土火,金土,水金,木水,"
+    const kindassist = kindassistmale+kindassistfemale
     const kindsame = "木木，火火，土土，金金，水水"
     const kind = kindmale + kindfemale
     //四柱不应该被冲克刑
@@ -1011,25 +1013,68 @@ class MarryMainPage extends React.Component {
           female = IconConfig.IconMarryCheck
         }
       } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
-        if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("衰")) {
-          male = IconConfig.IconMarryCheckfault        
-          female = IconConfig.IconMarryCheckfault
+        if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("强")) {
+          male = IconConfig.IconMarryCheck        
+          female = IconConfig.IconMarryCheck
         }
       }
     }
     //日元印生，同强同弱用神不冲突
     else if (-1 != kindassist.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])])) {
-      totalcountfemale =  totalcountfemale - 10
-      totalcountmale =  totalcountmale - 10
       if (-1 != testpowerselfmale.indexOf("旺") || -1 != testpowerselfmale.indexOf("强")) {
         if (-1 != testpowerselffemale.indexOf("旺") || -1 != testpowerselffemale.indexOf("强")) {
-          male = IconConfig.IconMarryCheckhalf        
-          female = IconConfig.IconMarryCheckhalf
+          if(-1 != kindassistmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
+          {
+            //男方旺女方
+            male = IconConfig.IconMarryCheckhalf   
+            female = IconConfig.IconMarryCheckfault
+          }
+          else{
+            //女方旺男方
+            male = IconConfig.IconMarryCheckfault
+            female = IconConfig.IconMarryCheckhalf  
+          }
+        }
+        else{
+          //女方弱喜旺
+          if(-1 != kindassistmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
+          {
+            //男方旺女方
+            male = IconConfig.IconMarryCheckhalf   
+            female = IconConfig.IconMarryCheck
+          }
+          else{
+            //女方旺男方，男方强，不合
+            male = IconConfig.IconMarryCheckfault
+            female = IconConfig.IconMarryCheckfault  
+          }
         }
       } else if (-1 != testpowerselfmale.indexOf("弱") || -1 != testpowerselfmale.indexOf("衰")) {
         if (-1 != testpowerselffemale.indexOf("弱") || -1 != testpowerselffemale.indexOf("衰")) {
-          male = IconConfig.IconMarryCheckhalf        
-          female = IconConfig.IconMarryCheckhalf
+          if(-1 != kindassistmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
+          {
+            //男方弱旺女方
+            male = IconConfig.IconMarryCheckfault
+            female = IconConfig.IconMarryCheck  
+          }
+          else{
+            //女方弱旺男方
+            male = IconConfig.IconMarryCheckhalf   
+            female = IconConfig.IconMarryCheckfault
+          }
+        }else{
+          //男弱女强
+          if(-1 != kindassistmale.indexOf(dayfive[daykey.indexOf(this.state.EightDatemale[4])] + dayfive[daykey.indexOf(this.state.EightDatefemale[4])]))
+          {
+            //男方弱旺女方，不合
+            male = IconConfig.IconMarryCheckfault
+            female = IconConfig.IconMarryCheckfault  
+          }
+          else{
+            //女方强旺男方
+            male = IconConfig.IconMarryCheck   
+            female = IconConfig.IconMarryCheckhalf
+          }
         }
       }
     }else if(dayfive[daykey.indexOf(this.state.EightDatemale[4])] == dayfive[daykey.indexOf(this.state.EightDatefemale[4])])
