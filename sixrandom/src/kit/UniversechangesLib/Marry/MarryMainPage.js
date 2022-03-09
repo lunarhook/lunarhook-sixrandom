@@ -1017,7 +1017,7 @@ class MarryMainPage extends React.Component {
           }else{
             //男强女弱女克男，男加分
             totalcountmale = totalcountmale + 5
-            //totalcountfemale = totalcountfemale + 5
+            totalcountfemale = totalcountfemale - 5
           }
 
         }else{
