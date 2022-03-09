@@ -1343,9 +1343,9 @@ class MarryMainPage extends React.Component {
     if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+10}
     else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+5}
     base.push(["象  合:", male, female])
-    base.push(["评  分:", totalcountmale, totalcountfemale])
+    base.push(["评  分:", totalcountmale>100?IconMarryDiamond:totalcountmale, totalcountfemale>100?IconMarryDiamond:totalcountfemale])
     base.push(["合婚四合（红心）以上为适婚，评分65-75以上为适婚"])
-    base.push(["顺序重点为:元 神 支 音 年 月 象"])
+    base.push(["顺序重点为元 神 支 音 年 月 象"])
     base.push(["以元神支为两人关系重点各占20分"])
     base.push(["音年月象为双方主要的人际关系各项10分"])
     base.push(["合婚主要判断双方沟通成本和人际关系复杂程度"])
