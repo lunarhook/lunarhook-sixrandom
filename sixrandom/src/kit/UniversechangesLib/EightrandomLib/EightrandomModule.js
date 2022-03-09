@@ -281,7 +281,7 @@ class EightrandomModule extends React.Component {
     ps：目前计算，不考虑墓库计算，所以得地的标准和得令一样，但是都去掉了沐浴
     */
     getpowerself(EightDate,buildeight){
-        const key = "长生，冠带，临官，帝旺"
+        const key = "长生，冠带，临官（建禄），帝旺"
         var powerself = new Array()
         powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[1]))
         powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[3]))
