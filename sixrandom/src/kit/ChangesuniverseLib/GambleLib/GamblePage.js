@@ -125,6 +125,7 @@ lucky["木星"] = "木星,庙：射手双鱼 旺：巨蟹 落：双子处女 陷
 lucky["土星"] = "土星,庙：摩羯水瓶 旺：天平 落：巨蟹狮子 陷：白羊"
 
 let GamblePage_controllor;
+let Gamblesubscription = null
 class GamblePage extends React.Component {
    constructor(props) {
     super(props);
@@ -145,16 +146,14 @@ class GamblePage extends React.Component {
   UNSAFE_componentWillMount() {
     this.init();
     
-    RNShake.addListener(() => {
-      
-      this.result()
-    });
-    
   }
 
 
   componentWillUnmount() {
-    RNShake.removeListener();
+    if(null!=Gamblesubscription){
+      Gamblesubscription.remove()
+    }
+    Gamblesubscription=null;
   }
   init()
   {
@@ -325,6 +324,13 @@ class GamblePage extends React.Component {
   render()
   {
     const { navigate } = this.props.navigation;
+    if(null==Gamblesubscription){
+      Gamblesubscription = RNShake.addListener(() => {
+        if("GameblePage"== RouteConfig["ActiveCurPage"]){
+          this.result()
+        }
+      })
+    }
     return (
     <View style={styles.container}>
       <ScrollView ref="location" style={{backgroundColor:'#ffffff'}}>
