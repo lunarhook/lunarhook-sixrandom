@@ -266,7 +266,16 @@ class EightrandomModule extends React.Component {
         tt["井"]=["亲","友","坏","成","危","安","衰","荣","胎","亲","友","坏","成","","危","安","衰","荣","业","亲","友","坏","成","危","安","衰","荣","命"]
         var o ={}
         o.r = tt[t[index]][indextarget]
-        o.d = (indextarget - index + 30)%30
+        o.d = indextarget - index
+        if(Math.abs(o.d)<=14)
+        {
+            o.d = Math.abs(o.d)
+        }
+        else if(o.d>0){
+            o.d = (28 - o.d)%14
+        }else{
+            o.d = (28 + o.d)%14
+        }
         return o;
 
     }
