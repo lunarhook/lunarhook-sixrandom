@@ -745,7 +745,7 @@ class EightrandomMainPage extends React.Component {
     //身旺判断
     var ret_powerself = EightrandomModule.getpowerself(this.state.EightDate,this.state.buildeight)
     base.push( "命身: " +ret_powerself.powerself )
-    base.push( "喜用: " +yongshen.xishen + yongshen.yongshen  )
+    base.push( "喜用: " +yongshen.xishen + yongshen.yongshen + (yongshen.special!=undefined?"("+yongshen.special+")":"") )
     base.push( "忌仇: " +yongshen.jishen + yongshen.choushen  )
     base.push( "星宿: " +this.state.xingsu.xingsu +this.state.xingsu.r )
     base.push( "（得令用十二长生中非沐浴计算且不使用任何时柱）" )
