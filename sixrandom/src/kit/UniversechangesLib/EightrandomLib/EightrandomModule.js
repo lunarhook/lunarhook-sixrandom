@@ -360,7 +360,7 @@ class EightrandomModule extends React.Component {
         }
 
         //todo这里还需要判定一个三合局是否是生助日主为旺
-        if(-1!=EightDate[4].indexOf("甲") || -1!=EightDate[4].indexOf("乙"))
+        if(-1!=EightDate[4].indexOf("甲") || -1!=EightDate[4].indexOf("乙")||  -1!=EightDate[4].indexOf("丙") || -1!=EightDate[4].indexOf("丁"))
         {
             var s = EightDate[1] + EightDate[3] + EightDate[5] + EightDate[7] + luckyear
             if(-1!=s.indexOf("亥") && -1!=s.indexOf("卯") && -1!=s.indexOf("未"))
@@ -372,7 +372,7 @@ class EightrandomModule extends React.Component {
                 ret = "身旺（木）"
             }
         }
-        else if(-1!=EightDate[4].indexOf("丙") || -1!=EightDate[4].indexOf("丁"))
+        else if(-1!=EightDate[4].indexOf("丙") || -1!=EightDate[4].indexOf("丁") ||  -1!=EightDate[4].indexOf("戊") || -1!=EightDate[4].indexOf("己"))
         {
             var s = EightDate[1] + EightDate[3] + EightDate[5] + EightDate[7] + luckyear
             if(-1!=s.indexOf("寅") && -1!=s.indexOf("午") && -1!=s.indexOf("戌"))
@@ -383,7 +383,7 @@ class EightrandomModule extends React.Component {
             {
                 ret = "身旺（火）"
             }
-        }else if(-1!=EightDate[4].indexOf("庚") || -1!=EightDate[4].indexOf("辛"))
+        }else if(-1!=EightDate[4].indexOf("庚") || -1!=EightDate[4].indexOf("辛") || -1!=EightDate[4].indexOf("壬") || -1!=EightDate[4].indexOf("癸"))
         {
             var s = EightDate[1] + EightDate[3] + EightDate[5] + EightDate[7] + luckyear
             if(-1!=s.indexOf("巳") && -1!=s.indexOf("酉") && -1!=s.indexOf("丑"))
@@ -394,7 +394,7 @@ class EightrandomModule extends React.Component {
             {
                 ret = "身旺（金）"
             }
-        }else if(-1!=EightDate[4].indexOf("壬") || -1!=EightDate[4].indexOf("癸"))
+        }else if(-1!=EightDate[4].indexOf("壬") || -1!=EightDate[4].indexOf("癸") || -1!=EightDate[4].indexOf("甲") || -1!=EightDate[4].indexOf("乙"))
         {
             var s = EightDate[1] + EightDate[3] + EightDate[5] + EightDate[7] + luckyear
             if(-1!=s.indexOf("申") && -1!=s.indexOf("子") && -1!=s.indexOf("辰"))
