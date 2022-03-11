@@ -185,7 +185,9 @@ class kitPage extends React.Component {
     try {
       const permissions = [
             PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-            PermissionsAndroid.PERMISSIONS.CAMERA
+            PermissionsAndroid.PERMISSIONS.CAMERA,
+            PermissionsAndroid.PERMISSIONS.CALL_PHONE,
+            PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
            ]
       const granteds = await PermissionsAndroid.requestMultiple(permissions)
       var data = data+"是否同意相机权限: "
@@ -194,12 +196,23 @@ class kitPage extends React.Component {
       } else {
         data = data + "否\n"
       }
-      data = data+"是否同意存储权限: "
+      if (granteds["android.permission.CALL_PHONE"] === "granted") {
+        data = data + "是\n"
+      } else {
+        data = data + "否\n"
+      }
+      data = data+"是否同意使用电话拨入权限: "
       if (granteds["android.permission.WRITE_EXTERNAL_STORAGE"] === "granted") {
         data = data + "是\n"
       } else {
         data = data + "否\n"
       }
+      if (granteds["android.permission.ACCESS_COARSE_LOCATION"] === "granted") {
+        data = data + "是\n"
+      } else {
+        data = data + "否\n"
+      }
+      data = data+"是否同意位置信息: "
       console.warn(data)
     } catch (err) {
       console.warn(err)
