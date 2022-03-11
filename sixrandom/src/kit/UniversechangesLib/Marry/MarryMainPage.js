@@ -902,15 +902,15 @@ class MarryMainPage extends React.Component {
     tianganhuahe["丁壬"] = tianganhuahe["壬丁"] = "木"
     tianganhuahe["戊癸"] = tianganhuahe["癸戊"] = "火"
 
-    var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale, this.state.buildeightmale)
+    var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale, this.state.buildeightmale,curluckyearmale[1])
     var testpowerselfmale = ret_powerselfmale.powerself
 
     //身旺判断
-    var ret_powerselffemale = EightrandomModule.getpowerself(this.state.EightDatefemale, this.state.buildeightfemale)
+    var ret_powerselffemale = EightrandomModule.getpowerself(this.state.EightDatefemale, this.state.buildeightfemale,curluckyearfemale[1])
     var testpowerselffemale = ret_powerselffemale.powerself
 
-    var yongshenmale = EightrandomModule.getyongshen(this.state.EightDatemale, this.state.buildeightmale, this.state.precentmale)
-    var yongshenfemale = EightrandomModule.getyongshen(this.state.EightDatefemale, this.state.buildeightfemale, this.state.precentfemale)
+    var yongshenmale = EightrandomModule.getyongshen(this.state.EightDatemale, this.state.buildeightmale, curluckyearmale[1])
+    var yongshenfemale = EightrandomModule.getyongshen(this.state.EightDatefemale, this.state.buildeightfemale, curluckyearfemale[1])
 
     var marryinfomale = EightrandomModule.getmarryinfo(this.state.EightDatemale, "乾造", rmale, this.state.buildeightmale)
     var marryinfofemale = EightrandomModule.getmarryinfo(this.state.EightDatefemale, "坤造", rfemale, this.state.buildeightfemale)
@@ -943,18 +943,23 @@ class MarryMainPage extends React.Component {
     base.push(["仇  神:", yongshenmale.choushen, yongshenfemale.choushen])
     var maleyongshencheck = yongshenmale.yongshen + yongshenmale.xishen
     var femaleyongshencheck = yongshenfemale.yongshen + yongshenfemale.xishen
-    if ((-1 != maleyongshencheck.indexOf(yongshenfemale.jishen) || -1 != maleyongshencheck.indexOf(yongshenfemale.jishen2) || -1 != maleyongshencheck.indexOf(yongshenfemale.choushen))) {
+    //喜用相同
+    if ((-1 != maleyongshencheck.indexOf(yongshenfemale.yongshen) || -1 != maleyongshencheck.indexOf(yongshenfemale.xishen) || -1 != maleyongshencheck.indexOf(yongshenfemale.xishen2))) {
       maleyongshencheck = IconConfig.IconMarryCheck
     }
-    else if(yongshenmale.yongshen == yongshenfemale.yongshen){
+    //喜用互补
+    else if((-1 != maleyongshencheck.indexOf(yongshenfemale.jishen) || -1 != maleyongshencheck.indexOf(yongshenfemale.jishen2) || -1 != maleyongshencheck.indexOf(yongshenfemale.choushen))){
       maleyongshencheck = IconConfig.IconMarryCheckhalf
     }
     else{
       maleyongshencheck = IconConfig.IconMarryCheckfault
     }
-    if ((-1 != femaleyongshencheck.indexOf(yongshenmale.jishen) || -1 != femaleyongshencheck.indexOf(yongshenmale.jishen2) || -1 != femaleyongshencheck.indexOf(yongshenmale.choushen))) {
+    //喜用相同
+    if ((-1 != femaleyongshencheck.indexOf(yongshenmale.yongshen) || -1 != femaleyongshencheck.indexOf(yongshenmale.xishen) || -1 != femaleyongshencheck.indexOf(yongshenmale.xishen2))) {
       femaleyongshencheck = IconConfig.IconMarryCheck
-    }else if(yongshenmale.yongshen == yongshenfemale.yongshen){
+    }
+    //喜用互补
+    else if((-1 != femaleyongshencheck.indexOf(yongshenmale.jishen) || -1 != femaleyongshencheck.indexOf(yongshenmale.jishen2) || -1 != femaleyongshencheck.indexOf(yongshenmale.choushen))){
       femaleyongshencheck = IconConfig.IconMarryCheckhalf
     } else {
       femaleyongshencheck = IconConfig.IconMarryCheckfault

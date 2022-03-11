@@ -289,12 +289,12 @@ class EightrandomModule extends React.Component {
 
     ps：目前计算，不考虑墓库计算，所以得地的标准和得令一样，但是都去掉了沐浴
     */
-    getpowerself(EightDate,buildeight){
+    getpowerself(EightDate,buildeight,luckyear){
         const key = "长生，冠带，临官（建禄），帝旺"
         var powerself = new Array()
         powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[1]))
         powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[3]))
-        powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[5]))
+        powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[7]))
         powerself.push(buildeight[0])
         powerself.push(buildeight[2])
         //这里没有计算时干支，可以考虑打开
@@ -311,26 +311,99 @@ class EightrandomModule extends React.Component {
         var s = superself.toString()
         var ret = ""
         if (-1 != key.indexOf(powerself[1])) {
-            if (-1 == t.indexOf("印") && -1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
-                ret = "身强（失扶）"
-            } else if (-1 == key.indexOf(powerself[0]) && -1 == key.indexOf(powerself[2])) {
-                ret = "身强（失地）"
+            ret = ret + "得令"
+        } else {
+            ret = ret + "失令"
+        }
+
+        if(-1 == key.indexOf(powerself[0]) && -1 == key.indexOf(powerself[1]) && -1 == key.indexOf(powerself[2]))
+        {
+            ret = ret + "失地"
+        }
+        else{
+            ret = ret + "得地"
+        }
+
+        if (-1 != t.indexOf("印") ) {
+            ret = ret + "得生"
+        } else {
+            ret = ret + "失生"
+        }
+        if (-1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
+            ret = ret +"得助"
+        } else {
+            ret = ret +"失助"
+        }
+
+        var countget = ret.match(/\得/g)
+        var countget = (countget!=undefined?countget.length:0)
+
+        if (-1!=ret.indexOf("得令") && -1!=ret.indexOf("得地") &&  -1!=ret.indexOf("得生") &&  -1!=ret.indexOf("得助") && -1 == s.indexOf("正官") && -1 == s.indexOf("七杀")) {
+            ret = "专旺"
+        }
+        else if(-1!=ret.indexOf("失令") && -1!=ret.indexOf("失地") &&  -1!=ret.indexOf("失生") &&  -1!=ret.indexOf("失助") && -1 == s.indexOf("正官") && -1 == s.indexOf("七杀"))
+        {
+            ret = "身衰（从儿）"
+        }else if(-1!=ret.indexOf("得令") && countget>2)
+        {
+            ret = "身旺"
+        }else if(-1!=ret.indexOf("得令") && countget>1)
+        {
+            ret = "身强"
+        }else if(-1!=ret.indexOf("失令") && countget>2)
+        {
+            ret = "身弱"
+        }
+        else if(-1!=ret.indexOf("失令") )
+        {
+            ret = "身衰"
+        }
+
+        //todo这里还需要判定一个三合局是否是生助日主为旺
+        if(-1!=EightDate[4].indexOf("甲") || -1!=EightDate[4].indexOf("乙"))
+        {
+            var s = EightDate[1] + EightDate[3] + EightDate[5] + EightDate[7] + luckyear
+            if(-1!=s.indexOf("亥") && -1!=s.indexOf("卯") && -1!=s.indexOf("未"))
+            {
+                ret = "身旺（木）"
             }
-            else {
-                ret = "身旺（得令）"
-                if (-1 == s.indexOf("正官") && -1 == s.indexOf("七杀")) {
-                    ret = "专旺（得令）"
-                }
+            else if(-1!=s.indexOf("寅") && -1!=s.indexOf("卯") && -1!=s.indexOf("辰"))
+            {
+                ret = "身旺（木）"
             }
         }
-        else {
-            if (-1 != t.indexOf("帝旺") && (-1 != t.indexOf("印") || -1 != t.indexOf("比") || -1 != t.indexOf("劫"))) {
-                ret = "身弱（得地生扶）"
-            } else {
-                ret = "身衰（失令）"
-                if (-1 == s.indexOf("正官") && -1 == s.indexOf("七杀") && -1 == s.indexOf("印")) {
-                    ret = "身衰（从儿）"
-                }
+        else if(-1!=EightDate[4].indexOf("丙") || -1!=EightDate[4].indexOf("丁"))
+        {
+            var s = EightDate[1] + EightDate[3] + EightDate[5] + EightDate[7] + luckyear
+            if(-1!=s.indexOf("寅") && -1!=s.indexOf("午") && -1!=s.indexOf("戌"))
+            {
+                ret = "身旺（火）"
+            }
+            else if(-1!=s.indexOf("巳") && -1!=s.indexOf("午") && -1!=s.indexOf("未"))
+            {
+                ret = "身旺（火）"
+            }
+        }else if(-1!=EightDate[4].indexOf("庚") || -1!=EightDate[4].indexOf("辛"))
+        {
+            var s = EightDate[1] + EightDate[3] + EightDate[5] + EightDate[7] + luckyear
+            if(-1!=s.indexOf("巳") && -1!=s.indexOf("酉") && -1!=s.indexOf("丑"))
+            {
+                ret = "身旺（金）"
+            }
+            else if(-1!=s.indexOf("申") && -1!=s.indexOf("酉") && -1!=s.indexOf("戌"))
+            {
+                ret = "身旺（金）"
+            }
+        }else if(-1!=EightDate[4].indexOf("壬") || -1!=EightDate[4].indexOf("癸"))
+        {
+            var s = EightDate[1] + EightDate[3] + EightDate[5] + EightDate[7] + luckyear
+            if(-1!=s.indexOf("申") && -1!=s.indexOf("子") && -1!=s.indexOf("辰"))
+            {
+                ret = "身旺（水）"
+            }
+            else if(-1!=s.indexOf("亥") && -1!=s.indexOf("子") && -1!=s.indexOf("丑"))
+            {
+                ret = "身旺（水）"
             }
         }
         var o = {}
@@ -338,7 +411,7 @@ class EightrandomModule extends React.Component {
         return o
     }
 
-    getyongshen(EightDate,buildeight,precent){
+    getyongshen(EightDate,buildeight,luckyear){
         //https://baike.baidu.com/item/喜用神/10646208?fr=aladdin
         /*
         日元先根据十二长生算出衰旺
@@ -599,7 +672,7 @@ class EightrandomModule extends React.Component {
 
 12、癸水日元丑月丙，丁。火解冻，通根寅巳午未戌，方妙，癸巳会党，年透丁火，名雪后灯光，夜生者贵。成火局，又宜用庚辛。
         */
-        var ret_powerself = (this.getpowerself(EightDate,buildeight)).powerself
+        var ret_powerself = (this.getpowerself(EightDate,buildeight,luckyear)).powerself
         var shishenkey = buildeight.toString()
         var day = EightDate[0]+EightDate[2]+EightDate[6]
         var zhi = EightDate[1]+EightDate[3]+EightDate[5]+EightDate[7]
@@ -679,22 +752,47 @@ class EightrandomModule extends React.Component {
                 }
             }
         }
-
+        else if ("丁" == EightDate[4]) {
+            
+            if ("酉" == EightDate[3]) {
+                //8、丁火日元酉月喜土金，甲、庚、丙，戊。庚劈甲，无甲用乙。丙暖金晒甲，无庚甲而用乙者，见丙为枯草引灯。旺用戊。
+                if (-1 != test.indexOf("甲") && -1 != test.indexOf("庚") ) {
+                    o.yongshen = "木"
+                    o.xishen = "水"
+                    o.special = "庚劈甲，丙暖金晒甲"
+                    o.jishen = "金"
+                    o.choushen = "土"
+                } else if (-1 == test.indexOf("甲") && -1 != test.indexOf("庚") &&  -1 == test.indexOf("乙") ) {
+                    o.yongshen = "木"
+                    o.xishen = "水"
+                    o.jishen = "金"
+                    o.choushen = "土"
+                    o.special = "无甲用乙"
+                } else if (-1!=ret_powerself.indexOf("旺") && -1 == test.indexOf("戊")) {
+                    o.yongshen = "土"
+                    o.xishen = "火"
+                    o.special = "旺用戊"
+                    o.jishen = "木"
+                    o.choushen = "水"
+                    o.jishen2 = " "
+                }
+            }
+        }
         //特殊的，壬水生于戌月则先甲次丙
-        if ("壬" == EightDate[4]) {
+        else if ("壬" == EightDate[4]) {
             if ("戌" == EightDate[3]) {
                 if (-1 != test.indexOf("甲") && -1 == test.indexOf("戊")) {
                     o.yongshen = "木"
                     o.xishen = "水"
                     o.special = "甲木克戊水辅之"
-                    o.jishen = "土"
+                    o.jishen = "金"
                     o.jishen2 = " "
-                    o.choushen = "金"
-                } else if (-1 != test.indexOf("丙")) {
+                    o.choushen = "土"
+                } else if (-1 != test.indexOf("丙")  && -1 != test.indexOf("戊")) {
                     o.yongshen = "火"
                     o.xishen = "木"
                     o.special = "壬丙日照山河"
-                    o.jishen = "土"
+                    o.jishen = "水"
                     o.jishen2 = " "
                     o.choushen = "金"
                 } else {
@@ -703,6 +801,7 @@ class EightrandomModule extends React.Component {
                     o.jishen = "土"
                     o.jishen2 = " "
                     o.choushen = "金"
+                    o.special = "先甲后丙"
                 }
             }
         }
