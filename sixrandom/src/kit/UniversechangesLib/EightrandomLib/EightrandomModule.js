@@ -316,12 +316,15 @@ class EightrandomModule extends React.Component {
             ret = ret + "失令"
         }
 
-        if(-1 == key.indexOf(powerself[0]) && -1 == key.indexOf(powerself[1]) && -1 == key.indexOf(powerself[2]))
+        const getearth = "长生，临官（建禄），帝旺"
+        if(-1 != getearth.indexOf(powerself[0]) && -1 != getearth.indexOf(powerself[1]) && -1 != getearth.indexOf(powerself[2]))
         {
-            ret = ret + "失地"
+            ret = ret + "得地"
+        }else if((-1 != "墓地".indexOf(powerself[0]) || -1 != "墓地".indexOf(powerself[1]) || -1 != "墓地".indexOf(powerself[2])) && -1!="甲丙戊庚壬".indexOf(EightDate[4])){
+            ret = ret + "得地"
         }
         else{
-            ret = ret + "得地"
+            ret = ret + "失地"
         }
 
         if (-1 != t.indexOf("印") ) {
@@ -329,7 +332,7 @@ class EightrandomModule extends React.Component {
         } else {
             ret = ret + "失生"
         }
-        if (-1 == t.indexOf("比") && -1 == t.indexOf("劫")) {
+        if (-1 != t.indexOf("比") || -1 != t.indexOf("劫") || -1 != s.indexOf("比") || -1 != s.indexOf("劫")) {
             ret = ret +"得助"
         } else {
             ret = ret +"失助"
@@ -344,10 +347,10 @@ class EightrandomModule extends React.Component {
         else if(-1!=ret.indexOf("失令") && -1!=ret.indexOf("失地") &&  -1!=ret.indexOf("失生") &&  -1!=ret.indexOf("失助") && -1 == s.indexOf("正官") && -1 == s.indexOf("七杀"))
         {
             ret = "身衰（从儿）"
-        }else if(-1!=ret.indexOf("得令") && countget>2)
+        }else if(-1!=ret.indexOf("得令") && countget>3)
         {
             ret = "身旺"
-        }else if(-1!=ret.indexOf("得令") && countget>1)
+        }else if(-1!=ret.indexOf("得令") && countget>2)
         {
             ret = "身强"
         }else if(-1!=ret.indexOf("失令") && countget>2)
