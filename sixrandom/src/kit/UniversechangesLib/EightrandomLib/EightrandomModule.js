@@ -310,6 +310,7 @@ class EightrandomModule extends React.Component {
         superself.push(buildeight[8])
         var s = superself.toString()
         var ret = ""
+        //月令得长生帝旺者得令
         if (-1 != key.indexOf(powerself[1])) {
             ret = ret + "得令"
         } else {
@@ -317,21 +318,27 @@ class EightrandomModule extends React.Component {
         }
 
         const getearth = "长生，临官（建禄），帝旺"
+        //三合局，三会局的长生属性得地
         if(-1 != getearth.indexOf(powerself[0]) && -1 != getearth.indexOf(powerself[1]) && -1 != getearth.indexOf(powerself[2]))
         {
             ret = ret + "得地"
-        }else if((-1 != "墓地".indexOf(powerself[0]) || -1 != "墓地".indexOf(powerself[1]) || -1 != "墓地".indexOf(powerself[2])) && -1!="甲丙戊庚壬".indexOf(EightDate[4])){
+        }
+        //地支其他三支有墓且阳干得地
+        else if((-1 != "墓地".indexOf(powerself[0]) || -1 != "墓地".indexOf(powerself[1]) || -1 != "墓地".indexOf(powerself[2])) && -1!="甲丙戊庚壬".indexOf(EightDate[4])){
             ret = ret + "得地"
         }
         else{
             ret = ret + "失地"
         }
 
+        //四柱得印得生
         if (-1 != t.indexOf("印") ) {
             ret = ret + "得生"
         } else {
             ret = ret + "失生"
         }
+
+        //四柱得同我者得助
         if (-1 != t.indexOf("比") || -1 != t.indexOf("劫") || -1 != s.indexOf("比") || -1 != s.indexOf("劫")) {
             ret = ret +"得助"
         } else {
@@ -362,7 +369,7 @@ class EightrandomModule extends React.Component {
             ret = "身衰"
         }
 
-        //todo这里还需要判定一个三合局是否是生助日主为旺
+        //大运四支得三合三会，生助日元者旺
         if(-1!=EightDate[4].indexOf("甲") || -1!=EightDate[4].indexOf("乙")||  -1!=EightDate[4].indexOf("丙") || -1!=EightDate[4].indexOf("丁"))
         {
             var s = EightDate[1] + EightDate[3] + EightDate[5] + EightDate[7] + luckyear
