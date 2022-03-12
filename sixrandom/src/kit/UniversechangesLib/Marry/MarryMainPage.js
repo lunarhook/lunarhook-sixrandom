@@ -902,15 +902,15 @@ class MarryMainPage extends React.Component {
     tianganhuahe["丁壬"] = tianganhuahe["壬丁"] = "木"
     tianganhuahe["戊癸"] = tianganhuahe["癸戊"] = "火"
 
-    var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale, this.state.buildeightmale,curluckyearmale[1])
+    var ret_powerselfmale = EightrandomModule.getpowerself(this.state.EightDatemale, this.state.buildeightmale,curluckyearmale[1],this.state.precentmale)
     var testpowerselfmale = ret_powerselfmale.powerself
 
     //身旺判断
-    var ret_powerselffemale = EightrandomModule.getpowerself(this.state.EightDatefemale, this.state.buildeightfemale,curluckyearfemale[1])
+    var ret_powerselffemale = EightrandomModule.getpowerself(this.state.EightDatefemale, this.state.buildeightfemale,curluckyearfemale[1],this.state.precentfemale)
     var testpowerselffemale = ret_powerselffemale.powerself
 
-    var yongshenmale = EightrandomModule.getyongshen(this.state.EightDatemale, this.state.buildeightmale, curluckyearmale[1])
-    var yongshenfemale = EightrandomModule.getyongshen(this.state.EightDatefemale, this.state.buildeightfemale, curluckyearfemale[1])
+    var yongshenmale = EightrandomModule.getyongshen(this.state.EightDatemale, this.state.buildeightmale, curluckyearmale[1],this.state.precentmale)
+    var yongshenfemale = EightrandomModule.getyongshen(this.state.EightDatefemale, this.state.buildeightfemale, curluckyearfemale[1],this.state.precentfemale)
 
     var marryinfomale = EightrandomModule.getmarryinfo(this.state.EightDatemale, "乾造", rmale, this.state.buildeightmale)
     var marryinfofemale = EightrandomModule.getmarryinfo(this.state.EightDatefemale, "坤造", rfemale, this.state.buildeightfemale)

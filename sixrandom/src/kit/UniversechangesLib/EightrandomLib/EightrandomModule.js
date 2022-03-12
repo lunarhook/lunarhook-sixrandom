@@ -289,7 +289,11 @@ class EightrandomModule extends React.Component {
 
     ps：目前计算，不考虑墓库计算，所以得地的标准和得令一样，但是都去掉了沐浴
     */
-    getpowerself(EightDate,buildeight,luckyear){
+    getpowerself(EightDate,buildeight,luckyear,precent){
+        const daykey = "甲乙丙丁戊己庚辛壬癸"
+        const shen = "木火土金水木火土金水"
+        var index = Math.floor(daykey.indexOf(EightDate[4])/2)
+        var assistindex = (index - 1 + 5)%5
         const key = "长生，冠带，临官（建禄），帝旺"
         var powerself = new Array()
         powerself.push(this.gettwelfthposition(EightDate[4] + EightDate[1]))
@@ -360,6 +364,17 @@ class EightrandomModule extends React.Component {
         }else if(-1!=ret.indexOf("得令") && countget>2)
         {
             ret = "身强"
+        }else if(-1!=ret.indexOf("得令") && countget>1)
+        {
+            ret = "身强"
+            var test = precent[assistindex]  + precent[index]
+            if(test>(264/2))
+            {
+                ret = "身强"
+            }
+            else{
+                ret = "身弱"
+            }
         }else if(-1!=ret.indexOf("失令") && countget>2)
         {
             ret = "身弱"
@@ -421,7 +436,7 @@ class EightrandomModule extends React.Component {
         return o
     }
 
-    getyongshen(EightDate,buildeight,luckyear){
+    getyongshen(EightDate,buildeight,luckyear,precent){
         //https://baike.baidu.com/item/喜用神/10646208?fr=aladdin
         /*
         日元先根据十二长生算出衰旺
@@ -682,7 +697,7 @@ class EightrandomModule extends React.Component {
 
 12、癸水日元丑月丙，丁。火解冻，通根寅巳午未戌，方妙，癸巳会党，年透丁火，名雪后灯光，夜生者贵。成火局，又宜用庚辛。
         */
-        var ret_powerself = (this.getpowerself(EightDate,buildeight,luckyear)).powerself
+        var ret_powerself = (this.getpowerself(EightDate,buildeight,luckyear,precent)).powerself
         var shishenkey = buildeight.toString()
         var day = EightDate[0]+EightDate[2]+EightDate[6]
         var zhi = EightDate[1]+EightDate[3]+EightDate[5]+EightDate[7]
