@@ -234,16 +234,14 @@ class MarryNewPage extends React.Component {
 
         </ScrollView>
         {
-/*
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
-          <TabNavigator.Item
-            title={RouteConfig["EightrandomHistoryPage"].name}
-            renderIcon={() => RouteConfig["EightrandomHistoryPage"].icon}
-            onPress={() => navigate(RouteConfig["EightrandomHistoryPage"].route)}
-            titleStyle={StyleConfig.menufont}>
-          </TabNavigator.Item>
-        </TabNavigator>
-*/
+        <TabNavigator.Item
+          title={RouteConfig["MarryHistoryPage"].name}
+          renderIcon={() => RouteConfig["MarryHistoryPage"].icon}
+          onPress={() => navigate(RouteConfig["MarryHistoryPage"].route)}
+          titleStyle={StyleConfig.menufont}>
+        </TabNavigator.Item>
+      </TabNavigator>
         }
 
 
@@ -322,9 +320,29 @@ class MarryNewPage extends React.Component {
     
     var savedatemale = this.buildmale()
     var savedatefemale = this.buildfemale()
+
+    var obj = {}
+    obj.id =  (new Date()).valueOf().toString()
+    obj.tip = ""
+    obj.star = ""
+    obj.EightDatemale = savedatemale[1]
+    obj.birthmale = savedatemale[4]
+    obj.Datemale =  savedatemale[0]
+    obj.EightDatefemale = savedatefemale[1] 
+    obj.birthfemale = savedatefemale[4]
+    obj.Datefemale = savedatefemale[0]
+    var Jstr = JSON.stringify(obj)
+    let T = await UserModule.SyncFileServer(obj.kind, obj.id, Jstr)
+    if (undefined != T && 2000 == T.code) {
+      Jstr = HistoryArrayGroup.MakeJsonSync(Jstr)
+    }
     var parameter = "?EightDatemale=" + savedatemale[1]  + "&birthmale=" + savedatemale[4] + "&Datemale=" + savedatemale[0]
-    parameter = parameter + "&EightDatefemale=" + savedatefemale[1]  + "&birthfemale=" + savedatefemale[4] + "&Datefemale=" + savedatefemale[0]
+    parameter = parameter + "&EightDatefemale=" + savedatefemale[1]  + "&birthfemale=" + savedatefemale[4] + "&Datefemale=" + savedatefemale[0] + "&rowid=" +obj.id
     console.log(parameter)
+    await HistoryArrayGroup.saveid("Marry", obj.id, Jstr)
+    //await HistoryArrayGroup.saveid("name",index,savedate)
+    //await HistoryArrayGroup.save("lastname",savedate)
+    HistoryArrayGroup.GetMarryHistory()
     this.props.navigation.navigate('MarryMainPage', {"url":parameter})
   }
 

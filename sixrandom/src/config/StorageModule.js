@@ -52,6 +52,7 @@ var StorageModule = new Storage({
 		return _valuetype;
 	}
 })
+var MarryHistoryNameArray = []
 var EightRandomHistoryNameArray = []
 var SixrandomHistoryNameArray = []
 var QimenHistoryNameArray = []
@@ -220,12 +221,14 @@ class HistoryArrayGroup extends React.Component {
 		await this.remove("name",objToStr.id)
 	}
 	init() {
+		this.ReloadMarryHistory()
 		this.ReloadEightRandomHistory()
 		this.ReloadSixrandomHistory()
 		this.ReloadQimenHistory()
 		this.ReloadSixCourseHistory()
 		this.ReloadTaiyiHistory()
 		this.ReloadKitConfigHistory()
+		
 		//console.log("init HistoryArrayGroup")
 	}
 	async GetFirstTime()
@@ -238,6 +241,10 @@ class HistoryArrayGroup extends React.Component {
 		return await this.ReloadFirstTime()
 	}
 
+	async GetMarryHistory() {
+		await this.ReloadMarryHistory()
+		return MarryHistoryNameArray;
+	}
 
 	async GetEightRandomHistory() {
 		await this.ReloadEightRandomHistory()
@@ -284,6 +291,7 @@ class HistoryArrayGroup extends React.Component {
 
 	}
 	async SyncAllHistory(){
+		await this.GetMarryHistoryNameArray()
 		await this.GetEightRandomHistory()
 		await this.GetSixrandomHistory()
 		await this.GetQimenHistory() 
@@ -704,6 +712,49 @@ class HistoryArrayGroup extends React.Component {
 			for (var i = 0, len = EightRandomHistoryNameArray.length; i < len; i++) {
 				if (undefined == EightRandomHistoryNameArray[i]) {
 					EightRandomHistoryNameArray.splice(i, 1);
+					len--;
+					i--;
+				}
+			}
+		}).catch(error=>{
+			console.log(error.message)
+		})
+
+		
+	}
+	async ReloadMarryHistory() {
+		//this.removeall("Marry")
+		MarryHistoryNameArray = []
+		await StorageModule.getAllDataForKey('Marry').then(ids => {
+			for (i = 0; i < ids.length; i++) {
+				try {
+
+					var Jobj = JSON.parse(ids[i]);
+						//console.log(ids[i])
+						var obj = {
+						tip: Jobj.tip,
+						star: Jobj.star,
+						EightDatemale :Jobj.EightDatemale,
+						birthmale : Jobj.birthmale,
+						Datemale :  Jobj.Datemale,
+						EightDatefemale : Jobj.EightDatefemale,
+						birthfemale : Jobj.birthfemale,
+						Datefemale : Jobj.Datefemale,
+						url:"?EightDatemale=" + Jobj.EightDatemale  + "&birthmale=" + Jobj.birthmale + "&Datemale=" + Jobj.Datemale
+						+ "&EightDatefemale=" +  Jobj.EightDatefemale + "&birthfemale=" + Jobj.birthfemale + "&Datefemale=" + Jobj.Datefemale +"&rowid=" +Jobj.id ,
+						id: Jobj.id
+						}
+						MarryHistoryNameArray[i] = obj
+					
+				} catch (error) {
+					StorageModule.remove({ key: 'Marry', id: savedate[0] });
+					MarryHistoryNameArray[i] = undefined
+				}
+			}
+			MarryHistoryNameArray.reverse()
+			for (var i = 0, len = MarryHistoryNameArray.length; i < len; i++) {
+				if (undefined == MarryHistoryNameArray[i]) {
+					MarryHistoryNameArray.splice(i, 1);
 					len--;
 					i--;
 				}

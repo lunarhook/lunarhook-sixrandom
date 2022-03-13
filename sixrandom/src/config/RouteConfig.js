@@ -50,6 +50,8 @@ RouteConfig={
                 "EightrandomHistoryPage":{"name":"八字历史","route":"EightrandomHistoryPage","icon":IconConfig.IconDetail},
                 "TrackStarPage":{"name":"玄空飞星","titlename":"玄空飞星","route":"TrackStarPage","icon":IconConfig.IconFlyStar},
                 "MarryNewPage":{"name":"八字合婚","titlename":"八字合婚","route":"MarryNewPage","icon":IconConfig.IconOlson},
+                "MarryHistoryPage":{"name":"合婚历史","route":"MarryHistoryPage","icon":IconConfig.IconDetail},
+                
         //乾坤三式
         "ThreechangesPage":{"name":"乾坤三式","route":"ThreechangesPage","icon":IconConfig.IconThreechanges},
                 "SixCourseNewPage":{"name":"六壬四课","route":"SixCourseNewPage","icon":IconConfig.IconSixCourse},

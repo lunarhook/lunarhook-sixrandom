@@ -29,6 +29,7 @@ import NumberMainPage from './src/kit/UniversechangesLib/NumberLib/NumberMainPag
 import NumberMotionNewPage from './src/kit/NumberMotionsLib/NumberMotionNewPage'
 import MarryNewPage from './src/kit/UniversechangesLib/Marry/MarryNewPage'
 import MarryMainPage from './src/kit/UniversechangesLib/Marry/MarryMainPage'
+import MarryHistoryPage from './src/kit/UniversechangesLib/Marry/MarryHistoryPage'
 import kitPage from './src/kit/kitPage'
 //import kitExplorationPage from './src/kit/kitExplorationPage'
 import kitConfigPage from './src/kit/kitConfigPage';
@@ -264,6 +265,7 @@ const sixrandom = createStackNavigator({
   TrackStarPage: { screen: TrackStarPage },
   MarryMainPage:{screen:MarryMainPage},
   MarryNewPage:{screen:MarryNewPage},
+  MarryHistoryPage:{screen:MarryHistoryPage},
   //kitPage:{screen:kitPage},
   //kitExplorationPage:{screen:kitExplorationPage},
   kitConfigPage: { screen: kitConfigPage },

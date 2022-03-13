@@ -171,14 +171,44 @@ class MarryMainPage extends React.Component {
       headerRight: () => (
         <TouchableOpacity
           style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
-        //onPress={() => navigate('Search')}
-        //onPress={() =>  MarryMainPagethis.deletethis()}
+          //onPress={() => navigate('Search')}
+          onPress={() =>  MarryMainPagethis.deletethis()}
         >
-
+          {IconConfig.IconDelete}
         </TouchableOpacity>),
     }
   };
+  async deletethis()
+  {
+    var rowid = MarryMainPagethis.state.rowid 
+    console.log("rowid",rowid)
+    HistoryArrayGroup.loadid('Marry', rowid).then(async (ret) => {
+      if(undefined!=ret)
+      {
+        var Jobj = JSON.parse(ret);
+        let T = await UserModule.SyncFileServer("Marry", rowid, "")
+        if (undefined != T && 2000 == T.code) {
+          T.data.forEach(async (element) => {
+            filename = element.File
+            if (-1 != filename.indexOf(String(rowid)) && true == element.Del) {
+              await HistoryArrayGroup.remove('Marry', rowid);
+            }
+          });
+        }
+        else {
+          await HistoryArrayGroup.remove('Marry', rowid);
+        }
+      }
+      //this.props.navigation.dispatch(CommonActions.goBack());
+      this.props.navigation.goBack()
+      if(undefined!=this.props.navigation.state.params.goback)
+      {
+        this.props.navigation.state.params.goback()
+      }
 
+      //this.props.navigation.navigate("SixrandomHistoryPage",{ text: "refresh" })
+    })
+  }
 
   refreshlist() {
     const { navigate } = this.props.navigation;
@@ -236,7 +266,7 @@ class MarryMainPage extends React.Component {
       var beginluckyfemale = EightrandomModule.getbigluckyearbegin(rettermfemale, gzfemale, info.EightDatefemale, "坤造");
       console.log("beginlucky", Math.floor(beginluckyfemale), Number(gzfemale.getFullYear()))
       MarryMainPagethis.setState({
-        EightDatefemale: info.EightDatefemale, birthfemale: info.birthfemale, gzbirthfemale: gzDatefemale, beginluckyfemale: Math.floor(beginluckyfemale), gzxkfemale: gzxkfemale,xingsufemale:EightDategzfemale.xingsu
+        EightDatefemale: info.EightDatefemale, birthfemale: info.birthfemale, gzbirthfemale: gzDatefemale, beginluckyfemale: Math.floor(beginluckyfemale), gzxkfemale: gzxkfemale,xingsufemale:EightDategzfemale.xingsu,rowid:info.rowid
       });
       this.buildeight("乾造");
       this.buildeight("坤造");
