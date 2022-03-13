@@ -747,6 +747,11 @@ class EightrandomMainPage extends React.Component {
     base.push( "命身: " +ret_powerself.powerself )
     base.push( "喜用: " +yongshen.xishen + yongshen.yongshen + (yongshen.special!=undefined?"("+yongshen.special+")":"") )
     base.push( "忌仇: " +yongshen.jishen + yongshen.choushen  )
+    if(undefined!=yongshen.healthyongshen)
+    {
+      base.push( "病药: " +yongshen.healthyongshen  )
+    }
+    base.push( "调候: " +yongshen.adjustyongshen )
     base.push( "星宿: " +this.state.xingsu.xingsu +this.state.xingsu.r )
     base.push( "（得令用十二长生中非沐浴计算且不使用任何时柱）" )
 

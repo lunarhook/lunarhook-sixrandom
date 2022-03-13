@@ -290,6 +290,7 @@ class EightrandomModule extends React.Component {
     ps：目前计算，不考虑墓库计算，所以得地的标准和得令一样，但是都去掉了沐浴
     */
     getpowerself(EightDate,buildeight,luckyear,precent){
+
         const daykey = "甲乙丙丁戊己庚辛壬癸"
         const shen = "木火土金水木火土金水"
         var index = Math.floor(daykey.indexOf(EightDate[4])/2)
@@ -349,8 +350,9 @@ class EightrandomModule extends React.Component {
             ret = ret +"失助"
         }
 
-        var countget = ret.match(/\得/g)
-        var countget = (countget!=undefined?countget.length:0)
+        //var countget = ret.match(/"得"/g)
+        var countget = ret.split("得")
+        var countget = (countget!=undefined?countget.length-1:0)
 
         if (-1!=ret.indexOf("得令") && -1!=ret.indexOf("得地") &&  -1!=ret.indexOf("得生") &&  -1!=ret.indexOf("得助") && -1 == s.indexOf("正官") && -1 == s.indexOf("七杀")) {
             ret = "专旺"
@@ -701,12 +703,47 @@ class EightrandomModule extends React.Component {
         var shishenkey = buildeight.toString()
         var day = EightDate[0]+EightDate[2]+EightDate[6]
         var zhi = EightDate[1]+EightDate[3]+EightDate[5]+EightDate[7]
-        var test = day+zhi
+        
         var o={}
         const daykey = "甲乙丙丁戊己庚辛壬癸"
         const shen = "木火土金水木火土金水"
         var index = Math.floor(daykey.indexOf(EightDate[4])/2)
         var assistindex = (index - 1 + 5)%5
+        const healthyongshen = "甲乙丙丁戊己庚辛壬癸子丑寅卯辰巳午未申酉戌亥"
+        const healthyongshenfive = "木木火火土土金金水水水土木木土火火土金金土水"
+        var testarray = "木火土金水"
+        for(var ii=0;ii<EightDate.length;ii++){
+            var indexx = healthyongshen.indexOf(EightDate[ii])
+            var five = healthyongshenfive[indexx]
+            if(-1!=testarray.indexOf(five))
+            {
+                testarray = testarray.replace(five,"")
+            }
+        } 
+        if(testarray.length>0)
+        {
+            o.healthyongshen = testarray
+        }
+
+        var testprecent = precent[assistindex]  + precent[index]
+        if(testprecent>(264/2))
+        {
+            if(-1!=shishenkey.indexOf("正官")||-1!=shishenkey.indexOf("杀"))
+            {
+                o.adjustyongshen = shen[(index+3)%5]+"抑"
+            }else{
+                o.adjustyongshen = shen[(index+1)%5]+"抑"
+            }
+        }
+        else{
+            if(-1!=shishenkey.indexOf("印"))
+            {
+                o.adjustyongshen =  shen[assistindex]+"扶"
+            }
+            else{
+                o.adjustyongshen =  shen[index]+"扶"
+            }
+        }
 
         if(-1==ret_powerself.indexOf("旺") && -1==ret_powerself.indexOf("强") )
         {
@@ -750,6 +787,8 @@ class EightrandomModule extends React.Component {
                 o.choushen = shen[assistindex]
             }
         }
+
+        var test = day+zhi
         //丙火戌月
         if ("丙" == EightDate[4]) {
             if ("戌" == EightDate[3]) {

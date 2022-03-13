@@ -941,6 +941,8 @@ class MarryMainPage extends React.Component {
     base.push(["忌  神:", yongshenmale.jishen, yongshenfemale.jishen])
     base.push(["后  忌:", yongshenmale.jishen2, yongshenfemale.jishen2])
     base.push(["仇  神:", yongshenmale.choushen, yongshenfemale.choushen])
+    base.push(["病  药:", undefined!=yongshenmale.healthyongshen?yongshenmale.healthyongshen:"", undefined!=yongshenfemale.healthyongshen?yongshenfemale.healthyongshen:""])
+    base.push([ "调  候:", yongshenmale.adjustyongshen,yongshenfemale.adjustyongshen ])
     var maleyongshencheck = yongshenmale.yongshen + yongshenmale.xishen
     var femaleyongshencheck = yongshenfemale.yongshen + yongshenfemale.xishen
     //喜用相同
