@@ -66,6 +66,7 @@ class SearchPage extends React.Component {
       groupsearch['qimenMainPage'] =  HistoryArrayGroup.GetQimenHistory()
       groupsearch['taiyiMainPage'] =  HistoryArrayGroup.GetTaiyiHistory()
       groupsearch['SixCourseMainPage'] =  HistoryArrayGroup.GetSixCourseHistory()
+      groupsearch['MarryMainPage'] =  HistoryArrayGroup.GetMarryHistory()
       var filterArray = []
       for(let li in groupsearch){
         //console.log("group",li,groupsearch[li])
@@ -261,7 +262,7 @@ class SearchPage extends React.Component {
                     ref={ref => { this.refs[data.item.id] = ref }}
                      >
                                <TouchableHighlight
-      onPress={() => navigate(data.item.urlto, data.item.url)}>
+      onPress={() => navigate(data.item.urlto, {"url":data.item.url})}>
         <Card style={{ width: width - 20 ,paddingLeft:10,fontSize:FontStyleConfig.getFontApplySize()+14 }}>
 
           <Card.Header
