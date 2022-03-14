@@ -291,7 +291,7 @@ class HistoryArrayGroup extends React.Component {
 
 	}
 	async SyncAllHistory(){
-		await this.GetMarryHistoryNameArray()
+		await this.GetMarryHistory()
 		await this.GetEightRandomHistory()
 		await this.GetSixrandomHistory()
 		await this.GetQimenHistory() 

@@ -201,10 +201,10 @@ class SearchPage extends React.Component {
   render() {
 
     this.animationIsRunning=false
-    this.state.rowTranslateAnimatedValues = {};
+    this.state.rowTranslateAnimatedValues = [];
     rowlist = this.state.dataSource
     rowlist.forEach((element, i) => {
-        this.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
+        this.state.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
     });
     const { navigate } = this.props.navigation;
     return (
