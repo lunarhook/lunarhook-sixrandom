@@ -141,7 +141,7 @@ class EightrandomNewPage extends React.Component {
                 value={this.state.value}
                 mode="date"
                 minDate={new Date(1900, 1, 1)}
-                //maxDate={new Date(2026, 11, 3)}
+                maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangeData}
                 format="YYYY-MM-DD"
                 numberOfLines={100} 
@@ -155,7 +155,7 @@ class EightrandomNewPage extends React.Component {
                 value={this.state.value}
                 mode="time"
                 minDate={new Date(1900, 1, 1)}
-                //maxDate={new Date(2026, 11, 3)}
+                maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangetime}
                 format="HH:mm"
                 numberOfLines={100} 

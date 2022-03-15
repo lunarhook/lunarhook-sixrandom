@@ -31,6 +31,7 @@ const data = [
   { icon: RouteConfig['ziweiNewPage'].icon, text: RouteConfig['ziweiNewPage'].name, url: RouteConfig['ziweiNewPage'].route },
   { icon: RouteConfig['TrackStarPage'].icon, text: RouteConfig['TrackStarPage'].name, url: RouteConfig['TrackStarPage'].route },
   { icon: RouteConfig['MarryNewPage'].icon, text: RouteConfig['MarryNewPage'].name, url: RouteConfig['MarryNewPage'].route },
+  { icon: RouteConfig['PartnershipNewPage'].icon, text: RouteConfig['PartnershipNewPage'].name, url: RouteConfig['PartnershipNewPage'].route },
 ]
 const Tarot = [
   { icon: RouteConfig['TarotPage'].icon, text: RouteConfig['TarotPage'].name, url: RouteConfig['TarotPage'].route },

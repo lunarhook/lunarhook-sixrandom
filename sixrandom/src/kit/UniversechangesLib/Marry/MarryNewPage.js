@@ -144,7 +144,7 @@ class MarryNewPage extends React.Component {
                 //value={new Date('1980-11-05 08:00:00')}
                 mode="date"
                 minDate={new Date(1900, 1, 1)}
-                //maxDate={new Date(2026, 11, 3)}
+                maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangeDatamale}
                 format="YYYY-MM-DD"
                 numberOfLines={100}
@@ -159,7 +159,7 @@ class MarryNewPage extends React.Component {
                 //value={new Date('1979-10-16 08:00:00')}
                 mode="time"
                 minDate={new Date(1900, 1, 1)}
-                //maxDate={new Date(2026, 11, 3)}
+                maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangetimemale}
                 format="HH:mm"
                 numberOfLines={100}
@@ -186,7 +186,7 @@ class MarryNewPage extends React.Component {
                 //value={new Date('1979-10-16 08:00:00')}
                 mode="date"
                 minDate={new Date(1900, 1, 1)}
-                //maxDate={new Date(2026, 11, 3)}
+                maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangeDatafemale}
                 format="YYYY-MM-DD"
                 numberOfLines={100}
@@ -201,7 +201,7 @@ class MarryNewPage extends React.Component {
                 //value={new Date('1979-10-16 08:00:00')}
                 mode="time"
                 minDate={new Date(1900, 1, 1)}
-                //maxDate={new Date(2026, 11, 3)}
+                maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangetimefemale}
                 format="HH:mm"
                 numberOfLines={100}

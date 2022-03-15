@@ -52,6 +52,9 @@ RouteConfig={
                 "MarryNewPage":{"name":"八字合婚","titlename":"八字合婚","route":"MarryNewPage","icon":IconConfig.IconOlson},
                 "MarryMainPage":{"name":"合婚结果","titlename":"合婚结果","route":"MarryMainPage","icon":IconConfig.IconOlson},
                 "MarryHistoryPage":{"name":"合婚历史","route":"MarryHistoryPage","icon":IconConfig.IconDetail},
+                "PartnershipNewPage":{"name":"合伙事业","titlename":"八字合婚","route":"PartnershipNewPage","icon":IconConfig.IconOlson},
+                "PartnershipMainPage":{"name":"合伙结果","titlename":"合婚结果","route":"PartnershipMainPage","icon":IconConfig.IconOlson},
+                "PartnershipHistoryPage":{"name":"合伙历史","route":"PartnershipHistoryPage","icon":IconConfig.IconDetail},
                 
         //乾坤三式
         "ThreechangesPage":{"name":"乾坤三式","route":"ThreechangesPage","icon":IconConfig.IconThreechanges},
