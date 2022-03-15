@@ -104,7 +104,7 @@ class PartnershipHistoryPage extends React.Component {
   _updateRow(rowData) {
     console.log(rowData)
     Modal.prompt(
-      '合婚提示',
+      '合伙提示',
       '',
       (newtips: any) => this._updateStorage(rowData, newtips),
       'default',

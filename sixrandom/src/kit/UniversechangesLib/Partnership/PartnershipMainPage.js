@@ -42,7 +42,7 @@ let curyearleader = 0
 let curmonthleader = 0
 let curyearPartnership = 0
 let curmonthPartnership = 0
-let PartnershiMainPagethis = undefined
+let PartnershipMainPagethis = undefined
 /*
 八字要展现的东西就比较多了
 1、公立生日
@@ -121,7 +121,7 @@ class PartnershiMainPage extends React.Component {
       renderswitch: false,
     };
 
-    PartnershiMainPagethis = this
+    PartnershipMainPagethis = this
     this.onChange = (activeSections: number[]) => {
 
       var re = this.state.activeSections
@@ -170,7 +170,7 @@ class PartnershiMainPage extends React.Component {
         <TouchableOpacity
           style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
           //onPress={() => navigate('Search')}
-          onPress={() =>  PartnershiMainPagethis.deletethis()}
+          onPress={() =>  PartnershipMainPagethis.deletethis()}
         >
           {IconConfig.IconDelete}
         </TouchableOpacity>),
@@ -178,7 +178,7 @@ class PartnershiMainPage extends React.Component {
   };
   async deletethis()
   {
-    var rowid = PartnershiMainPagethis.state.rowid 
+    var rowid = PartnershipMainPagethis.state.rowid 
     console.log("rowid",rowid)
     HistoryArrayGroup.loadid('Partnership', rowid).then(async (ret) => {
       if(undefined!=ret)
@@ -239,12 +239,12 @@ class PartnershiMainPage extends React.Component {
       curmonthleader = EightDategzleader.Month
 
       var rettermleader = EightrandomModule.getYearTerm(gzleader.getFullYear())
-      var beginluckyleader = EightrandomModule.getbigluckyearbegin(rettermleader, gzleader, info.EightDateleader, "乾造");
+      var beginluckyleader = EightrandomModule.getbigluckyearbegin(rettermleader, gzleader, info.EightDateleader, info.sexleader);
       console.log("beginlucky", Math.floor(beginluckyleader), Number(gzleader.getFullYear()))
-      PartnershiMainPagethis.setState({
-        EightDateleader: info.EightDateleader, birthleader: info.birthleader, gzbirthleader: gzDateleader, beginluckyleader: Math.floor(beginluckyleader), gzxkleader: gzxkleader,xingsuleader:EightDategzleader.xingsu
+      PartnershipMainPagethis.setState({
+        EightDateleader: info.EightDateleader, birthleader: info.birthleader, gzbirthleader: gzDateleader, beginluckyleader: Math.floor(beginluckyleader), gzxkleader: gzxkleader,xingsuleader:EightDategzleader.xingsu,sexleader:info.sexleader
       });
-      this.buildeight("乾造");
+      this.buildeight("领导人",info.sexleader);
 
       t = info.birthPartnership.split(" ");
       var gzPartnership = new Date(t[0]);
@@ -261,24 +261,24 @@ class PartnershiMainPage extends React.Component {
       curmonthPartnership = EightDategzPartnership.Month
 
       var rettermPartnership = EightrandomModule.getYearTerm(gzPartnership.getFullYear())
-      var beginluckyPartnership = EightrandomModule.getbigluckyearbegin(rettermPartnership, gzPartnership, info.EightDatePartnership, "坤造");
+      var beginluckyPartnership = EightrandomModule.getbigluckyearbegin(rettermPartnership, gzPartnership, info.EightDatePartnership, info.sexPartnership);
       console.log("beginlucky", Math.floor(beginluckyPartnership), Number(gzPartnership.getFullYear()))
-      PartnershiMainPagethis.setState({
-        EightDatePartnership: info.EightDatePartnership, birthPartnership: info.birthPartnership, gzbirthPartnership: gzDatePartnership, beginluckyPartnership: Math.floor(beginluckyPartnership), gzxkPartnership: gzxkPartnership,xingsuPartnership:EightDategzPartnership.xingsu,rowid:info.rowid
+      PartnershipMainPagethis.setState({
+        EightDatePartnership: info.EightDatePartnership, birthPartnership: info.birthPartnership, gzbirthPartnership: gzDatePartnership, beginluckyPartnership: Math.floor(beginluckyPartnership), gzxkPartnership: gzxkPartnership,xingsuPartnership:EightDategzPartnership.xingsu,rowid:info.rowid,sexPartnership:info.sexPartnership
       });
-      this.buildeight("乾造");
-      this.buildeight("坤造");
+
+      this.buildeight("合伙人",info.sexPartnership);
 
       this.setState({ renderswitch: true })
     }
   }
 
-  buildeight(sex) {
+  buildeight(type,sex) {
     var buildeight = new Array()
-    if ("乾造" == sex) {
+    if ("领导人" == type) {
       buildeight[0] = EightrandomModule.parentday(this.state.EightDateleader[0], this.state.EightDateleader[4])
       buildeight[2] = EightrandomModule.parentday(this.state.EightDateleader[2], this.state.EightDateleader[4])
-      buildeight[4] = "乾造" == sex ? "元男" : "元女"
+      buildeight[4] = sex
       buildeight[6] = EightrandomModule.parentday(this.state.EightDateleader[6], this.state.EightDateleader[4])
       buildeight[1] = EightrandomModule.parentearth(this.state.EightDateleader[1], this.state.EightDateleader[4])
       buildeight[3] = EightrandomModule.parentearth(this.state.EightDateleader[3], this.state.EightDateleader[4])
@@ -327,7 +327,7 @@ class PartnershiMainPage extends React.Component {
     } else {
       buildeight[0] = EightrandomModule.parentday(this.state.EightDatePartnership[0], this.state.EightDatePartnership[4])
       buildeight[2] = EightrandomModule.parentday(this.state.EightDatePartnership[2], this.state.EightDatePartnership[4])
-      buildeight[4] = "乾造" == sex ? "元男" : "元女"
+      buildeight[4] = sex
       buildeight[6] = EightrandomModule.parentday(this.state.EightDatePartnership[6], this.state.EightDatePartnership[4])
       buildeight[1] = EightrandomModule.parentearth(this.state.EightDatePartnership[1], this.state.EightDatePartnership[4])
       buildeight[3] = EightrandomModule.parentearth(this.state.EightDatePartnership[3], this.state.EightDatePartnership[4])
@@ -940,8 +940,8 @@ class PartnershiMainPage extends React.Component {
     var yongshenleader = EightrandomModule.getyongshen(this.state.EightDateleader, this.state.buildeightleader, curluckyearleader[1],this.state.precentleader)
     var yongshenPartnership = EightrandomModule.getyongshen(this.state.EightDatePartnership, this.state.buildeightPartnership, curluckyearPartnership[1],this.state.precentPartnership)
 
-    var marryinfoleader = EightrandomModule.getmarryinfo(this.state.EightDateleader, "乾造", rleader, this.state.buildeightleader)
-    var marryinfoPartnership = EightrandomModule.getmarryinfo(this.state.EightDatePartnership, "坤造", rPartnership, this.state.buildeightPartnership)
+    var Partnershipinfoleader = EightrandomModule.getmarryinfo(this.state.EightDateleader, this.state.sexleader, rleader, this.state.buildeightleader)
+    var PartnershipinfoPartnership = EightrandomModule.getmarryinfo(this.state.EightDatePartnership, this.state.sexPartnership, rPartnership, this.state.buildeightPartnership)
     var locationselfleader = EightrandomModule.getlocationself(curyearleader, 0)
     var locationselfPartnership = EightrandomModule.getlocationself(curyearPartnership, 1)
     var houseleader = EightrandomModule.gethouselocation(locationselfleader)
@@ -956,7 +956,7 @@ class PartnershiMainPage extends React.Component {
     homePartnership = homePartnership.concat(housePartnership)
     console.log("locationself", locationselfleader)
     var base = new Array()
-    base.push(["命  造:", "乾造", "坤造"])
+    base.push(["命  造:", this.state.sexleader, this.state.sexPartnership])
     base.push(["公  历:", this.state.birthleader, this.state.birthPartnership])
     base.push(["四  柱:", this.state.gzbirthleader, this.state.gzbirthPartnership])
     base.push(["旬  空:", this.state.gzxkleader, this.state.gzxkPartnership])
@@ -975,29 +975,29 @@ class PartnershiMainPage extends React.Component {
     var Partnershipyongshencheck = yongshenPartnership.yongshen + yongshenPartnership.xishen
     //喜用相同
     if ((-1 != leaderyongshencheck.indexOf(yongshenPartnership.yongshen) || -1 != leaderyongshencheck.indexOf(yongshenPartnership.xishen) || -1 != leaderyongshencheck.indexOf(yongshenPartnership.xishen2))) {
-      leaderyongshencheck = IconConfig.IconMarryCheck
+      leaderyongshencheck = IconConfig.IconPartnershipCheck
     }
     //喜用互补
     else if((-1 != leaderyongshencheck.indexOf(yongshenPartnership.jishen) || -1 != leaderyongshencheck.indexOf(yongshenPartnership.jishen2) || -1 != leaderyongshencheck.indexOf(yongshenPartnership.choushen))){
-      leaderyongshencheck = IconConfig.IconMarryCheckhalf
+      leaderyongshencheck = IconConfig.IconPartnershipCheckhalf
     }
     else{
-      leaderyongshencheck = IconConfig.IconMarryCheckfault
+      leaderyongshencheck = IconConfig.IconPartnershipCheckfault
     }
     //喜用相同
     if ((-1 != Partnershipyongshencheck.indexOf(yongshenleader.yongshen) || -1 != Partnershipyongshencheck.indexOf(yongshenleader.xishen) || -1 != Partnershipyongshencheck.indexOf(yongshenleader.xishen2))) {
-      Partnershipyongshencheck = IconConfig.IconMarryCheck
+      Partnershipyongshencheck = IconConfig.IconPartnershipCheck
     }
     //喜用互补
     else if((-1 != Partnershipyongshencheck.indexOf(yongshenleader.jishen) || -1 != Partnershipyongshencheck.indexOf(yongshenleader.jishen2) || -1 != Partnershipyongshencheck.indexOf(yongshenleader.choushen))){
-      Partnershipyongshencheck = IconConfig.IconMarryCheckhalf
+      Partnershipyongshencheck = IconConfig.IconPartnershipCheckhalf
     } else {
-      Partnershipyongshencheck = IconConfig.IconMarryCheckfault
+      Partnershipyongshencheck = IconConfig.IconPartnershipCheckfault
     }
-    if(IconConfig.IconMarryCheck==leaderyongshencheck){totalcountleader  = totalcountleader+20}
-    else if(IconConfig.IconMarryCheckhalf==leaderyongshencheck){totalcountleader  = totalcountleader+10}
-    if(IconConfig.IconMarryCheck==Partnershipyongshencheck){totalcountPartnership  = totalcountPartnership+20}
-    else if(IconConfig.IconMarryCheckhalf==Partnershipyongshencheck){totalcountPartnership  = totalcountPartnership+10}
+    if(IconConfig.IconPartnershipCheck==leaderyongshencheck){totalcountleader  = totalcountleader+20}
+    else if(IconConfig.IconPartnershipCheckhalf==leaderyongshencheck){totalcountleader  = totalcountleader+10}
+    if(IconConfig.IconPartnershipCheck==Partnershipyongshencheck){totalcountPartnership  = totalcountPartnership+20}
+    else if(IconConfig.IconPartnershipCheckhalf==Partnershipyongshencheck){totalcountPartnership  = totalcountPartnership+10}
     base.push(["神  合:", leaderyongshencheck, Partnershipyongshencheck])
     
 
@@ -1019,29 +1019,29 @@ class PartnershiMainPage extends React.Component {
     */
     //日元不能相互克，除非男克女，旺衰对冲则用神相同
     //日元天干化合为喜用最佳
-    var leader = IconConfig.IconMarryCheckfault
-    var Partnership = IconConfig.IconMarryCheckfault
+    var leader = IconConfig.IconPartnershipCheckfault
+    var Partnership = IconConfig.IconPartnershipCheckfault
 
     if (undefined != tianganhuahe[this.state.EightDateleader[4] + this.state.EightDatePartnership[4]]) {
       //天干化合，但是土为忌仇神，只能半合
       var x = tianganhuahe[this.state.EightDateleader[4] + this.state.EightDatePartnership[4]]
       if (-1 != (yongshenleader.xishen + yongshenleader.yongshen).indexOf(x)) {
-        leader = IconConfig.IconMarryCheck
+        leader = IconConfig.IconPartnershipCheck
       }
       else{
-        leader = IconConfig.IconMarryCheckhalf
+        leader = IconConfig.IconPartnershipCheckhalf
       }
       if (-1 != (yongshenPartnership.xishen + yongshenPartnership.yongshen).indexOf(x)) {
-        Partnership = IconConfig.IconMarryCheck
+        Partnership = IconConfig.IconPartnershipCheck
       }else
       {
-        Partnership = IconConfig.IconMarryCheckhalf
+        Partnership = IconConfig.IconPartnershipCheckhalf
       }
     }
     else if (-1 != kind.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[4])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[4])])) {
       //天干相克半合，如果衰旺配合合理，就全合
-      Partnership = IconConfig.IconMarryCheck
-      leader = IconConfig.IconMarryCheck
+      Partnership = IconConfig.IconPartnershipCheck
+      leader = IconConfig.IconPartnershipCheck
       if (-1 != testpowerselfleader.indexOf("旺") || -1 != testpowerselfleader.indexOf("强")) {
         if (-1 != testpowerselfPartnership.indexOf("衰") || -1 != testpowerselfPartnership.indexOf("弱")) {
           if(-1 != kindleader.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[4])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[4])]))
@@ -1100,13 +1100,13 @@ class PartnershiMainPage extends React.Component {
           if(-1 != kindassistleader.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[4])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[4])]))
           {
             //男方旺女方
-            leader = IconConfig.IconMarryCheckhalf   
-            Partnership = IconConfig.IconMarryCheckfault
+            leader = IconConfig.IconPartnershipCheckhalf   
+            Partnership = IconConfig.IconPartnershipCheckfault
           }
           else{
             //女方旺男方
-            leader = IconConfig.IconMarryCheckfault
-            Partnership = IconConfig.IconMarryCheckhalf  
+            leader = IconConfig.IconPartnershipCheckfault
+            Partnership = IconConfig.IconPartnershipCheckhalf  
           }
         }
         else{
@@ -1114,13 +1114,13 @@ class PartnershiMainPage extends React.Component {
           if(-1 != kindassistleader.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[4])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[4])]))
           {
             //男方旺女方
-            leader = IconConfig.IconMarryCheckhalf   
-            Partnership = IconConfig.IconMarryCheck
+            leader = IconConfig.IconPartnershipCheckhalf   
+            Partnership = IconConfig.IconPartnershipCheck
           }
           else{
             //女方旺男方，男方强，不合
-            leader = IconConfig.IconMarryCheckfault
-            Partnership = IconConfig.IconMarryCheckfault  
+            leader = IconConfig.IconPartnershipCheckfault
+            Partnership = IconConfig.IconPartnershipCheckfault  
           }
         }
       } else if (-1 != testpowerselfleader.indexOf("弱") || -1 != testpowerselfleader.indexOf("衰")) {
@@ -1128,61 +1128,61 @@ class PartnershiMainPage extends React.Component {
           if(-1 != kindassistleader.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[4])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[4])]))
           {
             //男方弱旺女方
-            leader = IconConfig.IconMarryCheckfault
-            Partnership = IconConfig.IconMarryCheck  
+            leader = IconConfig.IconPartnershipCheckfault
+            Partnership = IconConfig.IconPartnershipCheck  
           }
           else{
             //女方弱旺男方
-            leader = IconConfig.IconMarryCheck   
-            Partnership = IconConfig.IconMarryCheckfault
+            leader = IconConfig.IconPartnershipCheck   
+            Partnership = IconConfig.IconPartnershipCheckfault
           }
         }else{
           //男弱女强
           if(-1 != kindassistleader.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[4])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[4])]))
           {
             //男方弱旺女方，不合
-            leader = IconConfig.IconMarryCheckfault
-            Partnership = IconConfig.IconMarryCheckfault  
+            leader = IconConfig.IconPartnershipCheckfault
+            Partnership = IconConfig.IconPartnershipCheckfault  
           }
           else{
             //女方强旺男方
-            leader = IconConfig.IconMarryCheck   
-            Partnership = IconConfig.IconMarryCheckhalf
+            leader = IconConfig.IconPartnershipCheck   
+            Partnership = IconConfig.IconPartnershipCheckhalf
           }
         }
       }
     }else if(dayfive[daykey.indexOf(this.state.EightDateleader[4])] == dayfive[daykey.indexOf(this.state.EightDatePartnership[4])])
     {
       //同元总要争的
-      Partnership = IconConfig.IconMarryCheckhalf
-      leader = IconConfig.IconMarryCheckhalf
+      Partnership = IconConfig.IconPartnershipCheckhalf
+      leader = IconConfig.IconPartnershipCheckhalf
       if (-1 != testpowerselfleader.indexOf("旺") || -1 != testpowerselfleader.indexOf("强")) {
         if (-1 != testpowerselfPartnership.indexOf("衰") || -1 != testpowerselfPartnership.indexOf("弱")) {
-          leader = IconConfig.IconMarryCheckhalf        
-          Partnership = IconConfig.IconMarryCheckhalf
+          leader = IconConfig.IconPartnershipCheckhalf        
+          Partnership = IconConfig.IconPartnershipCheckhalf
           //男方强，喜官杀来克，随班同元比合，所以要扣分
           totalcountleader =  totalcountleader - 5
         }
       } else if (-1 != testpowerselfleader.indexOf("弱") || -1 != testpowerselfleader.indexOf("衰")) {
         if (-1 != testpowerselfPartnership.indexOf("旺") || -1 != testpowerselfPartnership.indexOf("强")) {
-          leader = IconConfig.IconMarryCheckhalf        
-          Partnership = IconConfig.IconMarryCheckhalf
+          leader = IconConfig.IconPartnershipCheckhalf        
+          Partnership = IconConfig.IconPartnershipCheckhalf
           //女方强，喜官杀来克，随班同元比合，所以要扣分
           totalcountPartnership =  totalcountPartnership - 5
 
         }
       }
     }
-    if(IconConfig.IconMarryCheck==leader){totalcountleader  = totalcountleader+20}
-    else if(IconConfig.IconMarryCheckhalf==leader){totalcountleader  = totalcountleader+10}
-    if(IconConfig.IconMarryCheck==Partnership){totalcountPartnership  = totalcountPartnership+20}
-    else if(IconConfig.IconMarryCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+10}
+    if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+20}
+    else if(IconConfig.IconPartnershipCheckhalf==leader){totalcountleader  = totalcountleader+10}
+    if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+20}
+    else if(IconConfig.IconPartnershipCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+10}
     base.push(["元  合:", leader, Partnership])
    
 
     base.push(["日  支:", this.state.EightDateleader[5], this.state.EightDatePartnership[5]])
-    Partnership = IconConfig.IconMarryCheckfault
-    leader = IconConfig.IconMarryCheckfault
+    Partnership = IconConfig.IconPartnershipCheckfault
+    leader = IconConfig.IconPartnershipCheckfault
     //日支不能相互克制
     if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[5])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[5])])) {
       //日支不能刑冲
@@ -1190,18 +1190,18 @@ class PartnershiMainPage extends React.Component {
         //日支最好是生，和日元完全相反，同一班，克最差，但是生也不能刑，比如子卯
         if(-1!=kindassist.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[5])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[5])]))
         {
-          Partnership = IconConfig.IconMarryCheck
-          leader = IconConfig.IconMarryCheck
+          Partnership = IconConfig.IconPartnershipCheck
+          leader = IconConfig.IconPartnershipCheck
         }else{
-          Partnership = IconConfig.IconMarryCheckhalf
-          leader = IconConfig.IconMarryCheckhalf
+          Partnership = IconConfig.IconPartnershipCheckhalf
+          leader = IconConfig.IconPartnershipCheckhalf
         }
       }
     }
-    if(IconConfig.IconMarryCheck==leader){totalcountleader  = totalcountleader+20}
-    else if(IconConfig.IconMarryCheckhalf==leader){totalcountleader  = totalcountleader+10}
-    if(IconConfig.IconMarryCheck==Partnership){totalcountPartnership  = totalcountPartnership+20}
-    else if(IconConfig.IconMarryCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+10}
+    if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+20}
+    else if(IconConfig.IconPartnershipCheckhalf==leader){totalcountleader  = totalcountleader+10}
+    if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+20}
+    else if(IconConfig.IconPartnershipCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+10}
     base.push(["支  合:",leader, Partnership])
 
     var ret_leader = ""
@@ -1229,35 +1229,35 @@ class PartnershiMainPage extends React.Component {
     base.push(["纳  音:", ret_leader, ret_Partnership])
 
     //纳音以相生为主
-    Partnership = IconConfig.IconMarryCheckfault
-    leader = IconConfig.IconMarryCheckfault
+    Partnership = IconConfig.IconPartnershipCheckfault
+    leader = IconConfig.IconPartnershipCheckfault
     if (-1 != kind.indexOf(ret_leader.charAt(2) + ret_Partnership.charAt(2)) ) {
-      Partnership = IconConfig.IconMarryCheckfault
-      leader = IconConfig.IconMarryCheckfault
+      Partnership = IconConfig.IconPartnershipCheckfault
+      leader = IconConfig.IconPartnershipCheckfault
     }
     else if(-1 != kindassist.indexOf(ret_leader.charAt(2) + ret_Partnership.charAt(2)))
     {
-      Partnership = IconConfig.IconMarryCheck
-      leader = IconConfig.IconMarryCheck
+      Partnership = IconConfig.IconPartnershipCheck
+      leader = IconConfig.IconPartnershipCheck
     }else{
-      Partnership = IconConfig.IconMarryCheckhalf
-      leader = IconConfig.IconMarryCheckhalf
+      Partnership = IconConfig.IconPartnershipCheckhalf
+      leader = IconConfig.IconPartnershipCheckhalf
     }
-    if(IconConfig.IconMarryCheck==leader){totalcountleader  = totalcountleader+10}
-    else if(IconConfig.IconMarryCheckhalf==leader){totalcountleader  = totalcountleader+5}
-    if(IconConfig.IconMarryCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
-    else if(IconConfig.IconMarryCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+5}
+    if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+10}
+    else if(IconConfig.IconPartnershipCheckhalf==leader){totalcountleader  = totalcountleader+5}
+    if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
+    else if(IconConfig.IconPartnershipCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+5}
     base.push(["音  合:",leader, Partnership])
 
 
 
 
     base.push(["大  运:", curluckyearleader[0] + curluckyearleader[1], curluckyearPartnership[0] + curluckyearPartnership[1]])
-    base.push(["星  宿:", this.state.xingsuleader.xingsu+this.state.xingsuleader.r, this.state.xingsuPartnership.xingsu+this.state.xingsuPartnership.r])
-    var xingsuretleader = EightrandomModule.getrongqin(this.state.xingsuleader.xingsu, this.state.xingsuPartnership.xingsu)
-    var xingsuretPartnership = EightrandomModule.getrongqin(this.state.xingsuPartnership.xingsu, this.state.xingsuleader.xingsu)
-    base.push(["荣  亲:", xingsuretleader.r, xingsuretPartnership.r])
-    base.push(["关  系:", xingsuretleader.d<=4?"近":(xingsuretleader.d<=8?"中":"远"),  xingsuretPartnership.d<=4?"近":(xingsuretPartnership.d<=8?"中":"远")])
+    //base.push(["星  宿:", this.state.xingsuleader.xingsu+this.state.xingsuleader.r, this.state.xingsuPartnership.xingsu+this.state.xingsuPartnership.r])
+    //var xingsuretleader = EightrandomModule.getrongqin(this.state.xingsuleader.xingsu, this.state.xingsuPartnership.xingsu)
+    //var xingsuretPartnership = EightrandomModule.getrongqin(this.state.xingsuPartnership.xingsu, this.state.xingsuleader.xingsu)
+    //base.push(["荣  亲:", xingsuretleader.r, xingsuretPartnership.r])
+    //base.push(["关  系:", xingsuretleader.d<=4?"近":(xingsuretleader.d<=8?"中":"远"),  xingsuretPartnership.d<=4?"近":(xingsuretPartnership.d<=8?"中":"远")])
 
     ret_leader = ""
     ret_Partnership = ""
@@ -1267,123 +1267,123 @@ class PartnershiMainPage extends React.Component {
     }
     base.push(["月  令:", ret_leader, ret_Partnership])
     base.push(["年  柱:", this.state.EightDateleader[0] + this.state.EightDateleader[1], this.state.EightDatePartnership[0] + this.state.EightDatePartnership[1]])
-    var leader = IconConfig.IconMarryCheckfault
-    var Partnership = IconConfig.IconMarryCheckfault
+    var leader = IconConfig.IconPartnershipCheckfault
+    var Partnership = IconConfig.IconPartnershipCheckfault
     if (undefined != tianganhuahe[this.state.EightDateleader[0] + this.state.EightDatePartnership[0]]) {
         var x = tianganhuahe[this.state.EightDateleader[0] + this.state.EightDatePartnership[0]]
         if (-1 != (yongshenleader.xishen + yongshenleader.yongshen).indexOf(x)) {
-          leader = IconConfig.IconMarryCheck
+          leader = IconConfig.IconPartnershipCheck
         }else{
-          leader = IconConfig.IconMarryCheckhalf
+          leader = IconConfig.IconPartnershipCheckhalf
         }
         if (-1 != (yongshenPartnership.xishen + yongshenPartnership.yongshen).indexOf(x)) {
-          Partnership = IconConfig.IconMarryCheck
+          Partnership = IconConfig.IconPartnershipCheck
         }else{
-          Partnership = IconConfig.IconMarryCheckhalf
+          Partnership = IconConfig.IconPartnershipCheckhalf
         }
       }
     else if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[0])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[0])])) {
-      leader = IconConfig.IconMarryCheck
-      Partnership = IconConfig.IconMarryCheck
+      leader = IconConfig.IconPartnershipCheck
+      Partnership = IconConfig.IconPartnershipCheck
     }
-    if(IconConfig.IconMarryCheck==leader){totalcountleader  = totalcountleader+10}
-    else if(IconConfig.IconMarryCheckhalf==leader){totalcountleader  = totalcountleader+5}
-    if(IconConfig.IconMarryCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
-    else if(IconConfig.IconMarryCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+5}
+    if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+10}
+    else if(IconConfig.IconPartnershipCheckhalf==leader){totalcountleader  = totalcountleader+5}
+    if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
+    else if(IconConfig.IconPartnershipCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+5}
     base.push(["年  合:", leader, Partnership])
 
 
     base.push(["月  柱:", this.state.EightDateleader[2] + this.state.EightDateleader[3], this.state.EightDatePartnership[2] + this.state.EightDatePartnership[3]])
-    leader = IconConfig.IconMarryCheckfault
-    Partnership = IconConfig.IconMarryCheckfault
+    leader = IconConfig.IconPartnershipCheckfault
+    Partnership = IconConfig.IconPartnershipCheckfault
     if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[2])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[2])]) || undefined != tianganhuahe[this.state.EightDateleader[2] + this.state.EightDatePartnership[2]]) {
       if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[3])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[3])])) {
-        leader = IconConfig.IconMarryCheck
-        Partnership = IconConfig.IconMarryCheck
+        leader = IconConfig.IconPartnershipCheck
+        Partnership = IconConfig.IconPartnershipCheck
         if (-1 != congtest.indexOf(this.state.EightDatePartnership[3] + this.state.EightDateleader[3])) {
           //如果有冲克，就看天干合以后的喜用
-          leader = IconConfig.IconMarryCheckfault
-          Partnership = IconConfig.IconMarryCheckfault
+          leader = IconConfig.IconPartnershipCheckfault
+          Partnership = IconConfig.IconPartnershipCheckfault
           if (undefined != tianganhuahe[this.state.EightDateleader[2] + this.state.EightDatePartnership[2]]) {
             //因为有地支冲突，所以天干合还是要扣分的，如果天干无合不会进来，也不会扣分
             totalcountPartnership =  totalcountPartnership - 5
             totalcountleader =  totalcountleader - 5
             //这里对天干五合在评价，如果五合为忌仇，虽合但是无分数
-            Partnership = IconConfig.IconMarryCheckfault
-            leader = IconConfig.IconMarryCheck
-            Partnership = IconConfig.IconMarryCheck
+            Partnership = IconConfig.IconPartnershipCheckfault
+            leader = IconConfig.IconPartnershipCheck
+            Partnership = IconConfig.IconPartnershipCheck
             var x = tianganhuahe[this.state.EightDateleader[2] + this.state.EightDatePartnership[2]]
             if (-1 != (yongshenleader.xishen + yongshenleader.yongshen).indexOf(x)) {
-              leader = IconConfig.IconMarryCheck
+              leader = IconConfig.IconPartnershipCheck
             } else {
-              leader = IconConfig.IconMarryCheckhalf
+              leader = IconConfig.IconPartnershipCheckhalf
             }
             if (-1 != (yongshenPartnership.xishen + yongshenPartnership.yongshen).indexOf(x)) {
-              Partnership = IconConfig.IconMarryCheck
+              Partnership = IconConfig.IconPartnershipCheck
             } else {
-              Partnership = IconConfig.IconMarryCheckhalf
+              Partnership = IconConfig.IconPartnershipCheckhalf
             }
           }
         } else if (undefined != tianganhuahe[this.state.EightDateleader[2] + this.state.EightDatePartnership[2]]) {
 
           var x = tianganhuahe[this.state.EightDateleader[2] + this.state.EightDatePartnership[2]]
           if (-1 != (yongshenleader.xishen + yongshenleader.yongshen).indexOf(x)) {
-            leader = IconConfig.IconMarryCheck
+            leader = IconConfig.IconPartnershipCheck
           } else {
-            leader = IconConfig.IconMarryCheckhalf
+            leader = IconConfig.IconPartnershipCheckhalf
           }
           if (-1 != (yongshenPartnership.xishen + yongshenPartnership.yongshen).indexOf(x)) {
-            Partnership = IconConfig.IconMarryCheck
+            Partnership = IconConfig.IconPartnershipCheck
           } else {
-            Partnership = IconConfig.IconMarryCheckhalf
+            Partnership = IconConfig.IconPartnershipCheckhalf
           }
         }
       }
     }
-    if(IconConfig.IconMarryCheck==leader){totalcountleader  = totalcountleader+10}
-    else if(IconConfig.IconMarryCheckhalf==leader){totalcountleader  = totalcountleader+5}
-    if(IconConfig.IconMarryCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
-    else if(IconConfig.IconMarryCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+5}
+    if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+10}
+    else if(IconConfig.IconPartnershipCheckhalf==leader){totalcountleader  = totalcountleader+5}
+    if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
+    else if(IconConfig.IconPartnershipCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+5}
     base.push(["月  合:", leader, Partnership])
 
 
 
     base.push(["属  象:", this.state.EightDateleader[1], this.state.EightDatePartnership[1]])
-    var leader = IconConfig.IconMarryCheckfault
-    var Partnership = IconConfig.IconMarryCheckfault
+    var leader = IconConfig.IconPartnershipCheckfault
+    var Partnership = IconConfig.IconPartnershipCheckfault
     
     if(-1 != hetest.indexOf(this.state.EightDateleader[1] + this.state.EightDatePartnership[1]))
     {
       //生肖最好三合暗合
-      leader = IconConfig.IconMarryCheck
-      Partnership = IconConfig.IconMarryCheck
+      leader = IconConfig.IconPartnershipCheck
+      Partnership = IconConfig.IconPartnershipCheck
       //合而不冲
       if (-1 != congtest.indexOf(this.state.EightDateleader[1] + this.state.EightDatePartnership[1])) {
-        leader = IconConfig.IconMarryCheckhalf
-        Partnership = IconConfig.IconMarryCheckhalf
+        leader = IconConfig.IconPartnershipCheckhalf
+        Partnership = IconConfig.IconPartnershipCheckhalf
       }
     }else if ((-1 == kind.indexOf(earthfive[(earthkey.indexOf(this.state.EightDateleader[1]))] + earthfive[(earthkey.indexOf(this.state.EightDatePartnership[1]))]))){
       if (-1 == congtest.indexOf(this.state.EightDateleader[1] + this.state.EightDatePartnership[1])) {
         //地支五行不克且不刑冲
-        leader = IconConfig.IconMarryCheck
-        Partnership = IconConfig.IconMarryCheck
+        leader = IconConfig.IconPartnershipCheck
+        Partnership = IconConfig.IconPartnershipCheck
       }else{
-        leader = IconConfig.IconMarryCheckhalf
-        Partnership = IconConfig.IconMarryCheckhalf
+        leader = IconConfig.IconPartnershipCheckhalf
+        Partnership = IconConfig.IconPartnershipCheckhalf
       }
     }
 
-    if(IconConfig.IconMarryCheck==leader){totalcountleader  = totalcountleader+10}
-    else if(IconConfig.IconMarryCheckhalf==leader){totalcountleader  = totalcountleader+5}
-    if(IconConfig.IconMarryCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
-    else if(IconConfig.IconMarryCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+5}
+    if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+10}
+    else if(IconConfig.IconPartnershipCheckhalf==leader){totalcountleader  = totalcountleader+5}
+    if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
+    else if(IconConfig.IconPartnershipCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+5}
     base.push(["象  合:", leader, Partnership])
     base.push(["评  分:", totalcountleader>100?IconConfig.IconMarryDiamond:totalcountleader, totalcountPartnership>100?IconConfig.IconMarryDiamond:totalcountPartnership])
-    base.push(["合婚四合（红心）以上为适婚，评分65-75以上为适婚"])
+    base.push(["合伙四合（红心）以上为适婚，评分65-75以上为适婚"])
     base.push(["顺序重点为元 神 支 音 年 月 象"])
     base.push(["以元神支为两人关系重点各占20分"])
     base.push(["音年月象为双方主要的人际关系各项10分"])
-    base.push(["合婚主要判断双方沟通成本和人际关系复杂程度"])
+    base.push(["合伙主要判断双方沟通成本和人际关系复杂程度"])
     Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true }), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000, useNativeDriver: true })]).start()
     return (
       <View style={styles.container} >
@@ -1391,7 +1391,7 @@ class PartnershiMainPage extends React.Component {
           <View style={styles.container} >
             <WingBlank size="lg" style={{ backgroundColor: '#ffffff' }}>
               <Accordion onChange={this.onChange} activeSections={this.state.activeSections} styles={{ backgroundColor: '#ffffff' }}>
-                <Accordion.Panel header={"合婚排盘"} styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header={"合伙排盘"} styles={{ backgroundColor: '#ffffff' }}>
                   <View>
                     <Grid
                       data={base}
@@ -1417,7 +1417,7 @@ class PartnershiMainPage extends React.Component {
                     <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
                   </View>
                 </Accordion.Panel >
-                <Accordion.Panel header={"男命排盘"} styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header={"主理人"} styles={{ backgroundColor: '#ffffff' }}>
                   <View>
                     <Grid
                       data={testleader}
@@ -1508,7 +1508,7 @@ class PartnershiMainPage extends React.Component {
                     />
                   </View>
                 </Accordion.Panel >
-                <Accordion.Panel header={"女命排盘"} styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header={"合伙人"} styles={{ backgroundColor: '#ffffff' }}>
                   <View>
 
                     <Grid
@@ -1600,7 +1600,7 @@ class PartnershiMainPage extends React.Component {
                     />
                   </View>
                 </Accordion.Panel >
-                <Accordion.Panel header="乾造衰旺" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="主理人" styles={{ backgroundColor: '#ffffff' }}>
                   <Grid
                     data={fiveleader}
                     columnNum={5}
@@ -1616,7 +1616,7 @@ class PartnershiMainPage extends React.Component {
                   />
 
                 </Accordion.Panel >
-                <Accordion.Panel header="坤造衰旺" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="合伙人" styles={{ backgroundColor: '#ffffff' }}>
                   <Grid
                     data={fivePartnership}
                     columnNum={5}
@@ -1633,25 +1633,25 @@ class PartnershiMainPage extends React.Component {
 
                 </Accordion.Panel >
 
-                <Accordion.Panel header="元男信息" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="主理人信息" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homeleader[0]}</Text>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homeleader[1]}</Text>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homeleader[2]}</Text>
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="元女信息" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="合伙人信息" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homePartnership[0]}</Text>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homePartnership[1]}</Text>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homePartnership[2]}</Text>
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="男命婚姻" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="主理人" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     <Animated.View style={{ opacity: this.state.fadeInOpacity }}>
                       <View>
-                        {marryinfoleader.map(item => {
+                        {Partnershipinfoleader.map(item => {
                           return (
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{EightrandomModule.tipfire(item)}</Text>)
                         })}
@@ -1659,11 +1659,11 @@ class PartnershiMainPage extends React.Component {
                     </Animated.View>
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="女命婚姻" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="合伙人" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     <Animated.View style={{ opacity: this.state.fadeInOpacity }}>
                       <View>
-                        {marryinfoPartnership.map(item => {
+                        {PartnershipinfoPartnership.map(item => {
                           return (
                             <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25 }}>{item}{EightrandomModule.tipfire(item)}</Text>)
                         })}

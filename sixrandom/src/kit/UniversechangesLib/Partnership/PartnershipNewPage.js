@@ -23,6 +23,8 @@ class PartnershipNewPage extends React.Component {
       //datepickerleader: new Date('1980-11-05'),
       datepickerPartnership: new Date(),//new Date('1987-08-22'),
       //datepickerPartnership: new Date('1979-10-16'),
+      switchstateleader:true,
+      switchstatePartnership:true,
       switchtypeleader: true,
       switchtypePartnership: true,
       datatypeleader: "公历",
@@ -166,8 +168,17 @@ class PartnershipNewPage extends React.Component {
                 ellipsizeMode={'tail'}
               //itemStyle={{fontSize:9}}
               >
-                <List.Item arrow="horizontal">领导者时辰:</List.Item>
+                <List.Item arrow="horizontal">主理人时辰:</List.Item>
               </DatePicker>
+              <List.Item
+                extra={
+                  <Switch
+                    checked={this.state.switchstateleader}
+                    onChange={(value) => this.setState({ switchstateleader: value})}
+                  />
+                }
+              >{true==this.state.switchstateleader?"男":"女"}
+              </List.Item>
               <List.Item
                 extra={
                   <Switch
@@ -210,6 +221,15 @@ class PartnershipNewPage extends React.Component {
               >
                 <List.Item arrow="horizontal">合伙人时辰:</List.Item>
               </DatePicker>
+              <List.Item
+                extra={
+                  <Switch
+                    checked={this.state.switchstatePartnership}
+                    onChange={(value) => this.setState({ switchstatePartnership: value})}
+                  />
+                }
+              >{true==this.state.switchstatePartnership?"男":"女"}
+              </List.Item>
               <List.Item
                 extra={
                   <Switch
@@ -278,7 +298,7 @@ class PartnershipNewPage extends React.Component {
     savedateleader[0] = (new Date()).valueOf().toString();
     savedateleader[1] = EightDateleader.gzYear + EightDateleader.gzMonth + EightDateleader.gzDate + EightDateleader.gzTime;
     savedateleader[2] = '乾造'
-    savedateleader[3] = ""
+    savedateleader[3] = (true==this.state.switchstateleader?'乾造':'坤造');
     savedateleader[4] = myDateleader.getFullYear() + "/" + (myDateleader.getMonth() + 1) + "/" + myDateleader.getDate() + " " + myDateleader.getHours() + " " + myDateleader.getMinutes() + " " + myDateleader.getSeconds();
     return savedateleader
   }
@@ -312,7 +332,7 @@ class PartnershipNewPage extends React.Component {
     savedatePartnership[0] = (new Date()).valueOf().toString();
     savedatePartnership[1] = EightDatePartnership.gzYear + EightDatePartnership.gzMonth + EightDatePartnership.gzDate + EightDatePartnership.gzTime;
     savedatePartnership[2] = '乾造'
-    savedatePartnership[3] = ""
+    savedatePartnership[3] = (true==this.state.switchstatePartnership?'乾造':'坤造');
     savedatePartnership[4] = myDatePartnership.getFullYear() + "/" + (myDatePartnership.getMonth() + 1) + "/" + myDatePartnership.getDate() + " " + myDatePartnership.getHours() + " " + myDatePartnership.getMinutes() + " " + myDatePartnership.getSeconds();
     return savedatePartnership
   }
@@ -336,8 +356,8 @@ class PartnershipNewPage extends React.Component {
     if (undefined != T && 2000 == T.code) {
       Jstr = HistoryArrayGroup.MakeJsonSync(Jstr)
     }
-    var parameter = "?EightDateleader=" + savedateleader[1]  + "&birthleader=" + savedateleader[4] + "&Dateleader=" + savedateleader[0]
-    parameter = parameter + "&EightDatePartnership=" + savedatePartnership[1]  + "&birthPartnership=" + savedatePartnership[4] + "&DatePartnership=" + savedatePartnership[0] + "&rowid=" +obj.id
+    var parameter = "?EightDateleader=" + savedateleader[1]  + "&birthleader=" + savedateleader[4] + "&Dateleader=" + savedateleader[0] + "&sexleader=" + savedateleader[3]
+    parameter = parameter + "&EightDatePartnership=" + savedatePartnership[1]  + "&birthPartnership=" + savedatePartnership[4] + "&DatePartnership=" + savedatePartnership[0] + "&rowid=" +obj.id + "&sexPartnership=" + savedatePartnership[3]
     console.log(parameter)
     await HistoryArrayGroup.saveid("Partnership", obj.id, Jstr)
     //await HistoryArrayGroup.saveid("name",index,savedate)
