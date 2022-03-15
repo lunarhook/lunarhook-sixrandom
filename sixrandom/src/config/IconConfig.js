@@ -215,6 +215,7 @@ class IconConfig extends React.Component {
   static IconPartnershipCheckLeft = [<Ionicons name="person" size={size-11 } color={fire} />,<Ionicons name="person-outline" size={size-11 } color={fire} />]
   static IconPartnershipCheckRight = [<Ionicons name="person-outline" size={size-11 } color={fire} />,<Ionicons name="person" size={size-11 } color={fire} />]
   static IconPartnershipCheckfault = [<Ionicons name="person-outline" size={size-11 } color={fire} />,<Ionicons name="person-outline" size={size-11 } color={fire} />]
+  static IconPartnership = [<FontAwesome name="handshake-o" size={size } color={fire} />]
   static colorgreen = green
   static colorclaygreen = claygreen
   static colorred = red

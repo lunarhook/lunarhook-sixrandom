@@ -246,7 +246,7 @@ class PartnershipNewPage extends React.Component {
           <View style={styles.inputbutton}>
             <Button
               onPress={() => this.bazipaipan()}
-              title="合盘"
+              title="合伙测评"
 
             />
 
