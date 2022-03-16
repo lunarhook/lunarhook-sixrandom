@@ -1303,7 +1303,7 @@ class PartnershiMainPage extends React.Component {
                     <WhiteSpace size="xl" styles={{ backgroundColor: '#ffffff' }} />
                   </View>
                 </Accordion.Panel >
-                <Accordion.Panel header={"主理人"} styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header={"创始人"} styles={{ backgroundColor: '#ffffff' }}>
                   <View>
                     <Grid
                       data={testleader}
@@ -1486,7 +1486,7 @@ class PartnershiMainPage extends React.Component {
                     />
                   </View>
                 </Accordion.Panel >
-                <Accordion.Panel header="主理人" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="创始人" styles={{ backgroundColor: '#ffffff' }}>
                   <Grid
                     data={fiveleader}
                     columnNum={5}
@@ -1519,7 +1519,7 @@ class PartnershiMainPage extends React.Component {
 
                 </Accordion.Panel >
 
-                <Accordion.Panel header="主理人信息" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="创始人信息" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homeleader[0]}</Text>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homeleader[1]}</Text>
@@ -1533,7 +1533,7 @@ class PartnershiMainPage extends React.Component {
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{homePartnership[2]}</Text>
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="主理人" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="创始人" styles={{ backgroundColor: '#ffffff' }}>
                   <List>
                     <Animated.View style={{ opacity: this.state.fadeInOpacity }}>
                       <View>

@@ -153,7 +153,7 @@ class PartnershipNewPage extends React.Component {
                 ellipsizeMode={'tail'}
               //itemStyle={{fontSize:9}}
               >
-                <List.Item arrow="horizontal">领导者生辰:</List.Item>
+                <List.Item arrow="horizontal">创始人生辰:</List.Item>
               </DatePicker>
               <DatePicker
                 backgroundColor='#ff00ff'
@@ -168,7 +168,7 @@ class PartnershipNewPage extends React.Component {
                 ellipsizeMode={'tail'}
               //itemStyle={{fontSize:9}}
               >
-                <List.Item arrow="horizontal">主理人时辰:</List.Item>
+                <List.Item arrow="horizontal">创始人时辰:</List.Item>
               </DatePicker>
               <List.Item
                 extra={
