@@ -1040,7 +1040,7 @@ class PartnershiMainPage extends React.Component {
       }
     }
     else if (-1 != kind.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[4])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[4])])) {
-      //天干相克半合，如果衰旺配合合理，就全合
+      //天干相克不合
       Partnership = IconConfig.IconPartnershipCheckfault
       leader = IconConfig.IconPartnershipCheckfault
     }
@@ -1079,7 +1079,7 @@ class PartnershiMainPage extends React.Component {
     if (-1 == kind.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[5])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[5])])) {
       //日支不能刑冲
       if (-1 == congtest.indexOf(this.state.EightDateleader[5] + this.state.EightDatePartnership[5])) {
-        //日支最好是生，和日元完全相反，同一班，克最差，但是生也不能刑，比如子卯
+        //日支最好是生，和日元完全相反，同半，克最差，但是生也不能刑，比如子卯
         if(-1!=kindassist.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[5])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[5])]))
         {
           Partnership = IconConfig.IconPartnershipCheck
