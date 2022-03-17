@@ -351,6 +351,8 @@ class PartnershipNewPage extends React.Component {
     obj.EightDatePartnership = savedatePartnership[1] 
     obj.birthPartnership = savedatePartnership[4]
     obj.DatePartnership = savedatePartnership[0]
+    obj.sexleader = savedateleader[3]
+    obj.sexPartnership = savedatePartnership[3]
     var Jstr = JSON.stringify(obj)
     let T = await UserModule.SyncFileServer(obj.kind, obj.id, Jstr)
     if (undefined != T && 2000 == T.code) {
@@ -360,6 +362,7 @@ class PartnershipNewPage extends React.Component {
     parameter = parameter + "&EightDatePartnership=" + savedatePartnership[1]  + "&birthPartnership=" + savedatePartnership[4] + "&DatePartnership=" + savedatePartnership[0] + "&rowid=" +obj.id + "&sexPartnership=" + savedatePartnership[3]
     console.log(parameter)
     await HistoryArrayGroup.saveid("Partnership", obj.id, Jstr)
+    HistoryArrayGroup.GetPartnershipHistory()
     //await HistoryArrayGroup.saveid("name",index,savedate)
     //await HistoryArrayGroup.save("lastname",savedate)
     //HistoryArrayGroup.GetMarryHistory()

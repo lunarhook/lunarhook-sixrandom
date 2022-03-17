@@ -53,6 +53,7 @@ var StorageModule = new Storage({
 	}
 })
 var MarryHistoryNameArray = []
+var PartnershipHistoryNameArray = []
 var EightRandomHistoryNameArray = []
 var SixrandomHistoryNameArray = []
 var QimenHistoryNameArray = []
@@ -145,7 +146,7 @@ class HistoryArrayGroup extends React.Component {
 	}
 	async SyncFileGroupServer(){
 		var ret = new Array()
-		var list = new Array("sixrandom","eightrandom","taiyi","sixcourse","qimen")
+		var list = new Array("sixrandom","eightrandom","taiyi","sixcourse","qimen","Partnership","Marry")
 		var ret = new Array()
 		console.log("SyncFileGroupServer begin")
 		for(var i in list){
@@ -222,6 +223,7 @@ class HistoryArrayGroup extends React.Component {
 	}
 	init() {
 		this.ReloadMarryHistory()
+		this.ReloadPartnershipHistory()
 		this.ReloadEightRandomHistory()
 		this.ReloadSixrandomHistory()
 		this.ReloadQimenHistory()
@@ -241,6 +243,11 @@ class HistoryArrayGroup extends React.Component {
 		return await this.ReloadFirstTime()
 	}
 
+	async GetPartnershipHistory()
+	{
+		await this.ReloadPartnershipHistory()
+		return PartnershipHistoryNameArray;
+	}
 	async GetMarryHistory() {
 		await this.ReloadMarryHistory()
 		return MarryHistoryNameArray;
@@ -292,6 +299,7 @@ class HistoryArrayGroup extends React.Component {
 	}
 	async SyncAllHistory(){
 		await this.GetMarryHistory()
+		await this.GetPartnershipHistory()
 		await this.GetEightRandomHistory()
 		await this.GetSixrandomHistory()
 		await this.GetQimenHistory() 
@@ -755,6 +763,51 @@ class HistoryArrayGroup extends React.Component {
 			for (var i = 0, len = MarryHistoryNameArray.length; i < len; i++) {
 				if (undefined == MarryHistoryNameArray[i]) {
 					MarryHistoryNameArray.splice(i, 1);
+					len--;
+					i--;
+				}
+			}
+		}).catch(error=>{
+			console.log(error.message)
+		})
+
+		
+	}
+	async ReloadPartnershipHistory() {
+		//this.removeall("Partnership")
+		PartnershipHistoryNameArray = []
+		await StorageModule.getAllDataForKey('Partnership').then(ids => {
+			for (i = 0; i < ids.length; i++) {
+				try {
+
+					var Jobj = JSON.parse(ids[i]);
+						//console.log(ids[i])
+						var obj = {
+						tip: Jobj.tip,
+						star: Jobj.star,
+						EightDateleader :Jobj.EightDateleader,
+						birthleader : Jobj.birthleader,
+						Dateleader :  Jobj.Dateleader,
+						sexleader:Jobj.sexleader,
+						EightDatePartnership : Jobj.EightDatePartnership,
+						birthPartnership : Jobj.birthPartnership,
+						DatePartnership : Jobj.DatePartnership,
+						sexPartnership:Jobj.sexPartnership,
+						url:"?EightDateleader=" + Jobj.EightDateleader  + "&birthleader=" + Jobj.birthleader + "&Dateleader=" + Jobj.Dateleader + "&sexleader=" + Jobj.sexleader
+						+ "&EightDatePartnership=" +  Jobj.EightDatePartnership + "&birthPartnership=" + Jobj.birthPartnership + "&DatePartnership=" + Jobj.DatePartnership +"&rowid=" +Jobj.id +"&sexPartnership=" + Jobj.sexPartnership,
+						id: Jobj.id
+						}
+						PartnershipHistoryNameArray[i] = obj
+					
+				} catch (error) {
+					StorageModule.remove({ key: 'Marry', id: savedate[0] });
+					PartnershipHistoryNameArray[i] = undefined
+				}
+			}
+			PartnershipHistoryNameArray.reverse()
+			for (var i = 0, len = PartnershipHistoryNameArray.length; i < len; i++) {
+				if (undefined == PartnershipHistoryNameArray[i]) {
+					PartnershipHistoryNameArray.splice(i, 1);
 					len--;
 					i--;
 				}

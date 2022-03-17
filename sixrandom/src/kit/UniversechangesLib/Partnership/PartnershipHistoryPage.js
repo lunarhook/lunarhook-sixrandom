@@ -169,7 +169,7 @@ class PartnershipHistoryPage extends React.Component {
   }
 
   refreshlist() {
-    HistoryArrayGroup.GetMarryHistory().then(ids => {
+    HistoryArrayGroup.GetPartnershipHistory().then(ids => {
       if (ids.length == 0) {
         ScreenConfig.DeviceToast("暂无历史数据")
         this.props.navigation.goBack()
@@ -197,7 +197,7 @@ class PartnershipHistoryPage extends React.Component {
   }
   onSearchCancel = () => {
     return new Promise((resolve, reject) => {
-      HistoryArrayGroup.GetMarryHistory().then(ids => {
+      HistoryArrayGroup.GetPartnershipHistory().then(ids => {
         this.setState({ dataSource: ids })
 
       })
@@ -221,7 +221,7 @@ class PartnershipHistoryPage extends React.Component {
 
   onPress(item) {
     const { navigate } = this.props.navigation;
-    navigate('MarryMainPage', {"url":item.url ,"goback":()=>this.gobackrefreshlist()})
+    navigate('PartnershipMainPage', {"url":item.url ,"goback":()=>this.gobackrefreshlist()})
   }
 
   render() {
