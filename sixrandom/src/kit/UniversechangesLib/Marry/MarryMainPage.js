@@ -1200,10 +1200,10 @@ class MarryMainPage extends React.Component {
         }
       }
     }
-    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+20}
-    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+10}
-    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+20}
-    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+10}
+    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+10}
+    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+5}
+    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+10}
+    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+5}
     base.push(["支  合:",male, female])
 
     var ret_male = ""
@@ -1342,10 +1342,10 @@ class MarryMainPage extends React.Component {
         }
       }
     }
-    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+10}
-    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+5}
-    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+10}
-    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+5}
+    if(IconConfig.IconMarryCheck==male){totalcountmale  = totalcountmale+20}
+    else if(IconConfig.IconMarryCheckhalf==male){totalcountmale  = totalcountmale+10}
+    if(IconConfig.IconMarryCheck==female){totalcountfemale  = totalcountfemale+20}
+    else if(IconConfig.IconMarryCheckhalf==female){totalcountfemale  = totalcountfemale+10}
     base.push(["月  合:", male, female])
 
 

@@ -191,7 +191,7 @@ class kitPage extends React.Component {
             PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
            ]
       const granteds = await PermissionsAndroid.requestMultiple(permissions)
-      var data = data+"是否同意相机权限: "
+      var data = data+"是否同意相机截图保存功能: "
       if (granteds["android.permission.CAMERA"] === "granted") {
         data = data + "是\n"
       } else {
