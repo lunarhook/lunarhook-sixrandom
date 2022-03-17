@@ -974,25 +974,27 @@ class PartnershiMainPage extends React.Component {
     base.push(["调  候:", yongshenleader.adjustyongshen,yongshenPartnership.adjustyongshen ])
     var leaderyongshencheck = yongshenleader.yongshen + yongshenleader.xishen
     var Partnershipyongshencheck = yongshenPartnership.yongshen + yongshenPartnership.xishen
-    //喜忌相同
+    //喜忌相同互助
     if (-1 != yongshenleader.yongshen.indexOf(yongshenPartnership.jishen) || -1 != yongshenleader.yongshen.indexOf(yongshenPartnership.choushen) ) {
       leaderyongshencheck = IconConfig.IconPartnershipCheck
     }
-    //喜用互补
+    //喜用互补相互耗
     else if((-1 != yongshenleader.yongshen.indexOf(yongshenPartnership.xishen) || -1 != yongshenleader.yongshen.indexOf(yongshenPartnership.xishen2) )){
       leaderyongshencheck = IconConfig.IconPartnershipCheckfault
     }
     else{
+      //相克不支持
       leaderyongshencheck = IconConfig.IconPartnershipCheckLeft
     }
     //喜用相同
     if (-1 != yongshenPartnership.yongshen.indexOf(yongshenleader.jishen) || -1 != yongshenPartnership.yongshen.indexOf(yongshenleader.choushen)) {
       Partnershipyongshencheck = IconConfig.IconPartnershipCheck
     }
-    //喜用互补
+    //喜用互补相互号
     else if((-1 != yongshenPartnership.yongshen.indexOf(yongshenleader.xishen) || -1 != yongshenPartnership.yongshen.indexOf(yongshenleader.xishen2) )){
       Partnershipyongshencheck = IconConfig.IconPartnershipCheckfault
     } else {
+      //相克不支持
       Partnershipyongshencheck = IconConfig.IconPartnershipCheckRight
     }
     if(IconConfig.IconPartnershipCheck==leaderyongshencheck){totalcountleader  = totalcountleader+20}
@@ -1091,10 +1093,10 @@ class PartnershiMainPage extends React.Component {
         }
       }
     }
-    if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+20}
-    else if(IconConfig.IconPartnershipCheckhalf==leader){totalcountleader  = totalcountleader+10}
-    if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+20}
-    else if(IconConfig.IconPartnershipCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+10}
+    if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+10}
+    else if(IconConfig.IconPartnershipCheckhalf==leader){totalcountleader  = totalcountleader+5}
+    if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
+    else if(IconConfig.IconPartnershipCheckhalf==Partnership){totalcountPartnership  = totalcountPartnership+5}
     base.push(["支  合:",leader, Partnership])
 
     var ret_leader = ""
