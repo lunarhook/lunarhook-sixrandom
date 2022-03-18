@@ -164,8 +164,7 @@ class PartnershipNewPage extends React.Component {
                 maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangetimeleader}
                 format="HH:mm"
-                numberOfLines={100}
-                ellipsizeMode={'tail'}
+                itemStyle={{fontSize:18}}
               //itemStyle={{fontSize:9}}
               >
                 <List.Item arrow="horizontal">创始人时辰:</List.Item>
@@ -215,8 +214,7 @@ class PartnershipNewPage extends React.Component {
                 maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangetimePartnership}
                 format="HH:mm"
-                numberOfLines={100}
-                ellipsizeMode={'tail'}
+                itemStyle={{fontSize:18}}
               //itemStyle={{fontSize:9}}
               >
                 <List.Item arrow="horizontal">合伙人时辰:</List.Item>

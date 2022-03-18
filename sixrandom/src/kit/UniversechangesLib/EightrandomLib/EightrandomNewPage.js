@@ -143,9 +143,10 @@ class EightrandomNewPage extends React.Component {
                 minDate={new Date(1900, 1, 1)}
                 maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangeData}
-                format="YYYY-MM-DD"
-                numberOfLines={100} 
-                ellipsizeMode={'tail'}
+                format="Y-MM-DD"
+                itemStyle={{fontSize:18}}
+                //numberOfLines={100} 
+                //ellipsizeMode={'tail'}
                 //itemStyle={{fontSize:9}}
               >
                 <List.Item arrow="horizontal">生辰:</List.Item>

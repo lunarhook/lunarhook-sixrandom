@@ -162,9 +162,7 @@ class MarryNewPage extends React.Component {
                 //maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangetimemale}
                 format="HH:mm"
-                numberOfLines={100}
-                ellipsizeMode={'tail'}
-              //itemStyle={{fontSize:9}}
+                itemStyle={{fontSize:18}}
               >
                 <List.Item arrow="horizontal">男时辰:</List.Item>
               </DatePicker>
@@ -204,8 +202,7 @@ class MarryNewPage extends React.Component {
                 //maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangetimefemale}
                 format="HH:mm"
-                numberOfLines={100}
-                ellipsizeMode={'tail'}
+                itemStyle={{fontSize:18}}
               //itemStyle={{fontSize:9}}
               >
                 <List.Item arrow="horizontal">女时辰:</List.Item>
