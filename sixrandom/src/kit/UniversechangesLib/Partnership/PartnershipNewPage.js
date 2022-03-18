@@ -149,8 +149,6 @@ class PartnershipNewPage extends React.Component {
                 maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangeDataleader}
                 format="YYYY-MM-DD"
-                numberOfLines={100}
-                ellipsizeMode={'tail'}
               //itemStyle={{fontSize:9}}
               >
                 <List.Item arrow="horizontal">创始人生辰:</List.Item>
@@ -161,7 +159,6 @@ class PartnershipNewPage extends React.Component {
                 //value={new Date('1979-10-16 08:00:00')}
                 mode="time"
                 minDate={new Date(1900, 1, 1)}
-                maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangetimeleader}
                 format="HH:mm"
                 itemStyle={{fontSize:18}}
@@ -199,8 +196,6 @@ class PartnershipNewPage extends React.Component {
                 maxDate={new Date(2050, 12, 31)}
                 onChange={this.onChangeDataPartnership}
                 format="YYYY-MM-DD"
-                numberOfLines={100}
-                ellipsizeMode={'tail'}
               //itemStyle={{fontSize:9}}
               >
                 <List.Item arrow="horizontal">合伙人生辰:</List.Item>
@@ -211,7 +206,7 @@ class PartnershipNewPage extends React.Component {
                 //value={new Date('1979-10-16 08:00:00')}
                 mode="time"
                 minDate={new Date(1900, 1, 1)}
-                maxDate={new Date(2050, 12, 31)}
+
                 onChange={this.onChangetimePartnership}
                 format="HH:mm"
                 itemStyle={{fontSize:18}}
