@@ -709,38 +709,76 @@ class EightrandomModule extends React.Component {
         const shen = "木火土金水木火土金水"
         var index = Math.floor(daykey.indexOf(EightDate[4])/2)
         var assistindex = (index - 1 + 5)%5
-        const healthyongshen = "甲乙丙丁戊己庚辛壬癸子丑寅卯辰巳午未申酉戌亥"
-        const healthyongshenfive = "木木火火土土金金水水水土木木土火火土金金土水"
+        const testyongshen = "甲乙丙丁戊己庚辛壬癸子丑寅卯辰巳午未申酉戌亥"
+        const testyongshenfive = "木木火火土土金金水水水土木木土火火土金金土水"
         var testarray = "木火土金水"
+        var retainarray = ""
         for(var ii=0;ii<EightDate.length;ii++){
-            var indexx = healthyongshen.indexOf(EightDate[ii])
-            var five = healthyongshenfive[indexx]
+            var indexx = testyongshen.indexOf(EightDate[ii])
+            var five = testyongshenfive[indexx]
             if(-1!=testarray.indexOf(five))
             {
                 testarray = testarray.replace(five,"")
+                retainarray = retainarray + five
             }
         } 
-        if(testarray.length>0)
+        if(testarray.length==0)
         {
-            o.healthyongshen = testarray
+            //五行全，无通关
+        }
+        else if(testarray.length==1)
+        {
+            o.buyongshen = testarray
+        }else if(testarray.length==2){
+
+        }else if(testarray.length==3){
+            if(retainarray.indexOf("木金") || retainarray.indexOf("金木") )
+            {
+                o.passyonshen = "水"
+            }
+            else if(retainarray.indexOf("火金") || retainarray.indexOf("金火") )
+            {
+                o.passyongshen = "土"
+            }
+            else if(retainarray.indexOf("土水") || retainarray.indexOf("水土") )
+            {
+                o.passyongshen = "金"
+            }
+            else if(retainarray.indexOf("水火") || retainarray.indexOf("火水") )
+            {
+                o.passyongshen = "木"
+            }           
+            else if(retainarray.indexOf("土木") || retainarray.indexOf("木土") )
+            {
+                o.passyongshen = "火"
+            }
         }
 
         var testprecent = precent[assistindex]  + precent[index]
         if(testprecent>(264/2))
         {
+            //需要抑制先用官，没有则用食伤
             if(-1!=shishenkey.indexOf("正官")||-1!=shishenkey.indexOf("杀"))
             {
                 o.adjustyongshen = shen[(index+3)%5]+"抑"
-            }else{
+            }else if(-1!=shishenkey.indexOf("食")||-1!=shishenkey.indexOf("伤")){
                 o.adjustyongshen = shen[(index+1)%5]+"抑"
+            }else if(-1!=shishenkey.indexOf("财")||-1!=shishenkey.indexOf("才")){
+                o.adjustyongshen = shen[(index+2)%5]+"抑"
+            }else{
+                //这就入旺格了
             }
         }
         else{
+            //弱就要扶，先用印，无印用日元
             if(-1!=shishenkey.indexOf("印"))
             {
                 o.adjustyongshen =  shen[assistindex]+"扶"
             }
-            else{
+            else if(-1==shishenkey.indexOf("正官")||-1==shishenkey.indexOf("杀")){
+                //儿童化
+                o.adjustyongshen =  shen[index]+"(儿化)"
+            }else{
                 o.adjustyongshen =  shen[index]+"扶"
             }
         }
