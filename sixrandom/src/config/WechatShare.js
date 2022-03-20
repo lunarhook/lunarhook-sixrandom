@@ -360,6 +360,7 @@ class WechatShare extends React.Component {
   }
 
   snapshot(ref,ds,rthis){
+    return
     if (Platform.OS === 'ios' )
     {
       Alert.alert('截图分享\n','' ,[
@@ -417,19 +418,28 @@ class WechatShare extends React.Component {
       formattedDateString = year + '年' + month + '月' + date + '日 ' + hour + ':' + minute + ':' + second;  
       var keys = AppRegistry.getAppKeys();
       return(
-        <View style={{alignItems: 'center',justifyContent: 'center'}}>
-        <Image
-        style={{width:  128, height:128}}
-        source={{uri: shareimg[keys[1]]}}
-        />
-        <Text ></Text>
-        <Text >www.lunarhook.com</Text>
-        <Text ></Text>
-        <Text >{appname[keys[1]]} {Platform.OS.toUpperCase() + " " +  this.version}</Text>
-        <Text ></Text>
-        <Text >{formattedDateString}</Text>
-     
-        
+        <View style={{ justifyContent: 'space-around', flexDirection: "row" }}>
+          <View style={{ alignItems: 'center', justifyContent: 'center', alignself: 'flex-start' }}>
+            <Image
+              style={{ width: 128, height: 128 ,alignself: 'flex-start'  }}
+              source={{ uri: shareimg[keys[1]] }}
+            />
+            <Text ></Text>
+            <Text >www.lunarhook.com</Text>
+            <Text ></Text>
+            <Text >{appname[keys[1]]} {Platform.OS.toUpperCase() + " " + this.version}</Text>
+            <Text ></Text>
+            <Text >{formattedDateString}</Text>
+          </View>
+
+          <View style={{ alignItems:"center", justifyContent: 'flex-start' ,  alignself: 'flex-start' }}>
+            <Image
+              style={{ width: 128, height: 128,alignself: 'flex-start'   }}
+              source={{ uri: shareimg[keys[1]] }}
+            />
+
+          </View>
+
         </View>
       )
     }
