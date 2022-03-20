@@ -789,18 +789,18 @@ class EightrandomModule extends React.Component {
             {
                 o.yongshen = shen[assistindex]
                 o.xishen = shen[index]
-                o.xishen2 = " "
-                o.xianshen = " "
+                o.xishen2 = ""
+                o.xianshen = ""
                 o.jishen = shen[(index+2)%5]
-                o.jishen2 = " "
+                o.jishen2 = ""
                 o.choushen = shen[(index+1)%5]
             }else{
                 o.yongshen = shen[index]
                 o.xishen = shen[assistindex]
-                o.xishen2 = " "
+                o.xishen2 = ""
                 o.xianshen = shen[(index+1)%5]
                 o.jishen = shen[(index+3)%5]
-                o.jishen2 = " "
+                o.jishen2 = ""
                 o.choushen = shen[(index+2)%5]
             }
 
@@ -809,8 +809,8 @@ class EightrandomModule extends React.Component {
             {
                 o.yongshen = shen[(index+3)%5]
                 o.xishen = shen[(index+2)%5]
-                o.xishen2 = " "
-                o.xianshen = " "
+                o.xishen2 = ""
+                o.xianshen = ""
                 o.jishen = shen[(index+1)%5]
                 o.jishen2 = shen[index]
                 o.choushen = shen[assistindex]
@@ -819,9 +819,9 @@ class EightrandomModule extends React.Component {
                 o.yongshen = shen[(index+1)%5]
                 o.xishen = shen[(index+2)%5] 
                 o.xishen2 = shen[(index+3)%5]
-                o.xianshen = " "
+                o.xianshen = ""
                 o.jishen = shen[index]
-                o.jishen2 = " "
+                o.jishen2 = ""
                 o.choushen = shen[assistindex]
             }
         }
@@ -876,7 +876,7 @@ class EightrandomModule extends React.Component {
                     o.special = "旺用戊"
                     o.jishen = "木"
                     o.choushen = "水"
-                    o.jishen2 = " "
+                    o.jishen2 = ""
                 }
             }
         }
@@ -888,20 +888,20 @@ class EightrandomModule extends React.Component {
                     o.xishen = "水"
                     o.special = "甲木克戊水辅之"
                     o.jishen = "金"
-                    o.jishen2 = " "
+                    o.jishen2 = ""
                     o.choushen = "土"
                 } else if (-1 != test.indexOf("丙")  && -1 != test.indexOf("戊")) {
                     o.yongshen = "火"
                     o.xishen = "木"
                     o.special = "壬丙日照山河"
                     o.jishen = "水"
-                    o.jishen2 = " "
+                    o.jishen2 = ""
                     o.choushen = "金"
                 } else {
                     o.yongshen = "火"
                     o.xishen = "木"
                     o.jishen = "土"
-                    o.jishen2 = " "
+                    o.jishen2 = ""
                     o.choushen = "金"
                     o.special = "先甲后丙"
                 }

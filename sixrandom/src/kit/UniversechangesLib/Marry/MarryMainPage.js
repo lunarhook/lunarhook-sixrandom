@@ -967,11 +967,21 @@ class MarryMainPage extends React.Component {
     base.push(["身  旺:", testpowerselfmale, testpowerselffemale])
     base.push(["用  神:", yongshenmale.yongshen, yongshenfemale.yongshen])
     base.push(["喜  神:", yongshenmale.xishen, yongshenfemale.xishen])
-    base.push(["后  喜:", yongshenmale.xishen2, yongshenfemale.xishen2])
+    if(""!=yongshenmale.xishen2 || ""!=yongshenfemale.xishen2)
+    {
+      base.push(["后  喜:", yongshenmale.xishen2, yongshenfemale.xishen2])
+    }
     base.push(["忌  神:", yongshenmale.jishen, yongshenfemale.jishen])
-    base.push(["后  忌:", yongshenmale.jishen2, yongshenfemale.jishen2])
+    if(""!= yongshenmale.jishen2 || ""!=yongshenfemale.jishen2)
+    {
+      base.push(["后  忌:", yongshenmale.jishen2, yongshenfemale.jishen2])
+    }
     base.push(["仇  神:", yongshenmale.choushen, yongshenfemale.choushen])
-    base.push(["病  药:", undefined!=yongshenmale.healthyongshen?yongshenmale.healthyongshen:"", undefined!=yongshenfemale.healthyongshen?yongshenfemale.healthyongshen:""])
+    if(undefined!=yongshenmale.buyongshen || undefined!=yongshenfemale.buyongshen)
+    {
+      base.push(["病  药:", undefined!=yongshenmale.buyongshen?yongshenmale.buyongshen:"", undefined!=yongshenfemale.buyongshen?yongshenfemale.buyongshen:""])
+    
+    }
     base.push([ "扶  抑:", yongshenmale.adjustyongshen,yongshenfemale.adjustyongshen ])
     var maleyongshencheck = yongshenmale.yongshen + yongshenmale.xishen
     var femaleyongshencheck = yongshenfemale.yongshen + yongshenfemale.xishen

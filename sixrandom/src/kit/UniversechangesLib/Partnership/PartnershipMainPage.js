@@ -966,11 +966,23 @@ class PartnershiMainPage extends React.Component {
     base.push(["身  旺:", testpowerselfleader, testpowerselfPartnership])
     base.push(["用  神:", yongshenleader.yongshen, yongshenPartnership.yongshen])
     base.push(["喜  神:", yongshenleader.xishen, yongshenPartnership.xishen])
-    base.push(["后  喜:", yongshenleader.xishen2, yongshenPartnership.xishen2])
+    if(""!=yongshenleader.xishen2 || ""!=yongshenPartnership.xishen2)
+    {
+      base.push(["后  喜:", yongshenleader.xishen2, yongshenPartnership.xishen2])
+    }
+
     base.push(["忌  神:", yongshenleader.jishen, yongshenPartnership.jishen])
-    base.push(["后  忌:", yongshenleader.jishen2, yongshenPartnership.jishen2])
+    if(""!= yongshenleader.jishen2 || ""!=yongshenPartnership.jishen2)
+    {
+      base.push(["后  忌:", yongshenleader.jishen2, yongshenPartnership.jishen2])
+    }
+
     base.push(["仇  神:", yongshenleader.choushen, yongshenPartnership.choushen])
-    base.push(["病  药:", undefined!=yongshenleader.healthyongshen?yongshenleader.healthyongshen:"", undefined!=yongshenPartnership.healthyongshen?yongshenPartnership.healthyongshen:""])
+    if(undefined!=yongshenleader.buyongshen || undefined!=yongshenPartnership.buyongshen)
+    {
+      base.push(["病  药:", undefined!=yongshenleader.buyongshen?yongshenleader.buyongshen:"", undefined!=yongshenPartnership.buyongshen?yongshenPartnership.buyongshen:""])
+    
+    }
     base.push(["扶  抑:", yongshenleader.adjustyongshen,yongshenPartnership.adjustyongshen ])
     var leaderyongshencheck = yongshenleader.yongshen + yongshenleader.xishen
     var Partnershipyongshencheck = yongshenPartnership.yongshen + yongshenPartnership.xishen
@@ -1046,7 +1058,7 @@ class PartnershiMainPage extends React.Component {
       Partnership = IconConfig.IconPartnershipCheckfault
       leader = IconConfig.IconPartnershipCheckfault
     }
-    else if(-1!=kindsame.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[4])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[4])]))
+    else if(-1!=kindsame.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[4])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[4])]))
     {
       //天干相同半合
       leader = IconConfig.IconPartnershipCheckLeft
@@ -1094,6 +1106,7 @@ class PartnershiMainPage extends React.Component {
           leader = IconConfig.IconPartnershipCheck
         }
         else if(-1!=kindsame.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[5])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[5])])){
+          //比合就差一些
           Partnership = IconConfig.IconPartnershipCheckRight
           leader = IconConfig.IconPartnershipCheckLeft
         }
@@ -1103,6 +1116,14 @@ class PartnershiMainPage extends React.Component {
     else if(IconConfig.IconPartnershipCheckLeft==leader){totalcountleader  = totalcountleader+5}
     if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
     else if(IconConfig.IconPartnershipCheckRight==Partnership){totalcountPartnership  = totalcountPartnership+5}
+    if(-1!=hetest.indexOf(this.state.EightDateleader[5] + this.state.EightDatePartnership[5]))
+    {
+          //六合加分
+          totalcountleader  = totalcountleader+5
+          totalcountPartnership  = totalcountPartnership+5
+          Partnership = IconConfig.IconPartnershipCheckDiamond
+          leader = IconConfig.IconPartnershipCheckDiamond
+    }
     base.push(["支  合:",leader, Partnership])
 
     var ret_leader = ""
@@ -1245,6 +1266,14 @@ class PartnershiMainPage extends React.Component {
     else if(IconConfig.IconPartnershipCheckLeft==leader){totalcountleader  = totalcountleader+10}
     if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+20}
     else if(IconConfig.IconPartnershipCheckRight==Partnership){totalcountPartnership  = totalcountPartnership+10}
+    if(-1!=hetest.indexOf(this.state.EightDateleader[3] + this.state.EightDatePartnership[3]))
+    {
+          //六合加分
+          totalcountleader  = totalcountleader+5
+          totalcountPartnership  = totalcountPartnership+5
+          Partnership = IconConfig.IconPartnershipCheckDiamond
+          leader = IconConfig.IconPartnershipCheckDiamond
+    }
     base.push(["月  合:", leader, Partnership])
 
 
@@ -1272,11 +1301,18 @@ class PartnershiMainPage extends React.Component {
         }
       }
     }
-
     if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+10}
     else if(IconConfig.IconPartnershipCheckLeft==leader){totalcountleader  = totalcountleader+5}
     if(IconConfig.IconPartnershipCheck==Partnership){totalcountPartnership  = totalcountPartnership+10}
     else if(IconConfig.IconPartnershipCheckRight==Partnership){totalcountPartnership  = totalcountPartnership+5}
+    if(-1!=hetest.indexOf(this.state.EightDateleader[1] + this.state.EightDatePartnership[1]))
+    {
+          //六合加分
+          totalcountleader  = totalcountleader+5
+          totalcountPartnership  = totalcountPartnership+5
+          Partnership = IconConfig.IconPartnershipCheckDiamond
+          leader = IconConfig.IconPartnershipCheckDiamond
+    }
     base.push(["象  合:", leader, Partnership])
     base.push(["评  分:", totalcountleader>100?IconConfig.IconMarryDiamond:totalcountleader, totalcountPartnership>100?IconConfig.IconMarryDiamond:totalcountPartnership])
     base.push(["合伙评分60以上为适合合伙"])

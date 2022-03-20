@@ -205,17 +205,17 @@ class IconConfig extends React.Component {
   static IconFontLarge = (<EvilIcons name="plus" size={buttonsize} color={green} />)
   static IconFontDefault = (<EvilIcons name="refresh" size={size} color={green} />)
   static IconFontResize = (<MaterialCommunityIcons name="undo-variant" size={size - 7} color={blue} />)
-  static IconTipFire = (<Ionicons name="bonfire-outline" size={size - 11} color={fire} />)
-  static IconMarryCheck = (<Ionicons name="heart" size={size-11 } color={fire} />)
-  static IconMarryCheckhalf = (<Ionicons name="heart-half" size={size-11 } color={fire} />)
-  static IconMarryCheckfault = (<Ionicons name="heart-dislike-outline" size={size-11 } color={fire} />)
-  static IconMarryDiamond = (<FontAwesome name="diamond" size={size-11 } color={startblue} />)
-  static IconPartnershipCheck =   [<Ionicons name="person" size={size-11 } color={fire} />,<Ionicons name="person" size={size-11 } color={fire} />]
-  static IconPartnershipCheckhalf = [<Ionicons name="person" size={size-11 } color={fire} />,<Ionicons name="person-outline" size={size-11 } color={fire} />]
-  static IconPartnershipCheckLeft = [<Ionicons name="person" size={size-11 } color={fire} />,<Ionicons name="person-outline" size={size-11 } color={fire} />]
-  static IconPartnershipCheckRight = [<Ionicons name="person-outline" size={size-11 } color={fire} />,<Ionicons name="person" size={size-11 } color={fire} />]
-  static IconPartnershipCheckfault = [<Ionicons name="person-outline" size={size-11 } color={fire} />,<Ionicons name="person-outline" size={size-11 } color={fire} />]
-  static IconPartnership = [<FontAwesome name="handshake-o" size={size } color={fire} />]
+  static IconTipFire = (<Ionicons name="bonfire-outline" size={size - 8} color={fire} />)
+  static IconMarryCheck = (<Ionicons name="heart" size={size-8 } color={fire} />)
+  static IconMarryCheckhalf = (<Ionicons name="heart-half" size={size-8 } color={fire} />)
+  static IconMarryCheckfault = (<Ionicons name="heart-dislike-outline" size={size-8 } color={fire} />)
+  static IconMarryDiamond = (<FontAwesome name="diamond" size={size-8 } color={startblue} />)
+  static IconPartnershipCheckDiamond =   <FontAwesome name="diamond" size={size-8 } color={startblue} />
+  static IconPartnershipCheck =  (<Ionicons name="heart" size={size-8 } color={fire} />)
+  static IconPartnershipCheckhalf = (<Ionicons name="heart-half" size={size-8 } color={fire} />)
+  static IconPartnershipCheckLeft = (<Ionicons name="heart-half" size={size-8 } color={fire} />)
+  static IconPartnershipCheckRight =(<Ionicons name="heart-half" size={size-8 } color={fire} />)
+  static IconPartnershipCheckfault = (<Ionicons name="heart-dislike-outline" size={size-8 } color={fire} />)
   static colorgreen = green
   static colorclaygreen = claygreen
   static colorred = red
