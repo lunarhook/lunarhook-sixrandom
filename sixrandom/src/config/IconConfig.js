@@ -139,7 +139,7 @@ class IconConfig extends React.Component {
   static IconQQLogin = (<Entypo name="qq" size={size} color="#06F" />)
   static IconQuestList = (<MaterialCommunityIcons name="attachment" size={size} color="#06F" />)
   static IconAddTip = (<FontAwesome name="sticky-note-o" size={midsize} color={green} />)
-  static IconDelete = (<AntDesign name="delete" size={midsize} color={fire} />)
+  static IconDelete = (<AntDesign name="delete" size={size} color={fire} />)
   static IconAddStar = (<AntDesign name="staro" size={midsize} color={gold} />)
   static IconStar = (<AntDesign name="star" size={16} color={gold} key="" />)
   static IconUStar = (<AntDesign name="staro" size={16} color={gray} />)

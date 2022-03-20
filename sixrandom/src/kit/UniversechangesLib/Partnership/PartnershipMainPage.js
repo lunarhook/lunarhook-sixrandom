@@ -1020,7 +1020,7 @@ class PartnershiMainPage extends React.Component {
     壬 丁丙戊己 
     癸 戊丁己丙
     */
-    //日元不能相互克，除非男克女，旺衰对冲则用神相同
+    //日元不能相互克
     //日元天干化合为喜用最佳
     var leader = IconConfig.IconPartnershipCheckfault
     var Partnership = IconConfig.IconPartnershipCheckfault
@@ -1045,6 +1045,12 @@ class PartnershiMainPage extends React.Component {
       //天干相克不合
       Partnership = IconConfig.IconPartnershipCheckfault
       leader = IconConfig.IconPartnershipCheckfault
+    }
+    else if(-1!=kindsame.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[4])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[4])]))
+    {
+      //天干相同半合
+      leader = IconConfig.IconPartnershipCheckLeft
+      Partnership = IconConfig.IconPartnershipCheckRight
     }
     //日元印生，同强同弱用神不冲突
     else if (-1 != kindassist.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[4])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[4])]) || dayfive[daykey.indexOf(this.state.EightDateleader[4])] == dayfive[daykey.indexOf(this.state.EightDatePartnership[4])]) {
@@ -1260,6 +1266,10 @@ class PartnershiMainPage extends React.Component {
         //地支五行不克且不刑冲
         leader = IconConfig.IconPartnershipCheck
         Partnership = IconConfig.IconPartnershipCheck
+        if(-1!=kindsame.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[1])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[1])])){
+          Partnership = IconConfig.IconPartnershipCheckRight
+          leader = IconConfig.IconPartnershipCheckLeft
+        }
       }
     }
 
@@ -1269,8 +1279,9 @@ class PartnershiMainPage extends React.Component {
     else if(IconConfig.IconPartnershipCheckRight==Partnership){totalcountPartnership  = totalcountPartnership+5}
     base.push(["象  合:", leader, Partnership])
     base.push(["评  分:", totalcountleader>100?IconConfig.IconMarryDiamond:totalcountleader, totalcountPartnership>100?IconConfig.IconMarryDiamond:totalcountPartnership])
-    base.push(["合伙评分65-75以上为适合合伙"])
-    base.push(["顺序重点为元 神 支 音 年 月 象"])
+    base.push(["合伙评分60以上为适合合伙"])
+    base.push(["元 神 支看彼此关系"])
+    base.push(["音 年 月 象看两人周边关系"])
     base.push(["合伙主要判断人际关系和独立程度"])
     Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 1000, useNativeDriver: true }), Animated.delay(1000), Animated.timing(this.state.fadeInOpacity, { toValue: 0.3, duration: 1000, useNativeDriver: true })]).start()
     return (
