@@ -19,6 +19,21 @@ import slogan from './src/slogan'
 import CalendarPage from './src/CalendarPage';
 import SearchPage from './src/tools/SearchPage'
 
+import ExplorationPage from './src/exploration/TreeHole/ExplorationPage'
+/*
+import ExplorationDetailPage from './src/exploration/TreeHole/ExplorationDetailPage'
+import ExplorationAnswerPage from './src/exploration/TreeHole/ExplorationAnswerPage'
+import ExplorationAskPage from './src/exploration/TreeHole/ExplorationAskPage'
+import NightPage from './src/exploration/NightFireSide/NightPage'
+import NightDetailPage from './src/exploration/NightFireSide/NightDetailPage'
+import ChatPage from './src/exploration/Chat/ChatPage'
+import ConfidePage from './src/exploration/Chat/ConfidePage'
+import { LunaranswerPage } from './src/exploration/LunarcommunityLib/LunaranswerPage'
+import LunarConsultantListPage from './src/exploration/LunarcommunityLib/LunarConsultantListPage'
+import ConsultantDetailPage from './src/exploration/LunarcommunityLib/ConsultantDetailPage'
+import ConsultantChatPage from './src/exploration/LunarcommunityLib/ConsultantChatPage'
+*/
+
 import SixrandomNewPage from './src/kit/UniversechangesLib/SixrandomLib/SixrandomNewPage';
 import SixrandomFullInfoPage from './src/kit/UniversechangesLib/SixrandomLib/SixrandomFullInfoPage'
 import SixrandomHistoryPage from './src/kit/UniversechangesLib/SixrandomLib/SixrandomHistoryPage';
@@ -151,6 +166,78 @@ if (__DEV__) {
   setJSExceptionHandler(exceptionhandler, true);
 }
 
+
+
+const ExplorationTab = createBottomTabNavigator(
+  {
+   // NightPage: NightPage,
+    ExplorationPage: ExplorationPage,
+  //  ChatPage: ChatPage,
+
+    //LunarConsultantListPage:LunarConsultantListPage,
+    LunaranswerPageFake: createStackNavigator(
+      { "LunaranswerPageFake": "我想咨询" },
+      {
+        navigationOptions: ({ navigation }) => ({
+          title: RouteConfig["LunaranswerPageFake"].name,
+        })
+      }),
+    //先关闭私信功能 ConfidePage:ConfidePage,
+  },
+  /*
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        //console.log("routeName",routeName)
+        return RouteConfig[routeName].icon;
+      },
+      tabBarOnPress: (nv) => {
+        const { routeName } = navigation.state;
+
+        if ("LunaranswerPageFake" == routeName) {
+          navigation.navigate("LunaranswerPage")
+        }
+        else {
+          console.log("tabBarOnPress", routeName)
+          nv.defaultHandler();
+        }
+      }
+    }),
+
+    navigationOptions: ({ navigation }) => ({
+      //title: RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].titlename + " - " + RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].name,
+      title: "知否"
+    }),
+
+    tabBarOptions: {
+      activeTintColor: '#000000',
+      inactiveTintColor: '#000000',
+      scrollEnabled: true,
+      showIcon: true,
+      labelStyle: {
+        backgroundColor: '#ffffff',
+        fontSize: 12,
+        color: '#000000',
+        //height: 60,
+      },
+      Style: {
+        backgroundColor: '#ffffff',
+        //height: 100,
+      },
+      tabStyle: {
+        width: ScreenConfig.__screenW() / 2,
+        backgroundColor: '#ffffff',
+        // height: 100,
+      },
+    },
+    */
+    //tabBarPosition: 'top',
+    //swipeEnabled:true,
+  //}
+  )
+  
+
 const MainPage = createBottomTabNavigator({
 
   CalendarPageFake: createStackNavigator(
@@ -161,9 +248,19 @@ const MainPage = createBottomTabNavigator({
       })
     }
   ),
+
   //CalendarPage: { screen: CalendarPage },
+  /*
+  ExplorationTab: {
+    screen: ExplorationTab,
+    navigationOptions: () => ({
+      headerBackTitle: RouteConfig["ExplorationTab"].titlename
+    }),
+  },
+  */
   kitPage: { screen: kitPage },
   LunarMasterPage: { screen: LunarMasterPage },
+  //ExplorationTab,
   MyPageFake: createStackNavigator(
     { "MyPageFake": "我的" },
     {
@@ -253,6 +350,28 @@ const MainPage = createBottomTabNavigator({
 const sixrandom = createStackNavigator({
 
   MainPage,
+
+  //  树洞社区
+  //ExplorationPage: { screen:ExplorationPage},
+  /*
+  ExplorationDetailPage: { screen:ExplorationDetailPage},
+  //  参与话题
+  ExplorationAnswerPage: { screen:ExplorationAnswerPage},
+  //  提个话题
+  ExplorationAskPage: { screen:ExplorationAskPage},
+  //  围炉夜话
+  NightPage: { screen:NightPage},
+  NightDetailPage:{ screen: NightDetailPage},
+  //  私信通知
+  ConfidePage:{ screen: ConfidePage},
+  ChatPage:{ screen: ChatPage},
+  //生活咨询
+  LunaranswerPage: { screen: LunaranswerPage },
+  LunarConsultantListPage: { screen: LunarConsultantListPage },
+  ConsultantDetailPage: ConsultantDetailPage,
+  ConsultantChatPage: ConsultantChatPage,
+  */
+
   CalendarPage: { screen: CalendarPage },
   NumberMainPage: { screen: NumberMainPage },
   SixrandomHistoryPage: { screen: SixrandomHistoryPage },
@@ -272,8 +391,6 @@ const sixrandom = createStackNavigator({
   PartnershipMainPage:{screen:PartnershipMainPage},
   PartnershipNewPage:{screen:PartnershipNewPage},
   PartnershipHistoryPage:{screen:PartnershipHistoryPage},
-  //kitPage:{screen:kitPage},
-  //kitExplorationPage:{screen:kitExplorationPage},
   kitConfigPage: { screen: kitConfigPage },
   SixCourseNewPage: { screen: SixCourseNewPage },
   SixCourseMainPage: { screen: SixCourseMainPage },
