@@ -360,7 +360,6 @@ class WechatShare extends React.Component {
   }
 
   snapshot(ref,ds,rthis){
-    return
     if (Platform.OS === 'ios' )
     {
       Alert.alert('截图分享\n','' ,[
@@ -435,9 +434,11 @@ class WechatShare extends React.Component {
           <View style={{ alignItems:"center", justifyContent: 'flex-start' ,  alignself: 'flex-start' }}>
             <Image
               style={{ width: 128, height: 128,alignself: 'flex-start'   }}
-              source={{ uri: shareimg[keys[1]] }}
+              source={{ uri: shareimg["weibo"] }}
             />
-
+            <Text ></Text>
+            <Text >微博社区二维码</Text>
+            <Text ></Text>
           </View>
 
         </View>
