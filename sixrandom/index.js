@@ -20,11 +20,12 @@ import CalendarPage from './src/CalendarPage';
 import SearchPage from './src/tools/SearchPage'
 
 import ExplorationPage from './src/exploration/TreeHole/ExplorationPage'
+import NightPage from './src/exploration/NightFireSide/NightPage'
 /*
 import ExplorationDetailPage from './src/exploration/TreeHole/ExplorationDetailPage'
 import ExplorationAnswerPage from './src/exploration/TreeHole/ExplorationAnswerPage'
 import ExplorationAskPage from './src/exploration/TreeHole/ExplorationAskPage'
-import NightPage from './src/exploration/NightFireSide/NightPage'
+
 import NightDetailPage from './src/exploration/NightFireSide/NightDetailPage'
 import ChatPage from './src/exploration/Chat/ChatPage'
 import ConfidePage from './src/exploration/Chat/ConfidePage'
@@ -168,13 +169,15 @@ if (__DEV__) {
 
 
 
-const ExplorationTab = createBottomTabNavigator(
+const Exploration = createBottomTabNavigator(
   {
-   // NightPage: NightPage,
-    ExplorationPage: ExplorationPage,
-  //  ChatPage: ChatPage,
+  LunarMasterPage: { screen: LunarMasterPage },
+  //NightPage: NightPage,
 
-    //LunarConsultantListPage:LunarConsultantListPage,
+  //ExplorationPage: { screen:ExplorationPage},
+  //  ChatPage: ChatPage,
+  //LunarConsultantListPage:LunarConsultantListPage,
+  /*
     LunaranswerPageFake: createStackNavigator(
       { "LunaranswerPageFake": "我想咨询" },
       {
@@ -183,7 +186,82 @@ const ExplorationTab = createBottomTabNavigator(
         })
       }),
     //先关闭私信功能 ConfidePage:ConfidePage,
+  */
   },
+  {
+    initialRouteName: 'LunarMasterPage',
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        //console.log("routeName",routeName)
+        return RouteConfig[routeName].icon;
+      },
+      tabBarOnPress: (nv) => {
+        const { routeName } = navigation.state;
+
+        if ("CalendarPageFake" == routeName) {
+          navigation.navigate("CalendarPage")
+        }
+        else if ("MyPageFake" == routeName) {
+          navigation.navigate("MyPage")
+        }
+        else if ("ExplorationFake" == routeName) {
+          navigation.navigate("Exploration")
+        }
+        else {
+          console.log("tabBarOnPress", routeName)
+          nv.defaultHandler();
+        }
+      },
+      headerRight: <View />,
+      headerLeft: <View />
+    }),
+    navigationOptions: ({ navigation }) => ({
+      title: RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].titlename,
+      //headerLeft: () => (<></>),
+      headerRight: () => {
+        if (undefined != navigation.state) {
+          var curpage = navigation.state.routes[navigation.state.index].routeName
+          if ("kitPage" == curpage) {
+            return (<Menu style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}>
+              <MenuTrigger>{RouteConfig['kitConfigPage'].icon}</MenuTrigger>
+              <MenuOptions style={{ width: 175, flex: 1 }}>
+                <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig['kitConfigPage'].route)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", height: 30, width: 30 }}>{RouteConfig['kitConfigPage'].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig['kitConfigPage'].name}</Text></MenuOption>
+                <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig["SearchPage"].route)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{RouteConfig["SearchPage"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["SearchPage"].name + "支持"}</Text></MenuOption>
+                <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => kitPage.ShareInstance().onBussion("service", navigation.navigate)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{RouteConfig["service"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["service"].name}</Text></MenuOption>
+                <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => kitPage.ShareInstance().setState({ less: !kitPage.ShareInstance().state.less })}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{IconConfig.IconFirstUserFace}</Text><Text style={{ paddingLeft: 20 }}>{"引导页面"}</Text></MenuOption>
+              </MenuOptions>
+            </Menu>)
+          } else if ("CalendarPage" == curpage) {
+            recover = (navigation.state.routes[navigation.state.index]).params
+            if (undefined != recover) {
+              recover = recover.otherParam
+            }
+            else {
+              recover = false
+            }
+            return (
+              <TouchableOpacity
+                style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}
+                //onPress={() => navigate('Search')}
+                onPress={() => CalendarPage.ShareInstance().today()}>
+                {(false == recover) ? (null) : IconConfig.ReCover}
+              </TouchableOpacity>)
+          } else if ("LunarMasterPage" == curpage) {
+            return (
+              <TouchableOpacity
+                style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}
+                //onPress={() => navigate('Search')}
+                onPress={() => navigation.navigate(RouteConfig["LunarCoursePage"].route)}>{IconConfig.IconBooks}
+              </TouchableOpacity>)
+          } else if ("MyPage" == curpage) {
+            return (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => MyPage.ShareInstance().compontupdate()} />)
+          }
+        }
+        return (<></>)
+      }
+    }),
+  }
   /*
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -248,19 +326,15 @@ const MainPage = createBottomTabNavigator({
       })
     }
   ),
-
-  //CalendarPage: { screen: CalendarPage },
-  /*
-  ExplorationTab: {
-    screen: ExplorationTab,
-    navigationOptions: () => ({
-      headerBackTitle: RouteConfig["ExplorationTab"].titlename
-    }),
-  },
-  */
   kitPage: { screen: kitPage },
-  LunarMasterPage: { screen: LunarMasterPage },
-  //ExplorationTab,
+
+  ExplorationFake: createStackNavigator(
+    { "ExplorationFake": "知否" },
+    {
+      navigationOptions: ({ navigation }) => ({
+        title: RouteConfig["ExplorationFake"].name,
+      })
+    }),
   MyPageFake: createStackNavigator(
     { "MyPageFake": "我的" },
     {
@@ -286,8 +360,8 @@ const MainPage = createBottomTabNavigator({
         else if ("MyPageFake" == routeName) {
           navigation.navigate("MyPage")
         }
-        else if ("ExplorationTabFake" == routeName) {
-          navigation.navigate("ExplorationTab")
+        else if ("ExplorationFake" == routeName) {
+          navigation.navigate("Exploration")
         }
         else {
           console.log("tabBarOnPress", routeName)
@@ -350,7 +424,7 @@ const MainPage = createBottomTabNavigator({
 const sixrandom = createStackNavigator({
 
   MainPage,
-
+  NightPage: { screen:NightPage},
   //  树洞社区
   //ExplorationPage: { screen:ExplorationPage},
   /*
@@ -360,7 +434,7 @@ const sixrandom = createStackNavigator({
   //  提个话题
   ExplorationAskPage: { screen:ExplorationAskPage},
   //  围炉夜话
-  NightPage: { screen:NightPage},
+
   NightDetailPage:{ screen: NightDetailPage},
   //  私信通知
   ConfidePage:{ screen: ConfidePage},
@@ -371,7 +445,7 @@ const sixrandom = createStackNavigator({
   ConsultantDetailPage: ConsultantDetailPage,
   ConsultantChatPage: ConsultantChatPage,
   */
-
+  Exploration,
   CalendarPage: { screen: CalendarPage },
   NumberMainPage: { screen: NumberMainPage },
   SixrandomHistoryPage: { screen: SixrandomHistoryPage },

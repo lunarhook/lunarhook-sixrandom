@@ -15,8 +15,8 @@ import IconConfig from './IconConfig'
 RouteConfig={
     "MainPage":{"name":"月如钩","titlename":"知否","route":"MainPage","icon":IconConfig.IconLunarConfide},
     //社区是所有流量和需求的大入口，社区对沟通的需求是巨大的，必须免费获得流量
-    "ExplorationTab":{"name":"知否","titlename":"知否","route":"ExplorationTab","icon":IconConfig.IconLunarConfide},
-    "ExplorationTabFake":{"name":"知否","titlename":"知否","route":"ExplorationTab","icon":IconConfig.IconLunarConfide},
+    "Exploration":{"name":"知否","titlename":"知否","route":"Exploration","icon":IconConfig.IconLunarCourse},
+    "ExplorationFake":{"name":"知否","titlename":"知否","route":"Exploration","icon":IconConfig.IconLunarCourse},
         "NightPage":{"name":"夜话","titlename":"知否","route":"NightPage","icon":IconConfig.IconLunarConfide},
             "NightDetailPage":{"name":"夜话","titlename":"知否","route":"NightDetailPage","icon":IconConfig.IconNightFm},
         "ExplorationPage":{"name":"树洞","titlename":"知否","route":"ExplorationPage","icon":IconConfig.IconNightFm},   

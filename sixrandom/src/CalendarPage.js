@@ -1,22 +1,18 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, Animated, AppRegistry, FlatList, Image, Dimensions, DeviceEventEmitter, TouchableOpacity, Platform, PermissionsAndroid } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, Animated, AppRegistry, FlatList, Image, Dimensions, TouchableOpacity } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-import { Calendar, CalendarList, LocaleConfig } from 'react-native-calendars';
-import { Modal } from '@ant-design/react-native';
+import { Calendar, LocaleConfig } from 'react-native-calendars';
 import RouteConfig from './config/RouteConfig';
 import IconConfig from './config/IconConfig';
 import ScreenConfig from './config/ScreenConfig';
 import { FontStyleConfig } from './config/StyleConfig';
 import WechatShare from './config/WechatShare'
 import NetModule from './net/NetModule'
-import { appinfo, appname } from './config/appinfo'
 import { SixrandomModule } from './kit/UniversechangesLib/SixrandomLib/SixrandomModule'
 import UniversechangesConfig from './kit/UniversechangesLib/UniversechangesConfig';
 import { WhiteSpace, Card, WingBlank } from '@ant-design/react-native'
 import { HistoryArrayGroup } from './config/StorageModule'
-import RNExitApp from 'react-native-exit-app';
-import { useNavigation } from '@react-navigation/native';
 HistoryArrayGroup.init()
 
 
@@ -216,13 +212,14 @@ class CalendarPage extends React.Component {
   }
 
   renderTabbar() {
+        /*
     const { navigate } = this.props.navigation;
     var keys = AppRegistry.getAppKeys();
     ExplorationTab = (<TabNavigator.Item
-      title={RouteConfig["ExplorationTab"].name}
-      renderIcon={() => RouteConfig["ExplorationTab"].icon}
+      title={RouteConfig["Exploration"].name}
+      renderIcon={() => RouteConfig["Exploration"].icon}
       //renderSelectedIcon={() => IconConfig.IconDvinationSel}
-      onPress={() => navigate(RouteConfig["ExplorationTab"].route)}
+      onPress={() => navigate(RouteConfig["Exploration"].route)}
       titleStyle={StyleConfig.menufont}>
     </TabNavigator.Item>)
     kitPage = (<TabNavigator.Item
@@ -248,7 +245,7 @@ class CalendarPage extends React.Component {
         onPress={() => navigate(RouteConfig["MyPage"].route)}
         titleStyle={StyleConfig.menufont}>
       </TabNavigator.Item>)
-    /*
+
       if ("sixrandom" == keys) {
         return (
           <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>

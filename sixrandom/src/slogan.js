@@ -62,7 +62,7 @@ class slogan extends React.Component {
     var wanNianLiInfo = SixrandomModule.lunarsix();
     var curtimelucky = wanNianLiInfo.info.gzTime
     var imgindex = this.imgtime[curtimelucky[1]]
-    Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 2000 ,useNativeDriver: true}), Animated.delay(3000), Animated.timing(this.state.fadeInOpacity, { toValue: 0, duration: 1000 ,useNativeDriver: true})]).start()
+    Animated.sequence([Animated.timing(this.state.fadeInOpacity, { toValue: 1, duration: 2000 ,useNativeDriver: true}), Animated.delay(1500), Animated.timing(this.state.fadeInOpacity, { toValue: 0, duration: 1000 ,useNativeDriver: true})]).start()
     var cur = Math.floor(Math.random() * 10000)
     var item = sloganshow.getitem(cur)
     return (
