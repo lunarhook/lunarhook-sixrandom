@@ -971,7 +971,7 @@ class PartnershiMainPage extends React.Component {
     base.push(["后  忌:", yongshenleader.jishen2, yongshenPartnership.jishen2])
     base.push(["仇  神:", yongshenleader.choushen, yongshenPartnership.choushen])
     base.push(["病  药:", undefined!=yongshenleader.healthyongshen?yongshenleader.healthyongshen:"", undefined!=yongshenPartnership.healthyongshen?yongshenPartnership.healthyongshen:""])
-    base.push(["调  候:", yongshenleader.adjustyongshen,yongshenPartnership.adjustyongshen ])
+    base.push(["扶  抑:", yongshenleader.adjustyongshen,yongshenPartnership.adjustyongshen ])
     var leaderyongshencheck = yongshenleader.yongshen + yongshenleader.xishen
     var Partnershipyongshencheck = yongshenPartnership.yongshen + yongshenPartnership.xishen
     //喜忌相同互助
