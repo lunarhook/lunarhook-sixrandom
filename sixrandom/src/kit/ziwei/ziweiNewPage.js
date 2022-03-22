@@ -43,12 +43,22 @@ class ziweiNewPage extends React.Component {
     
   };
 
-    onChange = (value: any) => {
-        console.log(value);
-        this.setState({ value });
-        var selecttime = new Date(value)
-        this.setState({datepicker:selecttime})
-      }
+
+  onChangeData = (value: any) => {
+    console.log(value);
+    var cur = new Date(value)
+    this.setState({ value:cur });
+    var selecttime = new Date(cur)
+    this.setState({ datepicker: selecttime })
+  }
+
+  onChangetime = (value: any) => {
+    console.log(value);
+    var cur = new Date(value)
+    this.setState({ value:cur });
+    var selecttime = new Date(cur)
+    this.setState({ datepicker: selecttime })
+  }
 
   render()
   {
@@ -66,15 +76,29 @@ class ziweiNewPage extends React.Component {
               <Text></Text>
               <List style={styles.inputpicker}>
               <DatePicker
-                backgroundColor='#ff00ff'
-                value={this.state.value}
-                mode="datetime"
-                minDate={new Date(1950, 1, 1)}
-                //maxDate={new Date(2026, 11, 3)}
-                onChange={this.onChange}
-                format="YYYY-MM-DD-HH"
-              >
-            <List.Item arrow="horizontal">紫薇生辰:</List.Item>
+              backgroundColor='#ff00ff'
+              value={this.state.value}
+              mode="date"
+              minDate={new Date(1900, 1, 1)}
+              maxDate={new Date(2050, 12, 31)}
+              onChange={this.onChangeData}
+              format="Y-MM-DD"
+              itemStyle={{fontSize:18}}
+            >
+              <List.Item arrow="horizontal">紫薇日期:</List.Item>
+            </DatePicker>
+            <DatePicker
+              backgroundColor='#ff00ff'
+              value={this.state.value}
+              mode="time"
+              minDate={new Date(1900, 1, 1)}
+              //maxDate={new Date(2050, 12, 31)}
+              onChange={this.onChangetime}
+              format="HH:mm"
+              numberOfLines={100} 
+              ellipsizeMode={'tail'}
+            >
+              <List.Item arrow="horizontal">紫薇时间:</List.Item>
             </DatePicker>
             <List.Item
                 extra={

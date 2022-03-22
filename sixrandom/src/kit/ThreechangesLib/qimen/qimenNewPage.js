@@ -49,10 +49,20 @@ class qimenNewPage extends React.Component {
 
   };
 
-  onChange = (value: any) => {
+
+  onChangeData = (value: any) => {
     console.log(value);
-    this.setState({ value });
-    var selecttime = new Date(value)
+    var cur = new Date(value)
+    this.setState({ value:cur });
+    var selecttime = new Date(cur)
+    this.setState({ datepicker: selecttime })
+  }
+
+  onChangetime = (value: any) => {
+    console.log(value);
+    var cur = new Date(value)
+    this.setState({ value:cur });
+    var selecttime = new Date(cur)
     this.setState({ datepicker: selecttime })
   }
 
@@ -70,18 +80,31 @@ class qimenNewPage extends React.Component {
           <TextareaItem style={styles.input} placeholder="简单记录您的问题，用于奇门记录结果" rows={2} count={140} onChangeText={(text) => this.setState({ Tip: text })} />
           <Text></Text>
           <List style={styles.inputpicker}>
+          <DatePicker
+              backgroundColor='#ff00ff'
+              value={this.state.value}
+              mode="date"
+              minDate={new Date(1900, 1, 1)}
+              maxDate={new Date(2050, 12, 31)}
+              onChange={this.onChangeData}
+              format="Y-MM-DD"
+              itemStyle={{fontSize:18}}
+            >
+              <List.Item arrow="horizontal">奇门日期:</List.Item>
+            </DatePicker>
             <DatePicker
               backgroundColor='#ff00ff'
               value={this.state.value}
-              mode="datetime"
-              minDate={new Date(1950, 1, 1)}
-              //maxDate={new Date(2026, 11, 3)}
-              onChange={this.onChange}
-              format="YYYY-MM-DD-HH"
+              mode="time"
+              minDate={new Date(1900, 1, 1)}
+              //maxDate={new Date(2050, 12, 31)}
+              onChange={this.onChangetime}
+              format="HH:mm"
+              numberOfLines={100} 
+              ellipsizeMode={'tail'}
             >
               <List.Item arrow="horizontal">奇门时间:</List.Item>
             </DatePicker>
-
             <List.Item
               extra={
                 <Switch
