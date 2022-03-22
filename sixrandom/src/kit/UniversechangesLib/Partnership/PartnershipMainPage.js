@@ -1102,6 +1102,7 @@ class PartnershiMainPage extends React.Component {
         //日支最好是生，和日元完全相反，同半，克最差，但是生也不能刑，比如子卯
         if(-1!=kindassist.indexOf(earthfive[earthkey.indexOf(this.state.EightDateleader[5])] + earthfive[earthkey.indexOf(this.state.EightDatePartnership[5])]))
         {
+          //助加分
           Partnership = IconConfig.IconPartnershipCheck
           leader = IconConfig.IconPartnershipCheck
         }
@@ -1205,8 +1206,19 @@ class PartnershiMainPage extends React.Component {
         }
       }
     else if (-1 == kind.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[0])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[0])])) {
+      //比同合
       leader = IconConfig.IconPartnershipCheck
       Partnership = IconConfig.IconPartnershipCheck
+    }else if (-1 == kindassistleader.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[0])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[0])])) {
+      //助创始人加分
+      leader = IconConfig.IconPartnershipCheck
+      Partnership = IconConfig.IconPartnershipCheck
+      totalcountleader  = totalcountleader+5
+    }else if (-1 == kindassistPartnership.indexOf(dayfive[daykey.indexOf(this.state.EightDateleader[0])] + dayfive[daykey.indexOf(this.state.EightDatePartnership[0])])) {
+      //助合伙人加分
+      leader = IconConfig.IconPartnershipCheck
+      Partnership = IconConfig.IconPartnershipCheck
+      totalcountPartnership  = totalcountPartnership+5
     }
     if(IconConfig.IconPartnershipCheck==leader){totalcountleader  = totalcountleader+10}
     else if(IconConfig.IconPartnershipCheckLeft==leader){totalcountleader  = totalcountleader+5}

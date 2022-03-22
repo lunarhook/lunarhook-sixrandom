@@ -366,7 +366,7 @@ class EightrandomModule extends React.Component {
         }else if(-1!=ret.indexOf("得令") && countget>2)
         {
             ret = "身强"
-        }else if(-1!=ret.indexOf("得令") && countget>1)
+        }else if(-1!=ret.indexOf("得令") && countget>=1)
         {
             ret = "身强"
             var test = precent[assistindex]  + precent[index]

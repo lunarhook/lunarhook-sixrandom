@@ -1200,13 +1200,13 @@ class MarryMainPage extends React.Component {
       //日支不能刑冲
       if (-1 == congtest.indexOf(this.state.EightDatemale[5] + this.state.EightDatefemale[5])) {
         //日支最好是生，和日元完全相反，同一班，克最差，但是生也不能刑，比如子卯
+        female = IconConfig.IconMarryCheck
+        male = IconConfig.IconMarryCheck
         if(-1!=kindassist.indexOf(earthfive[earthkey.indexOf(this.state.EightDatemale[5])] + earthfive[earthkey.indexOf(this.state.EightDatefemale[5])]))
         {
-          female = IconConfig.IconMarryCheck
-          male = IconConfig.IconMarryCheck
-        }else{
-          female = IconConfig.IconMarryCheckhalf
-          male = IconConfig.IconMarryCheckhalf
+          //相生加分
+          totalcountmale  = totalcountmale+5
+          totalcountfemale  = totalcountfemale+5
         }
       }
     }
