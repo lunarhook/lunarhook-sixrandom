@@ -21,7 +21,8 @@ if (w > 320 && Platform.OS === 'ios') {
   coln = 4
 }
 var kitlist = new Array();
-const data = [
+var datalist = []
+datalist["周易八卦"] = [
   { icon: RouteConfig['SixrandomNewPage'].icon, text: RouteConfig['SixrandomNewPage'].name, url: RouteConfig['SixrandomNewPage'].route },
   { icon: RouteConfig['EightrandomNewPage'].icon, text: RouteConfig['EightrandomNewPage'].name, url: RouteConfig['EightrandomNewPage'].route },
   { icon: RouteConfig['NumberMainPage'].icon, text: RouteConfig['NumberMainPage'].name, url: RouteConfig['NumberMainPage'].route },
@@ -33,18 +34,18 @@ const data = [
   { icon: RouteConfig['MarryNewPage'].icon, text: RouteConfig['MarryNewPage'].name, url: RouteConfig['MarryNewPage'].route },
   { icon: RouteConfig['PartnershipNewPage'].icon, text: RouteConfig['PartnershipNewPage'].name, url: RouteConfig['PartnershipNewPage'].route },
 ]
-const Tarot = [
+datalist["塔罗牌阵"] = [
   { icon: RouteConfig['TarotPage'].icon, text: RouteConfig['TarotPage'].name, url: RouteConfig['TarotPage'].route },
   { icon: RouteConfig['TarotVenusPage'].icon, text: RouteConfig['TarotVenusPage'].name, url: RouteConfig['TarotVenusPage'].route },
   { icon: RouteConfig['TarotStarofDavidPage'].icon, text: RouteConfig['TarotStarofDavidPage'].name, url: RouteConfig['TarotStarofDavidPage'].route },
   { icon: RouteConfig['TarotCeltsPage'].icon, text: RouteConfig['TarotCeltsPage'].name, url: RouteConfig['TarotCeltsPage'].route },
 ]
-const data1 = [
+datalist["星盘星座"] = [
   { icon: RouteConfig['ChangesuniversePage'].icon, text: RouteConfig['ChangesuniversePage'].name, url: RouteConfig['ChangesuniversePage'].route },
   { icon: RouteConfig['GamblePage'].icon, text: RouteConfig['GamblePage'].name, url: RouteConfig['GamblePage'].route },
   { icon: RouteConfig['StarInfoPage'].icon, text: RouteConfig['StarInfoPage'].name, url: RouteConfig['StarInfoPage'].route },
 ]
-const consultants = [
+datalist["大道易德"] = [
   { icon: RouteConfig['malecall'].icon, text: "刘老师", url: "tel:18911832827" },
   { icon: RouteConfig['femalecall'].icon, text: "郑老师", url: "tel:13391909968" },
   { icon: RouteConfig['femalecall'].icon, text: "菅老师", url: "tel:15330231513" },
@@ -54,7 +55,7 @@ const consultants = [
   { icon: RouteConfig['wechat'].icon, text: RouteConfig['wechat'].name, url: "wechat" },
   { icon: RouteConfig['qrcode'].icon, text: RouteConfig['qrcode'].name, url: "openqrcode" },
 ]
-kitlist["tools"] = [
+datalist["工具助手"] = [
   { icon: RouteConfig['NamePage'].icon, text: RouteConfig['NamePage'].name, url: RouteConfig['NamePage'].route },
   { icon: RouteConfig['NameModule'].icon, text: RouteConfig['NameModule'].name, url: RouteConfig['NameModule'].route },
   { icon: RouteConfig['NumberMotionNewPage'].icon, text: RouteConfig['NumberMotionNewPage'].name, url: RouteConfig['NumberMotionNewPage'].route },
@@ -62,7 +63,7 @@ kitlist["tools"] = [
   { icon: RouteConfig['MORALSModule'].icon, text: RouteConfig['MORALSModule'].name, url: RouteConfig['MORALSModule'].route },
 
 ]
-const data2 = [
+datalist["性格测评"] = [
   { icon: RouteConfig['MBTIModule'].icon, text: RouteConfig['MBTIModule'].name, url: RouteConfig['MBTIModule'].route },
   { icon: RouteConfig['EnneagramModule'].icon, text: RouteConfig['EnneagramModule'].name, url: RouteConfig['EnneagramModule'].route },
   { icon: RouteConfig['HollandModule'].icon, text: RouteConfig['HollandModule'].name, url: RouteConfig['HollandModule'].route },
@@ -73,7 +74,7 @@ const data2 = [
   { icon: RouteConfig['EPQModule'].icon, text: RouteConfig['EPQModule'].name, url: RouteConfig['EPQModule'].route },
   { icon: RouteConfig['PDPModule'].icon, text: RouteConfig['PDPModule'].name, url: RouteConfig['PDPModule'].route },
 ]
-const datadepress = [
+datalist["心理测评"] = [
   { icon: RouteConfig['SCL90Module'].icon, text: RouteConfig['SCL90Module'].name, url: RouteConfig['SCL90Module'].route },
   { icon: RouteConfig['SDSModule'].icon, text: RouteConfig['SDSModule'].name, url: RouteConfig['SDSModule'].route },
   { icon: RouteConfig['SASModule'].icon, text: RouteConfig['SASModule'].name, url: RouteConfig['SASModule'].route },
@@ -82,7 +83,7 @@ const datadepress = [
   { icon: RouteConfig['IASModule'].icon, text: RouteConfig['IASModule'].name, url: RouteConfig['IASModule'].route },
   { icon: RouteConfig['PANASModule'].icon, text: RouteConfig['PANASModule'].name, url: RouteConfig['PANASModule'].route },
 ]
-const relation = [
+datalist["情感家庭"] = [
   { icon: RouteConfig['LASModule'].icon, text: RouteConfig['LASModule'].name, url: RouteConfig['LASModule'].route },
   { icon: RouteConfig['OlsonModule'].icon, text: RouteConfig['OlsonModule'].name, url: RouteConfig['OlsonModule'].route },
   { icon: RouteConfig['FESModule'].icon, text: RouteConfig['FESModule'].name, url: RouteConfig['FESModule'].route },
@@ -92,7 +93,7 @@ const relation = [
   { icon: RouteConfig['EMBUFemaleModule'].icon, text: RouteConfig['EMBUFemaleModule'].name, url: RouteConfig['EMBUFemaleModule'].route },
   { icon: RouteConfig['EMBUMaleModule'].icon, text: RouteConfig['EMBUMaleModule'].name, url: RouteConfig['EMBUMaleModule'].route },
 ]
-const child = [
+datalist["儿童少年"] = [
   { icon: RouteConfig['CARSModule'].icon, text: RouteConfig['CARSModule'].name, url: RouteConfig['CARSModule'].route },
   { icon: RouteConfig['GATBModule'].icon, text: RouteConfig['GATBModule'].name, url: RouteConfig['GATBModule'].route },
   { icon: RouteConfig['PROFModule'].icon, text: RouteConfig['PROFModule'].name, url: RouteConfig['PROFModule'].route },
@@ -114,8 +115,8 @@ class kitPage extends React.Component {
     super(props);
 
     this.state = {
-      tabs: itemsrandom['全部'],
-      selectmode: "职业性格",
+      tabs: itemsrandom['新手模式'],
+      selectmode: "新手模式",
       date: "",
       datahistory: [],
       historySection: [0],
@@ -321,7 +322,7 @@ class kitPage extends React.Component {
   refreshlist() {
     this.privacycheck()
     var itemsrandom = KitConfig.getitemsrandom()
-    this.setState({ tabs: itemsrandom['全部'] })
+    this.setState({ tabs: itemsrandom['新手模式'] })
     HistoryArrayGroup.GetKitConfigHistory().then(ids => {
 
       HistoryArrayGroup.load("kitConfigselectmode").then(async (T) => {
@@ -358,7 +359,7 @@ class kitPage extends React.Component {
             this.setState({ selectmode: T })
           }
         } catch{
-          this.setState({ selectmode: "职业性格" })
+          this.setState({ selectmode: "新手模式" })
           return
         }
       })
@@ -460,7 +461,7 @@ class kitPage extends React.Component {
     contentlist["性格测评"] = (
       <Accordion.Panel header={"性格测评"} key={"性格测评"}>
         <Grid
-          data={data2}
+          data={datalist["性格测评"]}
           columnNum={coln}
           isCarousel={false}
           hasLine={false}
@@ -470,7 +471,7 @@ class kitPage extends React.Component {
     contentlist["心理测评"] = (
       <Accordion.Panel header="心理测评" key={"心理测评"}>
         <Grid
-          data={datadepress}
+          data={datalist["心理测评"]}
           columnNum={coln}
           isCarousel={false}
           hasLine={false}
@@ -480,7 +481,7 @@ class kitPage extends React.Component {
     contentlist["情感家庭"] = (
       <Accordion.Panel header="情感家庭" key={"情感家庭"}>
         <Grid
-          data={relation}
+          data={datalist["情感家庭"]}
           columnNum={coln}
           isCarousel={false}
           hasLine={false}
@@ -491,7 +492,7 @@ class kitPage extends React.Component {
     contentlist["星盘星座"] = (
       <Accordion.Panel header={"星盘星座"} key={"星盘星座"}>
         <Grid
-          data={data1}
+          data={datalist["星盘星座"]}
           columnNum={coln}
           isCarousel={false}
           hasLine={false}
@@ -501,7 +502,7 @@ class kitPage extends React.Component {
     contentlist["塔罗牌阵"] = (
       <Accordion.Panel header={"塔罗牌阵"} key={"塔罗牌阵"}>
         <Grid
-          data={Tarot}
+          data={datalist["塔罗牌阵"]}
           columnNum={coln}
           isCarousel={false}
           hasLine={false}
@@ -511,7 +512,7 @@ class kitPage extends React.Component {
     contentlist["工具助手"] = (
       <Accordion.Panel header={"工具助手"} key={"工具助手"}>
         <Grid
-          data={kitlist["tools"]}
+          data={datalist["工具助手"]}
           columnNum={coln}
           isCarousel={false}
           hasLine={false}
@@ -532,7 +533,7 @@ class kitPage extends React.Component {
       contentlist["周易八卦"] = (
         <Accordion.Panel header={"周易八卦"} key={"周易八卦"}>
           <Grid
-            data={data}
+            data={datalist["周易八卦"]}
             columnNum={coln}
             isCarousel={false}
             hasLine={false}
@@ -543,7 +544,7 @@ class kitPage extends React.Component {
     contentlist["儿童少年"] = (
       <Accordion.Panel header={"儿童青少年"} key={"儿童青少年"}>
         <Grid
-          data={child}
+          data={datalist["儿童少年"]}
           columnNum={coln}
           isCarousel={false}
           hasLine={false}
@@ -588,8 +589,12 @@ class kitPage extends React.Component {
                 delete contentlist["塔罗牌阵"]
                 delete contentlist["星盘星座"]
               }
+              var testtitle = ""
+              kitPageController.state.tabs.forEach(e=>{
+                  testtitle = testtitle + e.title
+              })
               curalllist.forEach(element => {
-                if (undefined != contentlist[element.title]) {
+                if (undefined != contentlist[element.title] && -1!=testtitle.indexOf(element.title)) {
                   content.push(contentlist[element.title])
                 }
 
@@ -620,7 +625,7 @@ class kitPage extends React.Component {
             {contentlist["情感家庭"]}
           </Accordion></ScrollView>
       )
-    } else if ("心理学" == tab.title) {
+    } else if ("心理测评" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>

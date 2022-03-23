@@ -29,13 +29,22 @@ class EightrandomNewPage extends React.Component {
       switchleap: false,
       leaptype: "常年",
       Tip: "",
-      value: curday,
+      value:(curday),
       realtime: 0
     }
 
   }
+  componentDidMount() {
 
+    UserModule.getlastdate().then(r=>{
+      if(undefined!=r)
+      {
+        this.setState({value:new Date(r)})
+      }
+    })
 
+  }
+  
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     //headerRight:(<Button title="返回" />),
@@ -233,6 +242,7 @@ class EightrandomNewPage extends React.Component {
       dataArray["date"] = new Date()
     }
     var myDate = new Date(dataArray["date"])
+    UserModule.setlastdate(myDate)
     if (0 != this.state.realtime) {
       let x = dataitem[0][this.state.realtime];
       myDate = ZoneTimeModule.getrealsuntime(myDate, x.label)

@@ -6,12 +6,14 @@ import { Alert } from 'react-native';
 import NetModule from '../net/NetModule'
 import {NetApi} from '../net/NetApi'
 import WechatShare from './WechatShare'
+import { HistoryArrayGroup } from './StorageModule'
 
 let UserModulethis
 class UserModule extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      lastdate:new Date()
     };
     UserModulethis = this;
 
@@ -212,7 +214,15 @@ class UserModule extends React.Component {
     var yyyyMMdd = curr_year + "/" + curr_month +"/"+ curr_date;
     return yyyyMMdd;
   }
-
+  setlastdate(date)
+  {
+     HistoryArrayGroup.save("lastdate",new Date(date))
+  }
+  async getlastdate()
+  {
+    var r = await HistoryArrayGroup.load("lastdate")
+    return r
+  }
 }
 var userModule = new UserModule()
 module.exports = userModule;  
