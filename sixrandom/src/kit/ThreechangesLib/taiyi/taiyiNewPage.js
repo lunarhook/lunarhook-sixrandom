@@ -154,6 +154,7 @@ class taiyiNewPage extends React.Component {
       dataArray["date"] = new Date()
     }
     var myDate = new Date(dataArray["date"])
+    UserModule.setlastdate(myDate)
     if (this.state.switchtype == false) {
       var isleap = false
       if (this.state.switchleap == true) {
