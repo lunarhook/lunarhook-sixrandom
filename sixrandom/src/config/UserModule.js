@@ -218,21 +218,41 @@ class UserModule extends React.Component {
   {
     await HistoryArrayGroup.remove("lastdate")
     await HistoryArrayGroup.remove("seconddate")
-    await HistoryArrayGroup.save("lastdate", new Date(first))
-    if (undefined != second) {
-      await HistoryArrayGroup.save("seconddate", new Date(second))
+    var r = await HistoryArrayGroup.load("cachedate")
+    if(undefined!=r){
+      await HistoryArrayGroup.save("lastdate", new Date(first))
+      if (undefined != second) {
+        await HistoryArrayGroup.save("seconddate", new Date(second))
+      }
     }
-
   }
   async getlastdate()
   {
     var r = await HistoryArrayGroup.load("lastdate")
     var rr = await HistoryArrayGroup.load("seconddate")
-    if(undefined!=rr)
-    {
-      return [r,rr]
+    if(undefined==r){r = new date()}
+    if(undefined==rr){rr =r}
+    return [r,rr]
+  }
+  async checkdate()
+  {
+    var r = await HistoryArrayGroup.load("cachedate")
+    if(undefined==r){
+      return false
     }
-    return [r,r]
+    return true
+  }
+  async setcheckdate(sw)
+  {
+    await HistoryArrayGroup.remove("lastdate")
+    await HistoryArrayGroup.remove("seconddate")
+    if(true==sw){
+      await HistoryArrayGroup.remove("cachedate")
+      await HistoryArrayGroup.save("cachedate",true)
+      return true
+    }
+    await HistoryArrayGroup.remove("cachedate")
+    return false
   }
 }
 var userModule = new UserModule()

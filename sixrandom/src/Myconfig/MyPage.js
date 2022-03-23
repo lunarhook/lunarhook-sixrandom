@@ -20,7 +20,8 @@ class MyPage extends React.Component {
       appname: "",
       islogin: false,
       passtype: "password",
-      mobile: "", password: "", logindisable: true, networkstate: true, checked: false, sync: false
+      mobile: "", password: "", logindisable: true, networkstate: true, checked: false, sync: false,
+      cachedate:false
     };
     this.onSwitchChange = value => {
       HistoryArrayGroup.ForceSyncServer = value
@@ -50,6 +51,9 @@ class MyPage extends React.Component {
       this.LoginCheck()
     }, DevTimeManager["MyPageTick"]);
     MyPagethis = this
+    UserModule.checkdate().then(R=>{
+      this.setState({cachedate:R})
+    })
   }
   componentWillUnmount() {
     console.log("MyPage", "componentWillUnmount")
@@ -93,6 +97,16 @@ class MyPage extends React.Component {
       title: RouteConfig["MyPage"].name,
     }
   };
+
+  changecache(){
+    UserModule.checkdate().then(R=>{
+
+        UserModule.setcheckdate(!R).then(T=>{
+          this.setState({cachedate:T})
+        })
+
+    })
+  }
 
   checkbutton(password) {
     console.log("checkbutton", this.state.password.length > 5, this.state.password)
@@ -175,6 +189,8 @@ class MyPage extends React.Component {
         <View>
           <WhiteSpace size="xl" />
           <Button type="primary" onPress={() => this.props.navigation.navigate("MyFontConfigPage")}>字体大小</Button>
+          <WhiteSpace size="xl" />
+          <Button type="warning" onPress={() => this.changecache()}>{this.state.cachedate==false?"选时缓存":"禁止缓存"}</Button>
           <WhiteSpace size="xl" />
 
         </View>
