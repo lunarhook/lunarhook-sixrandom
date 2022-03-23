@@ -214,14 +214,25 @@ class UserModule extends React.Component {
     var yyyyMMdd = curr_year + "/" + curr_month +"/"+ curr_date;
     return yyyyMMdd;
   }
-  setlastdate(date)
+  async setlastdate(first,second)
   {
-     HistoryArrayGroup.save("lastdate",new Date(date))
+    await HistoryArrayGroup.remove("lastdate")
+    await HistoryArrayGroup.remove("seconddate")
+    await HistoryArrayGroup.save("lastdate", new Date(first))
+    if (undefined != second) {
+      await HistoryArrayGroup.save("seconddate", new Date(second))
+    }
+
   }
   async getlastdate()
   {
     var r = await HistoryArrayGroup.load("lastdate")
-    return r
+    var rr = await HistoryArrayGroup.load("seconddate")
+    if(undefined!=rr)
+    {
+      return [r,rr]
+    }
+    return [r,r]
   }
 }
 var userModule = new UserModule()

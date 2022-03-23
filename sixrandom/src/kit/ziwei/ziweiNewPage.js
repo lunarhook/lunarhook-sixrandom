@@ -42,7 +42,16 @@ class ziweiNewPage extends React.Component {
     }
     
   };
+  componentDidMount() {
 
+    UserModule.getlastdate().then(r=>{
+      if(undefined!=r)
+      {
+        this.setState({value:new Date(r[0])})
+      }
+    })
+
+  }
 
   onChangeData = (value: any) => {
     console.log(value);

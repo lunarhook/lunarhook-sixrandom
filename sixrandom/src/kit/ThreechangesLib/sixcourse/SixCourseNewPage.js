@@ -55,6 +55,17 @@ class SixCourseNewPage extends React.Component {
 
   };
 
+  componentDidMount() {
+
+    UserModule.getlastdate().then(r=>{
+      if(undefined!=r)
+      {
+        this.setState({value:new Date(r[0])})
+      }
+    })
+
+  }
+
   onChangeData = (value: any) => {
     console.log(value);
     var cur = new Date(value)
@@ -194,6 +205,7 @@ class SixCourseNewPage extends React.Component {
       dataArray["date"] = new Date()
     }
     var myDate = new Date(dataArray["date"])
+    UserModule.setlastdate(myDate)
     if (this.state.switchtype == false) {
       var isleap = false
       if (this.state.switchleap == true) {

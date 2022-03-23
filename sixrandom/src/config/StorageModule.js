@@ -90,6 +90,14 @@ class HistoryArrayGroup extends React.Component {
 		console.log("2 load: ",R)
 		return R
 	}
+	async remove(key)
+	{
+		console.log("1 remove: ",key)
+		let R = await StorageModule.remove({key:key}).catch(async(e)=>{
+			console.log("remove error",e.message)
+		})
+		console.log("2 remove: ",R)
+	}
 	async remove(key,id)
 	{
 		console.log("1 remove: ",key,id)

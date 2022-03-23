@@ -48,6 +48,18 @@ class MarryNewPage extends React.Component {
 
   };
 
+  componentDidMount() {
+
+    UserModule.getlastdate().then(r=>{
+      if(undefined!=r)
+      {
+        this.setState({datepickermale:new Date(r[0])})
+        this.setState({datepickerfemale:new Date(r[1])})
+      }
+    })
+
+  }
+
   //获取value值调用的方法
   getValue(text) {
     var value = text;
@@ -275,7 +287,7 @@ class MarryNewPage extends React.Component {
     savedatemale[0] = (new Date()).valueOf().toString();
     savedatemale[1] = EightDatemale.gzYear + EightDatemale.gzMonth + EightDatemale.gzDate + EightDatemale.gzTime;
     savedatemale[2] = '乾造'
-    savedatemale[3] = ""
+    savedatemale[3] = myDatemale
     savedatemale[4] = myDatemale.getFullYear() + "/" + (myDatemale.getMonth() + 1) + "/" + myDatemale.getDate() + " " + myDatemale.getHours() + " " + myDatemale.getMinutes() + " " + myDatemale.getSeconds();
     return savedatemale
   }
@@ -309,7 +321,7 @@ class MarryNewPage extends React.Component {
     savedatefemale[0] = (new Date()).valueOf().toString();
     savedatefemale[1] = EightDatefemale.gzYear + EightDatefemale.gzMonth + EightDatefemale.gzDate + EightDatefemale.gzTime;
     savedatefemale[2] = '乾造'
-    savedatefemale[3] = ""
+    savedatefemale[3] = myDatefemale
     savedatefemale[4] = myDatefemale.getFullYear() + "/" + (myDatefemale.getMonth() + 1) + "/" + myDatefemale.getDate() + " " + myDatefemale.getHours() + " " + myDatefemale.getMinutes() + " " + myDatefemale.getSeconds();
     return savedatefemale
   }
@@ -333,6 +345,7 @@ class MarryNewPage extends React.Component {
     if (undefined != T && 2000 == T.code) {
       Jstr = HistoryArrayGroup.MakeJsonSync(Jstr)
     }
+    await UserModule.setlastdate((savedatemale[3]), (savedatefemale[3]))
     var parameter = "?EightDatemale=" + savedatemale[1]  + "&birthmale=" + savedatemale[4] + "&Datemale=" + savedatemale[0]
     parameter = parameter + "&EightDatefemale=" + savedatefemale[1]  + "&birthfemale=" + savedatefemale[4] + "&Datefemale=" + savedatefemale[0] + "&rowid=" +obj.id
     console.log(parameter)

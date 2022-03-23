@@ -39,7 +39,7 @@ class EightrandomNewPage extends React.Component {
     UserModule.getlastdate().then(r=>{
       if(undefined!=r)
       {
-        this.setState({value:new Date(r)})
+        this.setState({value:new Date(r[0])})
       }
     })
 

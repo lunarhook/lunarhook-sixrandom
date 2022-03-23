@@ -50,6 +50,17 @@ class PartnershipNewPage extends React.Component {
 
   };
 
+  componentDidMount() {
+
+    UserModule.getlastdate().then(r=>{
+      if(undefined!=r)
+      {
+        this.setState({datepickerleader:new Date(r[0])})
+        this.setState({datepickerPartnership:new Date(r[1])})
+      }
+    })
+
+  }
   //获取value值调用的方法
   getValue(text) {
     var value = text;
@@ -290,7 +301,7 @@ class PartnershipNewPage extends React.Component {
     var savedateleader = new Array()
     savedateleader[0] = (new Date()).valueOf().toString();
     savedateleader[1] = EightDateleader.gzYear + EightDateleader.gzMonth + EightDateleader.gzDate + EightDateleader.gzTime;
-    savedateleader[2] = '乾造'
+    savedateleader[2] = myDateleader
     savedateleader[3] = (true==this.state.switchstateleader?'乾造':'坤造');
     savedateleader[4] = myDateleader.getFullYear() + "/" + (myDateleader.getMonth() + 1) + "/" + myDateleader.getDate() + " " + myDateleader.getHours() + " " + myDateleader.getMinutes() + " " + myDateleader.getSeconds();
     return savedateleader
@@ -324,7 +335,7 @@ class PartnershipNewPage extends React.Component {
     var savedatePartnership = new Array()
     savedatePartnership[0] = (new Date()).valueOf().toString();
     savedatePartnership[1] = EightDatePartnership.gzYear + EightDatePartnership.gzMonth + EightDatePartnership.gzDate + EightDatePartnership.gzTime;
-    savedatePartnership[2] = '乾造'
+    savedatePartnership[2] = myDatePartnership
     savedatePartnership[3] = (true==this.state.switchstatePartnership?'乾造':'坤造');
     savedatePartnership[4] = myDatePartnership.getFullYear() + "/" + (myDatePartnership.getMonth() + 1) + "/" + myDatePartnership.getDate() + " " + myDatePartnership.getHours() + " " + myDatePartnership.getMinutes() + " " + myDatePartnership.getSeconds();
     return savedatePartnership
@@ -351,6 +362,7 @@ class PartnershipNewPage extends React.Component {
     if (undefined != T && 2000 == T.code) {
       Jstr = HistoryArrayGroup.MakeJsonSync(Jstr)
     }
+    UserModule.setlastdate((savedateleader[2]), (savedatePartnership[2]))
     var parameter = "?EightDateleader=" + savedateleader[1]  + "&birthleader=" + savedateleader[4] + "&Dateleader=" + savedateleader[0] + "&sexleader=" + savedateleader[3]
     parameter = parameter + "&EightDatePartnership=" + savedatePartnership[1]  + "&birthPartnership=" + savedatePartnership[4] + "&DatePartnership=" + savedatePartnership[0] + "&rowid=" +obj.id + "&sexPartnership=" + savedatePartnership[3]
     console.log(parameter)
