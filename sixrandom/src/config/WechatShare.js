@@ -417,30 +417,33 @@ class WechatShare extends React.Component {
       formattedDateString = year + '年' + month + '月' + date + '日 ' + hour + ':' + minute + ':' + second;  
       var keys = AppRegistry.getAppKeys();
       return(
-        <View style={{ justifyContent: 'space-around', flexDirection: "row" }}>
-          <View style={{ alignItems: 'center', justifyContent: 'center', alignself: 'flex-start' }}>
-            <Image
-              style={{ width: 128, height: 128 ,alignself: 'flex-start'  }}
-              source={{ uri: shareimg[keys[1]] }}
-            />
-            <Text ></Text>
-            <Text >www.lunarhook.com</Text>
-            <Text ></Text>
+        <View style={{ alignItems: 'center', justifyContent: 'space-around', alignself: 'flex-start'}}>
+          <View style={{ justifyContent: 'space-between', flexDirection: "row" }}>
+            <View style={{ alignItems: 'center', justifyContent: 'center', alignself: 'flex-start' }}>
+              <Image
+                style={{ width: 128, height: 128 ,alignself: 'flex-start'  }}
+                source={{ uri: shareimg[keys[1]] }}
+              />
+              <Text ></Text>
+              <Text >www.lunarhook.com</Text>
+              <Text ></Text>
+            </View>
+            <View style={{ alignItems:"center", justifyContent: 'center' ,  alignself: 'flex-start' ,width:64}}>
+            </View>
+            <View style={{ alignItems:"center", justifyContent: 'center' ,  alignself: 'flex-start' }}>
+              <Image
+                style={{ width: 128, height: 128,alignself: 'flex-start'   }}
+                source={{ uri: shareimg["weibo"] }}
+              />
+              <Text ></Text>
+              <Text >微博社区二维码</Text>
+              <Text ></Text>
+            </View>
+          </View>
+          <Text ></Text>
             <Text >{appname[keys[1]]} {Platform.OS.toUpperCase() + " " + this.version}</Text>
             <Text ></Text>
             <Text >{formattedDateString}</Text>
-          </View>
-
-          <View style={{ alignItems:"center", justifyContent: 'flex-start' ,  alignself: 'flex-start' }}>
-            <Image
-              style={{ width: 128, height: 128,alignself: 'flex-start'   }}
-              source={{ uri: shareimg["weibo"] }}
-            />
-            <Text ></Text>
-            <Text >微博社区二维码</Text>
-            <Text ></Text>
-          </View>
-
         </View>
       )
     }
