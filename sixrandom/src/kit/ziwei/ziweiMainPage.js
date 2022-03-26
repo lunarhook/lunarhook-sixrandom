@@ -14,6 +14,8 @@ import WechatShare from '../../config/WechatShare'
 import ziweiModule from './ziweiModule'
 import RouteConfig from '../../config/RouteConfig';
 import IconConfig from '../../config/IconConfig'
+import { HistoryArrayGroup } from '../../config/StorageModule'
+import UserModule from '../../config/UserModule'
 import EightrandomModule from '../UniversechangesLib/EightrandomLib/EightrandomModule'
 import { SixrandomModule } from '../UniversechangesLib/SixrandomLib/SixrandomModule'
 const { width, height } = Dimensions.get('window');
@@ -51,17 +53,55 @@ class ziweiMainPage extends React.Component {
     return {
 
       title: RouteConfig["ziweiMainPage"].name,
+      headerRight: () => (
+        <TouchableOpacity
+          style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
+          //onPress={() => navigate('Search')}
+          onPress={() =>  ziweiMainPagethis.deletethis()}
+        >
+          {IconConfig.IconDelete}
+        </TouchableOpacity>),
     }
 
   };
+  async deletethis()
+  {
+    var rowid = ziweiMainPagethis.state.rowid 
+    console.log("rowid",rowid)
+    HistoryArrayGroup.loadid('eightrandom', rowid).then(async (ret) => {
+      if(undefined!=ret)
+      {
+        var Jobj = JSON.parse(ret);
+        let T = await UserModule.SyncFileServer("eightrandom", rowid, "")
+        if (undefined != T && 2000 == T.code) {
+          T.data.forEach(async (element) => {
+            filename = element.File
+            if (-1 != filename.indexOf(String(rowid)) && true == element.Del) {
+              await HistoryArrayGroup.remove('eightrandom', rowid);
+            }
+          });
+        }
+        else {
+          await HistoryArrayGroup.remove('eightrandom', rowid);
+        }
+      }
+      //this.props.navigation.dispatch(CommonActions.goBack());
+      this.props.navigation.goBack()
+      if(undefined!=this.props.navigation.state.params.goback)
+      {
+        this.props.navigation.state.params.goback()
+      }
 
+      //this.props.navigation.navigate("SixrandomHistoryPage",{ text: "refresh" })
+    })
+  }
 
 
 
   refreshlist() {
     const { navigate } = this.props.navigation;
 
-    var parameter = this.props.navigation.state.params
+    var parameter = this.props.navigation.state.params.url
 
     console.log("refreshlist", parameter)
     if (undefined != parameter) {
@@ -158,6 +198,7 @@ class ziweiMainPage extends React.Component {
         curmonth:EightDate.Month,
         birth:info.birth,
         sex:info.sex,
+        rowid:info.rowid,
 
       })
       this.changeyear("", (new Date()).getFullYear())

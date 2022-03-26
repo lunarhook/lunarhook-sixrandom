@@ -57,6 +57,10 @@ class ziweiHistoryPage extends React.Component {
     
   };
   */
+  gobackrefreshlist()
+  {
+    this.refreshlist()
+  }
 
   componentDidMount() {
     this.refreshlist()
@@ -166,16 +170,17 @@ class ziweiHistoryPage extends React.Component {
 
   refreshlist() {
       HistoryArrayGroup.GetEightRandomHistory().then(ids=>{
-        if (ids.length == 0) {
-          ScreenConfig.DeviceToast("暂无历史数据")
-          this.props.navigation.goBack()
-          return
-        }
+
         var filterArray = []
         for (var i = 0; i < ids.length; i++) {
           if (10==ids[i].ret.length) {
             filterArray.push(ids[i])
           }
+        }
+        if (filterArray.length == 0) {
+          ScreenConfig.DeviceToast("暂无历史数据")
+          this.props.navigation.goBack()
+          return
         }
         this.setState({dataSource: filterArray})
       })
@@ -297,7 +302,7 @@ changeViewLayout(e,data) {
                     ref={ref => { this.refs[data.item.id] = ref }}
                      >
                 <Card style={{ width: width - 20,paddingLeft:10 } } >
-                  <TouchableOpacity onPress={() => navigate('ziweiMainPage', data.item.url)}>
+                  <TouchableOpacity onPress={() => navigate('ziweiMainPage',  {"url":data.item.url ,"goback":()=>this.gobackrefreshlist()})}>
                     <Card.Header
                       title={<Text style={{fontSize:FontStyleConfig.getFontApplySize()+14}}>{ret}</Text>}
                       //thumbStyle={{ width: 30, height: 30 }}

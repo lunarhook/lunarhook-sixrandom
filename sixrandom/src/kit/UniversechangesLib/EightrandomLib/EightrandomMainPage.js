@@ -404,7 +404,13 @@ class EightrandomMainPage extends React.Component {
     //console.log("colorsel",colorsel[indexcolor])
     if (this.state.precent != "") {
 
-
+      var datafive=[
+        { x: 1, y: ("空" != this.state.enhance ? map[this.state.enhance][0] * this.state.precent[5] : this.state.precent[5]), label: '木' },
+        { x: 2, y: ("空" != this.state.enhance ? map[this.state.enhance][2] * this.state.precent[6] : this.state.precent[6]), label: '火' },
+        { x: 3, y: ("空" != this.state.enhance ? map[this.state.enhance][4] * this.state.precent[7] : this.state.precent[7]), label: '土' },
+        { x: 4, y: ("空" != this.state.enhance ? map[this.state.enhance][5] * this.state.precent[8] : this.state.precent[8]), label: '金' },
+        { x: 5, y: ("空" != this.state.enhance ? map[this.state.enhance][8] * this.state.precent[9] : this.state.precent[9]), label: '水' },
+      ]
 
       var ret = this.state.pie
       console.log("createpie", ret)
@@ -420,13 +426,7 @@ class EightrandomMainPage extends React.Component {
           <Svg width={300} height={300} >
             <VictoryPie
               colorScale={["green", "red", "#8B4513", "#DAA520", "#1E90FF"]}
-              data={[
-                { x: 1, y: ("空" != this.state.enhance ? map[this.state.enhance][0] * this.state.precent[5] : this.state.precent[5]), label: '木' },
-                { x: 2, y: ("空" != this.state.enhance ? map[this.state.enhance][2] * this.state.precent[6] : this.state.precent[6]), label: '火' },
-                { x: 3, y: ("空" != this.state.enhance ? map[this.state.enhance][4] * this.state.precent[7] : this.state.precent[7]), label: '土' },
-                { x: 4, y: ("空" != this.state.enhance ? map[this.state.enhance][5] * this.state.precent[8] : this.state.precent[8]), label: '金' },
-                { x: 5, y: ("空" != this.state.enhance ? map[this.state.enhance][8] * this.state.precent[9] : this.state.precent[9]), label: '水' },
-              ]}
+              data={datafive}
               standalone={false}
               width={300} height={300}
             />
@@ -448,7 +448,7 @@ class EightrandomMainPage extends React.Component {
                 barWidth={15}
                 data={[
                   { x: "丙", y: Number(display['丙']) / 10 },
-                  { x: "丁", y: Number(display['乙']) / 10 },
+                  { x: "丁", y: Number(display['丁']) / 10 },
                 ]}
                 labels={["丙:" + `${display['丙']}`, "丁:" + `${display['丁']}`]}
               />
@@ -758,7 +758,7 @@ class EightrandomMainPage extends React.Component {
     }
 
     base.push( "星宿: " +this.state.xingsu.xingsu +this.state.xingsu.r )
-    base.push( "（得令用十二长生中非沐浴计算且不使用任何时柱）" )
+    //base.push( "（得令用十二长生中非沐浴计算且不使用任何时柱）" )
 
 
     return (
@@ -771,7 +771,7 @@ class EightrandomMainPage extends React.Component {
                   <View>
                     <Grid
                       data={base}
-                      columnNum={1}
+                      columnNum={2}
                       hasLine={false}
                       itemStyle={{ height: 25, alignItems: "flex-start", flexwrap: "wrap",    backgroundColor: '#ffffff' }}
                       renderItem={dataItem => (
