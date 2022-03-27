@@ -734,8 +734,11 @@ class EightrandomMainPage extends React.Component {
     console.log("locationself", locationself)
     var base = new Array()
     base.push("公历: " + this.state.birth)
+    base.push(" ")
     base.push("四柱: " + this.state.gzbirth)
+    base.push(" ")
     base.push("旬空: " + this.state.gzxk)
+    base.push(" ")
     base.push("命造: " + this.state.sex)
     base.push("起运: " + this.state.beginlucky)
     base.push("命卦: " + locationself)
@@ -766,8 +769,8 @@ class EightrandomMainPage extends React.Component {
         <ScrollView ref="location" style={{ backgroundColor: '#ffffff' }}>
           <View style={styles.container} >
             <WingBlank size="lg" style={{ backgroundColor: '#ffffff' }}>
-              <Accordion onChange={this.onChange} activeSections={this.state.activeSections} styles={{ backgroundColor: '#ffffff'}}>
-                <Accordion.Panel header={"八字排盘"} styles={{ backgroundColor: '#ffffff'}}>
+              <Accordion onChange={this.onChange} activeSections={this.state.activeSections} styles={{ backgroundColor: '#ffffff',color:'#ffffff',opacity:100}}>
+                <Accordion.Panel header={"八字排盘"} styles={{ backgroundColor: '#ffffff',color:'#ffffff',opacity:100}}>
                   <View>
                     <Grid
                       data={base}
@@ -854,7 +857,7 @@ class EightrandomMainPage extends React.Component {
                         </View>
                       )} /></View>
                 </Accordion.Panel >
-                <Accordion.Panel header={"大运排盘"} styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header={"大运排盘"} styles={{ backgroundColor: '#ffffff',color:'#ffffff'}}>
                   <Grid
                     data={years}
                     columnNum={8}
@@ -871,13 +874,14 @@ class EightrandomMainPage extends React.Component {
                     )}
                   /></Accordion.Panel >
 
-                <Accordion.Panel header="流年信息" styles={{ backgroundColor: '#ffffff'}}>
+                <Accordion.Panel header="流年信息" styles={{ backgroundColor: '#ffffff',color:'#ffffff',opacity:100}}>
                   <Grid
                     data={minluckyyear}
                     columnNum={6}
                     itemStyle={{ height: 35 }}
                     isCarousel={true}
                     carouselMaxRow={4}
+                    hasLine={false}
                     carouselProps={{
                       style: {
                         width: "100%",
@@ -908,7 +912,7 @@ class EightrandomMainPage extends React.Component {
                 <Accordion.Panel>
                   {this.createpie(display,map)}
                 </Accordion.Panel >
-                <Accordion.Panel header="八字冲克" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="八字冲克" styles={{ backgroundColor: '#ffffff',color:'#ffffff',opacity:100 }}>
                   <List>
                     {r.dr.map(item => {
                       return (
@@ -920,7 +924,7 @@ class EightrandomMainPage extends React.Component {
                     })}
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="流年大运" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="流年大运" styles={{ backgroundColor: '#ffffff' ,color:'#ffffff',opacity:100}}>
                   <List>
                     {r.lr.map(item => {
                       return (
@@ -932,14 +936,14 @@ class EightrandomMainPage extends React.Component {
                     })}
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="日柱信息" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="日柱信息" styles={{ backgroundColor: '#ffffff' ,color:'#ffffff',opacity:100}}>
                   <List>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{home[0]}</Text>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{home[1]}</Text>
                     <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, lineHeight: 25, textAlign: 'justify' }}>{home[2]}</Text>
                   </List>
                 </Accordion.Panel >
-                <Accordion.Panel header="婚姻提示" styles={{ backgroundColor: '#ffffff' }}>
+                <Accordion.Panel header="婚姻提示" styles={{ backgroundColor: '#ffffff' ,color:'#ffffff',opacity:100}}>
                   <List>
                     <Animated.View style={{ opacity: this.state.fadeInOpacity }}>
                       <View>
