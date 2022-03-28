@@ -749,6 +749,7 @@ class EightrandomMainPage extends React.Component {
     var ret_powerself = EightrandomModule.getpowerself(this.state.EightDate,this.state.buildeight,curluckyear[1],this.state.precent)
     base.push( "命身: " +ret_powerself.powerself )
     base.push( "喜用: " +yongshen.xishen + yongshen.yongshen + (yongshen.special!=undefined?"("+yongshen.special+")":"") )
+    base.push(" ")
     base.push( "忌仇: " +yongshen.jishen + yongshen.choushen  )
     if(undefined!=yongshen.passyonshen)
     {

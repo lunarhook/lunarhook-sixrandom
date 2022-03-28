@@ -775,7 +775,7 @@ class EightrandomModule extends React.Component {
             {
                 o.adjustyongshen =  shen[assistindex]+"扶"
             }
-            else if(-1==shishenkey.indexOf("正官")||-1==shishenkey.indexOf("杀")){
+            else if(-1==shishenkey.indexOf("正官") && -1==shishenkey.indexOf("杀")){
                 //儿童化
                 o.adjustyongshen =  shen[index]+"(儿化)"
             }else{
@@ -834,11 +834,11 @@ class EightrandomModule extends React.Component {
                 if (-1 != test.indexOf("甲") && -1 != test.indexOf("壬") ) {
                     o.yongshen = "木"
                     o.xishen = "水"
-                    o.special = "甲木壬水不能见庚戊"
+                    o.special = "甲壬不能见庚戊"
                 } else if (-1 != test.indexOf("甲")) {
                     o.yongshen = "木"
                     o.xishen = "水"
-                    o.special = "甲木壬水不能见庚戊"
+                    o.special = "甲壬不能见庚戊"
                 } else if (-1 != test.indexOf("壬")) {
                     o.yongshen = "水"
                     o.xishen = "金"
@@ -861,7 +861,7 @@ class EightrandomModule extends React.Component {
                 if (-1 != test.indexOf("甲") && -1 != test.indexOf("庚") ) {
                     o.yongshen = "木"
                     o.xishen = "水"
-                    o.special = "庚劈甲，丙暖金晒甲"
+                    o.special = "庚劈甲丙暖金晒甲"
                     o.jishen = "金"
                     o.choushen = "土"
                 } else if (-1 == test.indexOf("甲") && -1 != test.indexOf("庚") &&  -1 == test.indexOf("乙") ) {
