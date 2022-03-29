@@ -172,6 +172,7 @@ class MyPage extends React.Component {
           <WhiteSpace size="xl" />
           <Button type="primary" disabled={!this.state.islogin} onPress={() => this.props.navigation.navigate("MyFontConfigPage")}>字体大小</Button>
           <WhiteSpace size="xl" />
+          <Button type="warning" onPress={() => this.changecache()}>{this.state.cachedate==false?"选时缓存":"禁止缓存"}</Button>
           <WhiteSpace size="xl" />
           <List.Item
             extra={
@@ -246,7 +247,8 @@ class MyPage extends React.Component {
             <WhiteSpace size="xl" />
             {this.showprivary()}
             <WhiteSpace size="xl" />
-            <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname + " " + this.state.version}</Text>
+            <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname}</Text>
+            <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.version}</Text>
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
@@ -307,8 +309,9 @@ class MyPage extends React.Component {
           <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
           <WhiteSpace size="xl" />
-          <Text style={{ textAlign: "center", marginBottom: 20, }} type="warning" onPress={() => this.props.navigation.navigate("MyUpdateRegister")}>-忘记密码-</Text>
-          <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname + " " + this.state.version}</Text>
+          <Text style={{ textAlign: "center", marginBottom: 20, }} type="warning" onPress={() => this.props.navigation.navigate("MyUpdateRegister")}>忘记密码</Text>
+          <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.appname}</Text>
+          <Text style={{ textAlign: "center", marginBottom: 20, }} > {this.state.version}</Text>
           {this.showprivary()}
           <WhiteSpace size="xl" />
           {this.rendersync()}
