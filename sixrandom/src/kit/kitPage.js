@@ -185,6 +185,7 @@ class kitPage extends React.Component {
   }
   async requestCameraPermission() {
     try {
+      UserModule.setcheckdate(true)
       const permissions = [
             PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
             PermissionsAndroid.PERMISSIONS.CAMERA,
