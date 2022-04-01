@@ -21,7 +21,6 @@ var coln = 3
 if (w > 320 && Platform.OS === 'ios') {
   coln = 4
 }
-var kitlist = new Array();
 var datalist = []
 datalist["周易八卦"] = [
   { icon: RouteConfig['SixrandomNewPage'].icon, text: RouteConfig['SixrandomNewPage'].name, url: RouteConfig['SixrandomNewPage'].route },
