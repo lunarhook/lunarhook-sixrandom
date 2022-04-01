@@ -226,9 +226,10 @@ class kitPage extends React.Component {
   async privacycheck() {
     //this.setState({ less: true })
     await HistoryArrayGroup.GetFirstTime().then(T => {
-      UserModule.setcheckdate(true)
+
       if (Platform.OS === 'android' || true) {
         if (undefined == T) {
+          UserModule.setcheckdate(true)
           if (0 == this.state.handler && null==privacyhandler) {
             privacyhandler = Modal.alert('服务协议和隐私政策', '用户请审慎阅读，充分理解"服务协议"和"隐私政策"各项条款，包括但不限于：为了向您提供即时通信，内容分享等服务，同时需要收集用户您的设备信息，日志和个人信息。您可以在"设置"查看变更删除您的各项信息并管理授权。您可以阅读"服务协议"和"隐私政策"了解详细信息，如果您同意，请点击"同意"并开始接受我们的服务', [
               {

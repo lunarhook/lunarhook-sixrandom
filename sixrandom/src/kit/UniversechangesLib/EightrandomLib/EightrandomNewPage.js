@@ -40,6 +40,8 @@ class EightrandomNewPage extends React.Component {
       if(undefined!=r)
       {
         this.setState({value:new Date(r[0])})
+        this.setState({datepicker:new Date(r[0])})
+        
       }
     })
 
