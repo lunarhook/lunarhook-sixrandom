@@ -450,7 +450,7 @@ class MarryMainPage extends React.Component {
     else if ("" !== miniyear) {
 
       my = Number(miniyear)
-      if(my-70>this.state.beginlucky){my=this.state.beginlucky-60}
+      if(my-70>this.state.beginluckymale){my=this.state.beginluckymale-60}
       console.log("changeyearmini", bigyear, miniyear, by, my)
 
       if ("乾造" == sex) {

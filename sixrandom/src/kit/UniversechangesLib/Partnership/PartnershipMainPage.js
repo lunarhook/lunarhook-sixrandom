@@ -439,7 +439,7 @@ class PartnershiMainPage extends React.Component {
       my = Number(miniyear)
 
       console.log("changeyearmini", bigyear, miniyear, by, my)
-      if(my-70>this.state.beginlucky){my=this.state.beginlucky-60}
+      if(my-70>this.state.beginluckyleader){my=this.state.beginluckyleader-60}
       if ("乾造" == sex) {
         if (my >= this.state.beginluckyleader) {
           by = Math.floor((my - this.state.beginluckyleader) / 10)
