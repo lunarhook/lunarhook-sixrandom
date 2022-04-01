@@ -230,7 +230,7 @@ class UserModule extends React.Component {
   {
     var r = await HistoryArrayGroup.load("lastdate")
     var rr = await HistoryArrayGroup.load("seconddate")
-    if(undefined==r){r = new date()}
+    if(undefined==r){r = new Date()}
     if(undefined==rr){rr =r}
     return [r,rr]
   }
@@ -238,9 +238,14 @@ class UserModule extends React.Component {
   {
     var r = await HistoryArrayGroup.load("cachedate")
     if(undefined==r){
-      return false
+      await HistoryArrayGroup.save("cachedate",true)
+      return true
     }
-    return true
+    else if(true==r)
+    {
+      return true
+    }
+    return false
   }
   async setcheckdate(sw)
   {
@@ -250,8 +255,10 @@ class UserModule extends React.Component {
       await HistoryArrayGroup.remove("cachedate")
       await HistoryArrayGroup.save("cachedate",true)
       return true
+    }else{
+      await HistoryArrayGroup.remove("cachedate")
+      return false
     }
-    await HistoryArrayGroup.remove("cachedate")
     return false
   }
 }

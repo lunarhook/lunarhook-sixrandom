@@ -360,12 +360,14 @@ class EightrandomMainPage extends React.Component {
       //console.log("changeyearbig",bigyear,miniyear)
       by = Number(bigyear)
       my = Math.floor(Number(by * 10 + this.state.beginlucky))
+      if(by>7){by=7}
       this.setState({ curluckyearnum: by, curminiluckyearnum: my })
 
     }
     else if ("" !== miniyear) {
       
       my = Number(miniyear)
+      if(my-70>this.state.beginlucky){my=this.state.beginlucky-60}
       if (my >= this.state.beginlucky) {
         by = Math.floor((my - this.state.beginlucky) / 10)
       }
@@ -501,7 +503,7 @@ class EightrandomMainPage extends React.Component {
     else {
       console.log("curminiluckyearnum", Number(this.state.curminiluckyearnum))
       thisyear = new Date()//这里应该选小运的年份
-      thisyear.setFullYear(this.state.curminiluckyearnum)
+      thisyear.setFullYear(this.state.beginlucky)
       //这里必须要算出正月，所以流年月份按3月计算
       thisyear.setMonth(3)
     }

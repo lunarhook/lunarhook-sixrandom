@@ -423,7 +423,7 @@ class PartnershiMainPage extends React.Component {
     if ("" !== bigyear) {
       //console.log("changeyearbig",bigyear,miniyear)
       by = Number(bigyear)
-
+      if(by>7){by=7}
       if ("乾造" == sex) {
         my = Math.floor(Number(by * 10 + this.state.beginluckyleader))
         this.setState({ curluckyearnumleader: by, curminiluckyearnumleader: my })
@@ -439,7 +439,7 @@ class PartnershiMainPage extends React.Component {
       my = Number(miniyear)
 
       console.log("changeyearmini", bigyear, miniyear, by, my)
-
+      if(my-70>this.state.beginlucky){my=this.state.beginlucky-60}
       if ("乾造" == sex) {
         if (my >= this.state.beginluckyleader) {
           by = Math.floor((my - this.state.beginluckyleader) / 10)
@@ -568,7 +568,7 @@ class PartnershiMainPage extends React.Component {
     else {
       console.log("curminiluckyearnum", Number(this.state.curminiluckyearnumleader))
       thisyear = new Date()//这里应该选小运的年份
-      thisyear.setFullYear(this.state.curminiluckyearnumleader)
+      thisyear.setFullYear(this.state.beginluckyleader)
       //这里必须要算出正月，所以流年月份按3月计算
       thisyear.setMonth(3)
     }

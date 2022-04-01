@@ -12,6 +12,7 @@ import { StyleConfig, FontStyleConfig } from '../config/StyleConfig';
 import WechatShare from '../config/WechatShare'
 import shareimage from '../config/shareimage'
 import { HistoryArrayGroup } from '../config/StorageModule'
+import UserModule from '../config/UserModule'
 import KitConfig from '../config/KitConfig'
 import RNExitApp from 'react-native-exit-app';
 var w = ScreenConfig.__screenW()
@@ -185,7 +186,7 @@ class kitPage extends React.Component {
   }
   async requestCameraPermission() {
     try {
-      UserModule.setcheckdate(true)
+
       const permissions = [
             PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
             PermissionsAndroid.PERMISSIONS.CAMERA,
@@ -225,6 +226,7 @@ class kitPage extends React.Component {
   async privacycheck() {
     //this.setState({ less: true })
     await HistoryArrayGroup.GetFirstTime().then(T => {
+      UserModule.setcheckdate(true)
       if (Platform.OS === 'android' || true) {
         if (undefined == T) {
           if (0 == this.state.handler && null==privacyhandler) {

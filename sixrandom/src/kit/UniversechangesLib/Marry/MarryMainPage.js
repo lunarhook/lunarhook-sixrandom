@@ -436,7 +436,7 @@ class MarryMainPage extends React.Component {
     if ("" !== bigyear) {
       //console.log("changeyearbig",bigyear,miniyear)
       by = Number(bigyear)
-
+      if(by>7){by=7}
       if ("乾造" == sex) {
         my = Math.floor(Number(by * 10 + this.state.beginluckymale))
         this.setState({ curluckyearnummale: by, curminiluckyearnummale: my })
@@ -450,7 +450,7 @@ class MarryMainPage extends React.Component {
     else if ("" !== miniyear) {
 
       my = Number(miniyear)
-
+      if(my-70>this.state.beginlucky){my=this.state.beginlucky-60}
       console.log("changeyearmini", bigyear, miniyear, by, my)
 
       if ("乾造" == sex) {
@@ -581,7 +581,7 @@ class MarryMainPage extends React.Component {
     else {
       console.log("curminiluckyearnum", Number(this.state.curminiluckyearnummale))
       thisyear = new Date()//这里应该选小运的年份
-      thisyear.setFullYear(this.state.curminiluckyearnummale)
+      thisyear.setFullYear(this.state.beginluckymale)
       //这里必须要算出正月，所以流年月份按3月计算
       thisyear.setMonth(3)
     }
