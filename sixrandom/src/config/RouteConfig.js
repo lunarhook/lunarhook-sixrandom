@@ -13,18 +13,18 @@ import IconConfig from './IconConfig'
 所以人生就是寻找问题并解决问题的过程，如果想扩大收益即解决成功，需要解决更大的问题，因此需要社交来扩大组织规模以提高安全和效率，所以需要一个足够良好的组织，因为探索问题以后需要分享所有成功到组织内，让组织效率更高，同时扩大组织规模
 */
 RouteConfig={
-    "MainPage":{"name":"月如钩","titlename":"知否","route":"MainPage","icon":IconConfig.IconLunarConfide},
+    "MainPage":{"name":"月如钩","titlename":"知音","route":"MainPage","icon":IconConfig.IconLunarConfide},
     //社区是所有流量和需求的大入口，社区对沟通的需求是巨大的，必须免费获得流量
-    "Exploration":{"name":"知否","titlename":"知否","route":"Exploration","icon":IconConfig.IconLunarCourse},
-    "ExplorationFake":{"name":"知否","titlename":"知否","route":"Exploration","icon":IconConfig.IconLunarCourse},
-        "NightPage":{"name":"夜话","titlename":"知否","route":"NightPage","icon":IconConfig.IconLunarConfide},
-            "NightDetailPage":{"name":"夜话","titlename":"知否","route":"NightDetailPage","icon":IconConfig.IconNightFm},
-        "ExplorationPage":{"name":"树洞","titlename":"知否","route":"ExplorationPage","icon":IconConfig.IconNightFm},   
+    "Exploration":{"name":"知音","titlename":"知音","route":"Exploration","icon":IconConfig.IconLunarCourse},
+    "ExplorationFake":{"name":"知音","titlename":"知音","route":"Exploration","icon":IconConfig.IconLunarCourse},
+        "NightPage":{"name":"夜话","titlename":"知音","route":"NightPage","icon":IconConfig.IconLunarConfide},
+            "NightDetailPage":{"name":"夜话","titlename":"知音","route":"NightDetailPage","icon":IconConfig.IconNightFm},
+        "ExplorationPage":{"name":"树洞","titlename":"知音","route":"ExplorationPage","icon":IconConfig.IconNightFm},   
             "ExplorationDetailPage":{"name":"寄语","titlename":"寄语","route":"ExplorationDetailPage","icon":IconConfig.IconDetail},
             "ExplorationAnswerPage":{"name":"话题","titlename":"话题","route":"ExplorationAnswerPage","icon":IconConfig.IconLunarExplain},
             "ExplorationAskPage":{"name":"提个话题","titlename":"提个话题","route":"ExplorationAskPage","icon":IconConfig.IconDetail},
         //生活咨询服务包括所有咨询服务，可以给课程导流，其中简单的生活类咨询免费，心理咨询是需要收费的，因为必须立刻请人来协助解决，收费解决
-        "ChatPage":{"name":"拾音","titlename":"知否","route":"ChatPaged","icon":IconConfig.Iconchat},   
+        "ChatPage":{"name":"拾音","titlename":"知音","route":"ChatPaged","icon":IconConfig.Iconchat},   
         "ConfidePage":{"name":"私信列表","route":"ConfidePage","icon":IconConfig.IconPagelines}, 
         "MyExplorationPage":{"name":"我的话题","titlename":"我的话题","route":"MyExplorationPage","icon":IconConfig.IconUniversechanges},
             "LunaranswerPage":{"name":"话题","route":"LunaranswerPage","icon":IconConfig.IconLunask},
@@ -126,18 +126,19 @@ RouteConfig={
         //心理咨询录音工具
         "ConsultantAudioRecord":{"name":"咨询录音","route":"ConsultantAudioRecord","icon":IconConfig.ConfigIcon},
         "permutationcombination":{"name":"排列组合计算器","route":"permutationcombination","icon":IconConfig.ConfigIcon},
-        "LunarCoursePageTab":{"name":"无邪书院","route":"LunarCoursePageTab","titlename":"无邪书院","icon":IconConfig.IconLunarCourse},
-       
+      
     
         //课程是进一步提高成本，解决问题的方法，合理收费
-        "LunarCoursePage":{"name":"无邪书院","route":"LunarCoursePage","titlename":"无邪书院","icon":IconConfig.IconMaster},
-        "LunarBooks":{"name":"无邪书院","route":"LunarCoursePage","titlename":"思无邪","icon":IconConfig.IconBooks},
+        "LunarCoursePage":{"name":"重乔","route":"LunarCoursePage","titlename":"重乔馆","icon":IconConfig.IconEnvira},
+        "LunarCoursePageFake":{"name":"重乔","route":"LunarCoursePageFake","titlename":"重乔馆","icon":IconConfig.IconEnvira},
         
-        "LunarCourseConfigPage":{"name":"书院配置","route":"LunarCourseConfigPage","icon":IconConfig.IconSubmit},
+        "LunarBooks":{"name":"重乔馆","route":"LunarCoursePage","titlename":"重乔","icon":IconConfig.IconBooks},
+        
+        "LunarCourseConfigPage":{"name":"馆学配置","route":"LunarCourseConfigPage","icon":IconConfig.IconSubmit},
         "LunarMasterConfigPage":{"name":"课程训练配置","route":"LunarMasterConfigPage","icon":IconConfig.IconSubmit},
         "CourseSearchPage":{"name":"说文助手","route":"CourseSearchPage","titlename":"说文解字","icon":IconConfig.IconSearch},
         "LunarCourseAnswerPage":{"name":"答疑解惑","route":"LunarCourseAnswerPage","titlename":"答疑解惑","icon":IconConfig.IconAnswerIntro},
-        "LunarMasterPage":{"name":"课程","route":"LunarMasterPage","titlename":"测评课程","icon":IconConfig.IconLunarCourse},
+        "LunarMasterPage":{"name":"知音","route":"LunarMasterPage","titlename":"知音","icon":IconConfig.IconLunarCourse},
 
         "ReadPage":{"name":"阅读","route":"ReadPage","titlename":"阅读","icon":IconConfig.IconLunarCourse},     
         "service":{"name":"服务支持","route":"service","icon":IconConfig.Service},     
@@ -151,7 +152,7 @@ RouteConfig={
         
         
         "MengBookPage":{"name":"蒙学","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},  
-            "AncientBaiJiaXingPage":{"name":"百家姓","titlename":"百家姓","route":"DetailBookPage","icon":IconConfig.IconLunarCourse},
+            "AncientBaiJiaXingPage":{"name":"百家姓","titlename":"百家姓","route":"DetailBookPage","icon":IconConfig.IconLunarCourseGreen},
             "AncientQianZiWenPage":{"name":"千字文","titlename":"千字文","route":"DetailBookPage","icon":IconConfig.IconLunarCourseRedO},
             "AncientSanZiJingPage":{"name":"三字经","titlename":"三字经","route":"DetailBookPage","icon":IconConfig.IconLunarCourseRed},
             

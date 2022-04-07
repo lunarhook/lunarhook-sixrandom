@@ -172,21 +172,22 @@ if (__DEV__) {
 const Exploration = createBottomTabNavigator(
   {
   LunarMasterPage: { screen: LunarMasterPage },
+  //LunarCoursePage: { screen: LunarCoursePage},
   //NightPage: NightPage,
 
   //ExplorationPage: { screen:ExplorationPage},
   //  ChatPage: ChatPage,
   //LunarConsultantListPage:LunarConsultantListPage,
-  /*
-    LunaranswerPageFake: createStackNavigator(
-      { "LunaranswerPageFake": "我想咨询" },
+  
+  LunarCoursePageFake: createStackNavigator(
+      { "LunarCoursePageFake": "我想咨询" },
       {
         navigationOptions: ({ navigation }) => ({
-          title: RouteConfig["LunaranswerPageFake"].name,
+          title: RouteConfig["LunarCoursePage"].name,
         })
       }),
     //先关闭私信功能 ConfidePage:ConfidePage,
-  */
+  
   },
   {
     initialRouteName: 'LunarMasterPage',
@@ -199,13 +200,13 @@ const Exploration = createBottomTabNavigator(
       tabBarOnPress: (nv) => {
         const { routeName } = navigation.state;
 
-        if ("CalendarPageFake" == routeName) {
-          navigation.navigate("CalendarPage")
+        if ("LunarCoursePageFake" == routeName) {
+          navigation.navigate("LunarCoursePage")
         }
         else if ("MyPageFake" == routeName) {
           navigation.navigate("MyPage")
         }
-        else if ("ExplorationFake" == routeName) {
+        else if ("LunarCoursePageFake" == routeName) {
           navigation.navigate("Exploration")
         }
         else {
@@ -247,14 +248,16 @@ const Exploration = createBottomTabNavigator(
                 onPress={() => CalendarPage.ShareInstance().today()}>
                 {(false == recover) ? (null) : IconConfig.ReCover}
               </TouchableOpacity>)
-          } else if ("LunarMasterPage" == curpage) {
+          } 
+          /*else if ("LunarMasterPage" == curpage) {
             return (
               <TouchableOpacity
                 style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}
                 //onPress={() => navigate('Search')}
                 onPress={() => navigation.navigate(RouteConfig["LunarCoursePage"].route)}>{IconConfig.IconBooks}
               </TouchableOpacity>)
-          } else if ("MyPage" == curpage) {
+          } 
+          */else if ("MyPage" == curpage) {
             return (<Icon name="bars" style={{ paddingRight: 30 }} onPress={() => MyPage.ShareInstance().compontupdate()} />)
           }
         }
@@ -517,12 +520,11 @@ const sixrandom = createStackNavigator({
   MHTModule: { screen: MHTModule },
   MHRSPModule: { screen: MHRSPModule },
   SloganShare: { screen: SloganShare },
-
-  //LunarCoursePageTab:LunarCoursePageTab,    
+ 
   LunarCoursePage: { screen: LunarCoursePage },
   LunarCourseConfigPage: { screen: LunarCourseConfigPage },
   CourseSearchPage: { screen: CourseSearchPage },
-  //LunarMasterPage:{screen:LunarMasterPage},
+
   IntroAncientPage: { screen: IntroAncientPage },
   IntroThreePage: { screen: IntroThreePage },
   IntroBooksPage: { screen: IntroBooksPage },

@@ -234,6 +234,7 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
+        /*
     contentlist["职涯训练"] = (
       <Accordion.Panel header={"职涯训练"} key={"职涯训练"}>
         <Grid
@@ -244,7 +245,7 @@ class LunarMasterPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-    /*     
+     
     contentlist["五行掌握"] = (
       <Accordion.Panel header={"五行掌握"} key={"五行掌握"}>
         <Grid
@@ -299,7 +300,8 @@ class LunarMasterPage extends React.Component {
           }
         </Accordion></ScrollView>
       )
-    } else if ("职涯训练" == tab.title) {
+    } 
+    /*else if ("职涯训练" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -307,7 +309,7 @@ class LunarMasterPage extends React.Component {
           </Accordion>
         </ScrollView>
       )
-    } 
+    } */
     /*else if ("五行掌握" == tab.title) {
       return (
         <ScrollView>

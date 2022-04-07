@@ -41,7 +41,7 @@ Masteralllist['训练大师'] = [
 
 ]
  Masteralllist['职涯训练'] = [
-  {title: '职涯训练',isSelect: true},
+  //{title: '职涯训练',isSelect: true},
 
 ]
 /*
@@ -66,7 +66,7 @@ Masteralllist['训练大师'] = [
 
 MasterRandom['全部'] = [
   {title: '全部',isSelect: true},
-  {title: '职涯训练',isSelect: true},
+  //{title: '职涯训练',isSelect: true},
   //{title: '五行掌握',isSelect: true},
   //{title: '道德经',isSelect: true},
 
@@ -76,7 +76,7 @@ MasterRandom['全部'] = [
 ]
 MasterRandom['职涯训练'] = [
   {title: '全部',isSelect: true},
-  {title: '职涯训练',isSelect: true},
+  //{title: '职涯训练',isSelect: true},
   //{title: '五行掌握',isSelect: false},
   //{title: '道德经',isSelect: true},
   //{title: '逻辑思维',isSelect: false},
@@ -85,7 +85,7 @@ MasterRandom['职涯训练'] = [
 ]
 MasterRandom['五行掌握'] = [
   {title: '全部',isSelect: true},
-  {title: '职涯训练',isSelect: false},
+  //{title: '职涯训练',isSelect: false},
   //{title: '五行掌握',isSelect: true},
   //{title: '道德经',isSelect: true},
  // {title: '逻辑思维',isSelect: false},
