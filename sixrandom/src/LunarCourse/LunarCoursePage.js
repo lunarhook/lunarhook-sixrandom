@@ -331,7 +331,7 @@ class LunarCoursePage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-    contentlist["中医"] = (
+    contentlist["医药经典"] = (
       <Accordion.Panel header={RouteConfig['ChineseMedicationPage'].name} key={RouteConfig['ChineseMedicationPage'].name}>
         <Grid
           data={yi}
@@ -384,8 +384,8 @@ class LunarCoursePage extends React.Component {
                   delete contentlist["周易八卦"]
                   delete contentlist["塔罗占星"]
                 }
-                delete contentlist["蒙童幼学"]
-                delete contentlist["医药经典"]
+                //delete contentlist["蒙童幼学"]
+                //delete contentlist["医药经典"]
                 curalllist.forEach(element => {
                   if (undefined != contentlist[element.title]) {
                     content.push(contentlist[element.title])
@@ -437,7 +437,7 @@ class LunarCoursePage extends React.Component {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["中医"]}
+            {contentlist["医药经典"]}
           </Accordion></ScrollView>
       )
     }

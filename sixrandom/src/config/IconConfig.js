@@ -92,12 +92,14 @@ class IconConfig extends React.Component {
   static IconScreen = (<Ionicons name="ios-images" size={size} color={blue} />)
   static IconDetail = (<Ionicons name="ios-menu" size={size} color={orange} />)
   static IconLunarCourse = (<MaterialIcons name="widgets" size={midsize} color={green} />)
-  static IconLunarCourseIntro = (<EvilIcons name="spinner-3" size={size} color={green} />)
-  static IconLunarCourseIntroRed = (<EvilIcons name="spinner-3" size={size} color={fire} />)
-  static IconLunarCourseIntroBlue = (<EvilIcons name="spinner-3" size={size} color={green} />)
-  static IconLunarCourseIntroOrange = (<EvilIcons name="spinner-3" size={size} color={blue} />)
-  static IconLunarCourseIntroGold = (<EvilIcons name="spinner-3" size={size} color={gold} />)
-  static IconLunarCourseIntroClaygreen = (<EvilIcons name="spinner-3" size={size} color={claygreen} />)
+  static IconZhiyin = (<FontAwesome name="eercast" size={size} color={green} />)
+  static IconLunarCourseIntro = (<EvilIcons name="spinner-3" size={midsize} color={green} />)
+  static IconLunarCourseIntroRed = (<EvilIcons name="spinner-3" size={midsize} color={fire} />)
+  static IconLunarCourseIntroBlue = (<EvilIcons name="spinner-3" size={midsize} color={green} />)
+  static IconLunarCourseIntroOrange = (<EvilIcons name="spinner-3" size={midsize} color={blue} />)
+  static IconLunarCourseIntroGold = (<EvilIcons name="spinner-3" size={midsize} color={gold} />)
+  static IconLunarCourseIntroClaygreen = (<EvilIcons name="spinner-3" size={midsize} color={claygreen} />)
+  static IconJiBook = (<EvilIcons name="spinner-3" size={size} color={LightPink} />)
 
   static IconLunarCourseBlue = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={blue} />)
   static IconLunarCourseRed = (<MaterialCommunityIcons name="lightbulb-on-outline" size={size} color={fire} />)
@@ -171,7 +173,7 @@ class IconConfig extends React.Component {
   static IconThreeIntro = (<FontAwesome name="universal-access" size={buttonsize} color={Coral} />)
   static IconAnswerIntro = (<Entypo name="google-hangouts" size={buttonsize} color={red} />)
   static IconMaster = (<FontAwesome name="language" size={buttonsize} color={blue} />)
-  static IconEnvira = (<FontAwesome name="envira" size={size} color={red} />)
+  static IconEnvira = (<FontAwesome5 name="glass-cheers" size={size-2} color={red} />)
   //static IconLunarCourse = (<FontAwesome name="language" size={buttonsize} color={orange} />)
   static IconShuoWen = (<MaterialCommunityIcons name="lightbulb-on-outline" size={buttonsize} color={claygreen} />)
   static IconErYa = (<MaterialCommunityIcons name="lightbulb-on-outline" size={buttonsize} color={blue} />)
@@ -189,7 +191,7 @@ class IconConfig extends React.Component {
   static IconLijiBook = (<FontAwesome name="language" size={buttonsize} color={fire} />)
   static IconZhongYongBook = (<FontAwesome name="language" size={buttonsize} color={Coral} />)
   static IconBigBook = (<FontAwesome name="language" size={buttonsize} color={fire} />)
-  static IconJiBook = (<EvilIcons name="spinner-3" size={size} color={LightPink} />)
+
   static IconBooks = (<MaterialCommunityIcons name="bookshelf" size={size} color={claygreen} />)
 
 

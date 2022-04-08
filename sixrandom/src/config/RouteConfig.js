@@ -16,7 +16,7 @@ RouteConfig={
     "MainPage":{"name":"月如钩","titlename":"知音","route":"MainPage","icon":IconConfig.IconLunarConfide},
     //社区是所有流量和需求的大入口，社区对沟通的需求是巨大的，必须免费获得流量
     "Exploration":{"name":"知音","titlename":"知音","route":"Exploration","icon":IconConfig.IconLunarCourse},
-    "ExplorationFake":{"name":"知音","titlename":"知音","route":"Exploration","icon":IconConfig.IconLunarCourse},
+    "ExplorationFake":{"name":"知音","titlename":"知音","route":"Exploration","icon":IconConfig.IconZhiyin},
         "NightPage":{"name":"夜话","titlename":"知音","route":"NightPage","icon":IconConfig.IconLunarConfide},
             "NightDetailPage":{"name":"夜话","titlename":"知音","route":"NightDetailPage","icon":IconConfig.IconNightFm},
         "ExplorationPage":{"name":"树洞","titlename":"知音","route":"ExplorationPage","icon":IconConfig.IconNightFm},   
@@ -129,8 +129,8 @@ RouteConfig={
       
     
         //课程是进一步提高成本，解决问题的方法，合理收费
-        "LunarCoursePage":{"name":"重乔","route":"LunarCoursePage","titlename":"重乔馆","icon":IconConfig.IconEnvira},
-        "LunarCoursePageFake":{"name":"重乔","route":"LunarCoursePageFake","titlename":"重乔馆","icon":IconConfig.IconEnvira},
+        "LunarCoursePage":{"name":"重乔","route":"LunarCoursePage","titlename":"重乔馆学","icon":IconConfig.IconEnvira},
+        "LunarCoursePageFake":{"name":"重乔","route":"LunarCoursePageFake","titlename":"重乔馆学","icon":IconConfig.IconEnvira},
         
         "LunarBooks":{"name":"重乔馆","route":"LunarCoursePage","titlename":"重乔","icon":IconConfig.IconBooks},
         
@@ -138,7 +138,7 @@ RouteConfig={
         "LunarMasterConfigPage":{"name":"课程训练配置","route":"LunarMasterConfigPage","icon":IconConfig.IconSubmit},
         "CourseSearchPage":{"name":"说文助手","route":"CourseSearchPage","titlename":"说文解字","icon":IconConfig.IconSearch},
         "LunarCourseAnswerPage":{"name":"答疑解惑","route":"LunarCourseAnswerPage","titlename":"答疑解惑","icon":IconConfig.IconAnswerIntro},
-        "LunarMasterPage":{"name":"知音","route":"LunarMasterPage","titlename":"知音","icon":IconConfig.IconLunarCourse},
+        "LunarMasterPage":{"name":"知音","route":"LunarMasterPage","titlename":"知音","icon":IconConfig.IconZhiyin},
 
         "ReadPage":{"name":"阅读","route":"ReadPage","titlename":"阅读","icon":IconConfig.IconLunarCourse},     
         "service":{"name":"服务支持","route":"service","icon":IconConfig.Service},     
