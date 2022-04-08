@@ -91,7 +91,7 @@ class IconConfig extends React.Component {
   static IconPROF = (<FontAwesome name="university" size={size} color={fire} />)
   static IconScreen = (<Ionicons name="ios-images" size={size} color={blue} />)
   static IconDetail = (<Ionicons name="ios-menu" size={size} color={orange} />)
-  static IconLunarCourse = (<FontAwesome name="globe" size={midsize} color={green} />)
+  static IconLunarCourse = (<MaterialIcons name="widgets" size={midsize} color={green} />)
   static IconLunarCourseIntro = (<EvilIcons name="spinner-3" size={size} color={green} />)
   static IconLunarCourseIntroRed = (<EvilIcons name="spinner-3" size={size} color={fire} />)
   static IconLunarCourseIntroBlue = (<EvilIcons name="spinner-3" size={size} color={green} />)
