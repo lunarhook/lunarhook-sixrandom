@@ -322,9 +322,9 @@ class EightrandomModule extends React.Component {
             ret = ret + "失令"
         }
 
-        const getearth = "长生，临官（建禄），帝旺"
+        const getearth = key
         //三合局，三会局的长生属性得地
-        if(-1 != getearth.indexOf(powerself[0]) && -1 != getearth.indexOf(powerself[1]) && -1 != getearth.indexOf(powerself[2]))
+        if(-1 != getearth.indexOf(powerself[0]) || -1 != getearth.indexOf(powerself[1]) || -1 != getearth.indexOf(powerself[2]))
         {
             ret = ret + "得地"
         }
@@ -363,12 +363,23 @@ class EightrandomModule extends React.Component {
         }else if(-1!=ret.indexOf("得令") && countget>3)
         {
             ret = "身旺"
-        }else if(-1!=ret.indexOf("得令") && countget>2)
+        }else if(-1!=ret.indexOf("得令") && countget>=2)
         {
             ret = "身强"
         }else if(-1!=ret.indexOf("得令") && countget>=1)
         {
-            ret = "身强"
+            ret = "身弱"
+        }else if(-1!=ret.indexOf("失令") && countget>=2)
+        {
+            ret = "身弱"
+        }
+        else if(-1!=ret.indexOf("失令") )
+        {
+            ret = "身衰"
+        }
+        //对身弱身衰做五行百分比矫正
+        if(-1!="身弱，身衰".indexOf(ret))
+        {
             var test = precent[assistindex]  + precent[index]
             if(test>(264/2))
             {
@@ -377,13 +388,6 @@ class EightrandomModule extends React.Component {
             else{
                 ret = "身弱"
             }
-        }else if(-1!=ret.indexOf("失令") && countget>2)
-        {
-            ret = "身弱"
-        }
-        else if(-1!=ret.indexOf("失令") )
-        {
-            ret = "身衰"
         }
 
         //大运四支得三合三会，生助日元者旺
