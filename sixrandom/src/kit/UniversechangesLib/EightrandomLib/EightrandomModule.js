@@ -779,7 +779,7 @@ class EightrandomModule extends React.Component {
             {
                 o.adjustyongshen =  shen[assistindex]+"扶"
             }
-            else if(-1==shishenkey.indexOf("正官") && -1==shishenkey.indexOf("杀")){
+            else if(-1==shishenkey.indexOf("正官") && -1==shishenkey.indexOf("杀") && -1==shishenkey.indexOf("印")){
                 //儿童化
                 o.adjustyongshen =  shen[index]+"(儿化)"
             }else{
