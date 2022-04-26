@@ -6,7 +6,6 @@ sixrandom/plumber/*
 sixrandom/android/app/release/*
 sixrandom/android/app/src/main/assets/index.android.bundle.meta
 sixrandom/android/app/src/main/assets/index.android.bundle
-sixrandom/android/app/src/main/res/*
 sixrandom/package-lock.json
 sixrandom/yarn.lock
 sixrandom/ios/Pods/*
