@@ -225,6 +225,15 @@ android {
         Huawei {
             manifestPlaceholders = [CHANNEL_VALUE: "Huawei"]
         }
+        Oppo {
+            manifestPlaceholders = [CHANNEL_VALUE: "Oppo"]
+        }
+        Vivo {
+            manifestPlaceholders = [CHANNEL_VALUE: "Vivo"]
+        }
+        Meizu {
+            manifestPlaceholders = [CHANNEL_VALUE: "Meizu"]
+        }
     }
 
 
@@ -254,6 +263,14 @@ android {
         file1 = new File(rootDir.getAbsolutePath() + '/app/Baidu');
         file1.deleteDir();
         file1 = new File(rootDir.getAbsolutePath() + '/app/Base');
+        file1.deleteDir();
+        file1 = new File(rootDir.getAbsolutePath() + '/app/MI');
+        file1.deleteDir();
+        file1 = new File(rootDir.getAbsolutePath() + '/app/Oppo');
+        file1.deleteDir();
+        file1 = new File(rootDir.getAbsolutePath() + '/app/Vivo');
+        file1.deleteDir();
+        file1 = new File(rootDir.getAbsolutePath() + '/app/Meizu');
         file1.deleteDir();
         //file1 = new File(rootDir.getAbsolutePath() + '/app/release');
         //file1.deleteDir();

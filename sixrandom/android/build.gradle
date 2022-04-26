@@ -50,9 +50,9 @@ allprojects {
                 excludeGroup "com.facebook.react"
             }
         }
-
+        jcenter(){ url'https://maven.aliyun.com/repository/gradle-plugin'}
+        jcenter(){ url'https://maven.aliyun.com/repository/public'}
         google(){url 'https://maven.aliyun.com/repository/google'}
-        maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}
         maven{ url 'https://www.jitpack.io' }
         maven{ url 'https://maven.aliyun.com/repository/central'}
         maven{ url 'https://maven.aliyun.com/repository/public'}
@@ -60,7 +60,7 @@ allprojects {
         jcenter()
 
         mavenCentral()
-        jcenter(){ url'https://maven.aliyun.com/repository/public'}
+
 
     }
 }
