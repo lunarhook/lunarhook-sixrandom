@@ -9,6 +9,7 @@ import androidx.multidex.MultiDex;
 import com.facebook.react.PackageList;
 import com.facebook.react.BuildConfig;
 import com.facebook.react.ReactApplication;
+import com.lunarhook.tessar.Tessar;
 import com.swmansion.reanimated.ReanimatedPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
@@ -41,7 +42,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.sohu.compass.Compass;
+import com.lunarhook.tessar.Tessar;
 import com.plumber.NativePlumberPackage;
 import java.util.Arrays;
 import java.util.List;
@@ -106,7 +107,7 @@ public class MainApplication extends Application implements ReactApplication {
       SoLoader.init(this, /* native exopackage */ false);
       MultiDex.install(this);
       initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
-      Compass.init(this, getChannel(this), "", "plumber-sdk");
+      Tessar.init(this, getChannel(this), "", "plumber-sdk");
 
       this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 
@@ -128,7 +129,7 @@ public class MainApplication extends Application implements ReactApplication {
 
           @Override
           public void onActivityPaused(Activity activity) {
-              Compass.setLocationInfo(20.0f,20.0f,"testgeoinfo","testgeoinfo");
+
           }
 
           @Override
@@ -138,8 +139,7 @@ public class MainApplication extends Application implements ReactApplication {
 
           @Override
           public void onActivityResumed(Activity activity) {
-              //Compas
-              Compass.setLocationInfo(10.0f,10.0f,"testgeoinfo","testgeoinfo");
+
           }
 
           @Override

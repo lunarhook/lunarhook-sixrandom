@@ -30,8 +30,8 @@ import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.UIManagerModule;
+import com.lunarhook.tessar.Tessar;
 import com.sixrandom.MainApplication;
-import com.sohu.compass.Compass;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -78,7 +78,7 @@ public class NativePlumber extends ReactContextBaseJavaModule {
   public void PlumberRouting(String routing, String grouprouting, String filtername,String eventfilter) {
     try {
       System.out.printf("%s,%s,%s,%s", routing,grouprouting,filtername,eventfilter);
-      Compass.putRoutingEvent(filtername,grouprouting,routing,eventfilter);
+      Tessar.putRoutingEvent(filtername,grouprouting,routing,eventfilter);
     }
     catch (Exception e){
       //error.invoke("error");
@@ -135,7 +135,7 @@ public class NativePlumber extends ReactContextBaseJavaModule {
   public void SetHandlerException(String errormessage,Boolean _dev) {
     try {
       System.out.printf("%s%s","plumberJSException:", errormessage);
-      Compass.SendException(errormessage,_dev);
+      Tessar.SendException(errormessage,_dev);
     }
     catch (Exception e){
       //error.invoke("error");
