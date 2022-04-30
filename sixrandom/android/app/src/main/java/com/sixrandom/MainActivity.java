@@ -26,14 +26,16 @@ public class MainActivity extends ReactActivity {
 
   private ReactInstanceManager mReactInstanceManager;
 
-  private static final int REQUEST_EXTERNAL_STORAGE = 1;
-  private static String[] PERMISSIONS_STORAGE = {
-          Manifest.permission.READ_EXTERNAL_STORAGE,
-          Manifest.permission.WRITE_EXTERNAL_STORAGE,
-          Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS};
+
 
 
   public static void verifyStoragePermissions(Activity activity) {
+    /*
+    final int REQUEST_EXTERNAL_STORAGE = 1;
+    String[] PERMISSIONS_STORAGE = {
+          Manifest.permission.READ_EXTERNAL_STORAGE,
+          Manifest.permission.WRITE_EXTERNAL_STORAGE,
+          Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS};
     int permission = ActivityCompat.checkSelfPermission(activity,
             Manifest.permission.ACCESS_FINE_LOCATION);
 
@@ -41,6 +43,7 @@ public class MainActivity extends ReactActivity {
       ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE,
               REQUEST_EXTERNAL_STORAGE);
     }
+    */
   }
 
   @Override

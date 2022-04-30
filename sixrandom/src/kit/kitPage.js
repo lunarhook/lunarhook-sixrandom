@@ -189,33 +189,37 @@ class kitPage extends React.Component {
       const permissions = [
             PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
             PermissionsAndroid.PERMISSIONS.CAMERA,
-            PermissionsAndroid.PERMISSIONS.CALL_PHONE,
-            PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+            //PermissionsAndroid.PERMISSIONS.CALL_PHONE,
+            //PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
            ]
       const granteds = await PermissionsAndroid.requestMultiple(permissions)
-      var data = data+"是否同意相机截图保存功能: "
+      var data = data+"是否同意相机功能和基础存储服务\n(拒绝该服务将停止服务): "
       if (granteds["android.permission.CAMERA"] === "granted") {
         data = data + "是\n"
       } else {
         data = data + "否\n"
       }
+      /*
       if (granteds["android.permission.CALL_PHONE"] === "granted") {
         data = data + "是\n"
       } else {
         data = data + "否\n"
       }
       data = data+"是否同意使用电话拨入权限: "
+      */
       if (granteds["android.permission.WRITE_EXTERNAL_STORAGE"] === "granted") {
         data = data + "是\n"
       } else {
         data = data + "否\n"
       }
+      /*
       if (granteds["android.permission.ACCESS_COARSE_LOCATION"] === "granted") {
         data = data + "是\n"
       } else {
         data = data + "否\n"
       }
       data = data+"是否同意位置信息: "
+      */
       console.warn(data)
     } catch (err) {
       console.warn(err)
@@ -252,10 +256,10 @@ class kitPage extends React.Component {
                 onPress: () =>{
                   Alert.alert(
                     "用户",
-                    "您可以阅读《用户协议》和《隐私政策》，如果依然拒绝可能无法继续使用服务",
+                    "您可以阅读《用户协议》和《隐私政策》，如果拒绝将无法继续使用服务",
                     [
                       {
-                        text: "暂不使用",
+                        text: "不同意",
                         onPress: () =>RNExitApp.exitApp(),
                         style: "cancel",
                       },
