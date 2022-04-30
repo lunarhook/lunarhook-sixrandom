@@ -331,7 +331,7 @@ class WechatShare extends React.Component {
         }
       })
     }).catch(error => {
-        alert('保存失败！\n' + error);
+        alert('保存失败！\n' + "需要允许相机和存储使用权限");
     })
     if(""!=sw)
     {
