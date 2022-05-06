@@ -15,6 +15,7 @@ import { HistoryArrayGroup } from '../config/StorageModule'
 import UserModule from '../config/UserModule'
 import KitConfig from '../config/KitConfig'
 import RNExitApp from 'react-native-exit-app';
+var NativePlumber = NativeModules.NativePlumber;
 var w = ScreenConfig.__screenW()
 var H = ScreenConfig.__screenH()
 var coln = 3
@@ -289,6 +290,7 @@ class kitPage extends React.Component {
               },
               { text: '同意', onPress: () => { 
                 HistoryArrayGroup.SaveFirstTime(), 
+                NativePlumber.PlumberInit()
                 this.setState({ handler: 3 }),
                 this.setState({ less: true })
                 if (Platform.OS === 'android')
@@ -305,6 +307,7 @@ class kitPage extends React.Component {
         }
         else {
           //非新用户要检查权限
+          NativePlumber.PlumberInit()
           this.setState({ less: false })
           if (Platform.OS === 'android')
           {

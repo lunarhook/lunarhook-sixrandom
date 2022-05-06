@@ -88,7 +88,7 @@ public class MainApplication extends Application implements ReactApplication {
     return mReactNativeHost;
   }
 
-    private String getChannel(Context context) {
+    public String getChannel(Context context) {
         try {
             PackageManager pm = context.getPackageManager();
             String name = context.getPackageName();
@@ -107,7 +107,7 @@ public class MainApplication extends Application implements ReactApplication {
       SoLoader.init(this, /* native exopackage */ false);
       MultiDex.install(this);
       initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
-      Tessar.init(this, getChannel(this), "", "plumber-sdk");
+
 
       this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 

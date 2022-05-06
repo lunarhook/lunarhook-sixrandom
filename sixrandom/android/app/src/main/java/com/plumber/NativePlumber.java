@@ -75,6 +75,27 @@ public class NativePlumber extends ReactContextBaseJavaModule {
    * @param duration 时长
    */
   @ReactMethod
+  public void PlumberInit() {
+    try {
+      Activity r =  this.getCurrentActivity();
+      Context context = r.getApplicationContext();
+      PackageManager pm = context.getPackageManager();
+      String name = context.getPackageName();
+      ApplicationInfo appInfo = pm.getApplicationInfo(name, PackageManager.GET_META_DATA);
+      String channel = appInfo.metaData.getString("ChannelId");
+      Tessar.init(this.getCurrentActivity().getApplication(), channel, "", "plumber-sdk");
+    }
+    catch (Exception e){
+      //error.invoke("error");
+    }
+  }
+
+  /**
+   * 使用ReactMethod注解，使这个方法被js调用
+   * @param message 文本
+   * @param duration 时长
+   */
+  @ReactMethod
   public void PlumberRouting(String routing, String grouprouting, String filtername,String eventfilter) {
     try {
       System.out.printf("%s,%s,%s,%s", routing,grouprouting,filtername,eventfilter);
