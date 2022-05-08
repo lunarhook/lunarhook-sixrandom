@@ -581,7 +581,8 @@ class MarryMainPage extends React.Component {
     else {
       console.log("curminiluckyearnum", Number(this.state.curminiluckyearnummale))
       thisyear = new Date()//这里应该选小运的年份
-      thisyear.setFullYear(this.state.beginluckymale)
+      //现在只能看当年的运势了，不能看具体那个小韵了
+      //thisyear.setFullYear(this.state.beginluckymale)
       //这里必须要算出正月，所以流年月份按3月计算
       thisyear.setMonth(3)
     }
