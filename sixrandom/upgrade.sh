@@ -16,7 +16,9 @@ brew install node
 brew install nghttp2
 brew install nginx
 #brew install openjdk
-brew install --cask temurin8
+#brew install --cask temurin8
+brew tap homebrew/cask-versions
+brew install --cask zulu11
 brew install pcre
 brew install pcre2
 brew install readline
