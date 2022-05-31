@@ -14,7 +14,7 @@
     "@babel/preset-typescript": "^7.17.12",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/cameraroll": "^4.1.2",
-    "@react-native-community/cli": "^8.0.2",
+    "@react-native-community/cli": "^6.1.0",
     "@react-native-community/geolocation": "^2.1.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/netinfo": "^8.3.1",
