@@ -17,7 +17,7 @@
     "@react-native-community/cli": "^8.0.2",
     "@react-native-community/geolocation": "^2.1.0",
     "@react-native-community/masked-view": "^0.1.11",
-    "@react-native-community/netinfo": "^8.3.0",
+    "@react-native-community/netinfo": "^8.3.1",
     "@react-native-community/segmented-control": "^2.2.2",
     "@react-native-community/slider": "^4.2.2",
     "@react-native-picker/picker": "^2.4.1",
