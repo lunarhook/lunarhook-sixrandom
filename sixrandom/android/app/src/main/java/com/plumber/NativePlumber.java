@@ -71,8 +71,6 @@ public class NativePlumber extends ReactContextBaseJavaModule {
 
   /**
    * 使用ReactMethod注解，使这个方法被js调用
-   * @param message 文本
-   * @param duration 时长
    */
   @ReactMethod
   public void PlumberInit() {
@@ -92,8 +90,6 @@ public class NativePlumber extends ReactContextBaseJavaModule {
 
   /**
    * 使用ReactMethod注解，使这个方法被js调用
-   * @param message 文本
-   * @param duration 时长
    */
   @ReactMethod
   public void PlumberRouting(String routing, String grouprouting, String filtername,String eventfilter) {
@@ -108,8 +104,6 @@ public class NativePlumber extends ReactContextBaseJavaModule {
 
   /**
    * 使用ReactMethod注解，使这个方法被js调用
-   * @param message 文本
-   * @param duration 时长
    */
   @ReactMethod
   public void PlumberGetChannel(Callback callback) {
@@ -129,8 +123,6 @@ public class NativePlumber extends ReactContextBaseJavaModule {
 
   /**
    * 使用ReactMethod注解，使这个方法被js调用
-   * @param message 文本
-   * @param duration 时长
    */
   @ReactMethod
   public void PlumberGetAppVersion(Callback callback) {
@@ -149,8 +141,6 @@ public class NativePlumber extends ReactContextBaseJavaModule {
   }
   /**
    * 使用ReactMethod注解，使这个方法被js调用
-   * @param message 文本
-   * @param duration 时长
    */
   @ReactMethod
   public void SetHandlerException(String errormessage,Boolean _dev) {

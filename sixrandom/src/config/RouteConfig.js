@@ -129,10 +129,10 @@ RouteConfig={
       
     
         //课程是进一步提高成本，解决问题的方法，合理收费
-        "LunarCoursePage":{"name":"重乔","route":"LunarCoursePage","titlename":"重乔馆学","icon":IconConfig.IconEnvira},
-        "LunarCoursePageFake":{"name":"重乔","route":"LunarCoursePageFake","titlename":"重乔馆学","icon":IconConfig.IconEnvira},
+        "LunarCoursePage":{"name":"无邪","route":"LunarCoursePage","titlename":"思无邪","icon":IconConfig.IconEnvira},
+        "LunarCoursePageFake":{"name":"无邪","route":"LunarCoursePageFake","titlename":"思无邪","icon":IconConfig.IconEnvira},
         
-        "LunarBooks":{"name":"重乔馆","route":"LunarCoursePage","titlename":"重乔","icon":IconConfig.IconBooks},
+        "LunarBooks":{"name":"无邪馆","route":"LunarCoursePage","titlename":"无邪","icon":IconConfig.IconBooks},
         
         "LunarCourseConfigPage":{"name":"馆学配置","route":"LunarCourseConfigPage","icon":IconConfig.IconSubmit},
         "LunarMasterConfigPage":{"name":"课程训练配置","route":"LunarMasterConfigPage","icon":IconConfig.IconSubmit},

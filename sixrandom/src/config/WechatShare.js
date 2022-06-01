@@ -389,6 +389,7 @@ class WechatShare extends React.Component {
     captureRef(ref, {
       format: "jpg",
       quality: 0.8,
+      useRenderInContext:true,
       snapshotContentContainer: true
     })
     .then(
