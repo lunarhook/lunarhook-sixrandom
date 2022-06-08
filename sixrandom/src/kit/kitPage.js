@@ -185,6 +185,7 @@ class kitPage extends React.Component {
     })
   }
   async requestCameraPermission() {
+    /*
     try {
 
       const permissions = [
@@ -207,7 +208,7 @@ class kitPage extends React.Component {
         data = data + "否\n"
       }
       data = data+"是否同意使用电话拨入权限: "
-      */
+     
       if (granteds["android.permission.WRITE_EXTERNAL_STORAGE"] === "granted") {
         data = data + "是\n"
       } else {
@@ -220,11 +221,12 @@ class kitPage extends React.Component {
         data = data + "否\n"
       }
       data = data+"是否同意位置信息: "
-      */
+      
       console.warn(data)
     } catch (err) {
       console.warn(err)
     }
+    */
   }
 
   async privacycheck() {

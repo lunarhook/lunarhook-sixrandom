@@ -358,6 +358,51 @@ class WechatShare extends React.Component {
         this.share("","qqttl",ds)
     }
   }
+  async requestCameraPermission() {
+    try {
+
+      const permissions = [
+            PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+            PermissionsAndroid.PERMISSIONS.CAMERA,
+            //PermissionsAndroid.PERMISSIONS.CALL_PHONE,
+            //PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+           ]
+      const granteds = await PermissionsAndroid.requestMultiple(permissions)
+      var data = data+"是否同意相机功能和基础存储服务\n(拒绝该服务将停止服务): "
+      if (granteds["android.permission.CAMERA"] === "granted") {
+        data = data + "是\n"
+      } else {
+        data = data + "否\n"
+        return false;
+      }
+      /*
+      if (granteds["android.permission.CALL_PHONE"] === "granted") {
+        data = data + "是\n"
+      } else {
+        data = data + "否\n"
+      }
+      data = data+"是否同意使用电话拨入权限: "
+      */
+      if (granteds["android.permission.WRITE_EXTERNAL_STORAGE"] === "granted") {
+        data = data + "是\n"
+      } else {
+        data = data + "否\n"
+        return false;
+      }
+      /*
+      if (granteds["android.permission.ACCESS_COARSE_LOCATION"] === "granted") {
+        data = data + "是\n"
+      } else {
+        data = data + "否\n"
+      }
+      data = data+"是否同意位置信息: "
+      */
+      console.warn(data)
+    } catch (err) {
+      console.warn(err)
+    }
+    return true
+  }
 
   snapshot(ref,ds,rthis){
     if (Platform.OS === 'ios' )
@@ -373,17 +418,20 @@ class WechatShare extends React.Component {
       ]) 
     }
     else if(Platform.OS === 'android'){
-      Modal.alert('截图分享\n',"", [
+      this.requestCameraPermission().then(T=>{
+        if(true==T)
+        {
+          Modal.alert('截图分享\n',"", [
 
-        {text: '发送给朋友', onPress: () => this.capture(ref,ds,"session",rthis)},
-        {text: '发送到朋友圈', onPress: () => this.capture(ref,ds,"ttl",rthis)},
-        {text: '微信收藏', onPress: () => this.capture(ref,ds,"wechatcollect",rthis)},
-        {text: '保存到相册', onPress: () => this.capture(ref,ds,"",rthis)},
-        {text: '取消', onPress:() => {this.closeshareimage(rthis)},style: 'cancel',},
-      ])
+            {text: '发送给朋友', onPress: () => this.capture(ref,ds,"session",rthis)},
+            {text: '发送到朋友圈', onPress: () => this.capture(ref,ds,"ttl",rthis)},
+            {text: '微信收藏', onPress: () => this.capture(ref,ds,"wechatcollect",rthis)},
+            {text: '保存到相册', onPress: () => this.capture(ref,ds,"",rthis)},
+            {text: '取消', onPress:() => {this.closeshareimage(rthis)},style: 'cancel',},
+          ])
+        }
+      })
     }
-    
-
   }
   capture(ref,ds,sw,rthis){
     captureRef(ref, {
