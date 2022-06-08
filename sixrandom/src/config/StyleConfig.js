@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import DeviceInfo from 'react-native-device-info';
 import { StyleSheet ,Platform} from 'react-native';
 import ScreenConfig from './ScreenConfig';
 import IconConfig from './IconConfig'
@@ -27,11 +26,13 @@ class FontStyleConfig extends React.Component {
     }catch{
       FontStyleConfigThis.state.changesize = 5;
     }
+    /*
     let deviceId = DeviceInfo.getDeviceId();
     if(("iPhone13,1")==deviceId)
     {
       FontStyleConfigThis.state.deviceFontSize = -2
     }
+    */
      
   }
   async setfontsize(value)
