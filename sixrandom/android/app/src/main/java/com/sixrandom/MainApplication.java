@@ -25,7 +25,6 @@ import com.github.wumke.RNExitApp.RNExitAppPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.reactnativecommunity.cameraroll.CameraRollPackage;
 //import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.facebook.react.bridge.JSIModulePackage; // <- add
 import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
