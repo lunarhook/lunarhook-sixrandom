@@ -785,7 +785,7 @@ class MarryMainPage extends React.Component {
     test2female.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + curluckyearfemale[1]), hide: '' })
     test2female.push({ info: EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + gzYear[1]), hide: '' })
     for (var i = 0; i < 4; i++) {
-      var x = EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatemale[i * 2 + 1])
+      var x = EightrandomModule.gettwelfthposition(this.state.EightDatefemale[4] + this.state.EightDatefemale[i * 2 + 1])
       test2female.push({ info: x, hide: "" })
     }
 
