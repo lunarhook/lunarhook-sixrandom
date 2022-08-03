@@ -471,21 +471,10 @@ class WechatShare extends React.Component {
             <View style={{ alignItems: 'center', justifyContent: 'center', alignself: 'flex-start' }}>
               <Image
                 style={{ width: 128, height: 128 ,alignself: 'flex-start'  }}
-                source={{ uri: shareimg[keys[1]] }}
+                source={{ uri: shareimg['website'] }}
               />
               <Text ></Text>
               <Text >www.lunarhook.com</Text>
-              <Text ></Text>
-            </View>
-            <View style={{ alignItems:"center", justifyContent: 'center' ,  alignself: 'flex-start' ,width:64}}>
-            </View>
-            <View style={{ alignItems:"center", justifyContent: 'center' ,  alignself: 'flex-start' }}>
-              <Image
-                style={{ width: 128, height: 128,alignself: 'flex-start'   }}
-                source={{ uri: shareimg["weibo"] }}
-              />
-              <Text ></Text>
-              <Text >微博社区二维码</Text>
               <Text ></Text>
             </View>
           </View>
