@@ -317,25 +317,29 @@ class WechatShare extends React.Component {
         }
     })
   }
-  saveImg(img,sw,ds) {
-    CameraRoll.save(img,'photo',"sixrandom").then(result => {
-      this.share(img,sw,ds).then(v=>{
-        console.log("this.share",v,sw)
-        if(""!=sw)
-        {
+  saveImg(img,sw,ds,rthis) {
+    CameraRoll.save(img, 'photo', "sixrandom").then(result => {
+      this.share(img, sw, ds).then(v => {
+        console.log("this.share", v, sw)
+        if ("" != sw) {
           var dellist = new Array()
           dellist.push(result)
-          console.log("del",result)
+          console.log("del", result)
 
           CameraRoll.deletePhotos(dellist)
+          
         }
+        this.closeshareimage(rthis)
+      }).catch(t=>{
+        this.closeshareimage(rthis)
       })
+
     }).catch(error => {
-        alert('保存失败！\n' + "需要允许相机和存储使用权限");
+      this.closeshareimage(rthis)
+      alert('保存失败！\n' + "需要允许相机和存储使用权限");
     })
-    if(""!=sw)
-    {
-      console.log("deloriginal",img)
+    if ("" != sw) {
+      console.log("deloriginal", img)
     }
 
   }
@@ -441,9 +445,9 @@ class WechatShare extends React.Component {
       snapshotContentContainer: true
     })
     .then(
-      uri => this.saveImg(uri,sw,ds),
+      uri => this.saveImg(uri,sw,ds,rthis),
       error => console.error("Oops, snapshot failed", error),
-      this.closeshareimage(rthis)
+      
     );
   }
 
@@ -451,7 +455,7 @@ class WechatShare extends React.Component {
   {
    
 
-    if(true==ret)
+    if(true==ret || false==ret)
     {
       var dateDigitToString = function (num) {  
         return num < 10 ? '0' + num : num;  
