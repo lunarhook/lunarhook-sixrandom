@@ -8,7 +8,7 @@ import {
   MenuOption,
   MenuTrigger,
 } from 'react-native-popup-menu';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { Tabs, Grid, Accordion, WhiteSpace } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig'
 import ScreenConfig from '../config/ScreenConfig';

@@ -2,11 +2,11 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, TouchableOpacity, Alert, Text, Animated, FlatList, Dimensions } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
-import Search from 'react-native-search-box';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
+
 import { HistoryArrayGroup } from '../../../config/StorageModule'
 import RouteConfig from '../../../config/RouteConfig';
-import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
+import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, SearchBar } from '@ant-design/react-native';
 import IconConfig from '../../../config/IconConfig'
 import UserModule from '../../../config/UserModule'
 import ScreenConfig from '../../../config/ScreenConfig';
@@ -219,7 +219,7 @@ class qimenHistoryPage extends React.Component {
 
 
     return (<View style={styles.container}>
-      <Search
+      <SearchBar
         ref="search_box"
         onSearch={this.onSearch}
         onCancel={this.onSearchCancel}

@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Image, Clipboard, Alert, Linking } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { Accordion, DatePicker, List, Grid, WhiteSpace, Provider, PickerView } from '@ant-design/react-native';
 import RouteConfig from '../../config/RouteConfig';
 import IconConfig from '../../config/IconConfig';

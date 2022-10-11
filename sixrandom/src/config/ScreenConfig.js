@@ -16,6 +16,9 @@ const R12X_HEIGHT = 844;
 // iPhoneRX 该尺寸目前不用适配
 const R12MAX_WIDTH = 428;
 const R12MAX_HEIGHT = 926;
+// iPhoneRX 该尺寸目前不用适配
+const R14MAX_WIDTH = 430;
+const R14MAX_HEIGHT = 932;
 class ScreenConfig extends React.Component {
     Toastkey = undefined;
     __navigationMenuFontsize()
@@ -35,7 +38,9 @@ class ScreenConfig extends React.Component {
             ((screenH === R12X_HEIGHT && screenW === R12X_WIDTH) ||
                 (screenH === R12X_WIDTH && screenW === R12X_HEIGHT)) ||
               ((screenH === R12MAX_HEIGHT && screenW === R12MAX_WIDTH) ||
-                (screenH === R12MAX_WIDTH && screenW === R12MAX_HEIGHT))
+                (screenH === R12MAX_WIDTH && screenW === R12MAX_HEIGHT))||
+                ((screenH === R14MAX_HEIGHT && screenW === R14MAX_WIDTH) ||
+                (screenH === R14MAX_WIDTH && screenW === R14MAX_HEIGHT))
         )
     }
 

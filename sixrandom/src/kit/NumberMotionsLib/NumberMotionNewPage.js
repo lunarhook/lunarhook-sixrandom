@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { TextInput, StyleSheet, Keyboard, View, ScrollView, Button, Text, Vibration } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { Grid, DatePicker, List, Switch, WhiteSpace, Provider, PickerView } from '@ant-design/react-native';
 
 import { HistoryArrayGroup } from '../../config/StorageModule'

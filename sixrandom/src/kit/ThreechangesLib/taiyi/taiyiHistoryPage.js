@@ -3,8 +3,8 @@
 import React, {Component } from 'react';
 import {StyleSheet,View,TouchableOpacity,Dimensions,Alert,  Text,Animated, FlatList} from 'react-native';
 import {HistoryArrayGroup} from '../../../config/StorageModule'
-import Search from 'react-native-search-box';
-import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
+
+import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, SearchBar } from '@ant-design/react-native';
 import IconConfig from '../../../config/IconConfig'
 import UserModule from '../../../config/UserModule'
 import ScreenConfig from '../../../config/ScreenConfig';
@@ -182,17 +182,16 @@ class taiyiHistoryPage extends React.Component {
   }
   onSearch = (searchText) => {
     return new Promise((resolve, reject) => {
-      if(this.state.dataSource.length>0)
-      {
+      HistoryArrayGroup.GetTaiyiHistory().then(ids => {
         var filterArray = []
-        for (var i = 0, len = this.state.dataSource.length; i < len; i++) {
-          console.log(searchText,this.state.dataSource[i].name);
-          if (this.state.dataSource[i].tip.match(searchText)) {
-            filterArray.push(this.state.dataSource[i])
+        for (var i = 0, len = ids.length; i < len; i++) {
+          console.log(searchText, ids[i].name);
+          if (ids[i].tip.match(searchText)) {
+            filterArray.push(ids[i])
           }
         }
-        this.setState({dataSource:filterArray})
-      }
+        this.setState({ dataSource: filterArray })
+      })
         resolve();
     });
 }
@@ -221,9 +220,9 @@ class taiyiHistoryPage extends React.Component {
 
 
     return (<View style={styles.container}>
-            <Search
+            <SearchBar
           ref="search_box"
-          onSearch={this.onSearch}
+          onChange={this.onSearch}
           onCancel={this.onSearchCancel}
           //defaultValue="搜索"
           placeholder="搜索"

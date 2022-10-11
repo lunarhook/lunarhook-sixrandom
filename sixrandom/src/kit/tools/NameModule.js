@@ -6,7 +6,7 @@ import { StyleSheet, View, Dimensions, TouchableHighlight, ScrollView, Text, Fla
 import RouteConfig from './../../config/RouteConfig'
 import IconConfig from './../../config/IconConfig'
 import { Card, Button, Modal, WingBlank, WhiteSpace, List, InputItem, Icon } from '@ant-design/react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import ScreenConfig from './../../config/ScreenConfig';
 import NameToolsModule from './NameToolsModule'
 import { StyleConfig, FontStyleConfig } from './../../config/StyleConfig';

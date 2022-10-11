@@ -7,7 +7,7 @@ import RouteConfig from './../../config/RouteConfig'
 import IconConfig from './../../config/IconConfig'
 import ScreenConfig from './../../config/ScreenConfig'
 import { StyleConfig, FontStyleConfig } from './../../config/StyleConfig';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
 const { width, height } = Dimensions.get('window');
 import NameToolsModule from './NameToolsModule'

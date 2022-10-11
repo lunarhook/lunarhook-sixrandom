@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet,View,Dimensions,Alert,Button, Text,RefreshControl,ScrollView} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { StackNavigator } from 'react-navigation';
 import { ListItem ,Card,Icon} from 'react-native-elements';
 import ChangesuniverseConfig from './ChangesuniverseConfig';

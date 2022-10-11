@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet,View, Text,ScrollView,Dimensions,RefreshControl,FlatList,Platform} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import Storage from 'react-native-storage';
 
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';

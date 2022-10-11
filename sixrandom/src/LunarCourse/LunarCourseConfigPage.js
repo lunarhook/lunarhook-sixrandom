@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import {DragSortableView} from "react-native-drag-sort"
 import { Grid, WingBlank, WhiteSpace, SegmentedControl, Toast } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig';

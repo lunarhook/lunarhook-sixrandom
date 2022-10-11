@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {TextInput,StyleSheet,Keyboard,View, ScrollView, Button,Text,FlatList,Vibration} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { TextareaItem,PickerView ,Toast} from '@ant-design/react-native';
 import RNShake from 'react-native-shake';
 import IconConfig from '../../../config/IconConfig'

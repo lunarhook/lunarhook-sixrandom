@@ -1,30 +1,28 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.6.10'
     ext {
-        buildToolsVersion = "30.0.3"
+        buildToolsVersion = "31.0.0"
         minSdkVersion = 21
-        compileSdkVersion = 30
-        targetSdkVersion = 30
-        supportLibVersion = "30.0.3"
-        ndkVersion = "20.1.5948944"
-        androidXCore = "1.7.0"
+        compileSdkVersion = 31
+        targetSdkVersion = 31
+
+        if (System.properties['os.arch'] == "aarch64") {
+            // For M1 Users we need to use the NDK 24 which added support for aarch64
+            ndkVersion = "24.0.8215888"
+        } else {
+            // Otherwise we default to the side-by-side NDK version from AGP.
+            ndkVersion = "21.4.7075529"
+        }
     }
     repositories {
-        maven{ url 'https://mvnrepository.com/'}
-        jcenter(){ url 'https://maven.aliyun.com/repository/public'}
-        google(){url 'https://maven.aliyun.com/repository/google'}
-
-        maven{ url 'https://maven.aliyun.com/repository/public/' }
-        maven{ url 'https://maven.aliyun.com/repository/central/'}
-
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath('com.android.tools.build:gradle:7.2.2')
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath("com.android.tools.build:gradle:7.2.1")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("de.undercouch:gradle-download-task:5.0.1")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -32,11 +30,6 @@ buildscript {
 
 allprojects {
     repositories {
-        flatDir{
-            dirs "$rootDir/libs" //在这里加上这句
-        }
-        google()
-        mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url("$rootDir/../node_modules/react-native/android")
@@ -52,19 +45,7 @@ allprojects {
                 excludeGroup "com.facebook.react"
             }
         }
-        maven {url 'https://maven.google.com/'}
-        maven{ url 'https://maven.aliyun.com/nexus/content/groups/public/'}
-        jcenter(){ url'https://maven.aliyun.com/repository/gradle-plugin'}
-        jcenter(){ url'https://maven.aliyun.com/repository/public'}
-        google(){url 'https://maven.aliyun.com/repository/google'}
-        maven{ url 'https://www.jitpack.io' }
-        maven{ url 'https://maven.aliyun.com/repository/central'}
-        maven{ url 'https://maven.aliyun.com/repository/public'}
-
-        jcenter()
-
-        mavenCentral()
-
-
+        google()
+        maven { url 'https://www.jitpack.io' }
     }
 }

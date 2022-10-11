@@ -2,13 +2,13 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, TouchableOpacity, Dimensions, Alert, Text, Animated, FlatList } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
-import Search from 'react-native-search-box';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
+
 import ValueTypeModule from '../../../config/ValueTypeModule'
 import { SixrandomModule } from '../SixrandomLib/SixrandomModule'
 import IconConfig from '../../../config/IconConfig'
 import ScreenConfig from '../../../config/ScreenConfig';
-import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
+import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, SearchBar } from '@ant-design/react-native';
 import { HistoryArrayGroup } from '../../../config/StorageModule'
 import UserModule from '../../../config/UserModule'
 import { StyleConfig, FontStyleConfig } from '../../../config/StyleConfig';
@@ -188,16 +188,16 @@ class SixrandomHistoryPage extends React.Component {
 
   onSearch = (searchText) => {
     return new Promise((resolve, reject) => {
-      if (this.state.dataSource.length > 0) {
+      HistoryArrayGroup.GetSixrandomHistory().then(ids => {
         var filterArray = []
-        for (var i = 0, len = this.state.dataSource.length; i < len; i++) {
-          console.log(searchText, this.state.dataSource[i].name);
-          if (this.state.dataSource[i].tip.match(searchText)) {
-            filterArray.push(this.state.dataSource[i])
+        for (var i = 0, len = ids.length; i < len; i++) {
+          console.log(searchText, ids[i].name);
+          if (ids[i].tip.match(searchText)) {
+            filterArray.push(ids[i])
           }
         }
         this.setState({ dataSource: filterArray })
-      }
+      })
       resolve();
     });
   }
@@ -226,9 +226,9 @@ class SixrandomHistoryPage extends React.Component {
     const { errorMessage, popupShowed } = this.state;
     const { navigate } = this.props.navigation;
     return (<View style={styles.container}>
-      <Search
+      <SearchBar
         ref="search_box"
-        onSearch={this.onSearch}
+        onChange={this.onSearch}
         onCancel={this.onSearchCancel}
         //defaultValue="搜索"
         placeholder="搜索"
@@ -252,6 +252,12 @@ class SixrandomHistoryPage extends React.Component {
             <SwipeAction
               autoClose
               style={{ backgroundColor: 'transparent' }}
+
+              left={[{
+                onPress: () => this._starRow(data.item),
+                text: IconConfig.IconAddStar,
+              }]}
+              
               right={[
                 {
                   text: IconConfig.IconAddTip,
@@ -262,10 +268,6 @@ class SixrandomHistoryPage extends React.Component {
                   onPress: () => this._deleteRow(data.item),
                 },
               ]}
-              left={[{
-                onPress: () => this._starRow(data.item),
-                text: IconConfig.IconAddStar,
-              }]}
               onOpen={() => console.log('open')}
               onClose={() => console.log('close')}
             >

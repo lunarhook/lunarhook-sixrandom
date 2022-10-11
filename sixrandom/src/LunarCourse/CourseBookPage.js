@@ -1,14 +1,14 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView,   findNodeHandle,UIManager, FlatList, NativeModules } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { Grid, Accordion, WhiteSpace } from '@ant-design/react-native';
 import { Button, Drawer, List, InputItem } from '@ant-design/react-native';
 import CourseIndexPage from './Course/CourseIndexPage'
 import { StyleConfig, FontStyleConfig } from '../config/StyleConfig';
 import ScreenConfig from '../config/ScreenConfig';
 import IconConfig from '../config/IconConfig'
-import Search from 'react-native-search-box';
+
 import WechatShare from '../config/WechatShare'
 var constMeng = new Array()
 

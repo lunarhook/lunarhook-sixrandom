@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 
 import com.android.build.OutputFile
+import org.apache.tools.ant.taskdefs.condition.Os
 
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
@@ -78,9 +79,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-        entryFile: "index.js",
-    enableHermes: false,  // clean and rebuild if changing
-        nodeExecutableAndArgs:  ["/usr/local/bin/node"]
+    enableHermes: true,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -116,19 +115,21 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 /**
  * Whether to enable the Hermes VM.
  *
- * This should be set on project.ext.react and mirrored here.  If it is not set
+ * This should be set on project.ext.react and that value will be read here. If it is not set
  * on project.ext.react, JavaScript will not be compiled to Hermes Bytecode
  * and the benefits of using Hermes will therefore be sharply reduced.
  */
 def enableHermes = project.ext.react.get("enableHermes", false);
+
 /**
- * Architectures to build native code for in debug.
+ * Architectures to build native code for.
  */
-def nativeArchitectures = project.getProperties().get("reactNativeDebugArchitectures")
+def reactNativeArchitectures() {
+    def value = project.getProperties().get("reactNativeArchitectures")
+    return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
+}
 
 android {
-
-    namespace 'com.sixrandom'
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -137,38 +138,84 @@ android {
         applicationId "com.sixrandom"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 75
-        versionName "2.9.30"
-        ndk {
-            abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+
+        if (isNewArchitectureEnabled()) {
+            // We configure the CMake build only if you decide to opt-in for the New Architecture.
+            externalNativeBuild {
+                cmake {
+                    arguments "-DPROJECT_BUILD_DIR=$buildDir",
+                        "-DREACT_ANDROID_DIR=$rootDir/../node_modules/react-native/ReactAndroid",
+                        "-DREACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build",
+                        "-DNODE_MODULES_DIR=$rootDir/../node_modules",
+                        "-DANDROID_STL=c++_shared"
+                }
+            }
+            if (!enableSeparateBuildPerCPUArchitecture) {
+                ndk {
+                    abiFilters (*reactNativeArchitectures())
+                }
+            }
         }
-        manifestPlaceholders = [
-                QQ_APPID: "tencent101522489"
-        ]
-        flavorDimensions "release"
-        multiDexEnabled true
     }
+
+    if (isNewArchitectureEnabled()) {
+        // We configure the NDK build only if you decide to opt-in for the New Architecture.
+        externalNativeBuild {
+            cmake {
+                path "$projectDir/src/main/jni/CMakeLists.txt"
+            }
+        }
+        def reactAndroidProjectDir = project(':ReactAndroid').projectDir
+        def packageReactNdkDebugLibs = tasks.register("packageReactNdkDebugLibs", Copy) {
+            dependsOn(":ReactAndroid:packageReactNdkDebugLibsForBuck")
+            from("$reactAndroidProjectDir/src/main/jni/prebuilt/lib")
+            into("$buildDir/react-ndk/exported")
+        }
+        def packageReactNdkReleaseLibs = tasks.register("packageReactNdkReleaseLibs", Copy) {
+            dependsOn(":ReactAndroid:packageReactNdkReleaseLibsForBuck")
+            from("$reactAndroidProjectDir/src/main/jni/prebuilt/lib")
+            into("$buildDir/react-ndk/exported")
+        }
+        afterEvaluate {
+            // If you wish to add a custom TurboModule or component locally,
+            // you should uncomment this line.
+            // preBuild.dependsOn("generateCodegenArtifactsFromSchema")
+            preDebugBuild.dependsOn(packageReactNdkDebugLibs)
+            preReleaseBuild.dependsOn(packageReactNdkReleaseLibs)
+
+            // Due to a bug inside AGP, we have to explicitly set a dependency
+            // between configureCMakeDebug* tasks and the preBuild tasks.
+            // This can be removed once this is solved: https://issuetracker.google.com/issues/207403732
+            configureCMakeRelWithDebInfo.dependsOn(preReleaseBuild)
+            configureCMakeDebug.dependsOn(preDebugBuild)
+            reactNativeArchitectures().each { architecture ->
+                tasks.findByName("configureCMakeDebug[${architecture}]")?.configure {
+                    dependsOn("preDebugBuild")
+                }
+                tasks.findByName("configureCMakeRelWithDebInfo[${architecture}]")?.configure {
+                    dependsOn("preReleaseBuild")
+                }
+            }
+        }
+    }
+
     splits {
         abi {
             reset()
             enable enableSeparateBuildPerCPUArchitecture
             universalApk false  // If true, also generate a universal APK
-            include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+            include (*reactNativeArchitectures())
         }
     }
     signingConfigs {
         debug {
-            storeFile file("../keystores/key")
-            storePassword "123456"
-            keyAlias "key0"
-            keyPassword "123456"
-        }
-        release {
-            //密匙内容，请换成自己的
-            storeFile file("../keystores/key")
-            storePassword "123456"
-            keyAlias "key0"
-            keyPassword "123456"
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
         }
     }
     buildTypes {
@@ -178,7 +225,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
@@ -188,120 +235,29 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
-            // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
+            // https://developer.android.com/studio/build/configure-apk-splits.html
+            // Example: versionCode 1 will generate 1001 for armeabi-v7a, 1002 for x86, etc.
             def versionCodes = ["armeabi-v7a": 1, "x86": 2, "arm64-v8a": 3, "x86_64": 4]
             def abi = output.getFilter(OutputFile.ABI)
             if (abi != null) {  // null for the universal-debug, universal-release variants
                 output.versionCodeOverride =
-                        versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
+                        defaultConfig.versionCode * 1000 + versionCodes.get(abi)
             }
-        }
-        variant.outputs.all {
-            def apkName = "app_${variant.productFlavors[0].name}_${buildType.name}_v${variant.versionName}"
-            if (buildType.name.toLowerCase().contains("release")) {
-                outputFileName = "../../../app/release/" + apkName + "_${releaseTime()}.apk"
-            } else {
-                outputFileName = apkName + ".apk"
-            }
+
         }
     }
-    productFlavors {
-        Base {
-            manifestPlaceholders = [CHANNEL_VALUE: "Base"]
-        }
-        Tencent {
-            manifestPlaceholders = [CHANNEL_VALUE: "Tencent"]
-        }
-        Baidu {
-            manifestPlaceholders = [CHANNEL_VALUE: "Baidu"]
-        }
-        Q360 {
-            manifestPlaceholders = [CHANNEL_VALUE: "Q360"]
-        }
-        MI {
-            manifestPlaceholders = [CHANNEL_VALUE: "MI"]
-        }
-        Ali {
-            manifestPlaceholders = [CHANNEL_VALUE: "Ali"]
-        }
-        Huawei {
-            manifestPlaceholders = [CHANNEL_VALUE: "Huawei"]
-        }
-        Oppo {
-            manifestPlaceholders = [CHANNEL_VALUE: "Oppo"]
-        }
-        Vivo {
-            manifestPlaceholders = [CHANNEL_VALUE: "Vivo"]
-        }
-        Meizu {
-            manifestPlaceholders = [CHANNEL_VALUE: "Meizu"]
-        }
-    }
-
-
-    task deletedirs(type: Delete) {
-        //删除Android 更目录的aaa 文件
-        File file1 = new File(rootDir.getAbsolutePath() + '/app/src/main/res/drawable-hdpi');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/src/main/res/drawable-mdpi');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/src/main/res/drawable-xhdpi');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/src/main/res/drawable-xxhdpi');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/src/main/res/drawable-xxxhdpi');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/src/main/res/raw');
-        file1.deleteDir();
-
-        file1 = new File(rootDir.getAbsolutePath() + '/app/Tencent');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/Q360');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/Huawei');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/Ali');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/Baidu');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/Base');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/MI');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/Oppo');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/Vivo');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/Meizu');
-        file1.deleteDir();
-        file1 = new File(rootDir.getAbsolutePath() + '/app/release');
-        file1.deleteDir();
-    }
-    buildToolsVersion = buildToolsVersion
-    lint {
-        abortOnError false
-        checkReleaseBuilds false
-    }
-
-    project.afterEvaluate {
-        tasks.matching {
-            it.name.startsWith('compile') && it.name.endsWith('JavaWithJavac')
-        }.each {tk ->
-            tk.dependsOn(deletedirs)
-        }
-    }
-}
-
-def releaseTime() {
-    return new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("GMT+08:00"))
 }
 
 dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
 
     //noinspection GradleDynamicVersion
+    implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
-      exclude group:'com.facebook.fbjni'
+        exclude group:'com.facebook.fbjni'
     }
 
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
@@ -313,35 +269,29 @@ dependencies {
         exclude group:'com.facebook.flipper'
     }
 
-    implementation project(':react-native-swisseph')
-    implementation project(':react-native-wechat-lib')
-    implementation project(':react-native-exit-app')
-    implementation project(':react-native-safe-area-context')
-    implementation project(path: ':@react-native-picker_picker')
-    //implementation project(':@react-native-community_viewpager')
-    implementation project(':@react-native-community_cameraroll')
-    implementation project(':react-native-gesture-handler')
-    implementation project(':react-native-screens')
-    implementation project(':react-native-reanimated')
-    implementation project(':@react-native-community_geolocation')
-    implementation project(':react-native-svg')
-    implementation project(':@react-native-community_async-storage')
-    implementation project(':react-native-shake')
-    implementation files('TessarLib-release.jar')
-    implementation project(':react-native-view-shot')
-    implementation project(':react-native-vector-icons')
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-
     if (enableHermes) {
-        def hermesPath = "../../node_modules/hermes-engine/android/";
-        debugImplementation files(hermesPath + "hermes-debug.aar")
-        releaseImplementation files(hermesPath + "hermes-release.aar")
+        //noinspection GradleDynamicVersion
+        implementation("com.facebook.react:hermes-engine:+") { // From node_modules
+            exclude group:'com.facebook.fbjni'
+        }
     } else {
         implementation jscFlavor
+    }
+}
+
+if (isNewArchitectureEnabled()) {
+    // If new architecture is enabled, we let you build RN from source
+    // Otherwise we fallback to a prebuilt .aar bundled in the NPM package.
+    // This will be applied to all the imported transtitive dependency.
+    configurations.all {
+        resolutionStrategy.dependencySubstitution {
+            substitute(module("com.facebook.react:react-native"))
+                    .using(project(":ReactAndroid"))
+                    .because("On New Architecture we're building React Native from source")
+            substitute(module("com.facebook.react:hermes-engine"))
+                    .using(project(":ReactAndroid:hermes-engine"))
+                    .because("On New Architecture we're building Hermes from source")
+        }
     }
 }
 
@@ -351,10 +301,13 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.implementation
     into 'libs'
 }
-/*
-project.ext.vectoricons = [
-        iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf','MaterialIcons.ttf','Ionicons.ttf','Foundation.ttf','FontAwesome.ttf','FontAwesome5.ttf','Entypo.ttf','AntDesign.ttf','Feather.ttf','Fontisto.ttf','EvilIcons.ttf' ] // Name of the font files you want to copy
-]
-*/
+
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
-apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
+def isNewArchitectureEnabled() {
+    // To opt-in for the New Architecture, you can either:
+    // - Set `newArchEnabled` to true inside the `gradle.properties` file
+    // - Invoke gradle with `-newArchEnabled=true`
+    // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
+    return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+}

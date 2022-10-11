@@ -4,7 +4,7 @@ var ReactNative = require('react-native');
 import React, { Component } from 'react';
 import { findNodeHandle, Image, StyleSheet, View, Alert, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import { captureRef } from "react-native-view-shot";
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { Grid, Accordion, WhiteSpace, WingBlank, List } from '@ant-design/react-native';
 import { SixrandomModule } from '../SixrandomLib/SixrandomModule'
 import StorageModule from '../../../config/StorageModule'

@@ -2,10 +2,10 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, TouchableOpacity, Dimensions, Alert, Text, FlatList, Animated } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
-import Search from 'react-native-search-box';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 
-import { Card, Toast, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
+
+import { Card, Toast, Modal, WingBlank, WhiteSpace, List, SwipeAction, SearchBar } from '@ant-design/react-native';
 import IconConfig from '../../../config/IconConfig'
 import ScreenConfig from '../../../config/ScreenConfig';
 import { HistoryArrayGroup } from '../../../config/StorageModule'
@@ -235,9 +235,9 @@ class MarryHistoryPage extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Search
+        <SearchBar
           ref="search_box"
-          onSearch={this.onSearch}
+          onChange={this.onSearch}
           onCancel={this.onSearchCancel}
           //defaultValue="搜索"
           placeholder="搜索"

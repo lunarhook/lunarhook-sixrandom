@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Keyboard, View, Button, ScrollView, TouchableOpacity, Text, TouchableWithoutFeedback } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 
 import { InputItem, DatePicker, List, Switch, WhiteSpace, Provider, PickerView } from '@ant-design/react-native';
 

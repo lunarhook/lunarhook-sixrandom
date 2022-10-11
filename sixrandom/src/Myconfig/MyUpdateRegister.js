@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, TouchableOpacity, Alert, Text, RefreshControl, ScrollView } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
 import { InputItem, WhiteSpace, List, WingBlank, Toast, Button } from '@ant-design/react-native';
 import { ListItem } from 'react-native-elements';
 import IconConfig from '../config/IconConfig'

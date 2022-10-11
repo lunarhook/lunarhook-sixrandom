@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import {Alert ,Platform,AppRegistry ,View,Image,Text,Linking,NativeModules,PermissionsAndroid} from 'react-native';
 import { Modal } from '@ant-design/react-native';
 import CameraRoll from "@react-native-community/cameraroll";
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { captureRef } from "react-native-view-shot";
 import * as WeChat from 'react-native-wechat-lib';
 import shareimg from './shareimage'

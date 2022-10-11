@@ -4,7 +4,7 @@ import { Animated,  View, Text,StyleSheet ,ScrollView,Dimensions,Image} from 're
 import RouteConfig from './../../config/RouteConfig'
 import { appinfo, appname } from './../../config/appinfo'
 import { Grid, Card, WhiteSpace, WingBlank, List } from '@ant-design/react-native';
-import TabNavigator from 'react-native-tab-navigator';  
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import sloganshow from './../../config/SloganModule'
 import ScreenConfig from './../../config/ScreenConfig';
 import {StyleConfig,FontStyleConfig} from './../../config/StyleConfig';
