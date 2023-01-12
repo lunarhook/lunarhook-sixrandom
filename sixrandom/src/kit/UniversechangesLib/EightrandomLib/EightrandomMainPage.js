@@ -529,7 +529,7 @@ class EightrandomMainPage extends React.Component {
     //拍出所有小运
     var birthdayyear = new Date()
     birthdayyear.setYear(curyear)
-    birthdayyear.setMonth(curmonth)
+    birthdayyear.setMonth(4)
     birthdayyear = SixrandomModule.lunar_f(birthdayyear)
     birthdayyear = birthdayyear.gzYear + birthdayyear.gzMonth + birthdayyear.gzDate + birthdayyear.gzTime;
     console.log("birthdayyear", birthdayyear, curyear, curmonth)
