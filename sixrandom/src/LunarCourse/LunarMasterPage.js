@@ -345,7 +345,7 @@ class LunarMasterPage extends React.Component {
 
       <View style={StyleConfig.container}>
         <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>
-          {this.renderContent}
+          {this.state.tabs.map((tab, index)=>this.renderContent(tab, index))}
         </Tabs>
       </View>
     )
