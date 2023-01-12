@@ -21,6 +21,7 @@
 		0A1A69F828F1FC6E0018F2E6 /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A69F628F1FC580018F2E6 /* antfill.ttf */; };
 		0A1A69F928F1FC6E0018F2E6 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A69F728F1FC580018F2E6 /* antoutline.ttf */; };
 		0A1A69FB28F1FD410018F2E6 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 0A1A69FA28F1FD410018F2E6 /* main.jsbundle */; };
+		0A865DDD297086D800620E65 /* icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A865DDB297086D800620E65 /* icon-1024.png */; };
 		0C80B921A6F3F58F76C31292 /* libPods-sixrandom.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-sixrandom.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -56,6 +57,7 @@
 		0A1A69F628F1FC580018F2E6 /* antfill.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = antfill.ttf; path = "../../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
 		0A1A69F728F1FC580018F2E6 /* antoutline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = antoutline.ttf; path = "../../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
 		0A1A69FA28F1FD410018F2E6 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		0A865DDB297086D800620E65 /* icon-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-1024.png"; sourceTree = SOURCE_ROOT; };
 		13B07F961A680F5B00A75B9A /* sixrandom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sixrandom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = sixrandom/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = sixrandom/AppDelegate.mm; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		13B07FAE1A68108700A75B9A /* sixrandom */ = {
 			isa = PBXGroup;
 			children = (
+				0A865DDB297086D800620E65 /* icon-1024.png */,
 				0A1A69FA28F1FD410018F2E6 /* main.jsbundle */,
 				0A1A69D828F1F9EC0018F2E6 /* KeepBG.h */,
 				0A1A69DA28F1F9ED0018F2E6 /* KeepBG.m */,
@@ -269,6 +272,7 @@
 				0A1A69F528F1FBA40018F2E6 /* xxastro5.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				0A865DDD297086D800620E65 /* icon-1024.png in Resources */,
 				0A1A69FB28F1FD410018F2E6 /* main.jsbundle in Resources */,
 				0A1A69D728F1F9DF0018F2E6 /* SomethingJustLikeThis.mp3 in Resources */,
 			);

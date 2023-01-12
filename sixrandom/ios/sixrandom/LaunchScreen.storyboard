@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,13 +46,23 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="icon-1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="wvQ-2l-q0L">
+                                <rect key="frame" x="73" y="381" width="282" height="282"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="282" id="DPh-vl-eSz"/>
+                                    <constraint firstAttribute="width" secondItem="wvQ-2l-q0L" secondAttribute="height" multiplier="1:1" id="dPF-aw-cxJ"/>
+                                    <constraint firstAttribute="width" constant="282" id="ieh-wQ-Kyu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RSu-5Q-sfE" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="6ud-Ga-zXU"/>
+                            <constraint firstItem="xrD-Xl-D7S" firstAttribute="centerX" secondItem="wvQ-2l-q0L" secondAttribute="centerX" id="MYI-hB-6Pf"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="MN2-I3-ftu" secondAttribute="bottom" constant="10" id="OZV-Vh-mqD"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="GJd-Yh-RWb" secondAttribute="centerX" id="Q3B-4B-g5h"/>
+                            <constraint firstItem="xrD-Xl-D7S" firstAttribute="firstBaseline" secondItem="wvQ-2l-q0L" secondAttribute="firstBaseline" constant="-13" id="R2y-M4-SEz"/>
                             <constraint firstItem="1Jq-s4-5lg" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="Zb6-3h-g8Y"/>
                             <constraint firstItem="MN2-I3-ftu" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="dUK-lh-Meo"/>
                             <constraint firstItem="xrD-Xl-D7S" firstAttribute="top" secondItem="GJd-Yh-RWb" secondAttribute="top" constant="63.670000000000002" id="e9I-3G-5w7"/>
@@ -71,6 +81,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-1024.png" width="1024" height="1024"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
