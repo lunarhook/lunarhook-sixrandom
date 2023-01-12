@@ -30,7 +30,7 @@ brew install --cask android-sdk
 #brew install --cask homebrew/cask-versions/adoptopenjdk8
 brew cleanup
 npm config set registry https://registry.npm.taobao.org --global
-npm config set disturl https://npm.taobao.org/dist --global
+#npm config set disturl https://npm.taobao.org/dist --global
 yarn global add react-native-cli
 npm install -g npm-check-updates
 git pull
