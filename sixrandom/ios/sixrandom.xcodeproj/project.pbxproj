@@ -395,7 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = JD2G9A573K;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -468,11 +468,13 @@
 					"$(SRCROOT)/../plumber/plumberIOS/Classes",
 				);
 				INFOPLIST_FILE = sixrandom/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "乾坤爻";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.9.30;
+				MARKETING_VERSION = 2.10.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -492,7 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = JD2G9A573K;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -564,11 +566,13 @@
 					"$(SRCROOT)/../plumber/plumberIOS/Classes",
 				);
 				INFOPLIST_FILE = sixrandom/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "乾坤爻";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.9.30;
+				MARKETING_VERSION = 2.10.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
