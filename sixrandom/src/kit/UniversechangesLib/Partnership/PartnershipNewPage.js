@@ -259,6 +259,12 @@ class PartnershipNewPage extends React.Component {
         </ScrollView>
         {
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+                       <TabNavigator.Item
+            title={RouteConfig["RefreshImage"].name + "时间"}
+            renderIcon={() => RouteConfig["RefreshImage"].icon}
+            onPress={() => {this.onChangeDataleader(new Date()),this.onChangeDataPartnership(new Date())}}
+            titleStyle={StyleConfig.menufont}>
+          </TabNavigator.Item>
         <TabNavigator.Item
           title={RouteConfig["PartnershipHistoryPage"].name}
           renderIcon={() => RouteConfig["PartnershipHistoryPage"].icon}

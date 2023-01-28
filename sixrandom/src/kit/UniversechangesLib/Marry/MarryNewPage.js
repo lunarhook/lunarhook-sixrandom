@@ -244,6 +244,12 @@ class MarryNewPage extends React.Component {
         </ScrollView>
         {
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+                <TabNavigator.Item
+            title={RouteConfig["RefreshImage"].name + "时间"}
+            renderIcon={() => RouteConfig["RefreshImage"].icon}
+            onPress={() => {this.onChangeDatamale(new Date()),this.onChangeDatafemale(new Date())}}
+            titleStyle={StyleConfig.menufont}>
+          </TabNavigator.Item>
         <TabNavigator.Item
           title={RouteConfig["MarryHistoryPage"].name}
           renderIcon={() => RouteConfig["MarryHistoryPage"].icon}

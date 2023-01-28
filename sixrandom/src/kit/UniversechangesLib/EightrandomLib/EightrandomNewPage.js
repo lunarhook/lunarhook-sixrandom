@@ -221,12 +221,19 @@ class EightrandomNewPage extends React.Component {
 
         </ScrollView>
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
-          <TabNavigator.Item
+        <TabNavigator.Item
+            title={RouteConfig["RefreshImage"].name + "时间"}
+            renderIcon={() => RouteConfig["RefreshImage"].icon}
+            onPress={() => {this.onChangeData(new Date())}}
+            titleStyle={StyleConfig.menufont}>
+          </TabNavigator.Item>
+       <TabNavigator.Item
             title={RouteConfig["EightrandomHistoryPage"].name}
             renderIcon={() => RouteConfig["EightrandomHistoryPage"].icon}
             onPress={() => navigate(RouteConfig["EightrandomHistoryPage"].route)}
             titleStyle={StyleConfig.menufont}>
           </TabNavigator.Item>
+
         </TabNavigator>
 
       </View>
