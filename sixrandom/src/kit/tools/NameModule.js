@@ -42,7 +42,22 @@ class NameModule extends React.Component {
     try {
       item.fx.forEach(element => {
         obj = JSON.parse(element)
-        elements.push(<Text style={{ marginLeft: 16, fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{obj.text + " " + obj.feature + "属性,笔画:" + obj.step + ",五行补" + obj.feature}</Text>)
+        if ("木"==obj.feature) {
+          color='green'
+        }
+        if ("火"==obj.feature) {
+          color='red'
+        }
+        if ("土"==obj.feature) {
+          color='#8B4513'
+        }
+        if ("金"==obj.feature) {
+          color='#DAA520'
+        }
+        if ("水"==obj.feature) {
+          color='#1E90FF'
+        }
+        elements.push(<Text style={{ marginLeft: 16, fontSize: FontStyleConfig.getFontApplySize() + 14, color: color}}>{obj.text + " " + obj.feature + "属性,笔画:" + obj.step + ",五行补" + obj.feature}</Text>)
       })
     } catch (e) {
       elements.pop()

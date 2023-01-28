@@ -31,8 +31,8 @@ class MarryNewPage extends React.Component {
       switchleapfemale: false,
       leaptypemale: "常年",
       leaptypefemale: "常年",
-      valuemale: new Date('1980-11-05 08:00:00'),
-      valuefemale:new Date('1980-11-05 08:00:00'),
+      valuemale: new Date(),
+      valuefemale:new Date(),
     }
 
   }
