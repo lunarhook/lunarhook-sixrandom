@@ -5,9 +5,8 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Dimensions, TouchableHighlight, Alert, Text, FlatList ,Animated} from 'react-native';
 import RouteConfig from '../config/RouteConfig'
 import IconConfig from '../config/IconConfig'
-import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
+import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, SearchBar } from '@ant-design/react-native';
 import { HistoryArrayGroup } from '../config/StorageModule'
-import Search from 'react-native-search-box';
 import UserModule from '../config/UserModule'
 import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 import { string } from 'prop-types';
@@ -210,9 +209,9 @@ class SearchPage extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View>
-        <Search
+        <SearchBar
           ref="search_box"
-          onSearch={this.onSearch}
+          onChange={this.onSearch}
           onCancel={this.onSearchCancel}
           placeholder="搜索测评"
           cancelTitle="取消"

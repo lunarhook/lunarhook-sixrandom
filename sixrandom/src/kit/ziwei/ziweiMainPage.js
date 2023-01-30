@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Dimensions, TouchableOpacity, FlatList, ScrollView, Platform } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import Storage from 'react-native-storage';
 
 import { captureRef } from "react-native-view-shot";

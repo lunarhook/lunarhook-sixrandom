@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {StyleSheet,View,PixelRatio,Alert,Text,FlatList,ScrollView} from 'react-native';
 import { Grid, Accordion, WhiteSpace, WingBlank ,List} from '@ant-design/react-native';
 import { CheckBox,Button } from 'react-native-elements'
-import TabNavigator from 'react-native-tab-navigator';  
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { captureRef } from "react-native-view-shot";
 import ScreenConfig from '../../../config/ScreenConfig';
 import WechatShare from '../../../config/WechatShare'

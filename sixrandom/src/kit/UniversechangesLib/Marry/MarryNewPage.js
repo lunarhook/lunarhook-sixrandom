@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Keyboard, View, Button, ScrollView, TouchableOpacity, Text, TouchableWithoutFeedback } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 
 import { InputItem, DatePicker, List, Switch, WhiteSpace, Provider, PickerView } from '@ant-design/react-native';
 
@@ -31,8 +31,8 @@ class MarryNewPage extends React.Component {
       switchleapfemale: false,
       leaptypemale: "常年",
       leaptypefemale: "常年",
-      valuemale: new Date('1980-11-05 08:00:00'),
-      valuefemale:new Date('1980-11-05 08:00:00'),
+      valuemale: new Date(),
+      valuefemale:new Date(),
     }
 
   }
@@ -244,6 +244,12 @@ class MarryNewPage extends React.Component {
         </ScrollView>
         {
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+                <TabNavigator.Item
+            title={RouteConfig["RefreshImage"].name + "时间"}
+            renderIcon={() => RouteConfig["RefreshImage"].icon}
+            onPress={() => {this.onChangeDatamale(new Date()),this.onChangeDatafemale(new Date())}}
+            titleStyle={StyleConfig.menufont}>
+          </TabNavigator.Item>
         <TabNavigator.Item
           title={RouteConfig["MarryHistoryPage"].name}
           renderIcon={() => RouteConfig["MarryHistoryPage"].icon}

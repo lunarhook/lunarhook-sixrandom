@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, DeviceEventEmitter, Alert, Linking, NativeModules, Platform ,PermissionsAndroid} from 'react-native';
 
-import TabNavigator from 'react-native-tab-navigator';
 import { Grid, Accordion, WhiteSpace, Tabs, Modal, Button, Card } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig';
 import IconConfig from '../config/IconConfig';
@@ -797,14 +796,14 @@ class kitPage extends React.Component {
 
 
         <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14, }}>
-          {this.renderContent}
+          {this.state.tabs.map((tab, index)=>this.renderContent(tab, index))}
         </Tabs>
         <View>
           {function () {
             /*
             return (<TabNavigator.Item
               title={this.state.less == false ? RouteConfig["kitExplorationPage"].name : RouteConfig["kitPage"].name}
-              renderIcon={() => RouteConfig["kitExplorationPage"].icon}
+              icon={RouteConfig["kitExplorationPage"].icon}
               //renderSelectedIcon={() => IconConfig.IconDvinationSel}
               //onPress={() => navigate(RouteConfig["kitExplorationPage"].route)}
               onPress={() => this.setState({ less: !this.state.less, tabs: false == this.state.less ? [{ title: '全部', isSelect: true }] : itemsrandom["全部"] })}
@@ -817,7 +816,7 @@ class kitPage extends React.Component {
             if (kitPageController && kitPageController.state.less == false) {
               return (<TabNavigator.Item
                 title={RouteConfig["SearchPage"].name}
-                renderIcon={() => RouteConfig["SearchPage"].icon}
+                icon={RouteConfig["SearchPage"].icon}
                 //renderSelectedIcon={() => IconConfig.IconDvinationSel}
                 onPress={() => navigate(RouteConfig["SearchPage"].route)}
                 titleStyle={StyleConfig.menufont}>
@@ -829,7 +828,7 @@ class kitPage extends React.Component {
             if (Platform.OS === 'android' || Platform.OS === 'ios') {
               return (<TabNavigator.Item
                 title={RouteConfig["service"].name}
-                renderIcon={() => RouteConfig["service"].icon}
+                icon={RouteConfig["service"].icon}
                 //renderSelectedIcon={() => IconConfig.IconDvinationSel}
                 onPress={() => kitPageController.onBussion("service", navigate)}
                 titleStyle={StyleConfig.menufont}>

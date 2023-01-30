@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet,View, Dimensions,Alert, Text,RefreshControl,ScrollView} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { Card,WingBlank,WhiteSpace} from '@ant-design/react-native';
 import RouteConfig from '../../config/RouteConfig';
 import ScreenConfig from '../../config/ScreenConfig';

@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Dimensions, ScrollView, Alert, Text, FlatList, Animated } from 'react-native';
 import RouteConfig from '../config/RouteConfig'
 import IconConfig from '../config/IconConfig'
-import { Card, Button, WingBlank, WhiteSpace, List, Icon, Checkbox ,Accordion} from '@ant-design/react-native';
-import Search from 'react-native-search-box';
+import { Card, Button, WingBlank, WhiteSpace, List, Icon, Checkbox ,Accordion,SearchBar} from '@ant-design/react-native';
+
 import QIndexPage from './QDateBase/QIndexPage'
-import Highlighter from 'react-native-highlight-words';
 import {StyleConfig,FontStyleConfig} from '../config/StyleConfig';
 const AgreeItem = Checkbox.AgreeItem;
 const CheckboxItem = Checkbox.CheckboxItem;
@@ -146,9 +145,9 @@ class CourseSearchPage extends React.Component {
       <View>
 
 
-        <Search
+        <SearchBar
           ref="search_box"
-          onSearch={this.onSearch}
+          onChange={this.onSearch}
           onCancel={this.onSearchCancel}
           placeholder="搜索测评"
           cancelTitle="取消"
@@ -190,10 +189,7 @@ class CourseSearchPage extends React.Component {
               return
             }
           return (<View><WhiteSpace size="xl" />
-              <Highlighter highlightStyle={{ backgroundColor: 'yellow' }}
-                style={{ fontSize:FontStyleConfig.getFontApplySize()+ 15, paddingLeft: 15, paddingRight: 15 }}
-                searchWords={subsearchText}
-                textToHighlight={data.item.content} />
+              <Text>{data.item.content}</Text>
               <WhiteSpace size="xl" />
               <Text style={{ fontSize:FontStyleConfig.getFontApplySize()+ 15, paddingLeft: 15, paddingRight: 15, textAlign: "right" }}>{data.item.index}</Text>
               <WhiteSpace size="xl" />

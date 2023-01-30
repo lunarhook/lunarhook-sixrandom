@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TouchableHighlight, ImageBackground, Text, ScrollView, FlatList } from 'react-native';
 import { Grid, Accordion, WhiteSpace, WingBlank, List } from '@ant-design/react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { StackNavigator } from 'react-navigation';
 import { Button } from 'react-native-elements';
 import { captureRef } from "react-native-view-shot";

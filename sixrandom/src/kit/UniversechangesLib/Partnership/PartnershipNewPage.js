@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Keyboard, View, Button, ScrollView, TouchableOpacity, Text, TouchableWithoutFeedback } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 
 import { InputItem, DatePicker, List, Switch, WhiteSpace, Provider, PickerView } from '@ant-design/react-native';
 
@@ -259,6 +259,12 @@ class PartnershipNewPage extends React.Component {
         </ScrollView>
         {
         <TabNavigator tabBarStyle={{ height: ScreenConfig.getTabBarHeight(), backgroundColor: '#ffffff', }}>
+                       <TabNavigator.Item
+            title={RouteConfig["RefreshImage"].name + "时间"}
+            renderIcon={() => RouteConfig["RefreshImage"].icon}
+            onPress={() => {this.onChangeDataleader(new Date()),this.onChangeDataPartnership(new Date())}}
+            titleStyle={StyleConfig.menufont}>
+          </TabNavigator.Item>
         <TabNavigator.Item
           title={RouteConfig["PartnershipHistoryPage"].name}
           renderIcon={() => RouteConfig["PartnershipHistoryPage"].icon}

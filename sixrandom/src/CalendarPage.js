@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView, Animated, AppRegistry, FlatList, Image, Dimensions, TouchableOpacity } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import RouteConfig from './config/RouteConfig';
 import IconConfig from './config/IconConfig';

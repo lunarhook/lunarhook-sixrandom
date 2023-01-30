@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Alert, Text, TouchableOpacity, FlatList } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';
 import { InputItem, WhiteSpace, List, Icon, WingBlank, Button, Stepper } from '@ant-design/react-native';
 import IconConfig from '../config/IconConfig'
 import ScreenConfig from '../config/ScreenConfig';

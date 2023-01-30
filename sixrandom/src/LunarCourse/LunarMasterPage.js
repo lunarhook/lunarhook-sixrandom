@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, NativeModules, FlatList, Dimensions } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import { Tabs, Grid, Accordion, WhiteSpace } from '@ant-design/react-native';
 import RouteConfig from '../config/RouteConfig'
 import ScreenConfig from '../config/ScreenConfig';
@@ -345,7 +345,7 @@ class LunarMasterPage extends React.Component {
 
       <View style={StyleConfig.container}>
         <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>
-          {this.renderContent}
+          {this.state.tabs.map((tab, index)=>this.renderContent(tab, index))}
         </Tabs>
       </View>
     )

@@ -2,13 +2,13 @@
 
 import React, {Component } from 'react';
 import {StyleSheet,View,TouchableOpacity,Dimensions,Alert,  Text,Animated, FlatList} from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';  
+import TabNavigator from '@lunarhook/react-native-tab-navigator';  
 import {HistoryArrayGroup} from '../../../config/StorageModule'
 import UserModule from '../../../config/UserModule'
-import Search from 'react-native-search-box';
+
 import IconConfig from '../../../config/IconConfig'
 import ScreenConfig from '../../../config/ScreenConfig';
-import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
+import { Card, Button, Modal, WingBlank, WhiteSpace, List, SwipeAction, SearchBar } from '@ant-design/react-native';
 
 import {StyleConfig,FontStyleConfig} from '../../../config/StyleConfig';
 //import FingerprintScanner from 'react-native-fingerprint-scanner';
@@ -214,9 +214,9 @@ class SixCourseHistoryPage extends React.Component {
     const { errorMessage, popupShowed } = this.state;
     const { navigate } = this.props.navigation;
     return (<View style={styles.container}>
-            <Search
+            <SearchBar
           ref="search_box"
-          onSearch={this.onSearch}
+          onChange={this.onSearch}
           onCancel={this.onSearchCancel}
           //defaultValue="搜索"
           placeholder="搜索"
