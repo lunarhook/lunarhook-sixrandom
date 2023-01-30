@@ -795,7 +795,7 @@ class kitPage extends React.Component {
         }()}
 
 
-        <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14, }}>
+        <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" style={{height: ScreenConfig.getTabBarHeight(), }} tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14, }}>
           {this.state.tabs.map((tab, index)=>this.renderContent(tab, index))}
         </Tabs>
         <View>

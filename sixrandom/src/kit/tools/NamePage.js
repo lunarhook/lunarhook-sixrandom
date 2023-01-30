@@ -8,8 +8,9 @@ import IconConfig from './../../config/IconConfig'
 import ScreenConfig from './../../config/ScreenConfig'
 import { StyleConfig, FontStyleConfig } from './../../config/StyleConfig';
 import TabNavigator from '@lunarhook/react-native-tab-navigator';
-import { Card, Button, Checkbox, WingBlank, WhiteSpace, List, SwipeAction, Icon } from '@ant-design/react-native';
+import { Card, Button, Checkbox, WingBlank, WhiteSpace, List, InputItem, Icon } from '@ant-design/react-native';
 const { width, height } = Dimensions.get('window');
+import WechatShare from './../../config/WechatShare'
 import NameToolsModule from './NameToolsModule'
 
 
@@ -24,6 +25,7 @@ class NamePage extends React.Component {
       filter.push(true),
       this.state = {
         dataSource: [],
+        nameinfo: "",
         searchText: "",
         selectfilter: filter,
       };
@@ -72,7 +74,7 @@ class NamePage extends React.Component {
         }
       }
     }
-    this.setState({ dataSource: html })
+    this.setState({ dataSource: html,nameinfo:"" })
   }
   renderItem = ({ item }) => {
 
@@ -143,20 +145,35 @@ class NamePage extends React.Component {
     }
 
   }
+  updatename(value) {
+    const html = [];
+    var nameObj = NameToolsModule.genName(value);
+    if (null != nameObj) { html.push(JSON.stringify(nameObj)) }
+    this.setState({ dataSource: html })
+    return value
+  }
   render() {
-    /*
-    this.animationIsRunning=false
-    this.rowTranslateAnimatedValues = {};
-    rowlist = this.state.dataSource
-    rowlist.forEach((element, i) => {
-        this.rowTranslateAnimatedValues[`${element.id}`] = new Animated.Value(1);
-    });
-    */
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <ScrollView>
+        <ScrollView ref="location" style={{ backgroundColor: '#ffffff' }}>
           <WingBlank>
+          <WhiteSpace size="xl" />
+          <Text style={styles.textbutton}>动态分析名字五行</Text>
+          <WhiteSpace size="xl" />
+          <InputItem
+            clear
+            type="text"
+            maxLength={12}
+            value={this.state.nameinfo}
+            style={{fontSize:14}}
+            onChange={(value: any) => {
+              this.setState({ nameinfo: this.updatename(value) })
+            }}
+          >
+            <Text style={styles.textbutton}>名字:</Text>
+          </InputItem>
+
             <WhiteSpace size="xl" />
             <View style={{ flexDirection: 'row' }}>
               <Checkbox onChange={() => this.onselect(0)} checked={this.state.selectfilter[0]}>木</Checkbox >
@@ -175,7 +192,9 @@ class NamePage extends React.Component {
               renderItem={this.renderItem} />
             <WhiteSpace size="xl" />
             <WhiteSpace size="xl" />
-
+            {
+              (WechatShare.shareimg(this.state.shareimg))
+            }
             <WhiteSpace size="xl" />
           </WingBlank>
         </ScrollView>
@@ -187,6 +206,16 @@ class NamePage extends React.Component {
             onPress={() => this.buildname()}
             titleStyle={StyleConfig.menufont}>
           </TabNavigator.Item>
+          <TabNavigator.Item
+            title={RouteConfig["ScreenImage"].name}
+            renderIcon={() => RouteConfig["ScreenImage"].icon}
+            onPress={() => {
+              this.setState({ shareimg: true }),
+              WechatShare.snapshot(this.refs['location'], "乾坤爻", this)
+            }}
+            titleStyle={StyleConfig.menufont}>
+          </TabNavigator.Item>
+
         </TabNavigator >
       </View>)
   }

@@ -95,7 +95,7 @@ class NameModule extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView ref="location" style={{ backgroundColor: '#ffffff' }}>
-          <WhiteSpace size="xl" /><WhiteSpace size="xl" /><WhiteSpace size="xl" />
+          <WhiteSpace size="xl" />
           <Text style={styles.textbutton}>动态分析名字五行</Text>
           <WhiteSpace size="xl" />
           <InputItem
