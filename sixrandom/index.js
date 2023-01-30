@@ -122,7 +122,6 @@ import CourseBookPage from './src/LunarCourse/CourseBookPage'
 
 import SloganShare from './src/kit/tools/SloganShare'
 import NamePage from './src/kit/tools/NamePage'
-import NameModule from './src/kit/tools/NameModule'
 import TrackStarPage from './src/kit/tools/TrackStarPage'
 import MyPage from './src/Myconfig/MyPage'
 import AgreePage from './src/Myconfig/AgreePage'
@@ -460,7 +459,6 @@ const sixrandom = createStackNavigator({
   NumberMotionNewPage: { screen: NumberMotionNewPage },
   SearchPage: { screen: SearchPage },
   NamePage: { screen: NamePage },
-  NameModule: { screen: NameModule },
   TrackStarPage: { screen: TrackStarPage },
   MarryMainPage:{screen:MarryMainPage},
   MarryNewPage:{screen:MarryNewPage},

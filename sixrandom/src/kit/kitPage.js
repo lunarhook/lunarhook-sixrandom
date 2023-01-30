@@ -57,7 +57,6 @@ datalist["大道易德"] = [
 ]
 datalist["工具助手"] = [
   { icon: RouteConfig['NamePage'].icon, text: RouteConfig['NamePage'].name, url: RouteConfig['NamePage'].route },
-  { icon: RouteConfig['NameModule'].icon, text: RouteConfig['NameModule'].name, url: RouteConfig['NameModule'].route },
   { icon: RouteConfig['NumberMotionNewPage'].icon, text: RouteConfig['NumberMotionNewPage'].name, url: RouteConfig['NumberMotionNewPage'].route },
   { icon: RouteConfig['SloganShare'].icon, text: RouteConfig['SloganShare'].name, url: RouteConfig['SloganShare'].route },
   { icon: RouteConfig['MORALSModule'].icon, text: RouteConfig['MORALSModule'].name, url: RouteConfig['MORALSModule'].route },
