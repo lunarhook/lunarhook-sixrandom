@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		049638CF22660343006C1750 /* NSData+plumberAES.h in Headers */ = {isa = PBXBuildFile; fileRef = 049638CE22660343006C1750 /* NSData+plumberAES.h */; };
+		049638D122660349006C1750 /* plumberLowapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 049638D022660349006C1750 /* plumberLowapi.h */; };
+		049638D322660351006C1750 /* plumberReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 049638D222660351006C1750 /* plumberReachability.h */; };
+		049638D522660362006C1750 /* plumberInfoBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 049638D422660362006C1750 /* plumberInfoBase.h */; };
+		049638D72266036D006C1750 /* plumberInfoCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 049638D62266036D006C1750 /* plumberInfoCenter.h */; };
+		049638D92266037F006C1750 /* plumberRecorditem.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = 049638D82266037F006C1750 /* plumberRecorditem.pb.h */; };
+		049638EE22660604006C1750 /* LowApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049638CD2266033A006C1750 /* LowApi.framework */; };
+		04984C04225F1AF80012E5E0 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C414B48F1F7922BA00678659 /* libsqlite3.0.tbd */; };
+		04984C05225F1AF80012E5E0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C414B48D1F7920E700678659 /* libsqlite3.tbd */; };
+		C414B46D1F790BAF00678659 /* NSString+plumberMD5.h in Headers */ = {isa = PBXBuildFile; fileRef = C414B4691F790BAA00678659 /* NSString+plumberMD5.h */; };
+		C414B46E1F790BB200678659 /* NSString+plumberMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = C414B46A1F790BAA00678659 /* NSString+plumberMD5.m */; };
+		C414B46F1F790BB400678659 /* UIDevice+plumberExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C414B46B1F790BAA00678659 /* UIDevice+plumberExtension.h */; };
+		C414B4701F790BB700678659 /* UIDevice+plumberExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C414B46C1F790BAA00678659 /* UIDevice+plumberExtension.m */; };
+		C414B4791F79117500678659 /* plumberNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C414B4771F7910A900678659 /* plumberNetworkReachabilityManager.h */; };
+		C414B47A1F79117A00678659 /* plumberNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C414B4781F7910A900678659 /* plumberNetworkReachabilityManager.m */; };
+		C414B4841F79185A00678659 /* plumberFMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C47AEF0C1F78F2F100A7D327 /* plumberFMDatabase.m */; };
+		C414B4871F79186D00678659 /* plumberFMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C47AEF121F78F2F100A7D327 /* plumberFMDatabaseQueue.m */; };
+		C414B4881F79187600678659 /* plumberFMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C47AEF151F78F2F100A7D327 /* plumberFMResultSet.m */; };
+		C41FEA261FA062AB002192B0 /* plumberIOSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C41FEA251FA062AB002192B0 /* plumberIOSManager.m */; };
+		C42EAAAC1F7C874700C39F00 /* plumberConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = C42EAAAA1F7C874700C39F00 /* plumberConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C42EAAAD1F7C874700C39F00 /* plumberConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C42EAAAB1F7C874700C39F00 /* plumberConfiguration.m */; };
+		C45DD4C31FB0467F0090CC7B /* plumberConfiguration+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C45DD4C11FB0467F0090CC7B /* plumberConfiguration+Private.h */; };
+		C46F23DD1F79E05F001DFEDA /* plumberConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = C46F23DC1F79E05F001DFEDA /* plumberConfig.h */; };
+		C46F23E91F7A37C7001DFEDA /* NSObject+plumberExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C46F23E71F7A37C7001DFEDA /* NSObject+plumberExtension.h */; };
+		C46F23EA1F7A37C7001DFEDA /* NSObject+plumberExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C46F23E81F7A37C7001DFEDA /* NSObject+plumberExtension.m */; };
+		C46F23FE1F7A3B5D001DFEDA /* plumberIOSManager+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C46F23FB1F7A3B10001DFEDA /* plumberIOSManager+Private.h */; };
+		C4760B9E1F7742180033BDCB /* plumberIOSManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C4760B9C1F7742180033BDCB /* plumberIOSManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C47AEEF81F78AA4100A7D327 /* plumberConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = C47AEEF71F78AA4100A7D327 /* plumberConstant.h */; };
+		C47AEF2E1F78F86800A7D327 /* plumberStatisticsTableAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = C47AEF2C1F78F86800A7D327 /* plumberStatisticsTableAccess.h */; };
+		C47AEF2F1F78F86800A7D327 /* plumberStatisticsTableAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C47AEF2D1F78F86800A7D327 /* plumberStatisticsTableAccess.m */; };
+		C47F03701F9B3CB400FCDBDB /* NSURLSession+plumberHook.h in Headers */ = {isa = PBXBuildFile; fileRef = C47F036E1F9B3CB400FCDBDB /* NSURLSession+plumberHook.h */; };
+		C47F03711F9B3CB400FCDBDB /* NSURLSession+plumberHook.m in Sources */ = {isa = PBXBuildFile; fileRef = C47F036F1F9B3CB400FCDBDB /* NSURLSession+plumberHook.m */; };
+		C48EFC4E1F94C11900178EDE /* plumberProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = C48EFC4C1F94C11900178EDE /* plumberProxy.h */; };
+		C48EFC4F1F94C11900178EDE /* plumberProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C48EFC4D1F94C11900178EDE /* plumberProxy.m */; };
+		C49547121F7CDAD10010CFDC /* plumberDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C49547101F7CDAD10010CFDC /* plumberDatabase.h */; };
+		C49547131F7CDAD10010CFDC /* plumberDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C49547111F7CDAD10010CFDC /* plumberDatabase.m */; };
+		C4F1D7B51F6B7CAC00391FF3 /* plumberIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C4F1D7B31F6B7CAC00391FF3 /* plumberIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		049638CC2266033A006C1750 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 049638C82266033A006C1750 /* LowApi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 04984BAF225F17000012E5E0;
+			remoteInfo = LowApi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		049638C82266033A006C1750 /* LowApi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LowApi.xcodeproj; path = plumberLowapi/LowApi.xcodeproj; sourceTree = "<group>"; };
+		049638CE22660343006C1750 /* NSData+plumberAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+plumberAES.h"; path = "plumberLowapi/Lowapi/NSData+plumberAES.h"; sourceTree = "<group>"; };
+		049638D022660349006C1750 /* plumberLowapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = plumberLowapi.h; path = plumberLowapi/Lowapi/plumberLowapi.h; sourceTree = "<group>"; };
+		049638D222660351006C1750 /* plumberReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = plumberReachability.h; path = plumberLowapi/Lowapi/Reachability/plumberReachability.h; sourceTree = "<group>"; };
+		049638D422660362006C1750 /* plumberInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = plumberInfoBase.h; path = plumberLowapi/Lowapi/LowapiBase/plumberInfoBase.h; sourceTree = "<group>"; };
+		049638D62266036D006C1750 /* plumberInfoCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = plumberInfoCenter.h; path = plumberLowapi/Lowapi/LowapiBase/plumberInfoCenter.h; sourceTree = "<group>"; };
+		049638D82266037F006C1750 /* plumberRecorditem.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = plumberRecorditem.pb.h; path = plumberLowapi/Lowapi/LowapiBase/plumberRecorditem.pb.h; sourceTree = "<group>"; };
+		C414B4691F790BAA00678659 /* NSString+plumberMD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+plumberMD5.h"; sourceTree = "<group>"; };
+		C414B46A1F790BAA00678659 /* NSString+plumberMD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+plumberMD5.m"; sourceTree = "<group>"; };
+		C414B46B1F790BAA00678659 /* UIDevice+plumberExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+plumberExtension.h"; sourceTree = "<group>"; };
+		C414B46C1F790BAA00678659 /* UIDevice+plumberExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+plumberExtension.m"; sourceTree = "<group>"; };
+		C414B4771F7910A900678659 /* plumberNetworkReachabilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		C414B4781F7910A900678659 /* plumberNetworkReachabilityManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plumberNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		C414B48D1F7920E700678659 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C414B48F1F7922BA00678659 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		C41FEA251FA062AB002192B0 /* plumberIOSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = plumberIOSManager.m; sourceTree = "<group>"; };
+		C42EAAAA1F7C874700C39F00 /* plumberConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberConfiguration.h; sourceTree = "<group>"; };
+		C42EAAAB1F7C874700C39F00 /* plumberConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plumberConfiguration.m; sourceTree = "<group>"; };
+		C45DD4C11FB0467F0090CC7B /* plumberConfiguration+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "plumberConfiguration+Private.h"; sourceTree = "<group>"; };
+		C46F23DC1F79E05F001DFEDA /* plumberConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberConfig.h; sourceTree = "<group>"; };
+		C46F23E71F7A37C7001DFEDA /* NSObject+plumberExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+plumberExtension.h"; sourceTree = "<group>"; };
+		C46F23E81F7A37C7001DFEDA /* NSObject+plumberExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+plumberExtension.m"; sourceTree = "<group>"; };
+		C46F23FB1F7A3B10001DFEDA /* plumberIOSManager+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "plumberIOSManager+Private.h"; sourceTree = "<group>"; };
+		C4760B9C1F7742180033BDCB /* plumberIOSManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberIOSManager.h; sourceTree = "<group>"; };
+		C47AEEF71F78AA4100A7D327 /* plumberConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberConstant.h; sourceTree = "<group>"; };
+		C47AEF0B1F78F2F100A7D327 /* plumberFMDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberFMDatabase.h; sourceTree = "<group>"; };
+		C47AEF0C1F78F2F100A7D327 /* plumberFMDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plumberFMDatabase.m; sourceTree = "<group>"; };
+		C47AEF111F78F2F100A7D327 /* plumberFMDatabaseQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberFMDatabaseQueue.h; sourceTree = "<group>"; };
+		C47AEF121F78F2F100A7D327 /* plumberFMDatabaseQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plumberFMDatabaseQueue.m; sourceTree = "<group>"; };
+		C47AEF141F78F2F100A7D327 /* plumberFMResultSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberFMResultSet.h; sourceTree = "<group>"; };
+		C47AEF151F78F2F100A7D327 /* plumberFMResultSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plumberFMResultSet.m; sourceTree = "<group>"; };
+		C47AEF2C1F78F86800A7D327 /* plumberStatisticsTableAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberStatisticsTableAccess.h; sourceTree = "<group>"; };
+		C47AEF2D1F78F86800A7D327 /* plumberStatisticsTableAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plumberStatisticsTableAccess.m; sourceTree = "<group>"; };
+		C47F036E1F9B3CB400FCDBDB /* NSURLSession+plumberHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+plumberHook.h"; sourceTree = "<group>"; };
+		C47F036F1F9B3CB400FCDBDB /* NSURLSession+plumberHook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+plumberHook.m"; sourceTree = "<group>"; };
+		C48EFC4C1F94C11900178EDE /* plumberProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberProxy.h; sourceTree = "<group>"; };
+		C48EFC4D1F94C11900178EDE /* plumberProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plumberProxy.m; sourceTree = "<group>"; };
+		C49547101F7CDAD10010CFDC /* plumberDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberDatabase.h; sourceTree = "<group>"; };
+		C49547111F7CDAD10010CFDC /* plumberDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = plumberDatabase.m; sourceTree = "<group>"; };
+		C4F1D7B01F6B7CAC00391FF3 /* plumberIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = plumberIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4F1D7B31F6B7CAC00391FF3 /* plumberIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = plumberIOS.h; sourceTree = "<group>"; };
+		C4F1D7B41F6B7CAC00391FF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4F1D7AC1F6B7CAC00391FF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				049638EE22660604006C1750 /* LowApi.framework in Frameworks */,
+				04984C04225F1AF80012E5E0 /* libsqlite3.0.tbd in Frameworks */,
+				04984C05225F1AF80012E5E0 /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		049638C92266033A006C1750 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				049638CD2266033A006C1750 /* LowApi.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C414B4681F790BAA00678659 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C414B4691F790BAA00678659 /* NSString+plumberMD5.h */,
+				C414B46A1F790BAA00678659 /* NSString+plumberMD5.m */,
+				C414B46B1F790BAA00678659 /* UIDevice+plumberExtension.h */,
+				C414B46C1F790BAA00678659 /* UIDevice+plumberExtension.m */,
+				C46F23E71F7A37C7001DFEDA /* NSObject+plumberExtension.h */,
+				C46F23E81F7A37C7001DFEDA /* NSObject+plumberExtension.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C414B4761F7910A900678659 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C47F036E1F9B3CB400FCDBDB /* NSURLSession+plumberHook.h */,
+				C47F036F1F9B3CB400FCDBDB /* NSURLSession+plumberHook.m */,
+				C414B4771F7910A900678659 /* plumberNetworkReachabilityManager.h */,
+				C414B4781F7910A900678659 /* plumberNetworkReachabilityManager.m */,
+				C48EFC4C1F94C11900178EDE /* plumberProxy.h */,
+				C48EFC4D1F94C11900178EDE /* plumberProxy.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C414B48C1F7920E600678659 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C414B48F1F7922BA00678659 /* libsqlite3.0.tbd */,
+				C414B48D1F7920E700678659 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4760BAA1F7743A60033BDCB /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C47AEEF71F78AA4100A7D327 /* plumberConstant.h */,
+				C46F23DC1F79E05F001DFEDA /* plumberConfig.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		C47AEEEF1F78A2E800A7D327 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				C47AEF2C1F78F86800A7D327 /* plumberStatisticsTableAccess.h */,
+				C47AEF2D1F78F86800A7D327 /* plumberStatisticsTableAccess.m */,
+				C49547101F7CDAD10010CFDC /* plumberDatabase.h */,
+				C49547111F7CDAD10010CFDC /* plumberDatabase.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		C47AEF091F78F2F100A7D327 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				C47AEEEF1F78A2E800A7D327 /* Database */,
+				C414B4761F7910A900678659 /* Network */,
+				C414B4681F790BAA00678659 /* Extension */,
+				C47AEF0A1F78F2F100A7D327 /* FMDB */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		C47AEF0A1F78F2F100A7D327 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				C47AEF0B1F78F2F100A7D327 /* plumberFMDatabase.h */,
+				C47AEF0C1F78F2F100A7D327 /* plumberFMDatabase.m */,
+				C47AEF111F78F2F100A7D327 /* plumberFMDatabaseQueue.h */,
+				C47AEF121F78F2F100A7D327 /* plumberFMDatabaseQueue.m */,
+				C47AEF141F78F2F100A7D327 /* plumberFMResultSet.h */,
+				C47AEF151F78F2F100A7D327 /* plumberFMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		C4F1D7A61F6B7CAC00391FF3 = {
+			isa = PBXGroup;
+			children = (
+				049638D422660362006C1750 /* plumberInfoBase.h */,
+				049638D222660351006C1750 /* plumberReachability.h */,
+				049638D022660349006C1750 /* plumberLowapi.h */,
+				049638D62266036D006C1750 /* plumberInfoCenter.h */,
+				049638CE22660343006C1750 /* NSData+plumberAES.h */,
+				049638D82266037F006C1750 /* plumberRecorditem.pb.h */,
+				049638C82266033A006C1750 /* LowApi.xcodeproj */,
+				C4F1D7B21F6B7CAC00391FF3 /* plumberIOS */,
+				C414B48C1F7920E600678659 /* Frameworks */,
+				C4F1D7B11F6B7CAC00391FF3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4F1D7B11F6B7CAC00391FF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4F1D7B01F6B7CAC00391FF3 /* plumberIOS.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4F1D7B21F6B7CAC00391FF3 /* plumberIOS */ = {
+			isa = PBXGroup;
+			children = (
+				C47AEF091F78F2F100A7D327 /* Library */,
+				C4F1D7C41F6B7D4900391FF3 /* Classes */,
+				C4F1D7B31F6B7CAC00391FF3 /* plumberIOS.h */,
+				C4F1D7B41F6B7CAC00391FF3 /* Info.plist */,
+			);
+			path = plumberIOS;
+			sourceTree = "<group>";
+		};
+		C4F1D7C41F6B7D4900391FF3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C4760B9C1F7742180033BDCB /* plumberIOSManager.h */,
+				C41FEA251FA062AB002192B0 /* plumberIOSManager.m */,
+				C46F23FB1F7A3B10001DFEDA /* plumberIOSManager+Private.h */,
+				C42EAAAA1F7C874700C39F00 /* plumberConfiguration.h */,
+				C42EAAAB1F7C874700C39F00 /* plumberConfiguration.m */,
+				C45DD4C11FB0467F0090CC7B /* plumberConfiguration+Private.h */,
+				C4760BAA1F7743A60033BDCB /* Config */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C4F1D7AD1F6B7CAC00391FF3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47AEEF81F78AA4100A7D327 /* plumberConstant.h in Headers */,
+				C414B46F1F790BB400678659 /* UIDevice+plumberExtension.h in Headers */,
+				C47AEF2E1F78F86800A7D327 /* plumberStatisticsTableAccess.h in Headers */,
+				049638D522660362006C1750 /* plumberInfoBase.h in Headers */,
+				C47F03701F9B3CB400FCDBDB /* NSURLSession+plumberHook.h in Headers */,
+				049638D122660349006C1750 /* plumberLowapi.h in Headers */,
+				049638CF22660343006C1750 /* NSData+plumberAES.h in Headers */,
+				C4F1D7B51F6B7CAC00391FF3 /* plumberIOS.h in Headers */,
+				C4760B9E1F7742180033BDCB /* plumberIOSManager.h in Headers */,
+				C46F23DD1F79E05F001DFEDA /* plumberConfig.h in Headers */,
+				C46F23FE1F7A3B5D001DFEDA /* plumberIOSManager+Private.h in Headers */,
+				C46F23E91F7A37C7001DFEDA /* NSObject+plumberExtension.h in Headers */,
+				C414B46D1F790BAF00678659 /* NSString+plumberMD5.h in Headers */,
+				C414B4791F79117500678659 /* plumberNetworkReachabilityManager.h in Headers */,
+				049638D72266036D006C1750 /* plumberInfoCenter.h in Headers */,
+				049638D92266037F006C1750 /* plumberRecorditem.pb.h in Headers */,
+				C48EFC4E1F94C11900178EDE /* plumberProxy.h in Headers */,
+				C45DD4C31FB0467F0090CC7B /* plumberConfiguration+Private.h in Headers */,
+				C49547121F7CDAD10010CFDC /* plumberDatabase.h in Headers */,
+				C42EAAAC1F7C874700C39F00 /* plumberConfiguration.h in Headers */,
+				049638D322660351006C1750 /* plumberReachability.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C4F1D7AF1F6B7CAC00391FF3 /* plumberIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4F1D7B81F6B7CAC00391FF3 /* Build configuration list for PBXNativeTarget "plumberIOS" */;
+			buildPhases = (
+				C4F1D7AB1F6B7CAC00391FF3 /* Sources */,
+				C4F1D7AC1F6B7CAC00391FF3 /* Frameworks */,
+				C4F1D7AD1F6B7CAC00391FF3 /* Headers */,
+				C4F1D7AE1F6B7CAC00391FF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = plumberIOS;
+			productName = plumberIOS;
+			productReference = C4F1D7B01F6B7CAC00391FF3 /* plumberIOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4F1D7A71F6B7CAC00391FF3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = plumber;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Beijing Sohu New Media Information Technology Co. Ltd.";
+				TargetAttributes = {
+					C4F1D7AF1F6B7CAC00391FF3 = {
+						CreatedOnToolsVersion = 8.3.3;
+					};
+				};
+			};
+			buildConfigurationList = C4F1D7AA1F6B7CAC00391FF3 /* Build configuration list for PBXProject "plumberIOS" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4F1D7A61F6B7CAC00391FF3;
+			productRefGroup = C4F1D7B11F6B7CAC00391FF3 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 049638C92266033A006C1750 /* Products */;
+					ProjectRef = 049638C82266033A006C1750 /* LowApi.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C4F1D7AF1F6B7CAC00391FF3 /* plumberIOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		049638CD2266033A006C1750 /* LowApi.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LowApi.framework;
+			remoteRef = 049638CC2266033A006C1750 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4F1D7AE1F6B7CAC00391FF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4F1D7AB1F6B7CAC00391FF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C42EAAAD1F7C874700C39F00 /* plumberConfiguration.m in Sources */,
+				C414B4701F790BB700678659 /* UIDevice+plumberExtension.m in Sources */,
+				C48EFC4F1F94C11900178EDE /* plumberProxy.m in Sources */,
+				C414B4881F79187600678659 /* plumberFMResultSet.m in Sources */,
+				C414B4871F79186D00678659 /* plumberFMDatabaseQueue.m in Sources */,
+				C414B47A1F79117A00678659 /* plumberNetworkReachabilityManager.m in Sources */,
+				C414B46E1F790BB200678659 /* NSString+plumberMD5.m in Sources */,
+				C47AEF2F1F78F86800A7D327 /* plumberStatisticsTableAccess.m in Sources */,
+				C49547131F7CDAD10010CFDC /* plumberDatabase.m in Sources */,
+				C414B4841F79185A00678659 /* plumberFMDatabase.m in Sources */,
+				C47F03711F9B3CB400FCDBDB /* NSURLSession+plumberHook.m in Sources */,
+				C41FEA261FA062AB002192B0 /* plumberIOSManager.m in Sources */,
+				C46F23EA1F7A37C7001DFEDA /* NSObject+plumberExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C4F1D7B61F6B7CAC00391FF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C4F1D7B71F6B7CAC00391FF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C4F1D7B91F6B7CAC00391FF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JD2G9A573K;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				DYLIB_plumberATIBILITY_VERSION = 1;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GENERATE_MASTER_OBJECT_FILE = YES;
+				INFOPLIST_FILE = plumberIOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = plumberIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/plumberIOS $(PROJECT_DIR)/plumberLowapi/Lowapi $(PROJECT_DIR)/plumberLowapi/Lowapi/Upload $(PROJECT_DIR)/plumberLowapi/Lowapi/Exception";
+			};
+			name = Debug;
+		};
+		C4F1D7BA1F6B7CAC00391FF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JD2G9A573K;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				DYLIB_plumberATIBILITY_VERSION = 1;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GENERATE_MASTER_OBJECT_FILE = YES;
+				INFOPLIST_FILE = plumberIOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = plumberIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/plumberIOS $(PROJECT_DIR)/plumberLowapi/Lowapi $(PROJECT_DIR)/plumberLowapi/Lowapi/Upload $(PROJECT_DIR)/plumberLowapi/Lowapi/Exception";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4F1D7AA1F6B7CAC00391FF3 /* Build configuration list for PBXProject "plumberIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4F1D7B61F6B7CAC00391FF3 /* Debug */,
+				C4F1D7B71F6B7CAC00391FF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4F1D7B81F6B7CAC00391FF3 /* Build configuration list for PBXNativeTarget "plumberIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4F1D7B91F6B7CAC00391FF3 /* Debug */,
+				C4F1D7BA1F6B7CAC00391FF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4F1D7A71F6B7CAC00391FF3 /* Project object */;
+}
