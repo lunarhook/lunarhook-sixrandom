@@ -333,47 +333,54 @@ class kitPage extends React.Component {
     this.privacycheck()
     var itemsrandom = KitConfig.getitemsrandom()
     this.setState({ tabs: itemsrandom['新手模式'] })
-    HistoryArrayGroup.GetKitConfigHistory().then(ids => {
+    try{
+      HistoryArrayGroup.GetKitConfigHistory().then(ids => {
 
-      HistoryArrayGroup.load("kitConfigselectmode").then(async (T) => {
-        try {
-          console.log("kitConfigselectmode", T)
-          var alllist = KitConfig.getalllist()
-          if (undefined == alllist[T]) {
-
-            HistoryArrayGroup.removeall("kitConfigselectmode")
-            await HistoryArrayGroup.save("kitConfigselectmode", "职业性格")
-            throw new Error("kitConfigselectmode")
-          }
-          if (ids.length != 0) {
-
-            let selectedItems = ids.filter((ids, index) => ids.isSelect)
-            let tabs = new Array()
-            selectedItems.forEach(element => {
-              let obj = {}
-              obj.title = element.title
-              if (undefined == obj.title) {
-                HistoryArrayGroup.removeall("kitConfig")
-                throw new Error("kitConfig")
-              }
-              tabs.push(obj)
-            });
-            if (this.state.datahistory.length > 0) {
-              if (tabs[1].title === "关注") { } else { tabs.splice(1, 0, { title: '关注' }) }
-
+        HistoryArrayGroup.load("kitConfigselectmode").then(async (T) => {
+          try {
+            console.log("kitConfigselectmode", T)
+            var alllist = KitConfig.getalllist()
+            if (undefined == alllist[T]) {
+  
+              HistoryArrayGroup.removeall("kitConfigselectmode")
+              await HistoryArrayGroup.save("kitConfigselectmode", "职业性格")
+              throw new Error("kitConfigselectmode")
             }
-            console.log("refreshlist", ids, tabs)
-            this.setState({ tabs: tabs, selectmode: T })
-          } else if (undefined != T) {
-            //从来没有选择过现实模式的人，只能使用系统默认的职业性格或者心理学初始化
-            this.setState({ selectmode: T })
+            if (ids.length != 0) {
+  
+              let selectedItems = ids.filter((ids, index) => ids.isSelect)
+              let tabs = new Array()
+              selectedItems.forEach(element => {
+                let obj = {}
+                obj.title = element.title
+                if (undefined == obj.title) {
+                  HistoryArrayGroup.removeall("kitConfig")
+                  throw new Error("kitConfig")
+                }
+                tabs.push(obj)
+              });
+              if (this.state.datahistory.length > 0) {
+                if (tabs[1].title === "关注") { } else { tabs.splice(1, 0, { title: '关注' }) }
+  
+              }
+              console.log("refreshlist", ids, tabs)
+              this.setState({ tabs: tabs, selectmode: T })
+            } else if (undefined != T) {
+              //从来没有选择过现实模式的人，只能使用系统默认的职业性格或者心理学初始化
+              this.setState({ selectmode: T })
+            }
+          } catch{
+            throw "data error!"
+            return
           }
-        } catch{
-          this.setState({ selectmode: "新手模式" })
-          return
-        }
+        })
       })
-    })
+    }catch{
+      HistoryArrayGroup.removeall("kitConfig")
+      this.setState({ selectmode: "新手模式" })
+      return
+    }
+    
     this.render()
   }
 
