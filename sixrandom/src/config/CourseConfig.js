@@ -149,15 +149,15 @@ CourseRandom['计策谋略'] = [
 
   channel(){
       /*
-      delete CourseRandom['周易八卦'];
-      delete Coursealllist['周易八卦'];
+      delete CourseRandom['周易乾坤'];
+      delete Coursealllist['周易乾坤'];
       for(var key in CourseRandom){
         var element = CourseRandom[key]
         var T = new Array()
         for (i=0;i<element.length;i++)
         {
           
-          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗占星" || element[i].title=="大道易德"))
+          if (false == (element[i].title=="周易乾坤" || element[i].title=="塔罗占星" || element[i].title=="大道易德"))
           {
             T.push(element[i])
           }
@@ -170,7 +170,7 @@ CourseRandom['计策谋略'] = [
         for (i=0;i<element.length;i++)
         {
           
-          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗占星" || element[i].title=="大道易德"))
+          if (false == (element[i].title=="周易乾坤" || element[i].title=="塔罗占星" || element[i].title=="大道易德"))
           {
             T.push(element[i])
           }
@@ -182,7 +182,7 @@ CourseRandom['计策谋略'] = [
         for(var i in CourseSelectMode)
         {
           
-          if (CourseSelectMode[i].title!="周易八卦" )
+          if (CourseSelectMode[i].title!="周易乾坤" )
           {
             T.push(CourseSelectMode[i])
           }

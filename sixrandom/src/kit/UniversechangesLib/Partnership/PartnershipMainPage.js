@@ -1634,7 +1634,7 @@ class PartnershiMainPage extends React.Component {
 
           </View>
         </ScrollView>
-        {WechatShare.shareRetBar(WechatShare, this, "八字格局")}
+        {WechatShare.shareRetBar(WechatShare, this, "四柱五行")}
       </View>
 
     )

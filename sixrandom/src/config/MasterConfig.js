@@ -122,15 +122,15 @@ MasterRandom['人工智能'] = [
 
   channel(){
       /*
-      delete MasterRandom['周易八卦'];
-      delete Masteralllist['周易八卦'];
+      delete MasterRandom['周易乾坤'];
+      delete Masteralllist['周易乾坤'];
       for(var key in MasterRandom){
         var element = MasterRandom[key]
         var T = new Array()
         for (i=0;i<element.length;i++)
         {
           
-          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗占星" || element[i].title=="大道易德"))
+          if (false == (element[i].title=="周易乾坤" || element[i].title=="塔罗占星" || element[i].title=="大道易德"))
           {
             T.push(element[i])
           }
@@ -143,7 +143,7 @@ MasterRandom['人工智能'] = [
         for (i=0;i<element.length;i++)
         {
           
-          if (false == (element[i].title=="周易八卦" || element[i].title=="塔罗占星" || element[i].title=="大道易德"))
+          if (false == (element[i].title=="周易乾坤" || element[i].title=="塔罗占星" || element[i].title=="大道易德"))
           {
             T.push(element[i])
           }
@@ -155,7 +155,7 @@ MasterRandom['人工智能'] = [
         for(var i in MasterSelectMode)
         {
           
-          if (MasterSelectMode[i].title!="周易八卦" )
+          if (MasterSelectMode[i].title!="周易乾坤" )
           {
             T.push(MasterSelectMode[i])
           }

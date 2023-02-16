@@ -22,7 +22,7 @@ if (w > 320 && Platform.OS === 'ios') {
   coln = 4
 }
 var datalist = []
-datalist["周易八卦"] = [
+datalist["周易乾坤"] = [
   { icon: RouteConfig['SixrandomNewPage'].icon, text: RouteConfig['SixrandomNewPage'].name, url: RouteConfig['SixrandomNewPage'].route },
   { icon: RouteConfig['EightrandomNewPage'].icon, text: RouteConfig['EightrandomNewPage'].name, url: RouteConfig['EightrandomNewPage'].route },
   { icon: RouteConfig['NumberMainPage'].icon, text: RouteConfig['NumberMainPage'].name, url: RouteConfig['NumberMainPage'].route },
@@ -540,10 +540,10 @@ class kitPage extends React.Component {
             renderItem={this.renderItemel}
             onPress={(_el: any, index: any) => { this.onBussion(_el, navigate) }}
           /></Accordion.Panel >)*/
-      contentlist["周易八卦"] = (
-        <Accordion.Panel header={"周易八卦"} key={"周易八卦"}>
+      contentlist["周易乾坤"] = (
+        <Accordion.Panel header={"周易乾坤"} key={"周易乾坤"}>
           <Grid
-            data={datalist["周易八卦"]}
+            data={datalist["周易乾坤"]}
             columnNum={coln}
             isCarousel={false}
             hasLine={false}
@@ -595,7 +595,7 @@ class kitPage extends React.Component {
               var content = new Array()
               if ("Huawei" == kitPageController.state.Channel) {
                 delete contentlist["大道易德"]
-                delete contentlist["周易八卦"]
+                delete contentlist["周易乾坤"]
                 delete contentlist["塔罗牌阵"]
                 delete contentlist["星盘星座"]
               }
@@ -665,11 +665,11 @@ class kitPage extends React.Component {
           </Accordion></ScrollView>
       )
     }
-    else if ("周易八卦" == tab.title && "Huawei" != kitPageController.state.Channel) {
+    else if ("周易乾坤" == tab.title && "Huawei" != kitPageController.state.Channel) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["周易八卦"]}
+            {contentlist["周易乾坤"]}
           </Accordion></ScrollView>
       )
     }

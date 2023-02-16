@@ -381,7 +381,7 @@ class LunarCoursePage extends React.Component {
                 var content = new Array()
                 if ("Huawei" == LunarCoursePagethis.state.Channel) {
                   delete contentlist["大道易德"]
-                  delete contentlist["周易八卦"]
+                  delete contentlist["周易乾坤"]
                   delete contentlist["塔罗占星"]
                 }
                 //delete contentlist["蒙童幼学"]
