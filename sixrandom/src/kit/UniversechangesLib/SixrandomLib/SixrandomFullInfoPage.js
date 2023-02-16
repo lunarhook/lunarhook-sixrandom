@@ -186,6 +186,66 @@ class SixrandomFullinfoPage extends React.Component {
     );
   }
   keyExtractor = (item, index) => index.toString()
+  rendercolor(item) {
+    var c = "#000000"
+    if (true) {
+      const fire = "#FF0000"
+      const Coral = "#FF7F50"
+      const gold = "#FFCE00"
+      const goldwhite = "#F7BA00"
+      const orange = "#ED7F06"
+      const red = "#DE4F1F"
+      const blue = "#1FA7DE"
+      const startblue = "#00C0FF"
+      const green = "#13BD7A"
+      const claygreen = "#3dd1e0"
+      const darkgold = "#AC633D"
+      const gray = "#848484"
+      const LightPink = "#FFB6C1"
+      const black = "#000000"
+      const white = "#FFFFFF"
+      const ironblack = "#3D1111"
+      const stoneblack = "#393939"
+      if (-1 != item.indexOf("天医") || -1 != item.indexOf("午火") || -1 != item.indexOf("巳火") || -1 != item.indexOf("朱雀")) {
+        c = fire
+      }
+      if (-1 != item.indexOf("延年")) {
+        c = orange
+      }
+      else if (-1 != item.indexOf("生气")) {
+        c = Coral
+      }
+      else if (-1 != item.indexOf("伏位") || -1 != item.indexOf("申金") || -1 != item.indexOf("酉金") || -1 != item.indexOf("白虎")) {
+        c = goldwhite
+      }
+      else if (-1 != item.indexOf("六煞") || -1 != item.indexOf("寅木") || -1 != item.indexOf("卯木") || -1 != item.indexOf("青龙")) {
+        c = green
+      }
+      else if (-1 != item.indexOf("祸害") || -1 != item.indexOf("螣蛇")) {
+        c = claygreen
+      }
+      else if (-1 != item.indexOf("五鬼")) {
+        c = startblue
+      }
+      else if( -1 != item.indexOf("玄武")){
+        //黑色也是水色
+        c = ironblack
+      }
+      else if( -1 != item.indexOf("勾陈")){
+        c = stoneblack
+      }
+      else if (-1 != item.indexOf("绝命") || -1 != item.indexOf("子水") || -1 != item.indexOf("亥水")) {
+        c = blue
+      }
+      else if(-1 != item.indexOf("未土") || -1 != item.indexOf("丑土") || -1 != item.indexOf("辰土") || -1 != item.indexOf("戌土") )
+      {
+        c = darkgold
+      }
+    }
+
+    c = c
+    return c
+  }
   render() {
     const { navigate } = this.props.navigation;
     var jump = false;
@@ -209,21 +269,29 @@ class SixrandomFullinfoPage extends React.Component {
                 itemStyle={{ height: 20 }}
                 renderItem={(dataItem, index) => {
                   if (index < 9) {
+                    var c = this.rendercolor(dataItem.myth)
                     return (
                       <View style={{ flexDirection: 'row', textAlign: 'left' }}>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.myth}</Text>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/6 }}>{dataItem.sixrandom}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/10,color:c }}>{dataItem.myth.substr(0,3)}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/5 }}>{dataItem.myth.substr(3)}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/5 }}>{dataItem.sixrandom}</Text>
                         <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/6 }}>{dataItem.tip}</Text>
                         <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.change}</Text>
                       </View>
                     )
                   }
                   else {
+                    var c = this.rendercolor(dataItem.myth.substr(0,3))
+                    var f = this.rendercolor(dataItem.myth.substr(3))
+                    var g = this.rendercolor(dataItem.sixrandom.substr(0,5))
+                    var b = this.rendercolor(dataItem.change)
                     return (
                       <View style={{ flexDirection: 'row', textAlign: 'left' }}>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.myth}</Text>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.sixrandom}</Text>
-                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 }}>{dataItem.change}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/10,color:c }}>{dataItem.myth.substr(0,3)}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/5,color:f }}>{dataItem.myth.substr(3)}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/5,color:g }}>{dataItem.sixrandom.substr(0,5)}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/6 }}>{dataItem.sixrandom.substr(5)}</Text>
+                        <Text style={{ fontSize: FontStyleConfig.getFontApplySize() + 14, width: rwidth/3 ,color:b}}>{dataItem.change}</Text>
                       </View>
                     )
                   }
