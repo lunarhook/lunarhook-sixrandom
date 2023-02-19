@@ -30,9 +30,8 @@ datalist["周易乾坤"] = [
   { icon: RouteConfig['qimenNewPage'].icon, text: RouteConfig['qimenNewPage'].name, url: RouteConfig['qimenNewPage'].route },
   { icon: RouteConfig['taiyiNewPage'].icon, text: RouteConfig['taiyiNewPage'].name, url: RouteConfig['taiyiNewPage'].route },
   { icon: RouteConfig['ziweiNewPage'].icon, text: RouteConfig['ziweiNewPage'].name, url: RouteConfig['ziweiNewPage'].route },
-  { icon: RouteConfig['TrackStarPage'].icon, text: RouteConfig['TrackStarPage'].name, url: RouteConfig['TrackStarPage'].route },
-  { icon: RouteConfig['MarryNewPage'].icon, text: RouteConfig['MarryNewPage'].name, url: RouteConfig['MarryNewPage'].route },
-  { icon: RouteConfig['PartnershipNewPage'].icon, text: RouteConfig['PartnershipNewPage'].name, url: RouteConfig['PartnershipNewPage'].route },
+
+
 ]
 datalist["塔罗牌阵"] = [
   { icon: RouteConfig['TarotPage'].icon, text: RouteConfig['TarotPage'].name, url: RouteConfig['TarotPage'].route },
@@ -56,10 +55,13 @@ datalist["大道易德"] = [
   { icon: RouteConfig['qrcode'].icon, text: RouteConfig['qrcode'].name, url: "openqrcode" },
 ]
 datalist["工具助手"] = [
+  { icon: RouteConfig['TrackStarPage'].icon, text: RouteConfig['TrackStarPage'].name, url: RouteConfig['TrackStarPage'].route },
   { icon: RouteConfig['NamePage'].icon, text: RouteConfig['NamePage'].name, url: RouteConfig['NamePage'].route },
-  { icon: RouteConfig['NumberMotionNewPage'].icon, text: RouteConfig['NumberMotionNewPage'].name, url: RouteConfig['NumberMotionNewPage'].route },
+  { icon: RouteConfig['MarryNewPage'].icon, text: RouteConfig['MarryNewPage'].name, url: RouteConfig['MarryNewPage'].route },
+  { icon: RouteConfig['PartnershipNewPage'].icon, text: RouteConfig['PartnershipNewPage'].name, url: RouteConfig['PartnershipNewPage'].route },
+  //{ icon: RouteConfig['NumberMotionNewPage'].icon, text: RouteConfig['NumberMotionNewPage'].name, url: RouteConfig['NumberMotionNewPage'].route },
   { icon: RouteConfig['SloganShare'].icon, text: RouteConfig['SloganShare'].name, url: RouteConfig['SloganShare'].route },
-  { icon: RouteConfig['MORALSModule'].icon, text: RouteConfig['MORALSModule'].name, url: RouteConfig['MORALSModule'].route },
+  //{ icon: RouteConfig['MORALSModule'].icon, text: RouteConfig['MORALSModule'].name, url: RouteConfig['MORALSModule'].route },
 
 ]
 datalist["性格测评"] = [
@@ -163,9 +165,9 @@ class kitPage extends React.Component {
         <TouchableOpacity
           style={{ padding: 10, alignContent: "center", alignItems: "baseline" }}
           //onPress={() => navigate('Search')}
-          onPress={() => navigate(RouteConfig['kitConfigPage'].route)}
+          //onPress={() => navigate(RouteConfig['kitConfigPage'].route)}
         >
-          {RouteConfig['kitConfigPage'].icon}
+          {IconConfig.IconSubmit}
         </TouchableOpacity>),
     }
   };
@@ -334,6 +336,7 @@ class kitPage extends React.Component {
     var itemsrandom = KitConfig.getitemsrandom()
     this.setState({ tabs: itemsrandom['新手模式'] })
     try{
+      throw "clear"
       HistoryArrayGroup.GetKitConfigHistory().then(ids => {
 
         HistoryArrayGroup.load("kitConfigselectmode").then(async (T) => {
@@ -475,6 +478,7 @@ class kitPage extends React.Component {
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >
     )
+    /*
     contentlist["性格测评"] = (
       <Accordion.Panel header={"性格测评"} key={"性格测评"}>
         <Grid
@@ -526,17 +530,8 @@ class kitPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-    contentlist["工具助手"] = (
-      <Accordion.Panel header={"工具助手"} key={"工具助手"}>
-        <Grid
-          data={datalist["工具助手"]}
-          columnNum={coln}
-          isCarousel={false}
-          hasLine={false}
-          renderItem={this.renderItemel}
-          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-        /></Accordion.Panel >)
-    if ("Huawei" != kitPageController.state.Channel) {
+   
+
       /*contentlist["大道易德"] = (
         <Accordion.Panel header={"大道易德咨询合作"} key={"大道易德咨询合作"}>
           <Grid
@@ -547,6 +542,7 @@ class kitPage extends React.Component {
             renderItem={this.renderItemel}
             onPress={(_el: any, index: any) => { this.onBussion(_el, navigate) }}
           /></Accordion.Panel >)*/
+    if ("Huawei" != kitPageController.state.Channel) {
       contentlist["周易乾坤"] = (
         <Accordion.Panel header={"周易乾坤"} key={"周易乾坤"}>
           <Grid
@@ -558,6 +554,17 @@ class kitPage extends React.Component {
             onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
           /></Accordion.Panel >)
     }
+    contentlist["工具助手"] = (
+      <Accordion.Panel header={"工具助手"} key={"工具助手"}>
+        <Grid
+          data={datalist["工具助手"]}
+          columnNum={coln}
+          isCarousel={false}
+          hasLine={false}
+          renderItem={this.renderItemel}
+          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+        /></Accordion.Panel >)
+        /*
     contentlist["儿童少年"] = (
       <Accordion.Panel header={"儿童青少年"} key={"儿童青少年"}>
         <Grid
@@ -568,7 +575,7 @@ class kitPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
-    /*
+
     if (true == this.state.less) {
       contentlist = new Array()
       contentlist["呦呦鹿鸣"] = (
@@ -628,7 +635,9 @@ class kitPage extends React.Component {
           <WhiteSpace size="xl" />
         </ScrollView>
       )
-    } else if ("儿童少年" == tab.title) {
+    }
+    /* 
+    else if ("儿童少年" == tab.title) {
       return (
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
@@ -672,6 +681,7 @@ class kitPage extends React.Component {
           </Accordion></ScrollView>
       )
     }
+    */
     else if ("周易乾坤" == tab.title && "Huawei" != kitPageController.state.Channel) {
       return (
         <ScrollView>
@@ -680,6 +690,7 @@ class kitPage extends React.Component {
           </Accordion></ScrollView>
       )
     }
+    /*
     else if ("塔罗牌阵" == tab.title) {
       return (
         <ScrollView>
@@ -696,6 +707,7 @@ class kitPage extends React.Component {
           </Accordion></ScrollView>
       )
     }
+    */
     /*
     else if ("大道易德" == tab.title && "Huawei" != kitPageController.state.Channel) {
       return (

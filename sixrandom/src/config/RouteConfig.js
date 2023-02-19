@@ -142,7 +142,7 @@ RouteConfig={
 
         "ReadPage":{"name":"阅读","route":"ReadPage","titlename":"阅读","icon":IconConfig.IconLunarCourse},     
         "service":{"name":"服务支持","route":"service","icon":IconConfig.Service},     
-        "kitConfigPage":{"name":"测评配置","route":"kitConfigPage","icon":IconConfig.IconSubmit},
+        //"kitConfigPage":{"name":"测评配置","route":"kitConfigPage","icon":IconConfig.IconSubmit},
 
         
         "IntroPage":{"name":"导读","titlename":"导读","route":"","icon":IconConfig.IconShuoWenIntro},

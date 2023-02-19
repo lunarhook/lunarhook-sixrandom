@@ -51,7 +51,7 @@ import PartnershipMainPage from './src/kit/UniversechangesLib/Partnership/Partne
 import PartnershipHistoryPage from './src/kit/UniversechangesLib/Partnership/PartnershipHistoryPage'
 import kitPage from './src/kit/kitPage'
 //import kitExplorationPage from './src/kit/kitExplorationPage'
-import kitConfigPage from './src/kit/kitConfigPage';
+//import kitConfigPage from './src/kit/kitConfigPage';
 import PsychTestPage from './src/kit/LunarMotionsLib/PsychTestPage'
 import MBTIModule from './src/kit/LunarMotionsLib/PsychLib/MBTIModule'
 import EnneagramModule from './src/kit/LunarMotionsLib/PsychLib/EnneagramModule'
@@ -226,7 +226,9 @@ const Exploration = createBottomTabNavigator(
             return (<Menu style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}>
               <MenuTrigger>{RouteConfig['kitConfigPage'].icon}</MenuTrigger>
               <MenuOptions style={{ width: 175, flex: 1 }}>
+                {/*}
                 <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig['kitConfigPage'].route)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", height: 30, width: 30 }}>{RouteConfig['kitConfigPage'].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig['kitConfigPage'].name}</Text></MenuOption>
+                {*/}
                 <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig["SearchPage"].route)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{RouteConfig["SearchPage"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["SearchPage"].name + "支持"}</Text></MenuOption>
                 <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => kitPage.ShareInstance().onBussion("service", navigation.navigate)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{RouteConfig["service"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["service"].name}</Text></MenuOption>
                 <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => kitPage.ShareInstance().setState({ less: !kitPage.ShareInstance().state.less })}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{IconConfig.IconFirstUserFace}</Text><Text style={{ paddingLeft: 20 }}>{"引导页面"}</Text></MenuOption>
@@ -381,9 +383,11 @@ const MainPage = createBottomTabNavigator({
           var curpage = navigation.state.routes[navigation.state.index].routeName
           if ("kitPage" == curpage) {
             return (<Menu style={{ paddingRight: 20, alignContent: "center", alignItems: "baseline" }}>
-              <MenuTrigger>{RouteConfig['kitConfigPage'].icon}</MenuTrigger>
+              <MenuTrigger>{IconConfig.IconSubmit}</MenuTrigger>
               <MenuOptions style={{ width: 175, flex: 1 }}>
+                {/*}
                 <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig['kitConfigPage'].route)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", height: 30, width: 30 }}>{RouteConfig['kitConfigPage'].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig['kitConfigPage'].name}</Text></MenuOption>
+                {*/}
                 <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => navigation.navigate(RouteConfig["SearchPage"].route)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{RouteConfig["SearchPage"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["SearchPage"].name + "支持"}</Text></MenuOption>
                 <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => kitPage.ShareInstance().onBussion("service", navigation.navigate)}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{RouteConfig["service"].icon}</Text><Text style={{ paddingLeft: 20 }}>{RouteConfig["service"].name}</Text></MenuOption>
                 <MenuOption style={{ flexDirection: "row", alignItems: "center", flex: 1 }} onSelect={() => kitPage.ShareInstance().setState({ less: !kitPage.ShareInstance().state.less })}><Text style={{ includeFontPadding: false, alignContent: "center", alignItems: "center", textAlignVertical: "center", height: 30, width: 30 }}>{IconConfig.IconFirstUserFace}</Text><Text style={{ paddingLeft: 20 }}>{"引导页面"}</Text></MenuOption>
@@ -466,7 +470,7 @@ const sixrandom = createStackNavigator({
   PartnershipMainPage:{screen:PartnershipMainPage},
   PartnershipNewPage:{screen:PartnershipNewPage},
   PartnershipHistoryPage:{screen:PartnershipHistoryPage},
-  kitConfigPage: { screen: kitConfigPage },
+  //kitConfigPage: { screen: kitConfigPage },
   SixCourseNewPage: { screen: SixCourseNewPage },
   SixCourseMainPage: { screen: SixCourseMainPage },
   SixCourseHistoryPage: { screen: SixCourseHistoryPage },

@@ -35,13 +35,13 @@ selectmode = [
 
 
 alllist['新手模式'] = [
-  {title: '心理测评',isSelect: false},
-  {title: '性格测评',isSelect: true},
-  {title: '情感家庭',isSelect: false},
-  {title: '儿童少年',isSelect: false},
+  //{title: '心理测评',isSelect: false},
+  //{title: '性格测评',isSelect: true},
+  //{title: '情感家庭',isSelect: false},
+  //{title: '儿童少年',isSelect: false},
   {title: '周易乾坤',isSelect: false},
-  {title: '塔罗牌阵',isSelect: true},
-  {title: '星盘星座',isSelect: true},
+  //{title: '塔罗牌阵',isSelect: true},
+  //{title: '星盘星座',isSelect: true},
   
   {title: '工具助手',isSelect: false},
   //{title: '大道易德',isSelect: true},
@@ -120,14 +120,14 @@ alllist['星盘塔罗'] = [
 
 itemsrandom['全部'] = [
   {title: '全部',isSelect: true},
-  {title: '心理测评',isSelect: true},
-  {title: '性格测评',isSelect: true},
-  {title: '儿童少年',isSelect: true},
-  {title: '情感家庭',isSelect: true},
-  {title: '抑郁焦虑',isSelect: true},
+  //{title: '心理测评',isSelect: true},
+  //{title: '性格测评',isSelect: true},
+  //{title: '儿童少年',isSelect: true},
+  //{title: '情感家庭',isSelect: true},
+  //{title: '抑郁焦虑',isSelect: true},
   {title: '周易乾坤',isSelect: true},
-  {title: '塔罗牌阵',isSelect: true},
-  {title: '星盘星座',isSelect: true},
+  //{title: '塔罗牌阵',isSelect: true},
+  //{title: '星盘星座',isSelect: true},
   //{title: '大道易德',isSelect: true},
   {title: '工具助手',isSelect: true},
 ]
@@ -135,13 +135,13 @@ itemsrandom['新手模式'] = [
   {title: '全部',isSelect: true},
   {title: '周易乾坤',isSelect: true},
   //{title: '大道易德',isSelect: true},
-  {title: '儿童少年',isSelect: false},
-  {title: '情感家庭',isSelect: false},
-  {title: '心理测评',isSelect: false},
-  {title: '性格测评',isSelect: true},
-  {title: '抑郁焦虑',isSelect: false},
-  {title: '塔罗牌阵',isSelect: true},
-  {title: '星盘星座',isSelect: true},
+  //{title: '儿童少年',isSelect: false},
+  //{title: '情感家庭',isSelect: false},
+  //{title: '心理测评',isSelect: false},
+  //{title: '性格测评',isSelect: true},
+  //{title: '抑郁焦虑',isSelect: false},
+  //{title: '塔罗牌阵',isSelect: true},
+  //{title: '星盘星座',isSelect: true},
   {title: '工具助手',isSelect: false},
 ]
 itemsrandom['周易乾坤'] = [
