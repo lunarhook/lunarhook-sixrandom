@@ -26,12 +26,11 @@ datalist["周易乾坤"] = [
   { icon: RouteConfig['SixrandomNewPage'].icon, text: RouteConfig['SixrandomNewPage'].name, url: RouteConfig['SixrandomNewPage'].route },
   { icon: RouteConfig['EightrandomNewPage'].icon, text: RouteConfig['EightrandomNewPage'].name, url: RouteConfig['EightrandomNewPage'].route },
   { icon: RouteConfig['NumberMainPage'].icon, text: RouteConfig['NumberMainPage'].name, url: RouteConfig['NumberMainPage'].route },
-  { icon: RouteConfig['SixCourseNewPage'].icon, text: RouteConfig['SixCourseNewPage'].name, url: RouteConfig['SixCourseNewPage'].route },
-  { icon: RouteConfig['qimenNewPage'].icon, text: RouteConfig['qimenNewPage'].name, url: RouteConfig['qimenNewPage'].route },
+]
+datalist["乾坤三式"] = [
   { icon: RouteConfig['taiyiNewPage'].icon, text: RouteConfig['taiyiNewPage'].name, url: RouteConfig['taiyiNewPage'].route },
-  { icon: RouteConfig['ziweiNewPage'].icon, text: RouteConfig['ziweiNewPage'].name, url: RouteConfig['ziweiNewPage'].route },
-
-
+  { icon: RouteConfig['qimenNewPage'].icon, text: RouteConfig['qimenNewPage'].name, url: RouteConfig['qimenNewPage'].route },
+  { icon: RouteConfig['SixCourseNewPage'].icon, text: RouteConfig['SixCourseNewPage'].name, url: RouteConfig['SixCourseNewPage'].route },
 ]
 datalist["塔罗牌阵"] = [
   { icon: RouteConfig['TarotPage'].icon, text: RouteConfig['TarotPage'].name, url: RouteConfig['TarotPage'].route },
@@ -55,13 +54,16 @@ datalist["大道易德"] = [
   { icon: RouteConfig['qrcode'].icon, text: RouteConfig['qrcode'].name, url: "openqrcode" },
 ]
 datalist["工具助手"] = [
-  { icon: RouteConfig['TrackStarPage'].icon, text: RouteConfig['TrackStarPage'].name, url: RouteConfig['TrackStarPage'].route },
+
   { icon: RouteConfig['NamePage'].icon, text: RouteConfig['NamePage'].name, url: RouteConfig['NamePage'].route },
   { icon: RouteConfig['MarryNewPage'].icon, text: RouteConfig['MarryNewPage'].name, url: RouteConfig['MarryNewPage'].route },
   { icon: RouteConfig['PartnershipNewPage'].icon, text: RouteConfig['PartnershipNewPage'].name, url: RouteConfig['PartnershipNewPage'].route },
+  { icon: RouteConfig['TrackStarPage'].icon, text: RouteConfig['TrackStarPage'].name, url: RouteConfig['TrackStarPage'].route },
   //{ icon: RouteConfig['NumberMotionNewPage'].icon, text: RouteConfig['NumberMotionNewPage'].name, url: RouteConfig['NumberMotionNewPage'].route },
-  { icon: RouteConfig['SloganShare'].icon, text: RouteConfig['SloganShare'].name, url: RouteConfig['SloganShare'].route },
+
   //{ icon: RouteConfig['MORALSModule'].icon, text: RouteConfig['MORALSModule'].name, url: RouteConfig['MORALSModule'].route },
+  { icon: RouteConfig['ziweiNewPage'].icon, text: RouteConfig['ziweiNewPage'].name, url: RouteConfig['ziweiNewPage'].route },
+  { icon: RouteConfig['SloganShare'].icon, text: RouteConfig['SloganShare'].name, url: RouteConfig['SloganShare'].route },
 
 ]
 datalist["性格测评"] = [
@@ -554,6 +556,16 @@ class kitPage extends React.Component {
             onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
           /></Accordion.Panel >)
     }
+    contentlist["乾坤三式"] = (
+      <Accordion.Panel header={"乾坤三式"} key={"乾坤三式"}>
+        <Grid
+          data={datalist["乾坤三式"]}
+          columnNum={coln}
+          isCarousel={false}
+          hasLine={false}
+          renderItem={this.renderItemel}
+          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+        /></Accordion.Panel >)
     contentlist["工具助手"] = (
       <Accordion.Panel header={"工具助手"} key={"工具助手"}>
         <Grid
@@ -690,6 +702,14 @@ class kitPage extends React.Component {
           </Accordion></ScrollView>
       )
     }
+    else if ("乾坤三式" == tab.title && "Huawei" != kitPageController.state.Channel) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["乾坤三式"]}
+          </Accordion></ScrollView>
+      )
+    }
     /*
     else if ("塔罗牌阵" == tab.title) {
       return (
@@ -765,15 +785,15 @@ class kitPage extends React.Component {
               closable>
               <View style={{ paddingVertical: 20 }}>
                 <WhiteSpace size="lg" />
-                <TouchableOpacity onPress={() => { cthis.setState({ less: false }), navigate(RouteConfig['MBTIModule'].route) }}>
+                <TouchableOpacity onPress={() => { cthis.setState({ less: false }), navigate(RouteConfig['NamePage'].route) }}>
                   <Card>
                     <Card.Header
-                      extra={RouteConfig['MBTIModule'].name}
+                      extra={RouteConfig['NamePage'].name}
                       thumbStyle={{ width: 30, height: 30 }}
-                      thumb={RouteConfig['MBTIModule'].icon}
+                      thumb={RouteConfig['NamePage'].icon}
                     />
                     <Card.Body>
-                      <Text style={{ marginLeft: 16 }}>通过MBTI职业性格测试可以全面的了解人的内外向性格以及行动模式偏向思考还是情感</Text>
+                      <Text style={{ marginLeft: 16 }}>通过五行关系根据诗经楚辞，唐诗宋词中的词句自动生成AI起名</Text>
                     </Card.Body>
                   </Card>
                 </TouchableOpacity >
@@ -791,15 +811,15 @@ class kitPage extends React.Component {
                   </Card>
                 </TouchableOpacity>
                 <WhiteSpace size="lg" />
-                <TouchableOpacity onPress={() => { cthis.setState({ less: false }), navigate(RouteConfig['GamblePage'].route) }}>
+                <TouchableOpacity onPress={() => { cthis.setState({ less: false }), navigate(RouteConfig['MarryNewPage'].route) }}>
                   <Card>
                     <Card.Header
-                      extra={RouteConfig['GamblePage'].name}
+                      extra={RouteConfig['MarryNewPage'].name}
                       thumbStyle={{ width: 30, height: 30 }}
-                      thumb={RouteConfig['GamblePage'].icon}
+                      thumb={RouteConfig['MarryNewPage'].icon}
                     />
                     <Card.Body>
-                      <Text style={{ marginLeft: 16 }}>当你的情感不顺利的时候可以尝试用星座骰子去探索下问题</Text>
+                      <Text style={{ marginLeft: 16 }}>合卺问礼是古代婚姻关系中的结婚仪式环节</Text>
                     </Card.Body>
                   </Card>
                 </TouchableOpacity>
