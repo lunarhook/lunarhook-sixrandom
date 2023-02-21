@@ -177,7 +177,7 @@ const Exploration = createBottomTabNavigator(
   //ExplorationPage: { screen:ExplorationPage},
   //  ChatPage: ChatPage,
   //LunarConsultantListPage:LunarConsultantListPage,
-  
+  /*
   LunarCoursePageFake: createStackNavigator(
       { "LunarCoursePageFake": "我想咨询" },
       {
@@ -186,8 +186,9 @@ const Exploration = createBottomTabNavigator(
         })
       }),
     //先关闭私信功能 ConfidePage:ConfidePage,
-  
+    */
   },
+
   {
     initialRouteName: 'LunarMasterPage',
     defaultNavigationOptions: ({ navigation }) => ({
@@ -204,9 +205,6 @@ const Exploration = createBottomTabNavigator(
         }
         else if ("MyPageFake" == routeName) {
           navigation.navigate("MyPage")
-        }
-        else if ("LunarCoursePageFake" == routeName) {
-          navigation.navigate("Exploration")
         }
         else {
           console.log("tabBarOnPress", routeName)
@@ -332,11 +330,11 @@ const MainPage = createBottomTabNavigator({
   ),
   kitPage: { screen: kitPage },
 
-  ExplorationFake: createStackNavigator(
-    { "ExplorationFake": "知否" },
+  LunarCoursePageFake: createStackNavigator(
+    { "LunarCoursePageFake": "无邪" },
     {
       navigationOptions: ({ navigation }) => ({
-        title: RouteConfig["ExplorationFake"].name,
+        title: RouteConfig["LunarCoursePageFake"].name,
       })
     }),
   MyPageFake: createStackNavigator(
@@ -364,8 +362,8 @@ const MainPage = createBottomTabNavigator({
         else if ("MyPageFake" == routeName) {
           navigation.navigate("MyPage")
         }
-        else if ("ExplorationFake" == routeName) {
-          navigation.navigate("Exploration")
+        else if ("LunarCoursePageFake" == routeName) {
+          navigation.navigate("LunarCoursePage")
         }
         else {
           console.log("tabBarOnPress", routeName)
