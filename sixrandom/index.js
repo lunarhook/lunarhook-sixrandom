@@ -5,7 +5,7 @@ import { Provider, Icon } from '@ant-design/react-native';
 import { StyleSheet, View, Alert, NativeModules } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs'
+import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { setJSExceptionHandler, getJSExceptionHandler } from './src/config/ExceptionModule';
 import { MenuProvider } from 'react-native-popup-menu';
 import {
@@ -15,25 +15,12 @@ import {
   MenuTrigger,
 } from 'react-native-popup-menu';
 import IconConfig from './src/config/IconConfig'
+import ScreenConfig from './src/config/ScreenConfig'
 import slogan from './src/slogan'
 import CalendarPage from './src/CalendarPage';
 import SearchPage from './src/tools/SearchPage'
 
-import ExplorationPage from './src/exploration/TreeHole/ExplorationPage'
 import NightPage from './src/exploration/NightFireSide/NightPage'
-/*
-import ExplorationDetailPage from './src/exploration/TreeHole/ExplorationDetailPage'
-import ExplorationAnswerPage from './src/exploration/TreeHole/ExplorationAnswerPage'
-import ExplorationAskPage from './src/exploration/TreeHole/ExplorationAskPage'
-
-import NightDetailPage from './src/exploration/NightFireSide/NightDetailPage'
-import ChatPage from './src/exploration/Chat/ChatPage'
-import ConfidePage from './src/exploration/Chat/ConfidePage'
-import { LunaranswerPage } from './src/exploration/LunarcommunityLib/LunaranswerPage'
-import LunarConsultantListPage from './src/exploration/LunarcommunityLib/LunarConsultantListPage'
-import ConsultantDetailPage from './src/exploration/LunarcommunityLib/ConsultantDetailPage'
-import ConsultantChatPage from './src/exploration/LunarcommunityLib/ConsultantChatPage'
-*/
 
 import SixrandomNewPage from './src/kit/UniversechangesLib/SixrandomLib/SixrandomNewPage';
 import SixrandomFullInfoPage from './src/kit/UniversechangesLib/SixrandomLib/SixrandomFullInfoPage'
@@ -129,6 +116,7 @@ import PrivacyPage from './src/Myconfig/PrivacyPage'
 import MyRegister from './src/Myconfig/MyRegister'
 import MyUpdateRegister from './src/Myconfig/MyUpdateRegister'
 import MyFontConfigPage from './src/Myconfig/MyFontConfigPage'
+import { BottomNavigation } from 'react-native-paper';
 
 
 
@@ -371,7 +359,8 @@ const MainPage = createBottomTabNavigator({
         }
       },
       headerRight: <View />,
-      headerLeft: <View />
+      headerLeft: <View />,
+   
     }),
     navigationOptions: ({ navigation }) => ({
       title: RouteConfig[(navigation.state.routes[navigation.state.index]).routeName].titlename,
@@ -420,6 +409,14 @@ const MainPage = createBottomTabNavigator({
         return (<></>)
       }
     }),
+    tabBarOptions:{
+      style:{
+        height:ScreenConfig.getTabBarHeight(),
+      },
+      labelStyle:{
+        height:ScreenConfig.getTabBarHeight()-45,
+      }
+    }
   }
 
 )
@@ -429,26 +426,6 @@ const sixrandom = createStackNavigator({
 
   MainPage,
   NightPage: { screen:NightPage},
-  //  树洞社区
-  //ExplorationPage: { screen:ExplorationPage},
-  /*
-  ExplorationDetailPage: { screen:ExplorationDetailPage},
-  //  参与话题
-  ExplorationAnswerPage: { screen:ExplorationAnswerPage},
-  //  提个话题
-  ExplorationAskPage: { screen:ExplorationAskPage},
-  //  围炉夜话
-
-  NightDetailPage:{ screen: NightDetailPage},
-  //  私信通知
-  ConfidePage:{ screen: ConfidePage},
-  ChatPage:{ screen: ChatPage},
-  //生活咨询
-  LunaranswerPage: { screen: LunaranswerPage },
-  LunarConsultantListPage: { screen: LunarConsultantListPage },
-  ConsultantDetailPage: ConsultantDetailPage,
-  ConsultantChatPage: ConsultantChatPage,
-  */
   Exploration,
   CalendarPage: { screen: CalendarPage },
   NumberMainPage: { screen: NumberMainPage },
