@@ -53,11 +53,15 @@ datalist["大道易德"] = [
   { icon: RouteConfig['wechat'].icon, text: RouteConfig['wechat'].name, url: "wechat" },
   { icon: RouteConfig['qrcode'].icon, text: RouteConfig['qrcode'].name, url: "openqrcode" },
 ]
+datalist["合卺问礼"] = [
+
+  { icon: RouteConfig['MarryNewPage'].icon, text: RouteConfig['MarryNewPage'].name, url: RouteConfig['MarryNewPage'].route },
+  { icon: RouteConfig['PartnershipNewPage'].icon, text: RouteConfig['PartnershipNewPage'].name, url: RouteConfig['PartnershipNewPage'].route },
+
+]
 datalist["工具助手"] = [
 
   { icon: RouteConfig['NamePage'].icon, text: RouteConfig['NamePage'].name, url: RouteConfig['NamePage'].route },
-  { icon: RouteConfig['MarryNewPage'].icon, text: RouteConfig['MarryNewPage'].name, url: RouteConfig['MarryNewPage'].route },
-  { icon: RouteConfig['PartnershipNewPage'].icon, text: RouteConfig['PartnershipNewPage'].name, url: RouteConfig['PartnershipNewPage'].route },
   { icon: RouteConfig['TrackStarPage'].icon, text: RouteConfig['TrackStarPage'].name, url: RouteConfig['TrackStarPage'].route },
   //{ icon: RouteConfig['NumberMotionNewPage'].icon, text: RouteConfig['NumberMotionNewPage'].name, url: RouteConfig['NumberMotionNewPage'].route },
 
@@ -576,6 +580,17 @@ class kitPage extends React.Component {
           renderItem={this.renderItemel}
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
+    contentlist["合卺问礼"] = (
+      <Accordion.Panel header={"合卺问礼"} key={"合卺问礼"}>
+      <Grid
+        data={datalist["合卺问礼"]}
+        columnNum={coln}
+        isCarousel={false}
+        hasLine={false}
+        renderItem={this.renderItemel}
+        onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
+      /></Accordion.Panel >
+    )
         /*
     contentlist["儿童少年"] = (
       <Accordion.Panel header={"儿童青少年"} key={"儿童青少年"}>
@@ -743,6 +758,14 @@ class kitPage extends React.Component {
         <ScrollView>
           <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
             {contentlist["工具助手"]}
+          </Accordion></ScrollView>
+      )
+    }
+    else if ("合卺问礼" == tab.title) {
+      return (
+        <ScrollView>
+          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
+            {contentlist["合卺问礼"]}
           </Accordion></ScrollView>
       )
     }

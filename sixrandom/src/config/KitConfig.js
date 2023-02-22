@@ -41,6 +41,7 @@ alllist['新手模式'] = [
   //{title: '儿童少年',isSelect: false},
   {title: '周易乾坤',isSelect: false},
   {title: '乾坤三式',isSelect: false},
+  {title: '合卺问礼',isSelect: false},
   //{title: '塔罗牌阵',isSelect: true},
   //{title: '星盘星座',isSelect: true},
   
@@ -128,6 +129,7 @@ itemsrandom['全部'] = [
   //{title: '抑郁焦虑',isSelect: true},
   {title: '周易乾坤',isSelect: true},
   {title: '乾坤三式',isSelect: false},
+  {title: '合卺问礼',isSelect: true},
   //{title: '塔罗牌阵',isSelect: true},
   //{title: '星盘星座',isSelect: true},
   //{title: '大道易德',isSelect: true},
@@ -137,6 +139,7 @@ itemsrandom['新手模式'] = [
   {title: '全部',isSelect: true},
   {title: '周易乾坤',isSelect: true},
   {title: '乾坤三式',isSelect: false},
+  {title: '合卺问礼',isSelect: true},
   //{title: '大道易德',isSelect: true},
   //{title: '儿童少年',isSelect: false},
   //{title: '情感家庭',isSelect: false},
