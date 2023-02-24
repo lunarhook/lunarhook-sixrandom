@@ -213,7 +213,7 @@ class EightrandomNewPage extends React.Component {
           <View style={styles.inputbutton}>
             <Button
               onPress={() => this.bazipaipan()}
-              title="八字排盘"
+              title="四柱五行"
 
             />
 

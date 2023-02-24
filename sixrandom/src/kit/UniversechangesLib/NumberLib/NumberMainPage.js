@@ -86,7 +86,7 @@ class NumberMainPage extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     return {
-      title: '数字八星',
+      title: '乾坤八星',
     }
   };
 
