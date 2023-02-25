@@ -40,7 +40,7 @@
     <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
 
     <queries>
-        <package android:name="com.tencent.mm" />   // 指定微信包名
+        <package android:name="com.tencent.mm" />
     </queries>
     <application
       android:name=".MainApplication"
@@ -77,5 +77,11 @@
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
     <uses-sdk tools:overrideLibrary="com.facebook.react"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
 </manifest>
