@@ -137,8 +137,8 @@ android {
         applicationId "com.sixrandom"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 75
-        versionName "2.9.30"
+        versionCode 77
+        versionName "2.10.1"
         ndk {
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
@@ -332,7 +332,7 @@ dependencies {
     implementation project(':react-native-vector-icons')
     implementation 'com.android.support:multidex:1.0.3'
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "com.facebook.react:react-native:"  // From node_modules
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
