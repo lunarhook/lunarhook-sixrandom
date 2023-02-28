@@ -332,7 +332,7 @@ dependencies {
     implementation project(':react-native-vector-icons')
     implementation 'com.android.support:multidex:1.0.3'
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.facebook.react:react-native:"  // From node_modules
+    implementation "com.facebook.react:react-native:0.67.5"  // From node_modules
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
