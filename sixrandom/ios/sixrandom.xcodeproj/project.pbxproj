@@ -402,6 +402,7 @@
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = JD2G9A573K;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
