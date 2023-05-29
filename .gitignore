@@ -19,3 +19,4 @@ sixrandom/ios/Podfile.lock
 .watchman*
 *.lock
 *.lock
+sixrandom/vendor/*
