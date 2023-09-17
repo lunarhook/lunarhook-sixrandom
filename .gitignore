@@ -20,3 +20,12 @@ sixrandom/ios/Podfile.lock
 *.lock
 *.lock
 sixrandom/vendor/*
+sixrandom/android/gradle/.tmp*
+sixrandom/android/gradle/.tmp/*
+sixrandom/android/gradle/caches*
+sixrandom/android/gradle/caches/*
+sixrandom/android/gradle/daemon*
+sixrandom/android/gradle/daemon/*
+sixrandom/android/gradle/wrapper/*
+sixrandom/android/gradle/native/*
+sixrandom/android/gradle/android/*
