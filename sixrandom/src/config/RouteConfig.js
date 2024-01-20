@@ -120,7 +120,7 @@ RouteConfig={
             
             //亲属查询工具
         "relationshipcalcpage":{"name":"亲戚关系查询","route":"relationshipcalcpage","icon":IconConfig.IconLunarCourse},
-        "SloganShare":{"name":"SLOGAN\n国风开屏语","titlename":"国风开屏语","route":"SloganShare","icon":IconConfig.IconSloganShare},
+        "SloganShare":{"name":"国风开屏语","titlename":"国风开屏语","route":"SloganShare","icon":IconConfig.IconSloganShare},
         "NamePage":{"name":"五行起名","titlename":"五行起名","route":"NamePage","icon":IconConfig.IconNamePage},
         //"NameModule":{"name":"姓名\n五行查询","titlename":"名字五行查询","route":"NameModule","icon":IconConfig.IconNameSearchPage},
         //心理咨询录音工具
