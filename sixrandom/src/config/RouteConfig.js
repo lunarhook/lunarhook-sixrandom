@@ -75,11 +75,6 @@ RouteConfig={
             "StarInfoPage":{"name":"星座知识","route":"StarInfoPage","icon":IconConfig.IconStarInfo},
                 "GamblePage":{"name":"星座骰子","route":"GamblePage","icon":IconConfig.IconGamble},       
                 "AstroPage":{"name":"星盘人格","route":"AstroPage","icon":IconConfig.AstroPage},
-        "TarotTab":{"name":"塔罗牌阵","route":"TarotTab","icon":IconConfig.TarotTab},
-            "TarotPage":{"name":"圣三角占卜","route":"TarotPage","icon":IconConfig.TarotPage},
-            "TarotVenusPage":{"name":"爱情维纳斯","route":"TarotVenusPage","icon":IconConfig.TarotVenus},
-            "TarotStarofDavidPage":{"name":"决策六芒星","route":"TarotStarofDavidPage","icon":IconConfig.TarotStarofDavid},
-            "TarotCeltsPage":{"name":"凯尔特十字","route":"TarotCeltsPage","icon":IconConfig.TarotCelts},
         //心理学辅助测试
         "NumberMotionNewPage":{"name":"Y&N\n数字心理学","titlename":"数字心理学","route":"NumberMotionNewPage","icon":IconConfig.IconYN},
         "PsychTestPage":{"name":"性格思维测评","route":"PsychTestPage","icon":IconConfig.IconQuiz},     

@@ -32,17 +32,6 @@ datalist["乾坤三式"] = [
   { icon: RouteConfig['qimenNewPage'].icon, text: RouteConfig['qimenNewPage'].name, url: RouteConfig['qimenNewPage'].route },
   { icon: RouteConfig['SixCourseNewPage'].icon, text: RouteConfig['SixCourseNewPage'].name, url: RouteConfig['SixCourseNewPage'].route },
 ]
-datalist["塔罗牌阵"] = [
-  { icon: RouteConfig['TarotPage'].icon, text: RouteConfig['TarotPage'].name, url: RouteConfig['TarotPage'].route },
-  { icon: RouteConfig['TarotVenusPage'].icon, text: RouteConfig['TarotVenusPage'].name, url: RouteConfig['TarotVenusPage'].route },
-  { icon: RouteConfig['TarotStarofDavidPage'].icon, text: RouteConfig['TarotStarofDavidPage'].name, url: RouteConfig['TarotStarofDavidPage'].route },
-  { icon: RouteConfig['TarotCeltsPage'].icon, text: RouteConfig['TarotCeltsPage'].name, url: RouteConfig['TarotCeltsPage'].route },
-]
-datalist["星盘星座"] = [
-  { icon: RouteConfig['ChangesuniversePage'].icon, text: RouteConfig['ChangesuniversePage'].name, url: RouteConfig['ChangesuniversePage'].route },
-  { icon: RouteConfig['GamblePage'].icon, text: RouteConfig['GamblePage'].name, url: RouteConfig['GamblePage'].route },
-  { icon: RouteConfig['StarInfoPage'].icon, text: RouteConfig['StarInfoPage'].name, url: RouteConfig['StarInfoPage'].route },
-]
 datalist["大道易德"] = [
   { icon: RouteConfig['malecall'].icon, text: "刘老师", url: "tel:18911832827" },
   { icon: RouteConfig['femalecall'].icon, text: "郑老师", url: "tel:13391909968" },
@@ -516,26 +505,7 @@ class kitPage extends React.Component {
           onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
         /></Accordion.Panel >)
 
-    contentlist["星盘星座"] = (
-      <Accordion.Panel header={"星盘星座"} key={"星盘星座"}>
-        <Grid
-          data={datalist["星盘星座"]}
-          columnNum={coln}
-          isCarousel={false}
-          hasLine={false}
-          renderItem={this.renderItemel}
-          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-        /></Accordion.Panel >)
-    contentlist["塔罗牌阵"] = (
-      <Accordion.Panel header={"塔罗牌阵"} key={"塔罗牌阵"}>
-        <Grid
-          data={datalist["塔罗牌阵"]}
-          columnNum={coln}
-          isCarousel={false}
-          hasLine={false}
-          renderItem={this.renderItemel}
-          onPress={(_el: any, index: any) => { this.onPress(_el, navigate) }}
-        /></Accordion.Panel >)
+
    
 
       /*contentlist["大道易德"] = (
@@ -637,8 +607,6 @@ class kitPage extends React.Component {
               if ("Huawei" == kitPageController.state.Channel) {
                 delete contentlist["大道易德"]
                 delete contentlist["周易乾坤"]
-                delete contentlist["塔罗牌阵"]
-                delete contentlist["星盘星座"]
               }
               var testtitle = ""
               kitPageController.state.tabs.forEach(e=>{
@@ -725,24 +693,6 @@ class kitPage extends React.Component {
           </Accordion></ScrollView>
       )
     }
-    /*
-    else if ("塔罗牌阵" == tab.title) {
-      return (
-        <ScrollView>
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["塔罗牌阵"]}
-          </Accordion></ScrollView>
-      )
-    }
-    else if ("星盘星座" == tab.title && "Huawei" != kitPageController.state.Channel) {
-      return (
-        <ScrollView >
-          <Accordion onChange={this.onChange} activeSections={this.state.activeSections}>
-            {contentlist["星盘星座"]}
-          </Accordion></ScrollView>
-      )
-    }
-    */
     /*
     else if ("大道易德" == tab.title && "Huawei" != kitPageController.state.Channel) {
       return (
