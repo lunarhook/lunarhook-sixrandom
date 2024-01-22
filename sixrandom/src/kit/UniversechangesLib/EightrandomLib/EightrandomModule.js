@@ -399,38 +399,44 @@ class EightrandomModule extends React.Component {
         var countget = (countget!=undefined?countget.length-1:0)
 
         if (-1!=ret.indexOf("得令") && -1!=ret.indexOf("得地") &&  -1!=ret.indexOf("得生") &&  -1!=ret.indexOf("得助") && -1 == s.indexOf("正官") && -1 == s.indexOf("七杀")) {
-            ret = "专旺"
+            ret = "专旺（四得无制）"
         }
         else if(-1!=ret.indexOf("失令") && -1!=ret.indexOf("失地") &&  -1!=ret.indexOf("失生") &&  -1!=ret.indexOf("失助") && -1 == s.indexOf("正官") && -1 == s.indexOf("七杀"))
         {
-            ret = "身衰（从儿）"
+            ret = "身衰（四失无制）"
         }else if(-1!=ret.indexOf("得令") && countget>3)
         {
-            ret = "身旺"
+            ret = "身旺（三得得令）"
         }else if(-1!=ret.indexOf("得令") && countget>=2)
         {
-            ret = "身强"
+            ret = "身强（两得得令）"
         }else if(-1!=ret.indexOf("得令") && countget>=1)
         {
-            ret = "身弱"
+            ret = "身平（一得得令）"
+        }else if(-1!=ret.indexOf("失令") && countget>=3)
+        {
+            ret = "身强（三得失令）"
         }else if(-1!=ret.indexOf("失令") && countget>=2)
         {
-            ret = "身弱"
+            ret = "身平（两得失令）"
+        }else if(-1!=ret.indexOf("失令") && countget>=1)
+        {
+            ret = "身弱（一得失令）"
         }
         else if(-1!=ret.indexOf("失令") )
         {
-            ret = "身衰"
+            ret = "身衰（不得失令）"
         }
         //对身弱身衰做五行百分比矫正
-        if(-1!="身弱，身衰".indexOf(ret))
+        if(-1!=ret.indexOf("身弱") || -1!=ret.indexOf("身衰"))
         {
             var test = precent[assistindex]  + precent[index]
             if(test>(264/2))
             {
-                ret = "身强"
+                ret = ret + "五行助平"
             }
             else{
-                ret = "身弱"
+                ret = ret + "不得扶正"
             }
         }
 
