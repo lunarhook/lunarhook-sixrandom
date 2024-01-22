@@ -455,9 +455,9 @@ class kitPage extends React.Component {
   }
   */
   renderItemel(el, index) {
-    return (<View style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
+    return (<View key={"renderItemel"+index} style={{ alignItems: "center", flex: 1, justifyContent: 'center', }}>
       {el.icon}
-      <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }}>{el.text}</Text>
+      <Text style={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14 }} key={"Text"+index}>{el.text}</Text>
     </View>)
   }
   renderContent = (tab, index) => {
@@ -806,7 +806,7 @@ class kitPage extends React.Component {
         }()}
 
 
-        <Tabs tabs={this.state.tabs} page={"全部"} tabBarPosition="top" style={{height: ScreenConfig.getTabBarHeight(), }} tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14, }}>
+        <Tabs tabs={this.state.tabs} key={"tabs"} page={"全部"} tabBarPosition="top" style={{height: ScreenConfig.getTabBarHeight(), }} tabBarTextStyle={{ textAlign: "center", fontSize: FontStyleConfig.getFontApplySize() + 14, }}>
           {this.state.tabs.map((tab, index)=>this.renderContent(tab, index))}
         </Tabs>
         <View>

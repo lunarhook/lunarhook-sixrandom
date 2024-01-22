@@ -470,11 +470,11 @@ class WechatShare extends React.Component {
       formattedDateString = year + '年' + month + '月' + date + '日 ' + hour + ':' + minute + ':' + second;  
       var keys = AppRegistry.getAppKeys();
       return(
-        <View style={{ alignItems: 'center', justifyContent: 'space-around', alignself: 'flex-start'}}>
+        <View style={{ alignItems: 'center', justifyContent: 'space-around', align: 'flex-start'}}>
           <View style={{ justifyContent: 'space-between', flexDirection: "row" }}>
-            <View style={{ alignItems: 'center', justifyContent: 'center', alignself: 'flex-start' }}>
+            <View style={{ alignItems: 'center', justifyContent: 'center', align: 'flex-start' }}>
               <Image
-                style={{ width: 128, height: 128 ,alignself: 'flex-start'  }}
+                style={{ width: 128, height: 128 ,align: 'flex-start'  }}
                 source={{ uri: shareimg['website'] }}
               />
               <Text ></Text>
